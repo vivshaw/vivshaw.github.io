@@ -351,8 +351,7 @@
 }
 
 /* background image at page top */
-.bg-image {
-	height: 100vh;
+html {
     background: url("images/plant-691971_1280.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
