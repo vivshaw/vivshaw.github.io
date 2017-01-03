@@ -357,7 +357,7 @@
 
 /* background image at page top */
 html {
-    background: url("../images/plant-691971_1280.jpg") no-repeat center center fixed;
+    background: linear-gradient(top, #1e5799 0%,#a5c9e5 100%), url("../images/plant-691971_1280.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
