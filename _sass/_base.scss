@@ -59,8 +59,9 @@ ins {
 
 a {
 	color: $link-color;
+	text-decoration: none;
 	&:hover {
-		color: darken($link-color, 20);
+		text-decoration: underline;
 	}
 	&:focus {
 		@extend %tab-focus;
