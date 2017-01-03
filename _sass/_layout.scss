@@ -127,7 +127,8 @@
    ========================================================================== */
 
 #page-wrapper {
-	padding: 0 48px; // add white space for smaller screens
+	padding: 0 $gutter; // add white space for smaller screens
+	@include media($large) {padding: 0 48;}
 	@include size(100% 100%);
 	-webkit-overflow-scrolling: touch;
 	z-index: 2;
