@@ -22,7 +22,7 @@ li {
 
 /* Headings */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
 	font-family: $heading-font;
 	text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
@@ -30,6 +30,8 @@ h1 {
 	@include font-size(36);
 }
 h2 {
+	font-family: $base-font;
+	text-rendering: optimizeLegibility; // Fix the character spacing for headings
 	@include font-size(32);
 }
 h3 {
