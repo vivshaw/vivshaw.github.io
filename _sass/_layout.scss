@@ -245,6 +245,7 @@
 	}
 	@include media($large) {
 		padding: 3em;
+		max-width: 50%;
 	}
 	h1 {
 		@include font-size(48);
