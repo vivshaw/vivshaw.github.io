@@ -33,6 +33,7 @@ h2 {
 	font-family: $base-font;
 	text-rendering: optimizeLegibility; // Fix the character spacing for headings
 	@include font-size(32);
+	font-weight: normal;
 }
 h3 {
 	@include font-size(28);
