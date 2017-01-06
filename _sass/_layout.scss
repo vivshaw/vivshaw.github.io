@@ -355,16 +355,8 @@
 	}
 }
 
-/* background image at page top */
-/* html {
-    background: url("../images/plant-691971_1280.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-} */
-
-img.bg {
+/* background image for pages */
+img .bg {
   /* Set rules to fill background */
   min-height: 100%;
   min-width: 1024px;
@@ -378,5 +370,9 @@ img.bg {
   top: 0;
   left: 0;
 
-  z-index: -10; 
+  z-index: -10;
+}
+
+img .bg .slant {
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
