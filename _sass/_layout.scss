@@ -356,7 +356,7 @@
 }
 
 /* background image for pages */
-img.bg {
+img .bg {
   /* Set rules to fill background */
   min-height: 100%;
   min-width: 1024px;
@@ -372,3 +372,7 @@ img.bg {
 
   z-index: -10;
 }
+
+/* img .bg .slant {
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+} */
