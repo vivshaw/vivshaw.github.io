@@ -5,4 +5,6 @@ image:
   feature: 
 ---
 
-{% for post in site.posts %} {% include post-grid.html %} {% endfor %}
+{% for post in site.posts %} 
+	test
+{% endfor %}
