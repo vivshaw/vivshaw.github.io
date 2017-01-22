@@ -214,12 +214,19 @@
 	}
 }
 .page-lead-content {
-	padding: 1em;
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
 	@include media($medium) {
-		padding: 2em;
+		padding-top: 2em;
+		padding-left: 2em;
+		padding-right: 2em;
 	}
 	@include media($large) {
-		padding: 3em;
+		padding-top: 3em;
+		padding-left: 3em;
+		padding-right: 3em;
 		max-width: 50%;
 	}
 	h1 {
