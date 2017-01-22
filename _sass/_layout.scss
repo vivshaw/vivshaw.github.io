@@ -321,7 +321,7 @@
 	@include outer-container;
 	margin-top: (1 * (0px + $doc-line-height));
 	margin-top: (1 * (0rem + ($doc-line-height / $doc-font-size)));
-	padding-bottom: 5px;
+	padding-bottom: 0px;
 	font-family: $alt-font;
   /* Copyright text */
 	.copyright {
