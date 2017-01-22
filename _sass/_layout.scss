@@ -217,7 +217,7 @@
 	padding-top: 1em;
 	padding-left: 1em;
 	padding-right: 1em;
-	padding-bottom: 1em;
+	padding-bottom: 0px;
 	@include media($medium) {
 		padding-top: 2em;
 		padding-left: 2em;
@@ -366,4 +366,8 @@ img.slant {
 
 .home-content {
 	color: white;
+}
+
+.home-content.h3 {
+	margin-bottom: 12px;
 }
