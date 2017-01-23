@@ -1,21 +1,18 @@
 # Site navigation links
 
-- title: <i class="fa fa-terminal"></i>Home
+- title: Home
   url: /
   excerpt: 
-  image: 400x250.gif
 
 - title: Blog
   url: /blog/
-  excerpt: 
-  image: 400x250.gif
+  excerpt:  
 
 - title: Work
   url: /work/
   excerpt: 
-  image: 400x250.gif
-
+  
 - title: About
   url: /about/
   excerpt: 
-  image: 400x250.gif
+  
