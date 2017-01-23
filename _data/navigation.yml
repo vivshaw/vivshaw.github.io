@@ -1,6 +1,6 @@
 # Site navigation links
 
-- title: Home
+- title: <i class="fa fa-terminal"></i>Home
   url: /
   excerpt: 
   image: 400x250.gif
