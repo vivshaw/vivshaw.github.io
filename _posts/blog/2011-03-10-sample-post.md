@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Sample Post Style Guide"
-categories: blog
+categories: articles
 modified: 2016-06-01T16:28:11-04:00
 tags: [sample]
 comments: true
