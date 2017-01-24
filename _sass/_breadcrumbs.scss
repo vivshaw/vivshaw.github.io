@@ -3,7 +3,6 @@
    ========================================================================== */
 
 .breadcrumbs {
-  @include row;
   margin-top: $gutter;
   @include font-size(10,no);
   a {
