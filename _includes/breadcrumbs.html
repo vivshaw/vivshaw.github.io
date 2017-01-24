@@ -1,13 +1,15 @@
-{% if page.categories and page.categories != empty %}
-  <nav class="site-title">
-    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a href="{{ site.url }}" itemprop="url">
-        <span itemprop="title">Home</span>
-      </a> › 
+<nav class="site-title">
+  <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="{{ site.url }}" itemprop="url">
+      <span itemprop="title">Home</span>
+    </a>
+  </span>
+  {% if page.categories and page.categories != empty %}
+     › 
     <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
       <a href="{{ site.url }}/{{ page.categories | first }}/" itemprop="url">
         <span itemprop="title">{{ page.categories | first | replace: '-',' ' | capitalize }}</span>
       </a>
     </span>
-  </nav><!-- /.breadcrumbs -->
-{% endif %}
+  {% endif %}
+</nav><!-- /.breadcrumbs -->
