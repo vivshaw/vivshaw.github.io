@@ -2,12 +2,12 @@
     "name": "",
     "icons": [
         {
-            "src": "/android-chrome-144x144.png",
+            "src": "/images/android-chrome-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#001300",
     "background_color": "#ffffff",
     "display": "standalone"
 }
