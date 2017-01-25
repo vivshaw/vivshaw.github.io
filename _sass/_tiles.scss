@@ -21,6 +21,7 @@
   }
   .post-excerpt {
     @include font-size(16);
+    color: black;
   }
   .post-teaser {
     position: relative;
