@@ -1,5 +1,0 @@
-{% assign base = "" %}
-{% assign canon = page.url | append: "page.html" | split: "/" %}
-{% for item in canon offset:2 %}
-  {% assign base = base | append:"../" %}
-{% endfor %}
