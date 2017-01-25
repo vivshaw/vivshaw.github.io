@@ -1,9 +1,10 @@
 {% assign footer_style == "" %}
-{% if page.layout == "home" %}
+{% if page.layout == 'home' %}
 	{% assign footer_style == "main-footer" %}
+	test
 {% endif %}
 
-{{ page.layout }}
+{{ footer_style }}
 
 <footer role="contentinfo" id="site-footer" class="{{ footer_style }}">
 	<nav role="navigation" class="menu bottom-menu">
