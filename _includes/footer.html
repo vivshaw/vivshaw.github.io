@@ -1,9 +1,4 @@
-{% assign footer_style = "" %}
-{% if page.layout == 'home' %}
-	{% assign footer_style = "main-footer" %}
-{% endif %}
-
-<footer role="contentinfo" id="site-footer" class="{{ footer_style }}">
+<footer role="contentinfo" id="site-footer">
 	<nav role="navigation" class="menu bottom-menu">
 		<ul class="menu-item">
 		{% for link in site.data.footer %}
