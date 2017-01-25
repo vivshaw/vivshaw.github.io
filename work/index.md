@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Sample Media Gallery"
+title: "Portfolio"
 date: 2014-05-30T11:40:45-04:00
 modified:
 excerpt: "An archive of things I've been tinkering with"
