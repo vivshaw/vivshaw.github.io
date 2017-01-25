@@ -1,9 +1,9 @@
 ---
 layout: archive
-title: "Articles"
+title: "Blog"
 date: 
 modified:
-excerpt: "A collection of thoughts, inspiration, mistakes, and other minutia."
+excerpt: "A collection of writings on software"
 tags: []
 image:
   feature:
