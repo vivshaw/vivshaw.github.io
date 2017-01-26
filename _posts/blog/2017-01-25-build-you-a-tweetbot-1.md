@@ -134,7 +134,7 @@ Let's pause a moment and figure out what we want our bot to do before we start w
 * Tweet those sentences
 * Automate itself to tweet every X seconds
 
-Let's try to break that down into some variabless and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` in seconds between tweets. We'll need to store a markov `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. Of these, the `api` and the `model` are the only ones we'll need to use repeatedly, so they'll be class fields; the other two need merely be method arguments. As for methods: we'll only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock this up, it'll look like this:
+Let's try to break that down into some variables and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` in seconds between tweets. We'll need to store a markov `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. Of these, the `api` and the `model` are the only ones we'll need to use repeatedly, so they'll be class fields; the other two need merely be method arguments. As for methods: we'll only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock this up, it'll look like this:
 
 ```python
 class TweetBot:
@@ -187,7 +187,7 @@ Just like in our Markovify example, this method will take the path to our corpus
 
 #### tweet
 
-We've already seen how to generate a tweet from our `model` and how to update our status, so we can just put them together. However, we don't want our bot to crash if a tweet fails for some reason, so let's wrap it in a try-except block to catch any Tweepy errors that get thrown.
+We've already seen how to generate a tweet from our `model` and how to update our status, so we can just put them together. However, we don't want our bot to crash if a tweet fails for some reason (say, an improperly-formed tweet, or hitting a rate limit). So, let's wrap it in a try-except block to catch any Tweepy errors that get thrown.
 
 ```python
     def tweet(self):
@@ -200,7 +200,7 @@ We've already seen how to generate a tweet from our `model` and how to update ou
 
 #### automate
 
-Now we just need to get our bot to post every `delay` seconds until we stop it. The easiest way to do this is Python's sleep function. Let's import it:
+Now we just need to get our bot to post every `delay` seconds until we stop it. The easiest way to do this is Python's `sleep` function. Let's import it:
 
 ```python
 from time import sleep
@@ -224,6 +224,7 @@ import tweepy
 import markovify
 from time import sleep
 from twitter_credentials import consumer_key, consumer_secret, access_token, access_token_secret
+
 
 class TweetBot:
     def __init__(self, corpus):
@@ -270,7 +271,7 @@ Check your bot's Twitter feed, and you should see a new tweet. Congrats! You've 
 
 ## Next time on Build You a TweetBot
 
-In the next installment, we'll go over polishing up your app's interface with `argparse`, using environment variables with `dotenv`, and migrating our bot to the cloud with [Heroku](). If you want to see a bot in action based on this code, you can check out my bot [@MechaBronte](https://twitter.com/MechaBronte). Lastly, if you want to see where we'll eventually be going with this, [all my code is up on GitHub](https://github.com/vivshaw/tweeter-robo).
+In the next installment, we'll go over polishing up your app's interface with `argparse`, using environment variables with `dotenv`, and migrating our bot to the cloud with [Heroku](https://heroku.com). If you want to see this code in action, you can check out my bot [@MechaBronte](https://twitter.com/MechaBronte). Lastly, if you want to see where we'll eventually be going with this, [all my code is up on GitHub](https://github.com/vivshaw/tweeter-robo).
 
 Happy botsmithing!
 
