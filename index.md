@@ -6,7 +6,7 @@ image:
 ---
 <h3>Recent posts:</h3>
 <ul>
-{% for post in site.posts limit:3 %} 
+{% for post in site.categories.blog limit:3 %} 
 	<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
