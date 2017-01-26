@@ -89,4 +89,4 @@ If this worked out for you, you're all set to move on to our next challenge: pro
 
 ## Next time on Build You a TweetBot
 
-[example1]: {{ site.url }}images/tweepy-example1
+[example1]: {{ site.url }}/images/tweepy-example1.png
