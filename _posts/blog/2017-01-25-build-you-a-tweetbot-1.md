@@ -20,6 +20,8 @@ Before we dive in, let's go over the tools we'll be using. Of course, you'll nee
 
 To start, you'll need to get some Twitter credentials so that you can access the API. Unless you want your bot to post to your personal Twitter, I recommend [creating a new Twitter account](https://twitter.com/signup) for your bot and going through this process with the dedicated account. First, you'll need to register a new twitter app for your bot. I should mention here that you'll need to associate a unique phone number with the account in order to create an app. If you don't have a spare phone number laying around, you can either make use of a service like [Google Voice](https://voice.google.com) or [Burner](https://www.burnerapp.com/), or register the app on your primary Twitter account and go through the lengthy process of transferring the API key to another account, as outlined [on Molly White's blog](http://blog.mollywhite.net/twitter-bots-pt2/). In any case, once you've got an account registered, let's proceed:
 
+#### Getting your credentials
+
 Go to [apps.twitter.com](https://apps.twitter.com/) and click on the "Create New App" button. You'll need to fill out a few fields for your bot's name, description, and website, and to agree to the [Twitter Developer Agreement](https://dev.twitter.com/overview/terms/agreement-and-policy), and then you'll have a new app! Now, go to the Permissions tab and ensure that your app has read and write permissions. Finally, go to the Keys and Access Tokens tab, and create your access tokens. We'll need to store these for your bot.
 
 It's important that you keep these keys private, because anyone with access to them can access the API in your name and freely post to your account. To prevent this from happening, we're going to ensure that your keys do not get checked in to version control. Make a directory for your project, `git init` as you usually would, then create a file entitled `.gitignore` with these contents:
@@ -39,7 +41,7 @@ access_token_secret = ""
 
 Copy and paste the keys and access tokens from Twitter into `twitter_credentials.py`, and you'll finally be done with that.
 
-### Installing Tweepy & Markovify
+#### Installing Tweepy & Markovify
 
 This should be the easiest part of the whole process!
 
@@ -52,9 +54,16 @@ That's it! Now we're ready to code.
 
 ## Tweeting with Tweepy
 
+OK, let's dive into the code. Make yourself a `tweetbot.py`, and import Tweepy and your Twitter keys:
+
+```python
+import tweepy
+from twitter_credentials import consumer_key, consumer_secret, access_token, access_token_secret
+```
+
 ## Generating gibberish with Markovify
 
-## Class skeleton
+## Sketch up a TweetBot class
 
 ## Putting it all together
 
