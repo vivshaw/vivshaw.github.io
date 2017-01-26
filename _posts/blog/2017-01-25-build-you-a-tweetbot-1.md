@@ -12,16 +12,16 @@ Perhaps you've run across Twitter bots like [@thesefutures](https://twitter.com/
 
 {% include toc.html %}
 
-##Introductory matters
+## Introductory matters
 
-##Setup: Getting your Twitter credentials
+## Setup: Getting your Twitter credentials
 
-##Tweeting with Tweepy
+## Tweeting with Tweepy
 
-##Generating gibberish with Markovify
+## Generating gibberish with Markovify
 
-##Class skeleton
+## Class skeleton
 
-##Putting it all together
+## Putting it all together
 
-##Next time on Build You a TweetBot
+## Next time on Build You a TweetBot
