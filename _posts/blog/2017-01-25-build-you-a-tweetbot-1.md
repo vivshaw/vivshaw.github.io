@@ -8,7 +8,7 @@ comments: true
 teaser: tweeter-robo-teaser.png
 ---
 
-Perhaps you've run across Twitter bots like [@thesefutures](https://twitter.com/thesefutures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and been intrigued. For the non-technically-inclined, it's easy enough to create a bot with a tool that will handle the heavy lifting for you, like [cheap bots done quick](http://cheapbotsdonequick.com/). But if, Reader dearest, you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. Later, we'll even go over deploying the bot to Heroku and letting it loose to act autonomously in the cloud. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
+Perhaps you've run across Twitter bots like [@thesefutures](https://twitter.com/thesefutures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. For the non-technically-inclined, it's easy enough to create a bot with a tool that will handle the heavy lifting for you, like [cheap bots done quick](http://cheapbotsdonequick.com/). But if, Reader dearest, you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. Later, we'll even go over deploying the bot to Heroku and letting it loose to act autonomously in the cloud.  If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
 
 {% include toc.html %}
 
@@ -72,7 +72,7 @@ api = tweepy.API(auth)
 Let's test it out!
 
 ```
-api.update_status("Hello, world! Just testing Python twitter automation with Tweepy")
+api.update_status("Hello, world! Just testing Python twitter automation with tweepy")
 ```
 
 Head over to your bot's twitter, and you should see a post!
@@ -82,6 +82,46 @@ Head over to your bot's twitter, and you should see a post!
 If this worked out for you, you're all set to move on to our next challenge: procedural text generation.
 
 ## Generating gibberish with Markovify
+
+Now that our bot can post to Twitter, we need to teach it to speak. We're going to do this with [Markov chains](http://setosa.io/ev/markov-chains/). To horribly oversimplify, what a Markov chain does is this: when given an input state, figure out the most likely state to follow it. We're going to train a Markov model on a corpus natural-language text, allowing us to procedurally generate semi-coherent gibberish in the language of your choice. (If you're algorithmically-minded, [this is actually really easy to implement by hand](http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/), but we're going to stick with a tried-and-true library for this bot.)
+
+#### Getting a corpus
+
+Before generating Markov chains, we'll need a corpus. This doesn't need to be anything special; a flat text file is all you'll need. The larger the corpus, the better that your results will be— something novel-length would be ideal. If you're having trouble finding a corpus, you could grab some public domain literature from [Project Gutenberg](https://www.gutenberg.org/), or use my favorite corpus, the entire text of [Charlotte Brontë's *Jane Eyre*](https://raw.githubusercontent.com/vivshaw/tweeter-robo/master/corpus.txt). Whatever corpus you choose, just download it and save it as `corpus.txt` in your project directory.
+
+#### It's Markov time!
+
+In your `tweetbot.py` you'll need to import Markovify:
+
+```python
+import markovify
+```
+
+Now we'll load up the corpus and build a model with it.
+
+```python
+with open("corpus.txt") as corpus_file:
+	corpus = corpus_file.read()
+
+model = markovify.Text(corpus)
+```
+
+Time to take our new Markov model for a spin! The `make_sentence()` method will generate a sentence from your model:
+
+```python
+In[1]: model.make_sentence()
+Out[1]: 'I remembered the answer of the house, and once attempted chastisement; but as mere strangers, they had to deceive a fine old hall, rather neglected of late occurrence.'
+```
+
+It worked! But if we want our bot to post on Twitter, we'll need to find a way to keep the length of the generated sentences under 140 characters. Conveniently, Markovify provides the `make_short_sentence()` method to do exactly that. Let's give it a try!
+
+```
+In[2]: model.make_short_sentence(140)
+Out[2]: 'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
+
+```
+
+Feel free to [play around with the parameters](https://github.com/jsvine/markovify#advanced-usage) until you like your model's results. Once you're all set, we can move on to building our bot.
 
 ## Sketch up a TweetBot class
 
