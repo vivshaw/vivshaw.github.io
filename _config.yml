@@ -5,7 +5,7 @@ description: "portfolio site"
 logo: logo.png
 teaser: default-python-teaser.png
 locale: en_US
-url: "https://vivshaw.github.io/vivshaw-next"
+url: "https://vivshaw.github.io"
 feed:
   path: atom.xml
 
