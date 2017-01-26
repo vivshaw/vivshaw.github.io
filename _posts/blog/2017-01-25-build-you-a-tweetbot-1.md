@@ -75,7 +75,7 @@ Let's test it out!
 api.update_status("Hello, world! Just testing Python twitter automation with tweepy")
 ```
 
-Head over to your bot's twitter, and you should see a post!
+Head over to your bot's twitter, and you should see a tweet!
 
 ![Hello World from Tweepy!][example1]
 
@@ -83,7 +83,7 @@ If this worked out for you, you're all set to move on to our next challenge: pro
 
 ## Generating gibberish with Markovify
 
-Now that our bot can post to Twitter, we need to teach it to speak. We're going to do this with [Markov chains](http://setosa.io/ev/markov-chains/). To horribly oversimplify, what a Markov chain does is this: when given an input state, figure out the most likely state to follow it. We're going to train a Markov model on a corpus natural-language text, allowing us to procedurally generate semi-coherent gibberish in the language of your choice. (If you're algorithmically-minded, [this is actually really easy to implement by hand](http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/), but we're going to stick with a tried-and-true library for this bot.)
+Now that our bot can post to Twitter, we need to teach it to speak. We're going to do this with [Markov chains](http://setosa.io/ev/markov-chains/). To horribly oversimplify, what a Markov chain does is this: when given an input state, figure out the most likely state to follow it. We're going to train a Markov model on a corpus of natural-language text, allowing us to procedurally generate semi-coherent gibberish in the language of your choice. (If you're algorithmically-minded, [this is actually really easy to implement by hand](http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/), but we're going to stick with a tried-and-true library for this bot.)
 
 #### Getting a corpus
 
@@ -115,7 +115,7 @@ Out[1]: 'I remembered the answer of the house, and once attempted chastisement; 
 
 It worked! But if we want our bot to post on Twitter, we'll need to find a way to keep the length of the generated sentences under 140 characters. Conveniently, Markovify provides the `make_short_sentence()` method to do exactly that. Let's give it a try!
 
-```
+```python
 In[2]: model.make_short_sentence(140)
 Out[2]: 'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
 
@@ -124,6 +124,39 @@ Out[2]: 'Refuse to be happy at his features, beautiful in their still severity; 
 Feel free to [play around with the parameters](https://github.com/jsvine/markovify#advanced-usage) until you like your model's results. Once you're all set, we can move on to building our bot.
 
 ## Sketch up a TweetBot class
+
+Let's pause a moment and figure out what we want our bot to do before we start writing it. If we want our bot to run autonomously, we'll need it to do at least these things:
+
+* Authenticate with Twitter
+* Load a text corpus
+* Make a Markov model from that corpus
+* Make sentences from the model
+* Tweet those sentences
+* Automate itself to tweet every X seconds
+
+Let's try to break that down into some variabless and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` in seconds between tweets. We'll need to store a markov `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. As for methods: we only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock this up, it'll look like this:
+
+```python
+class TweetBot:
+    def __init__(self, corpus, delay):
+    	#load corpus & build model
+        #initialize Twitter authorization with Tweepy
+        pass
+
+    def load_corpus(self, corpus):
+        #open our corpus & run it through Markovify
+        pass
+        
+    def tweet(self):
+        #generate Markov tweet & send it
+        pass
+        
+    def automate(self):
+        #automatically tweet every delay seconds
+        pass
+```
+
+Now that we know what our bot class will look like, let's start filling in the code.
 
 ## Putting it all together
 
