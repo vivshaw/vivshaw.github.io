@@ -247,8 +247,11 @@
 			@include font-size(32);
 		}
 	}
-	a {
-		color: #fff;
+	lead-link {
+		color: $white;
+	}
+	btn-inverse {
+		color: $text-color;
 	}
 }
 // page header
