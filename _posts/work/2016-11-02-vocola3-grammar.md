@@ -2,7 +2,7 @@
 layout: media
 title: "Disability-accessible programming with Vocola 3 grammars"
 categories: work
-modified: 2017-01-26T03:58:41-05:00
+modified: 2017-01-26T20:40:20-05:00
 excerpt: "Using speech recognition to program by voice alone."
 share: false
 image:
