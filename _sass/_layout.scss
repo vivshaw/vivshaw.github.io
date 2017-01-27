@@ -265,15 +265,8 @@
 	position: relative;
 	margin-left: -1 * $gutter;
 	margin-right: -1 * $gutter;
-	max-height: 18em;
+	max-height: 24em;
 	overflow: hidden;
-
-	img {
-		top: 50%;
-		-webkit-transform: translateY(-50%);
-		-ms-transform: translateY(-50%);
-	  	transform: translateY(-50%);
-  	}
 
 	// feature image caption
 	.image-credit {
