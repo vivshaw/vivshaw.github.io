@@ -374,8 +374,13 @@ img.slant {
 }
 
 .pull-right {
-	float: right;
 	margin: 0 15px 0 0;
+	@include media($medium) {
+		float: right;
+	}
+	@include media($large) {
+		float: right;
+	}
 	img {
 		border-radius: 10px;
 	}
