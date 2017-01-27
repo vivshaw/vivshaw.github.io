@@ -12,7 +12,7 @@ share: false
 ads: false
 ---
 
-<div class="pull-right" markdown="1">
+<div class="pull-right" markdown="span">
 ![vivshaw][selfie]
 </div>
 I'm a developer from Burlington, Vermont. I'm an alumna of the University of Vermont, with a B.A. in Economics and Philosophy.
