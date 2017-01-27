@@ -12,7 +12,7 @@ image:
   creditlink: http://vivshaw.github.io
 ---
 
-Using speech recognition to program by voice alone.
+{{ page.excerpt }}
 
 [My Vocola3 grammars](https://github.com/vivshaw/vocola3-dotfiles) were created out of necessity. To make a long story short, in 2016 I badly injured my wrists and was unable to use a computer at all for several months. Even once I recovered, programming seemed like an impossibility due to the pain of sustained typing. But, after seeing [a presentation by Tavis Rudd](http://ergoemacs.org/emacs/using_voice_to_code.html), I decided to give [voice programming](http://vocola.net/programming-by-voice-FAQ.html) a try, and it worked like a charm.
 
@@ -36,11 +36,11 @@ I'd say:
 
 ```
 hashmap char int frequency qual new hashmap char int funk doop
-slap two
-for char letter face alphabet to char array camel 3 dottie 2 paren
-funk body
+slap 2
+for char letter face alphabet to char array camel 3 dottie 2 funk
+body
 frequency put dottie
-paren letter comma null doop
+funk letter swipe null doop
 ```
 
 It might sound silly, but it gets the job done. I decided to [share the project on GitHub](https://github.com/vivshaw/vocola3-dotfiles) to help other injured or disabled programmers in a similar situation to mine. The code is kind of a mess, since the project is under constant development as I tweak my grammars to handle each new situation I run into. But, I'm working on refactoring it into a more readable and coherent form.
