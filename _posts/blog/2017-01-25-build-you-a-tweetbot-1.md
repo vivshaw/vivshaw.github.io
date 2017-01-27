@@ -8,12 +8,12 @@ comments: true
 teaser: tweeter-robo-teaser.png
 ---
 
-Perhaps you've run across Twitter bots like [@thesefutures](https://twitter.com/thesefutures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. I'm here to tell you that it's simple and you should give it a try. For the less-technically-inclined, one can even create a bot with minimal code using [a tool that will handle the heavy lifting for you](http://cheapbotsdonequick.com/). But if, Reader dearest, you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. Later, we'll even go over deploying the bot to Heroku and letting it loose to act autonomously in the cloud. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
+Perhaps you've run across Twitter bots like [@thesefutures](https://twitter.com/thesefutures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. It's surprisingly simple and you should give it a try! For the less-technically-inclined, one can even create a bot with minimal code using [a tool that will handle the heavy lifting for you](http://cheapbotsdonequick.com/). But if, Reader dearest, you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. Later, we'll even go over deploying the bot to Heroku and letting it loose to act autonomously in the cloud. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
 
 {% include toc.html %}
 
 ## Introductory matters
-v
+
 Before we dive in, let's go over the tools we'll be using. Of course, you'll need Python 3, git, and your favorite Python IDE (I'm partial to [PyCharm](https://www.jetbrains.com/pycharm/)). To interface with Twitter, we'll be working with the excellent Twitter API wrapper [Tweepy](http://www.tweepy.org/). To generate our tweets, we'll also work with [Markovify](https://github.com/jsvine/markovify), a Markov chain library. Today, we'll get you set up with Tweepy & Markovify, write the `TweetBot` class, and get your new bot up & running. Roll up your sleeves, we've got some code to write!
 
 ## Setup: Getting your Twitter credentials & setting up your libraries
@@ -134,7 +134,7 @@ Let's pause a moment and figure out what we want our bot to do before we start w
 * Tweet those sentences
 * Automate itself to tweet every X seconds
 
-Let's try to break this down into some variables and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` in seconds between tweets. We'll need to store a markov `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. Of these, the `api` and the `model` are the only ones we'll need to use repeatedly, so they'll be class fields; the other two need merely be method arguments. As for methods: we'll only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock that up, it'll look like this:
+Let's try to break this down into some variables and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` in seconds between tweets. We'll need to store a markov `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. Of these, the `api` and the `model` are the only ones we'll need to use repeatedly, so they'll be class fields; the other two need merely be method arguments. As for methods: we'll only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock up those class methods, it'll look like this:
 
 ```python
 class TweetBot:
