@@ -12,7 +12,7 @@ I realize I'm years late to the [Google Guava](https://github.com/google/guava) 
 
 {% include toc.html %}
 
-##Multisets
+## Multisets
 
 [Multisets](https://github.com/google/guava/wiki/NewCollectionTypesExplained#multiset) are kinda like a Set and kinda like a List. It's Set-like because it's unordered, it's List-like because it can contain multiples. It also provides a `.count()` method to get the count for any given element, letting us use it like a Map if we want. This can be very useful.
 
