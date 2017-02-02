@@ -367,11 +367,24 @@ img.bg {
   top: 0;
   left: 0;
 
-  z-index: -10; 
+  z-index: -10;
 }
 
 img.slant {
+  -webkit-clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
   clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
+
+  /* Fix for browsers without clip-path support
+  &:after {
+	min-height: 100%;
+	min-width: 80%
+	width: 80%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+  }
 }
 
 .home-content {
