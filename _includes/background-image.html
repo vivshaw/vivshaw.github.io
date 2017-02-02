@@ -4,3 +4,10 @@
 {% endunless %}
 
 <img src="{{ site.url }}/images/plant-691971_1280.jpg" class="bg {{ background_format }}" /> 
+
+{% unless page.layout == "home" %}
+	<!-- Fix clip-path for Firefox -->
+
+	<!-- Fix page legibility for browsers without clip-path -->
+	<div id="clipless"></div>
+{%  %}
