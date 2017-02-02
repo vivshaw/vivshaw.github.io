@@ -25,7 +25,7 @@ This project is composed of a bunch of grammars that parse spoken English words 
 These grammars are dynamically loaded and unloaded as needed, and allow me to use my voice for most of what I used to do with my hands (albeit somewhat slower). For example, if I wanted to write this Java code:
 
 ```java
-HashMap<Character, Integer> frequency = new HashMap<Character, Integer>();
+Map<Character, Integer> frequency = new HashMap<Character, Integer>();
 
 for (char letter : alphabet.toCharArray()) {
     frequency.put(letter, 0);
@@ -35,7 +35,7 @@ for (char letter : alphabet.toCharArray()) {
 I'd say:
 
 ```
-hashmap char int frequency qual new hashmap char int funk doop
+map char int frequency qual new hashmap char int funk doop
 slap 2
 for char letter face alphabet to char array camel 3 dottie 2 funk
 body
