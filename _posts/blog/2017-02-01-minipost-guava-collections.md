@@ -40,7 +40,7 @@ for (String word : frequencies.keySet()) {
 }
 ```
 
-Let's try it with Guava:
+This is fine, but what if we could make it look much cleaner? Let's try it with Guava:
 
 ```java
 Multiset<String> frequencies = HashMultiset.create();
@@ -75,7 +75,7 @@ A [Multimap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#mu
 String message = "Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque vel enim id neque semper convallis vel vulputate nunc";
 ```
 
-With old Java, we might try something like this:
+We might try something like this:
 
 ```java
 Map<Integer, Set<String>> wordsByLength = new HashMap<Integer, Set<String>>();
@@ -120,4 +120,4 @@ Map<Integer, List<String>> wordsByLength = Arrays.stream(message.split(" "))
                                                  .collect(Collectors.groupingBy(String::length));
 ```
 
-If we wanna do that with Guava collections we'd have to [write a custom Collector](http://www.nurkiewicz.com/2014/07/introduction-to-writing-custom.html). But, honestly not a big deal.
+If we wanna do that with Guava collections we'd have to [write a custom Collector](http://www.nurkiewicz.com/2014/07/introduction-to-writing-custom.html). But, that's honestly not a big deal.
