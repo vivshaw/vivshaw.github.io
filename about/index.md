@@ -9,7 +9,6 @@ image:
   teaser:
   thumb:
 share: false
-ads: false
 ---
 
 <div class="pull-right" markdown="span">
