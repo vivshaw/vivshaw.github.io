@@ -373,6 +373,10 @@ img.bg {
 img.slant {
   -webkit-clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
   clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
+  
+  /* Support browsers with partial clip-path implementation */
+  -webkit-clip-path: url("#clip-shape");
+  clip-path: url("#clip-shape");
 }
 
 /* Fix for browsers without clip-path support */
