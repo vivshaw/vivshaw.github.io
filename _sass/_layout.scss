@@ -374,7 +374,7 @@ img.slant {
   -webkit-clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
   clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 90% 100%);
 
-  /* Fix for browsers without clip-path support
+  /* Fix for browsers without clip-path support */
   &:after {
 	min-height: 100%;
 	min-width: 80%
