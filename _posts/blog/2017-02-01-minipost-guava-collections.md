@@ -97,7 +97,7 @@ for (String word : message.split(" ")) {
 It works, but... yuck. Look at all that boilerplate. Let's try it in Guava instead!
 
 ```java
-Multimap<Integer, String> wordsByLength = ArrayListMultimap.create();
+Multimap<Integer, String> wordsByLength = HashMultimap.create();
 for (String word : message.split(" ")) {
     wordsByLength.put(word.length(), word);
 }
