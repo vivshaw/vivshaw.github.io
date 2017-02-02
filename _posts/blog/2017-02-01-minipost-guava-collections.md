@@ -5,7 +5,8 @@ categories: blog
 modified: 2017-02-02T01:01:24-05:00
 tags: [java]
 comments: true
-teaser: guava.jpg
+image:
+    teaser: guava.jpg
 ---
 
 I realize I'm years late to the [Google Guava](https://github.com/google/guava) train, but Guava is so delightfully useful that I can't help but belatedly gush about it. In particular, the new Collections are just amazing for getting rid of boilerplate and making your code simpler and prettier. Let me show off two of my favorites, the Multiset and the Multimap:
