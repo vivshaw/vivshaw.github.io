@@ -30,7 +30,7 @@ owner:
   web: "https://vivshaw.github.io"
   twitter: "irreduce"
   bio: "the command line is the retina of the mind's eye"
-  avatar: "bio-pic.png" # 160x160 px image for author byline
+  avatar: "selfie-small.png" # 160x160 px image for author byline
   google:
     plus:
     ad-client:
