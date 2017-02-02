@@ -377,7 +377,7 @@ img.slant {
   /* Fix for browsers without clip-path support */
   &:after {
 	min-height: 100%;
-	min-width: 80%
+	min-width: 80%;
 	width: 80%;
 	height: auto;
 	position: fixed;
