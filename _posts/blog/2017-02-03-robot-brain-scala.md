@@ -6,7 +6,7 @@ modified: 2017-02-03T21:07:38-05:00
 tags: [scala, ml]
 comments: true
 image:
-    teaser: scriptophile-teaser.jpg
+    teaser: scriptophile-teaser.png
 ---
 
 ### Or, a Python Dev Hacks Together a Neural Network From Scratch in (Bad) Scala
@@ -19,9 +19,9 @@ All my code here is based on Nielsen's algorithms, so if you want to learn this 
 
 ## Grab and clean our data
 
-I'm working with the [MNIST dataset](http://yann.lecun.com/exdb/mnist/) of handwritten numerals. Personally, I chose to grab [the Kaggle dataset](https://www.kaggle.com/c/digit-recognizer) which is in a convenient .csv format already. But, we still need to process this into a format our network can handle. The csv is 785 columns, with the first being a 0..9 digit label, and the remaining 784 each corresponding to one pixel of a MNIST image. We'd like it to instead be a list of matrices that we can stuff into our neural network. We'll want to get the images [feature scaled](https://en.wikipedia.org/wiki/Feature_scaling), and the label [one-hot encoded](https://en.wikipedia.org/wiki/One-hot). (I learned the hard way that forgetting either of these steps will lead you to nothing but tears and regret.)
+I'm working with the [MNIST dataset](http://yann.lecun.com/exdb/mnist/) of handwritten numerals. Personally, I chose to grab [the Kaggle dataset](https://www.kaggle.com/c/digit-recognizer) which is in a convenient .csv format already. But, we still need to process this into a format our network can handle. The csv is 785 columns, with the first being an integer label [0..9], and the remaining 784 each corresponding to the [0..255] darkness value of one pixel of a MNIST image. We'd like it to instead be a list of matrices that we can stuff into our neural network. We'll want to get the images [feature scaled](https://en.wikipedia.org/wiki/Feature_scaling), and the label [one-hot encoded](https://en.wikipedia.org/wiki/One-hot). (I learned the hard way that forgetting either of these steps will lead you to nothing but tears and regret.)
 
-First things first, some helper functions to convert the csv's data type into Breeze matrices, and a case class that applies them:
+First things first, some helper functions to convert the csv's data type into Breeze matrices, and a handy case class that applies them:
 
 ```scala
 import breeze.linalg._
@@ -47,7 +47,7 @@ case class mnistDatum(line: String) {
 }
 ```
 
-OK, now we just need to load our CSV and process it. We want a list of tuples where one element of the tuple is the image data, and the other is the label. We can do our test/train split here while we're at it.
+OK, now we just need to load our CSV and process it. We want a list of tuples where one element of the tuple is the image data, and the other is the label. We'll take advantage of Scala's fluent function chaining to do this cleanly in one go. We can do our test/train split here while we're at it.
 
 ```scala
 import scala.io.Source
