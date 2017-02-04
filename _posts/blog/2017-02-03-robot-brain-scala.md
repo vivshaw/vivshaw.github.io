@@ -11,7 +11,7 @@ image:
 
 ### Or, a Python Dev Hacks Together a Neural Network From Scratch in (Bad) Scala
 
-Sometimes, on a lazy Saturday afternoon in the doldrums of one's spirit, one must hack together an artificial brain and teach it how to read. I've been working through [Michael Nielsen](http://michaelnielsen.org/)'s excellent textbook [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/). Because my hubris outweighs my prudence, I decided that rather than work the exercises in Python, I'd learn some more Scala while I'm at it. Thus, Reader dearest, the fruits of my day's labour: a neural network built from scratch in Scala and trained to recognize handwritten digits. I'm using [Breeze](https://github.com/scalanlp/breeze) for my matrix algebra. My Scala's still rather non-idiomatic (you can probably tell my Python background from the profusion of mutable state and copious abuse of zip and comprehensions), but: it works well enough for a second-ever Scala project, which is all I could ask. My code's up [on GitHub](https://github.com/vivshaw/scriptophile); if you catch any errors, [let me know](https://twitter.com/irreduce)!
+Sometimes, on a lazy Saturday afternoon in the doldrums of one's spirit, one must hack together an artificial brain and teach it how to read. I've been working through [Michael Nielsen](http://michaelnielsen.org/)'s excellent textbook [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/). Because my hubris outweighs my prudence, I decided that rather than work the exercises in Python, I'd learn some more Scala while I'm at it. Thus, Reader dearest, the fruit of my day's labour: a neural network built from scratch in Scala and trained to recognize handwritten digits. I'm using [Breeze](https://github.com/scalanlp/breeze) for my matrix algebra. My Scala's still rather non-idiomatic (you can probably tell my Python background from the profusion of mutable state and copious abuse of zip and comprehensions), but— it works well enough for a second-ever Scala project, which is all I could ask. My code's up [on GitHub](https://github.com/vivshaw/scriptophile); if you catch any errors, [let me know](https://twitter.com/irreduce)!
 
 All my code here is based on Nielsen's algorithms, so if you want to learn this stuff, [go read his book](http://neuralnetworksanddeeplearning.com/). Did I mention it's free?
 
@@ -71,7 +71,7 @@ And we're ready to rock. I'm sure this could be better optimized, but it's good 
 
 ## Build the network
 
-OK, let's put the neural network in its own class. We want to initialize our network with a list of Ints where each Int corresponds to the size of one layer of the network. Let's write a handy companion object while we're at it.
+OK, let's put the neural network in its own class. We want to initialize our network with a list of Ints where each Int corresponds to the size of one layer of the network. Let's write some boilerplate, and write a handy companion object to initialize new NeuralNetworks while we're at it.
 
 ```scala
 import scala.util.Random.shuffle
@@ -100,7 +100,7 @@ type Datum = Tuple2[DenseMatrix[Double], DenseMatrix[Double]]
 def sigmoid_prime (z: DenseMatrix[Double]) = sigmoid(z) :* (-sigmoid(z) + 1.0)
 ```
 
-And now, it's constructor time. We want a field for the number of layers, and fields for our weights and biases for each layer. We'll use Breeze stats to randomly initialize the weights and biases to the Gaussian distribution with range [0, 1].
+And now, it's constructor time. We want a field for the number of layers, and fields for our weights and biases for each layer. We'll use Breeze stats to randomly initialize the weights and biases to the Gaussian distribution with range [0, 1]. To do this, let's take Scala's awesome for-comprehensions for a spin.
 
 ```scala
 val layers = sizes.length
@@ -111,7 +111,7 @@ var weights = for ((x, y) <- sizes.dropRight(1) zip sizes.drop(1)) yield DenseMa
 
 ## Feedforward
 
-Now that we have our fields, let's define a feedforward pass. This is simpler than it may sound; all we need to do is go through each layer of our network starting with the input layer, multiply our activation by our weight and add the bias, then continue onward, feeding the result into the next layer until we hit our output layer.
+Now that we have our fields, let's define a feedforward pass. This is simpler than it may sound; all we need to do is go through each layer of our network starting with the input layer, multiply our activation by our weight and add the bias, then continue onward, feeding the result into the next layer until we hit our output layer. All we need is a `zip` and a `foreach`, and we're golden!
 
 ```scala
 // Plug an activation into the network and return the output
@@ -126,9 +126,9 @@ def feedForward (activation: DenseMatrix[Double]) : DenseMatrix[Double] = {
 }
 ```
 
-## Stochastic Gradient Descent
+## Stochastic gradient descent
 
-We can feed stuff through our network now, but it can't learn yet. For that, we'll need to implement [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD). Specifically, we'll use mini batch SGD, in which rather than calculating the gradient for a single example at a time, we split our training dataset into manageable randomized chunks and iterate over these batches, updating our weights and biases for each batch. Rather than dumping all the complexity into one function, let's just write a wrapper here that makes our batches and then calls an `updateMiniBatch` function that we'll write later. We'll need it to take as inputs a training dataset, the number of epochs we want to run for, the sie of our batches, and our learning rate. We'll also implement optional tracking of our network's performance with an Option that can hold a test dataset. If it does, it'll evaulate our model at the end of each epoch and print it for us, otherwise, we'll skip it and save some cycles!
+We can feed stuff through our network now, but it can't learn yet. For that, we'll need to implement [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD). Specifically, we'll use mini batch SGD, in which rather than calculating the gradient for a single example at a time, we split our training dataset into manageable randomized chunks and iterate over these batches, updating our weights and biases for each batch. Rather than dumping all the complexity into one function, let's just write a wrapper here that makes our batches and then calls an `updateMiniBatch` function that we'll write later. We'll need it to take as inputs a training dataset, the number of epochs we want to run for, the sie of our batches, and our learning rate. We'll also implement optional tracking of our network's performance with one of Scala's handy Options. At the end of each epoch, we'll use case matching to see whether testData holds a test dataset. If it does, it'll evaulate our model at the end of each epoch and print it for us, otherwise, we'll skip it and save some cycles!
 
 ```scala
 /* Perform mini batch stochastic gradient descent to train the network, outputting the test accuracy at each epoch. The training
@@ -176,7 +176,7 @@ def updateMiniBatch (miniBatch: Seq[Datum], eta: Double) {
 }
 ```
 
-Now we hit the complicated stuff: [backpropagation](https://en.wikipedia.org/wiki/Backpropagation). Basically, we need to cycle through two phases: First, calculate the error by doing a feedforward pass with our example and comparing it to our desired output. Second, we go backwards through the network, breaking down the error for each neuron in each layer, and use this to find our gradients. Nielsen provides [a whole chapter of crystal-clear explanation](http://neuralnetworksanddeeplearning.com/chap2.html) of how and why this works, so I'll point you his way for detailed exposition rather than poorly rehashing it here.
+Now we hit the complicated stuff: [backpropagation](https://en.wikipedia.org/wiki/Backpropagation). Basically, we need to cycle through two phases: First, calculate the error by doing a feedforward pass with our example and comparing it to our desired output. Second, we go backwards through the network, breaking down the error for each neuron in each layer, and use this to find our gradients. Nielsen provides [a whole chapter of crystal-clear explanation](http://neuralnetworksanddeeplearning.com/chap2.html) of how and why this works, so I'll point you his way for detailed exposition rather than poorly rehashing it here. 
 
 ```scala
 /* Returns the gradient of the cost function as a Tuple2[] of DenseMatrix[Double]s, where nabla_bias
