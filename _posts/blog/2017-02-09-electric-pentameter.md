@@ -6,7 +6,7 @@ modified: 2017-02-10T00:00:22-05:00
 tags: [python, ml]
 comments: true
 image:
-    teaser: shakespeare-teaser.png
+    teaser: robot-shakespeare-teaser.png
 ---
 
 Can an artificial brain pen an artificial quatrain? Can neural networks master metonymy? Having a taste for both verse and machine learning, I set out to put together a fun little project to apply the things I've been learning about neural networks: a [Shakespearean sonnet generator](http://robot-shakespeare.herokuapp.com/) powered by a [long short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) neural network. For those who are not familiar with LSTM networks, they're basically a particular type of neural network that is uniquely suited to working with time series data. Regular old neural networks operate on one batch at a time, with no memory of previous batches, and are therefore pretty bad at learning connections between past data and present data. LSTMs are instead designed to [retain memory of the information they process for a long time](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), and to make intelligent decisions about what information to forget and what to keep. This makes them much better than standard neural networks at learning connections over time.
