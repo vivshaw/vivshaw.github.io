@@ -9,7 +9,7 @@ image:
     teaser: shakespeare-teaser.png
 ---
 
-Can an artificial brain pen an artificial quatrain? Can neural netowrks master metonymy? Having a taste for both verse and machine learning, I set out to put together a fun little project to apply the things I've been learning about neural networks: a [Shakespearean sonnet generator](http://robot-shakespeare.herokuapp.com/) powered by a [long short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) neural network. For those who are not familiar with LSTM networks, they're basically a particular type of neural network that is uniquely suited to working with time series data. Regular old neural networks operate on one batch at a time, with no memory of previous batches, and are therefore pretty bad at learning connections between past data and present data. LSTMs are instead designed to [retain memory of the information they process for a long time](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), and to make intelligent decisions about what information to forget and what to keep. This makes them much better than standard neural networks at learning connections over time.
+Can an artificial brain pen an artificial quatrain? Can neural networks master metonymy? Having a taste for both verse and machine learning, I set out to put together a fun little project to apply the things I've been learning about neural networks: a [Shakespearean sonnet generator](http://robot-shakespeare.herokuapp.com/) powered by a [long short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) neural network. For those who are not familiar with LSTM networks, they're basically a particular type of neural network that is uniquely suited to working with time series data. Regular old neural networks operate on one batch at a time, with no memory of previous batches, and are therefore pretty bad at learning connections between past data and present data. LSTMs are instead designed to [retain memory of the information they process for a long time](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), and to make intelligent decisions about what information to forget and what to keep. This makes them much better than standard neural networks at learning connections over time.
 
 LSTM networks are a useful technique to have under your belt, as they've been used to achieve [state-of-the-art results in many different fields](http://karpathy.github.io/2015/05/21/rnn-effectiveness/). But don't let the data-sci-speak scare you off: with modern machine learning libraries like [Keras](keras.io) and [TensorFlow](https://www.tensorflow.org/), anyone with basic understanding of Python and linear algebra can get up and running with some basic neural networks in a day or two. If you're not convinced, read on: hopefully this little toy text-generation project will show you that neural networks are for everybody, and you don't need to be a comp sci Ph.D. to start finding useful applications for cutting-edge machine learning in your own data analysis, programming, or new media art.
 
@@ -33,7 +33,7 @@ It's probably a good idea to print some output after completion of each step, so
 ```python
 with open("sonnets.txt") as corpus_file:
     corpus = corpus_file.read()
-print("Loaded a corpus of {0} characters".format(len(corpus)))
+print("Loaded a corpus of {0} characters.".format(len(corpus)))
 
 # Get a unique identifier for each char in the corpus, then make some dicts to ease encoding and decoding
 chars = sorted(list(set(corpus)))
@@ -44,16 +44,11 @@ print("Our corpus contains {0} unique characters.".format(num_chars))
 ```
 
 My result:
+
 ```
-Loaded a corpus of 94654 characters
+Loaded a corpus of 94654 characters.
 Our corpus contains 64 unique characters.
 ```
-
-
-Vectorizing X and y...
-Sanity check y. Dimension: (94604, 64) # Sentences: 94604 Characters in corpus: 64
-Sanity check X. Dimension: (94604, 50, 64) Sentence length: 50
-Let's build a brain!
 
 ## Encoding & vectorizing our data
 
@@ -78,6 +73,7 @@ print("Sliced our corpus into {0} sentences of length {1}".format(num_sentences,
 ```
 
 You should see something like this:
+
 ```
 Sliced our corpus into 94604 sentences of length 50
 ```
@@ -153,18 +149,18 @@ Now we'll train our model.  We just need to specify the number of epochs and the
 model.fit(X, y, nb_epoch=30, batch_size=128, callbacks=callbacks)
 ```
 
-If all went well, you should find yourself staring at something like this:
+If all went well, you should find yourself staring at something like this (and stare you indeed shall, as it will take a while to train):
 
 ```
   128/94604 [..............................] - ETA: 1778s - loss: 4.1734
   256/94604 [..............................] - ETA: 1265s - loss: 4.1566
-[...]
+  [...]
   94464/94604 [============================>.] - ETA: 1s - loss: 2.6441
   94592/94604 [============================>.] - ETA: 0s - loss: 2.6437
 Epoch 00000: loss improved from inf to 2.64364, saving model to weights-00-2.644.hdf5
 ```
 
-Be patient, especially if you're not running these computations with [CUDA](https://en.wikipedia.org/wiki/CUDA). I don't have an appropriate GPU, so it took my poor old ThinkPad 6-8 hours each time I wanted to train my model. So, make some tea and ponder the mysteries of the human experience, I guess. Once you've achieved a Zen-like tranquility and your model has finished training, I recommend saving the file with the best weights under an easily-accessible name, like `weights.hdf5`.
+ Be patient, especially if you're not running these computations with [CUDA](https://en.wikipedia.org/wiki/CUDA). I don't have an appropriate GPU, so it took my poor old ThinkPad 6-8 hours each time I wanted to train my model. So, make some tea and ponder the mysteries of the human experience, I guess. Once you've achieved a Zen-like tranquility and your model has finished training, I recommend saving the file with the best weights under an easily-accessible name, like `weights.hdf5`.
 
 ## Generating text
 
