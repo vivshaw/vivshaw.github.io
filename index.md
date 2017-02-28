@@ -2,7 +2,7 @@
 layout: home
 permalink: /
 title: Hannah Vivian Shaw
-excerpt: "I'm a Vermont developer passionate about Python development, Java & other JVM languages, machine learning, and functional programming."
+excerpt: "I'm a Vermont developer working in Python, Javascript, & Java. I'm into machine learning, web development, and functional programming."
 image:
   feature: 
 ---
