@@ -14,7 +14,7 @@ share: false
 <div class="pull-right" markdown="span">
 ![vivshaw][selfie]
 </div>
-I'm a developer from Burlington, Vermont. I'm an alumna of the University of Vermont, with a B.A. in Economics and Philosophy. My central interests are in machine learning, full-stack web development, and the intersections between technological systems, art, and language. Python and Javascript are my home at the moment, but I also tinker with a fair bit of Java. (Sometimes some Scala, if I'm feeling adventurous.)
+I'm a developer from Burlington, Vermont. I'm an alumna of the University of Vermont, with a B.A. in Economics and Philosophy. My central interests are in machine learning, full-stack web development, and the intersections between technological systems, art, and language. Python, C++, and Java are my home at the moment, although I'm trying to expand my palette with some Haskell.
 
 When I'm not coding, you'll generally find me reading weird fiction, stir-frying things, watching Cronenberg films, or noodling around with my synthesizers.
 
