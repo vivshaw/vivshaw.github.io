@@ -18,7 +18,7 @@ If you, like me, are one of those devs who prefer a Linux environment but are st
 
 WSL is a compatibility layer that implements Linux system calls on top of the Windows kernel, allowing you to run Linux binaries as though they were native. On top of this frankenkernel, you get a full Ubuntu image, giving you a good old Bash prompt, all the GNU utils you know & love, and access to build toolchains for whatever you need. apt-get usually Just Works™ too. I got a decent dev environment up with the GNU toolchain, oh-my-zsh, vim, & tmux almost immediately.
 
-There are limits, of course: there remain unimplemented system calls which will totally break some programs, and anything graphical is not officially supported. Also, using Linux cli apps in a Windows CMD or Powershell can occasionally make things look pretty wonky. This was supposed to be [Solarized](http://ethanschoonover.com/solarized):
+There are limits, of course: there remain unimplemented system calls which will totally break some programs (for example, until recently all Haskell programs were broken due to unimplemented `timer_create`), and anything graphical is not officially supported. Using Linux cli apps in a Windows CMD or Powershell can also make things look pretty wonky. This was supposed to be [Solarized](http://ethanschoonover.com/solarized):
 ![WSL in Powershell, displaying completely incorrect colors][wsl-color]
 
 Personally, I got fed up with Powershell after spending days trying to get my dotfiles working. But why stop at what's officially supported?
