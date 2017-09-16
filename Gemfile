@@ -5,3 +5,5 @@ gem "jekyll"
 gem "jekyll-sitemap"
 gem "jekyll-gist"
 gem "jekyll-feed"
+
+gem 'github-pages', '104', group: :jekyll_plugins
