@@ -2,27 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>smol • vivshaw</title>
-    <meta name="description" content="An offline-enable library management app with React & Material-UI">
+    <title>Flybrary • vivshaw</title>
+    <meta name="description" content="A library management progressive web app, written in React">
     <meta name="keywords" content="">
     
     	<!-- Twitter Cards -->
-	<meta name="twitter:title" content="smol">
-	<meta name="twitter:description" content="An offline-enable library management app with React & Material-UI">
+	<meta name="twitter:title" content="Flybrary">
+	<meta name="twitter:description" content="A library management progressive web app, written in React">
 	<meta name="twitter:site" content="@irreduce">
 	<meta name="twitter:creator" content="@irreduce">
 	
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:image" content="https://vivshaw.github.io/images/smol.png">
+	<meta name="twitter:image" content="https://vivshaw.github.io/images/flybrary.png">
 	
 	<!-- Open Graph -->
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="smol">
-	<meta property="og:description" content="An offline-enable library management app with React & Material-UI">
+	<meta property="og:title" content="Flybrary">
+	<meta property="og:description" content="A library management progressive web app, written in React">
 	<meta property="og:url" content="https://vivshaw.github.io/work/flybrary/">
 	<meta property="og:site_name" content="vivshaw">
-	<meta property="og:image" content="https://vivshaw.github.io/images/smol-teaser.png">
+	<meta property="og:image" content="https://vivshaw.github.io/images/flybrary-teaser.png">
 	<meta property="fb:app_id" content="1757092571273930">
 	<!-- Google verification -->
 	<meta name="google-site-verification" content="s3cKVpnqdnkp6HL-Tcf5wXw6F5sO2eQeL_pzBqXrWE8" />
@@ -145,25 +145,33 @@
 		
 		<div class="page-feature">
 			<div class="page-image">
-				<img src="https://vivshaw.github.io/images/smol.png" class="page-feature-image" alt="smol" itemprop="image">
+				<img src="https://vivshaw.github.io/images/flybrary.png" class="page-feature-image" alt="Flybrary" itemprop="image">
 				<div class="image-credit">Image source: <a href="http://vivshaw.github.io" itemprop="citation">Hannah Vivian Shaw</a></div><!-- /.image-credit -->
 			</div><!-- /.page-image -->
 		</div><!-- /.page-feature -->
 		
 		<div class="page-title">
-			<h1>smol</h1>
+			<h1>Flybrary</h1>
 		</div>
 		<div class="inner-wrap">
 			<div id="content" class="page-content" itemprop="articleBody">
-				<p>An offline-enable library management app with React &amp; Material-UI</p>
+				<p>A library management progressive web app, written in React</p>
 
-<p><a href="https://smol.space/">smol</a> is my Rails learning app. As I’ve been learning more, I’ve been gradually building out features. As you can see, it’s still very much a work in progress, but it’s getting there! At the moment, I’m working on OpenAuth with Devise &amp; Omniauth, and testing with Rspec &amp; Factory_Girl. Why, you might ask, am I exploring Rails in 2017? Partially because I wanted to familiarize myself more with the classic server-based CRUD app way of doing things… but, let’s be honest, largely because Ruby and Rails are both so delightfully developer-friendly &amp; easy to play with. The code is, of course, all <a href="https://github.com/vivshaw/smol-v1">on my GitHub</a>.</p>
+<p><a href="https://my-reads-vivshaw.herokuapp.com/">Flybrary</a> is a LibraryThing-esque library management app that keeps track of what books you’re reading. The app uses React &amp; react-router to build a <a href="https://developers.google.com/web/progressive-web-apps/">progressive web app</a> front-end for a RESTful books API. It has a responsive, mobile-first style built with Material-UI and styled-components that should look equally great on mobile, tablet, or desktop. I built it for the first project of Udacity’s <a href="https://www.udacity.com/course/react-nanodegree--nd019">React nanodegree</a>.</p>
+
+<p>I used it as an opportunity to explore not just core React, but the full modern JS dev toolchain. The app is written in <a href="https://flow.org/">Flow</a>, and I’m using Jest and Enzyme for a full test suite, <a href="http://usejsdoc.org/">JSDoc</a> comments with <a href="http://documentation.js.org/">documentation.js</a> for documentation generation, and <a href="https://gulpjs.com/">Gulp</a> for task automation. The app is set up with a full continuous integration &amp; continuous deployment toolchain using <a href="https://circleci.com/">CircleCI</a>, <a href="https://codeclimate.com/">CodeClimate</a>, and <a href="https://heroku.com/">Heroku</a>.</p>
+
+<p>I also played with some of the React ecosystem’s more cutting-edge features. I used <a href="https://github.com/thejameskyle/react-loadable">react-loadable</a> for code splitting &amp; lazy loading, and <a href="https://github.com/geelen/react-snapshot">react-snapshot</a> for static prerendering (not quite as snazzy as server-side rendering, but it did give me an awesome perf boost!).</p>
+
+<p>This is probably the most fun I’ve ever had working on the front-end. While it wasn’t my first time with React, this was the first time I’ve worked with many of the other technologies, and I feel the experienced really deepened my understanding of JS development. It’s also the first time I’ve built anything that works offline, which was super cool! I did get bogged down by state management purgatory toward the end though, so I think it’s due for an eventual refactor into a proper Redux architecture.</p>
+
+<p>The code is, of course, all <a href="https://github.com/vivshaw/my-reads">on my GitHub</a>.</p>
 
 				<hr />
 				<footer class="page-footer">
 					
 					<div class="page-meta">
-	<p>Updated <time datetime="2017-09-14T15:56:11Z" itemprop="dateModified">September 14, 2017</time>
+	<p>Updated <time datetime="2017-09-16T15:56:11Z" itemprop="dateModified">September 16, 2017</time>
 </div><!-- /.page-meta -->
 				</footer><!-- /.footer -->
 				<aside>
