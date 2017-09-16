@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Robot Shakespeare • vivshaw</title>
+    <meta name="description" content="A Shakespearean sonnet generator, powered by a Keras LSTM network and Flask.">
+    <meta name="keywords" content="">
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="Robot Shakespeare">
+	<meta name="twitter:description" content="A Shakespearean sonnet generator, powered by a Keras LSTM network and Flask.">
+	<meta name="twitter:site" content="@irreduce">
+	<meta name="twitter:creator" content="@irreduce">
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vivshaw.github.io/images/robot-shakespeare.png">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Robot Shakespeare">
+	<meta property="og:description" content="A Shakespearean sonnet generator, powered by a Keras LSTM network and Flask.">
+	<meta property="og:url" content="https://vivshaw.github.io/work/robot-shakespeare/">
+	<meta property="og:site_name" content="vivshaw">
+	<meta property="og:image" content="https://vivshaw.github.io/images/robot-shakespeare-teaser.png">
+	<meta property="fb:app_id" content="1757092571273930">
+	<!-- Google verification -->
+	<meta name="google-site-verification" content="s3cKVpnqdnkp6HL-Tcf5wXw6F5sO2eQeL_pzBqXrWE8" />
+
+    <link rel="canonical" href="https://vivshaw.github.io/work/robot-shakespeare/">
+
+    <link href="https://vivshaw.github.io/atom.xml" type="application/atom+xml" rel="alternate" title="vivshaw Atom Feed">
+    <link href="https://vivshaw.github.io/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="https://vivshaw.github.io/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://vivshaw.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vivshaw.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://vivshaw.github.io/manifest.json">
+    <link rel="mask-icon" href="https://vivshaw.github.io/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#001300">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="https://vivshaw.github.io/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="https://vivshaw.github.io/js/vendor/html5shiv.min.js"></script>
+      <script src="https://vivshaw.github.io/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body id="js-body">
+    
+
+
+<img src="https://vivshaw.github.io/images/plant-691971_1280.jpg" class="bg slant" /> 
+
+
+	<!-- Fix page legibility for browsers without clip-path -->
+	<div id="clipless"></div>
+
+    <!--[if lt IE 9]><div class="upgrade notice-warning"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+    <header id="masthead">
+  <div class="inner-wrap">
+    <nav class="site-title">
+  <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="https://vivshaw.github.io" itemprop="url">
+      <span itemprop="title">Home</span>
+    </a>
+  </span>
+  
+     › 
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="https://vivshaw.github.io/work/" itemprop="url">
+        <span itemprop="title">Work</span>
+      </a>
+    </span>
+  
+</nav><!-- /.breadcrumbs -->
+
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<li class="home"><a href="/">vivshaw</a></li>
+	
+    
+    <li><a href="https://vivshaw.github.io/" >Home</a></li>
+  
+    
+    <li><a href="https://vivshaw.github.io/blog/" >Blog</a></li>
+  
+    
+    <li><a href="https://vivshaw.github.io/work/" >Work</a></li>
+  
+    
+    <li><a href="https://vivshaw.github.io/about/" >About</a></li>
+  
+</ul>
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>vivshaw <span>Table of Contents</span></h5>
+  <ul class="menu-item">
+    <li>
+      <a href="https://vivshaw.github.io/">
+        
+        <div class="title">Home</div>
+        
+      </a>
+    </li><li>
+      <a href="https://vivshaw.github.io/blog/">
+        
+        <div class="title">Blog</div>
+        
+      </a>
+    </li><li>
+      <a href="https://vivshaw.github.io/work/">
+        
+        <div class="title">Work</div>
+        
+      </a>
+    </li><li>
+      <a href="https://vivshaw.github.io/about/">
+        
+        <div class="title">About</div>
+        
+      </a>
+    </li>
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="nav-lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+
+    <div id="page-wrapper">
+      <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		<div class="page-feature">
+			<div class="page-image">
+				<img src="https://vivshaw.github.io/images/robot-shakespeare.png" class="page-feature-image" alt="Robot Shakespeare" itemprop="image">
+				<div class="image-credit">Image source: <a href="http://vivshaw.github.io" itemprop="citation">Cobbe portrait / Hannah Vivian Shaw</a></div><!-- /.image-credit -->
+			</div><!-- /.page-image -->
+		</div><!-- /.page-feature -->
+		
+		<div class="page-title">
+			<h1>Robot Shakespeare</h1>
+		</div>
+		<div class="inner-wrap">
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>A Shakespearean sonnet generator, powered by a Keras LSTM network and Flask.</p>
+
+<p><a href="http://robot-shakespeare.herokuapp.com/">Robot Shakespeare</a> was an opportunity to play with <a href="keras.io">Keras</a> &amp; learn about LSTM neural networks. I chose Shakespeare’s sonnets as a text corpus because I wanted to see how the model would handle the hoghly-structured text of a poem. I think it’s fascinating how even a simple model like this one can, when given nothing but raw characters as input, learn not only to make mostly-coherent words but even some high-level features of the sonnet form, such as appropriate capitalization and punctuation, linebreaks at the correct points, and sometimes even indentation mimicking the typesetting of the original. I also took the opportunity to build a web interface in <a href="http://flask.pocoo.org/">Flask</a> and toss it up on Heroku so others can <a href="http://robot-shakespeare.herokuapp.com/">play with it</a>. I wrote up <a href="https://vivshaw.github.io/blog/electric-pentameter/">a blog post</a> about my thought processes while building it. The code is, of course, all <a href="https://github.com/vivshaw/scriptophile">on my GitHub</a>.</p>
+
+				<hr />
+				<footer class="page-footer">
+					
+					<div class="page-meta">
+	<p>Updated <time datetime="2017-02-04T15:56:11Z" itemprop="dateModified">February 04, 2017</time>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+	</article><!-- /.wrap -->
+</div><!-- /#main -->
+
+      <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+	      
+		  <li><a href="https://vivshaw.github.io/" >Home</a></li>
+		
+	      
+		  <li><a href="https://vivshaw.github.io/blog/" >Blog</a></li>
+		
+	      
+		  <li><a href="https://vivshaw.github.io/work/" >Work</a></li>
+		
+	      
+		  <li><a href="https://vivshaw.github.io/about/" >About</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2017 <a href="https://vivshaw.github.io">vivshaw</a> powered by <a href="http://jekyllrb.com">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/">Skinny Bones</a>.</p>
+</footer>
+
+
+	<!-- Fix clip-path for Firefox. Needs to be down here so it won't screw up element positioning. -->
+	<svg width="0" height="0">
+	  <defs>
+		<clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
+		  <polygon points=".8 0, 1 0, 1 1, .9 1" />
+		</clipPath>
+	  </defs>
+	</svg>
+
+    </div>
+
+    <script src="https://vivshaw.github.io/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="https://vivshaw.github.io/js/main.js"></script>
+
+  </body>
+
+</html>
