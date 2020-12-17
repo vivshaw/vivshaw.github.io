@@ -145,6 +145,7 @@ GEM
 PLATFORMS
   ruby
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   github-pages (= 104)
@@ -154,4 +155,4 @@ DEPENDENCIES
   jekyll-sitemap
 
 BUNDLED WITH
-   1.16.0.pre.2
+   2.2.1
