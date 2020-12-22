@@ -2,32 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></hiatus> • vivshaw</title>
-    <meta name="description" content="Here's what I've been doing the past two years">
-    <meta name="keywords" content="life, work">
+    <title>Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL • vivshaw</title>
+    <meta name="description" content="It's all about the types">
+    <meta name="keywords" content="haskell, yesod, FP, web, tidbits">
     
     	<!-- Twitter Cards -->
-	<meta name="twitter:title" content="</hiatus>">
-	<meta name="twitter:description" content="Here's what I've been doing the past two years">
+	<meta name="twitter:title" content="Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL">
+	<meta name="twitter:description" content="It's all about the types">
 	<meta name="twitter:site" content="@irreduce">
 	<meta name="twitter:creator" content="@irreduce">
 	
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:image" content="https://vivshaw.github.io/images/im-in-teaser.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vivshaw.github.io/images/haskell-snacks-1.png">
 	
 	<!-- Open Graph -->
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="</hiatus>">
-	<meta property="og:description" content="Here's what I've been doing the past two years">
-	<meta property="og:url" content="https://vivshaw.github.io/blog/hiatus/">
+	<meta property="og:title" content="Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL">
+	<meta property="og:description" content="It's all about the types">
+	<meta property="og:url" content="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/">
 	<meta property="og:site_name" content="vivshaw">
-	<meta property="og:image" content="https://vivshaw.github.io/images/im-in-teaser.png">
+	<meta property="og:image" content="https://vivshaw.github.io/images/haskell-snacks-1-teaser.png">
 	<meta property="fb:app_id" content="1757092571273930">
 	<!-- Google verification -->
 	<meta name="google-site-verification" content="s3cKVpnqdnkp6HL-Tcf5wXw6F5sO2eQeL_pzBqXrWE8" />
 
-    <link rel="canonical" href="https://vivshaw.github.io/blog/hiatus/">
+    <link rel="canonical" href="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/">
 
     <link href="https://vivshaw.github.io/atom.xml" type="application/atom+xml" rel="alternate" title="vivshaw Atom Feed">
     <link href="https://vivshaw.github.io/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
@@ -143,18 +143,51 @@
       <div id="main" role="main">
 	<article class="wrap" itemscope itemtype="http://schema.org/Article">
 		
+		<div class="page-feature">
+			<div class="page-image">
+				<img src="https://vivshaw.github.io/images/haskell-snacks-1.png" class="page-feature-image" alt="Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL" itemprop="image">
+				
+			</div><!-- /.page-image -->
+		</div><!-- /.page-feature -->
+		
 		<div class="page-title">
-			<h1></hiatus></h1>
+			<h1>Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL</h1>
 		</div>
 		<div class="inner-wrap">
 			<div id="content" class="page-content" itemprop="articleBody">
-				<p>Here’s what I’ve been doing the past two years</p>
+				<p>Here’s a new little series of posts where I’ll document some bite-sized things I learned while picking up Haskell, focusing on things that weren’t immediately intuitive and didn’t have easily Googleable answers.</p>
 
-<p>Haven’t posted in a while! I’ve spent the past two years doing contract work for MoonGate Technology on a college planning app called I’m In, and we’ve just launched a beta! <a href="https://iminap.com/">Check it out</a> if you’re curious what I’ve been up to.</p>
+<p>First up: integrating <a href="https://www.yesodweb.com/">Yesod</a> with <a href="https://morpheusgraphql.com/">Morpheus GraphQL</a>! Morpheus provides examples for <code class="highlighter-rouge">scotty</code> and <code class="highlighter-rouge">servant</code> integration, but Scotty wasn’t full-featured enough for my needs, and I’m not familair with servant. Yesod to the rescue! But, you’ll find that the syntax shown in the scotty and servant examples for declaring your GraphQL API, will not cooperate with Yesod. Here’s how it is in the simplest Scotty example from the Morpheus docs:</p>
 
-<p>In general terms, I’ve moved towards TypeScript for added type-safety on the frontend, and GraphQL for type-safety at the API query layer. Combine this with TypeScript/Node or Rails on the backend, and you’ve got something good going! I’ve found this stack extremely comfy and hassle-free, and enjoyed the reduction in bugs that type-safety has brought.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-- Definition of GraphQL API
+gqlApi :: ByteString -&gt; IO ByteString
+gqlApi = interpreter rootResolver
 
-<p>Got some big things in the pipeline- in particular, hoping to leave my day job and move to development work full-time. (If you’re interested in hiring me, please reach out!) I’m also starting a deeper exploration of functional programming with Haskell.</p>
+-- Hooking it up to Scotty handler
+main :: IO ()
+main = scotty 3000 $ post "/api" $ raw =&lt;&lt; (liftIO . gqlApi =&lt;&lt; body)
+</code></pre>
+</div>
+
+<p>You might think you can just snag the <code class="highlighter-rouge">liftIO . gqlApi =&lt;&lt; body</code>, stick it in a Yesod handler unchanged, and pass in the POST request body. Sadly, you’d be wrong- Yesod expects different types.</p>
+
+<p>Thanks to <a href="https://github.com/morpheusgraphql/morpheus-graphql/issues/396#issue-577612225">a single GitHub issue</a> courtesy <a href="https://github.com/tuxagon">tuxagon</a>, I discovered the correct syntax, and it’s really quite simple. All you have to do is change the type signature:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>-- Type signature changed from ByteString to GQLRequest/Response
+graphqlApi :: GQLRequest -&gt; IO GQLResponse
+graphqlApi =
+  interpreter rootResolver
+
+-- Now it works like you'd expect
+postGraphqlR :: Handler Value
+postGraphqlR = do
+  body &lt;- requireCheckJsonBody :: Handler GQLRequest
+  result &lt;- (liftIO . graphqlApi) body
+  returnJson result
+</code></pre>
+</div>
+
+<p>From that point, you can just follow the regular Morpheus and Yesod docs and be good to go. Simple enough!</p>
 
 				<hr />
 				<footer class="page-footer">
@@ -168,9 +201,9 @@
 	<p class="author-bio">the command line is the retina of the mind's eye</p>
 </div><!-- ./author-content -->
 					<div class="inline-btn">
-	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=&lt;/hiatus&gt;&amp;url=https://vivshaw.github.io/blog/hiatus/&amp;via=irreduce" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
-	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://vivshaw.github.io/blog/hiatus/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
-	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=https://vivshaw.github.io/blog/hiatus/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Haskell%20Snacks%20#1:%20Integrating%20Yesod%20and%20Morpheus%20GraphQL&amp;url=https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/&amp;via=irreduce" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
 </div><!-- /.share-this -->
 
 					<div class="page-meta">
