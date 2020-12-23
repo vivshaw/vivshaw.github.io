@@ -3,7 +3,7 @@ layout: article
 title: "Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL"
 excerpt: "It's all about the types"
 categories: blog
-modified: 2020-11-08T04:30:21-05:00
+modified: 2020-12-21T20:30:21-05:00
 tags: [haskell, yesod, FP, web, tidbits]
 comments: true
 image:
