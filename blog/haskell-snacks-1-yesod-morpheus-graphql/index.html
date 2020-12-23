@@ -159,13 +159,13 @@
 
 <p>First up: integrating <a href="https://www.yesodweb.com/">Yesod</a> with <a href="https://morpheusgraphql.com/">Morpheus GraphQL</a>! Morpheus provides examples for <code class="highlighter-rouge">scotty</code> and <code class="highlighter-rouge">servant</code> integration, but Scotty wasn’t full-featured enough for my needs, and I’m not familair with servant. Yesod to the rescue! But, you’ll find that the syntax shown in the scotty and servant examples for declaring your GraphQL API, will not cooperate with Yesod. Here’s how it is in the simplest Scotty example from the Morpheus docs:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-- Definition of GraphQL API
-gqlApi :: ByteString -&gt; IO ByteString
-gqlApi = interpreter rootResolver
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="c1">-- Definition of GraphQL API</span>
+<span class="n">gqlApi</span> <span class="o">::</span> <span class="kt">ByteString</span> <span class="o">-&gt;</span> <span class="kt">IO</span> <span class="kt">ByteString</span>
+<span class="n">gqlApi</span> <span class="o">=</span> <span class="n">interpreter</span> <span class="n">rootResolver</span>
 
--- Hooking it up to Scotty handler
-main :: IO ()
-main = scotty 3000 $ post "/api" $ raw =&lt;&lt; (liftIO . gqlApi =&lt;&lt; body)
+<span class="c1">-- Hooking it up to Scotty handler</span>
+<span class="n">main</span> <span class="o">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="n">main</span> <span class="o">=</span> <span class="n">scotty</span> <span class="mi">3000</span> <span class="o">$</span> <span class="n">post</span> <span class="s">"/api"</span> <span class="o">$</span> <span class="n">raw</span> <span class="o">=&lt;&lt;</span> <span class="p">(</span><span class="n">liftIO</span> <span class="o">.</span> <span class="n">gqlApi</span> <span class="o">=&lt;&lt;</span> <span class="n">body</span><span class="p">)</span>
 </code></pre>
 </div>
 
@@ -173,21 +173,53 @@ main = scotty 3000 $ post "/api" $ raw =&lt;&lt; (liftIO . gqlApi =&lt;&lt; body
 
 <p>Thanks to <a href="https://github.com/morpheusgraphql/morpheus-graphql/issues/396#issue-577612225">a single GitHub issue</a> courtesy <a href="https://github.com/tuxagon">tuxagon</a>, I discovered the correct syntax, and it’s really quite simple. All you have to do is change the type signature:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-- Type signature changed from ByteString to GQLRequest/Response
-graphqlApi :: GQLRequest -&gt; IO GQLResponse
-graphqlApi =
-  interpreter rootResolver
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="c1">-- Type signature changed from ByteString to GQLRequest/Response</span>
+<span class="n">graphqlApi</span> <span class="o">::</span> <span class="kt">GQLRequest</span> <span class="o">-&gt;</span> <span class="kt">IO</span> <span class="kt">GQLResponse</span>
+<span class="n">graphqlApi</span> <span class="o">=</span>
+  <span class="n">interpreter</span> <span class="n">rootResolver</span>
 
--- Now it works like you'd expect
-postGraphqlR :: Handler Value
-postGraphqlR = do
-  body &lt;- requireCheckJsonBody :: Handler GQLRequest
-  result &lt;- (liftIO . graphqlApi) body
-  returnJson result
+<span class="c1">-- Now it works like you'd expect</span>
+<span class="n">postGraphqlR</span> <span class="o">::</span> <span class="kt">Handler</span> <span class="kt">Value</span>
+<span class="n">postGraphqlR</span> <span class="o">=</span> <span class="kr">do</span>
+  <span class="n">body</span> <span class="o">&lt;-</span> <span class="n">requireCheckJsonBody</span> <span class="o">::</span> <span class="kt">Handler</span> <span class="kt">GQLRequest</span>
+  <span class="n">result</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">liftIO</span> <span class="o">.</span> <span class="n">graphqlApi</span><span class="p">)</span> <span class="n">body</span>
+  <span class="n">returnJson</span> <span class="n">result</span>
 </code></pre>
 </div>
 
-<p>From that point, you can just follow the regular Morpheus and Yesod docs and be good to go. Simple enough!</p>
+<p>Now, suppose you want to use the <code class="highlighter-rouge">App</code> syntax from Morpheus. So instead of using <code class="highlighter-rouge">interpreter</code>, your Morpheus GraphQL code now looks like this:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">app</span> <span class="o">::</span> <span class="kt">App</span> <span class="kt">APIEvent</span> <span class="kt">IO</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">deriveApp</span> <span class="n">rootResolver</span>
+</code></pre>
+</div>
+
+<p>We can still stitch this into a Yesod handler quite easily! The key is in <a href="https://github.com/morpheusgraphql/morpheus-graphql/blob/b5ef7a50dd5bd42dc51bbdf11509028c868ee579/src/Data/Morpheus.hs#L31">the definition of interpreter</a>:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">interpreter</span> <span class="o">::</span>
+  <span class="p">(</span><span class="kt">MapAPI</span> <span class="n">a</span> <span class="n">b</span><span class="p">,</span> <span class="kt">RootResolverConstraint</span> <span class="n">m</span> <span class="n">e</span> <span class="n">query</span> <span class="n">mut</span> <span class="n">sub</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="kt">RootResolver</span> <span class="n">m</span> <span class="n">e</span> <span class="n">query</span> <span class="n">mut</span> <span class="n">sub</span> <span class="o">-&gt;</span>
+  <span class="n">a</span> <span class="o">-&gt;</span>
+  <span class="n">m</span> <span class="n">b</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">runApp</span> <span class="o">.</span> <span class="n">deriveApp</span>
+</code></pre>
+</div>
+
+<p>Hey, <code class="highlighter-rouge">interpreter</code> is just using <code class="highlighter-rouge">deriveApp</code> under the hood, just like <code class="highlighter-rouge">app</code> does! So all we need to do in our Yesod handler, is apply <code class="highlighter-rouge">runApp</code> to <code class="highlighter-rouge">app</code>, and we’ll have the same GraphQL API as we did before. All it takes is one little <code class="highlighter-rouge">where</code> clause:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">app</span> <span class="o">::</span> <span class="kt">App</span> <span class="kt">APIEvent</span> <span class="kt">IO</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">deriveApp</span> <span class="n">rootResolver</span>
+
+<span class="n">postGraphqlR</span> <span class="o">::</span> <span class="kt">Handler</span> <span class="kt">Value</span>
+<span class="n">postGraphqlR</span> <span class="o">=</span> <span class="kr">do</span>
+  <span class="n">body</span> <span class="o">&lt;-</span> <span class="n">requireCheckJsonBody</span> <span class="o">::</span> <span class="kt">Handler</span> <span class="kt">GQLRequest</span>
+  <span class="n">result</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">liftIO</span> <span class="o">.</span> <span class="n">graphqlApi</span><span class="p">)</span> <span class="n">body</span>
+  <span class="n">returnJson</span> <span class="n">result</span>
+  <span class="kr">where</span> <span class="n">graphqlApi</span> <span class="o">=</span> <span class="n">runApp</span> <span class="n">app</span> <span class="o">::</span> <span class="kt">GQLRequest</span> <span class="o">-&gt;</span> <span class="kt">IO</span> <span class="kt">GQLResponse</span>
+</code></pre>
+</div>
+
+<p>Things get a bit more complex once we need WebSockets support… This will hopefully come in a later blog entry!</p>
 
 				<hr />
 				<footer class="page-footer">
@@ -207,7 +239,7 @@ postGraphqlR = do
 </div><!-- /.share-this -->
 
 					<div class="page-meta">
-	<p>Updated <time datetime="2020-11-08T04:30:21Z" itemprop="dateModified">November 08, 2020</time>
+	<p>Updated <time datetime="2020-12-21T20:30:21Z" itemprop="dateModified">December 21, 2020</time>
 </div><!-- /.page-meta -->
 				</footer><!-- /.footer -->
 				<aside>

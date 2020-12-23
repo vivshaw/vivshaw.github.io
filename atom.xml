@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://vivshaw.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="https://vivshaw.github.io/atom.xml" rel="self" type="application/atom+xml" /><link href="https://vivshaw.github.io/" rel="alternate" type="text/html" /><updated>2020-12-21T20:01:13-05:00</updated><id>https://vivshaw.github.io//</id><title type="html">vivshaw</title><subtitle>portfolio site</subtitle><entry><title type="html">Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL</title><link href="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/" rel="alternate" type="text/html" title="Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL" /><published>2020-12-21T00:00:00-05:00</published><updated>2020-12-21T00:00:00-05:00</updated><id>https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql</id><content type="html" xml:base="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/">&lt;p&gt;Here’s a new little series of posts where I’ll document some bite-sized things I learned while picking up Haskell, focusing on things that weren’t immediately intuitive and didn’t have easily Googleable answers.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://vivshaw.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="https://vivshaw.github.io/atom.xml" rel="self" type="application/atom+xml" /><link href="https://vivshaw.github.io/" rel="alternate" type="text/html" /><updated>2020-12-23T00:15:00-05:00</updated><id>https://vivshaw.github.io//</id><title type="html">vivshaw</title><subtitle>portfolio site</subtitle><entry><title type="html">Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL</title><link href="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/" rel="alternate" type="text/html" title="Haskell Snacks #1: Integrating Yesod and Morpheus GraphQL" /><published>2020-12-21T00:00:00-05:00</published><updated>2020-12-21T00:00:00-05:00</updated><id>https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql</id><content type="html" xml:base="https://vivshaw.github.io/blog/haskell-snacks-1-yesod-morpheus-graphql/">&lt;p&gt;Here’s a new little series of posts where I’ll document some bite-sized things I learned while picking up Haskell, focusing on things that weren’t immediately intuitive and didn’t have easily Googleable answers.&lt;/p&gt;
 
 &lt;p&gt;First up: integrating &lt;a href=&quot;https://www.yesodweb.com/&quot;&gt;Yesod&lt;/a&gt; with &lt;a href=&quot;https://morpheusgraphql.com/&quot;&gt;Morpheus GraphQL&lt;/a&gt;! Morpheus provides examples for &lt;code class=&quot;highlighter-rouge&quot;&gt;scotty&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;servant&lt;/code&gt; integration, but Scotty wasn’t full-featured enough for my needs, and I’m not familair with servant. Yesod to the rescue! But, you’ll find that the syntax shown in the scotty and servant examples for declaring your GraphQL API, will not cooperate with Yesod. Here’s how it is in the simplest Scotty example from the Morpheus docs:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-- Definition of GraphQL API
-gqlApi :: ByteString -&amp;gt; IO ByteString
-gqlApi = interpreter rootResolver
+&lt;div class=&quot;language-haskell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- Definition of GraphQL API&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ByteString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ByteString&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interpreter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootResolver&lt;/span&gt;
 
--- Hooking it up to Scotty handler
-main :: IO ()
-main = scotty 3000 $ post &quot;/api&quot; $ raw =&amp;lt;&amp;lt; (liftIO . gqlApi =&amp;lt;&amp;lt; body)
+&lt;span class=&quot;c1&quot;&gt;-- Hooking it up to Scotty handler&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scotty&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/api&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;liftIO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -16,21 +16,53 @@ main = scotty 3000 $ post &quot;/api&quot; $ raw =&amp;lt;&amp;lt; (liftIO . gql
 
 &lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/morpheusgraphql/morpheus-graphql/issues/396#issue-577612225&quot;&gt;a single GitHub issue&lt;/a&gt; courtesy &lt;a href=&quot;https://github.com/tuxagon&quot;&gt;tuxagon&lt;/a&gt;, I discovered the correct syntax, and it’s really quite simple. All you have to do is change the type signature:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-- Type signature changed from ByteString to GQLRequest/Response
-graphqlApi :: GQLRequest -&amp;gt; IO GQLResponse
-graphqlApi =
-  interpreter rootResolver
+&lt;div class=&quot;language-haskell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- Type signature changed from ByteString to GQLRequest/Response&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;graphqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLRequest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLResponse&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;graphqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;interpreter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootResolver&lt;/span&gt;
 
--- Now it works like you'd expect
-postGraphqlR :: Handler Value
-postGraphqlR = do
-  body &amp;lt;- requireCheckJsonBody :: Handler GQLRequest
-  result &amp;lt;- (liftIO . graphqlApi) body
-  returnJson result
+&lt;span class=&quot;c1&quot;&gt;-- Now it works like you'd expect&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;postGraphqlR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Handler&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;postGraphqlR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requireCheckJsonBody&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Handler&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLRequest&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;liftIO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graphqlApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;returnJson&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;From that point, you can just follow the regular Morpheus and Yesod docs and be good to go. Simple enough!&lt;/p&gt;</content><category term="haskell" /><category term="yesod" /><category term="FP" /><category term="web" /><category term="tidbits" /><summary type="html">It's all about the types</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://vivshaw.github.io/%7B%22feature%22=%3E%22haskell-snacks-1.png%22,%20%22teaser%22=%3E%22haskell-snacks-1-teaser.png%22%7D" /></entry><entry><title type="html">&amp;lt;/hiatus&amp;gt;</title><link href="https://vivshaw.github.io/blog/hiatus/" rel="alternate" type="text/html" title="&lt;/hiatus&gt;" /><published>2020-11-08T00:00:00-05:00</published><updated>2020-11-08T00:00:00-05:00</updated><id>https://vivshaw.github.io/blog/hiatus</id><content type="html" xml:base="https://vivshaw.github.io/blog/hiatus/">&lt;p&gt;Here’s what I’ve been doing the past two years&lt;/p&gt;
+&lt;p&gt;Now, suppose you want to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;App&lt;/code&gt; syntax from Morpheus. So instead of using &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreter&lt;/code&gt;, your Morpheus GraphQL code now looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-haskell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;APIEvent&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deriveApp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootResolver&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can still stitch this into a Yesod handler quite easily! The key is in &lt;a href=&quot;https://github.com/morpheusgraphql/morpheus-graphql/blob/b5ef7a50dd5bd42dc51bbdf11509028c868ee579/src/Data/Morpheus.hs#L31&quot;&gt;the definition of interpreter&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-haskell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;interpreter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;MapAPI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;RootResolverConstraint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mut&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;RootResolver&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mut&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;interpreter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runApp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deriveApp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Hey, &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreter&lt;/code&gt; is just using &lt;code class=&quot;highlighter-rouge&quot;&gt;deriveApp&lt;/code&gt; under the hood, just like &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt; does! So all we need to do in our Yesod handler, is apply &lt;code class=&quot;highlighter-rouge&quot;&gt;runApp&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt;, and we’ll have the same GraphQL API as we did before. All it takes is one little &lt;code class=&quot;highlighter-rouge&quot;&gt;where&lt;/code&gt; clause:&lt;/p&gt;
+
+&lt;div class=&quot;language-haskell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;APIEvent&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deriveApp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootResolver&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;postGraphqlR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Handler&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;postGraphqlR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requireCheckJsonBody&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Handler&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLRequest&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;liftIO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graphqlApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;returnJson&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graphqlApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runApp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLRequest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IO&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GQLResponse&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Things get a bit more complex once we need WebSockets support… This will hopefully come in a later blog entry!&lt;/p&gt;</content><category term="haskell" /><category term="yesod" /><category term="FP" /><category term="web" /><category term="tidbits" /><summary type="html">It's all about the types</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://vivshaw.github.io/%7B%22feature%22=%3E%22haskell-snacks-1.png%22,%20%22teaser%22=%3E%22haskell-snacks-1-teaser.png%22%7D" /></entry><entry><title type="html">&amp;lt;/hiatus&amp;gt;</title><link href="https://vivshaw.github.io/blog/hiatus/" rel="alternate" type="text/html" title="&lt;/hiatus&gt;" /><published>2020-11-08T00:00:00-05:00</published><updated>2020-11-08T00:00:00-05:00</updated><id>https://vivshaw.github.io/blog/hiatus</id><content type="html" xml:base="https://vivshaw.github.io/blog/hiatus/">&lt;p&gt;Here’s what I’ve been doing the past two years&lt;/p&gt;
 
 &lt;p&gt;Haven’t posted in a while! I’ve spent the past two years doing contract work for MoonGate Technology on a college planning app called I’m In, and we’ve just launched a beta! &lt;a href=&quot;https://iminap.com/&quot;&gt;Check it out&lt;/a&gt; if you’re curious what I’ve been up to.&lt;/p&gt;
 
