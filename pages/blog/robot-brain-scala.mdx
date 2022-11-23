@@ -1,0 +1,266 @@
+import metaImage from "./muneeb-syed-x9NfeD3FpsE-unsplash.jpg";
+
+export const meta = {
+  date: new Date("2017-02-04"),
+  title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
+  blurb: "Exploring computer vision with a from-scratch neural net in Scala",
+  tags: ["scala", "ml", "neural networks", "MNIST", "computer vision"],
+  image: metaImage,
+};
+
+### Or, a Python Dev Hacks Together a Neural Network From Scratch in (Bad) Scala
+
+Sometimes, on a lazy Saturday afternoon in the doldrums of one's spirit, one must hack together an artificial brain and teach it how to read. I've been working through [Michael Nielsen](http://michaelnielsen.org/)'s excellent textbook [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/). Because my hubris outweighs my prudence, I decided that rather than work the exercises in Python, I'd learn some more Scala while I'm at it. Thus, Reader dearest, the fruit of my day's labour: a neural network built from scratch in Scala and trained to recognize handwritten digits. I'm using [Breeze](https://github.com/scalanlp/breeze) for my matrix algebra. My Scala's still rather non-idiomatic (you can probably tell my Python background from the profusion of mutable state and copious abuse of zip and comprehensions), but— it works well enough for a second-ever Scala project, which is all I could ask. My code's up [on GitHub](https://github.com/vivshaw/scriptophile); if you catch any errors, [let me know](https://twitter.com/irreduce)!
+
+All my code here is based on Nielsen's algorithms, so if you want to learn this stuff, [go read his book](http://neuralnetworksanddeeplearning.com/). Did I mention it's free?
+
+<!--include toc.html -->
+
+## Grab and clean our data
+
+I'm working with the [MNIST dataset](http://yann.lecun.com/exdb/mnist/) of handwritten numerals. Personally, I chose to grab [the Kaggle dataset](https://www.kaggle.com/c/digit-recognizer) which is in a convenient .csv format already. But, we still need to process this into a format our network can handle. The csv is 785 columns, with the first being an integer label [0..9], and the remaining 784 each corresponding to the [0..255] darkness value of one pixel of a MNIST image. We'd like it to instead be a list of matrices that we can stuff into our neural network. We'll want to get the images [feature scaled](https://en.wikipedia.org/wiki/Feature_scaling), and the label [one-hot encoded](https://en.wikipedia.org/wiki/One-hot). (I learned the hard way that forgetting either of these steps will lead you to nothing but tears and regret.)
+
+First things first, some helper functions to convert the csv's data type into Breeze matrices, and a handy case class that applies them:
+
+```scala
+import breeze.linalg._
+import breeze.numerics._
+
+// Turns an Int digit label into a (10,1) DenseMatrix one-hot encoded representation of the label
+def labelToMatrix (label: Int) : DenseMatrix[Double] = {
+    var onehot = DenseVector.zeros[Double](10)
+    onehot(label) = 1.0
+    return new DenseMatrix(10, 1, onehot.toArray)
+}
+
+// Turns an array of doubles into a (784,1) DenseMatrix representing the 784 pixels of an image from the MNIST data.
+def imageToMatrix (image: Array[Double]) = new DenseMatrix(784, 1, image)
+
+/* Case class used to process the raw CSV data into an Array[Double] containing the image's pixel data,
+*  and an Int label. Also performs feature rescaling on the image's pixel values to [0, 1].
+*/
+case class mnistDatum(line: String) {
+    val raw   = line.split(",") map(_.trim)
+    val label = labelToMatrix(raw.head.toInt)
+    val image = imageToMatrix(raw.tail map(item => item.toDouble / 255.0))
+}
+```
+
+OK, now we just need to load our CSV and process it. We want a list of tuples where one element of the tuple is the image data, and the other is the label. We'll take advantage of Scala's fluent function chaining to do this cleanly in one go. We can do our test/train split here while we're at it.
+
+```scala
+import scala.io.Source
+
+/* Load MNIST data from a 785-column CSV where column 0 is the label (a digit from 0 to 9), and columns 1...784
+*  each represent one pixel from the 28x28 MNIST image. These both get transformed into (n,1) matrices, then put
+*  into a List[Tuple2[]] where the first element of each tuple is an image, and the second element is its label.
+*/
+val mnist = (Source.fromFile("src/main/resources/mnist_train.csv")
+                   .getLines()
+                   .drop(1)
+                   .map { line => mnistDatum(line) }
+                   .map { datum => (datum.image, datum.label) }).toSeq
+
+// Test/train split
+val mnist_train = mnist.dropRight(10000)
+val mnist_test = mnist.takeRight(10000)
+```
+
+And we're ready to rock. I'm sure this could be better optimized, but it's good enough. Now that our data's loaded & formatted, let's write ourselves a brain!
+
+## Build the network
+
+OK, let's put the neural network in its own class. We want to initialize our network with a list of Ints where each Int corresponds to the size of one layer of the network. Let's write some boilerplate, and write a handy companion object to initialize new NeuralNetworks while we're at it.
+
+```scala
+import scala.util.Random.shuffle
+import breeze.linalg._
+import breeze.numerics._
+
+class NeuralNetwork(sizes: Seq[Int]) {
+    //our code will go here
+}
+
+object NeuralNetwork {
+    def apply(x: Seq[Int]) = new NeuralNetwork(x)
+}
+```
+
+Sweet. For convenience, let's also define a type alias for the tuple of matrices that we're using as our data structure...
+
+```scala
+type Datum = Tuple2[DenseMatrix[Double], DenseMatrix[Double]]
+```
+
+...and write a helper function to calculate the derivative of the sigmoid function. We'll need this for later.
+
+```scala
+// Derivative of sigmoid function
+def sigmoid_prime (z: DenseMatrix[Double]) = sigmoid(z) :* (-sigmoid(z) + 1.0)
+```
+
+And now, it's constructor time. We want a field for the number of layers, and fields for our weights and biases for each layer. We'll use Breeze stats to randomly initialize the weights and biases to the Gaussian distribution with range [0, 1]. To do this, let's take Scala's awesome for-comprehensions for a spin.
+
+```scala
+val layers = sizes.length
+val normal = breeze.stats.distributions.Gaussian(0, 1)
+var biases = for (y <- sizes.drop(1)) yield DenseMatrix.rand(y, 1, normal)
+var weights = for ((x, y) <- sizes.dropRight(1) zip sizes.drop(1)) yield DenseMatrix.rand(y, x, normal)
+```
+
+## Feedforward
+
+Now that we have our fields, let's define a feedforward pass. This is simpler than it may sound; all we need to do is go through each layer of our network starting with the input layer, multiply our activation by our weight and add the bias, then continue onward, feeding the result into the next layer until we hit our output layer. All we need is a `zip` and a `foreach`, and we're golden!
+
+```scala
+// Plug an activation into the network and return the output
+def feedForward (activation: DenseMatrix[Double]) : DenseMatrix[Double] = {
+    var output = activation
+
+    biases zip weights foreach { case (bias, weight) =>
+        output = sigmoid((weight * output) + bias)
+    }
+
+    return output
+}
+```
+
+## Stochastic gradient descent
+
+We can feed stuff through our network now, but it can't learn yet. For that, we'll need to implement [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD). Specifically, we'll use mini batch SGD, in which rather than calculating the gradient for a single example at a time, we split our training dataset into manageable randomized chunks and iterate over these batches, updating our weights and biases for each batch. Rather than dumping all the complexity into one function, let's just write a wrapper here that makes our batches and then calls an `updateMiniBatch` function that we'll write later. We'll need it to take as inputs a training dataset, the number of epochs we want to run for, the sie of our batches, and our learning rate. We'll also implement optional tracking of our network's performance with one of Scala's handy Options. At the end of each epoch, we'll use case matching to see whether testData holds a test dataset. If it does, it'll evaulate our model at the end of each epoch and print it for us, otherwise, we'll skip it and save some cycles!
+
+```scala
+/* Perform mini batch stochastic gradient descent to train the network, outputting the test accuracy at each epoch. The training
+*  and Optional test data are both Seq[Tuple2[]] of DenseMatrix[Doubles], where each tuple is an input / label pair, and the rest
+*  of the arguments do what they say on the tin. If we provide testData, we get an evaluation on our test set printed for each epoch
+*/
+def sgd (trainingData: Seq[Datum], epochs: Int, miniBatchSize: Int, eta: Double, testData: Option[Seq[Datum]]) {
+    val n = trainingData.length
+
+    for (i <- 1 to epochs) {
+        val data = shuffle(trainingData)
+        val miniBatches = for (j <- 0 to n - 1 by miniBatchSize) yield trainingData.slice(j, j + miniBatchSize)
+
+        miniBatches foreach { miniBatch =>
+            updateMiniBatch(miniBatch, eta)
+        }
+
+        testData match {
+            case Some(data) => println(s"Epoch ${i} complete, with ${evaluate(data)} / ${data.length} correct")
+            case None => println(s"Epoch ${i} complete")
+        }
+    }
+}
+```
+
+Next, we can begin implementing `updateMiniBatch`. For a given batch, we need to calculate the gradient of our cost function, then use this gradient to figure out in which direction and how much we need to nudge our weights and biases, adjusting by our learning rate. To calculate the gradient, we'll use a supervised learning method called backpropagation, but let's not worry about the specifics for now. We'll just call a `backprop` function that we'll write later. So, here goes:
+
+```scala
+/* Updates weights and biases via backpropagation over one minibatch. miniBatch is a Seq[Tuple2[]]
+*  of DenseMatrix[Double]s where each Tuple2 is an input / label pair, and eta
+*  is the learning rate.
+*/
+def updateMiniBatch (miniBatch: Seq[Datum], eta: Double) {
+    var nabla_bias = for (bias <- biases) yield DenseMatrix.zeros[Double](bias.rows, bias.cols)
+    var nabla_weight = for (weight <- weights) yield DenseMatrix.zeros[Double](weight.rows, weight.cols)
+
+    miniBatch foreach { case (features, result) =>
+        val (delta_nabla_bias, delta_nabla_weight) = backprop(features, result)
+        nabla_bias = for ((nabla, delta) <- nabla_bias zip delta_nabla_bias) yield nabla + delta
+        nabla_weight = for ((nabla, delta) <- nabla_weight zip delta_nabla_weight) yield nabla + delta
+    }
+
+    weights = for ((weight, nabla) <- weights zip nabla_weight) yield weight - (nabla * (eta / miniBatch.length))
+    biases = for ((bias, nabla) <- biases zip nabla_bias) yield bias - (nabla * (eta / miniBatch.length))
+}
+```
+
+Now we hit the complicated stuff: [backpropagation](https://en.wikipedia.org/wiki/Backpropagation). Basically, we need to cycle through two phases: First, calculate the error by doing a feedforward pass with our example and comparing it to our desired output. Second, we go backwards through the network, breaking down the error for each neuron in each layer, and use this to find our gradients. Nielsen provides [a whole chapter of crystal-clear explanation](http://neuralnetworksanddeeplearning.com/chap2.html) of how and why this works, so I'll point you his way for detailed exposition rather than poorly rehashing it here.
+
+```scala
+/* Returns the gradient of the cost function as a Tuple2[] of DenseMatrix[Double]s, where nabla_bias
+*  and nabla_weight are both Seq[DenseMatrix[Double]] just like weights and biases
+*/
+def backprop (features: DenseMatrix[Double], result: DenseMatrix[Double]) : (Seq[DenseMatrix[Double]], Seq[DenseMatrix[Double]]) = {
+    var nabla_bias = for (bias <- biases) yield DenseMatrix.zeros[Double](bias.rows, bias.cols)
+    var nabla_weight = for (weight <- weights) yield DenseMatrix.zeros[Double](weight.rows, weight.cols)
+
+    // feedforward pass, storing z values
+    var activation = features
+    var activations = List(features)
+    var zs: List[DenseMatrix[Double]] = List()
+
+    biases zip weights foreach { case (bias, weight) =>
+        val z = (weight * activation) + bias
+        activation = sigmoid(z)
+        zs = zs :+ z
+        activations = activations :+ activation
+    }
+
+    // backward pass
+    var delta = (activations.reverse.head - result) :* sigmoid_prime(zs.reverse.head)
+    nabla_bias = nabla_bias.updated(nabla_bias.length - 1, delta)
+    nabla_weight = nabla_weight.updated(nabla_weight.length - 1, delta * activations.takeRight(2).head.t)
+
+    for (i <- 2 until layers) {
+        val z = zs.takeRight(i).head
+        val sp = sigmoid_prime(z)
+        delta = (weights.takeRight(i - 1).head.t * delta) :* sp
+        nabla_bias = nabla_bias.updated(nabla_bias.length - i, delta)
+        nabla_weight = nabla_weight.updated(nabla_weight.length - i, delta * activations.takeRight(i + 1).head.t)
+    }
+
+    return (nabla_bias, nabla_weight)
+}
+```
+
+Lastly, we need a way to evaluate our performance. We'll do this by assuming our output is the neuron with the highest activation, and calculating the number of examples for which this output is equal to the label.
+
+```scala
+/* Returns the number of inputs from test_data for which the network's response is correct.
+*  The output is calculated as the index of the output neuron with the maximum activation.
+*/
+def evaluate (test_data: Seq[Datum]) = (for ((input, label) <- test_data if argmax(feedForward(input)) == argmax(label)) yield 1).length
+```
+
+Cool beans, we just wrote an entire neural network! Let's go back to our main class and use our new network.
+
+```scala
+import network.NeuralNetwork
+
+/* Initialize 3-layer neural network with 784 input neurons corresponding to te pixel of a MNIST image, a 30-neuron hidden layer,
+*  and 10 output neurons corresponding to the 10 digit labels.
+*/
+val net = NeuralNetwork(List(784, 30, 10))
+
+println("now training")
+// Train for 30 epochs, with mini-batch size 10, and learning rate 3.0
+net.sgd(mnist_train, 30, 10, 3.0, Some(mnist_test))
+
+println(s"final accuracy: ${ 100.0 * net.evaluate(mnist_test).toDouble / mnist_test.length.toDouble }%")
+```
+
+All that's left is to fire it up and see what happens.
+
+## Testing our network
+
+Let's take it for a spin:
+
+```
+$sbt run
+now training
+Epoch 1 complete, with 8819 / 10000 correct
+Epoch 2 complete, with 9065 / 10000 correct
+Epoch 3 complete, with 9163 / 10000 correct
+Epoch 4 complete, with 9245 / 10000 correct
+...
+Epoch 29 complete, with 9397 / 10000 correct
+Epoch 30 complete, with 9422 / 10000 correct
+final accuracy: 94.22%
+```
+
+Awesome! Everything works, and we're getting over 94% acuracy with handwritten digit recognition first try. That's nothing to sneeze at.
+
+If we want to make further improvements, we could spend a while tweaking our metaparameters or algorithms. But, I think I'll move on for now. My intent for this project was simply to learn the algorithms. For practical purposes, rolling one's own NN is likely suboptimal. If we want to apply neural networks to real problems, we'd be much better off working with one of the many optimized and tested neural network libraries out there, like [Torch](http://torch.ch/) or [Keras](https://keras.io/). As it so happens, I hope to explore exactly that over the next few weeks using Keras with TensorFlow.
+
+As always, if you want to see the code, [it's up on GitHub](https://github.com/vivshaw/scriptophile) for your viewing pleasure. Happy brain-building!
