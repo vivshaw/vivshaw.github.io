@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 import Headings from "@components/Headings";
-import Image, { ImagePlaceholder } from "@components/Image";
+import { ImagePlaceholder } from "@components/Image";
 import mediaqueries from "@styles/media";
 import { IArticle } from "@types";
+import { prettyPrintDate } from "@utils";
 
 interface ArticlesListProps {
   articles: IArticle[];
@@ -64,20 +66,14 @@ interface ArticlesListItemProps {
 const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
-  const imageSource = article.image.src;
-  const prettyDate = new Date(article.date).toLocaleDateString("en-us", {
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const prettyDate = prettyPrintDate(article.date);
 
   return (
     <ArticleLink href={`/blog/${article.slug}`} data-a11y="false">
       <Item>
         <ImageContainer narrow={narrow}>
-          {imageSource ? (
-            <Image src={imageSource} alt="TODO" />
+          {article.image ? (
+            <Image src={article.image} alt="TODO" fill />
           ) : (
             <ImagePlaceholder />
           )}
@@ -200,7 +196,7 @@ const ImageContainer = styled.div<{ narrow: boolean }>`
 const Title = styled(Headings.h2)`
   font-size: 21px;
   font-family: ${(p) => p.theme.fonts.serif};
-  margin-bottom: "10px";
+  margin-bottom: 10px;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -213,7 +209,7 @@ const Title = styled(Headings.h2)`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 22px;  
+    font-size: 22px;
     padding: 30px 20px 0;
     margin-bottom: 10px;
     -webkit-line-clamp: 3;
@@ -227,7 +223,7 @@ const Excerpt = styled.p<{
   font-size: 16px;
   margin-bottom: 10px;
   color: ${(p) => p.theme.colors.grey};
-  display: "box";
+  display: box;
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
 
   ${mediaqueries.desktop`

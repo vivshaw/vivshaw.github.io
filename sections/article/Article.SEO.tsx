@@ -1,69 +1,42 @@
-import React from 'react';
+import React from "react";
 
-import SEO from '@components/SEO';
+import SEO from "@components/SEO";
 
-import { IArticle, IAuthor } from '@types';
-import { graphql, useStaticQuery } from 'gatsby';
-
-const siteQuery = graphql`
-  {
-    allSite {
-      edges {
-        node {
-          siteMetadata {
-            name
-            siteUrl
-          }
-        }
-      }
-    }
-  }
-`;
+import { IArticle, IAuthor } from "@types";
+import { useRouter } from "next/router";
+import { prettyPrintDate } from "@utils";
 
 interface ArticleSEOProps {
   article: IArticle;
-  authors: IAuthor[];
-  location: Location;
+  author: IAuthor;
   imagelocation?: string;
 }
 
 const ArticleSEO: React.FC<ArticleSEOProps> = ({
   article,
-  authors,
-  location,
+  author,
   imagelocation,
 }) => {
-  const results = useStaticQuery(siteQuery);
-  const siteUrl = results.allSite.edges[0].node.siteMetadata.siteUrl;
+  const siteUrl = "vivshaw.net"; // TODO
+  const router = useRouter();
 
-  const authorsName = authors.map(author => (author.name));
-  const authorsSlug = authors.map(author => (author.slug));
-  const authorsBio = authors.map(author => (author.bio));
-
-  // Checks if the source of the image is hosted on Contentful
-  if (`${article.hero.seo.src}`.includes('ctfassets')) {
-    imagelocation = `https:${article.hero.seo.src}`;
-  } else {
-    imagelocation = `${siteUrl + article.hero.seo.src}`;
-  }
+  imagelocation = `${siteUrl + article.image.src}`;
+  const prettyDate = prettyPrintDate(article.date);
 
   return (
     <SEO
-      authorName={authorsName}
-      authorsBio={authorsBio}
-      authorsSlug={authorsSlug}
-      canonicalUrl={article.canonical_url}
-      dateforSEO={article.dateForSEO}
-      description={article.excerpt}
+      authorName={author.name}
+      authorsBio={author.bio}
+      authorsSlug={author.slug}
+      canonicalUrl={""}
+      dateforSEO={prettyDate}
+      description={article.blurb}
       image={imagelocation}
       isBlogPost={true}
-      articlepathName={siteUrl + location.pathname}
-      published={article.date}
-      timeToRead={article.timeToRead}
+      articlepathName={siteUrl + router.pathname}
+      published={prettyDate}
       title={article.title}
-      isSecret={article.secret}
-    >
-    </SEO>
+    />
   );
 };
 

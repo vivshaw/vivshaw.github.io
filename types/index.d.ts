@@ -1,3 +1,4 @@
+import { ImageProps, StaticImageData } from "next/image";
 import React from "react";
 
 export interface IPaginator {
@@ -19,10 +20,8 @@ export interface IArticle {
   slug: string;
   blurb: string;
   title: string;
-  image: {
-    src: string;
-  };
-  date: string;
+  image: StaticImageData;
+  date: Date;
 }
 
 interface IArticleQuery {

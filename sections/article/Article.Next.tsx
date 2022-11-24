@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Link } from "gatsby";
+import Link from "next/link";
 
 import Headings from "@components/Headings";
-import Image from "@components/Image";
-
 import mediaqueries from "@styles/media";
-
 import { IArticle } from "@types";
+import { prettyPrintDate } from "@utils";
+import Image from "next/image";
 
 interface ArticlesNextProps {
   articles: IArticle[];
@@ -48,25 +47,24 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
+  const imageSource = article.image;
+  const prettyDate = prettyPrintDate(article.date);
 
   return (
     <ArticleLink
-      to={article.slug}
+      href={article.slug}
       data-a11y="false"
       narrow={narrow ? "true" : "false"}
     >
       <Item>
         <ImageContainer>
-          <Image src={imageSource} />
+          <Image src={imageSource} alt="TODO" fill />
         </ImageContainer>
         <Title dark hasOverflow={hasOverflow}>
           {article.title}
         </Title>
-        <Excerpt hasOverflow={hasOverflow}>{article.excerpt}</Excerpt>
-        <MetaData>
-          {article.date} · {article.timeToRead} min read
-        </MetaData>{" "}
+        <Excerpt hasOverflow={hasOverflow}>{article.blurb}</Excerpt>
+        <MetaData>{prettyDate}</MetaData>
       </Item>
     </ArticleLink>
   );
@@ -175,7 +173,7 @@ const Title = styled(Headings.h3)`
   `}
 `;
 
-const Excerpt = styled.p<{ narrow: boolean; hasOverflow: boolean }>`
+const Excerpt = styled.p<{ narrow?: boolean; hasOverflow: boolean }>`
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;

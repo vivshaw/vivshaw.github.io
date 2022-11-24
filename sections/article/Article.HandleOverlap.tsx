@@ -12,7 +12,7 @@ import throttle from "lodash/throttle";
  * and decides wether or not they're overlapping (with some buffer). If they are overlapping
  * we want to hide the top element.
  */
-const HandleOverlap: React.FC<{}> = (props) => {
+const HandleOverlap: React.FC<{ children?: React.ReactNode }> = (props) => {
   const asideRef = useRef<HTMLDivElement>(null);
   const [isOverlapping, setIsOverlapping] = useState(false);
 
@@ -50,24 +50,22 @@ const HandleOverlap: React.FC<{}> = (props) => {
       const nodesToNotOverlap = [...ctas, ...images];
       const noNodesAreVisible = !nodesToNotOverlap.some(isVisible);
 
-      nodesToNotOverlap.forEach(
-        (node: HTMLElement): void | null => {
-          const isOverlapping = collide(asideRef.current, node);
+      nodesToNotOverlap.forEach((node: HTMLElement): void | null => {
+        const isOverlapping = collide(asideRef.current, node);
 
-          if (noNodesAreVisible) {
-            return setIsOverlapping(isOverlapping);
-          }
-          /**
-           * If the node is not in the viewport don't fire state events for it,
-           * otherwise we run into issues with multiple nodes on the page.
-           */
-          if (!isVisible(node)) {
-            return null;
-          }
+        if (noNodesAreVisible) {
+          return setIsOverlapping(isOverlapping);
+        }
+        /**
+         * If the node is not in the viewport don't fire state events for it,
+         * otherwise we run into issues with multiple nodes on the page.
+         */
+        if (!isVisible(node)) {
+          return null;
+        }
 
-          setIsOverlapping(isOverlapping);
-        },
-      );
+        setIsOverlapping(isOverlapping);
+      });
     }, 20);
 
     window.addEventListener("scroll", handleScroll);
@@ -84,13 +82,13 @@ const HandleOverlap: React.FC<{}> = (props) => {
       {props.children}
     </OverlapContainer>
   );
-}
+};
 
 export default HandleOverlap;
 
 const OverlapContainer = styled.div<{ isOverlapping: boolean }>`
-  user-select: ${p => (p.isOverlapping ? "none" : "initial")};
-  pointer-events: ${p => (p.isOverlapping ? "none" : "initial")};
-  opacity: ${p => (p.isOverlapping ? 0 : 1)};
-  transition: ${p => (p.isOverlapping ? "opacity 0.25s" : "opacity 0.25s")};
+  user-select: ${(p) => (p.isOverlapping ? "none" : "initial")};
+  pointer-events: ${(p) => (p.isOverlapping ? "none" : "initial")};
+  opacity: ${(p) => (p.isOverlapping ? 0 : 1)};
+  transition: ${(p) => (p.isOverlapping ? "opacity 0.25s" : "opacity 0.25s")};
 `;

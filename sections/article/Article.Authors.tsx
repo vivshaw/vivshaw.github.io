@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useColorMode } from "theme-ui";
-import { Link } from "gatsby";
 
 import Image from "@components/Image";
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
 import { IAuthor } from "@types";
+import Link from "next/link";
 
 /**
  * When generating the author names we're also checking to see how long the
@@ -16,7 +16,7 @@ import { IAuthor } from "@types";
  */
 function generateAuthorNames(authors: IAuthor[]) {
   return authors
-    .map(author => {
+    .map((author) => {
       if (authors.length > 2) {
         return author.name.split(" ")[0];
       } else {
@@ -27,7 +27,7 @@ function generateAuthorNames(authors: IAuthor[]) {
 }
 
 interface AuthorsProps {
-  authors: IAuthor[]
+  authors: IAuthor[];
 }
 
 const CoAuthors: React.FC<AuthorsProps> = ({ authors }) => {
@@ -43,7 +43,10 @@ const CoAuthors: React.FC<AuthorsProps> = ({ authors }) => {
       <CoAuthorsList style={listWidth}>
         {authors.map((author, index) => (
           <CoAuthorAvatar style={{ left: `${index * 15}px` }} key={author.name}>
-            <RoundedImage src={author.avatar.small} />
+            <RoundedImage
+              src={author.avatar}
+              alt="A photo of Hannah in a Smithsonian display of a giant salt molecule"
+            />
           </CoAuthorAvatar>
         ))}
       </CoAuthorsList>
@@ -58,7 +61,7 @@ const CoAuthors: React.FC<AuthorsProps> = ({ authors }) => {
             <IconOpenContainer>
               <Icons.ToggleClose fill={fill} />
             </IconOpenContainer>
-            {authors.map(author => (
+            {authors.map((author) => (
               <CoAuthorsListItemOpen key={author.name}>
                 <AuthorLink
                   as={author.authorsPage ? Link : "div"}
@@ -90,12 +93,12 @@ const ArticleAuthors: React.FC<AuthorsProps> = ({ authors }) => {
     return <CoAuthors authors={authors} />;
   } else {
     return (
-      <AuthorLink
-        as={authors[0].authorsPage ? Link : "div"}
-        to={authors[0].slug}
-      >
+      <AuthorLink href={authors[0].slug}>
         <AuthorAvatar>
-          <RoundedImage src={authors[0].avatar.small} />
+          <RoundedImage
+            src={authors[0].avatar}
+            alt="A photo of Hannah in a Smithsonian display of a giant salt molecule"
+          />
         </AuthorAvatar>
         <strong>{authors[0].name}</strong>
         <HideOnMobile>,&nbsp;</HideOnMobile>
@@ -111,8 +114,13 @@ const AuthorAvatar = styled.div`
   width: 25px;
   border-radius: 50%;
   margin-right: 14px;
-  background: ${p => p.theme.colors.grey};
+  background: ${(p) => p.theme.colors.grey};
   overflow: hidden;
+
+  & > img {
+    object-fit: cover;
+    width: 100%;
+  }
 
   .gatsby-image-wrapper > div {
     padding-bottom: 100% !important;
@@ -127,17 +135,17 @@ const RoundedImage = styled(Image)`
   border-radius: 50%;
 `;
 
-const AuthorLink = styled.div`
+const AuthorLink = styled(Link)`
   display: flex;
   align-items: center;
   color: inherit;
 
   strong {
-    transition: ${p => p.theme.colorModeTransition};
+    transition: ${(p) => p.theme.colorModeTransition};
   }
 
   &:hover strong {
-    color: ${p => p.theme.colors.primary};
+    color: ${(p) => p.theme.colors.primary};
   }
 `;
 
@@ -158,7 +166,7 @@ const CoAuthorsListOpen = styled.ul`
   right: -21px;
   top: -19px;
   padding: 21px;
-  background: ${p => p.theme.colors.card};
+  background: ${(p) => p.theme.colors.card};
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: pointer;
@@ -181,7 +189,7 @@ const CoAuthorAvatarOpen = styled.div`
   width: 25px;
   border-radius: 50%;
   margin-right: 15px;
-  background: ${p => p.theme.colors.grey};
+  background: ${(p) => p.theme.colors.grey};
   overflow: hidden;
   pointer-events: none;
 
@@ -197,8 +205,8 @@ const CoAuthorAvatar = styled.div`
   width: 25px;
   border-radius: 50%;
   z-index: 1;
-  background: ${p => p.theme.colors.grey};
-  box-shadow: 0 0 0 2px ${p => p.theme.colors.background};
+  background: ${(p) => p.theme.colors.grey};
+  box-shadow: 0 0 0 2px ${(p) => p.theme.colors.background};
   transition: box-shadow 0.25s ease;
   overflow: hidden;
   pointer-events: none;
@@ -234,7 +242,7 @@ const NameContainer = styled.strong`
 const AuthorNameOpen = styled.strong`
   position: relative;
   cursor: pointer;
-  color: ${p => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.secondary};
   font-weight: 600;
 `;
 
@@ -264,7 +272,7 @@ const CoAuthorsContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
   font-size: 18px;
-  color: ${p => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.grey};
   cursor: pointer;
 
   &::before {
@@ -274,8 +282,8 @@ const CoAuthorsContainer = styled.div<{ isOpen: boolean }>`
     right: -20px;
     top: -16px;
     bottom: -16px;
-    background: ${p => p.theme.colors.card};
-    box-shadow: ${p =>
+    background: ${(p) => p.theme.colors.card};
+    box-shadow: ${(p) =>
       p.isOpen ? "none" : " 0px 0px 15px rgba(0, 0, 0, 0.1)"};
     border-radius: 5px;
     z-index: 0;

@@ -327,3 +327,11 @@ export function copyToClipboard(toCopy: string) {
   document.execCommand(`copy`);
   document.body.removeChild(el);
 }
+
+export const prettyPrintDate = (date: Date) =>
+  date.toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });

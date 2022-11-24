@@ -1,4 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  JSXElementConstructor,
+} from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
 
@@ -8,6 +13,7 @@ import mediaqueries from "@styles/media";
 import { clamp } from "@utils";
 
 interface AsideProps {
+  children?: React.ReactNode;
   contentHeight: number;
 }
 
@@ -34,8 +40,8 @@ const Aside: React.FC<AsideProps> = ({ contentHeight, children }) => {
   const [shouldFixAside, setShouldFixAside] = useState<boolean>(false);
 
   const show = imageOffset && progress < 100;
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, { show }),
+  const childrenWithProps = React.Children.map(children, (child) =>
+    React.cloneElement(child, { show })
   );
 
   useEffect(() => {
@@ -88,7 +94,7 @@ const Aside: React.FC<AsideProps> = ({ contentHeight, children }) => {
       </Align>
     </AsideContainer>
   );
-}
+};
 
 export default Aside;
 
@@ -107,17 +113,17 @@ const Align = React.memo(styled.div<{
   shouldFixAside: boolean;
   imageOffset: number;
 }>`
-  position: ${p => (p.shouldFixAside ? "fixed" : "absolute")};
+  position: ${(p) => (p.shouldFixAside ? "fixed" : "absolute")};
   display: flex;
   transform: translateY(0px);
-  top: ${p => (p.shouldFixAside ? 0 : p.imageOffset)}px;
-  align-items: ${p => (p.shouldFixAside ? "center" : "flex-start")};
+  top: ${(p) => (p.shouldFixAside ? 0 : p.imageOffset)}px;
+  align-items: ${(p) => (p.shouldFixAside ? "center" : "flex-start")};
   height: 100vh;
   z-index: 3;
 
-  opacity: ${p => (p.show ? 1 : 0)};
-  visibility: ${p => (p.show ? "visible" : "hidden")};
-  transition: ${p =>
+  opacity: ${(p) => (p.show ? 1 : 0)};
+  visibility: ${(p) => (p.show ? "visible" : "hidden")};
+  transition: ${(p) =>
     p.show
       ? "opacity 0.4s linear, visibility 0.4s linear"
       : "opacity 0.2s linear, visibility 0.4s linear"};

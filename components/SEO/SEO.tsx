@@ -18,6 +18,7 @@
  */
 
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 
 interface HelmetProps {
@@ -30,7 +31,6 @@ interface HelmetProps {
   description?: string;
   image?: string;
   isBlogPost?: boolean;
-  pathname: string;
   published?: string;
   title?: string;
   children?: React.ReactNode;
@@ -63,19 +63,19 @@ const SEO: React.FC<HelmetProps> = ({
   description,
   image,
   isBlogPost,
-  pathname,
   published,
   title,
 }) => {
+  const router = useRouter();
   const twitter = "www.twitter.com/vvvivshaw";
   const github = "www.github.com/vivshaw";
 
-  const pageUrl = "vivshaw.github.io/" + pathname;
+  const pageUrl = "vivshaw.net/" + router.pathname;
 
-  const fullURL = (path: string) => (path ? `${path}` : "vivshaw.github.io");
+  const fullURL = (path: string) => (path ? `${path}` : "vivshaw.net");
 
   // If no image is provided, use a default
-  image = image ? image : `vivshaw.github.io/defaultpreview.jpg`;
+  image = image ? image : `vivshaw.net/defaultpreview.jpg`;
   image = fullURL(image);
 
   let siteSchema = `{
@@ -85,7 +85,7 @@ const SEO: React.FC<HelmetProps> = ({
         "@type": "Organization",
         "@id": "vivshaw.github.io/#organization",
         "name": "vivshaw.net",
-        "url": "vivshaw.github.io",
+        "url": "vivshaw.net",
         "sameAs": [
           "${twitter}",
           "${github}",

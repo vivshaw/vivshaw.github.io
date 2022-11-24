@@ -16,13 +16,11 @@ import { IArticle } from "@types";
 import theme from "@theme";
 
 const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
-  const router = useRouter();
-
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <Layout>
-          <SEO pathname={router.pathname} />
+          <SEO />
           <ArticlesHero />
           <Section narrow>
             <ArticlesList articles={articles} />

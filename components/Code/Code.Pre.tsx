@@ -17,7 +17,7 @@ function preToCodeBlock(preProps) {
     const matches = className.match(/language-(?<lang>.*)/);
 
     return {
-      codeString: codeString.trim(),
+      codeString: codeString,
       className,
       language:
         matches && matches.groups && matches.groups.lang
