@@ -1,14 +1,11 @@
-import React from "react";
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 import Headings from "@components/Headings";
-
 import mediaqueries from "@styles/media";
 import { IArticle, IAuthor } from "@types";
-
-import ArticleAuthors from "./Article.Authors";
 import { prettyPrintDate } from "@utils";
-import Image from "next/image";
+import ArticleAuthors from "./Article.Authors";
 
 interface ArticleHeroProps {
   article: IArticle;
