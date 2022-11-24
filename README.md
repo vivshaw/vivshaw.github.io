@@ -25,3 +25,13 @@ pnpm create next-app --example with-mdx with-mdx-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## TODO
+
+[ ] There's an error with `'` and `"` in Prism code blocks of unknown type
+[ ] Make `code` blocks more legible
+[ ] Reposition Copy button in code blocks
+[ ] Better image handling / src sets / alt text
+[ ] Footer images are distorted
+[ ] Nicer component for loading images in MDX?
+[ ] Actual dev env support for MDX

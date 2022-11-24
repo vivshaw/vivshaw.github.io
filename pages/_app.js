@@ -6,18 +6,18 @@ import { MDXProvider } from "@mdx-js/react";
 import Anchor from "@components/Anchor";
 import Blockquote from "@components/Blockquote";
 import Code from "@components/Code";
+import Figcaption from "@components/Figcaption";
 import Headings from "@components/Headings";
 import HorizontalRule from "@components/HorizontalRule";
 import Lists from "@components/Lists";
 import Paragraph from "@components/Paragraph";
 import Tables from "@components/Tables";
-import { ImageZoom } from "@components/Image";
-import Figcaption from "@components/Figcaption";
 
 const components = {
-  img: ImageZoom,
   a: Anchor,
   blockquote: Blockquote,
+  code: Code.Prism,
+  figcaption: Figcaption,
   h1: Headings.h2, // h1 reserved article title
   h2: Headings.h2,
   h3: Headings.h3,
@@ -28,13 +28,11 @@ const components = {
   ul: Lists.ul,
   ol: Lists.ol,
   p: Paragraph,
-  code: Code.Prism,
   pre: Code.Pre,
   table: Tables.Table,
-  thead: Tables.Head,
   th: Tables.HeadCell,
+  thead: Tables.Head,
   td: Tables.Cell,
-  figcaption: Figcaption,
 };
 
 export default function App({ Component, pageProps }) {

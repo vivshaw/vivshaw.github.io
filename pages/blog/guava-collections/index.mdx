@@ -1,3 +1,4 @@
+import ArticlePage from "@templates/article.template";
 import metaImage from "./josefin-HtCgLIDy-2U-unsplash.jpg";
 
 export const meta = {
@@ -5,12 +6,11 @@ export const meta = {
   title: "Beautify Your Java Collections with Google Guava",
   blurb: "",
   tags: ["java", "guava"],
+  slug: "guava-collections",
   image: metaImage,
 };
 
 I realize I'm years late to the [Google Guava](https://github.com/google/guava) train, but Guava is so delightfully useful that I can't help but belatedly gush about it. In particular, the new Collections are just amazing for getting rid of boilerplate and making your code simpler and prettier. Let me show off two of my favorites, the Multiset and the Multimap:
-
-<!--include toc.html -->
 
 ## Multisets
 
@@ -61,14 +61,16 @@ Now let's throw in some of Java 8's new functional programming features and prin
 Multiset<String> frequencies = HashMultiset.create();
 words.forEach(frequencies::add);
 frequencies.entrySet()
-           .forEach(entry -> System.out.format("There are %d %ss.%n", entry.getCount(), entry.getElement()));
+           .forEach(entry ->
+               System.out.format("There are %d %ss.%n", entry.getCount(), entry.getElement())
+           );
 ```
 
 Tiny and adorable!
 
 ## Multimaps
 
-A [Multimap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#multimap) is kinda like a Map that can map each key to an arbitrary number of values, with a bunch of neat views to allow you to treat it like a regular Map if you need to, or any number of other things. This is a pretty sweet way to replace clunky Map<K, Collection< V >> iteration with tidier code. For example, suppose we wanted to group this string by word length:
+A [Multimap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#multimap) is kinda like a Map that can map each key to an arbitrary number of values, with a bunch of neat views to allow you to treat it like a regular Map if you need to, or any number of other things. This is a pretty sweet way to replace clunky `Map<K, Collection<V>>` iteration with tidier code. For example, suppose we wanted to group this string by word length:
 
 ```java
 String message = "Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque vel enim id neque semper convallis vel vulputate nunc";
@@ -120,3 +122,7 @@ Map<Integer, List<String>> wordsByLength = Arrays.stream(message.split(" "))
 ```
 
 If we wanna do that with Guava collections we'd have to [write a custom Collector](http://www.nurkiewicz.com/2014/07/introduction-to-writing-custom.html). But, that's honestly not a big deal.
+
+export default ({ children }) => (
+  <ArticlePage meta={meta}>{children}</ArticlePage>
+);

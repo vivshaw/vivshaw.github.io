@@ -1,3 +1,4 @@
+import ArticlePage from "@templates/article.template";
 import metaImage from "./jaimie-phillips-KamSS2euCzA-unsplash.jpg";
 
 export const meta = {
@@ -5,14 +6,13 @@ export const meta = {
   title: "Do Robots Dream of Electric Pentameter?",
   blurb: "Generative poetry with LSTM neural networks",
   tags: ["python", "ml", "LSTM", "neural networks", "keras"],
+  slug: "electric-pentameter",
   image: metaImage,
 };
 
 Can an artificial brain pen an artificial quatrain? Can neural networks master metonymy? Having a taste for both verse and machine learning, I set out to put together a fun little project to apply the things I've been learning about neural networks: a [Shakespearean sonnet generator](http://robot-shakespeare.herokuapp.com/) powered by a [long short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) neural network. For those who are not familiar with LSTM networks, they're basically a particular type of neural network that is uniquely suited to working with time series data. Regular old neural networks operate on one batch at a time, with no memory of previous batches, and are therefore pretty bad at learning connections between past data and present data. LSTMs are instead designed to [retain memory of the information they process for a long time](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), and to make intelligent decisions about what information to forget and what to keep. This makes them much better than standard neural networks at learning connections over time.
 
 LSTM networks are a useful technique to have under your belt, as they've been used to achieve [state-of-the-art results in many different fields](http://karpathy.github.io/2015/05/21/rnn-effectiveness/). But don't let the data-sci-speak scare you off: with modern machine learning libraries like [Keras](keras.io) and [TensorFlow](https://www.tensorflow.org/), anyone with basic understanding of Python and linear algebra can get up and running with some basic neural networks in a day or two. If you're not convinced, read on: hopefully this little toy text-generation project will show you that neural networks are for everybody, and you don't need to be a comp sci Ph.D. to start finding useful applications for cutting-edge machine learning in your own data analysis, programming, or new media art.
-
-<!--include toc.html -->
 
 ## Introductory matters: imports and corpus
 
@@ -81,9 +81,7 @@ Suddenly, it's linear algebra time! We've encoded our corpus as lists of integer
 
 For our labels, we have one label for each sentence, each of which should become a `t`-dimensional one-hot encoded vector. This will be a `num_sentences x num_chars` array. So, we'll initialize another array. Since we are already looping over each sentence in the outer loop of the previous step, we can just use that same loop. Its index will correspond with the 0-dimension, and the integer character encoding will correspond with the 1-dimension.
 
-<i class="fa fa-exclamation-circle" aria-hidden="true"></i> We should make sure to
-sanity check our matrix dimensions before going any further! It will save you a lot
-of unnecessary headaches.
+⚠️ We should make sure to sanity check our matrix dimensions before going any further! It will save you a lot of unnecessary headaches.
 
 ```python
 # Vectorize our data and labels. We want everything in one-hot
@@ -153,11 +151,11 @@ model.fit(X, y, nb_epoch=30, batch_size=128, callbacks=callbacks)
 If all went well, you should find yourself staring at something like this (and stare you indeed shall, as it will take a while to train):
 
 ```
-  128/94604 [..............................] - ETA: 1778s - loss: 4.1734
-  256/94604 [..............................] - ETA: 1265s - loss: 4.1566
-  [...]
-  94464/94604 [============================>.] - ETA: 1s - loss: 2.6441
-  94592/94604 [============================>.] - ETA: 0s - loss: 2.6437
+128/94604 [..............................] - ETA: 1778s - loss: 4.1734
+256/94604 [..............................] - ETA: 1265s - loss: 4.1566
+[...]
+94464/94604 [============================>.] - ETA: 1s - loss: 2.6441
+94592/94604 [============================>.] - ETA: 0s - loss: 2.6437
 Epoch 00000: loss improved from inf to 2.64364, saving model to weights-00-2.644.hdf5
 ```
 
@@ -255,3 +253,7 @@ However, what I think is even cooler is that these LSTM methods are applicable t
 Personally, I chose to use Flask to build my network into a little web app, so that others might find amusement from it. The result: a [sonnet-spewing interactive robo-Shakespeare](http://robot-shakespeare.herokuapp.com/). The code for this is [up on my GitHub](https://github.com/vivshaw/shakespeare-LSTM/), as always.
 
 Hopefully, this has been a helpful intro to what LSTM networks can do and how we can implement them in Keras. If your curiosity is piqued, I implore you to peruse the Keras [documentation](https://keras.io/) and try building some networks. With Keras, it's endlessly rewarding, and much simpler than it sounds. Happy coding!
+
+export default ({ children }) => (
+  <ArticlePage meta={meta}>{children}</ArticlePage>
+);

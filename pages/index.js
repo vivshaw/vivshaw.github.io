@@ -17,13 +17,11 @@ export async function getStaticProps() {
   const listing = await fs.readdir(root);
 
   const items = listing
-    .filter((item) => item.endsWith(".mdx"))
     .map((item) => {
-      const blog = require(`./blog/${item}`);
+      const blog = require(`./blog/${item}/index.mdx`);
       const meta = blog.meta;
-      const slug = item.replace(/\.mdx/, "");
 
-      return { slug, ...meta };
+      return { slug: item, ...meta };
     })
     .sort((a, b) => b.date - a.date)
     .map((item) => {
