@@ -14,8 +14,6 @@ export const meta = {
 
 Perhaps you've run across Twitter bots like [@thesefutures](http://motherboard.vice.com/read/twitter-bot-predicts-these-futures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. It's surprisingly simple and you should give it a try! For the less-technically-inclined, one can create a bot with minimal code using [a tool that will handle the heavy lifting for you](http://cheapbotsdonequick.com/). But if perchance you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
 
-<!--include toc.html -->
-
 ## Introductory matters
 
 Before we dive in, let's go over the tools we'll be using. Of course, you'll need Python 3, git, and your favorite Python IDE (I'm partial to [PyCharm](https://www.jetbrains.com/pycharm/)). To interface with Twitter, we'll be working with the excellent Twitter API wrapper [Tweepy](http://www.tweepy.org/). To generate our tweets, we'll also work with [Markovify](https://github.com/jsvine/markovify), a Markov chain library. Today, we'll get you set up with Tweepy & Markovify, write the `TweetBot` class, and get your new bot up & running. Roll up your sleeves, we've got some code to write!
@@ -24,7 +22,7 @@ Before we dive in, let's go over the tools we'll be using. Of course, you'll nee
 
 To start, you'll need to get some Twitter credentials so that you can access the API. Unless you want your bot to post to your personal Twitter, I recommend [creating a new Twitter account](https://twitter.com/signup) for your bot and going through this process with the dedicated account. First, you'll need to register a new twitter app for your bot. I should mention here that you'll need to associate a unique phone number with the account in order to create an app. If you don't have a spare phone number laying around, you can either make use of a service like [Google Voice](https://voice.google.com) or [Burner](https://www.burnerapp.com/), or register the app on your primary Twitter account and go through the lengthy process of transferring the API key to another account, as outlined [on Molly White's blog](http://blog.mollywhite.net/twitter-bots-pt2/). Now would also be a good time to go over the [automation rules and best practices](https://support.twitter.com/articles/76915). In any case, once you've got an account registered, let's proceed:
 
-#### Getting your credentials
+### Getting your credentials
 
 Go to [apps.twitter.com](https://apps.twitter.com/) and click on the "Create New App" button. You'll need to fill out a few fields for your bot's name, description, and website, and to agree to the [Twitter Developer Agreement](https://dev.twitter.com/overview/terms/agreement-and-policy), and then you'll have a new app! Now, go to the Permissions tab and ensure that your app has read and write permissions. Finally, go to the Keys and Access Tokens tab, and create your access tokens. We'll need to store these for your bot.
 
@@ -89,7 +87,7 @@ access_token_secret = ""
 
 Copy and paste the keys and access tokens from Twitter into the appropriate variables in `twitter_credentials.py`, and you'll be ready to move on.
 
-#### Installing Tweepy & Markovify
+### Installing Tweepy & Markovify
 
 This should be the easiest part of the whole process!
 
@@ -135,11 +133,11 @@ If this worked out for you, you're all set to move on to our next challenge: pro
 
 Now that our bot can post to Twitter, we need to teach it to speak. We're going to do this with [Markov chains](http://setosa.io/ev/markov-chains/). To horribly oversimplify, what a Markov chain does is this: when given an input state, figure out the most likely state to follow it. We're going to train a Markov model on a corpus of natural-language text, allowing us to procedurally generate semi-coherent gibberish in the language of your choice. (If you're algorithmically-minded, [this is actually really easy to implement by hand](http://agiliq.com/blog/2009/06/generating-pseudo-random-text-with-markov-chains-u/), but we're going to stick with a tried-and-true library for this bot.)
 
-#### Getting a corpus
+### Getting a corpus
 
 Before generating Markov chains, we'll need a corpus. This doesn't need to be anything special; a flat text file is all you'll need. The larger the corpus, the better that your results will be— something novel-length would be ideal. If you're having trouble finding a corpus, you could grab some public domain literature from [Project Gutenberg](https://www.gutenberg.org/), or use my favorite corpus, the entire text of [Charlotte Brontë's _Jane Eyre_](https://raw.githubusercontent.com/vivshaw/tweeter-robo/master/corpus.txt). Whatever corpus you choose, just download it and save it as `corpus.txt` in your project directory.
 
-#### It's Markov time!
+### It's Markov time!
 
 In your `tweetbot.py` you'll need to import Markovify. Then, we'll load up the corpus and build a model with it.
 
@@ -206,7 +204,7 @@ Now that we know what our bot class will look like, let's start filling in the c
 
 ## Putting it all together
 
-#### **init**
+### **init**
 
 If we want to initialize our Markov model in the constructor, we'll need to pass it the path to our `corpus`. We can then call the `load_corpus` method we'll later write. As for the authentication, it'll work just the same as in our earlier Tweepy exploration, except that we'll need to store it in a field.
 
@@ -220,7 +218,7 @@ If we want to initialize our Markov model in the constructor, we'll need to pass
         self.api = tweepy.API(auth)
 ```
 
-#### load_corpus
+### load_corpus
 
 Just like in our Markovify example, this method will take the path to our corpus file, load its contents into a variable, and train a Markov `model` with it. We'll then store the `model` as a field.
 
@@ -231,7 +229,7 @@ Just like in our Markovify example, this method will take the path to our corpus
         self.model = markovify.Text(corpus_lines)
 ```
 
-#### tweet
+### tweet
 
 We've already seen how to generate a tweet from our `model` and how to update our status, so we can just put them together. However, we don't want our bot to crash if a tweet fails for some reason (say, an improperly-formed tweet, or hitting a rate limit). So, let's wrap it in a try-except block to catch any Tweepy errors that get thrown.
 
@@ -244,7 +242,7 @@ We've already seen how to generate a tweet from our `model` and how to update ou
             print(error.reason)
 ```
 
-#### automate
+### automate
 
 Now we just need to get our bot to post every `delay` seconds until we stop it. The easiest way to do this is Python's `sleep` function. Let's import it:
 
@@ -261,7 +259,7 @@ Now the rest is trivial.
             sleep(delay)
 ```
 
-#### Tying it all together
+### Tying it all together
 
 Now that we have all the pieces, let's put them together, then write ourselves a main method to automatically tweet every hour.
 

@@ -1,9 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 import mediaqueries from "@styles/media";
-
-import { Icon } from "@types";
+import type { Icon } from "@types";
 
 const Logo: Icon = ({ fill = "white" }) => {
   return (

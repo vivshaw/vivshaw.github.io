@@ -35,3 +35,9 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Footer images are distorted
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
+[ ] Messed up Share component
+[ ] Emotion / ThemeUI types
+[ ] Tighten up types in general
+[ ] Fix SEO
+[ ] Fix header links
+[ ] Use next/image in bio

@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  JSXElementConstructor,
-} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
 

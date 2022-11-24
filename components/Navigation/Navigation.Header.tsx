@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { useColorMode } from "theme-ui";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import Section from "@components/Section";
 import Logo from "@components/Logo";
-
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
 import {
@@ -12,8 +13,6 @@ import {
   getWindowDimensions,
   getBreakpointFromTheme,
 } from "@utils";
-import { useRouter } from "next/router";
-import Link from "next/link";
 
 const DarkModeToggle = () => {
   const [colorMode, setColorMode] = useColorMode();

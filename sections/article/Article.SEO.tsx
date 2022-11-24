@@ -1,9 +1,7 @@
-import React from "react";
+import { useRouter } from "next/router";
 
 import SEO from "@components/SEO";
-
 import { IArticle, IAuthor } from "@types";
-import { useRouter } from "next/router";
 import { prettyPrintDate } from "@utils";
 
 interface ArticleSEOProps {

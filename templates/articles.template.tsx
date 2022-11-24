@@ -1,17 +1,13 @@
-import React from "react";
 import styled from "@emotion/styled";
-import { useRouter } from "next/router";
 import { ThemeProvider } from "theme-ui";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 
-import Section from "@components/Section";
-import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
-
-import ArticlesHero from "../sections/articles/Articles.Hero";
-import ArticlesList from "../sections/articles/Articles.List";
-
+import Section from "@components/Section";
+import SEO from "@components/SEO";
+import ArticlesHero from "@sections/articles/Articles.Hero";
+import ArticlesList from "@sections/articles/Articles.List";
 import { IArticle } from "@types";
 import theme from "@theme";
 

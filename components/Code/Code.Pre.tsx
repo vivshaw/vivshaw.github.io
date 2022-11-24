@@ -1,5 +1,3 @@
-import React from "react";
-
 import CodeBlock from "./Code.Prism";
 
 function preToCodeBlock(preProps) {

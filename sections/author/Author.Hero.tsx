@@ -1,12 +1,9 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 import Image from "@components/Image";
-
+import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
 import { IAuthor } from "@types";
-
-import SocialLinks from "@components/SocialLinks";
 
 interface AuthorHeroProps {
   author: IAuthor;

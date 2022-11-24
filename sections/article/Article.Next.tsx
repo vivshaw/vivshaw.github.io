@@ -1,13 +1,12 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Link from "next/link";
+import Image from "next/image";
 
 import Headings from "@components/Headings";
 import mediaqueries from "@styles/media";
 import { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
-import Image from "next/image";
 
 interface ArticlesNextProps {
   articles: IArticle[];

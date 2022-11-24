@@ -18,7 +18,7 @@ const components = {
   blockquote: Blockquote,
   code: Code.Prism,
   figcaption: Figcaption,
-  h1: Headings.h2, // h1 reserved article title
+  h1: Headings.h2, // h1 reserved for article title
   h2: Headings.h2,
   h3: Headings.h3,
   h4: Headings.h4,

@@ -1,18 +1,17 @@
-import React from "react";
 import styled from "@emotion/styled";
 import mediaqueries from "@styles/media";
 
 const StyledTable = styled.table`
   position: relative;
   line-height: 1.65;
-  color: ${p => p.theme.colors.grey};
-  font-family: ${p => p.theme.fonts.sansSerif};
-  transition: ${p => p.theme.colorModeTransition};
-  background: ${p => p.theme.colors.card};
+  color: ${(p) => p.theme.colors.grey};
+  font-family: ${(p) => p.theme.fonts.sansSerif};
+  transition: ${(p) => p.theme.colorModeTransition};
+  background: ${(p) => p.theme.colors.card};
   margin: 45px auto 85px;
   width: 100%;
   max-width: 1004px;
-  border: 1px solid ${p => p.theme.colors.horizontalRule};
+  border: 1px solid ${(p) => p.theme.colors.horizontalRule};
   border-radius: 5px;
   overflow: hidden;
   border-collapse: separate;

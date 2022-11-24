@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import { useState } from "react";
 import styled from "@emotion/styled";
 
 import Icons from "@icons";
@@ -62,8 +61,6 @@ function calculateLinesToHighlight(meta) {
 interface CodePrismProps {
   className: string;
   codeString: any;
-  language: Language;
-  metastring?: string;
 }
 
 const CodePrism: React.FC<CodePrismProps> = ({ codeString, className }) => {

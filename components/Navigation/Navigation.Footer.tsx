@@ -1,23 +1,18 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
-
 import mediaqueries from "@styles/media";
 
-const Footer: React.FC<{}> = () => {
+const Footer: React.FC = () => {
   return (
     <>
       <Section narrow>
         <HoritzontalRule />
         <FooterContainer>
-          <FooterText>© 2022 vivshaw</FooterText>
-          <div>
-            <SocialLinks
-              links={[{ name: "twitter", url: "www.twitter.com/vvvivshaw" }]}
-            />
-          </div>
+          <SocialLinks
+            links={[{ name: "twitter", url: "www.twitter.com/vvvivshaw" }]}
+          />
         </FooterContainer>
       </Section>
     </>
@@ -30,7 +25,7 @@ const FooterContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   padding-bottom: 80px;
   color: ${(p) => p.theme.colors.grey};
 
@@ -56,26 +51,4 @@ const HoritzontalRule = styled.div`
   ${mediaqueries.phablet`
     display: none;
   `}
-`;
-
-const FooterText = styled.div`
-  ${mediaqueries.tablet`
-    margin-bottom: 80px;
-  `}
-
-  ${mediaqueries.phablet`
-    margin: 120px auto 100px;
-  `}
-`;
-
-const FooterGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 590px;
-  z-index: 0;
-  pointer-events: none;
-  background: ${(p) => p.theme.colors.gradient};
-  transition: ${(p) => p.theme.colorModeTransition};
 `;

@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 import Image from "@components/Image";
 import { IAuthor } from "@types";
-import Link from "next/link";
 
 const Bio = ({ author }: { author: IAuthor }) => {
   return (
