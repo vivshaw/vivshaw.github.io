@@ -43,3 +43,11 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Highlights
 [ ] CLI styles
 [ ] Figure out what to do with back button in navbar / routing stuff
+[ ] Fix socials icons on phone screens
+[ ] Actually display/use the category tags
+[ ] Get "Next Article" working for real
+[ ] type meta, if possible
+[ ] Yarn Berry / Yarn PnP support
+[ ] Monorepo it?
+[ ] Storybook
+[ ] port styles to Stitches / Radix

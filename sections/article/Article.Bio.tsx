@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-import { IAuthor } from "@types";
+import type { IAuthor } from "@types";
 
 /**
  * Displays the biography and avatar for an Author, formatted for the Article Hero.

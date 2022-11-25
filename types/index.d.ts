@@ -34,19 +34,12 @@ export interface IAuthor {
 }
 
 export interface IArticle {
-  slug: string;
   blurb: string;
-  title: string;
-  image: StaticImageData;
   date: Date;
-}
-
-export interface IProgress {
-  height: number;
-  offset: number;
+  image: StaticImageData;
+  slug: string;
+  tags: string[];
   title: string;
-  mode: string;
-  onClose?: () => void;
 }
 
 export type Icon = React.FC<{

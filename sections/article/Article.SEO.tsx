@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import SEO from "@components/SEO";
 import { site } from "@data";
-import { IArticle, IAuthor } from "@types";
+import type { IArticle, IAuthor } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticleSEOProps {

@@ -1,16 +1,18 @@
 import Image from "next/image";
+
 import ArticlePage from "@templates/article.template";
 import metaImage from "./malte-michels-s4wGZw3UuLk-unsplash.jpg";
 import wslColorProbs from "./wsl-color-probs.png";
 import wslTmux from "./wsl-tmux.png";
 
 export const meta = {
-  date: new Date("2017-07-03"),
   title: "Linux on Windows!?",
   blurb: "Windows 10 finally finds its killer app: Linux",
-  tags: ["linux", "windows", "bash", "WSL", "X"],
+  date: new Date("2017-07-03"),
   image: metaImage,
+  next: ["robot-brain-scala"],
   slug: "linux-on-windows",
+  tags: ["linux", "windows", "bash", "WSL", "X"],
 };
 
 If you, like me, are one of those devs who prefer a Linux environment but are stuck on Windows because of reasons (in my case, accessibility software), if you're tired of struggling with Cygwin and MinGW, if you're put off by the hassle of running everything in VMs: do yourself a favor & try [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about). It may sound like just another Cygwin-alike, but trust me, it is way better.
@@ -23,8 +25,8 @@ There are limits, of course: there remain unimplemented system calls which will 
 
 <div className="Image__Small">
   <Image
-    src={wslColorProbs}
     alt="WSL in Powershell, showing completely incorrect colors"
+    src={wslColorProbs}
   />
 </div>
 
@@ -44,8 +46,8 @@ Here's my current setup:
 
 <div className="Image__Small">
   <Image
+    alt="tmux, vim, zsh, and Powerline operating inside urxvt on WSL"
     src={wslTmux}
-    alt="tmux, vim, zsh, and Poewrline operating inside urxvt on WSL"
   />
 </div>
 

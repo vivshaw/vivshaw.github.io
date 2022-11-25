@@ -4,7 +4,7 @@ import Image from "next/image";
 import Headings from "@components/Headings";
 import ArticleAuthor from "@sections/article/Article.Authors";
 import mediaqueries from "@styles/media";
-import { IArticle, IAuthor } from "@types";
+import type { IArticle, IAuthor } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticleHeroProps {

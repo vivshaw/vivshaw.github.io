@@ -4,8 +4,8 @@ import { css } from "@emotion/react";
 import Head from "next/head";
 import Link from "next/link";
 
-import type { IPaginator } from "@types";
 import mediaqueries from "@styles/media";
+import type { IPaginator } from "@types";
 import { range } from "@utils";
 
 /**

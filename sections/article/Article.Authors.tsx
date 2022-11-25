@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 import mediaqueries from "@styles/media";
-import { IAuthor } from "@types";
+import type { IAuthor } from "@types";
 
 interface ArticleAuthorProps {
   author: IAuthor;

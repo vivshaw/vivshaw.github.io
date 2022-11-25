@@ -6,7 +6,7 @@ import Link from "next/link";
 import Headings from "@components/Headings";
 import { ImagePlaceholder } from "@components/Image";
 import mediaqueries from "@styles/media";
-import { IArticle } from "@types";
+import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticlesListProps {

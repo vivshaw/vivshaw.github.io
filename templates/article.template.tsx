@@ -1,26 +1,26 @@
 import { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
-
-import Layout from "@components/Layout";
-import Progress from "@components/Progress";
-import Section from "@components/Section";
-
-import mediaqueries from "@styles/media";
-import { debounce } from "@utils";
-
-import ArticleAside from "../sections/article/Article.Aside";
-import ArticleHero from "../sections/article/Article.Hero";
-import ArticleControls from "../sections/article/Article.Controls";
-import ArticlesNext from "../sections/article/Article.Next";
-import ArticleSEO from "../sections/article/Article.SEO";
-import ArticleShare from "../sections/article/Article.Share";
-
-import { IArticle } from "@types";
-import { author } from "@data";
-import { MDXBody } from "@components/MDX/MDX";
 import Head from "next/head";
 
+import Layout from "@components/Layout";
+import { MDXBody } from "@components/MDX/MDX";
+import Progress from "@components/Progress";
+import Section from "@components/Section";
+import { author } from "@data";
+import ArticleAside from "@sections/article/Article.Aside";
+import ArticleHero from "@sections/article/Article.Hero";
+import ArticleControls from "@sections/article/Article.Controls";
+import ArticlesNext from "@sections/article/Article.Next";
+import ArticleSEO from "@sections/article/Article.SEO";
+import ArticleShare from "@sections/article/Article.Share";
+import mediaqueries from "@styles/media";
+import type { IArticle } from "@types";
+import { debounce } from "@utils";
+
+/**
+ * Template for a single blog post.
+ */
 const Article = ({
   children,
   meta,

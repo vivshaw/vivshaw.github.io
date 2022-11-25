@@ -1,5 +1,5 @@
 import avatarPic from "@images/avatar.jpg";
-import { IAuthor, TSocialSite } from "@types";
+import type { IAuthor, TSocialSite } from "@types";
 
 export const author: IAuthor = {
   avatar: {

@@ -2,12 +2,13 @@ import ArticlePage from "@templates/article.template";
 import metaImage from "./josefin-HtCgLIDy-2U-unsplash.jpg";
 
 export const meta = {
-  date: new Date("2017-02-02"),
   title: "Beautify Your Java Collections with Google Guava",
   blurb: "",
-  tags: ["java", "guava"],
-  slug: "guava-collections",
+  date: new Date("2017-02-02"),
   image: metaImage,
+  next: ["linux-on-windows"],
+  slug: "guava-collections",
+  tags: ["java", "guava"],
 };
 
 I realize I'm years late to the [Google Guava](https://github.com/google/guava) train, but Guava is so delightfully useful that I can't help but belatedly gush about it. In particular, the new Collections are just amazing for getting rid of boilerplate and making your code simpler and prettier. Let me show off two of my favorites, the Multiset and the Multimap:

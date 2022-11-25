@@ -1,10 +1,10 @@
 import Layout from "@components/Layout";
+import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import AuthorHero from "@sections/author/Author.Hero";
 import AuthorAbout from "@sections/author/Author.About";
-import { IAuthor } from "@types";
-import { MDXBody } from "@components/MDX/MDX";
+import type { IAuthor } from "@types";
 
 interface IArticlesPageProps {
   /** Author to display info for */

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import Headings from "@components/Headings";
 import mediaqueries from "@styles/media";
-import { IArticle } from "@types";
+import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticlesNextProps {

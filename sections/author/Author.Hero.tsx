@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
-import { IAuthor } from "@types";
+import type { IAuthor } from "@types";
 
 interface AuthorHeroProps {
   author: IAuthor;
