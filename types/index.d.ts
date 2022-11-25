@@ -36,7 +36,10 @@ export interface IAuthor {
 export interface IArticle {
   blurb: string;
   date: Date;
-  image: StaticImageData;
+  image: {
+    alt: string;
+    src: StaticImageData;
+  };
   next?: string[];
   slug: string;
   tags: string[];

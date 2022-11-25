@@ -63,7 +63,6 @@ interface GridItemProps {
 
 const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = article.image;
   const prettyDate = prettyPrintDate(article.date);
 
   return (
@@ -74,7 +73,12 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
     >
       <Item>
         <ImageContainer>
-          <Image src={imageSource} alt="TODO" fill />
+          <Image
+            alt={article.image.alt}
+            fill
+            placeholder="blur"
+            src={article.image.src}
+          />
         </ImageContainer>
         <Title dark hasOverflow={hasOverflow}>
           {article.title}

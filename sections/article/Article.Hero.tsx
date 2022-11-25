@@ -5,7 +5,7 @@ import Headings from "@components/Headings";
 import ArticleAuthor from "@sections/article/Article.Authors";
 import mediaqueries from "@styles/media";
 import type { IArticle, IAuthor } from "@types";
-import { prettyPrintDate } from "@utils";
+import { getBreakpointFromTheme, prettyPrintDate } from "@utils";
 
 interface ArticleHeroProps {
   article: IArticle;
@@ -28,9 +28,18 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, author }) => {
         </HeroSubtitle>
       </Header>
 
-      {/** TODO: Is this absolute ID needed? */}
+      {/** This absolute ID is used in Article.Aside */}
       <HeroImage id="ArticleImage__Hero">
-        <Image src={article.image} alt="TODO" fill />
+        <Image
+          alt={article.image.alt}
+          fill
+          placeholder="blur"
+          priority
+          sizes={`(max-width: ${getBreakpointFromTheme("phablet")}px) 100vw,
+                 (max-width: ${getBreakpointFromTheme("tablet")}px) 100vw,
+                 944px`}
+          src={article.image.src}
+        />
       </HeroImage>
     </Hero>
   );

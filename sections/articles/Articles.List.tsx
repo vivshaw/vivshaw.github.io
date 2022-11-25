@@ -72,7 +72,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
       <Item>
         <ImageContainer narrow={narrow}>
           {article.image ? (
-            <Image src={article.image} alt="TODO" fill />
+            <Image alt={article.image.alt} src={article.image.src} fill />
           ) : (
             <ImagePlaceholder />
           )}

@@ -31,7 +31,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 [ ] Make `code` blocks more legible
 [ ] Reposition Copy button in fenced code blocks
-[ ] Better image handling / src sets / alt text
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
 [ ] Emotion / ThemeUI types
@@ -51,3 +50,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] port styles to Stitches / Radix
 [ ] Fix Data Mashups url
 [ ] tidy MDX components generally
+[ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
