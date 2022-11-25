@@ -18,10 +18,28 @@ import type { IArticle } from "@types";
 import { debounce } from "@utils";
 
 // TODO: Remove these after `next` actually works!!
-const robotBrainMeta: IArticle =
-  require(`@pages/blog/robot-brain-scala/index.mdx`).meta;
-const electricPentameterMeta: IArticle =
-  require(`@pages/blog/electric-pentameter/index.mdx`).meta;
+import scalaImage from "@pages/blog/robot-brain-scala/muneeb-syed-x9NfeD3FpsE-unsplash.jpg";
+import pentameterImage from "@pages/blog/electric-pentameter/jaimie-phillips-KamSS2euCzA-unsplash.jpg";
+const fakeNextMetas: IArticle[] = [
+  {
+    title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
+    blurb: "Exploring computer vision with a from-scratch neural net in Scala",
+    date: new Date("2017-02-04"),
+    image: scalaImage,
+    next: ["electric-pentameter", "build-you-a-tweetbot"],
+    slug: "robot-brain-scala",
+    tags: ["scala", "ml", "neural networks", "MNIST", "computer vision"],
+  },
+  {
+    title: "Do Robots Dream of Electric Pentameter?",
+    blurb: "Generative poetry with LSTM neural networks",
+    date: new Date("2017-02-10"),
+    image: pentameterImage,
+    next: ["robot-brain-scala", "build-you-a-tweetbot"],
+    slug: "electric-pentameter",
+    tags: ["python", "ml", "LSTM", "neural networks", "keras"],
+  },
+];
 
 /**
  * Template for a single blog post.
@@ -72,9 +90,7 @@ const Article = ({
     return () => window.removeEventListener("resize", calculateBodySize);
   }, []);
 
-  const next = [robotBrainMeta, electricPentameterMeta].filter(
-    (article) => article.slug !== meta.slug
-  );
+  const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
 
   return (
     <Layout>

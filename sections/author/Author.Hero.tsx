@@ -67,6 +67,7 @@ const HeroImage = styled.div`
 
 const RoundedImage = styled(Image)`
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const Heading = styled.h1`

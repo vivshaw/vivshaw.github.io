@@ -24,7 +24,7 @@ export interface ISocialLink {
 export interface IAuthor {
   avatar: {
     alt: string;
-    src: string;
+    src: StaticImageData;
   };
   bio: string;
   name: string;
@@ -37,6 +37,7 @@ export interface IArticle {
   blurb: string;
   date: Date;
   image: StaticImageData;
+  next?: string[];
   slug: string;
   tags: string[];
   title: string;

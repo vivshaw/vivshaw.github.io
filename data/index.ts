@@ -3,8 +3,7 @@ import type { IAuthor, TSocialSite } from "@types";
 
 export const author: IAuthor = {
   avatar: {
-    // TODO: Make this a Next image
-    src: avatarPic.src,
+    src: avatarPic,
     alt: "A photo of Hannah in a Smithsonian display of a giant salt molecule",
   },
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 import Link from "next/link";
 
 import type { IAuthor } from "@types";
@@ -15,7 +16,7 @@ const ArticleBio = ({ author }: { author: IAuthor }) => {
         aria-label="Author's bio"
       >
         <BioAvatarInner>
-          <RoundedImage alt={author.avatar.alt} src={author.avatar.src} />
+          <RoundedImage alt={author.avatar.alt} fill src={author.avatar.src} />
         </BioAvatarInner>
       </BioAvatar>
 
@@ -65,8 +66,9 @@ const BioAvatar = styled(Link)`
   }
 `;
 
-const RoundedImage = styled.img`
+const RoundedImage = styled(Image)`
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const BioAvatarInner = styled.div`
@@ -76,10 +78,6 @@ const BioAvatarInner = styled.div`
   background: rgba(0, 0, 0, 0.25);
   margin-right: 16px;
   overflow: hidden;
-
-  & > img {
-    width: 100%;
-  }
 `;
 
 const BioText = styled.p`

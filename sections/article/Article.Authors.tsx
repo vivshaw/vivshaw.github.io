@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 import Link from "next/link";
 
 import mediaqueries from "@styles/media";
@@ -15,7 +16,7 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({ author }) => {
   return (
     <AuthorLink href={author.profileLink}>
       <AuthorAvatar>
-        <RoundedImage alt={author.avatar.alt} src={author.avatar.src} />
+        <RoundedImage alt={author.avatar.alt} fill src={author.avatar.src} />
       </AuthorAvatar>
 
       {/** TODO: Should this be a better tag? */}
@@ -36,11 +37,7 @@ const AuthorAvatar = styled.div`
   margin-right: 14px;
   background: ${(p) => p.theme.colors.grey};
   overflow: hidden;
-
-  & > img {
-    object-fit: cover;
-    width: 100%;
-  }
+  position: relative;
 
   .gatsby-image-wrapper > div {
     padding-bottom: 100% !important;
@@ -51,8 +48,9 @@ const AuthorAvatar = styled.div`
   `}
 `;
 
-const RoundedImage = styled.img`
+const RoundedImage = styled(Image)`
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const AuthorLink = styled(Link)`

@@ -175,7 +175,6 @@ const ImageContainer = styled.div<{ narrow: boolean }>`
 
   & > img {
     object-fit: cover;
-    width: 100%;
   }
 
   ${mediaqueries.tablet`

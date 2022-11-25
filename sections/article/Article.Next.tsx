@@ -35,10 +35,12 @@ const ArticlesNext: React.FC<ArticlesNextProps> = ({ articles }) => {
     return null;
   }
 
+  const showTwoArticles = numberOfArticles > 1;
+
   return (
     <Grid numberOfArticles={numberOfArticles}>
       <GridItem article={articles[0]} />
-      <GridItem article={articles[1]} narrow />
+      {showTwoArticles && <GridItem article={articles[1]} narrow />}
     </Grid>
   );
 };
