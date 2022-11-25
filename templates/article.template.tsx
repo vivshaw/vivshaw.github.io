@@ -94,12 +94,6 @@ const Article = ({
 
   return (
     <Layout>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
-        ></link>
-      </Head>
       <ArticleSEO article={meta} author={author} />
       <ArticleHero article={meta} author={author} />
       <ArticleAside contentHeight={contentHeight}>

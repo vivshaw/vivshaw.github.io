@@ -52,6 +52,7 @@ const HeroImage = styled.div`
   overflow: hidden;
   border: 2px solid ${(p) => p.theme.colors.background};
   box-shadow: 0px 15.619px 31.2381px rgba(0, 0, 0, 0.15);
+  position: relative;
 
   ${mediaqueries.tablet`
     width: 146px;

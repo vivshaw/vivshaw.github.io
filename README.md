@@ -34,15 +34,14 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Better image handling / src sets / alt text
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
-[ ] Messed up Share component
 [ ] Emotion / ThemeUI types
 [ ] Tighten up types in general
-[ ] Use next/image in bio
 [ ] Line numbers
 [ ] Highlights
 [ ] CLI styles
 [ ] Figure out what to do with back button in navbar / routing stuff
 [ ] Fix socials icons on phone screens
+[ ] Fix top of screen being white on phone
 [ ] Actually display/use the category tags
 [ ] Get "Next Article" working for real
 [ ] type meta, if possible
@@ -51,3 +50,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Storybook
 [ ] port styles to Stitches / Radix
 [ ] Fix Data Mashups url
+[ ] tidy MDX components generally

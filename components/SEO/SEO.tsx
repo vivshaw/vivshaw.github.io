@@ -17,23 +17,6 @@ interface SeoProps {
   children?: React.ReactNode;
 }
 
-// TODO: Is this needed?
-// const themeUIDarkModeWorkaroundScript = [
-//   {
-//     type: "text/javascript",
-//     innerHTML: `
-//     (function() {
-//       try {
-//         var mode = localStorage.getItem('theme-ui-color-mode');
-//         if (!mode) {
-//           localStorage.setItem('theme-ui-color-mode', 'light');
-//         }
-//       } catch (e) {}
-//     })();
-//   `,
-//   },
-// ];
-
 // TODO: Should this be `next/seo`?
 // TODO: Ensure PWA stuff works
 /**
