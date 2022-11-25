@@ -9,6 +9,10 @@ import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticlesNextProps {
+  /**
+   * Articles to display in the Next Articles block.
+   * If the list is empty, we won't display this block at all!
+   */
   articles: IArticle[];
 }
 
@@ -25,8 +29,12 @@ interface ArticlesNextProps {
  * mix into the generic list component.
  */
 const ArticlesNext: React.FC<ArticlesNextProps> = ({ articles }) => {
-  if (!articles) return null;
   const numberOfArticles = articles.length;
+
+  if (numberOfArticles < 1) {
+    return null;
+  }
+
   return (
     <Grid numberOfArticles={numberOfArticles}>
       <GridItem article={articles[0]} />
@@ -38,13 +46,20 @@ const ArticlesNext: React.FC<ArticlesNextProps> = ({ articles }) => {
 export default ArticlesNext;
 
 interface GridItemProps {
+  /**
+   * The Article to display in this grid item.
+   */
   article: IArticle;
+
+  /**
+   * Whether this article should be the narrow or the wider one it its row.
+   *
+   * @default false
+   */
   narrow?: boolean;
 }
 
 const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
-  if (!article) return null;
-
   const hasOverflow = narrow && article.title.length > 35;
   const imageSource = article.image;
   const prettyDate = prettyPrintDate(article.date);
@@ -123,8 +138,8 @@ const ImageContainer = styled.div`
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 
-  & > div {
-    height: 100%;
+  & > img {
+    object-fit: cover;
   }
 
   ${mediaqueries.tablet`

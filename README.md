@@ -32,7 +32,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Make `code` blocks more legible
 [ ] Reposition Copy button in fenced code blocks
 [ ] Better image handling / src sets / alt text
-[ ] Footer images are distorted
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
 [ ] Messed up Share component

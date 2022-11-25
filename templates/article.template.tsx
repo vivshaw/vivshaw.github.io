@@ -7,7 +7,7 @@ import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Progress from "@components/Progress";
 import Section from "@components/Section";
-import { author } from "@data";
+import { author, site } from "@data";
 import ArticleAside from "@sections/article/Article.Aside";
 import ArticleHero from "@sections/article/Article.Hero";
 import ArticleControls from "@sections/article/Article.Controls";
@@ -17,6 +17,12 @@ import ArticleShare from "@sections/article/Article.Share";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
 import { debounce } from "@utils";
+
+// TODO: Remove these after `next` actually works!!
+const robotBrainMeta: IArticle =
+  require(`@pages/blog/robot-brain-scala/index.mdx`).meta;
+const electricPentameterMeta: IArticle =
+  require(`@pages/blog/electric-pentameter/index.mdx`).meta;
 
 /**
  * Template for a single blog post.
@@ -32,8 +38,6 @@ const Article = ({
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
-
-  const name = "vivshaw.net";
 
   useEffect(() => {
     const calculateBodySize = throttle(() => {
@@ -69,7 +73,9 @@ const Article = ({
     return () => window.removeEventListener("resize", calculateBodySize);
   }, []);
 
-  const next = [1, 2, 3]; // TODO
+  const next = [robotBrainMeta, electricPentameterMeta].filter(
+    (article) => article.slug !== meta.slug
+  );
 
   return (
     <Layout>
@@ -93,8 +99,9 @@ const Article = ({
       </ArticleBody>
       {next.length > 0 && (
         <NextArticle narrow>
-          <FooterNext>More articles from {name}</FooterNext>
-          <ArticlesNext articles={[meta]} />
+          {/** TODO: that `site.name` should be the logo, would look iller */}
+          <FooterNext>More articles from {site.name}</FooterNext>
+          <ArticlesNext articles={next} />
           <FooterSpacer />
         </NextArticle>
       )}
