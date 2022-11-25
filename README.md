@@ -46,7 +46,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Actually display/use the category tags
 [ ] Get "Next Article" working for real
 [ ] type meta, if possible
-[ ] Yarn Berry / Yarn PnP support
-[ ] Monorepo it?
+[ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
+[ ] Monorepo it? (Turborepo? NX?)
 [ ] Storybook
 [ ] port styles to Stitches / Radix
+[ ] Fix Data Mashups url
