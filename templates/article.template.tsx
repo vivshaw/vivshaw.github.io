@@ -13,7 +13,6 @@ import ArticleHero from "@sections/article/Article.Hero";
 import ArticleControls from "@sections/article/Article.Controls";
 import ArticlesNext from "@sections/article/Article.Next";
 import ArticleSEO from "@sections/article/Article.SEO";
-import ArticleShare from "@sections/article/Article.Share";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
 import { debounce } from "@utils";
@@ -95,7 +94,6 @@ const Article = ({
       </MobileControls>
       <ArticleBody ref={contentSectionRef}>
         <MDXBody>{children}</MDXBody>
-        <ArticleShare />
       </ArticleBody>
       {next.length > 0 && (
         <NextArticle narrow>
