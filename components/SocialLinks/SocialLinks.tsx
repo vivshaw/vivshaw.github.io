@@ -1,67 +1,55 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
+import type { Icon, ISocialLink, TSocialSite } from "@types";
 
-interface SocialLinksProps {
-  links: {
-    name: string;
-    url: string;
-  }[];
-  fill?: string;
-}
+type TSocialIcons = Record<TSocialSite, Icon>;
 
-const icons = {
-  behance: Icons.Behance,
-  dribbble: Icons.Dribbble,
+const icons: TSocialIcons = {
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
   facebook: Icons.Facebook,
   instagram: Icons.Instagram,
-  devto: Icons.DevTo,
   github: Icons.Github,
-  stackoverflow: Icons.Stackoverflow,
-  youtube: Icons.YouTube,
-  medium: Icons.Medium,
   notion: Icons.Notion,
-  unsplash: Icons.Unsplash,
-  patreon: Icons.Patreon,
-  paypal: Icons.Paypal,
-  digitalocean: Icons.DigitalOcean,
-  tripadvisor: Icons.TripAdvisor,
-  buymeacoffee: Icons.Buymeacoffee,
   mailto: Icons.Mailto,
   url: Icons.Url,
 };
 
-const getHostname = (url) => {
-  return new URL(url.toLowerCase()).hostname
-    .replace(/www|com|net|\.so|org|[.-]/g, "")
-    .split(".")[0];
-};
+interface SocialLinksProps {
+  /** Array of social links to display */
+  links: ISocialLink[];
 
-const getServicename = (url) => {
-  return url.toLowerCase().split(":")[0];
-};
+  /**
+   * Fill color for the social icons.
+   *
+   * @default "#73737D"
+   */
+  fill?: string;
+}
 
+/**
+ * Displays a list of social links and corresponding icons.
+ */
 const SocialLinks: React.FC<SocialLinksProps> = ({
   links,
   fill = "#73737D",
 }) => {
-  if (!links) return null;
+  if (links.length < 1) return null;
 
   return (
     <>
       {links.map((option) => {
-        const name =
-          option.name || getHostname(option.url) || getServicename(option.url);
-        const Icon = icons[name] ? icons[name] : icons["url"];
+        const name = option.name;
+        const Icon = icons[name];
+
         if (!Icon) {
           throw new Error(
             `unsupported social link name=${name} / url=${option.url}`
           );
         }
+
         return (
           <SocialIconContainer
             key={option.url}

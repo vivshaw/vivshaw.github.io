@@ -28,9 +28,9 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 ## TODO
 
-[ ] There's an error with `'` and `"` in Prism code blocks of unknown type
+[ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 [ ] Make `code` blocks more legible
-[ ] Reposition Copy button in code blocks
+[ ] Reposition Copy button in fenced code blocks
 [ ] Better image handling / src sets / alt text
 [ ] Footer images are distorted
 [ ] Nicer component for loading images in MDX?
@@ -38,6 +38,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Messed up Share component
 [ ] Emotion / ThemeUI types
 [ ] Tighten up types in general
-[ ] Fix SEO
-[ ] Fix header links
 [ ] Use next/image in bio
+[ ] Line numbers
+[ ] Highlights
+[ ] CLI styles
+[ ] Figure out what to do with back button in navbar / routing stuff

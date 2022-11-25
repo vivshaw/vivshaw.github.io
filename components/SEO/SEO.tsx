@@ -1,32 +1,13 @@
-/**
- * This react helmt code is adapted from
- * https://themeteorchef.com/tutorials/reusable-seo-with-react-helmet.
- *
- * A great tutorial explaining how to setup a robust version of an
- * SEO friendly react-helmet instance.
- *
- *
- * Use the Helmt on pages to generate SEO and meta content!
- *
- * Usage:
- * <SEO
- *   title={title}
- *   description={description}
- *   image={image}
- * />
- *
- */
-
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
 
-interface HelmetProps {
+import { author, extractAuthorSocialUrlIfPresent, site } from "@data";
+
+interface SeoProps {
   articlepathName?: string;
   authorName?: string;
   authorsBio?: string;
   authorsSlug?: string;
-  canonicalUrl?: string;
   dateforSEO?: string;
   description?: string;
   image?: string;
@@ -36,28 +17,34 @@ interface HelmetProps {
   children?: React.ReactNode;
 }
 
-const themeUIDarkModeWorkaroundScript = [
-  {
-    type: "text/javascript",
-    innerHTML: `
-    (function() {
-      try {
-        var mode = localStorage.getItem('theme-ui-color-mode');
-        if (!mode) {
-          localStorage.setItem('theme-ui-color-mode', 'light');
-        }
-      } catch (e) {}
-    })();
-  `,
-  },
-];
+// TODO: Is this needed?
+// const themeUIDarkModeWorkaroundScript = [
+//   {
+//     type: "text/javascript",
+//     innerHTML: `
+//     (function() {
+//       try {
+//         var mode = localStorage.getItem('theme-ui-color-mode');
+//         if (!mode) {
+//           localStorage.setItem('theme-ui-color-mode', 'light');
+//         }
+//       } catch (e) {}
+//     })();
+//   `,
+//   },
+// ];
 
-const SEO: React.FC<HelmetProps> = ({
+// TODO: Should this be `next/seo`?
+// TODO: Ensure PWA stuff works
+/**
+ * Generates meta content and SEO tags for any page.
+ */
+const SEO: React.FC<SeoProps> = ({
+  // TODO: Tighten up types around page type
   articlepathName,
   authorName,
   authorsBio,
   authorsSlug,
-  canonicalUrl,
   children,
   dateforSEO,
   description,
@@ -67,50 +54,56 @@ const SEO: React.FC<HelmetProps> = ({
   title,
 }) => {
   const router = useRouter();
-  const twitter = "www.twitter.com/vvvivshaw";
-  const github = "www.github.com/vivshaw";
 
-  const pageUrl = "vivshaw.net/" + router.pathname;
+  // TODO: Make this safer & more automagic!
+  const twitter = extractAuthorSocialUrlIfPresent(author, "twitter");
+  const github = extractAuthorSocialUrlIfPresent(author, "github");
+  const linkedin = extractAuthorSocialUrlIfPresent(author, "linkedin");
 
-  const fullURL = (path: string) => (path ? `${path}` : "vivshaw.net");
+  const pageUrl = site.url + router.pathname;
+
+  const fullURL = (path: string) => (path ? `${path}` : site.url);
 
   // If no image is provided, use a default
+  // TODO: Provide an image here, and on pages that use this!!
   image = image ? image : `vivshaw.net/defaultpreview.jpg`;
   image = fullURL(image);
 
+  // TODO: Add icons so this works!
   let siteSchema = `{
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "vivshaw.github.io/#organization",
-        "name": "vivshaw.net",
-        "url": "vivshaw.net",
+        "@id": "${site.name}/#organization",
+        "name": "${site.name}",
+        "url": "${site.url}",
         "sameAs": [
           "${twitter}",
           "${github}",
+          "${linkedin}",
         ],
         "logo": {
           "@type": "ImageObject",
-          "@id": "vivshaw.github.io/#logo",
+          "@id": "${site.name}/#logo",
           "inLanguage": "en-US",
-          "url": "vivshaw.github.io/icons/icon-512x512.png",
+          "url": "${site.url}/icons/icon-512x512.png",
           "width": 512,
           "height": 512,
-          "caption": "vivshaw.net"
+          "caption": "${site.name} logo"
         },
         "image": {
-          "@id": "vivshaw.github.io/#logo"
+          "@id": "${site.name}/#logo"
         }
       },
       {
         "@type": "WebSite",
-        "@id": "vivshaw.github.io/#website",
-        "url": vivshaw.github.io",
-        "name": "vivshaw.net",
-        "description": "vivshaw.net",
+        "@id": "${site.name}/#website",
+        "url": "${site.url}",
+        "name": "${site.name}",
+        "description": "${site.description}",
         "publisher": {
-          "@id": "vivshaw.github.io/#organization"
+          "@id": "${site.name}/#organization"
         },
         "inLanguage": "en-US"
       },
@@ -118,16 +111,16 @@ const SEO: React.FC<HelmetProps> = ({
         "@type": [
           "WebPage"
         ],
-        "@id": "vivshaw.github.io/#webpage",
-        "url": "vivshaw.github.io",
-        "name": "${title || "vivshaw.net"}",
+        "@id": "${site.name}/#webpage",
+        "url": "${site.url}",
+        "name": "${title || site.name}",
         "isPartOf": {
-          "@id": "vivshaw.github.io/#website"
+          "@id": "${site.name}/#website"
         },
         "about": {
-          "@id": "vivshaw.github.io/#organization"
+          "@id": "${site.name}/#organization"
         },
-        "description": "${description || "vivshaw.net"}",
+        "description": "${description || site.description}",
         "inLanguage": "en-US"
       },
       {
@@ -136,7 +129,7 @@ const SEO: React.FC<HelmetProps> = ({
         "itemListElement": [
           {
             "@type": "ListItem",
-            "item": "vivshaw.github.io",
+            "item": "${site.name}",
             "name": "Homepage",
             "position": "1"
           }
@@ -153,39 +146,41 @@ const SEO: React.FC<HelmetProps> = ({
     }
   });
 
+  // TODO get a real logo image in here
   let blogSchema = `{
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "vivshaw.github.io/#organization",
-        "name": "vivshaw.net",
-        "url": "vivshaw.github.io",
+        "@id": "${site.name}/#organization",
+        "name": "${site.name}",
+        "url": "${site.url}",
         "sameAs": [
           "${twitter}",
           "${github}",
+          "${linkedin}",
         ],
         "logo": {
           "@type": "ImageObject",
-          "@id": "vivshaw.github.io/#logo",
+          "@id": "${site.name}/#logo",
           "inLanguage": "en-US",
-          "url": "vivshaw.github.io/icons/icon-512x512.png",
+          "url": "${site.url}/icons/icon-512x512.png",
           "width": 512,
           "height": 512,
-          "caption": "vivshaw.net"
+          "caption": "${site.name} logo"
         },
         "image": {
-          "@id": "vivshaw.github.io/#logo"
+          "@id": "${site.name}/#logo"
         }
       },
       {
         "@type": "WebSite",
-        "@id": "vivshaw.github.io/#website",
-        "url": "vivshaw.github.io",
-        "name": "vivshaw.net",
-        "description": "vivshaw.net",
+        "@id": "${site.name}/#website",
+        "url": "${site.url}",
+        "name": "${site.name}",
+        "description": "${site.description}",
         "publisher": {
-          "@id": "vivshaw.github.io/#organization"
+          "@id": "${site.name}/#organization"
         },
         "inLanguage": "en-US"
       },
@@ -205,7 +200,7 @@ const SEO: React.FC<HelmetProps> = ({
         "url": "${articlepathName}",
         "name": "${title}",
         "isPartOf": {
-          "@id": "vivshaw.github.io/#website"
+          "@id": "${site.name}/#website"
         },
         "primaryImageOfPage": {
           "@id": "${articlepathName}/#primaryimage"
@@ -227,8 +222,8 @@ const SEO: React.FC<HelmetProps> = ({
             "position": 1,
             "item": {
               "@type": "WebPage",
-              "@id": "vivshaw.github.io",
-              "url": "vivshaw.github.io",
+              "@id": "${site.name}",
+              "url": "${site.url}",
               "name": "Home"
             }
           },
@@ -251,7 +246,7 @@ const SEO: React.FC<HelmetProps> = ({
           "@id": "${articlepathName}/#webpage"
         },
         "author": {
-          "@id": "vivshaw.github.io/#/schema${authorsSlug}"
+          "@id": "${site.name}/#/schema${authorsSlug}"
         },
         "headline": "${title}",
         "datePublished": "${dateforSEO}",
@@ -260,7 +255,7 @@ const SEO: React.FC<HelmetProps> = ({
           "@id": "${articlepathName}/#webpage"
         },
         "publisher": {
-          "@id": "vivshaw.github.io/#organization"
+          "@id": "${site.name}/#organization"
         },
         "image": {
           "@id": "${articlepathName}/#primaryimage"
@@ -271,11 +266,11 @@ const SEO: React.FC<HelmetProps> = ({
         "@type": [
           "Person"
         ],
-        "@id": "vivshaw.github.io/#/schema${authorsSlug}",
+        "@id": "${site.name}/#/schema${authorsSlug}",
         "name": "${authorName}",
         "image": {
           "@type": "ImageObject",
-        "@id": "vivshaw.github.io/#personlogo",
+        "@id": "${site.name}/#personlogo",
           "inLanguage": "en-US",
           "caption": "${authorName}"
         },
@@ -283,6 +278,7 @@ const SEO: React.FC<HelmetProps> = ({
         "sameAs": [
           "${twitter}",
           "${github}",
+          "${linkedin}",
         ]
       }
     ]
@@ -307,31 +303,35 @@ const SEO: React.FC<HelmetProps> = ({
       name: "viewport",
       content: "width=device-width, initial-scale=1",
     },
+    // TODO: Fix theme colors. How to do this with light/dark mode shenanigans?
     {
       name: "theme-color",
       content: "#fff",
     },
-    { itemprop: "name", content: title || "vivshaw.net" },
-    { itemprop: "description", content: description || "vivshaw.net" },
+    { itemprop: "name", content: title || site.name },
+    { itemprop: "description", content: description || site.description },
     { itemprop: "image", content: image },
-    { name: "description", content: description || "vivshaw.net" },
+    { name: "description", content: description || site.description },
 
+    // Twitter card tags
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:site", content: "vivshaw.net" },
-    { name: "twitter:title", content: title || "vivshaw.net" },
-    { name: "twitter:description", content: description || "vivshaw.net" },
+    { name: "twitter:site", content: site.url },
+    { name: "twitter:title", content: title || site.name },
+    { name: "twitter:description", content: description || site.description },
     { name: "twitter:creator", content: twitter },
     {
       name: "twitter:image",
       content: image,
     },
 
-    { property: "og:type", content: "website" },
-    { property: "og:title", content: title || "vivshaw.net" },
+    // OpenGraph tags
+    { property: "og:type", content: isBlogPost ? "article" : "website" },
+    { property: "og:title", content: title || site.name },
     { property: "og:url", content: articlepathName || pageUrl },
     { property: "og:image", content: image },
-    { property: "og:description", content: description || "vivshaw.net" },
-    { property: "og:site_name", content: "vivshaw.net" },
+    { property: "og:description", content: description || site.description },
+    { property: "og:site_name", content: site.name },
+    { property: "article:author", content: site.url },
   ];
 
   if (published) {
@@ -340,9 +340,8 @@ const SEO: React.FC<HelmetProps> = ({
 
   return (
     <Head>
-      <title>{title || "vivshaw.net"}</title>
+      <title>{title || site.name}</title>
       <script type="application/ld+json">{schema}</script>
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       {children}
     </Head>
   );

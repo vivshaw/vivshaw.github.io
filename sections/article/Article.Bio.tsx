@@ -1,26 +1,30 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-import Image from "@components/Image";
 import { IAuthor } from "@types";
 
-const Bio = ({ author }: { author: IAuthor }) => {
+/**
+ * Displays the biography and avatar for an Author, formatted for the Article Hero.
+ */
+const ArticleBio = ({ author }: { author: IAuthor }) => {
   return (
     <BioContainer>
-      <BioAvatar href={author.slug} data-a11y="false" aria-label="Author's bio">
+      <BioAvatar
+        href={author.profileLink}
+        data-a11y="false"
+        aria-label="Author's bio"
+      >
         <BioAvatarInner>
-          <RoundedImage
-            src={author.avatar}
-            alt="A photo of Hannah in a Smithsonian display of a giant salt molecule"
-          />
+          <RoundedImage alt={author.avatar.alt} src={author.avatar.src} />
         </BioAvatarInner>
       </BioAvatar>
-      <BioText dangerouslySetInnerHTML={{ __html: author.bio }} />
+
+      <BioText>{author.bio}</BioText>
     </BioContainer>
   );
 };
 
-export default Bio;
+export default ArticleBio;
 
 const BioContainer = styled.div`
   display: flex;
@@ -61,7 +65,7 @@ const BioAvatar = styled(Link)`
   }
 `;
 
-const RoundedImage = styled(Image)`
+const RoundedImage = styled.img`
   border-radius: 50%;
 `;
 

@@ -96,7 +96,7 @@ const NavigationHeader: React.FC<{}> = () => {
     <Section>
       <NavContainer>
         <LogoLink
-          href={router.basePath}
+          href="/"
           data-a11y="false"
           title="Navigate back to the homepage"
           aria-label="Navigate back to the homepage"

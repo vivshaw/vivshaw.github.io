@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 import mediaqueries from "@styles/media";
@@ -19,9 +19,14 @@ const Container = styled.div`
   `}
 `;
 
+/**
+ * Placeholder for missing images.
+ * This should *never* be seen in prod, but can be useful in development!
+ */
 const ImagePlaceholder: React.FC<{}> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // TODO: Tighten up these types!
+  const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 
   useEffect(() => {
     setDimensions(containerRef.current.getBoundingClientRect());

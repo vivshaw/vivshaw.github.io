@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 import Section from "@components/Section";
-import Bio from "@components/Bio";
 import { author } from "@data";
+import ArticleBio from "@sections/article/Article.Bio";
 import mediaqueries from "@styles/media";
 
 const ArticlesHero = () => {
@@ -16,7 +16,7 @@ const ArticlesHero = () => {
         </HeroHeading>
       </HeadingContainer>
       <SubheadingContainer>
-        <Bio author={featuredAuthor} />
+        <ArticleBio author={featuredAuthor} />
       </SubheadingContainer>
     </Section>
   );

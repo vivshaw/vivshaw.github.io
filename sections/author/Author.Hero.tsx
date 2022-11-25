@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
-import Image from "@components/Image";
 import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
 import { IAuthor } from "@types";
@@ -9,16 +9,22 @@ interface AuthorHeroProps {
   author: IAuthor;
 }
 
+/**
+ * Displays the Hero for an Author page, including avatar, bio, and social links.s
+ */
 const AuthorHero: React.FC<AuthorHeroProps> = ({ author }) => {
   return (
     <Hero>
       <HeroImage>
-        <RoundedImage src={author.avatar} />
+        <RoundedImage alt={author.avatar.alt} fill src={author.avatar.src} />
       </HeroImage>
+
       <Heading>{author.name}</Heading>
-      <Subheading dangerouslySetInnerHTML={{ __html: author.bio }}></Subheading>
+
+      <Subheading>{author.bio}</Subheading>
+
       <Social>
-        <SocialLinks links={author.social} />
+        <SocialLinks links={author.socials} />
       </Social>
     </Hero>
   );

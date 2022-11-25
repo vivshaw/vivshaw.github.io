@@ -328,6 +328,9 @@ export function copyToClipboard(toCopy: string) {
   document.body.removeChild(el);
 }
 
+/**
+ * Pretty-prints a Date in a nice localized format, like Sunday, `Jul 12, 2017`.
+ */
 export const prettyPrintDate = (date: Date) =>
   date.toLocaleDateString("en-us", {
     weekday: "long",

@@ -1,53 +1,43 @@
-import React from "react";
-import styled from "@emotion/styled";
-
+import Layout from "@components/Layout";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
-import Layout from "@components/Layout";
-import Paginator from "@components/Navigation/Navigation.Paginator";
+import AuthorHero from "@sections/author/Author.Hero";
+import AuthorAbout from "@sections/author/Author.About";
+import { IAuthor } from "@types";
+import { MDXBody } from "@components/MDX/MDX";
 
-import AuthorHero from "../sections/author/Author.Hero";
-import AuthorArticles from "../sections/author/Author.Articles";
+interface IArticlesPageProps {
+  /** Author to display info for */
+  author: IAuthor;
 
-import { Template } from "@types";
+  /**
+   * Full biography for the author.
+   * This is passed as `children` so you can easily use an MDX page to
+   * write the bio, and simply pass it in as a child.
+   */
+  children?: React.ReactNode;
+}
 
-const ArticlesPage: Template = ({ location, pageContext }) => {
-  const author = pageContext.additionalContext.author;
-  const articles = pageContext.group;
+/**
+ * Page template for an Author page.
+ */
+const ArticlesPage: React.FC<IArticlesPageProps> = ({ author, children }) => {
+  // TODO: slap in an `isNil` util for cases like this
+  const shouldDisplayFullBio = !!children;
 
   return (
     <Layout>
-      <SEO
-        pathname={location.pathname}
-        title={author.name}
-        description={author.bio}
-      />
+      <SEO title={author.name} description={author.bio} />
       <Section narrow>
         <AuthorHero author={author} />
-        <AuthorArticles articles={articles} />
-        <AuthorPaginator>
-          <Paginator {...pageContext} />
-        </AuthorPaginator>
+        {shouldDisplayFullBio && (
+          <AuthorAbout>
+            <MDXBody>{children}</MDXBody>
+          </AuthorAbout>
+        )}
       </Section>
-      <AuthorsGradient />
     </Layout>
   );
-}
+};
 
 export default ArticlesPage;
-
-const AuthorsGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 590px;
-  z-index: 0;
-  pointer-events: none;
-  background: ${p => p.theme.colors.gradient};
-  transition: ${p => p.theme.colorModeTransition};
-`;
-
-const AuthorPaginator = styled.div`
-  text-align: center;
-`;

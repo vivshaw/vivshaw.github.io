@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import SEO from "@components/SEO";
+import { site } from "@data";
 import { IArticle, IAuthor } from "@types";
 import { prettyPrintDate } from "@utils";
 
@@ -15,7 +16,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
   author,
   imagelocation,
 }) => {
-  const siteUrl = "vivshaw.net"; // TODO
+  const siteUrl = site.url;
   const router = useRouter();
 
   imagelocation = `${siteUrl + article.image.src}`;
@@ -25,8 +26,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
     <SEO
       authorName={author.name}
       authorsBio={author.bio}
-      authorsSlug={author.slug}
-      canonicalUrl={""}
+      authorsSlug={author.id}
       dateforSEO={prettyDate}
       description={article.blurb}
       image={imagelocation}

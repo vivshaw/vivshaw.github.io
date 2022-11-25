@@ -1,5 +1,4 @@
-import { ImageProps, StaticImageData } from "next/image";
-import React from "react";
+import type { ImageProps, StaticImageData } from "next/image";
 
 export interface IPaginator {
   pageCount: number;
@@ -7,13 +6,31 @@ export interface IPaginator {
   pathPrefix: string;
 }
 
+export type TSocialSite =
+  | "linkedin"
+  | "twitter"
+  | "facebook"
+  | "instagram"
+  | "github"
+  | "notion"
+  | "mailto"
+  | "url";
+
+export interface ISocialLink {
+  name: TSocialSite;
+  url: string;
+}
+
 export interface IAuthor {
-  authorsPage?: boolean;
-  featured?: boolean;
-  name: string;
-  slug: string;
+  avatar: {
+    alt: string;
+    src: string;
+  };
   bio: string;
-  avatar: string;
+  name: string;
+  id: string;
+  profileLink: string;
+  socials: ISocialLink[];
 }
 
 export interface IArticle {
@@ -22,12 +39,6 @@ export interface IArticle {
   title: string;
   image: StaticImageData;
   date: Date;
-}
-
-interface IArticleQuery {
-  edges: {
-    node: IArticle;
-  }[];
 }
 
 export interface IProgress {
@@ -40,14 +51,4 @@ export interface IProgress {
 
 export type Icon = React.FC<{
   fill?: string;
-}>;
-
-export type Template = React.FC<{
-  pageContext: {
-    article: IArticle;
-    authors: IAuthor[];
-    mailchimp: boolean;
-    next: IArticle[];
-  };
-  location: Location;
 }>;

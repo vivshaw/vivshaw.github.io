@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
+import { author } from "@data";
 import mediaqueries from "@styles/media";
 
 const Footer: React.FC = () => {
@@ -10,9 +11,7 @@ const Footer: React.FC = () => {
       <Section narrow>
         <HoritzontalRule />
         <FooterContainer>
-          <SocialLinks
-            links={[{ name: "twitter", url: "www.twitter.com/vvvivshaw" }]}
-          />
+          <SocialLinks links={author.socials} />
         </FooterContainer>
       </Section>
     </>
