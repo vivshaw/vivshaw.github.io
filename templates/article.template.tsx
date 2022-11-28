@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
-import Head from "next/head";
+import { useColorMode } from "theme-ui";
 
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
@@ -20,6 +20,7 @@ import { debounce } from "@utils";
 // TODO: Remove these after `next` actually works!!
 import scalaImage from "@pages/blog/robot-brain-scala/muneeb-syed-x9NfeD3FpsE-unsplash.jpg";
 import pentameterImage from "@pages/blog/electric-pentameter/jaimie-phillips-KamSS2euCzA-unsplash.jpg";
+import { Wordmark } from "@components/Logo/Logo";
 const fakeNextMetas: IArticle[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
@@ -55,6 +56,9 @@ const Article = ({
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
+
+  const [colorMode] = useColorMode();
+  const fill = colorMode === "dark" ? "#fff" : "#000";
 
   useEffect(() => {
     const calculateBodySize = throttle(() => {
@@ -107,8 +111,10 @@ const Article = ({
       </ArticleBody>
       {next.length > 0 && (
         <NextArticle narrow>
-          {/** TODO: that `site.name` should be the logo, would look iller */}
-          <FooterNext>More articles from {site.name}</FooterNext>
+          <FooterNext>
+            More articles from{" "}
+            <Wordmark className="inlineWordmark" fill={fill} />
+          </FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />
         </NextArticle>
@@ -160,6 +166,18 @@ const FooterNext = styled.h3`
   font-weight: 400;
   color: ${(p) => p.theme.colors.primary};
 
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
+  & .inlineWordmark {
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    top: -2px;
+  }
+
   ${mediaqueries.tablet`
     margin-bottom: 60px;
   `}
@@ -168,7 +186,7 @@ const FooterNext = styled.h3`
     content: "";
     position: absolute;
     background: ${(p) => p.theme.colors.grey};
-    width: ${(910 / 1140) * 100}%;
+    width: ${(750 / 1140) * 100}%;
     height: 1px;
     right: 0;
     top: 11px;

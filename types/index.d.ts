@@ -47,5 +47,6 @@ export interface IArticle {
 }
 
 export type Icon = React.FC<{
+  className?: string;
   fill?: string;
 }>;
