@@ -50,3 +50,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Fix Data Mashups url
 [ ] tidy MDX components generally
 [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
+[ ] Get social tags working

@@ -277,25 +277,6 @@ const SEO: React.FC<SeoProps> = ({
   const schema = isBlogPost ? blogSchema : siteSchema;
 
   const metaTags = [
-    { charset: "utf-8" },
-    {
-      "http-equiv": "X-UA-Compatible",
-      content: "IE=edge",
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1",
-    },
-    // TODO: Fix theme colors. How to do this with light/dark mode shenanigans?
-    {
-      name: "theme-color",
-      content: "#fff",
-    },
-    { itemprop: "name", content: title || site.name },
-    { itemprop: "description", content: description || site.description },
-    { itemprop: "image", content: image },
-    { name: "description", content: description || site.description },
-
     // Twitter card tags
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: site.url },
@@ -323,8 +304,54 @@ const SEO: React.FC<SeoProps> = ({
 
   return (
     <Head>
+      {/** Title-y stuff */}
       <title>{title || site.name}</title>
+      <meta name="name" content={title || site.name} />
+      <meta itemProp="name" content={title || site.name} />
+      <meta name="description" content={description || site.description} />
+      <meta itemProp="description" content={description || site.description} />
+      <meta itemProp="image" content={image} />
+
+      {/** Schema.org structured metadata */}
       <script type="application/ld+json">{schema}</script>
+
+      {/** Boilerplatey stuff */}
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      {/** PWA & Icon stuff */}
+      <meta name="application-name" content="vivshaw.net" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="apple-mobile-web-app-title" content="vivshaw.net" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+      <meta name="msapplication-config" content="/browserconfig.xml" />
+      <meta name="msapplication-TileColor" content="#da532c" />
+      <meta name="msapplication-tap-highlight" content="no" />
+      <meta name="theme-color" content="#000000" />
+
       {children}
     </Head>
   );

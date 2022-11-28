@@ -6,12 +6,19 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-module.exports = withMDX({
-  compiler: {
-    emotion: true,
-  },
-  pageExtensions: ["js", "jsx", "mdx"],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
 });
+
+module.exports = withPWA(
+  withMDX({
+    compiler: {
+      emotion: true,
+    },
+    pageExtensions: ["js", "jsx", "mdx"],
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+  })
+);
