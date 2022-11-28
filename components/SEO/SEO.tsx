@@ -276,32 +276,6 @@ const SEO: React.FC<SeoProps> = ({
 
   const schema = isBlogPost ? blogSchema : siteSchema;
 
-  const metaTags = [
-    // Twitter card tags
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:site", content: site.url },
-    { name: "twitter:title", content: title || site.name },
-    { name: "twitter:description", content: description || site.description },
-    { name: "twitter:creator", content: twitter },
-    {
-      name: "twitter:image",
-      content: image,
-    },
-
-    // OpenGraph tags
-    { property: "og:type", content: isBlogPost ? "article" : "website" },
-    { property: "og:title", content: title || site.name },
-    { property: "og:url", content: articlepathName || pageUrl },
-    { property: "og:image", content: image },
-    { property: "og:description", content: description || site.description },
-    { property: "og:site_name", content: site.name },
-    { property: "article:author", content: site.url },
-  ];
-
-  if (published) {
-    metaTags.push({ name: "article:published_time", content: published });
-  }
-
   return (
     <Head>
       {/** Title-y stuff */}
@@ -351,6 +325,30 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="theme-color" content="#000000" />
+
+      {/** Twiter tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={site.url} />
+      <meta name="twitter:title" content={title || site.name} />
+      <meta
+        name="twitter:description"
+        content={description || site.description}
+      />
+      <meta name="twitter:creator" content={twitter} />
+      <meta name="twitter:image" content={image} />
+
+      {/** OpenGraph tags */}
+      <meta property="og:type" content={isBlogPost ? "article" : "website"} />
+      <meta property="og:title" content={title || site.name} />
+      <meta property="og:url" content={articlepathName || pageUrl} />
+      <meta property="og:image" content={image} />
+      <meta
+        property="og:description"
+        content={description || site.description}
+      />
+      <meta property="og:site_name" content={site.name} />
+      <meta property="article:author" content={site.url} />
+      {published && <meta name="article:published_time" content={published} />}
 
       {children}
     </Head>
