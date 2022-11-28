@@ -11,4 +11,8 @@ module.exports = withMDX({
     emotion: true,
   },
   pageExtensions: ["js", "jsx", "mdx"],
+  typescript: {
+    ignoreDevErrors: true,
+    ignoreBuildErrors: true,
+  },
 });
