@@ -23,13 +23,13 @@ export default Footer;
 const FooterContainer = styled.div`
   position: relative;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: end;
   padding-bottom: 80px;
   color: ${(p) => p.theme.colors.grey};
 
   ${mediaqueries.tablet`
-    flex-direction: column;
     padding-bottom: 100px;
   `}
 

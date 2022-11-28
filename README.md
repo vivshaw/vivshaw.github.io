@@ -33,7 +33,7 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Reposition Copy button in fenced code blocks
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
-[ ] Emotion / ThemeUI types
+[ ] Rip out Emotion / ThemeUI in favor of Stitches / Radix
 [ ] Tighten up types in general
 [ ] Line numbers
 [ ] Highlights
@@ -47,7 +47,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 [ ] Monorepo it? (Turborepo? NX?)
 [ ] Storybook
-[ ] port styles to Stitches / Radix
 [ ] Fix Data Mashups url
 [ ] tidy MDX components generally
 [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
