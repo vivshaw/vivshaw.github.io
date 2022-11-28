@@ -38,26 +38,6 @@ const Copy: React.FC<CopyProps> = ({ toCopy }) => {
   );
 };
 
-const RE = /{([\d,-]+)}/;
-
-function calculateLinesToHighlight(meta) {
-  if (RE.test(meta)) {
-    const lineNumbers = RE.exec(meta)[1]
-      .split(",")
-      .map((v) => v.split("-").map((y) => parseInt(y, 10)));
-
-    return (index) => {
-      const lineNumber = index + 1;
-      const inRange = lineNumbers.some(([start, end]) =>
-        end ? lineNumber >= start && lineNumber <= end : lineNumber === start
-      );
-      return inRange;
-    };
-  } else {
-    return () => false;
-  }
-}
-
 interface CodePrismProps {
   className: string;
   codeString: any;
@@ -81,8 +61,8 @@ export default CodePrism;
 
 const CopyButton = styled.button`
   position: absolute;
-  right: 22px;
-  top: 24px;
+  right: 6px;
+  top: 6px;
   padding: 8px 12px 7px;
   border-radius: 5px;
   color: #6f7177;

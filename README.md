@@ -30,7 +30,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 [ ] Make `code` blocks more legible
-[ ] Reposition Copy button in fenced code blocks
+[ ] Unscrew Copy button in fenced code blocks (it scrolls with the block for some reason)
+[ ] Figure out what the heck is controlling scrolling in fenced code blocks
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
 [ ] Rip out Emotion / ThemeUI in favor of Stitches / Radix
