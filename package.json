@@ -2,10 +2,10 @@
   "name": "vivshaw.net",
   "description": "vivshaw's personal website",
   "homepage": "https://vivshaw.net",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/vivshaw/vivshaw.net.git"
-    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivshaw/vivshaw.net.git"
+  },
   "private": true,
   "license": "MIT",
   "author": {
