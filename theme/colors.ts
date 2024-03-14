@@ -19,16 +19,16 @@ export default {
 
   /* Semantic Tokens */
   /* Text */
-  primary: "#000",
-  secondary: "#000",
-  articleText: "#000",
+  primary: "#0a1910",
+  secondary: "#0e3823",
+  articleText: "#0d281a",
 
   /* BGs */
-  background: "#fff",
-  card: "#eee",
+  background: "#e6f0ea",
+  card: "#c1daca",
 
   /* Primary */
-  accent: "#41825f",
+  accent: "#2b6e4c",
 
   /* Elements */
   horizontalRule: "rgba(8, 8, 11, 0.15)",
@@ -36,16 +36,16 @@ export default {
   modes: {
     dark: {
       /* Text */
-      primary: "#fff",
-      secondary: "#fff",
-      articleText: "#fff",
+      primary: "#e6f0ea",
+      secondary: "#9dc3ab",
+      articleText: "#c1daca",
 
       /* BGs */
-      background: "#000",
-      card: "#111",
+      background: "#0a1910",
+      card: "#0d281a",
 
       /* Primary */
-      accent: "#41825f",
+      accent: "#5c9776",
 
       /* Elements */
       horizontalRule: "rgba(255, 255, 255, 0.15)",
