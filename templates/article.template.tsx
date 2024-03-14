@@ -1,6 +1,4 @@
-import { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import throttle from "lodash/throttle";
 import { useColorMode } from "theme-ui";
 
 import Layout from "@components/Layout";
@@ -14,7 +12,6 @@ import ArticlesNext from "@sections/article/Article.Next";
 import ArticleSEO from "@sections/article/Article.SEO";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
-import { debounce } from "@utils";
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: IArticle[] = [
@@ -137,7 +134,7 @@ const FooterNext = styled.h3`
   &::after {
     content: "";
     position: absolute;
-    background: ${(p) => p.theme.colors.secondary};
+    background: ${(p) => p.theme.colors.grey};
     width: ${(750 / 1140) * 100}%;
     height: 1px;
     right: 0;

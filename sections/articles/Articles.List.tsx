@@ -102,7 +102,7 @@ const Blurb = styled.p<{
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
   display: box;
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
 
@@ -125,7 +125,7 @@ const Blurb = styled.p<{
 const Date = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
   opacity: 0.33;
 
   ${mediaqueries.phablet`

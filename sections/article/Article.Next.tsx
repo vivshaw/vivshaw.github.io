@@ -188,7 +188,7 @@ const Excerpt = styled.p<{ narrow?: boolean; hasOverflow: boolean }>`
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
   display: ${(p) => (p.hasOverflow ? "none" : "box")};
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
 
@@ -211,7 +211,7 @@ const Excerpt = styled.p<{ narrow?: boolean; hasOverflow: boolean }>`
 const MetaData = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
   opacity: 0.33;
 
   ${mediaqueries.phablet`

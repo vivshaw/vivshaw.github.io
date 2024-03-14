@@ -4,7 +4,7 @@ import mediaqueries from "@styles/media";
 const StyledTable = styled.table`
   position: relative;
   line-height: 1.65;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
   font-family: ${(p) => p.theme.fonts.sansSerif};
   transition: ${(p) => p.theme.colorModeTransition};
   background: ${(p) => p.theme.colors.card};

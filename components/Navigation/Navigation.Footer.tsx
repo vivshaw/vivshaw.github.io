@@ -27,7 +27,7 @@ const FooterContainer = styled.div`
   align-items: center;
   justify-content: end;
   padding-bottom: 80px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
 
   ${mediaqueries.tablet`
     padding-bottom: 100px;

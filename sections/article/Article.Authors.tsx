@@ -35,7 +35,7 @@ const AuthorAvatar = styled.div`
   width: 25px;
   border-radius: 50%;
   margin-right: 14px;
-  background: ${(p) => p.theme.colors.secondary};
+  background: ${(p) => p.theme.colors.grey};
   overflow: hidden;
   position: relative;
 

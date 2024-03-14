@@ -118,7 +118,7 @@ const HeroSubtitle = styled.div`
   position: relative;
   display: flex;
   font-size: 18px;
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.grey};
 
   ${(p) => mediaqueries.phablet`
     font-size: 14px;
