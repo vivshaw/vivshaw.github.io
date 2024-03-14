@@ -1,5 +1,5 @@
 import merge from "lodash/merge";
-import { Merriweather } from "@next/font/google";
+import { Merriweather } from "next/font/google";
 
 import colors from "./colors";
 import tags from "./tags";
