@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import throttle from "lodash/throttle";
 
-import theme from "../theme";
+import theme from "@theme";
 
 /**
  * Clamp a number between min and max

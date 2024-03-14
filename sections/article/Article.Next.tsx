@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Link from "next/link";
-import Image from "next/image";
 
 import Headings from "@components/Headings";
 import mediaqueries from "@styles/media";
@@ -72,14 +71,6 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
       narrow={narrow ? "true" : "false"}
     >
       <Item>
-        <ImageContainer>
-          <Image
-            alt={article.image.alt}
-            fill
-            placeholder="blur"
-            src={article.image.src}
-          />
-        </ImageContainer>
         <Title dark hasOverflow={hasOverflow}>
           {article.title}
         </Title>

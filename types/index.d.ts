@@ -34,16 +34,13 @@ export interface IAuthor {
 }
 
 export interface IArticle {
-  blurb: string;
-  date: Date;
-  image: {
-    alt: string;
-    src: StaticImageData;
-  };
-  next?: string[];
-  slug: string;
-  tags: string[];
   title: string;
+  slug: string;
+  date: Date;
+
+  blurb: string;
+  next?: string[];
+  tags: string[];
 }
 
 export type Icon = React.FC<{

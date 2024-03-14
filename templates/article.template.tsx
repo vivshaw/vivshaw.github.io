@@ -6,8 +6,8 @@ import { useColorMode } from "theme-ui";
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
-import { author, site } from "@data";
-import ArticleAside from "@sections/article/Article.Aside";
+import { Wordmark } from "@components/Logo/Logo";
+import { author } from "@data";
 import ArticleHero from "@sections/article/Article.Hero";
 import ArticleControls from "@sections/article/Article.Controls";
 import ArticlesNext from "@sections/article/Article.Next";
@@ -17,15 +17,11 @@ import type { IArticle } from "@types";
 import { debounce } from "@utils";
 
 // TODO: Remove these after `next` actually works!!
-import scalaImage from "@pages/blog/robot-brain-scala/muneeb-syed-x9NfeD3FpsE-unsplash.jpg";
-import pentameterImage from "@pages/blog/electric-pentameter/jaimie-phillips-KamSS2euCzA-unsplash.jpg";
-import { Wordmark } from "@components/Logo/Logo";
 const fakeNextMetas: IArticle[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
     blurb: "Exploring computer vision with a from-scratch neural net in Scala",
     date: new Date("2017-02-04"),
-    image: { alt: "green leafed plants", src: scalaImage },
     next: ["electric-pentameter", "build-you-a-tweetbot"],
     slug: "robot-brain-scala",
     tags: ["scala", "ml", "neural networks", "MNIST", "computer vision"],
@@ -34,7 +30,6 @@ const fakeNextMetas: IArticle[] = [
     title: "Do Robots Dream of Electric Pentameter?",
     blurb: "Generative poetry with LSTM neural networks",
     date: new Date("2017-02-10"),
-    image: { alt: "green ovate leaves with dew drops", src: pentameterImage },
     next: ["robot-brain-scala", "build-you-a-tweetbot"],
     slug: "electric-pentameter",
     tags: ["python", "ml", "LSTM", "neural networks", "keras"],
@@ -51,47 +46,8 @@ const Article = ({
   children?: React.ReactNode;
   meta: IArticle;
 }) => {
-  const contentSectionRef = useRef<HTMLElement>(null);
-
-  const [hasCalculated, setHasCalculated] = useState<boolean>(false);
-  const [contentHeight, setContentHeight] = useState<number>(0);
-
   const [colorMode] = useColorMode();
   const fill = colorMode === "dark" ? "#fff" : "#000";
-
-  useEffect(() => {
-    const calculateBodySize = throttle(() => {
-      const contentSection = contentSectionRef.current;
-
-      if (!contentSection) return;
-
-      /**
-       * If we haven't checked the content's height before,
-       * we want to add listeners to the content area's
-       * imagery to recheck when it's loaded
-       */
-      if (!hasCalculated) {
-        const debouncedCalculation = debounce(calculateBodySize);
-        const $imgs = contentSection.querySelectorAll("img");
-
-        $imgs.forEach(($img) => {
-          // If the image hasn't finished loading then add a listener
-          if (!$img.complete) $img.onload = debouncedCalculation;
-        });
-
-        // Prevent rerun of the listener attachment
-        setHasCalculated(true);
-      }
-
-      // Set the height and offset of the content area
-      setContentHeight(contentSection.getBoundingClientRect().height);
-    }, 20);
-
-    calculateBodySize();
-    window.addEventListener("resize", calculateBodySize);
-
-    return () => window.removeEventListener("resize", calculateBodySize);
-  }, []);
 
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
 
@@ -99,12 +55,10 @@ const Article = ({
     <Layout>
       <ArticleSEO article={meta} author={author} />
       <ArticleHero article={meta} author={author} />
-      <ArticleAside contentHeight={contentHeight}>
-      </ArticleAside>
       <MobileControls>
         <ArticleControls />
       </MobileControls>
-      <ArticleBody ref={contentSectionRef}>
+      <ArticleBody>
         <MDXBody>{children}</MDXBody>
       </ArticleBody>
       {next.length > 0 && (
@@ -136,7 +90,7 @@ const MobileControls = styled.div`
 
 const ArticleBody = styled.article`
   position: relative;
-  padding: 160px 0 35px;
+  padding: 0 0 35px;
   padding-left: 68px;
   transition: background 0.2s linear;
 

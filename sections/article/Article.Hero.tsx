@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 import Headings from "@components/Headings";
 import ArticleAuthor from "@sections/article/Article.Authors";
 import mediaqueries from "@styles/media";
 import type { IArticle, IAuthor } from "@types";
-import { getBreakpointFromTheme, prettyPrintDate } from "@utils";
+import { prettyPrintDate } from "@utils";
 
 interface ArticleHeroProps {
   article: IArticle;
@@ -27,20 +26,6 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, author }) => {
           <ArticleMeta>{prettyDate}</ArticleMeta>
         </HeroSubtitle>
       </Header>
-
-      {/** This absolute ID is used in Article.Aside */}
-      <HeroImage id="ArticleImage__Hero">
-        <Image
-          alt={article.image.alt}
-          fill
-          placeholder="blur"
-          priority
-          sizes={`(max-width: ${getBreakpointFromTheme("phablet")}px) 100vw,
-                 (max-width: ${getBreakpointFromTheme("tablet")}px) 100vw,
-                 944px`}
-          src={article.image.src}
-        />
-      </HeroImage>
     </Hero>
   );
 };

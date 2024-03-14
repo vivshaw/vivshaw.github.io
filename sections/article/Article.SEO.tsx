@@ -14,12 +14,10 @@ interface ArticleSEOProps {
 const ArticleSEO: React.FC<ArticleSEOProps> = ({
   article,
   author,
-  imagelocation,
 }) => {
   const siteUrl = site.url;
   const router = useRouter();
 
-  imagelocation = `${siteUrl + article.image.src}`;
   const prettyDate = prettyPrintDate(article.date);
 
   return (
@@ -29,7 +27,6 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
       authorsSlug={author.id}
       dateforSEO={prettyDate}
       description={article.blurb}
-      image={imagelocation}
       isBlogPost={true}
       articlepathName={siteUrl + router.pathname}
       published={prettyDate}

@@ -1,6 +1,7 @@
-import { IArticle } from "@types";
 import fs from "fs/promises";
 import path from "path";
+
+import type { IArticle } from "@types";
 
 /** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
 type TArticleDateless = Omit<IArticle, "date"> & { date: string };
