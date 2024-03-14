@@ -3,41 +3,52 @@ import prism from "./prism";
 export default {
   prism,
 
-  primary: "#000",
-  secondary: "#73737D",
-  grey: "#73737D",
-  background: "#fafafa",
-  accent: "#6166DC",
-  hover: "rgba(0, 0, 0, 0.07)",
-  gradient: "linear-gradient(180deg, rgba(217, 219, 224, 0) 0%, #D9DBE0 100%)",
-  articleText: "#08080B",
-  track: "rgba(8, 8, 11, 0.3)",
-  progress: "#000",
-  card: "#fff",
-  error: "#EE565B",
-  success: "#46B17B",
-  errorBackground: "rgba(238, 86, 91, 0.1)",
+  /* Color Ramps */
+  green50: "#e6f0ea",
+  green100: "#c1daca",
+  green150: "#9dc3ab",
+  green200: "#7bad8f",
+  green300: "#5c9776",
+  green400: "#41825f",
+  green500: "#2b6e4c",
+  green600: "#1b5b3c",
+  green700: "#11492e",
+  green800: "#0e3823",
+  green900: "#0d281a",
+  green1000: "#0a1910",
+
+  /* Semantic Tokens */
+  /* Text */
+  primary: "#0a1910",
+  secondary: "#0e3823",
+  articleText: "#0d281a",
+
+  /* BGs */
+  background: "#e6f0ea",
+  card: "#c1daca",
+
+  /* Primary */
+  accent: "#2b6e4c",
+
+  /* Elements */
   horizontalRule: "rgba(8, 8, 11, 0.15)",
-  inputBackground: "rgba(0, 0, 0, 0.05)",
+
   modes: {
     dark: {
-      grey: "#73737D",
-      primary: "#fff",
-      secondary: "#fff",
-      accent: "#E9DAAC",
-      background: "#111216",
-      hover: "rgba(255, 255, 255, 0.07)",
-      gradient:
-        "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)",
-      articleText: "#fff",
-      track: "rgba(255, 255, 255, 0.3)",
-      progress: "#fff",
-      card: "#1D2128",
-      error: "#EE565B",
-      success: "#46B17B",
-      errorBackground: "rgba(238, 86, 91, 0.1)",
+      /* Text */
+      primary: "#e6f0ea",
+      secondary: "#9dc3ab",
+      articleText: "#c1daca",
+
+      /* BGs */
+      background: "#0a1910",
+      card: "#0d281a",
+
+      /* Primary */
+      accent: "#5c9776",
+
+      /* Elements */
       horizontalRule: "rgba(255, 255, 255, 0.15)",
-      inputBackground: "rgba(255, 255, 255, 0.07)",
     },
   },
 };

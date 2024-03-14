@@ -220,7 +220,7 @@ const Excerpt = styled.p<{
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${(p) => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.secondary};
   display: box;
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
 
@@ -243,7 +243,7 @@ const Excerpt = styled.p<{
 const MetaData = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${(p) => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.secondary};
   opacity: 0.33;
 
   ${mediaqueries.phablet`

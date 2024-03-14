@@ -99,7 +99,7 @@ const Heading = styled.h1`
 const Subheading = styled.p`
   margin: 0 auto;
   max-width: 450px;
-  color: ${(p) => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.secondary};
   font-size: 18px;
   font-family: ${(p) => p.theme.fonts.sansSerif};
   line-height: 1.4;

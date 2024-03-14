@@ -15,6 +15,7 @@ export const getAllBlogPosts = async (): Promise<TArticleDateless[]> => {
   const listing = await fs.readdir(root);
 
   const items = listing
+    .filter((item) => item !== "index.js")
     .map((item) => {
       // TODO: Make this more typesafe... Zod it? Types in MDX files?
       const blog = require(`@pages/blog/${item}/index.mdx`);

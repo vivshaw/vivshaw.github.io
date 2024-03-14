@@ -133,7 +133,7 @@ const HeroSubtitle = styled.div`
   position: relative;
   display: flex;
   font-size: 18px;
-  color: ${(p) => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.secondary};
 
   ${(p) => mediaqueries.phablet`
     font-size: 14px;

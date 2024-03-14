@@ -5,7 +5,6 @@ import { useColorMode } from "theme-ui";
 
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
-import Progress from "@components/Progress";
 import Section from "@components/Section";
 import { author, site } from "@data";
 import ArticleAside from "@sections/article/Article.Aside";
@@ -101,7 +100,6 @@ const Article = ({
       <ArticleSEO article={meta} author={author} />
       <ArticleHero article={meta} author={author} />
       <ArticleAside contentHeight={contentHeight}>
-        <Progress contentHeight={contentHeight} />
       </ArticleAside>
       <MobileControls>
         <ArticleControls />
@@ -185,7 +183,7 @@ const FooterNext = styled.h3`
   &::after {
     content: "";
     position: absolute;
-    background: ${(p) => p.theme.colors.grey};
+    background: ${(p) => p.theme.colors.secondary};
     width: ${(750 / 1140) * 100}%;
     height: 1px;
     right: 0;
