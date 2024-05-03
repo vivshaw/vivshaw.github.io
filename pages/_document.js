@@ -8,6 +8,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
         />
+        <link rel="stylesheet" href="https://use.typekit.net/isa7scp.css"/>
       </Head>
       <body>
         <Main />
