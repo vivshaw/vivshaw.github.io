@@ -4,7 +4,7 @@ import Link from "next/link";
 import { DarkModeToggle } from "@components/Navbar/DarkModeToggle";
 import Section from "@components/Section";
 import mediaqueries from "@styles/media";
-import { SharePageButton } from "./ShareButton";
+import { iconWrapperHover } from "./IconWrapper";
 
 const NavContainer = styled.nav`
   position: relative;
@@ -25,6 +25,11 @@ const NavContainer = styled.nav`
 const LogoLink = styled(Link)`
   color: ${(p) => p.theme.colors.primary};
   font-size: 27px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    color: ${(p) => p.theme.colors.accent};
+  }
 `;
 
 const NavControls = styled.div`
@@ -37,6 +42,26 @@ const NavControls = styled.div`
   `}
 `;
 
+const NavLinks = styled.ul`
+  display: flex;
+  gap: 24px;
+  list-style: none;
+`
+
+const PageLink = styled(Link)`
+  color: ${(p) => p.theme.colors.primary};
+  font-size: 27px;
+
+  ${iconWrapperHover}
+`
+
+const PageLinkExternal = styled.a`
+  color: ${(p) => p.theme.colors.primary};
+  font-size: 27px;
+
+  ${iconWrapperHover}
+`
+
 export const Navbar = () => (
   <Section>
     <NavContainer>
@@ -48,7 +73,28 @@ export const Navbar = () => (
       </LogoLink>
 
       <NavControls>
-        <SharePageButton />
+        <NavLinks>
+          <li>
+            <PageLink href="/blog">
+              Blog
+            </PageLink>
+          </li>
+          <li>
+            <PageLinkExternal href="https://zettel.vivsha.ws">
+              Zettel
+            </PageLinkExternal>
+          </li>
+          <li>
+            <PageLink href="/contact">
+              Contact
+            </PageLink>
+          </li>
+          <li>
+            <PageLink href="/about">
+              About
+            </PageLink>
+          </li>
+        </NavLinks>
         <DarkModeToggle />
       </NavControls>
     </NavContainer>
