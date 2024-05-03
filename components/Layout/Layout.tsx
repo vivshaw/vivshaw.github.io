@@ -3,8 +3,8 @@ import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useColorMode } from "theme-ui";
 
+import { Navbar } from "@components/Navbar";
 import NavigationFooter from "@components/Navigation/Navigation.Footer";
-import NavigationHeader from "@components/Navigation/Navigation.Header";
 import { globalStyles } from "@styles";
 
 /**
@@ -22,7 +22,7 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
     <Container>
       <Global styles={globalStyles} />
-      <NavigationHeader />
+      <Navbar />
       {children}
       <NavigationFooter />
     </Container>
