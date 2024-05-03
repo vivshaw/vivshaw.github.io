@@ -4,7 +4,6 @@ import { useColorMode } from "theme-ui";
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
-import { Wordmark } from "@components/Logo/Logo";
 import { author } from "@data";
 import ArticleHero from "@sections/article/Article.Hero";
 import ArticleControls from "@sections/article/Article.Controls";
@@ -61,8 +60,7 @@ const Article = ({
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>
-            More articles from{" "}
-            <Wordmark className="inlineWordmark" fill={fill} />
+            More articles from vivsha.ws
           </FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />
@@ -119,13 +117,6 @@ const FooterNext = styled.h3`
   display: flex;
   flex-direction: row;
   gap: 4px;
-
-  & .inlineWordmark {
-    display: inline-block;
-    height: 25px;
-    position: relative;
-    top: -2px;
-  }
 
   ${mediaqueries.tablet`
     margin-bottom: 60px;

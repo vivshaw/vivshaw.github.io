@@ -1,25 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { useColorMode } from "theme-ui";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 import Section from "@components/Section";
-import Logo from "@components/Logo";
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
-import {
-  copyToClipboard,
-  getWindowDimensions,
-  getBreakpointFromTheme,
-} from "@utils";
+import { copyToClipboard } from "@utils";
 
 const DarkModeToggle = () => {
   const [colorMode, setColorMode] = useColorMode();
   const isDark = colorMode === `dark`;
 
-  function toggleColorMode(event) {
-    event.preventDefault();
+  function toggleColorMode() {
     setColorMode(isDark ? `light` : `dark`);
   }
 
@@ -70,85 +63,25 @@ const SharePageButton: React.FC<{}> = () => {
   );
 };
 
-const NavigationHeader: React.FC<{}> = () => {
-  const router = useRouter();
-  const [showBackArrow, setShowBackArrow] = useState<boolean>(false);
-  const [previousPath, setPreviousPath] = useState<string>("/");
+const NavigationHeader = () => (
+  <Section>
+    <NavContainer>
+      <LogoLink
+        href="/"
+        title="Go to the homepage"
+      >
+        <em>vivsha.ws</em>
+      </LogoLink>
 
-  const [colorMode] = useColorMode();
-  const fill = colorMode === "dark" ? "#fff" : "#000";
-
-  useEffect(() => {
-    const { width } = getWindowDimensions();
-    const phablet = getBreakpointFromTheme("phablet");
-
-    const prev = localStorage.getItem("previousPath");
-    const previousPathWasHomepage = false;
-    const currentPathIsHomepage = false;
-
-    setShowBackArrow(
-      previousPathWasHomepage && !currentPathIsHomepage && width <= phablet
-    );
-    setPreviousPath(prev);
-  }, []);
-
-  return (
-    <Section>
-      <NavContainer>
-        <LogoLink
-          href="/"
-          data-a11y="false"
-          title="Navigate back to the homepage"
-          aria-label="Navigate back to the homepage"
-          back={showBackArrow ? "true" : "false"}
-        >
-          {showBackArrow && (
-            <BackArrowIconContainer>
-              <Icons.ChevronLeft fill={fill} />
-            </BackArrowIconContainer>
-          )}
-          <Logo fill={fill} />
-          <Hidden>Navigate back to the homepage</Hidden>
-        </LogoLink>
-        <NavControls>
-          {showBackArrow ? (
-            <button
-              onClick={() => router.push(previousPath)}
-              title="Navigate back to the homepage"
-              aria-label="Navigate back to the homepage"
-            >
-              <Icons.Ex fill={fill} />
-            </button>
-          ) : (
-            <>
-              <SharePageButton />
-              <DarkModeToggle />
-            </>
-          )}
-        </NavControls>
-      </NavContainer>
-    </Section>
-  );
-};
+      <NavControls>
+        <SharePageButton />
+        <DarkModeToggle />
+      </NavControls>
+    </NavContainer>
+  </Section>
+)
 
 export default NavigationHeader;
-
-const BackArrowIconContainer = styled.div`
-  transition: 0.2s transform var(--ease-out-quad);
-  opacity: 0;
-  padding-right: 30px;
-  animation: fadein 0.3s linear forwards;
-
-  @keyframes fadein {
-    to {
-      opacity: 1;
-    }
-  }
-
-  ${mediaqueries.desktop_medium`
-    display: none;
-  `}
-`;
 
 const NavContainer = styled.div`
   position: relative;
@@ -166,33 +99,9 @@ const NavContainer = styled.div`
   }
 `;
 
-const LogoLink = styled(Link)<{ back: string }>`
-  position: relative;
-  display: flex;
-  align-items: center;
-  left: ${(p) => (p.back === "true" ? "-54px" : 0)};
-
-  ${mediaqueries.desktop_medium`
-    left: 0
-  `}
-
-  &[data-a11y="true"]:focus::after {
-    content: "";
-    position: absolute;
-    left: -10%;
-    top: -30%;
-    width: 120%;
-    height: 160%;
-    border: 2px solid ${(p) => p.theme.colors.accent};
-    background: rgba(255, 255, 255, 0.01);
-    border-radius: 5px;
-  }
-
-  &:hover {
-    ${BackArrowIconContainer} {
-      transform: translateX(-3px);
-    }
-  }
+const LogoLink = styled(Link)`
+  color: ${(p) => p.theme.colors.primary};
+  font-size: 27px;
 `;
 
 const NavControls = styled.div`
