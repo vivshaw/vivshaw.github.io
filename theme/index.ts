@@ -1,5 +1,4 @@
 import merge from "lodash/merge";
-import { Merriweather } from "next/font/google";
 
 import colors from "./colors";
 import tags from "./tags";
@@ -14,13 +13,8 @@ const breakpoints = [
   ["desktop_large", 1440],
 ];
 
-const merriweather = Merriweather({
-  weight: ["300", "400", "700", "900"],
-  subsets: ["latin"],
-});
-
 const fonts = {
-  serif: `${merriweather.style.fontFamily}, Georgia, Serif`,
+  serif: "orpheuspro, Georgia, Serif",
   sansSerif:
     "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,

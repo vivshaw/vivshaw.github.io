@@ -15,11 +15,6 @@ const MainpageContent = styled.div`
   padding-top: 80px !important;
   
   ${mediaqueries.tablet`
-    /**
-    --padding-right: calc(env(safe-area-inset-right) + 80px);
-    --padding-left: calc(env(safe-area-inset-left) + 80px);
-    **/
-
     padding-right: 24px;
     padding-left: 24px;
     padding-top: 40px;

@@ -14,14 +14,6 @@ export const globalStyles = css`
     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
   }
 
-  @font-face {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
   *,
   *:before,
   *:after {
@@ -44,9 +36,7 @@ export const globalStyles = css`
   }
 
   body {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
+    font-family: "orpheuspro";
     font-size: 1.6rem;
     margin: 0;
     font-weight: 400;
@@ -81,9 +71,7 @@ export const globalStyles = css`
   textarea,
   select,
   button {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
+    font-family: "orpheuspro";
   }
 
   .underline {
