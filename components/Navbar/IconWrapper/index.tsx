@@ -25,13 +25,6 @@ export const IconWrapper = styled.button<{ isDark: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
-
-  ${mediaqueries.tablet`
-    display: inline-flex;
-    transform: scale(0.708);
-    margin-left: 10px;
-  `}
 
   ${iconWrapperHover}
 `;

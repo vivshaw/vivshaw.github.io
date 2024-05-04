@@ -19,13 +19,13 @@ const MainpageContent = styled.div`
   max-width: 1440px;
   padding-right: calc(env(safe-area-inset-right) + 80px);
   padding-left: calc(env(safe-area-inset-right) + 80px);
-  padding-bottom: 50px !important;
-  padding-top: 80px !important;
+  padding-bottom: 50px;
+  padding-top: 80px;
   
   ${mediaqueries.tablet`
     padding-right: 24px;
     padding-left: 24px;
-    padding-top: 40px;
+    padding-top: 0px;
   `}
 `
 

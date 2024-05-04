@@ -4,37 +4,37 @@ import Link from "next/link";
 import { DarkModeToggle } from "@components/Navbar/DarkModeToggle";
 import mediaqueries from "@styles/media";
 import { iconWrapperHover } from "./IconWrapper";
+import { MobileMenu } from "./MobileMenu";
 
 const NavContainer = styled.nav`
   position: relative;
-  z-index: 100;
-  padding-top: 100px;
+  z-index: 3;
+  margin-top: 100px;
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
   width: 100%;
+  height: 40px;
 
   padding-right: calc(env(safe-area-inset-right) + 80px);
   padding-left: calc(env(safe-area-inset-right) + 80px);
-  
+
+  ${mediaqueries.desktop_medium`
+    margin-top: 50px;
+  `};
+
   ${mediaqueries.tablet`
     padding-right: 24px;
     padding-left: 24px;
+    margin-top: 20px;
   `}
-
-  ${mediaqueries.desktop_medium`
-    padding-top: 50px;
-  `};
-
-  @media screen and (max-height: 800px) {
-    padding-top: 50px;
-  }
 `;
 
 const LogoLink = styled(Link)`
   color: ${(p) => p.theme.colors.primary};
   font-size: 27px;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease;
+  z-index: 10;
 
   &:hover {
     color: ${(p) => p.theme.colors.accent};
@@ -46,8 +46,8 @@ const NavControls = styled.div`
   display: flex;
   align-items: center;
 
-  ${mediaqueries.phablet`
-    right: -5px;
+  ${mediaqueries.tablet`
+    display: none;
   `}
 `;
 
@@ -55,6 +55,7 @@ const NavLinks = styled.ul`
   display: flex;
   gap: 24px;
   list-style: none;
+  margin-right: 30px;
 `
 
 const PageLink = styled(Link)`
@@ -78,40 +79,42 @@ const CenteringWrapper = styled.div`
 `
 
 export const Navbar = () => (
-    <CenteringWrapper>
-      <NavContainer>
-        <LogoLink
-          href="/"
-          title="Go to the homepage"
-        >
-          <em>vivsha.ws</em>
-        </LogoLink>
+  <CenteringWrapper>
+    <NavContainer>
+      <LogoLink
+        href="/"
+        title="Go to the homepage"
+      >
+        <em>vivsha.ws</em>
+      </LogoLink>
 
-        <NavControls>
-          <NavLinks>
-            <li>
-              <PageLink href="/blog">
-                Blog
-              </PageLink>
-            </li>
-            <li>
-              <PageLinkExternal href="https://zettel.vivsha.ws">
-                Zettel
-              </PageLinkExternal>
-            </li>
-            <li>
-              <PageLink href="/contact">
-                Contact
-              </PageLink>
-            </li>
-            <li>
-              <PageLink href="/about">
-                About
-              </PageLink>
-            </li>
-          </NavLinks>
-          <DarkModeToggle />
-        </NavControls>
-      </NavContainer>
-    </CenteringWrapper>
+      <NavControls>
+        <NavLinks>
+          <li>
+            <PageLink href="/blog">
+              Blog
+            </PageLink>
+          </li>
+          <li>
+            <PageLinkExternal href="https://zettel.vivsha.ws">
+              Zettel
+            </PageLinkExternal>
+          </li>
+          <li>
+            <PageLink href="/contact">
+              Contact
+            </PageLink>
+          </li>
+          <li>
+            <PageLink href="/about">
+              About
+            </PageLink>
+          </li>
+        </NavLinks>
+        <DarkModeToggle />
+      </NavControls>
+
+      <MobileMenu />
+    </NavContainer>
+  </CenteringWrapper>
 )
