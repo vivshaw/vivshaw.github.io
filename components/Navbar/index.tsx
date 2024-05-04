@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 import { DarkModeToggle } from "@components/Navbar/DarkModeToggle";
-import Section from "@components/Section";
 import mediaqueries from "@styles/media";
 import { iconWrapperHover } from "./IconWrapper";
 
@@ -12,6 +11,16 @@ const NavContainer = styled.nav`
   padding-top: 100px;
   display: flex;
   justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+
+  padding-right: calc(env(safe-area-inset-right) + 80px);
+  padding-left: calc(env(safe-area-inset-right) + 80px);
+  
+  ${mediaqueries.tablet`
+    padding-right: 24px;
+    padding-left: 24px;
+  `}
 
   ${mediaqueries.desktop_medium`
     padding-top: 50px;
@@ -62,41 +71,47 @@ const PageLinkExternal = styled.a`
   ${iconWrapperHover}
 `
 
-export const Navbar = () => (
-  <Section>
-    <NavContainer>
-      <LogoLink
-        href="/"
-        title="Go to the homepage"
-      >
-        <em>vivsha.ws</em>
-      </LogoLink>
+const CenteringWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column
+`
 
-      <NavControls>
-        <NavLinks>
-          <li>
-            <PageLink href="/blog">
-              Blog
-            </PageLink>
-          </li>
-          <li>
-            <PageLinkExternal href="https://zettel.vivsha.ws">
-              Zettel
-            </PageLinkExternal>
-          </li>
-          <li>
-            <PageLink href="/contact">
-              Contact
-            </PageLink>
-          </li>
-          <li>
-            <PageLink href="/about">
-              About
-            </PageLink>
-          </li>
-        </NavLinks>
-        <DarkModeToggle />
-      </NavControls>
-    </NavContainer>
-  </Section>
+export const Navbar = () => (
+    <CenteringWrapper>
+      <NavContainer>
+        <LogoLink
+          href="/"
+          title="Go to the homepage"
+        >
+          <em>vivsha.ws</em>
+        </LogoLink>
+
+        <NavControls>
+          <NavLinks>
+            <li>
+              <PageLink href="/blog">
+                Blog
+              </PageLink>
+            </li>
+            <li>
+              <PageLinkExternal href="https://zettel.vivsha.ws">
+                Zettel
+              </PageLinkExternal>
+            </li>
+            <li>
+              <PageLink href="/contact">
+                Contact
+              </PageLink>
+            </li>
+            <li>
+              <PageLink href="/about">
+                About
+              </PageLink>
+            </li>
+          </NavLinks>
+          <DarkModeToggle />
+        </NavControls>
+      </NavContainer>
+    </CenteringWrapper>
 )

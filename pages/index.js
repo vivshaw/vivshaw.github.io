@@ -3,12 +3,19 @@ import styled from "@emotion/styled";
 import Layout from "@components/Layout";
 import mediaqueries from "@styles/media";
 
+const CenteringWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column
+`
+
 const MainpageContent = styled.div`
   /**
   --padding-right: calc(env(safe-area-inset-right) + 80px);
   --padding-left: calc(env(safe-area-inset-left) + 80px);
   **/
 
+  max-width: 1440px;
   padding-right: calc(env(safe-area-inset-right) + 80px);
   padding-left: calc(env(safe-area-inset-right) + 80px);
   padding-bottom: 50px !important;
@@ -54,19 +61,21 @@ const MainpageLink = styled.a`
  */
 export default function Index() {
   return <Layout>
-    <MainpageContent>
-      <MainpageHeading>
-        I'm Hannah Vivian Shaw. I dwell where machines and humans intersect.
-      </MainpageHeading>
-      <MainpageHeading>
-        I enjoy teaching computers to be more human, sifting sense from data, building lovable tools, and cultivating flourishing engineering teams.
-        Above all else, I value perpetual learning and boundless compassion.
-      </MainpageHeading>
-      <MainpageHeading>
-        {/* TODO: These should be distinct internal and external links! */}
-        To see what I do, visit <em><MainpageLink href="https://github.com/vivshaw">my GitHub</MainpageLink></em> for code, or <em><MainpageLink href="/blog">my blog</MainpageLink></em> for words.
-        To read my more unfiltered thoughts on subjects ranging from engineering to philosophy, see <em><MainpageLink href="https://zettel.vivsha.ws">my digital garden</MainpageLink></em>.
-      </MainpageHeading>
-    </MainpageContent>
+    <CenteringWrapper>
+      <MainpageContent>
+        <MainpageHeading>
+          I'm <MainpageLink href="/about">Hannah Vivian Shaw</MainpageLink>. I make software engineering more human.
+        </MainpageHeading>
+        <MainpageHeading>
+          I enjoy sifting sense from data, building lovable tools, and cultivating flourishing engineering teams.
+          Above all else, I value perpetual learning and boundless compassion.
+        </MainpageHeading>
+        <MainpageHeading>
+          {/* TODO: These should be distinct internal and external links! */}
+          To see what I do, visit <em><MainpageLink href="https://github.com/vivshaw">my GitHub</MainpageLink></em> for code, or <em><MainpageLink href="/blog">my blog</MainpageLink></em> for words.
+          To read my less-filtered thoughts on subjects ranging from engineering to philosophy, see <em><MainpageLink href="https://zettel.vivsha.ws">my digital garden</MainpageLink></em>.
+        </MainpageHeading>
+      </MainpageContent>
+    </CenteringWrapper>
   </Layout>;
 }
