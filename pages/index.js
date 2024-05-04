@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 import Layout from "@components/Layout";
 import mediaqueries from "@styles/media";
+import Link from "next/link";
 
 const CenteringWrapper = styled.div`
   align-items: center;
@@ -41,7 +42,22 @@ const MainpageHeading = styled.div`
   `}
 `
 
-const MainpageLink = styled.a`
+const MainpageA = styled.a`
+  color: ${(p) => p.theme.colors.accent};
+  opacity: .7;
+  transition: border-color .1s ease-in, opacity .1s ease-in;
+
+  text-decoration: underline;
+  text-decoration-color: ${(p) => p.theme.colors.accent};
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  
+  &:hover {
+    opacity: 1;
+  }
+`
+
+const MainpageLink = styled(Link)`
   color: ${(p) => p.theme.colors.accent};
   opacity: .7;
   transition: border-color .1s ease-in, opacity .1s ease-in;
@@ -64,7 +80,7 @@ export default function Index() {
     <CenteringWrapper>
       <MainpageContent>
         <MainpageHeading>
-          I'm <MainpageLink href="/about">Hannah Vivian Shaw</MainpageLink>. I make software engineering more human.
+          I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I make software engineering more human.
         </MainpageHeading>
         <MainpageHeading>
           I enjoy sifting sense from data, building lovable tools, and cultivating flourishing engineering teams.
@@ -72,8 +88,8 @@ export default function Index() {
         </MainpageHeading>
         <MainpageHeading>
           {/* TODO: These should be distinct internal and external links! */}
-          To see what I do, visit <em><MainpageLink href="https://github.com/vivshaw">my GitHub</MainpageLink></em> for code, or <em><MainpageLink href="/blog">my blog</MainpageLink></em> for words.
-          To read my less-filtered thoughts on subjects ranging from engineering to philosophy, see <em><MainpageLink href="https://zettel.vivsha.ws">my digital garden</MainpageLink></em>.
+          To see what I do, visit <em><MainpageA href="https://github.com/vivshaw">my GitHub</MainpageA></em> for code, or <em><MainpageLink href="/blog">my blog</MainpageLink></em> for words.
+          To read my less-filtered thoughts on subjects ranging from engineering to philosophy, see <em><MainpageA href="https://zettel.vivsha.ws">my digital garden</MainpageA></em>.
         </MainpageHeading>
       </MainpageContent>
     </CenteringWrapper>
