@@ -1,4 +1,5 @@
 import merge from "lodash/merge";
+import { EB_Garamond } from "next/font/google";
 
 import colors from "./colors";
 import tags from "./tags";
@@ -13,8 +14,14 @@ const breakpoints = [
   ["desktop_large", 1440],
 ];
 
+const eb_garamond = EB_Garamond({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
 const fonts = {
   serif: "orpheuspro, Georgia, Serif",
+  book: "'EB Garamond', Georgia, serif",
   sansSerif:
     "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,

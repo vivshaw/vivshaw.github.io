@@ -33,7 +33,7 @@ const ArticlesListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) 
   return (
     <ArticleLink href={`/blog/${article.slug}`} data-a11y="false">
       <Item>
-        <Title dark>{article.title}</Title>
+        <Title>{article.title}</Title>
         {hasBlurb && <Blurb narrow={narrow}>{article.blurb}</Blurb  >}
         <Date>{prettyDate}</Date>
       </Item>
@@ -74,9 +74,10 @@ const Item = styled.div`
 `;
 
 const Title = styled(Headings.h2)`
-  font-size: 21px;
+  font-size: 32px;
   font-family: ${(p) => p.theme.fonts.serif};
-  margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 4px;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -100,8 +101,9 @@ const Blurb = styled.p<{
   narrow: boolean;
 }>`
   ${limitToTwoLines};
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-family: ${(p) => p.theme.fonts.book};
+  font-size: 20px;
+  margin-bottom: 8px;
   color: ${(p) => p.theme.colors.grey};
   display: box;
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
@@ -123,8 +125,9 @@ const Blurb = styled.p<{
 `;
 
 const Date = styled.div`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
+  font-family: ${(p) => p.theme.fonts.book};
   color: ${(p) => p.theme.colors.grey};
   opacity: 0.33;
 

@@ -2,11 +2,36 @@ import styled from "@emotion/styled";
 
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
-import Section from "@components/Section";
 import SEO from "@components/SEO";
-import ArticlesHero from "@sections/articles/Articles.Hero";
 import ArticlesList from "@sections/articles/Articles.List";
+import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
+
+const CenteringWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column
+`
+
+const MainpageContent = styled.div`
+  /**
+  --padding-right: calc(env(safe-area-inset-right) + 80px);
+  --padding-left: calc(env(safe-area-inset-left) + 80px);
+  **/
+
+  width: 100%;
+  max-width: 1440px;
+  padding-right: calc(env(safe-area-inset-right) + 80px);
+  padding-left: calc(env(safe-area-inset-right) + 80px);
+  padding-bottom: 50px;
+  padding-top: 80px;
+  
+  ${mediaqueries.tablet`
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 0px;
+  `}
+`
 
 /**
  * Template for a list of blog posts. Currently just used for the index page.
@@ -16,13 +41,14 @@ const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
   return (
     <Layout>
       <SEO />
-      <ArticlesHero />
-      <Section narrow>
-        <ArticlesList articles={articles} />
-        <ArticlesPaginator show={false}>
-          <Paginator pageCount={1} pathPrefix="/" index={1} />
-        </ArticlesPaginator>
-      </Section>
+      <CenteringWrapper>
+        <MainpageContent>
+          <ArticlesList articles={articles} />
+          <ArticlesPaginator show={false}>
+            <Paginator pageCount={1} pathPrefix="/" index={1} />
+          </ArticlesPaginator>
+        </MainpageContent>
+      </CenteringWrapper>
     </Layout>
   );
 };
