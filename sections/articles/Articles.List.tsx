@@ -26,15 +26,15 @@ interface ArticlesListItemProps {
   narrow?: boolean;
 }
 
-const ArticlesListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
+const ArticlesListItem: React.FC<ArticlesListItemProps> = ({ article }) => {
   const prettyDate = prettyPrintDate(article.date);
   const hasBlurb = article.blurb
 
   return (
-    <ArticleLink href={`/blog/${article.slug}`} data-a11y="false">
+    <ArticleLink href={`/blog/${article.slug}`}>
       <Item>
         <Title>{article.title}</Title>
-        {hasBlurb && <Blurb narrow={narrow}>{article.blurb}</Blurb  >}
+        {hasBlurb && <Blurb>{article.blurb}</Blurb  >}
         <Date>{prettyDate}</Date>
       </Item>
     </ArticleLink>
@@ -61,16 +61,6 @@ const ArticlesListContainer = styled.div`
 
 const Item = styled.div`
   margin-bottom: 50px;
-
-  @media (max-width: 540px) {
-    background: ${(p) => p.theme.colors.card};
-  }
-
-  ${mediaqueries.phablet`
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-  `}
 `;
 
 const Title = styled(Headings.h2)`
@@ -82,7 +72,7 @@ const Title = styled(Headings.h2)`
   ${limitToTwoLines};
 
   ${mediaqueries.desktop`
-    margin-bottom: 15px;
+    font-size: 32px;
   `}
 
   ${mediaqueries.tablet`
@@ -91,36 +81,28 @@ const Title = styled(Headings.h2)`
 
   ${mediaqueries.phablet`
     font-size: 22px;
-    padding: 30px 20px 0;
-    margin-bottom: 10px;
+    padding: 0 20px;
     -webkit-line-clamp: 3;
   `}
 `;
 
-const Blurb = styled.p<{
-  narrow: boolean;
-}>`
+const Blurb = styled.p`
   ${limitToTwoLines};
   font-family: ${(p) => p.theme.fonts.book};
   font-size: 20px;
   margin-bottom: 8px;
   color: ${(p) => p.theme.colors.grey};
   display: box;
-  max-width: ${(p) => (p.narrow ? "415px" : "515px")};
-
-  ${mediaqueries.desktop`
-    display: -webkit-box;
-  `}
-
-  ${mediaqueries.phablet`
-    margin-bottom: 15px;
-  `}
+  max-width: 515px;
 
   ${mediaqueries.phablet`
     max-width: 100%;
     padding:  0 20px;
-    margin-bottom: 20px;
     -webkit-line-clamp: 3;
+  `}
+
+  ${mediaqueries.tablet`
+    font-size: 18px;
   `}
 `;
 
@@ -133,7 +115,7 @@ const Date = styled.div`
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding:  0 20px 30px;
+    padding:  0 20px;
   `}
 `;
 
@@ -152,18 +134,6 @@ const ArticleLink = styled(Link)`
   &:hover h2,
   &:focus h2 {
     color: ${(p) => p.theme.colors.accent};
-  }
-
-  &[data-a11y="true"]:focus::after {
-    content: "";
-    position: absolute;
-    left: -1.5%;
-    top: -2%;
-    width: 103%;
-    height: 104%;
-    border: 3px solid ${(p) => p.theme.colors.accent};
-    background: rgba(255, 255, 255, 0.01);
-    border-radius: 5px;
   }
 
   ${mediaqueries.phablet`

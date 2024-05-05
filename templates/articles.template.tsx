@@ -29,7 +29,7 @@ const MainpageContent = styled.div`
   ${mediaqueries.tablet`
     padding-right: 24px;
     padding-left: 24px;
-    padding-top: 0px;
+    padding-top: 32px;
   `}
 `
 
