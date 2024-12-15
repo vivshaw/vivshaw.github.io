@@ -80,11 +80,7 @@ export default function Index() {
     <CenteringWrapper>
       <MainpageContent>
         <MainpageHeading>
-          I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I make software engineering more human.
-        </MainpageHeading>
-        <MainpageHeading>
-          I enjoy sifting sense from data, building lovable tools, and cultivating flourishing engineering teams.
-          Above all else, I value perpetual learning and boundless compassion.
+          I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I build comfortable worlds for engineers.
         </MainpageHeading>
         <MainpageHeading>
           {/* TODO: These should be distinct internal and external links! */}
