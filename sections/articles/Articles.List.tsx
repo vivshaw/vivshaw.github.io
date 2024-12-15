@@ -93,10 +93,8 @@ const Blurb = styled.p`
   margin-bottom: 8px;
   color: ${(p) => p.theme.colors.grey};
   display: box;
-  max-width: 515px;
 
   ${mediaqueries.phablet`
-    max-width: 100%;
     padding:  0 20px;
     -webkit-line-clamp: 3;
   `}
@@ -114,7 +112,6 @@ const Date = styled.div`
   opacity: 0.33;
 
   ${mediaqueries.phablet`
-    max-width: 100%;
     padding:  0 20px;
   `}
 `;
