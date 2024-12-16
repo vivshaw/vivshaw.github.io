@@ -66,17 +66,6 @@ const Article = ({
 
 export default Article;
 
-const MobileControls = styled.div`
-  position: relative;
-  padding-top: 60px;
-  transition: background 0.2s linear;
-  text-align: center;
-
-  ${mediaqueries.tablet_up`
-    display: none;
-  `}
-`;
-
 const ArticleBody = styled.article`
   position: relative;
   padding: 0 0 35px;
