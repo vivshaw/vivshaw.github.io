@@ -5,7 +5,6 @@ import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
 import { author } from "@data";
 import ArticleHero from "@sections/article/Article.Hero";
-import ArticleControls from "@sections/article/Article.Controls";
 import ArticlesNext from "@sections/article/Article.Next";
 import ArticleSEO from "@sections/article/Article.SEO";
 import mediaqueries from "@styles/media";
@@ -51,7 +50,7 @@ const Article = ({
       <ArticleBody>
         <MDXBody>{children}</MDXBody>
       </ArticleBody>
-      
+
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>
