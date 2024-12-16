@@ -9,10 +9,7 @@ export interface IPaginator {
 export type TSocialSite =
   | "linkedin"
   | "twitter"
-  | "facebook"
-  | "instagram"
   | "github"
-  | "notion"
   | "mailto"
   | "url";
 
@@ -29,7 +26,6 @@ export interface IAuthor {
   bio: string;
   name: string;
   id: string;
-  profileLink: string;
   socials: ISocialLink[];
 }
 

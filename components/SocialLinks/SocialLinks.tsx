@@ -9,10 +9,7 @@ type TSocialIcons = Record<TSocialSite, Icon>;
 const icons: TSocialIcons = {
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
-  facebook: Icons.Facebook,
-  instagram: Icons.Instagram,
   github: Icons.Github,
-  notion: Icons.Notion,
   mailto: Icons.Mailto,
   url: Icons.Url,
 };

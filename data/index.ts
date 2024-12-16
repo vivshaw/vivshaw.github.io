@@ -9,7 +9,6 @@ export const author: IAuthor = {
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",
   id: "vivshaw",
   name: "Hannah Shaw",
-  profileLink: "/about",
   socials: [
     { name: "github", url: "https://github.com/vivshaw" },
     {

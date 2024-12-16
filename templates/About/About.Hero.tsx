@@ -4,7 +4,6 @@ import Image from "next/image";
 import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
 import type { IAuthor } from "@types";
-import theme from "@theme";
 import { getBreakpointFromTheme } from "@utils";
 
 interface AuthorHeroProps {
