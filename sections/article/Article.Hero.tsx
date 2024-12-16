@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 import Headings from "@components/Headings";
-import ArticleAuthor from "@sections/article/Article.Authors";
 import mediaqueries from "@styles/media";
 import type { IArticle, IAuthor } from "@types";
 import { prettyPrintDate } from "@utils";
@@ -22,7 +21,6 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, author }) => {
       <Header>
         <HeroHeading>{article.title}</HeroHeading>
         <HeroSubtitle>
-          <ArticleAuthor author={author} />
           <ArticleMeta>{prettyDate}</ArticleMeta>
         </HeroSubtitle>
       </Header>
@@ -33,31 +31,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, author }) => {
 export default ArticleHero;
 
 const Hero = styled.div`
-  ${(p) => mediaqueries.phablet`
-    &::before {
-      content: "";
-      width: 100%;
-      height: 20px;
-      background: ${p.theme.colors.primary};
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: ${p.theme.colorModeTransition};
-    }
 
-    &::after {
-      content: "";
-      width: 100%;
-      height: 10px;
-      background: ${p.theme.colors.background};
-      position: absolute;
-      left: 0;
-      top: 10px;
-      border-top-left-radius: 25px;
-      border-top-right-radius: 25px;
-      transition: ${p.theme.colorModeTransition};
-    }
-  `}
 `;
 
 const ArticleMeta = styled.div`
@@ -71,7 +45,7 @@ const ArticleMeta = styled.div`
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin: 100px auto 120px;
+  margin: 100px auto 70px;
   padding-left: 68px;
   max-width: 749px;
 
@@ -83,17 +57,17 @@ const Header = styled.header`
 
   ${mediaqueries.tablet`
     padding-left: 0;
-    margin: 100px auto 70px;
+    margin: 100px auto 0px;
     max-width: 480px;
   `}
 
   ${mediaqueries.phablet`
-    margin: 170px auto 180px;
+    margin: 100px auto 0px;
     padding: 0 40px;
   `}
 
   @media screen and (max-height: 700px) {
-    margin: 100px auto;
+    margin: 100px auto 0px;
   }
 `;
 
@@ -101,7 +75,6 @@ const HeroHeading = styled(Headings.h1)`
   font-size: 48px;
   font-family: ${(p) => p.theme.fonts.serif};
   margin-bottom: 25px;
-  font-weight: bold;
   line-height: 1.32;
 
   ${mediaqueries.tablet`

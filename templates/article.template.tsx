@@ -47,12 +47,11 @@ const Article = ({
     <Layout>
       <ArticleSEO article={meta} author={author} />
       <ArticleHero article={meta} author={author} />
-      <MobileControls>
-        <ArticleControls />
-      </MobileControls>
+
       <ArticleBody>
         <MDXBody>{children}</MDXBody>
       </ArticleBody>
+      
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>
