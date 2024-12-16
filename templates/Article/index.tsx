@@ -4,11 +4,11 @@ import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
 import { author } from "@data";
-import ArticleHero from "@sections/article/Article.Hero";
-import ArticlesNext from "@sections/article/Article.Next";
-import ArticleSEO from "@sections/article/Article.SEO";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
+import ArticleHero from "./Article.Hero";
+import ArticlesNext from "./Article.Next";
+import ArticleSEO from "./Article.SEO";
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: IArticle[] = [

@@ -1,4 +1,4 @@
-import ArticlesPage from "@templates/articles.template";
+import Blog from "@templates/Blog";
 import { getAllBlogPosts } from "@utils/server";
 
 /**
@@ -10,7 +10,7 @@ export default function Index({ articlesDateless }) {
     date: new Date(item.date),
   }));
 
-  return <ArticlesPage articles={articles} />;
+  return <Blog articles={articles} />;
 }
 
 export async function getStaticProps() {

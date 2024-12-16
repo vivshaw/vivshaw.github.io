@@ -5,7 +5,7 @@ import mediaqueries from "@styles/media";
 /**
  * Wrapper for an Author's about section on their Author page.
  */
-const AuthorAbout = styled.div`
+const AboutContent = styled.div`
   background-color: ${(p) => p.theme.colors.card};
   border-radius: 8px;
   padding: 88px 98px;
@@ -22,4 +22,4 @@ const AuthorAbout = styled.div`
   `}
 `;
 
-export default AuthorAbout;
+export default AboutContent;

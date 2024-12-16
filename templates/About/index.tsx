@@ -2,9 +2,9 @@ import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
-import AuthorHero from "@sections/author/Author.Hero";
-import AuthorAbout from "@sections/author/Author.About";
 import type { IAuthor } from "@types";
+import AboutHero from "./About.Hero";
+import AboutContent from "./About.Content";
 
 interface IArticlesPageProps {
   /** Author to display info for */
@@ -29,11 +29,11 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ author, children }) => {
     <Layout>
       <SEO title={author.name} description={author.bio} />
       <Section narrow>
-        <AuthorHero author={author} />
+        <AboutHero author={author} />
         {shouldDisplayFullBio && (
-          <AuthorAbout>
+          <AboutContent>
             <MDXBody>{children}</MDXBody>
-          </AuthorAbout>
+          </AboutContent>
         )}
       </Section>
     </Layout>

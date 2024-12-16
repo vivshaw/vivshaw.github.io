@@ -11,22 +11,22 @@ interface ArticlesListProps {
   articles: IArticle[];
 }
 
-const ArticlesList: React.FC<ArticlesListProps> = ({
+const BlogList: React.FC<ArticlesListProps> = ({
   articles
 }) => (
-  <ArticlesListContainer>
-    {articles.map((article, idx) => <ArticlesListItem key={idx} article={article} />)}
-  </ArticlesListContainer>
+  <BlogListContainer>
+    {articles.map((article, idx) => <BlogListItem key={idx} article={article} />)}
+  </BlogListContainer>
 )
 
-export default ArticlesList;
+export default BlogList;
 
-interface ArticlesListItemProps {
+interface BlogListItemProps {
   article: IArticle;
   narrow?: boolean;
 }
 
-const ArticlesListItem: React.FC<ArticlesListItemProps> = ({ article }) => {
+const BlogListItem: React.FC<BlogListItemProps> = ({ article }) => {
   const prettyDate = prettyPrintDate(article.date);
   const hasBlurb = article.blurb
 
@@ -55,7 +55,7 @@ const limitToTwoLines = css`
   `}
 `;
 
-const ArticlesListContainer = styled.div`
+const BlogListContainer = styled.div`
   transition: opacity 0.25s;
 `;
 

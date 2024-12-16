@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
 import SEO from "@components/SEO";
-import ArticlesList from "@sections/articles/Articles.List";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
+import BlogList from "./Blog.List";
 
 const CenteringWrapper = styled.div`
   align-items: center;
@@ -43,7 +43,7 @@ const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
       <SEO />
       <CenteringWrapper>
         <MainpageContent>
-          <ArticlesList articles={articles} />
+          <BlogList articles={articles} />
           <ArticlesPaginator show={false}>
             <Paginator pageCount={1} pathPrefix="/" index={1} />
           </ArticlesPaginator>

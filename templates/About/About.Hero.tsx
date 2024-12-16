@@ -14,7 +14,7 @@ interface AuthorHeroProps {
 /**
  * Displays the Hero for an Author page, including avatar, bio, and social links.s
  */
-const AuthorHero: React.FC<AuthorHeroProps> = ({ author }) => {
+const AboutHero: React.FC<AuthorHeroProps> = ({ author }) => {
   return (
     <Hero>
       <HeroImage>
@@ -41,7 +41,7 @@ const AuthorHero: React.FC<AuthorHeroProps> = ({ author }) => {
   );
 };
 
-export default AuthorHero;
+export default AboutHero;
 
 const Hero = styled.div`
   position: relative;
