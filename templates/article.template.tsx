@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useColorMode } from "theme-ui";
 
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
@@ -42,9 +41,6 @@ const Article = ({
   children?: React.ReactNode;
   meta: IArticle;
 }) => {
-  const [colorMode] = useColorMode();
-  const fill = colorMode === "dark" ? "#fff" : "#000";
-
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
 
   return (
