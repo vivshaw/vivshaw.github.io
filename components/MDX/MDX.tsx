@@ -225,4 +225,11 @@ export const MDXBody = styled.div`
   ${HeadingsCSS}
   ${PrismCSS}
   ${ImageCSS}
+
+  code {
+    font-family: ${p => p.theme.fonts.monospace};
+    background: ${p => p.theme.colors.prism.highlight};
+    border-radius: 8px;
+    padding: 2px 4px;
+  }
 `;
