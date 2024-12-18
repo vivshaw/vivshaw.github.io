@@ -92,11 +92,6 @@ export const MobileMenu = () => {
                     </PageLinkExternal>
                 </li>
                 <li>
-                    <PageLink href="/contact">
-                        Contact
-                    </PageLink>
-                </li>
-                <li>
                     <PageLink href="/about">
                         About
                     </PageLink>
