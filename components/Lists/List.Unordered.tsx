@@ -10,16 +10,10 @@ const UnorderedList = styled.ul`
   transition: ${p => p.theme.colorModeTransition};
   margin: 0 auto;
   font-size: 18px;
-
   width: 100%;
-  max-width: 680px;
 
-  ${mediaqueries.desktop`
-    max-width: 507px;
-  `}
 
   ${mediaqueries.tablet`
-    max-width: 486px;
     padding-left: 0px;
   `};
 

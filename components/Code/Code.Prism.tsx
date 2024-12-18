@@ -50,7 +50,8 @@ const CodePrism: React.FC<CodePrismProps> = ({ codeString, className }) => {
         className={`prism-code ${className}`}
         style={{ position: "relative" }}
       >
-        <Copy toCopy={codeString} />
+        {/* TODO: Stop this from copying a buncha `Object object`... */}
+        {/* <Copy toCopy={codeString} /> */}
         {codeString}
       </pre>
     </div>

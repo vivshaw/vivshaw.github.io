@@ -11,23 +11,6 @@ const IMAGE_WIDTHS = {
   full: "100vw",
 };
 
-const ARTICLE_WIDTH = css`
-  width: 100%;
-  max-width: 680px;
-
-  ${mediaqueries.desktop`
-    max-width: 507px;
-  `}
-
-  ${mediaqueries.tablet`
-    max-width: 486px;
-  `};
-
-  ${mediaqueries.phablet`
-    padding: 0 20px;
-  `};
-`;
-
 const HeadingsCSS = css`
   h1,
   h2,
@@ -35,32 +18,23 @@ const HeadingsCSS = css`
   h4,
   h5,
   h6 {
-    margin: 0 auto;
+    margin: 0;
   }
 
   h1,
   h1 *,
   h2,
   h2 * {
-    margin: 25px auto 18px;
+    margin: 25px 0 18px;
 
     ${mediaqueries.tablet`
-      margin: 30px auto 18px;
+      margin: 30px 0 18px;
     `};
   }
 
   h3,
   h3 * {
-    margin: 20px auto 10px;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    ${ARTICLE_WIDTH};
+    margin: 20px 0 10px;
   }
 `;
 
@@ -68,8 +42,6 @@ const PrismCSS = (p) => css`
   .prism-code {
     overflow: auto;
     width: 100%;
-    max-width: 744px;
-    margin: 0 auto;
     padding: 32px;
     font-size: 13px;
     margin: 15px auto 50px;
@@ -115,16 +87,6 @@ const PrismCSS = (p) => css`
     .plain ~ .operator {
       color: #ffffff !important;
     }
-
-    ${mediaqueries.desktop`
-      left: -26px;
-    `};
-
-    ${mediaqueries.tablet`
-      max-width: 526px;
-      padding: 20px 20px;
-      left: 0;
-    `};
 
     ${mediaqueries.phablet`
       text-size-adjust: none;

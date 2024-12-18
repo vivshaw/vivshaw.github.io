@@ -69,15 +69,17 @@ export default Article;
 const ArticleBody = styled.article`
   position: relative;
   padding: 0 0 35px;
-  padding-left: 68px;
   transition: background 0.2s linear;
+  max-width: 744px;
+  margin: 0 auto;
 
   ${mediaqueries.desktop`
     padding-left: 53px;
   `}
 
   ${mediaqueries.tablet`
-    padding: 70px 0 80px;
+    max-width: 100%;
+    padding: 70px 20px 80px;
   `}
 
   ${mediaqueries.phablet`

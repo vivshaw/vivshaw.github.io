@@ -46,11 +46,10 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   margin: 100px auto 70px;
-  padding-left: 68px;
-  max-width: 749px;
+  width: 100%;
+  max-width: calc(749px - 68px);
 
   ${mediaqueries.desktop`
-    padding-left: 53px;
     max-width: calc(507px + 53px);
     margin: 100px auto 70px;
   `}

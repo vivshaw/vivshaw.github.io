@@ -9,18 +9,12 @@ const Paragraph = styled.p`
   transition: ${p => p.theme.colorModeTransition};
   margin: 0 auto 35px;
   width: 100%;
-  max-width: 680px;
 
   b {
     font-weight: 800;
   }
 
-  ${mediaqueries.desktop`
-    max-width: 507px;
-  `}
-
   ${mediaqueries.tablet`
-    max-width: 486px;
     margin: 0 auto 25px;
   `};
 
