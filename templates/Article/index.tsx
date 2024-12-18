@@ -92,7 +92,7 @@ const NextArticle = styled(Section)`
 const FooterNext = styled.h3`
   position: relative;
   opacity: 0.25;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   font-weight: 400;
   color: ${(p) => p.theme.colors.primary};
 
@@ -100,10 +100,6 @@ const FooterNext = styled.h3`
   display: flex;
   flex-direction: row;
   gap: 4px;
-
-  ${mediaqueries.tablet`
-    margin-bottom: 60px;
-  `}
 
   &::after {
     content: "";

@@ -61,7 +61,6 @@ interface GridItemProps {
 }
 
 const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
-  const hasOverflow = narrow && article.title.length > 35;
   const prettyDate = prettyPrintDate(article.date);
 
   return (
@@ -71,10 +70,10 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
       narrow={narrow ? "true" : "false"}
     >
       <Item>
-        <Title dark hasOverflow={hasOverflow}>
+        <Title dark>
           {article.title}
         </Title>
-        <Excerpt hasOverflow={hasOverflow}>{article.blurb}</Excerpt>
+        <Excerpt>{article.blurb}</Excerpt>
         <MetaData>{prettyDate}</MetaData>
       </Item>
     </ArticleLink>
@@ -84,19 +83,6 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
 const wide = "1fr";
 const narrow = "457px";
 
-const limitToTwoLines = css`
-  text-overflow: ellipsis;
-  overflow-wrap: normal;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  white-space: normal;
-  overflow: hidden;
-
-  ${mediaqueries.phablet`
-    -webkit-line-clamp: 3;
-  `}
-`;
 const Grid = styled.div<{ numberOfArticles: number }>`
   position: relative;
   display: grid;
@@ -126,70 +112,31 @@ const Grid = styled.div<{ numberOfArticles: number }>`
   `}
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
-  height: 280px;
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, ${(p) => (p.narrow ? 0.22 : 0.3)}),
-    0 18px 36px -18px rgba(0, 0, 0, ${(p) => (p.narrow ? 0.25 : 0.33)});
-  margin-bottom: 30px;
-  transition: transform 0.3s var(--ease-out-quad),
-    box-shadow 0.3s var(--ease-out-quad);
-
-  & > img {
-    object-fit: cover;
-  }
-
-  ${mediaqueries.tablet`
-    height: 220px;
-    margin-bottom: 35px;
-  `}
-
-  ${mediaqueries.phablet`
-    height: 200px;
-    margin-bottom: 0;
-    box-shadow: none;
-    overflow: hidden;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-  `}
-`;
-
 const Item = styled.div`
   position: relative;
-
-  @media (max-width: 540px) {
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background: ${(p) => p.theme.colors.card};
-  }
 `;
 
 const Title = styled(Headings.h3)`
   font-size: 22px;
   line-height: 1.4;
-  margin-bottom: ${(p) => (p.hasOverflow ? "45px" : "10px")};
+  margin-bottom: 10px;
   color: ${(p) => p.theme.colors.primary};
   font-family: ${(p) => p.theme.fonts.serif};
   transition: color 0.3s ease-in-out;
-  ${limitToTwoLines};
 
   ${mediaqueries.tablet`
     margin-bottom: 15px;
   `}
   ${mediaqueries.phablet`
-    padding: 30px 20px 0;
+    padding: 0 20px 0;
     margin-bottom: 10px;
-    -webkit-line-clamp: 3;
   `}
 `;
 
-const Excerpt = styled.p<{ narrow?: boolean; hasOverflow: boolean }>`
-  ${limitToTwoLines};
+const Excerpt = styled.p<{ narrow?: boolean; }>`
   font-size: 16px;
   margin-bottom: 10px;
   color: ${(p) => p.theme.colors.grey};
-  display: ${(p) => (p.hasOverflow ? "none" : "box")};
   max-width: ${(p) => (p.narrow ? "415px" : "515px")};
 
   ${mediaqueries.desktop`
@@ -231,12 +178,6 @@ const ArticleLink = styled(Link)<{ narrow: string }>`
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &:hover ${ImageContainer} {
-    transform: translateY(-1px);
-    box-shadow: 0 50px 80px -20px rgba(0, 0, 0, 0.27),
-      0 30px 50px -30px rgba(0, 0, 0, 0.3);
-  }
-
   &:hover h2,
   &:focus h2 {
     color: ${(p) => p.theme.colors.accent};
@@ -256,11 +197,6 @@ const ArticleLink = styled(Link)<{ narrow: string }>`
   ${(p) => p.narrow === "true" && mediaqueries.tablet`display: none;`}
 
   ${mediaqueries.phablet`
-    &:hover ${ImageContainer} {
-      transform: none;
-      box-shadow: initial;
-    }
-
     &:active {
       transform: scale(0.97) translateY(3px);
     }
