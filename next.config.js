@@ -16,6 +16,10 @@ module.exports = withPWA(
     compiler: {
       emotion: true,
     },
+    images: {
+      unoptimized: true,
+    },
+    output: "export",
     pageExtensions: ["js", "jsx", "mdx"],
     typescript: {
       ignoreBuildErrors: true,
