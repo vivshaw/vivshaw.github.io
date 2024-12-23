@@ -75,7 +75,10 @@ const PageLinkExternal = styled.a`
 const CenteringWrapper = styled.div`
   align-items: center;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+
+  /* avoid layout shift when there's a scrollbar */
+  padding-left: calc(100vw - 100%);
 `
 
 export const Navbar = () => (

@@ -48,4 +48,3 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] tidy MDX components generally
 [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
 [ ] Shoud social tags have a published _time_ as well as date?
-[ ] Prevent the layout shift when there's a scrollbar
