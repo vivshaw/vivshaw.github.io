@@ -30,25 +30,22 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 [ ] Make `code` blocks more legible
-[ ] Unscrew Copy button in fenced code blocks (it scrolls with the block for some reason)
 [ ] Figure out what the heck is controlling scrolling in fenced code blocks
 [ ] Nicer component for loading images in MDX?
 [ ] Actual dev env support for MDX
-[ ] Rip out Emotion / ThemeUI in favor of Stitches / Radix
+[ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
 [ ] Tighten up types in general
-[ ] Line numbers
+[ ] Line numbers in code blocks
 [ ] Highlights
 [ ] CLI styles
-[ ] Figure out what to do with back button in navbar / routing stuff
 [ ] Fix socials icons on phone screens
-[ ] Fix top of screen being white on phone
 [ ] Actually display/use the category tags
 [ ] Get "Next Article" working for real
 [ ] type meta, if possible
 [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 [ ] Monorepo it? (Turborepo? NX?)
 [ ] Storybook
-[ ] Fix Data Mashups url
 [ ] tidy MDX components generally
 [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
 [ ] Shoud social tags have a published _time_ as well as date?
+[ ] Prevent the layout shift when there's a scrollbar
