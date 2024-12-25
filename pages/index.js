@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
+import SEO from "@components/SEO";
 import mediaqueries from "@styles/media";
 import Link from "next/link";
 
@@ -76,10 +78,18 @@ const MainpageLink = styled(Link)`
  * The index page for the blog. Lists all the articles.
  */
 export default function Index() {
+  const router = useRouter();
+
   return <Layout>
-    <CenteringWrapper>
-      <MainpageContent>
-        <MainpageHeading>
+      <SEO
+        data={{
+          type: "home",
+        }}
+        pathname={router.pathname}
+      />
+      <CenteringWrapper>
+        <MainpageContent>
+          <MainpageHeading>
           I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I build comfortable worlds for engineers.
         </MainpageHeading>
         <MainpageHeading>

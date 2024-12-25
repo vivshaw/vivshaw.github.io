@@ -1,20 +1,23 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 import { author, extractAuthorSocialUrlIfPresent, site } from "@data";
 
-interface SeoProps {
-  articlepathName?: string;
-  authorName?: string;
-  authorsBio?: string;
-  authorsSlug?: string;
-  dateforSEO?: string;
-  description?: string;
-  image?: string;
-  isBlogPost?: boolean;
-  published?: string;
-  title?: string;
-  children?: React.ReactNode;
+type SEOData = {
+  type: "home",
+} | {
+  type: "article",
+  datePublished: string,
+  description: string,
+  title: string,
+} | {
+  type: "other",
+  description: string,
+  title: string,
+}
+
+type SeoProps = {
+  data: SEOData;
+  pathname: string;
 }
 
 // TODO: Should this be `next/seo`?
@@ -24,267 +27,286 @@ interface SeoProps {
  */
 const SEO: React.FC<SeoProps> = ({
   // TODO: Tighten up types around page type
-  articlepathName,
-  authorName,
-  authorsBio,
-  authorsSlug,
-  children,
-  dateforSEO,
-  description,
-  image,
-  isBlogPost,
-  published,
-  title,
+  data,
+  pathname,
 }) => {
-  const router = useRouter();
-
   // TODO: Make this safer & more automagic!
   const twitter = extractAuthorSocialUrlIfPresent(author, "twitter");
   const github = extractAuthorSocialUrlIfPresent(author, "github");
   const linkedin = extractAuthorSocialUrlIfPresent(author, "linkedin");
 
-  const pageUrl = site.url + router.pathname;
+  const pageUrl = site.url + pathname;
 
-  const fullURL = (path: string) => (path ? `${path}` : site.url);
-
-  // If no image is provided, use a default
-  // TODO: Provide an image here, and on pages that use this!!
-  image = image ? image : `vivshaw.net/defaultpreview.jpg`;
-  image = fullURL(image);
-
-  // TODO: Add icons so this works!
-  let siteSchema = `{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "${site.name}/#organization",
-        "name": "${site.name}",
-        "url": "${site.url}",
-        "sameAs": [
-          "${twitter}",
-          "${github}",
-          "${linkedin}",
-        ],
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "${site.name}/#logo",
-          "inLanguage": "en-US",
-          "url": "${site.url}/icons/icon-512x512.png",
-          "width": 512,
-          "height": 512,
-          "caption": "${site.name} logo"
-        },
-        "image": {
-          "@id": "${site.name}/#logo"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "${site.name}/#website",
-        "url": "${site.url}",
-        "name": "${site.name}",
-        "description": "${site.description}",
-        "publisher": {
-          "@id": "${site.name}/#organization"
-        },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": [
-          "WebPage"
-        ],
-        "@id": "${site.name}/#webpage",
-        "url": "${site.url}",
-        "name": "${title || site.name}",
-        "isPartOf": {
-          "@id": "${site.name}/#website"
-        },
-        "about": {
-          "@id": "${site.name}/#organization"
-        },
-        "description": "${description || site.description}",
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "description": "Breadcrumbs list",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "item": "${site.name}",
-            "name": "Homepage",
-            "position": "1"
-          }
-        ],
-        "name": "Breadcrumbs"
-      }
-    ]
-  }
-`.replace(/"[^"]+"|(\s)/gm, function (matched, group1) {
-    if (!group1) {
-      return matched;
-    } else {
-      return "";
+  const pageName = (() => {
+    switch (data.type) {
+      case "article":
+        return data.title;
+      case "home":
+        return site.name;
+      case "other":
+      default:
+        return `${data.title} | ${site.shortName}`;
     }
-  });
+  })()
 
-  // TODO get a real logo image in here
-  let blogSchema = `{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "${site.name}/#organization",
-        "name": "${site.name}",
-        "url": "${site.url}",
-        "sameAs": [
-          "${twitter}",
-          "${github}",
-          "${linkedin}",
-        ],
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "${site.name}/#logo",
-          "inLanguage": "en-US",
-          "url": "${site.url}/icons/icon-512x512.png",
-          "width": 512,
-          "height": 512,
-          "caption": "${site.name} logo"
-        },
-        "image": {
-          "@id": "${site.name}/#logo"
+  const pageDescription = (() => {
+    switch (data.type) {
+      case "article":
+        return data.description;
+      case "other":
+        return data.description;
+      case "home":
+      default:
+        return site.description;
+    }
+  })()
+
+  /** This chunk of schema is shared between all pages. */
+  const alwaysHereSchema = `    {
+      "@type": "WebSite",
+      "@id": "${site.url}/#website",
+      "url": "${site.url}",
+      "name": "${site.name}",
+      "description": "${site.description}",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "${pageUrl}/#primaryimage",
+      "inLanguage": "en-US",
+      "url": "${site.defaultPreview.src}",
+      "width": ${site.defaultPreview.width},
+      "height": ${site.defaultPreview.height}
+    }
+`
+
+  /** This schema is used only for the home page. */
+  const homeSchema = `{
+  "@context": "https://schema.org",
+  "@graph": [
+    ${alwaysHereSchema},
+    {
+      "@type": [
+        "WebPage"
+      ],
+      "@id": "${site.url}/#webpage",
+      "url": "${site.url}",
+      "name": "${pageName}",
+      "isPartOf": {
+        "@id": "${site.url}/#website"
+      },
+      "description": "${pageDescription}",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "description": "Breadcrumbs list",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "item": "${site.name}",
+          "name": "Home",
+          "position": "1"
         }
+      ],
+      "name": "Breadcrumbs"
+    }
+  ]
+}
+`
+
+  // TODO: Get rid of the gross type assertions
+  /** This schema is used only for the blog articles. */
+  const articleSchema = `{
+  "@context": "https://schema.org",
+  "@graph": [
+    ${alwaysHereSchema},
+    {
+      "@type": [
+        "WebPage"
+      ],
+      "@id": "${pageUrl}/#webpage",
+      "url": "${pageUrl}",
+      "name": "${pageName}",
+      "isPartOf": {
+        "@id": "${site.url}/#website"
       },
-      {
-        "@type": "WebSite",
-        "@id": "${site.name}/#website",
-        "url": "${site.url}",
-        "name": "${site.name}",
-        "description": "${site.description}",
-        "publisher": {
-          "@id": "${site.name}/#organization"
+      "primaryImageOfPage": {
+        "@id": "${pageUrl}/#primaryimage"
+      },
+      "datePublished": "${(data as { type: "article", datePublished: string }).datePublished}",
+      "description": "${pageDescription}",
+      "breadcrumb": {
+        "@id": "${pageUrl}/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "${pageUrl}/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "${site.url}",
+            "url": "${site.url}",
+            "name": "Home"
+          }
         },
-        "inLanguage": "en-US"
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "${site.url}/blog/#webpage",
+            "url": "${site.url}/blog",
+            "name": "Blog | ${site.shortName}"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "WebPage",
+            "@id": "${pageUrl}/#webpage",
+            "url": "${pageUrl}",
+            "name": "${pageName}"
+          }
+        }
+      ],
+      "name": "Breadcrumbs"
+    },
+    {
+      "@type": "Article",
+      "@id": "${pageUrl}/#article",
+      "isPartOf": {
+        "@id": "${pageUrl}/#webpage"
       },
-      {
+      "author": {
+        "@id": "${site.url}/#${author.id}"
+      },
+      "headline": "${pageName}",
+      "datePublished": "${(data as { type: "article", datePublished: string }).datePublished}",
+      "mainEntityOfPage": {
+        "@id": "${pageUrl}/#webpage"
+      },
+      "publisher": {
+        "@id": "${site.url}/#${author.id}"
+      },
+      "image": {
+        "@id": "${pageUrl}/#primaryimage"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": [
+        "Person"
+      ],
+      "@id": "${site.url}/#${author.id}",
+      "name": "${author.name}",
+      "image": {
         "@type": "ImageObject",
-        "@id": "${articlepathName}/#primaryimage",
+        "@id": "${site.url}/#personlogo",
         "inLanguage": "en-US",
-        "url": "${image}",
-        "width": 1200,
-        "height": 628
+        "caption": "${author.avatar.alt}"
       },
-      {
-        "@type": [
-          "WebPage"
-        ],
-        "@id": "${articlepathName}/#webpage",
-        "url": "${articlepathName}",
-        "name": "${title}",
-        "isPartOf": {
-          "@id": "${site.name}/#website"
-        },
-        "primaryImageOfPage": {
-          "@id": "${articlepathName}/#primaryimage"
-        },
-        "datePublished": "${dateforSEO}",
-        "dateModified": "${dateforSEO}",
-        "description": "${description}",
-        "breadcrumb": {
-          "@id": "${articlepathName}/#breadcrumb"
-        },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "${articlepathName}/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "WebPage",
-              "@id": "${site.name}",
-              "url": "${site.url}",
-              "name": "Home"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "WebPage",
-              "@id": "${articlepathName}",
-              "url": "${articlepathName}",
-              "name": "${title}"
-            }
-          }
-        ]
-      },
-      {
-        "@type": "Article",
-        "@id": "${articlepathName}/#article",
-        "isPartOf": {
-          "@id": "${articlepathName}/#webpage"
-        },
-        "author": {
-          "@id": "${site.name}/#/schema${authorsSlug}"
-        },
-        "headline": "${title}",
-        "datePublished": "${dateforSEO}",
-        "dateModified": "${dateforSEO}",
-        "mainEntityOfPage": {
-          "@id": "${articlepathName}/#webpage"
-        },
-        "publisher": {
-          "@id": "${site.name}/#organization"
-        },
-        "image": {
-          "@id": "${articlepathName}/#primaryimage"
-        },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": [
-          "Person"
-        ],
-        "@id": "${site.name}/#/schema${authorsSlug}",
-        "name": "${authorName}",
-        "image": {
-          "@type": "ImageObject",
-        "@id": "${site.name}/#personlogo",
-          "inLanguage": "en-US",
-          "caption": "${authorName}"
-        },
-        "description": "${authorsBio}",
-        "sameAs": [
-          "${twitter}",
-          "${github}",
-          "${linkedin}",
-        ]
-      }
-    ]
-  }
-`.replace(/"[^"]+"|(\s)/gm, function (matched, group1) {
-    if (!group1) {
-      return matched;
-    } else {
-      return "";
-    }
-  });
+      "description": "${author.bio}",
+      "sameAs": [
+        "${twitter}",
+        "${github}",
+        "${linkedin}",
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "${site.url}/#personlogo",
+      "inLanguage": "en-US",
+      "url": "${author.avatar.image.src}",
+      "width": ${author.avatar.image.width},
+      "height": ${author.avatar.image.height}
+    },
+  ]
+}
+`
 
-  const schema = isBlogPost ? blogSchema : siteSchema;
+  /** This schema is used for all other pages. */
+  const otherSchema = `{
+  "@context": "https://schema.org",
+  "@graph": [
+    ${alwaysHereSchema},
+    {
+      "@type": [
+        "WebPage"
+      ],
+      "@id": "${pageUrl}/#webpage",
+      "url": "${pageUrl}",
+      "name": "${pageName}",
+      "isPartOf": {
+        "@id": "${site.url}/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "${pageUrl}/#primaryimage"
+      },
+      "description": "${pageDescription}",
+      "breadcrumb": {
+        "@id": "${pageUrl}/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "${pageUrl}/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "${site.url}",
+            "url": "${site.url}",
+            "name": "Home"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "${pageUrl}/#webpage",
+            "url": "${pageUrl}",
+            "name": "${pageName}"
+          }
+        }
+      ],
+      "name": "Breadcrumbs"
+    },
+  ]
+}
+`
+  /** Schema.org structured metadata for the page. */
+  const schema = (() => {
+    switch (data.type) {
+      case "article":
+        return articleSchema;
+      case "home":
+        return homeSchema;
+      case "other":
+      default:
+        return otherSchema;
+    }
+  })()
 
   return (
     <Head>
       {/** Title-y stuff */}
-      <title>{title || site.name}</title>
-      <meta name="name" content={title || site.name} />
-      <meta itemProp="name" content={title || site.name} />
-      <meta name="description" content={description || site.description} />
-      <meta itemProp="description" content={description || site.description} />
-      <meta itemProp="image" content={image} />
+      <title>{pageName}</title>
+      <meta name="name" content={pageName} />
+      <meta itemProp="name" content={pageName} />
+      <meta name="description" content={pageDescription} />
+      <meta itemProp="description" content={pageDescription} />
+      <meta itemProp="image" content={site.defaultPreview.src} />
 
       {/** Schema.org structured metadata */}
       <script type="application/ld+json">{schema}</script>
@@ -326,31 +348,29 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="theme-color" content="#000000" />
 
-      {/** Twiter tags */}
+      {/** Twitter tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={site.url} />
-      <meta name="twitter:title" content={title || site.name} />
+      <meta name="twitter:title" content={pageName} />
       <meta
         name="twitter:description"
-        content={description || site.description}
+        content={pageDescription}
       />
       <meta name="twitter:creator" content={twitter} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={site.defaultPreview.src} />
 
       {/** OpenGraph tags */}
-      <meta property="og:type" content={isBlogPost ? "article" : "website"} />
-      <meta property="og:title" content={title || site.name} />
-      <meta property="og:url" content={articlepathName || pageUrl} />
-      <meta property="og:image" content={image} />
+      <meta property="og:type" content={data.type === "article" ? "article" : "website"} />
+      <meta property="og:title" content={pageName} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={site.defaultPreview.src} />
       <meta
         property="og:description"
-        content={description || site.description}
+        content={pageDescription}
       />
       <meta property="og:site_name" content={site.name} />
       <meta property="article:author" content={site.url} />
-      {published && <meta name="article:published_time" content={published} />}
-
-      {children}
+      {data.type === "article" && <meta name="article:published_time" content={data.datePublished} />}
     </Head>
   );
 };

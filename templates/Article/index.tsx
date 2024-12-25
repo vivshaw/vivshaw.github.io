@@ -1,14 +1,16 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
+import SEO from "@components/SEO";
 import { author } from "@data";
 import mediaqueries from "@styles/media";
 import type { IArticle } from "@types";
+import { prettyPrintDate } from "@utils";
 import ArticleHero from "./Article.Hero";
 import ArticlesNext from "./Article.Next";
-import ArticleSEO from "./Article.SEO";
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: IArticle[] = [
@@ -37,14 +39,26 @@ const Article = ({
   children,
   meta,
 }: {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   meta: IArticle;
 }) => {
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
 
+  const router = useRouter();
+
+  const prettyDate = prettyPrintDate(meta.date);
+
   return (
     <Layout>
-      <ArticleSEO article={meta} author={author} />
+      <SEO
+        data={{
+          type: "article",
+          datePublished: prettyDate,
+          description: meta.blurb,
+          title: meta.title,
+        }}
+        pathname={router.pathname}
+      />
       <ArticleHero article={meta} author={author} />
 
       <ArticleBody>
@@ -54,7 +68,7 @@ const Article = ({
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>
-            More articles from vivsha.ws
+            More articles from vivshaw's
           </FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />

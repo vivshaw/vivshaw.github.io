@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-
+import { useRouter } from "next/router";
 import Layout from "@components/Layout";
+import SEO from "@components/SEO";
 import mediaqueries from "@styles/media";
-import Link from "next/link";
 
 const CenteringWrapper = styled.div`
   align-items: center;
@@ -69,7 +69,16 @@ const AboutList = styled.ul`
  * The index page for the blog. Lists all the articles.
  */
 export default function Index() {
+  const router = useRouter();
+
   return <Layout>
+      <SEO data={{
+        type: "other",
+        title: "About Me",
+        description: "About vivshaw",
+      }}
+      pathname={router.pathname}
+    />
     <CenteringWrapper>
       <MainpageContent>
         <MainpageHeading>

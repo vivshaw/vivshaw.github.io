@@ -21,7 +21,7 @@ export interface ISocialLink {
 export interface IAuthor {
   avatar: {
     alt: string;
-    src: StaticImageData;
+    image: StaticImageData;
   };
   bio: string;
   name: string;

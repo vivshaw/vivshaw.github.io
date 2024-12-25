@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
@@ -41,9 +42,17 @@ const MainpageContent = styled.div`
  * In future, will be used for the tags pages.
  */
 const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
+  const router = useRouter();
+
   return (
     <Layout>
-      <SEO />
+      <SEO data={{
+          type: "other",
+          title: "Blog",
+          description: "vivshaw's blog",
+        }}
+        pathname={router.pathname}
+      />
       <CenteringWrapper>
         <MainpageContent>
           <BlogList articles={articles} />
