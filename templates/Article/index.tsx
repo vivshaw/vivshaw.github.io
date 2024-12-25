@@ -5,15 +5,14 @@ import Layout from "@components/Layout";
 import { MDXBody } from "@components/MDX/MDX";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
-import { author } from "@data";
+import type { TArticle } from "@data";
 import mediaqueries from "@styles/media";
-import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 import ArticleHero from "./Article.Hero";
 import ArticlesNext from "./Article.Next";
 
 // TODO: Remove these after `next` actually works!!
-const fakeNextMetas: IArticle[] = [
+const fakeNextMetas: TArticle[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
     blurb: "Exploring computer vision with a from-scratch neural net in Scala",
@@ -40,7 +39,7 @@ const Article = ({
   meta,
 }: {
   children: React.ReactNode;
-  meta: IArticle;
+  meta: TArticle;
 }) => {
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
 
@@ -59,7 +58,7 @@ const Article = ({
         }}
         pathname={router.pathname}
       />
-      <ArticleHero article={meta} author={author} />
+      <ArticleHero article={meta} />
 
       <ArticleBody>
         <MDXBody>{children}</MDXBody>

@@ -1,10 +1,10 @@
 import fs from "fs/promises";
 import path from "path";
 
-import type { IArticle } from "@types";
+import type { TArticle } from "@types";
 
 /** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
-type TArticleDateless = Omit<IArticle, "date"> & { date: string };
+type TArticleDateless = Omit<TArticle, "date"> & { date: string };
 
 /**
  * Fetches all the blog posts that currently exist.

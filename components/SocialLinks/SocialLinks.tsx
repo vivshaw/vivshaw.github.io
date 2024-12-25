@@ -1,23 +1,19 @@
 import styled from "@emotion/styled";
 
+import { author, type SocialSite } from "@data";
 import Icons from "@icons";
+import type { Icon } from "@icons";
 import mediaqueries from "@styles/media";
-import type { Icon, ISocialLink, TSocialSite } from "@types";
 
-type TSocialIcons = Record<TSocialSite, Icon>;
+type SocialIcons = Record<SocialSite, Icon>;
 
-const icons: TSocialIcons = {
+const icons: SocialIcons = {
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
   github: Icons.Github,
-  mailto: Icons.Mailto,
-  url: Icons.Url,
 };
 
 interface SocialLinksProps {
-  /** Array of social links to display */
-  links: ISocialLink[];
-
   /**
    * Fill color for the social icons.
    *
@@ -30,34 +26,25 @@ interface SocialLinksProps {
  * Displays a list of social links and corresponding icons.
  */
 const SocialLinks: React.FC<SocialLinksProps> = ({
-  links,
   fill = "#73737D",
 }) => {
-  if (links.length < 1) return null;
-
   return (
     <>
-      {links.map((option) => {
-        const name = option.name;
+      {Object.entries(author.socials).map(([social, url]) => {
+        const name = social;
         const Icon = icons[name];
-
-        if (!Icon) {
-          throw new Error(
-            `unsupported social link name=${name} / url=${option.url}`
-          );
-        }
 
         return (
           <SocialIconContainer
-            key={option.url}
+            key={url}
             target="_blank"
             rel="noopener nofollow"
             data-a11y="false"
-            aria-label={`Link to ${option.url}`}
-            href={option.url}
+            aria-label={`Link to ${url}`}
+            href={url}
           >
             <Icon fill={fill} />
-            <Hidden>Link to ${option.url}</Hidden>
+            <Hidden>Link to ${url}</Hidden>
           </SocialIconContainer>
         );
       })}

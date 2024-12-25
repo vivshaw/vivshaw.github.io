@@ -1,8 +1,41 @@
+import type { StaticImageData } from "next/image";
+
 import avatarPic from "@images/avatar.jpg";
 import defaultPreview from "@images/default-preview.jpg";
-import type { IAuthor, TSocialSite } from "@types";
 
-export const author: IAuthor = {
+export type TArticle = {
+  title: string;
+  slug: string;
+  date: Date;
+
+  blurb: string;
+  next?: string[];
+  tags: string[];
+}
+
+export type SocialSite =
+  | "linkedin"
+  | "twitter"
+  | "github"
+
+export type Author = {
+  id: string;
+  /** Profile picture and alt text */
+  avatar: {
+    alt: string;
+    image: StaticImageData;
+  };
+  /** Short bio */
+  bio: string;
+  /** Email address */
+  mailto: string;
+  /** Full name */
+  name: string;
+  /** Social links */
+  socials: Record<SocialSite, string>;
+}
+
+export const author: Author = {
   avatar: {
     image: avatarPic,
     alt: "A photo of Hannah in a Smithsonian display of a giant salt molecule",
@@ -10,35 +43,12 @@ export const author: IAuthor = {
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",
   id: "vivshaw",
   name: "Hannah Vivian Shaw",
-  socials: [
-    { name: "github", url: "https://github.com/vivshaw" },
-    {
-      name: "twitter",
-      url: "https://twitter.com/vvvivshaw",
-    },
-    {
-      name: "linkedin",
-      url: "https://www.linkedin.com/in/hvivianshaw/",
-    },
-    { name: "mailto", url: "mailto:hvivianshaw@gmail.com" },
-  ],
-};
-
-/**
- * Given an author and a desired social site, returns the corresponding URL if it's present.
- */
-export const extractAuthorSocialUrlIfPresent = (
-  author: IAuthor,
-  social: TSocialSite
-) => {
-  // TODO: Why doesn't this possibly return `undefined`?
-  const targetSocial = author.socials.find((item) => item.name === social);
-
-  if (targetSocial) {
-    return targetSocial.url;
-  }
-
-  return undefined;
+  mailto: "mailto:hey@vivsha.ws",
+  socials: {
+    "github": "https://github.com/vivshaw",
+    "twitter": "https://twitter.com/vvvivshaw",
+    "linkedin": "https://www.linkedin.com/in/hvivianshaw/",
+  },
 };
 
 export const site = {

@@ -3,8 +3,8 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 
 import Headings from "@components/Headings";
+import type { TArticle } from "@data";
 import mediaqueries from "@styles/media";
-import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticlesNextProps {
@@ -12,7 +12,7 @@ interface ArticlesNextProps {
    * Articles to display in the Next Articles block.
    * If the list is empty, we won't display this block at all!
    */
-  articles: IArticle[];
+  articles: TArticle[];
 }
 
 /**
@@ -50,7 +50,7 @@ interface GridItemProps {
   /**
    * The Article to display in this grid item.
    */
-  article: IArticle;
+  article: TArticle;
 
   /**
    * Whether this article should be the narrow or the wider one it its row.

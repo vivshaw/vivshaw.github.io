@@ -2,10 +2,9 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
-import Paginator from "@components/Navigation/Navigation.Paginator";
 import SEO from "@components/SEO";
+import type { TArticle } from "@data";
 import mediaqueries from "@styles/media";
-import type { IArticle } from "@types";
 import BlogList from "./Blog.List";
 
 const CenteringWrapper = styled.div`
@@ -41,7 +40,7 @@ const MainpageContent = styled.div`
  * Template for a list of blog posts. Currently just used for the index page.
  * In future, will be used for the tags pages.
  */
-const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
+const ArticlesPage = ({ articles }: { articles: TArticle[] }) => {
   const router = useRouter();
 
   return (
@@ -56,9 +55,6 @@ const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
       <CenteringWrapper>
         <MainpageContent>
           <BlogList articles={articles} />
-          <ArticlesPaginator show={false}>
-            <Paginator pageCount={1} pathPrefix="/" index={1} />
-          </ArticlesPaginator>
         </MainpageContent>
       </CenteringWrapper>
     </Layout>
@@ -67,6 +63,3 @@ const ArticlesPage = ({ articles }: { articles: IArticle[] }) => {
 
 export default ArticlesPage;
 
-const ArticlesPaginator = styled.div<{ show: boolean }>`
-  ${(p) => p.show && `margin-top: 95px;`}
-`;

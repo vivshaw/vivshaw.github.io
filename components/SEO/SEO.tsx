@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { author, extractAuthorSocialUrlIfPresent, site } from "@data";
+import { author, site } from "@data";
 
 type SEOData = {
   type: "home",
@@ -30,11 +30,6 @@ const SEO: React.FC<SeoProps> = ({
   data,
   pathname,
 }) => {
-  // TODO: Make this safer & more automagic!
-  const twitter = extractAuthorSocialUrlIfPresent(author, "twitter");
-  const github = extractAuthorSocialUrlIfPresent(author, "github");
-  const linkedin = extractAuthorSocialUrlIfPresent(author, "linkedin");
-
   const pageUrl = site.url + pathname;
 
   const pageName = (() => {
@@ -214,9 +209,9 @@ const SEO: React.FC<SeoProps> = ({
       },
       "description": "${author.bio}",
       "sameAs": [
-        "${twitter}",
-        "${github}",
-        "${linkedin}",
+        "${author.socials.twitter}",
+        "${author.socials.github}",
+        "${author.socials.linkedin}",
       ]
     },
     {
@@ -356,7 +351,7 @@ const SEO: React.FC<SeoProps> = ({
         name="twitter:description"
         content={pageDescription}
       />
-      <meta name="twitter:creator" content={twitter} />
+      <meta name="twitter:creator" content={author.socials.twitter} />
       <meta name="twitter:image" content={site.defaultPreview.src} />
 
       {/** OpenGraph tags */}

@@ -3,12 +3,12 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 
 import Headings from "@components/Headings";
+import type { TArticle } from "@data";
 import mediaqueries from "@styles/media";
-import type { IArticle } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticlesListProps {
-  articles: IArticle[];
+  articles: TArticle[];
 }
 
 const BlogList: React.FC<ArticlesListProps> = ({
@@ -22,7 +22,7 @@ const BlogList: React.FC<ArticlesListProps> = ({
 export default BlogList;
 
 interface BlogListItemProps {
-  article: IArticle;
+  article: TArticle;
   narrow?: boolean;
 }
 

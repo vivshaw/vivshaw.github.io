@@ -1,19 +1,18 @@
 import styled from "@emotion/styled";
 
 import Headings from "@components/Headings";
+import type { TArticle } from "@data";
 import mediaqueries from "@styles/media";
-import type { IArticle, IAuthor } from "@types";
 import { prettyPrintDate } from "@utils";
 
 interface ArticleHeroProps {
-  article: IArticle;
-  author: IAuthor;
+  article: TArticle;
 }
 
 /**
  * Displays the Hero section for a given Article, including title, author, and image.
  */
-const ArticleHero: React.FC<ArticleHeroProps> = ({ article, author }) => {
+const ArticleHero: React.FC<ArticleHeroProps> = ({ article }) => {
   const prettyDate = prettyPrintDate(article.date);
 
   return (
