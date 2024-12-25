@@ -85,7 +85,7 @@ export const Navbar = () => (
   <CenteringWrapper>
     <NavContainer>
       <LogoLink href="/" title="Go to the homepage">
-        <em>vivsha.ws</em>
+        <em>vivshaw's</em>
       </LogoLink>
 
       <NavControls>
