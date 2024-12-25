@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
-import mediaqueries from "@styles/media";
+import mediaqueries from "@styles/media"
 
 export const iconWrapperHover = `
   opacity: 0.5;
@@ -27,4 +27,4 @@ export const IconWrapper = styled.button<{ isDark: boolean }>`
   justify-content: center;
 
   ${iconWrapperHover}
-`;
+`

@@ -1,26 +1,26 @@
-import { useState } from "react";
-import styled from "@emotion/styled";
+import { useState } from "react"
+import styled from "@emotion/styled"
 
-import Icons from "@icons";
-import mediaqueries from "@styles/media";
-import { copyToClipboard } from "@utils";
+import Icons from "@icons"
+import mediaqueries from "@styles/media"
+import { copyToClipboard } from "@utils"
 
 interface CopyProps {
-  toCopy: string;
+  toCopy: string
 }
 
 const Copy: React.FC<CopyProps> = ({ toCopy }) => {
-  const [hasCopied, setHasCopied] = useState<boolean>(false);
+  const [hasCopied, setHasCopied] = useState<boolean>(false)
 
   function copyToClipboardOnClick() {
-    if (hasCopied) return;
+    if (hasCopied) return
 
-    copyToClipboard(toCopy);
-    setHasCopied(true);
+    copyToClipboard(toCopy)
+    setHasCopied(true)
 
     setTimeout(() => {
-      setHasCopied(false);
-    }, 2000);
+      setHasCopied(false)
+    }, 2000)
   }
 
   return (
@@ -35,12 +35,12 @@ const Copy: React.FC<CopyProps> = ({ toCopy }) => {
         </>
       )}
     </CopyButton>
-  );
-};
+  )
+}
 
 interface CodePrismProps {
-  className: string;
-  codeString: any;
+  className: string
+  codeString: any
 }
 
 const CodePrism: React.FC<CodePrismProps> = ({ codeString, className }) => {
@@ -55,10 +55,10 @@ const CodePrism: React.FC<CodePrismProps> = ({ codeString, className }) => {
         {codeString}
       </pre>
     </div>
-  );
-};
+  )
+}
 
-export default CodePrism;
+export default CodePrism
 
 const CopyButton = styled.button`
   position: absolute;
@@ -88,4 +88,4 @@ const CopyButton = styled.button`
   ${mediaqueries.tablet`
     display: none;
   `}
-`;
+`

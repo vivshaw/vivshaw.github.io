@@ -1,17 +1,17 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
-import { author, type SocialSite } from "@data";
-import Icons from "@icons";
-import type { Icon } from "@icons";
-import mediaqueries from "@styles/media";
+import { author, type SocialSite } from "@data"
+import Icons from "@icons"
+import type { Icon } from "@icons"
+import mediaqueries from "@styles/media"
 
-type SocialIcons = Record<SocialSite, Icon>;
+type SocialIcons = Record<SocialSite, Icon>
 
 const icons: SocialIcons = {
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
   github: Icons.Github,
-};
+}
 
 interface SocialLinksProps {
   /**
@@ -19,20 +19,18 @@ interface SocialLinksProps {
    *
    * @default "#73737D"
    */
-  fill?: string;
+  fill?: string
 }
 
 /**
  * Displays a list of social links and corresponding icons.
  */
-const SocialLinks: React.FC<SocialLinksProps> = ({
-  fill = "#73737D",
-}) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ fill = "#73737D" }) => {
   return (
     <>
       {Object.entries(author.socials).map(([social, url]) => {
-        const name = social;
-        const Icon = icons[name];
+        const name = social
+        const Icon = icons[name]
 
         return (
           <SocialIconContainer
@@ -46,13 +44,13 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
             <Icon fill={fill} />
             <Hidden>Link to ${url}</Hidden>
           </SocialIconContainer>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
-export default SocialLinks;
+export default SocialLinks
 
 const SocialIconContainer = styled.a`
   position: relative;
@@ -94,7 +92,7 @@ const SocialIconContainer = styled.a`
   ${mediaqueries.tablet`
     margin: 0 2.2rem;
   `};
-`;
+`
 
 const Hidden = styled.span`
   width: 0px;
@@ -103,4 +101,4 @@ const Hidden = styled.span`
   opacity: 0;
   overflow: hidden;
   display: inline-block;
-`;
+`

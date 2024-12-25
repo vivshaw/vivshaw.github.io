@@ -4,12 +4,12 @@ const withMDX = require("@next/mdx")({
     providerImportSource: "@mdx-js/react",
     remarkPlugins: [require("remark-prism")],
   },
-});
+})
 
 const withPWA = require("next-pwa")({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
-});
+})
 
 module.exports = withPWA(
   withMDX({
@@ -24,5 +24,5 @@ module.exports = withPWA(
     typescript: {
       ignoreBuildErrors: true,
     },
-  })
-);
+  }),
+)

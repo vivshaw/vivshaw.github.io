@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const LinkIcon: Icon = ({ fill }) => (
   <svg
@@ -15,6 +15,6 @@ const LinkIcon: Icon = ({ fill }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default LinkIcon;
+export default LinkIcon

@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-import { useRouter } from "next/router";
+import styled from "@emotion/styled"
+import { useRouter } from "next/router"
 
-import Layout from "@components/Layout";
-import SEO from "@components/SEO";
-import type { TArticle } from "@data";
-import mediaqueries from "@styles/media";
-import BlogList from "./Blog.List";
+import Layout from "@components/Layout"
+import SEO from "@components/SEO"
+import type { TArticle } from "@data"
+import mediaqueries from "@styles/media"
+import BlogList from "./Blog.List"
 
 const CenteringWrapper = styled.div`
   align-items: center;
@@ -28,7 +28,7 @@ const MainpageContent = styled.div`
   padding-left: calc(env(safe-area-inset-right) + 80px);
   padding-bottom: 50px;
   padding-top: 80px;
-  
+
   ${mediaqueries.tablet`
     padding-right: 24px;
     padding-left: 24px;
@@ -41,11 +41,12 @@ const MainpageContent = styled.div`
  * In future, will be used for the tags pages.
  */
 const ArticlesPage = ({ articles }: { articles: TArticle[] }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <Layout>
-      <SEO data={{
+      <SEO
+        data={{
           type: "other",
           title: "Blog",
           description: "vivshaw's blog",
@@ -58,8 +59,7 @@ const ArticlesPage = ({ articles }: { articles: TArticle[] }) => {
         </MainpageContent>
       </CenteringWrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default ArticlesPage;
-
+export default ArticlesPage

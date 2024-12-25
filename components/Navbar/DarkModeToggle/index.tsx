@@ -1,15 +1,15 @@
-import styled from "@emotion/styled";
-import { useColorMode } from "theme-ui";
+import styled from "@emotion/styled"
+import { useColorMode } from "theme-ui"
 
-import mediaqueries from "@styles/media";
-import { IconWrapper } from "../IconWrapper";
+import mediaqueries from "@styles/media"
+import { IconWrapper } from "../IconWrapper"
 
 export const DarkModeToggle = () => {
-  const [colorMode, setColorMode] = useColorMode();
-  const isDark = colorMode === `dark`;
+  const [colorMode, setColorMode] = useColorMode()
+  const isDark = colorMode === `dark`
 
   function toggleColorMode() {
-    setColorMode(isDark ? `light` : `dark`);
+    setColorMode(isDark ? `light` : `dark`)
   }
 
   return (
@@ -23,8 +23,8 @@ export const DarkModeToggle = () => {
       <MoonOrSun isDark={isDark} />
       <MoonMask isDark={isDark} />
     </IconWrapper>
-  );
-};
+  )
+}
 
 // This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
 const MoonOrSun = styled.div<{ isDark: boolean }>`
@@ -62,7 +62,8 @@ const MoonOrSun = styled.div<{ isDark: boolean }>`
     position: absolute;
     top: 50%;
     left: 50%;
-    box-shadow: 0 -23px 0 ${(p) => p.theme.colors.primary},
+    box-shadow:
+      0 -23px 0 ${(p) => p.theme.colors.primary},
       0 23px 0 ${(p) => p.theme.colors.primary},
       23px 0 0 ${(p) => p.theme.colors.primary},
       -23px 0 0 ${(p) => p.theme.colors.primary},
@@ -77,7 +78,7 @@ const MoonOrSun = styled.div<{ isDark: boolean }>`
       transform: scale(${p.isDark ? 0.92 : 0});
     `}
   }
-`;
+`
 
 const MoonMask = styled.div<{ isDark: boolean }>`
   position: absolute;
@@ -90,5 +91,7 @@ const MoonMask = styled.div<{ isDark: boolean }>`
   background: ${(p) => p.theme.colors.background};
   transform: translate(${(p) => (p.isDark ? "14px, -14px" : "0, 0")});
   opacity: ${(p) => (p.isDark ? 0 : 1)};
-  transition: ${(p) => p.theme.colorModeTransition}, transform 0.45s ease;
-`;
+  transition:
+    ${(p) => p.theme.colorModeTransition},
+    transform 0.45s ease;
+`

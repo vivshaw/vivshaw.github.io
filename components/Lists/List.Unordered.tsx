@@ -1,17 +1,16 @@
-import styled from '@emotion/styled';
-import mediaqueries from '@styles/media';
+import styled from "@emotion/styled"
+import mediaqueries from "@styles/media"
 
 const UnorderedList = styled.ul`
   list-style: none;
   counter-reset: list;
-  color: ${p => p.theme.colors.articleText};
+  color: ${(p) => p.theme.colors.articleText};
   position: relative;
   padding: 15px 0 30px 30px;
-  transition: ${p => p.theme.colorModeTransition};
+  transition: ${(p) => p.theme.colorModeTransition};
   margin: 0 auto;
   font-size: 18px;
   width: 100%;
-
 
   ${mediaqueries.tablet`
     padding-left: 0px;
@@ -48,22 +47,22 @@ const UnorderedList = styled.ul`
     width: 3rem;
     display: inline-block;
     position: absolute;
-    color: ${p => p.theme.colors.articleText};
+    color: ${(p) => p.theme.colors.articleText};
   }
 
   li::before {
-    content: '';
+    content: "";
     position: absolute;
     left: -30px;
     top: 8px;
     height: 8px;
     width: 8px;
-    background: ${p => p.theme.colors.articleText};
+    background: ${(p) => p.theme.colors.articleText};
 
     ${mediaqueries.tablet`
       left: 0;
     `};
   }
-`;
+`
 
-export default UnorderedList;
+export default UnorderedList

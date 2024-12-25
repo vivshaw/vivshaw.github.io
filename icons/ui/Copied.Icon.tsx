@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const CopiedIcon: Icon = ({ fill = "white" }) => (
   <svg
@@ -13,6 +13,6 @@ const CopiedIcon: Icon = ({ fill = "white" }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default CopiedIcon;
+export default CopiedIcon

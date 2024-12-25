@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const GithubIcon: Icon = ({ fill = "white" }) => (
   <svg
@@ -15,6 +15,6 @@ const GithubIcon: Icon = ({ fill = "white" }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default GithubIcon;
+export default GithubIcon

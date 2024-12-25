@@ -1,14 +1,14 @@
-import styled from '@emotion/styled';
-import mediaqueries from '@styles/media';
+import styled from "@emotion/styled"
+import mediaqueries from "@styles/media"
 
 const OrderedList = styled.ol`
   list-style: none;
   counter-reset: list;
-  color: ${p => p.theme.colors.articleText};
+  color: ${(p) => p.theme.colors.articleText};
   position: relative;
   padding: 15px 0 30px 30px;
   margin: 0 auto;
-  transition: ${p => p.theme.colorModeTransition};
+  transition: ${(p) => p.theme.colorModeTransition};
   font-size: 18px;
 
   width: 100%;
@@ -48,12 +48,12 @@ const OrderedList = styled.ol`
     width: 3rem;
     display: inline-block;
     position: absolute;
-    color: ${p => p.theme.colors.articleText};
+    color: ${(p) => p.theme.colors.articleText};
   }
 
   li::before {
     counter-increment: list;
-    content: counter(list) '.';
+    content: counter(list) ".";
     font-weight: 600;
     position: absolute;
     left: -3rem;
@@ -64,6 +64,6 @@ const OrderedList = styled.ol`
       left: 0;
     `};
   }
-`;
+`
 
-export default OrderedList;
+export default OrderedList

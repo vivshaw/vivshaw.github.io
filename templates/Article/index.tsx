@@ -1,15 +1,15 @@
-import styled from "@emotion/styled";
-import { useRouter } from "next/router";
+import styled from "@emotion/styled"
+import { useRouter } from "next/router"
 
-import Layout from "@components/Layout";
-import { MDXBody } from "@components/MDX/MDX";
-import Section from "@components/Section";
-import SEO from "@components/SEO";
-import type { TArticle } from "@data";
-import mediaqueries from "@styles/media";
-import { prettyPrintDate } from "@utils";
-import ArticleHero from "./Article.Hero";
-import ArticlesNext from "./Article.Next";
+import Layout from "@components/Layout"
+import { MDXBody } from "@components/MDX/MDX"
+import Section from "@components/Section"
+import SEO from "@components/SEO"
+import type { TArticle } from "@data"
+import mediaqueries from "@styles/media"
+import { prettyPrintDate } from "@utils"
+import ArticleHero from "./Article.Hero"
+import ArticlesNext from "./Article.Next"
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: TArticle[] = [
@@ -29,7 +29,7 @@ const fakeNextMetas: TArticle[] = [
     slug: "electric-pentameter",
     tags: ["python", "ml", "LSTM", "neural networks", "keras"],
   },
-];
+]
 
 /**
  * Template for a single blog post.
@@ -38,14 +38,14 @@ const Article = ({
   children,
   meta,
 }: {
-  children: React.ReactNode;
-  meta: TArticle;
+  children: React.ReactNode
+  meta: TArticle
 }) => {
-  const next = fakeNextMetas.filter((article) => article.slug !== meta.slug);
+  const next = fakeNextMetas.filter((article) => article.slug !== meta.slug)
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const prettyDate = prettyPrintDate(meta.date);
+  const prettyDate = prettyPrintDate(meta.date)
 
   return (
     <Layout>
@@ -66,18 +66,16 @@ const Article = ({
 
       {next.length > 0 && (
         <NextArticle narrow>
-          <FooterNext>
-            More articles from vivshaw's
-          </FooterNext>
+          <FooterNext>More articles from vivshaw's</FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />
         </NextArticle>
       )}
     </Layout>
-  );
-};
+  )
+}
 
-export default Article;
+export default Article
 
 const ArticleBody = styled.article`
   position: relative;
@@ -98,11 +96,11 @@ const ArticleBody = styled.article`
   ${mediaqueries.phablet`
     padding: 60px 0;
   `}
-`;
+`
 
 const NextArticle = styled(Section)`
   display: block;
-`;
+`
 
 const FooterNext = styled.h3`
   position: relative;
@@ -137,8 +135,8 @@ const FooterNext = styled.h3`
       width: 90px
     `}
   }
-`;
+`
 
 const FooterSpacer = styled.div`
   margin-bottom: 65px;
-`;
+`

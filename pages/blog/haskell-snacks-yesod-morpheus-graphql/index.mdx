@@ -1,4 +1,4 @@
-import ArticlePage from "@templates/Article/";
+import ArticlePage from "@templates/Article/"
 
 export const meta = {
   title: "Haskell Snacks: Integrating Yesod and Morpheus GraphQL",
@@ -7,7 +7,7 @@ export const meta = {
   next: ["robot-brain-scala"],
   slug: "haskell-snacks-yesod-morpheus-graphql",
   tags: ["Haskell", "Yesod", "Morpheus", "GraphQL"],
-};
+}
 
 I found myself with a need to integrate [Yesod](https://www.yesodweb.com/) with [Morpheus GraphQL](https://morpheusgraphql.com/), something that wasn't immediately intuitive and didn't have an easily Googleable answer. This is how I got it to cooperate. Morpheus provides examples for Scotty and Servant integration, but Scotty wasn't full-featured enough for my needs, and I'm not familair with Servant. Yesod to the rescue! But, you'll find that the syntax shown in the Scotty and Servant examples for declaring your GraphQL API, will not cooperate with Yesod. Here's how it is in the simplest Scotty example from the Morpheus docs:
 
@@ -75,4 +75,4 @@ Things get a bit more complex once we need WebSockets support... But that's a ch
 
 export default ({ children }) => (
   <ArticlePage meta={meta}>{children}</ArticlePage>
-);
+)

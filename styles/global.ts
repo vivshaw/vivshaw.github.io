@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from "@emotion/react"
 
 export const globalStyles = css`
   /**
@@ -130,4 +130,4 @@ export const globalStyles = css`
   img.Image__Zoom ~ div {
     background: transparent !important;
   }
-`;
+`

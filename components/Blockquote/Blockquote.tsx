@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
-import mediaqueries from "@styles/media";
+import mediaqueries from "@styles/media"
 
 const Blockquote = styled.blockquote`
   transition: ${(p) => p.theme.colorModeTransition};
@@ -34,6 +34,6 @@ const Blockquote = styled.blockquote`
       padding: 0 20px 0 40px;
     `};
   }
-`;
+`
 
-export default Blockquote;
+export default Blockquote

@@ -1,18 +1,18 @@
-import { ThemeProvider } from "theme-ui";
-import { ColorModeProvider } from "@theme-ui/color-modes";
-import theme from "@theme/index";
-import { MDXProvider } from "@mdx-js/react";
-import Script from "next/script";
+import { ThemeProvider } from "theme-ui"
+import { ColorModeProvider } from "@theme-ui/color-modes"
+import theme from "@theme/index"
+import { MDXProvider } from "@mdx-js/react"
+import Script from "next/script"
 
-import Anchor from "@components/Anchor";
-import Blockquote from "@components/Blockquote";
-import Code from "@components/Code";
-import Figcaption from "@components/Figcaption";
-import Headings from "@components/Headings";
-import HorizontalRule from "@components/HorizontalRule";
-import Lists from "@components/Lists";
-import Paragraph from "@components/Paragraph";
-import Tables from "@components/Tables";
+import Anchor from "@components/Anchor"
+import Blockquote from "@components/Blockquote"
+import Code from "@components/Code"
+import Figcaption from "@components/Figcaption"
+import Headings from "@components/Headings"
+import HorizontalRule from "@components/HorizontalRule"
+import Lists from "@components/Lists"
+import Paragraph from "@components/Paragraph"
+import Tables from "@components/Tables"
 
 const components = {
   a: Anchor,
@@ -34,7 +34,7 @@ const components = {
   th: Tables.HeadCell,
   thead: Tables.Head,
   td: Tables.Cell,
-};
+}
 
 const themeUIDarkModeWorkaroundScript = `
     (function() {
@@ -45,7 +45,7 @@ const themeUIDarkModeWorkaroundScript = `
         }
       } catch (e) {}
     })();
-  `;
+  `
 
 export default function App({ Component, pageProps }) {
   return (
@@ -60,5 +60,5 @@ export default function App({ Component, pageProps }) {
         </ColorModeProvider>
       </ThemeProvider>
     </>
-  );
+  )
 }

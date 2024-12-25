@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const LinkedinIcon: Icon = ({ fill = "white", ...props }) => (
   <svg
@@ -16,6 +16,6 @@ const LinkedinIcon: Icon = ({ fill = "white", ...props }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default LinkedinIcon;
+export default LinkedinIcon

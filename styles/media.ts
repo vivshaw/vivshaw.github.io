@@ -1,8 +1,8 @@
-import { css } from "@emotion/react";
+import { css } from "@emotion/react"
 
-import theme from "@theme";
+import theme from "@theme"
 
-const toEm = (size: number) => size / 16 + "em";
+const toEm = (size: number) => size / 16 + "em"
 
 /**
  * All breakpoints can be found inside of theme.breakpoints.
@@ -33,9 +33,9 @@ const mediaqueries = theme.breakpoints.reduce(
       }
     `,
   }),
-  {}
-);
+  {},
+)
 
-export const media = mediaqueries;
+export const media = mediaqueries
 
-export default mediaqueries;
+export default mediaqueries

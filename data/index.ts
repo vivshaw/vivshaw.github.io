@@ -1,38 +1,35 @@
-import type { StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image"
 
-import avatarPic from "@images/avatar.jpg";
-import defaultPreview from "@images/default-preview.jpg";
+import avatarPic from "@images/avatar.jpg"
+import defaultPreview from "@images/default-preview.jpg"
 
 export type TArticle = {
-  title: string;
-  slug: string;
-  date: Date;
+  title: string
+  slug: string
+  date: Date
 
-  blurb: string;
-  next?: string[];
-  tags: string[];
+  blurb: string
+  next?: string[]
+  tags: string[]
 }
 
-export type SocialSite =
-  | "linkedin"
-  | "twitter"
-  | "github"
+export type SocialSite = "linkedin" | "twitter" | "github"
 
 export type Author = {
-  id: string;
+  id: string
   /** Profile picture and alt text */
   avatar: {
-    alt: string;
-    image: StaticImageData;
-  };
+    alt: string
+    image: StaticImageData
+  }
   /** Short bio */
-  bio: string;
+  bio: string
   /** Email address */
-  mailto: string;
+  mailto: string
   /** Full name */
-  name: string;
+  name: string
   /** Social links */
-  socials: Record<SocialSite, string>;
+  socials: Record<SocialSite, string>
 }
 
 export const author: Author = {
@@ -45,11 +42,11 @@ export const author: Author = {
   name: "Hannah Vivian Shaw",
   mailto: "mailto:hey@vivsha.ws",
   socials: {
-    "github": "https://github.com/vivshaw",
-    "twitter": "https://twitter.com/vvvivshaw",
-    "linkedin": "https://www.linkedin.com/in/hvivianshaw/",
+    github: "https://github.com/vivshaw",
+    twitter: "https://twitter.com/vvvivshaw",
+    linkedin: "https://www.linkedin.com/in/hvivianshaw/",
   },
-};
+}
 
 export const site = {
   defaultPreview: defaultPreview,
@@ -57,4 +54,4 @@ export const site = {
   name: "vivshaw's webbed site",
   shortName: "vivshaw's",
   url: "https://vivsha.ws",
-};
+}

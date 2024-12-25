@@ -28,4 +28,4 @@ export default {
   highlightBorder: `#e1bde2`,
   dom: `#5F8DC3`,
   operator: `#5FA8AA`,
-};
+}

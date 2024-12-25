@@ -1,4 +1,4 @@
-import prism from "./prism";
+import prism from "./prism"
 
 export default {
   prism,
@@ -40,4 +40,4 @@ export default {
       inputBackground: "rgba(255, 255, 255, 0.07)",
     },
   },
-};
+}

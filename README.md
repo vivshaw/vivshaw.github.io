@@ -36,9 +36,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
 [ ] Tighten up types in general
 [ ] Line numbers in code blocks
-[ ] Highlights
-[ ] CLI styles
-[ ] Fix socials icons on phone screens
+[ ] Code block highlights
+[ ] Code block styles for CLI
 [ ] Actually display/use the category tags
 [ ] Get "Next Article" working for real
 [ ] type meta, if possible
@@ -47,4 +46,3 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 [ ] Storybook
 [ ] tidy MDX components generally
 [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
-[ ] Shoud social tags have a published _time_ as well as date?

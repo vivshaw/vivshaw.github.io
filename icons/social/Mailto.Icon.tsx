@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const MailtoIcon: Icon = ({ fill = "white" }) => (
   <svg
@@ -15,6 +15,6 @@ const MailtoIcon: Icon = ({ fill = "white" }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default MailtoIcon;
+export default MailtoIcon

@@ -1,1 +1,1 @@
-export { default as ImagePlaceholder } from "./Image.Placeholder";
+export { default as ImagePlaceholder } from "./Image.Placeholder"

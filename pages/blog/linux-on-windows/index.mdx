@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import ArticlePage from "@templates/Article/";
-import wslColorProbs from "./wsl-color-probs.png";
-import wslTmux from "./wsl-tmux.png";
+import ArticlePage from "@templates/Article/"
+import wslColorProbs from "./wsl-color-probs.png"
+import wslTmux from "./wsl-tmux.png"
 
 export const meta = {
   title: "Linux on Windows!?",
@@ -11,7 +11,7 @@ export const meta = {
   next: ["robot-brain-scala"],
   slug: "linux-on-windows",
   tags: ["linux", "windows", "bash", "WSL", "X"],
-};
+}
 
 If you, like me, are one of those devs who prefer a Linux environment but are stuck on Windows because of reasons (in my case, accessibility software), if you're tired of struggling with Cygwin and MinGW, if you're put off by the hassle of running everything in VMs: do yourself a favor & try [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about). It may sound like just another Cygwin-alike, but trust me, it is way better.
 
@@ -55,4 +55,4 @@ My assessment: heck yeah! I've been using this as my primary C/C++ dev environme
 
 export default ({ children }) => (
   <ArticlePage meta={meta}>{children}</ArticlePage>
-);
+)

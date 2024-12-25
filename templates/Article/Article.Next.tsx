@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import Link from "next/link";
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
+import Link from "next/link"
 
-import Headings from "@components/Headings";
-import type { TArticle } from "@data";
-import mediaqueries from "@styles/media";
-import { prettyPrintDate } from "@utils";
+import Headings from "@components/Headings"
+import type { TArticle } from "@data"
+import mediaqueries from "@styles/media"
+import { prettyPrintDate } from "@utils"
 
 interface ArticlesNextProps {
   /**
    * Articles to display in the Next Articles block.
    * If the list is empty, we won't display this block at all!
    */
-  articles: TArticle[];
+  articles: TArticle[]
 }
 
 /**
@@ -28,40 +28,40 @@ interface ArticlesNextProps {
  * mix into the generic list component.
  */
 const ArticlesNext: React.FC<ArticlesNextProps> = ({ articles }) => {
-  const numberOfArticles = articles.length;
+  const numberOfArticles = articles.length
 
   if (numberOfArticles < 1) {
-    return null;
+    return null
   }
 
-  const showTwoArticles = numberOfArticles > 1;
+  const showTwoArticles = numberOfArticles > 1
 
   return (
     <Grid numberOfArticles={numberOfArticles}>
       <GridItem article={articles[0]} />
       {showTwoArticles && <GridItem article={articles[1]} narrow />}
     </Grid>
-  );
-};
+  )
+}
 
-export default ArticlesNext;
+export default ArticlesNext
 
 interface GridItemProps {
   /**
    * The Article to display in this grid item.
    */
-  article: TArticle;
+  article: TArticle
 
   /**
    * Whether this article should be the narrow or the wider one it its row.
    *
    * @default false
    */
-  narrow?: boolean;
+  narrow?: boolean
 }
 
 const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
-  const prettyDate = prettyPrintDate(article.date);
+  const prettyDate = prettyPrintDate(article.date)
 
   return (
     <ArticleLink
@@ -70,18 +70,16 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
       narrow={narrow ? "true" : "false"}
     >
       <Item>
-        <Title dark>
-          {article.title}
-        </Title>
+        <Title dark>{article.title}</Title>
         <Excerpt>{article.blurb}</Excerpt>
         <MetaData>{prettyDate}</MetaData>
       </Item>
     </ArticleLink>
-  );
-};
+  )
+}
 
-const wide = "1fr";
-const narrow = "457px";
+const wide = "1fr"
+const narrow = "457px"
 
 const Grid = styled.div<{ numberOfArticles: number }>`
   position: relative;
@@ -91,12 +89,12 @@ const Grid = styled.div<{ numberOfArticles: number }>`
       return `
       grid-template-columns: 1fr;
       grid-template-rows: 1
-    `;
+    `
     } else {
       return `
       grid-template-columns: ${wide} ${narrow};
       grid-template-rows: 2;
-      `;
+      `
     }
   }}
   column-gap: 30px;
@@ -110,11 +108,11 @@ const Grid = styled.div<{ numberOfArticles: number }>`
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
   `}
-`;
+`
 
 const Item = styled.div`
   position: relative;
-`;
+`
 
 const Title = styled(Headings.h3)`
   font-size: 22px;
@@ -131,9 +129,9 @@ const Title = styled(Headings.h3)`
     padding: 0 20px 0;
     margin-bottom: 10px;
   `}
-`;
+`
 
-const Excerpt = styled.p<{ narrow?: boolean; }>`
+const Excerpt = styled.p<{ narrow?: boolean }>`
   font-size: 16px;
   margin-bottom: 10px;
   color: ${(p) => p.theme.colors.grey};
@@ -153,7 +151,7 @@ const Excerpt = styled.p<{ narrow?: boolean; }>`
     margin-bottom: 20px;
     -webkit-line-clamp: 3;
   `}
-`;
+`
 
 const MetaData = styled.div`
   font-weight: 600;
@@ -165,7 +163,7 @@ const MetaData = styled.div`
     max-width: 100%;
     padding:  0 20px 30px;
   `}
-`;
+`
 
 const ArticleLink = styled(Link)<{ narrow: string }>`
   position: relative;
@@ -201,4 +199,4 @@ const ArticleLink = styled(Link)<{ narrow: string }>`
       transform: scale(0.97) translateY(3px);
     }
   `}
-`;
+`

@@ -1,23 +1,26 @@
-import Head from "next/head";
+import Head from "next/head"
 
-import { author, site } from "@data";
+import { author, site } from "@data"
 
-type SEOData = {
-  type: "home",
-} | {
-  type: "article",
-  datePublished: string,
-  description: string,
-  title: string,
-} | {
-  type: "other",
-  description: string,
-  title: string,
-}
+type SEOData =
+  | {
+      type: "home"
+    }
+  | {
+      type: "article"
+      datePublished: string
+      description: string
+      title: string
+    }
+  | {
+      type: "other"
+      description: string
+      title: string
+    }
 
 type SeoProps = {
-  data: SEOData;
-  pathname: string;
+  data: SEOData
+  pathname: string
 }
 
 // TODO: Should this be `next/seo`?
@@ -30,29 +33,29 @@ const SEO: React.FC<SeoProps> = ({
   data,
   pathname,
 }) => {
-  const pageUrl = site.url + pathname;
+  const pageUrl = site.url + pathname
 
   const pageName = (() => {
     switch (data.type) {
       case "article":
-        return data.title;
+        return data.title
       case "home":
-        return site.name;
+        return site.name
       case "other":
       default:
-        return `${data.title} | ${site.shortName}`;
+        return `${data.title} | ${site.shortName}`
     }
   })()
 
   const pageDescription = (() => {
     switch (data.type) {
       case "article":
-        return data.description;
+        return data.description
       case "other":
-        return data.description;
+        return data.description
       case "home":
       default:
-        return site.description;
+        return site.description
     }
   })()
 
@@ -129,7 +132,7 @@ const SEO: React.FC<SeoProps> = ({
       "primaryImageOfPage": {
         "@id": "${pageUrl}/#primaryimage"
       },
-      "datePublished": "${(data as { type: "article", datePublished: string }).datePublished}",
+      "datePublished": "${(data as { type: "article"; datePublished: string }).datePublished}",
       "description": "${pageDescription}",
       "breadcrumb": {
         "@id": "${pageUrl}/#breadcrumb"
@@ -183,7 +186,7 @@ const SEO: React.FC<SeoProps> = ({
         "@id": "${site.url}/#${author.id}"
       },
       "headline": "${pageName}",
-      "datePublished": "${(data as { type: "article", datePublished: string }).datePublished}",
+      "datePublished": "${(data as { type: "article"; datePublished: string }).datePublished}",
       "mainEntityOfPage": {
         "@id": "${pageUrl}/#webpage"
       },
@@ -284,12 +287,12 @@ const SEO: React.FC<SeoProps> = ({
   const schema = (() => {
     switch (data.type) {
       case "article":
-        return articleSchema;
+        return articleSchema
       case "home":
-        return homeSchema;
+        return homeSchema
       case "other":
       default:
-        return otherSchema;
+        return otherSchema
     }
   })()
 
@@ -347,27 +350,26 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={site.url} />
       <meta name="twitter:title" content={pageName} />
-      <meta
-        name="twitter:description"
-        content={pageDescription}
-      />
+      <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:creator" content={author.socials.twitter} />
       <meta name="twitter:image" content={site.defaultPreview.src} />
 
       {/** OpenGraph tags */}
-      <meta property="og:type" content={data.type === "article" ? "article" : "website"} />
+      <meta
+        property="og:type"
+        content={data.type === "article" ? "article" : "website"}
+      />
       <meta property="og:title" content={pageName} />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:image" content={site.defaultPreview.src} />
-      <meta
-        property="og:description"
-        content={pageDescription}
-      />
+      <meta property="og:description" content={pageDescription} />
       <meta property="og:site_name" content={site.name} />
       <meta property="article:author" content={site.url} />
-      {data.type === "article" && <meta name="article:published_time" content={data.datePublished} />}
+      {data.type === "article" && (
+        <meta name="article:published_time" content={data.datePublished} />
+      )}
     </Head>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO

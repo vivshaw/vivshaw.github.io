@@ -1,40 +1,40 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import Link from "next/link";
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
+import Link from "next/link"
 
-import Headings from "@components/Headings";
-import type { TArticle } from "@data";
-import mediaqueries from "@styles/media";
-import { prettyPrintDate } from "@utils";
+import Headings from "@components/Headings"
+import type { TArticle } from "@data"
+import mediaqueries from "@styles/media"
+import { prettyPrintDate } from "@utils"
 
 interface ArticlesListProps {
-  articles: TArticle[];
+  articles: TArticle[]
 }
 
-const BlogList: React.FC<ArticlesListProps> = ({
-  articles
-}) => (
+const BlogList: React.FC<ArticlesListProps> = ({ articles }) => (
   <BlogListContainer>
-    {articles.map((article, idx) => <BlogListItem key={idx} article={article} />)}
+    {articles.map((article, idx) => (
+      <BlogListItem key={idx} article={article} />
+    ))}
   </BlogListContainer>
 )
 
-export default BlogList;
+export default BlogList
 
 interface BlogListItemProps {
-  article: TArticle;
-  narrow?: boolean;
+  article: TArticle
+  narrow?: boolean
 }
 
 const BlogListItem: React.FC<BlogListItemProps> = ({ article }) => {
-  const prettyDate = prettyPrintDate(article.date);
+  const prettyDate = prettyPrintDate(article.date)
   const hasBlurb = article.blurb
 
   return (
     <ArticleLink href={`/blog/${article.slug}`}>
       <Item>
         <Title>{article.title}</Title>
-        {hasBlurb && <Blurb>{article.blurb}</Blurb  >}
+        {hasBlurb && <Blurb>{article.blurb}</Blurb>}
         <Date>{prettyDate}</Date>
       </Item>
     </ArticleLink>
@@ -53,15 +53,15 @@ const limitToTwoLines = css`
   ${mediaqueries.phablet`
     -webkit-line-clamp: 3;
   `}
-`;
+`
 
 const BlogListContainer = styled.div`
   transition: opacity 0.25s;
-`;
+`
 
 const Item = styled.div`
   margin-bottom: 50px;
-`;
+`
 
 const Title = styled(Headings.h2)`
   font-size: 32px;
@@ -84,7 +84,7 @@ const Title = styled(Headings.h2)`
     padding: 0 20px;
     -webkit-line-clamp: 3;
   `}
-`;
+`
 
 const Blurb = styled.p`
   ${limitToTwoLines};
@@ -102,7 +102,7 @@ const Blurb = styled.p`
   ${mediaqueries.tablet`
     font-size: 18px;
   `}
-`;
+`
 
 const Date = styled.div`
   font-weight: 400;
@@ -114,7 +114,7 @@ const Date = styled.div`
   ${mediaqueries.phablet`
     padding:  0 20px;
   `}
-`;
+`
 
 const ArticleLink = styled(Link)`
   position: relative;
@@ -138,4 +138,4 @@ const ArticleLink = styled(Link)`
       transform: scale(0.97) translateY(3px);
     }
   `}
-`;
+`

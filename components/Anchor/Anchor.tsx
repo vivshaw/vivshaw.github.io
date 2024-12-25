@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
 // TODO: Actually use this!
 /**
@@ -17,6 +17,6 @@ const Anchor = styled.a`
   &:focus {
     text-decoration: underline;
   }
-`;
+`
 
-export default Anchor;
+export default Anchor

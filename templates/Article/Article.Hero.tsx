@@ -1,19 +1,19 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
-import Headings from "@components/Headings";
-import type { TArticle } from "@data";
-import mediaqueries from "@styles/media";
-import { prettyPrintDate } from "@utils";
+import Headings from "@components/Headings"
+import type { TArticle } from "@data"
+import mediaqueries from "@styles/media"
+import { prettyPrintDate } from "@utils"
 
 interface ArticleHeroProps {
-  article: TArticle;
+  article: TArticle
 }
 
 /**
  * Displays the Hero section for a given Article, including title, author, and image.
  */
 const ArticleHero: React.FC<ArticleHeroProps> = ({ article }) => {
-  const prettyDate = prettyPrintDate(article.date);
+  const prettyDate = prettyPrintDate(article.date)
 
   return (
     <Hero>
@@ -24,14 +24,12 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article }) => {
         </HeroSubtitle>
       </Header>
     </Hero>
-  );
-};
+  )
+}
 
-export default ArticleHero;
+export default ArticleHero
 
-const Hero = styled.div`
-
-`;
+const Hero = styled.div``
 
 const ArticleMeta = styled.div`
   margin-left: 0;
@@ -39,7 +37,7 @@ const ArticleMeta = styled.div`
   ${mediaqueries.phablet`
     margin-left: 0;
   `}
-`;
+`
 
 const Header = styled.header`
   position: relative;
@@ -67,7 +65,7 @@ const Header = styled.header`
   @media screen and (max-height: 700px) {
     margin: 100px auto 0px;
   }
-`;
+`
 
 const HeroHeading = styled(Headings.h1)`
   font-size: 48px;
@@ -83,7 +81,7 @@ const HeroHeading = styled(Headings.h1)`
   ${mediaqueries.phablet`
     font-size: 32px;
   `}
-`;
+`
 
 const HeroSubtitle = styled.div`
   position: relative;
@@ -101,4 +99,4 @@ const HeroSubtitle = styled.div`
       margin-bottom: 5px;
     }
   `}
-`;
+`

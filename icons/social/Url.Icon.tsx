@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const UrlIcon: Icon = ({ fill = "white" }) => (
   <svg
@@ -16,5 +16,5 @@ const UrlIcon: Icon = ({ fill = "white" }) => (
       d="M11.46,19.54a1,1,0,0,1-.7-.3,1,1,0,0,1,0-1.41l7.07-7.07a1,1,0,0,1,1.41,1.41l-7.07,7.07A1,1,0,0,1,11.46,19.54Z"
     />
   </svg>
-);
-export default UrlIcon;
+)
+export default UrlIcon

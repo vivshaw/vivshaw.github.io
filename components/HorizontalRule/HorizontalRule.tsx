@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
-import mediaqueries from "@styles/media";
+import mediaqueries from "@styles/media"
 
 /**
  * A simple horizontal divider.
@@ -27,6 +27,6 @@ const HorizontalRule = styled.hr`
     width: calc(100vw - 40px);
     margin: 0px auto 50px;
   `};
-`;
+`
 
-export default HorizontalRule;
+export default HorizontalRule

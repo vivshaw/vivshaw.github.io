@@ -1,4 +1,4 @@
-import type { Icon } from "@types";
+import type { Icon } from "@types"
 
 const CopyIcon: Icon = ({ fill = "#08080B", ...props }) => (
   <svg
@@ -14,6 +14,6 @@ const CopyIcon: Icon = ({ fill = "#08080B", ...props }) => (
       fill={fill}
     />
   </svg>
-);
+)
 
-export default CopyIcon;
+export default CopyIcon

@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 
-import mediaqueries from "@styles/media";
+import mediaqueries from "@styles/media"
 
 // TODO: Fix jacked highlight colors
 // TODO: Add line numbers
@@ -9,7 +9,7 @@ const IMAGE_WIDTHS = {
   regular: "680px",
   large: "1004px",
   full: "100vw",
-};
+}
 
 const HeadingsCSS = css`
   h1,
@@ -36,7 +36,7 @@ const HeadingsCSS = css`
   h3 * {
     margin: 20px 0 10px;
   }
-`;
+`
 
 const PrismCSS = (p) => css`
   .prism-code {
@@ -102,7 +102,7 @@ const PrismCSS = (p) => css`
       position: relative;
     `};
   }
-`;
+`
 
 const ImageCSS = css`
   img {
@@ -207,7 +207,7 @@ const ImageCSS = css`
       margin: 0 auto 25px;
     `};
   }
-`;
+`
 
 /**
  * MDXBody
@@ -227,9 +227,9 @@ export const MDXBody = styled.div`
   ${ImageCSS}
 
   code {
-    font-family: ${p => p.theme.fonts.monospace};
-    background: ${p => p.theme.colors.prism.highlight};
+    font-family: ${(p) => p.theme.fonts.monospace};
+    background: ${(p) => p.theme.colors.prism.highlight};
     border-radius: 8px;
     padding: 2px 4px;
   }
-`;
+`
