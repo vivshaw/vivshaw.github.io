@@ -18,7 +18,7 @@ type SEOData =
       title: string
     }
 
-type SeoProps = {
+type SEOProps = {
   data: SEOData
   pathname: string
 }
@@ -28,11 +28,7 @@ type SeoProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-const SEO: React.FC<SeoProps> = ({
-  // TODO: Tighten up types around page type
-  data,
-  pathname,
-}) => {
+export const SEO: React.FC<SEOProps> = ({ data, pathname }) => {
   const pageUrl = site.url + pathname
 
   const pageName = (() => {
@@ -75,8 +71,7 @@ const SEO: React.FC<SeoProps> = ({
       "url": "${site.defaultPreview.src}",
       "width": ${site.defaultPreview.width},
       "height": ${site.defaultPreview.height}
-    }
-`
+    }`
 
   /** This schema is used only for the home page. */
   const homeSchema = `{
@@ -371,5 +366,3 @@ const SEO: React.FC<SeoProps> = ({
     </Head>
   )
 }
-
-export default SEO
