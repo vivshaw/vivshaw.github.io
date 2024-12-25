@@ -1,9 +1,9 @@
-import { useState } from "react"
-import styled from "@emotion/styled"
+// import { useState } from "react"
+// import styled from "@emotion/styled"
 
-import Icons from "@icons"
-import mediaqueries from "@styles/media"
-import { copyToClipboard } from "@utils"
+// import Icons from "@icons"
+// import mediaqueries from "@styles/media"
+// import { copyToClipboard } from "@utils"
 
 // const CopyButton = styled.button`
 //   position: absolute;
