@@ -314,10 +314,10 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/** PWA & Icon stuff */}
-      <meta name="application-name" content="vivshaw.net" />
+      <meta name="application-name" content={site.name} />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="vivshaw.net" />
+      <meta name="apple-mobile-web-app-title" content={site.name} />
       <meta name="format-detection" content="telephone=no" />
       <meta name="mobile-web-app-capable" content="yes" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

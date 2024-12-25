@@ -1,7 +1,7 @@
 {
-  "name": "vivshaw.net",
-  "description": "vivshaw's personal website",
-  "homepage": "https://vivshaw.net",
+  "name": "vivsha.ws",
+  "description": "vivshaw's webbed site",
+  "homepage": "https://vivsha.ws",
   "repository": {
     "type": "git",
     "url": "https://github.com/vivshaw/vivshaw.net.git"
@@ -10,8 +10,8 @@
   "license": "MIT",
   "author": {
     "name": "vivshaw",
-    "email": "hvivianshaw@gmail.com",
-    "url": "https://vivshaw.net"
+    "email": "hey@vivsha.ws",
+    "url": "https://vivsha.ws"
   },
   "scripts": {
     "dev": "next",

@@ -6303,9 +6303,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vivshaw.net@workspace:.":
+"vivsha.ws@workspace:.":
   version: 0.0.0-use.local
-  resolution: "vivshaw.net@workspace:."
+  resolution: "vivsha.ws@workspace:."
   dependencies:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
