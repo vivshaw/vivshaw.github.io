@@ -1,4 +1,4 @@
-import type { Icon } from "@types"
+import type { Icon } from "@icons/types"
 
 const GithubIcon: Icon = ({ fill = "white" }) => (
   <svg

@@ -1,4 +1,4 @@
-import type { Icon } from "@types"
+import type { Icon } from "@icons/types"
 
 const CopyIcon: Icon = ({ fill = "#08080B", ...props }) => (
   <svg

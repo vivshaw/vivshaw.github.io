@@ -10,10 +10,10 @@ import Copied from "./ui/Copied.Icon"
 import Copy from "./ui/Copy.Icon"
 import Link from "./ui/Link.Icon"
 
-export type Icon = React.FC<{
-  className?: string
-  fill?: string
-}>
+// Types
+import type { Icon } from "./types"
+
+export type { Icon }
 
 export default {
   Twitter,

@@ -1,4 +1,4 @@
-import type { Icon } from "@types"
+import type { Icon } from "@icons/types"
 
 export const Close: Icon = ({ fill }) => (
   <svg
