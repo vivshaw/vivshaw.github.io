@@ -5,7 +5,7 @@ import mediaqueries from "@styles/media"
 /**
  * A simple horizontal divider.
  */
-const HorizontalRule = styled.hr`
+export const HorizontalRule = styled.hr`
   position: relative;
   width: 100%;
   margin: 50px auto;
@@ -28,5 +28,3 @@ const HorizontalRule = styled.hr`
     margin: 0px auto 50px;
   `};
 `
-
-export default HorizontalRule

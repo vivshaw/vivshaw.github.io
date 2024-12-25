@@ -28,21 +28,22 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 ## TODO
 
-[ ] There's an error with `'` and `"` in Prism code blocks of unknown language
-[ ] Make `code` blocks more legible
-[ ] Figure out what the heck is controlling scrolling in fenced code blocks
-[ ] Nicer component for loading images in MDX?
-[ ] Actual dev env support for MDX
-[ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
-[ ] Tighten up types in general
-[ ] Line numbers in code blocks
-[ ] Code block highlights
-[ ] Code block styles for CLI
-[ ] Actually display/use the category tags
-[ ] Get "Next Article" working for real
-[ ] type meta, if possible
-[ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
-[ ] Monorepo it? (Turborepo? NX?)
-[ ] Storybook
-[ ] tidy MDX components generally
-[ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
+- [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
+- [ ] Make `code` blocks more legible
+- [ ] Figure out what the heck is controlling scrolling in fenced code blocks
+- [ ] Nicer component for loading images in MDX?
+- [ ] Actual dev env support for MDX
+- [ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
+- [ ] Tighten up types in general
+- [ ] Line numbers in code blocks
+- [ ] Code block highlights
+- [ ] Code block styles for CLI
+- [ ] Actually display/use the category tags
+- [ ] Get "Next Article" working for real
+- [ ] type meta, if possible
+- [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
+- [ ] Monorepo it? (Turborepo? NX?)
+- [ ] Storybook & design system
+- [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
+- [ ] Fix janky width changing when scrollbar shows or hides, again
+- [ ] Stop using default exports

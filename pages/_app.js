@@ -4,36 +4,41 @@ import theme from "@theme/index"
 import { MDXProvider } from "@mdx-js/react"
 import Script from "next/script"
 
-import Anchor from "@components/Anchor"
-import Blockquote from "@components/Blockquote"
-import Code from "@components/Code"
-import Figcaption from "@components/Figcaption"
-import Headings from "@components/Headings"
-import HorizontalRule from "@components/HorizontalRule"
-import Lists from "@components/Lists"
-import Paragraph from "@components/Paragraph"
-import Tables from "@components/Tables"
+import { CodePre } from "@components/MDX/Code/CodePre"
+import { CodePrism } from "@components/MDX/Code/CodePrism"
+import { Figcaption } from "@components/MDX/Figcaption"
+import { headings } from "@components/MDX/Headings"
+import { Anchor } from "@components/MDX/Anchor"
+import { Blockquote } from "@components/MDX/Blockquote"
+import { HorizontalRule } from "@components/MDX/HorizontalRule"
+import { OrderedList } from "@components/MDX/Lists/OrderedList"
+import { UnorderedList } from "@components/MDX/Lists/UnorderedList"
+import { Paragraph } from "@components/MDX/Paragraph"
+import { Table } from "@components/MDX/Tables/Table"
+import { TableCell } from "@components/MDX/Tables/TableCell"
+import { TableHead } from "@components/MDX/Tables/TableHead"
+import { TableHeadCell } from "@components/MDX/Tables/TableHeadCell"
 
 const components = {
   a: Anchor,
   blockquote: Blockquote,
-  code: Code.Prism,
+  code: CodePrism,
   figcaption: Figcaption,
-  h1: Headings.h2, // h1 reserved for article title
-  h2: Headings.h2,
-  h3: Headings.h3,
-  h4: Headings.h4,
-  h5: Headings.h5,
-  h6: Headings.h6,
+  h1: headings.h2, // h1 reserved for article title
+  h2: headings.h2,
+  h3: headings.h3,
+  h4: headings.h4,
+  h5: headings.h5,
+  h6: headings.h6,
   hr: HorizontalRule,
-  ul: Lists.ul,
-  ol: Lists.ol,
+  ul: UnorderedList,
+  ol: OrderedList,
   p: Paragraph,
-  pre: Code.Pre,
-  table: Tables.Table,
-  th: Tables.HeadCell,
-  thead: Tables.Head,
-  td: Tables.Cell,
+  pre: CodePre,
+  table: Table,
+  th: TableHeadCell,
+  thead: TableHead,
+  td: TableCell,
 }
 
 const themeUIDarkModeWorkaroundScript = `

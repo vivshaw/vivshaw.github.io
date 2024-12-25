@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
-import { css } from "@emotion/react"
 import Link from "next/link"
 
-import Headings from "@components/Headings"
+// TODO: Stop sharing the MDX headings like this!
+import { headings } from "@components/MDX/Headings"
 import type { TArticle } from "@data"
 import mediaqueries from "@styles/media"
 import { prettyPrintDate } from "@utils"
@@ -114,7 +114,7 @@ const Item = styled.div`
   position: relative;
 `
 
-const Title = styled(Headings.h3)`
+const Title = styled(headings.h3)`
   font-size: 22px;
   line-height: 1.4;
   margin-bottom: 10px;

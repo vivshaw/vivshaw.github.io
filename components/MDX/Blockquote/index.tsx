@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 import mediaqueries from "@styles/media"
 
-const Blockquote = styled.blockquote`
+export const Blockquote = styled.blockquote`
   transition: ${(p) => p.theme.colorModeTransition};
   margin: 15px auto 50px;
   color: ${(p) => p.theme.colors.articleText};
@@ -35,5 +35,3 @@ const Blockquote = styled.blockquote`
     `};
   }
 `
-
-export default Blockquote

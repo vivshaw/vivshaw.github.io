@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import mediaqueries from "@styles/media"
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
   line-height: 1.756;
   font-size: 22px;
   color: ${(p) => p.theme.colors.articleText};
@@ -22,5 +22,3 @@ const Paragraph = styled.p`
     padding: 0 20px;
   `};
 `
-
-export default Paragraph

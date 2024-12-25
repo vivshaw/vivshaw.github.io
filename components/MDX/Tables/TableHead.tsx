@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const Head = styled.thead`
+export const TableHead = styled.thead`
   text-align: left;
   border-collapse: collapse;
   position: relative;
@@ -10,5 +10,3 @@ const Head = styled.thead`
   font-family: ${(p) => p.theme.fonts.serif};
   transition: ${(p) => p.theme.colorModeTransition};
 `
-
-export default Head

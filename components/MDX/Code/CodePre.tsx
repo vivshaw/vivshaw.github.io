@@ -1,4 +1,4 @@
-import CodeBlock from "./Code.Prism"
+import { CodePrism } from "./CodePrism"
 
 function preToCodeBlock(preProps) {
   if (
@@ -26,14 +26,12 @@ function preToCodeBlock(preProps) {
   }
 }
 
-const CodePre: React.FC<{}> = (preProps) => {
+export const CodePre: React.FC<{}> = (preProps) => {
   const props = preToCodeBlock(preProps)
 
   if (props) {
-    return <CodeBlock {...props} />
+    return <CodePrism {...props} />
   } else {
     return <pre {...preProps} />
   }
 }
-
-export default CodePre

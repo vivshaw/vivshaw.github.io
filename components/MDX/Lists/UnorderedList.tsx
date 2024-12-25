@@ -1,16 +1,15 @@
 import styled from "@emotion/styled"
 import mediaqueries from "@styles/media"
 
-const OrderedList = styled.ol`
+export const UnorderedList = styled.ul`
   list-style: none;
   counter-reset: list;
   color: ${(p) => p.theme.colors.articleText};
   position: relative;
   padding: 15px 0 30px 30px;
-  margin: 0 auto;
   transition: ${(p) => p.theme.colorModeTransition};
+  margin: 0 auto;
   font-size: 18px;
-
   width: 100%;
 
   ${mediaqueries.tablet`
@@ -52,18 +51,16 @@ const OrderedList = styled.ol`
   }
 
   li::before {
-    counter-increment: list;
-    content: counter(list) ".";
-    font-weight: 600;
+    content: "";
     position: absolute;
-    left: -3rem;
-    top: -0.3rem;
-    font-size: 2rem;
+    left: -30px;
+    top: 8px;
+    height: 8px;
+    width: 8px;
+    background: ${(p) => p.theme.colors.articleText};
 
     ${mediaqueries.tablet`
       left: 0;
     `};
   }
 `
-
-export default OrderedList

@@ -29,12 +29,12 @@ const StyledTable = styled.table`
   `};
 `
 
-const Table: React.FC<{}> = ({ children }) => {
+export const Table: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <div style={{ overflowX: "auto", padding: "0 20px" }}>
       <StyledTable>{children}</StyledTable>
     </div>
   )
 }
-
-export default Table

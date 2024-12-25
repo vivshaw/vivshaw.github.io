@@ -1,8 +1,10 @@
 import styled from "@emotion/styled"
 import mediaqueries from "@styles/media"
 
-const Cell = styled.td`
-  padding: 18px 30px;
+export const TableCell = styled.td`
+  border-top: 1px solid ${(p) => p.theme.colors.horizontalRule};
+  padding: 15px 30px;
+  word-break: keep-all;
   font-size: 16px;
   background: ${(p) => p.theme.colors.card};
 
@@ -14,5 +16,3 @@ const Cell = styled.td`
     font-size: 14px;
   `}
 `
-
-export default Cell
