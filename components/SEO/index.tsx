@@ -219,7 +219,7 @@ export function SEO({ data, pathname }: SEOProps): React.ReactElement {
       "url": "${author.avatar.image.src}",
       "width": ${author.avatar.image.width},
       "height": ${author.avatar.image.height}
-    },
+    }
   ]
 }
 `
@@ -274,7 +274,7 @@ export function SEO({ data, pathname }: SEOProps): React.ReactElement {
         }
       ],
       "name": "Breadcrumbs"
-    },
+    }
   ]
 }
 `
