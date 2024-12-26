@@ -1,3 +1,7 @@
+const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin")
+
+const withVanillaExtract = createVanillaExtractPlugin()
+
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
@@ -11,18 +15,19 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_ENV === "development",
 })
 
-module.exports = withPWA(
-  withMDX({
-    compiler: {
-      emotion: true,
-    },
-    images: {
-      unoptimized: true,
-    },
-    output: "export",
-    pageExtensions: ["js", "jsx", "mdx"],
-    typescript: {
-      ignoreBuildErrors: true,
-    },
-  }),
-)
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  compiler: {
+    emotion: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+  output: "export",
+  pageExtensions: ["js", "jsx", "mdx"],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+}
+
+module.exports = withVanillaExtract(withPWA(withMDX(nextConfig)))

@@ -5,12 +5,7 @@ import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
 import { mediaqueries } from "@styles/media"
 import Link from "next/link"
-
-const CenteringWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-`
+import { centeringWrapper } from "@pageStyles/home.css"
 
 const MainpageContent = styled.div`
   /**
@@ -92,7 +87,7 @@ export default function Index() {
         }}
         pathname={router.pathname}
       />
-      <CenteringWrapper>
+      <div className={centeringWrapper}>
         <MainpageContent>
           <MainpageHeading>
             I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I build
@@ -118,7 +113,7 @@ export default function Index() {
             .
           </MainpageHeading>
         </MainpageContent>
-      </CenteringWrapper>
+      </div>
     </Layout>
   )
 }
