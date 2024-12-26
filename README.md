@@ -34,16 +34,14 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Nicer component for loading images in MDX?
 - [ ] Actual dev env support for MDX
 - [ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
-- [ ] Tighten up types in general
 - [ ] Line numbers in code blocks
 - [ ] Code block highlights
 - [ ] Code block styles for CLI
 - [ ] Actually display/use the category tags
 - [ ] Get "Next Article" working for real
-- [ ] type meta, if possible
+- [ ] Type article meta, if possible
 - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 - [ ] Monorepo it? (Turborepo? NX?)
 - [ ] Storybook & design system
 - [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
-- [ ] Fix janky width changing when scrollbar shows or hides, again
-- [ ] Stop using default exports
+- [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
