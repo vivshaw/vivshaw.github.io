@@ -3,7 +3,7 @@ import Link from "next/link"
 
 // TODO: Stop sharing the MDX headings like this!
 import { headings } from "@components/MDX/Headings"
-import type { TArticle } from "@data"
+import type { Article } from "@data"
 import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 
@@ -12,7 +12,7 @@ interface ArticlesNextProps {
    * Articles to display in the Next Articles block.
    * If the list is empty, we won't display this block at all!
    */
-  articles: TArticle[]
+  articles: Article[]
 }
 
 /**
@@ -48,7 +48,7 @@ interface GridItemProps {
   /**
    * The Article to display in this grid item.
    */
-  article: TArticle
+  article: Article
 
   /**
    * Whether this article should be the narrow or the wider one it its row.

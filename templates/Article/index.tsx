@@ -6,14 +6,14 @@ import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
 import { Section } from "@components/Section"
 import { SEO } from "@components/SEO"
-import type { TArticle } from "@data"
+import type { Article } from "@data"
 import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 import { ArticleHero } from "./Article.Hero"
 import { ArticleNext } from "./Article.Next"
 
 // TODO: Remove these after `next` actually works!!
-const fakeNextMetas: TArticle[] = [
+const fakeNextMetas: Article[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
     blurb: "Exploring computer vision with a from-scratch neural net in Scala",
@@ -33,7 +33,7 @@ const fakeNextMetas: TArticle[] = [
 ]
 
 type ArticleProps = {
-  meta: TArticle
+  meta: Article
 }
 
 /**

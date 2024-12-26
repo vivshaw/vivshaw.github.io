@@ -1,16 +1,16 @@
 import fs from "fs/promises"
 import path from "path"
 
-import type { TArticle } from "@data"
+import type { Article } from "@data"
 
 /** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
-type TArticleDateless = Omit<TArticle, "date"> & { date: string }
+type ArticleFromServer = Omit<Article, "date"> & { date: string }
 
 /**
  * Fetches all the blog posts that currently exist.
  * Is run in `getStaticProps` to generate the article list.
  */
-export async function getAllBlogPosts(): Promise<TArticleDateless[]> {
+export async function getAllBlogPosts(): Promise<ArticleFromServer[]> {
   const root = path.join(process.cwd(), "pages/blog")
 
   const listing = await fs.readdir(root)

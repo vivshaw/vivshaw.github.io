@@ -4,6 +4,8 @@ import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
 import { mediaqueries } from "@styles/media"
 
+import { author } from "@data"
+
 const CenteringWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -79,7 +81,7 @@ export default function Index() {
         data={{
           type: "other",
           title: "About Me",
-          description: "About vivshaw",
+          description: "Who exactly is vivshaw?",
         }}
         pathname={router.pathname}
       />
@@ -133,17 +135,12 @@ export default function Index() {
 
           <MainpageHeading>
             You can reach me at{" "}
-            <MainpageA href="mailto:hey@vivsha.ws">hey@vivsha.ws</MainpageA>. I
-            can sometimes be spotted in various other corners of the internet:{" "}
-            <MainpageA href="https://mastodon.social/@vivshaw">
-              the fediverse
-            </MainpageA>
-            ,{" "}
-            <MainpageA href="https://bsky.app/profile/vivshaw.bsky.social">
-              Bluesky
-            </MainpageA>
-            , and wherever else you might see on{" "}
-            <MainpageA href="https://keybase.io/vivshaw">my Keybase</MainpageA>.
+            <MainpageA href={author.mailto}>hey@vivsha.ws</MainpageA>. I can
+            sometimes be spotted in various other corners of the internet:{" "}
+            <MainpageA href={author.socials.mastodon}>the fediverse</MainpageA>,{" "}
+            <MainpageA href={author.socials.bluesky}>Bluesky</MainpageA>, and
+            wherever else you might see on{" "}
+            <MainpageA href={author.keybase}>my Keybase</MainpageA>.
           </MainpageHeading>
         </MainpageContent>
       </CenteringWrapper>

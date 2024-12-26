@@ -4,12 +4,12 @@ import Link from "next/link"
 
 // TODO: Stop sharing the MDX headings like this!
 import { headings } from "@components/MDX/Headings"
-import type { TArticle } from "@data"
+import type { Article } from "@data"
 import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 
 interface BlogListProps {
-  articles: TArticle[]
+  articles: Article[]
 }
 
 export function BlogList({ articles }: BlogListProps) {
@@ -23,7 +23,7 @@ export function BlogList({ articles }: BlogListProps) {
 }
 
 interface BlogListItemProps {
-  article: TArticle
+  article: Article
 }
 
 function BlogListItem({ article }: BlogListItemProps) {

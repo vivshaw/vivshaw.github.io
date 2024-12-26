@@ -2,12 +2,12 @@ import styled from "@emotion/styled"
 
 // TODO: Stop sharing the MDX headings like this!
 import { headings } from "@components/MDX/Headings"
-import type { TArticle } from "@data"
+import type { Article } from "@data"
 import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 
 interface ArticleHeroProps {
-  article: TArticle
+  article: Article
 }
 
 /**

@@ -3,7 +3,7 @@ import type { StaticImageData } from "next/image"
 import avatarPic from "@images/avatar.jpg"
 import defaultPreview from "@images/default-preview.jpg"
 
-export type TArticle = {
+export type Article = {
   title: string
   slug: string
   date: Date
@@ -13,21 +13,34 @@ export type TArticle = {
   tags: string[]
 }
 
-export type SocialSite = "linkedin" | "twitter" | "github"
+export type SocialSite =
+  | "linkedin"
+  | "twitter"
+  | "github"
+  | "mastodon"
+  | "bluesky"
 
-export type Author = {
+type Author = {
   id: string
+
   /** Profile picture and alt text */
   avatar: {
     alt: string
     image: StaticImageData
   }
+
   /** Short bio */
   bio: string
+
+  /** Keybase profile */
+  keybase: string
+
   /** Email address */
   mailto: string
+
   /** Full name */
   name: string
+
   /** Social links */
   socials: Record<SocialSite, string>
 }
@@ -39,12 +52,15 @@ export const author: Author = {
   },
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",
   id: "vivshaw",
-  name: "Hannah Vivian Shaw",
+  keybase: "https://keybase.io/vivshaw",
   mailto: "mailto:hey@vivsha.ws",
+  name: "Hannah Vivian Shaw",
   socials: {
+    bluesky: "https://bsky.app/profile/vivshaw.bsky.social",
     github: "https://github.com/vivshaw",
-    twitter: "https://twitter.com/vvvivshaw",
     linkedin: "https://www.linkedin.com/in/hvivianshaw/",
+    mastodon: "https://mastodon.social/@vivshaw",
+    twitter: "https://twitter.com/vvvivshaw",
   },
 }
 
