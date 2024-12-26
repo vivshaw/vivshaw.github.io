@@ -5,6 +5,25 @@ export const centeringWrapper = style({
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
+  /** avoid layout shift when there's a scrollbar */
+  paddingLeft: "calc(100vw - 100%)",
+})
+
+export const mainpageContent = style({
+  maxWidth: "1440px",
+  paddingRight: "calc(env(safe-area-inset-right) + 80px)",
+  paddingLeft: "calc(env(safe-area-inset-right) + 80px)",
+  paddingBottom: "50px",
+  paddingTop: "80px",
+  width: "100%",
+
+  "@media": {
+    [breakpoints.tablet]: {
+      paddingRight: "24px",
+      paddingLeft: "24px",
+      paddingTop: "0px",
+    },
+  },
 })
 
 export const mainpageLink = style({
@@ -18,22 +37,6 @@ export const mainpageLink = style({
 
   ":hover": {
     opacity: 1,
-  },
-})
-
-export const mainpageContent = style({
-  maxWidth: "1440px",
-  paddingRight: "calc(env(safe-area-inset-right) + 80px)",
-  paddingLeft: "calc(env(safe-area-inset-right) + 80px)",
-  paddingBottom: "50px",
-  paddingTop: "80px",
-
-  "@media": {
-    [breakpoints.tablet]: {
-      paddingRight: "24px",
-      paddingLeft: "24px",
-      paddingTop: "0px",
-    },
   },
 })
 
