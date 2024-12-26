@@ -1,4 +1,4 @@
-export type Icon = React.FC<{
+export type IconProps = {
   className?: string
   fill?: string
-}>
+}

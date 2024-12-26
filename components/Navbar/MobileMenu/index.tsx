@@ -3,8 +3,8 @@ import Link from "next/link"
 import { useState } from "react"
 import { useColorMode } from "theme-ui"
 
-import { Close } from "@icons/ui/Close.Icon"
-import { Menu } from "@icons/ui/Menu.Icon"
+import { CloseIcon } from "@icons/ui/Close"
+import { MenuIcon } from "@icons/ui/Menu"
 import { mediaqueries } from "@styles/media"
 import colors from "@theme/colors"
 import { iconWrapperHover } from "../IconWrapper"
@@ -79,7 +79,7 @@ export function MobileMenu(): React.ReactElement {
   return (
     <MobileMenuWrapper>
       <IconWrapper onClick={toggleMenu}>
-        {menuOpen ? <Close fill={fill} /> : <Menu fill={fill} />}
+        {menuOpen ? <CloseIcon fill={fill} /> : <MenuIcon fill={fill} />}
       </IconWrapper>
 
       <MobileMenuContents className={menuOpen ? "show" : undefined}>

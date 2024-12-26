@@ -1,8 +1,9 @@
 // import { useState } from "react"
 // import styled from "@emotion/styled"
 
-// import Icons from "@icons"
-// import { mediaqueries} from "@styles/media"
+// import { CopyIcon } from "@icons/ui/Copy"
+// import { CopiedIcon } from "@icons/ui/Copied"
+// import { mediaqueries } from "@styles/media"
 // import { copyToClipboard } from "@utils"
 
 // const CopyButton = styled.button`
@@ -57,11 +58,11 @@
 //     <CopyButton onClick={copyToClipboardOnClick} data-a11y="false">
 //       {hasCopied ? (
 //         <>
-//           Copied <Icons.Copied fill="#6f7177" />
+//           Copied <CopiedIcon fill="#6f7177" />
 //         </>
 //       ) : (
 //         <>
-//           Copy <Icons.Copy fill="#6f7177" />
+//           Copy <CopyIcon fill="#6f7177" />
 //         </>
 //       )}
 //     </CopyButton>

@@ -1,16 +1,18 @@
 import styled from "@emotion/styled"
 
 import { author, type SocialSite } from "@data"
-import Icons from "@icons"
-import type { Icon } from "@icons"
+import { LinkedInIcon } from "@icons/social/LinkedIn"
+import { TwitterIcon } from "@icons/social/Twitter"
+import { GithubIcon } from "@icons/social/Github"
+import type { IconProps } from "@icons/types"
 import { mediaqueries } from "@styles/media"
 
-type SocialIcons = Record<SocialSite, Icon>
+type SocialIcons = Record<SocialSite, React.FC<IconProps>>
 
 const icons: SocialIcons = {
-  linkedin: Icons.LinkedIn,
-  twitter: Icons.Twitter,
-  github: Icons.Github,
+  linkedin: LinkedInIcon,
+  twitter: TwitterIcon,
+  github: GithubIcon,
 }
 
 interface SocialLinksProps {
