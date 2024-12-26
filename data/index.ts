@@ -51,7 +51,7 @@ export const author: Author = {
 export const site = {
   defaultPreview: defaultPreview,
   description: "Hannah Vivian Shaw's personal website & blog",
-  name: "vivshaw's webbed site",
+  name: "vivshaw's webbed sight",
   shortName: "vivshaw's",
   url: "https://vivsha.ws",
 }

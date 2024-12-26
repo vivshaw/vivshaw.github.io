@@ -1,6 +1,8 @@
 {
   "background_color": "#000000",
-  "display": "standalone",
+  "categories": ["software", "blog", "personal", "machine learning", "human-computer interaction"],
+  "description": "Hannah Vivian Shaw's personal website & blog",
+  "display": "browser",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,8 +15,10 @@
       "type": "image/png"
     }
   ],
-  "name": "vivshaw's webbed site",
-  "short_name": "vivsha.ws",
+  "id": "https://vivsha.ws",
+  "name": "vivshaw's webbed sight",
+  "orientation": "portrait",
+  "short_name": "vivshaw's",
   "start_url": "/",
   "theme_color": "#000000"
 }
