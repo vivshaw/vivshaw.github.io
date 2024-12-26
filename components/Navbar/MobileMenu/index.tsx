@@ -68,7 +68,7 @@ const NavLinks = styled.ul`
   margin-left: 32px;
 `
 
-export const MobileMenu = () => {
+export function MobileMenu(): React.ReactElement {
   const [menuOpen, setMenuOpen] = useState(false)
   const [colorMode] = useColorMode()
   const isDark = colorMode === `dark`

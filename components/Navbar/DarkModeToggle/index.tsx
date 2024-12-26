@@ -4,7 +4,7 @@ import { useColorMode } from "theme-ui"
 import mediaqueries from "@styles/media"
 import { IconWrapper } from "../IconWrapper"
 
-export const DarkModeToggle = () => {
+export function DarkModeToggle() {
   const [colorMode, setColorMode] = useColorMode()
   const isDark = colorMode === `dark`
 

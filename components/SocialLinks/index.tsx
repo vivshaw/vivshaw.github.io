@@ -25,9 +25,9 @@ interface SocialLinksProps {
 /**
  * Displays a list of social links and corresponding icons.
  */
-export const SocialLinks: React.FC<SocialLinksProps> = ({
+export function SocialLinks({
   fill = "#73737D",
-}) => {
+}: SocialLinksProps): React.ReactElement {
   return (
     <>
       {Object.entries(author.socials).map(([social, url]) => {

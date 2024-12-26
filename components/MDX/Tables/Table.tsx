@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import mediaqueries from "@styles/media"
+import { PropsWithChildren } from "react"
 
 const StyledTable = styled.table`
   position: relative;
@@ -29,9 +30,7 @@ const StyledTable = styled.table`
   `};
 `
 
-export const Table: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export function Table({ children }: PropsWithChildren<{}>): React.ReactElement {
   return (
     <div style={{ overflowX: "auto", padding: "0 20px" }}>
       <StyledTable>{children}</StyledTable>

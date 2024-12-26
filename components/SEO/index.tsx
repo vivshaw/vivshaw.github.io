@@ -28,7 +28,7 @@ type SEOProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-export const SEO: React.FC<SEOProps> = ({ data, pathname }) => {
+export function SEO({ data, pathname }: SEOProps): React.ReactElement {
   const pageUrl = site.url + pathname
 
   const pageName = (() => {

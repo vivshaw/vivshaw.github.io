@@ -1,3 +1,4 @@
+import React from "react"
 import { CodePrism } from "./CodePrism"
 
 function preToCodeBlock(preProps) {
@@ -26,7 +27,8 @@ function preToCodeBlock(preProps) {
   }
 }
 
-export const CodePre: React.FC<{}> = (preProps) => {
+// TODO: FIgure out how to type this better!
+export function CodePre(preProps: any): React.ReactElement {
   const props = preToCodeBlock(preProps)
 
   if (props) {

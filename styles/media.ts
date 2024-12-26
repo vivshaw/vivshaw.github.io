@@ -2,7 +2,9 @@ import { css } from "@emotion/react"
 
 import theme from "@theme"
 
-const toEm = (size: number) => size / 16 + "em"
+function toEm(size: number): string {
+  return size / 16 + "em"
+}
 
 /**
  * All breakpoints can be found inside of theme.breakpoints.

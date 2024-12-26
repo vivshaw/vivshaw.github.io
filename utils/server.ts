@@ -10,7 +10,7 @@ type TArticleDateless = Omit<TArticle, "date"> & { date: string }
  * Fetches all the blog posts that currently exist.
  * Is run in `getStaticProps` to generate the article list.
  */
-export const getAllBlogPosts = async (): Promise<TArticleDateless[]> => {
+export async function getAllBlogPosts(): Promise<TArticleDateless[]> {
   const root = path.join(process.cwd(), "pages/blog")
 
   const listing = await fs.readdir(root)

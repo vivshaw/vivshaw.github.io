@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import React, { PropsWithChildren, useEffect } from "react"
 import { Global } from "@emotion/react"
 import styled from "@emotion/styled"
 import { useColorMode } from "theme-ui"
@@ -11,9 +11,9 @@ import { globalStyles } from "@styles"
  * and the main structure of each page. Within Layout we have the <Container />
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
-export const Layout: React.FC<{ children?: React.ReactNode }> = ({
+export function Layout({
   children,
-}) => {
+}: PropsWithChildren<{}>): React.ReactElement {
   const [colorMode] = useColorMode()
 
   useEffect(() => {

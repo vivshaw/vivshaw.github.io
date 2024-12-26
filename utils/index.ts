@@ -3,7 +3,7 @@
  *
  * @param {string} toCopy Text to copy
  */
-export function copyToClipboard(toCopy: string) {
+export function copyToClipboard(toCopy: string): void {
   const el = document.createElement(`textarea`)
   el.value = toCopy
   el.setAttribute(`readonly`, ``)
@@ -18,10 +18,11 @@ export function copyToClipboard(toCopy: string) {
 /**
  * Pretty-prints a Date in a nice localized format, like `Sunday, Jul 12, 2017`.
  */
-export const prettyPrintDate = (date: Date) =>
-  date.toLocaleDateString("en-us", {
+export function prettyPrintDate(date: Date): string {
+  return date.toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
     month: "short",
     day: "numeric",
   })
+}
