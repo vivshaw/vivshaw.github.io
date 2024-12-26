@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { useRouter } from "next/router"
 
-import Layout from "@components/Layout"
+import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
 import type { TArticle } from "@data"
 import mediaqueries from "@styles/media"

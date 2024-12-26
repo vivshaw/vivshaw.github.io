@@ -11,7 +11,9 @@ import { globalStyles } from "@styles"
  * and the main structure of each page. Within Layout we have the <Container />
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
-const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+export const Layout: React.FC<{ children?: React.ReactNode }> = ({
+  children,
+}) => {
   const [colorMode] = useColorMode()
 
   useEffect(() => {
@@ -26,8 +28,6 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     </Container>
   )
 }
-
-export default Layout
 
 const Container = styled.div`
   position: relative;

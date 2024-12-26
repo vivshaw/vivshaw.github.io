@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 import mediaqueries from "@styles/media"
 
-const Section = styled.section<{ narrow?: boolean }>`
+export const Section = styled.section<{ narrow?: boolean }>`
   width: 100%;
   max-width: 1220px;
   margin: 0 auto;
@@ -27,5 +27,3 @@ const Section = styled.section<{ narrow?: boolean }>`
     max-width: 100%;
   `};
 `
-
-export default Section
