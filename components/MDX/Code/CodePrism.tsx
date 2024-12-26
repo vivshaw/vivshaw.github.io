@@ -2,7 +2,7 @@
 // import styled from "@emotion/styled"
 
 // import Icons from "@icons"
-// import mediaqueries from "@styles/media"
+// import { mediaqueries} from "@styles/media"
 // import { copyToClipboard } from "@utils"
 
 // const CopyButton = styled.button`

@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import { useColorMode } from "theme-ui"
 
 import { Navbar } from "@components/Navbar"
-import { globalStyles } from "@styles"
+import { globalStyles } from "@styles/global"
 
 /**
  * <Layout /> needs to wrap every page as it provides styles, navigation,

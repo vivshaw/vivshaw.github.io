@@ -5,7 +5,7 @@ import { useColorMode } from "theme-ui"
 
 import { Close } from "@icons/ui/Close.Icon"
 import { Menu } from "@icons/ui/Menu.Icon"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import colors from "@theme/colors"
 import { iconWrapperHover } from "../IconWrapper"
 import { DarkModeToggle } from "../DarkModeToggle"

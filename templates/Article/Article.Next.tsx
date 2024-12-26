@@ -4,7 +4,7 @@ import Link from "next/link"
 // TODO: Stop sharing the MDX headings like this!
 import { headings } from "@components/MDX/Headings"
 import type { TArticle } from "@data"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 
 interface ArticlesNextProps {

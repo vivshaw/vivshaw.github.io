@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { useRouter } from "next/router"
 import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 
 const CenteringWrapper = styled.div`
   align-items: center;

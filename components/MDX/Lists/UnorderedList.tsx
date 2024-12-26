@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 
 export const UnorderedList = styled.ul`
   list-style: none;

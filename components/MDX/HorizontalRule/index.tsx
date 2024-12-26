@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 
 /**
  * A simple horizontal divider.

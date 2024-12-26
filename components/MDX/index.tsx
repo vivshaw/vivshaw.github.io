@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 
 // TODO: Fix jacked highlight colors
 // TODO: Add line numbers

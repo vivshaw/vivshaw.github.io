@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import { PropsWithChildren } from "react"
 
 const StyledTable = styled.table`

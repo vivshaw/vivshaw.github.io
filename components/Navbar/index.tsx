@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import Link from "next/link"
 
 import { DarkModeToggle } from "@components/Navbar/DarkModeToggle"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import { iconWrapperHover } from "./IconWrapper"
 import { MobileMenu } from "./MobileMenu"
 

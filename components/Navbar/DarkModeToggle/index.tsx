@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { useColorMode } from "theme-ui"
 
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import { IconWrapper } from "../IconWrapper"
 
 export function DarkModeToggle() {

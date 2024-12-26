@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 
 import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 import Link from "next/link"
 
 const CenteringWrapper = styled.div`

@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { author, type SocialSite } from "@data"
 import Icons from "@icons"
 import type { Icon } from "@icons"
-import mediaqueries from "@styles/media"
+import { mediaqueries } from "@styles/media"
 
 type SocialIcons = Record<SocialSite, Icon>
 

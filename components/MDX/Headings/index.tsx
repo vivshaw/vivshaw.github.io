@@ -1,12 +1,7 @@
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 
-import mediaqueries from "@styles/media"
-
-/**
- * Example:
- * <Heading.h1>Lorem Ipsum</Heading.h1>
- */
+import { mediaqueries } from "@styles/media"
 
 const commonStyles = (p) => css`
   font-weight: normal;
