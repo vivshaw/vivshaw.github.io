@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import ArticlePage from "@templates/Article/"
+import { ArticleTemplate } from "@templates/Article"
 import tweepyExample from "./tweepy-example.png"
 
 export const meta = {
@@ -276,5 +276,5 @@ That's all there is to it! If you want to see this code in action, you can check
 Happy botsmithing!
 
 export default ({ children }) => (
-  <ArticlePage meta={meta}>{children}</ArticlePage>
+  <ArticleTemplate meta={meta}>{children}</ArticleTemplate>
 )

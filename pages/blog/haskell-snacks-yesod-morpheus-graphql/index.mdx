@@ -1,4 +1,4 @@
-import ArticlePage from "@templates/Article/"
+import { ArticleTemplate } from "@templates/Article"
 
 export const meta = {
   title: "Haskell Snacks: Integrating Yesod and Morpheus GraphQL",
@@ -74,5 +74,5 @@ postGraphqlR = do
 Things get a bit more complex once we need WebSockets support... But that's a challenge for another day!✌️
 
 export default ({ children }) => (
-  <ArticlePage meta={meta}>{children}</ArticlePage>
+  <ArticleTemplate meta={meta}>{children}</ArticleTemplate>
 )

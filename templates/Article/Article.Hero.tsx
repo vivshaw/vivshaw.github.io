@@ -13,7 +13,7 @@ interface ArticleHeroProps {
 /**
  * Displays the Hero section for a given Article, including title, author, and image.
  */
-const ArticleHero: React.FC<ArticleHeroProps> = ({ article }) => {
+export function ArticleHero({ article }: ArticleHeroProps) {
   const prettyDate = prettyPrintDate(article.date)
 
   return (
@@ -27,8 +27,6 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article }) => {
     </Hero>
   )
 }
-
-export default ArticleHero
 
 const Hero = styled.div``
 

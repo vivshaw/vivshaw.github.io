@@ -5,7 +5,7 @@ import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
 import type { TArticle } from "@data"
 import mediaqueries from "@styles/media"
-import BlogList from "./Blog.List"
+import { BlogList } from "./Blog.List"
 
 const CenteringWrapper = styled.div`
   align-items: center;
@@ -36,11 +36,15 @@ const MainpageContent = styled.div`
   `}
 `
 
+type BlogTemplateProps = {
+  articles: TArticle[]
+}
+
 /**
  * Template for a list of blog posts. Currently just used for the index page.
  * In future, will be used for the tags pages.
  */
-const ArticlesPage = ({ articles }: { articles: TArticle[] }) => {
+export function BlogTemplate({ articles }: BlogTemplateProps) {
   const router = useRouter()
 
   return (
@@ -61,5 +65,3 @@ const ArticlesPage = ({ articles }: { articles: TArticle[] }) => {
     </Layout>
   )
 }
-
-export default ArticlesPage

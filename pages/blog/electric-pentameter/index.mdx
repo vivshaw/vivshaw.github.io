@@ -1,4 +1,4 @@
-import ArticlePage from "@templates/Article/"
+import { ArticleTemplate } from "@templates/Article"
 
 export const meta = {
   title: "Do Robots Dream of Electric Pentameter?",
@@ -254,5 +254,5 @@ Personally, I chose to use Flask to build my network into a little web app, so t
 Hopefully, this has been a helpful intro to what LSTM networks can do and how we can implement them in Keras. If your curiosity is piqued, peruse the Keras [documentation](https://keras.io/) and try building some networks. With Keras, it's endlessly rewarding, and much simpler than it sounds. Happy coding!
 
 export default ({ children }) => (
-  <ArticlePage meta={meta}>{children}</ArticlePage>
+  <ArticleTemplate meta={meta}>{children}</ArticleTemplate>
 )

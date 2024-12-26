@@ -8,26 +8,25 @@ import type { TArticle } from "@data"
 import mediaqueries from "@styles/media"
 import { prettyPrintDate } from "@utils"
 
-interface ArticlesListProps {
+interface BlogListProps {
   articles: TArticle[]
 }
 
-const BlogList: React.FC<ArticlesListProps> = ({ articles }) => (
-  <BlogListContainer>
-    {articles.map((article, idx) => (
-      <BlogListItem key={idx} article={article} />
-    ))}
-  </BlogListContainer>
-)
-
-export default BlogList
+export function BlogList({ articles }: BlogListProps) {
+  return (
+    <BlogListContainer>
+      {articles.map((article, idx) => (
+        <BlogListItem key={idx} article={article} />
+      ))}
+    </BlogListContainer>
+  )
+}
 
 interface BlogListItemProps {
   article: TArticle
-  narrow?: boolean
 }
 
-const BlogListItem: React.FC<BlogListItemProps> = ({ article }) => {
+function BlogListItem({ article }: BlogListItemProps) {
   const prettyDate = prettyPrintDate(article.date)
   const hasBlurb = article.blurb
 

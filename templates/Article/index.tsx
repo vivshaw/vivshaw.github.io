@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { useRouter } from "next/router"
+import { PropsWithChildren } from "react"
 
 import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
@@ -8,8 +9,8 @@ import { SEO } from "@components/SEO"
 import type { TArticle } from "@data"
 import mediaqueries from "@styles/media"
 import { prettyPrintDate } from "@utils"
-import ArticleHero from "./Article.Hero"
-import ArticlesNext from "./Article.Next"
+import { ArticleHero } from "./Article.Hero"
+import { ArticleNext } from "./Article.Next"
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: TArticle[] = [
@@ -31,16 +32,17 @@ const fakeNextMetas: TArticle[] = [
   },
 ]
 
+type ArticleProps = {
+  meta: TArticle
+}
+
 /**
  * Template for a single blog post.
  */
-const Article = ({
-  children,
+export function ArticleTemplate({
   meta,
-}: {
-  children: React.ReactNode
-  meta: TArticle
-}) => {
+  children,
+}: PropsWithChildren<ArticleProps>) {
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug)
 
   const router = useRouter()
@@ -67,15 +69,13 @@ const Article = ({
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>More articles from vivshaw's</FooterNext>
-          <ArticlesNext articles={next} />
+          <ArticleNext articles={next} />
           <FooterSpacer />
         </NextArticle>
       )}
     </Layout>
   )
 }
-
-export default Article
 
 const ArticleBody = styled.article`
   position: relative;
