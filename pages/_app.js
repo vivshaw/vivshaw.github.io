@@ -18,6 +18,10 @@ import { Table } from "@components/MDX/Tables/Table"
 import { TableCell } from "@components/MDX/Tables/TableCell"
 import { TableHead } from "@components/MDX/Tables/TableHead"
 import { TableHeadCell } from "@components/MDX/Tables/TableHeadCell"
+import {
+  ViriditasProvider,
+  VIRIDITAS_THEME_STORAGE_KEY,
+} from "@viriditas/context"
 
 const components = {
   a: Anchor,
@@ -44,8 +48,8 @@ const components = {
 const themeUIDarkModeWorkaroundScript = `
     (function() {
       try {
-        var mode = localStorage.getItem('theme-ui-color-mode');
-        if (!mode) {
+        var themeUiMode = localStorage.getItem('theme-ui-color-mode');
+        if (!themeUiMode) {
           localStorage.setItem('theme-ui-color-mode', 'light');
         }
       } catch (e) {}
@@ -57,13 +61,15 @@ export default function App({ Component, pageProps }) {
     <>
       <Script id="theme-ui-dark-mode">{themeUIDarkModeWorkaroundScript}</Script>
 
-      <ThemeProvider theme={theme}>
-        <ColorModeProvider>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </ColorModeProvider>
-      </ThemeProvider>
+      <ViriditasProvider>
+        <ThemeProvider theme={theme}>
+          <ColorModeProvider>
+            <MDXProvider components={components}>
+              <Component {...pageProps} />
+            </MDXProvider>
+          </ColorModeProvider>
+        </ThemeProvider>
+      </ViriditasProvider>
     </>
   )
 }

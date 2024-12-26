@@ -5,7 +5,7 @@ import { Layout } from "@components/Layout"
 import { SEO } from "@components/SEO"
 import { mediaqueries } from "@styles/media"
 import Link from "next/link"
-import { centeringWrapper } from "@pageStyles/home.css"
+import { centeringWrapper, mainpageLink } from "@pageStyles/home.css"
 
 const MainpageContent = styled.div`
   /**
@@ -39,40 +39,6 @@ const MainpageHeading = styled.div`
   `}
 `
 
-const MainpageA = styled.a`
-  color: ${(p) => p.theme.colors.accent};
-  opacity: 0.7;
-  transition:
-    border-color 0.1s ease-in,
-    opacity 0.1s ease-in;
-
-  text-decoration: underline;
-  text-decoration-color: ${(p) => p.theme.colors.accent};
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-
-  &:hover {
-    opacity: 1;
-  }
-`
-
-const MainpageLink = styled(Link)`
-  color: ${(p) => p.theme.colors.accent};
-  opacity: 0.7;
-  transition:
-    border-color 0.1s ease-in,
-    opacity 0.1s ease-in;
-
-  text-decoration: underline;
-  text-decoration-color: ${(p) => p.theme.colors.accent};
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-
-  &:hover {
-    opacity: 1;
-  }
-`
-
 /**
  * The index page for the blog. Lists all the articles.
  */
@@ -90,25 +56,32 @@ export default function Index() {
       <div className={centeringWrapper}>
         <MainpageContent>
           <MainpageHeading>
-            I'm <MainpageA href="/about">Hannah Vivian Shaw</MainpageA>. I build
-            comfortable worlds for engineers.
+            I'm{" "}
+            <Link className={mainpageLink} href="/about">
+              Hannah Vivian Shaw
+            </Link>
+            . I build comfortable worlds for engineers.
           </MainpageHeading>
           <MainpageHeading>
             {/* TODO: These should be distinct internal and external links! */}
             To see what I do, visit{" "}
             <em>
-              <MainpageA href="https://github.com/vivshaw">my GitHub</MainpageA>
+              <a className={mainpageLink} href="https://github.com/vivshaw">
+                my GitHub
+              </a>
             </em>{" "}
             for code, or{" "}
             <em>
-              <MainpageLink href="/blog">my blog</MainpageLink>
+              <Link className={mainpageLink} href="/blog">
+                my blog
+              </Link>
             </em>{" "}
             for words. To read my less-filtered thoughts on subjects ranging
             from engineering to philosophy, see{" "}
             <em>
-              <MainpageA href="https://zettel.vivsha.ws">
+              <a className={mainpageLink} href="https://zettel.vivsha.ws">
                 my digital garden
-              </MainpageA>
+              </a>
             </em>
             .
           </MainpageHeading>

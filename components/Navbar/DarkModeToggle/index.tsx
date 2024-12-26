@@ -3,13 +3,16 @@ import { useColorMode } from "theme-ui"
 
 import { mediaqueries } from "@styles/media"
 import { IconWrapper } from "../IconWrapper"
+import { useViriditasTheme } from "@viriditas/context"
 
 export function DarkModeToggle() {
   const [colorMode, setColorMode] = useColorMode()
+  const { theme, setTheme } = useViriditasTheme()
   const isDark = colorMode === `dark`
 
   function toggleColorMode() {
     setColorMode(isDark ? `light` : `dark`)
+    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   return (
