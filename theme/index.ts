@@ -1,6 +1,5 @@
 import merge from "lodash/merge"
 import colors from "./colors"
-import tags from "./tags"
 
 const breakpoints = [
   ["phone", 376],
@@ -28,5 +27,4 @@ export default merge({
   colors,
   fonts,
   breakpoints,
-  tags,
 })
