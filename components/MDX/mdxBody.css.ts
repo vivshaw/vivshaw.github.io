@@ -34,29 +34,29 @@ globalStyle(`${mdxBody} h3, ${mdxBody} h3 *`, {
   margin: "20px 0 10px",
 })
 
-/** Prism code styles */
+/** Prism code block styles */
 // TODO: Fix jacked highlight colors
 // TODO: Add line numbers
 
 export const PRISM_CODE_CLASS = "prism-code"
 
 globalStyle(`${mdxBody} .${PRISM_CODE_CLASS}`, {
-  overflow: "auto",
-  width: "100%",
-  padding: "32px",
+  borderRadius: "5px",
   fontSize: "13px",
   margin: "15px auto 50px",
-  borderRadius: "5px",
+  overflow: "auto",
+  padding: "32px",
+  width: "100%",
 
   "@media": {
     [breakpoints.phablet]: {
-      textSizeAdjust: "none",
       borderRadius: "0",
-      margin: "0 auto 25px",
-      padding: "25px 20px",
       float: "left",
+      margin: "0 auto 25px",
       minWidth: "100%",
+      padding: "25px 20px",
       position: "relative",
+      textSizeAdjust: "none",
     },
   },
 })
@@ -66,10 +66,10 @@ globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .token-line`, {
 })
 
 globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .token-line.highlight-line`, {
-  margin: "0 -32px",
-  padding: "0 32px",
   background: tokens.color.prism.highlight,
   borderLeft: "3px solid transparent",
+  margin: "0 -32px",
+  padding: "0 32px",
 
   "@media": {
     [breakpoints.tablet]: {
@@ -81,9 +81,9 @@ globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .token-line.highlight-line`, {
 
 globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .number-line`, {
   display: "inline-block",
-  width: "32px",
-  userSelect: "none",
   opacity: "0.3",
+  userSelect: "none",
+  width: "32px",
 
   "@media": {
     [breakpoints.tablet]: {
@@ -101,6 +101,15 @@ globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .plain ~ .operator`, {
   color: "#ffffff !important",
 })
 
+/** Inline code styles */
+
+globalStyle(`${mdxBody} code`, {
+  background: tokens.color.prism.highlight,
+  borderRadius: "8px",
+  fontFamily: tokens.font.monospace,
+  padding: "2px 4px",
+})
+
 /** Image styles */
 
 const IMAGE_WIDTHS = {
@@ -110,13 +119,13 @@ const IMAGE_WIDTHS = {
 }
 
 globalStyle(`${mdxBody} img`, {
-  display: "inline-block",
-  position: "relative",
-  maxWidth: "100%",
-  height: "auto",
-  zIndex: 0,
-  margin: "15px auto 50px",
   borderRadius: "5px",
+  display: "inline-block",
+  height: "auto",
+  margin: "15px auto 50px",
+  maxWidth: "100%",
+  position: "relative",
+  zIndex: 0,
 
   "@media": {
     [breakpoints.tablet]: {
@@ -129,14 +138,14 @@ globalStyle(`${mdxBody} img`, {
 })
 
 globalStyle(`${mdxBody} .Image__Small`, {
+  borderRadius: "5px",
   display: "flex",
   flexDirection: "column",
-  position: "relative",
-  maxWidth: "100%",
   height: "auto",
-  zIndex: 0,
   margin: "15px auto 50px",
-  borderRadius: "5px",
+  maxWidth: "100%",
+  position: "relative",
+  zIndex: 0,
 
   "@media": {
     [breakpoints.tablet]: {
@@ -146,10 +155,10 @@ globalStyle(`${mdxBody} .Image__Small`, {
 })
 
 globalStyle(`${mdxBody} .Image__Medium`, {
-  position: "relative",
   margin: "15px auto 50px",
-  width: "100%",
   maxWidth: IMAGE_WIDTHS.large,
+  position: "relative",
+  width: "100%",
 
   "@media": {
     [breakpoints.desktopMedium]: {
@@ -175,11 +184,11 @@ globalStyle(`${mdxBody} .Image__Medium img`, {
 })
 
 globalStyle(`${mdxBody} .Image__Large`, {
-  position: "relative",
   left: "-68px",
-  width: IMAGE_WIDTHS.full,
   margin: "25px auto 60px",
   pointerEvents: "none",
+  position: "relative",
+  width: IMAGE_WIDTHS.full,
 
   "@media": {
     [breakpoints.desktop]: {

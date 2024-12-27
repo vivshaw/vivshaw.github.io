@@ -30,7 +30,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 - [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 - [ ] Make `code` blocks more legible
-- [ ] Figure out what the heck is controlling scrolling in fenced code blocks
 - [ ] Nicer component for loading images in MDX?
 - [ ] Actual dev env support for MDX
 - [ ] Line numbers in code blocks
@@ -53,7 +52,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] fix navbar appearance & alignment in mobile menu
 - [ ] colors fade from light to dark on first page load. that should be fixed. also, fix odd 1px of whitespace on the bottom of the page. probably this all requires moving to global theming so I can style `html` and `body`
 - [ ] redirect old vivshaw.net domain (and remove Vercel infra that hosts it)
-- [ ] fix the `pre` styles that aren't in code blocks
 
 # measurements:
 
