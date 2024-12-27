@@ -46,7 +46,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
 - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
 - [ ] more accessible focus states
-- [ ] what is `data-a11y` for?
 - [ ] code styles don't _quite_ match old version, correct that!
 - [ ] change "More articles from vivshaw's" to something that reads better
 - [ ] rename SEO component to Seo

@@ -14,7 +14,6 @@ export function DarkModeToggle() {
     <button
       className={iconButton}
       onClick={toggleColorMode}
-      data-a11y="false"
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}
     >

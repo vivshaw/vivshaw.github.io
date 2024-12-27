@@ -21,18 +21,6 @@ export const socialIconContainer = style({
       marginRight: "0",
     },
 
-    "&[data-a11y='true']:focus::after": {
-      content: "",
-      position: "absolute",
-      left: "-50%",
-      top: "-20%",
-      width: "200%",
-      height: "160%",
-      border: "2px solid #6166DC",
-      background: "rgba(255, 255, 255, 0.01)",
-      borderRadius: "5px",
-    },
-
     "@media": {
       [breakpoints.tablet]: {
         margin: "0 2.2rem",

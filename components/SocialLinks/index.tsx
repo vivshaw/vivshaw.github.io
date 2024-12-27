@@ -41,7 +41,6 @@ export function SocialLinks({
             href={url}
             target="_blank"
             rel="noopener nofollow"
-            data-a11y="false"
             aria-label={`Link to ${url}`}
           >
             <Icon fill={fill} />
