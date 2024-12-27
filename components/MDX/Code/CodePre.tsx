@@ -1,4 +1,5 @@
 import React from "react"
+
 import { CodePrism } from "./CodePrism"
 
 function preToCodeBlock(preProps) {
@@ -27,7 +28,7 @@ function preToCodeBlock(preProps) {
   }
 }
 
-// TODO: FIgure out how to type this better!
+// TODO: Figure out how to type this better!
 export function CodePre(preProps: any): React.ReactElement {
   const props = preToCodeBlock(preProps)
 

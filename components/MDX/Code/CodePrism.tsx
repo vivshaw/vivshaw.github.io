@@ -1,6 +1,9 @@
+import clsx from "clsx"
+
+import { PRISM_CODE_CLASS } from "@components/MDX/mdxBody.css"
+
 // import { useState } from "react"
 // import styled from "@emotion/styled"
-
 // import { CopyIcon } from "@icons/ui/Copy"
 // import { CopiedIcon } from "@icons/ui/Copied"
 // import { mediaqueries } from "@styles/media"
@@ -70,18 +73,15 @@
 // }
 
 type CodePrismProps = {
-  className: string
+  className?: string
   codeString: any
 }
 
-export const CodePrism: React.FC<CodePrismProps> = ({
-  codeString,
-  className,
-}) => {
+export function CodePrism({ codeString, className }: CodePrismProps) {
   return (
     <div style={{ overflow: "auto" }}>
       <pre
-        className={`prism-code ${className}`}
+        className={clsx(PRISM_CODE_CLASS, className)}
         style={{ position: "relative" }}
       >
         {/* TODO: Stop this from copying a buncha `Object object`... */}

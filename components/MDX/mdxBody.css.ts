@@ -39,7 +39,9 @@ globalStyle(`${mdxBody} h3, ${mdxBody} h3 *`, {
 // TODO: Fix jacked highlight colors
 // TODO: Add line numbers
 
-globalStyle(`${mdxBody} .prism-code`, {
+export const PRISM_CODE_CLASS = ".prism-code"
+
+globalStyle(`${mdxBody} ${PRISM_CODE_CLASS}`, {
   overflow: "auto",
   width: "100%",
   padding: "32px",
