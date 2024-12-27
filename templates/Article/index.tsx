@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react"
 
 import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
-import { SEO } from "@components/SEO"
+import { Seo } from "@components/SEO"
 import type { Article } from "@data"
 import { prettyPrintDate } from "@utils"
 import { ArticleHero } from "./Article.Hero"
@@ -48,7 +48,7 @@ export function ArticleTemplate({
 
   return (
     <Layout>
-      <SEO
+      <Seo
         data={{
           type: "article",
           datePublished: prettyDate,

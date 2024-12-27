@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 import { Layout } from "@components/Layout"
-import { SEO } from "@components/SEO"
+import { Seo } from "@components/SEO"
 import {
   centeringWrapper,
   mainpageContent,
@@ -18,7 +18,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         data={{
           type: "home",
         }}

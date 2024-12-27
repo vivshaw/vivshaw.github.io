@@ -2,7 +2,7 @@ import Head from "next/head"
 
 import { author, site } from "@data"
 
-type SEOData =
+type SeoData =
   | {
       type: "home"
     }
@@ -18,8 +18,8 @@ type SEOData =
       title: string
     }
 
-type SEOProps = {
-  data: SEOData
+type SeoProps = {
+  data: SeoData
   pathname: string
 }
 
@@ -28,7 +28,7 @@ type SEOProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-export function SEO({ data, pathname }: SEOProps): React.ReactElement {
+export function Seo({ data, pathname }: SeoProps): React.ReactElement {
   const pageUrl = site.url + pathname
 
   const pageName = (() => {

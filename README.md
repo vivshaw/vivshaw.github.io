@@ -48,7 +48,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] more accessible focus states
 - [ ] code styles don't _quite_ match old version, correct that!
 - [ ] change "More articles from vivshaw's" to something that reads better
-- [ ] rename SEO component to Seo
 - [ ] should I use an actual list for the blog list? not sure!
 - [ ] stop using global transition variables, and standardize transitions more generally
 - [ ] use a path alias that is more easily distinguishable from NPM packages

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 import { Layout } from "@components/Layout"
-import { SEO } from "@components/SEO"
+import { Seo } from "@components/SEO"
 import type { Article } from "@data"
 import { BlogList } from "./Blog.List"
 import { centeringWrapper, mainpageContent } from "@pageStyles/main.css"
@@ -19,7 +19,7 @@ export function BlogTemplate({ articles }: BlogTemplateProps) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         data={{
           type: "other",
           title: "Blog",

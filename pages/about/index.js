@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 import { Layout } from "@components/Layout"
-import { SEO } from "@components/SEO"
+import { Seo } from "@components/SEO"
 import { author } from "@data"
 import { aboutList } from "@pageStyles/about.css"
 import {
@@ -19,7 +19,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         data={{
           type: "other",
           title: "About Me",
