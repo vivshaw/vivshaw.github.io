@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react"
 
 import { Navbar } from "@components/Navbar"
-import "@styles/global.css"
+import "@viriditas/reset.css"
 import { container } from "./layout.css"
 
 export function Layout({
