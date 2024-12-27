@@ -34,7 +34,7 @@ export const header = style({
 export const articleHeroTitle = style([
   heading1,
   {
-    fontFamily: tokens.font.serif,
+    fontFamily: tokens.font.display,
     fontSize: "48px",
     lineHeight: "1.32",
     marginBottom: "18px",

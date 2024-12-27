@@ -24,7 +24,7 @@ export const paragraph = style({
 
   selectors: {
     [`${blockquote} &`]: {
-      fontFamily: tokens.font.serif,
+      fontFamily: tokens.font.display,
       maxWidth: "880px !important",
       paddingRight: "100px",
       paddingBottom: "0",

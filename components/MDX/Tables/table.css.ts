@@ -13,7 +13,7 @@ export const table = style({
   borderCollapse: "separate",
   borderRadius: "5px",
   color: tokens.color.grey,
-  fontFamily: tokens.font.sansSerif,
+  fontFamily: tokens.font.sans,
   lineHeight: "1.65",
   margin: "45px auto 85px",
   maxWidth: "1004px",

@@ -6,7 +6,7 @@ export const blockquote = style({
   transition: tokens.motion.colorModeTransition,
   margin: "15px auto 50px",
   color: tokens.color.articleText,
-  fontFamily: tokens.font.serif,
+  fontFamily: tokens.font.display,
   fontStyle: "italic",
 
   "@media": {

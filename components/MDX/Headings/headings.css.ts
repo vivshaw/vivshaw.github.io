@@ -5,7 +5,7 @@ import { breakpoints, tokens } from "@viriditas/theme/theme.css"
 const commonStyles = style({
   fontWeight: "normal",
   color: tokens.color.primary,
-  fontFamily: tokens.font.serif,
+  fontFamily: tokens.font.display,
 })
 
 export const heading1 = style([

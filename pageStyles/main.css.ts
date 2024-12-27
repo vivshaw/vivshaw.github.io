@@ -41,7 +41,7 @@ export const mainpageLink = style({
 })
 
 export const mainpageHeading = style({
-  fontFamily: tokens.font.serif,
+  fontFamily: tokens.font.display,
   fontWeight: 400,
   lineHeight: "1.4",
   fontSize: "62px",

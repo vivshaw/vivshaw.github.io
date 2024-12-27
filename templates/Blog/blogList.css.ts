@@ -54,7 +54,7 @@ export const blogListItemTitle = style([
   heading2,
   limitLines,
   {
-    fontFamily: tokens.font.serif,
+    fontFamily: tokens.font.display,
     fontSize: "32px",
     fontWeight: "500",
     marginBottom: "4px",

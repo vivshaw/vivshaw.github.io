@@ -5,7 +5,7 @@ import { tokens } from "@viriditas/theme/theme.css"
 export const tableHead = style({
   borderCollapse: "collapse",
   color: tokens.color.primary,
-  fontFamily: tokens.font.serif,
+  fontFamily: tokens.font.display,
   fontWeight: 600,
   lineHeight: "1.756",
   position: "relative",

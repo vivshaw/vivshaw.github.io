@@ -54,9 +54,9 @@ export const tokens = createThemeContract({
    * Typography tokens.
    */
   font: {
-    serif: null,
+    display: null,
     book: null,
-    sansSerif: null,
+    sans: null,
     monospace: null,
   },
 
@@ -107,10 +107,9 @@ const prismColors = {
 
 const sharedTheme = {
   font: {
-    serif: "orpheuspro, Georgia, Serif",
+    display: "orpheuspro, Georgia, Serif",
     book: "Georgia, serif",
-    sansSerif:
-      "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
+    sans: "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
     monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   motion: {

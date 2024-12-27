@@ -74,7 +74,7 @@ export const articleNextTitle = style([
   heading3,
   {
     color: tokens.color.primary,
-    fontFamily: tokens.font.serif,
+    fontFamily: tokens.font.display,
     fontSize: "22px",
     lineHeight: "1.4",
     marginBottom: "10px",
