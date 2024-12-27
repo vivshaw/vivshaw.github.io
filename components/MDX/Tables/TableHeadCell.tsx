@@ -1,16 +1,10 @@
-import styled from "@emotion/styled"
-import { mediaqueries } from "@styles/media"
+import { clsx } from "clsx"
 
-export const TableHeadCell = styled.td`
-  padding: 18px 30px;
-  font-size: 16px;
-  background: ${(p) => p.theme.colors.card};
+import { tableHeadCell } from "./tableHeadCell.css"
 
-  ${mediaqueries.desktop`
-    padding: 14px 20px;
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 14px;
-  `}
-`
+export function TableHeadCell({
+  className,
+  ...restProps
+}: React.TdHTMLAttributes<HTMLTableCellElement>) {
+  return <td {...restProps} className={clsx(tableHeadCell, className)} />
+}

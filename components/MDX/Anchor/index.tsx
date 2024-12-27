@@ -1,19 +1,12 @@
-import styled from "@emotion/styled"
+import { anchor } from "./anchor.css"
+import { clsx } from "clsx"
 
 /**
- * A styled external link. This is not currently in use, but probably should be!
+ * A styled `<a>` element, for use in MDX.
  */
-export const Anchor = styled.a`
-  transition: ${(p) => p.theme.colorModeTransition};
-  color: ${(p) => p.theme.colors.accent};
-
-  &:visited {
-    color: ${(p) => p.theme.colors.accent};
-    opacity: 0.85;
-  }
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-`
+export function Anchor({
+  className,
+  ...restProps
+}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return <a className={clsx(anchor, className)} {...restProps} />
+}

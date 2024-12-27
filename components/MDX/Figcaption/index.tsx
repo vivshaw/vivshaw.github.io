@@ -1,9 +1,12 @@
-import styled from "@emotion/styled"
+import { figcaption } from "./figcaption.css"
+import { clsx } from "clsx"
 
-export const Figcaption = styled.figcaption`
-  color: ${(p) => p.theme.colors.grey};
-  font-size: 14px;
-  text-align: center;
-  width: 100%;
-  padding-top: 6px;
-`
+/**
+ * A styled `<figcaption>` element, for use in MDX.
+ */
+export function Figcaption({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLElement>) {
+  return <figcaption className={clsx(figcaption, className)} {...restProps} />
+}

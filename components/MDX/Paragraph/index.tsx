@@ -1,24 +1,12 @@
-import styled from "@emotion/styled"
-import { mediaqueries } from "@styles/media"
+import { clsx } from "clsx"
+import { paragraph } from "./paragraph.css"
 
-export const Paragraph = styled.p`
-  line-height: 1.756;
-  font-size: 22px;
-  color: ${(p) => p.theme.colors.articleText};
-  font-family: ${(p) => p.theme.fonts.book};
-  transition: ${(p) => p.theme.colorModeTransition};
-  margin: 0 auto 35px;
-  width: 100%;
-
-  b {
-    font-weight: 800;
-  }
-
-  ${mediaqueries.tablet`
-    margin: 0 auto 25px;
-  `};
-
-  ${mediaqueries.phablet`
-    padding: 0 20px;
-  `};
-`
+/**
+ * A styled <p> element, for use in MDX.
+ */
+export function Paragraph({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+  return <p {...restProps} className={clsx(paragraph, className)} />
+}

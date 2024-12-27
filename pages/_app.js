@@ -11,17 +11,15 @@ import { headings } from "@components/MDX/Headings"
 import { Anchor } from "@components/MDX/Anchor"
 import { Blockquote } from "@components/MDX/Blockquote"
 import { HorizontalRule } from "@components/MDX/HorizontalRule"
+import { ListItem } from "@components/MDX/Lists/ListItem"
 import { OrderedList } from "@components/MDX/Lists/OrderedList"
-import { UnorderedList } from "@components/MDX/Lists/UnorderedList"
 import { Paragraph } from "@components/MDX/Paragraph"
 import { Table } from "@components/MDX/Tables/Table"
 import { TableCell } from "@components/MDX/Tables/TableCell"
 import { TableHead } from "@components/MDX/Tables/TableHead"
 import { TableHeadCell } from "@components/MDX/Tables/TableHeadCell"
-import {
-  ViriditasProvider,
-  VIRIDITAS_THEME_STORAGE_KEY,
-} from "@viriditas/context"
+import { UnorderedList } from "@components/MDX/Lists/UnorderedList"
+import { ViriditasProvider } from "@viriditas/context"
 
 const components = {
   a: Anchor,
@@ -35,6 +33,7 @@ const components = {
   h5: headings.h5,
   h6: headings.h6,
   hr: HorizontalRule,
+  li: ListItem,
   ul: UnorderedList,
   ol: OrderedList,
   p: Paragraph,

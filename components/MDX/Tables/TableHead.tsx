@@ -1,12 +1,10 @@
-import styled from "@emotion/styled"
+import { clsx } from "clsx"
 
-export const TableHead = styled.thead`
-  text-align: left;
-  border-collapse: collapse;
-  position: relative;
-  line-height: 1.756;
-  font-weight: 600;
-  color: ${(p) => p.theme.colors.primary};
-  font-family: ${(p) => p.theme.fonts.serif};
-  transition: ${(p) => p.theme.colorModeTransition};
-`
+import { tableHead } from "./tableHead.css"
+
+export function TableHead({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLTableSectionElement>) {
+  return <thead {...restProps} className={clsx(tableHead, className)} />
+}

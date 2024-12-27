@@ -1,18 +1,10 @@
-import styled from "@emotion/styled"
-import { mediaqueries } from "@styles/media"
+import { clsx } from "clsx"
 
-export const TableCell = styled.td`
-  border-top: 1px solid ${(p) => p.theme.colors.horizontalRule};
-  padding: 15px 30px;
-  word-break: keep-all;
-  font-size: 16px;
-  background: ${(p) => p.theme.colors.card};
+import { tableCell } from "./tableCell.css"
 
-  ${mediaqueries.desktop`
-    padding: 14px 20px;
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 14px;
-  `}
-`
+export function TableCell({
+  className,
+  ...restProps
+}: React.TdHTMLAttributes<HTMLTableCellElement>) {
+  return <td {...restProps} className={clsx(tableCell, className)} />
+}
