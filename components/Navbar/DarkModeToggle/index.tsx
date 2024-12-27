@@ -1,16 +1,12 @@
-import { useColorMode } from "theme-ui"
-
 import { useViriditasTheme } from "@viriditas/context"
 import { iconButton } from "../navbar.css"
 import { moonMask, moonOrSun } from "./darkModeToggle.css"
 
 export function DarkModeToggle() {
-  const [colorMode, setColorMode] = useColorMode()
   const { theme, setTheme } = useViriditasTheme()
   const isDark = theme === "dark"
 
   function toggleColorMode() {
-    setColorMode(colorMode === "dark" ? "light" : "dark")
     setTheme(theme === "dark" ? "light" : "dark")
   }
 

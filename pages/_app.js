@@ -1,8 +1,4 @@
-import { ThemeProvider } from "theme-ui"
-import { ColorModeProvider } from "@theme-ui/color-modes"
-import theme from "@theme/index"
 import { MDXProvider } from "@mdx-js/react"
-import Script from "next/script"
 
 import { CodePre } from "@components/MDX/Code/CodePre"
 import { CodePrism } from "@components/MDX/Code/CodePrism"
@@ -44,30 +40,13 @@ const components = {
   td: TableCell,
 }
 
-const themeUIDarkModeWorkaroundScript = `
-    (function() {
-      try {
-        var themeUiMode = localStorage.getItem('theme-ui-color-mode');
-        if (!themeUiMode) {
-          localStorage.setItem('theme-ui-color-mode', 'light');
-        }
-      } catch (e) {}
-    })();
-  `
-
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Script id="theme-ui-dark-mode">{themeUIDarkModeWorkaroundScript}</Script>
-
       <ViriditasProvider>
-        <ThemeProvider theme={theme}>
-          <ColorModeProvider>
-            <MDXProvider components={components}>
-              <Component {...pageProps} />
-            </MDXProvider>
-          </ColorModeProvider>
-        </ThemeProvider>
+        <MDXProvider components={components}>
+          <Component {...pageProps} />
+        </MDXProvider>
       </ViriditasProvider>
     </>
   )
