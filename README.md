@@ -52,3 +52,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] stop using global transition variables, and standardize transitions more generally
 - [ ] use a path alias that is more easily distinguishable from NPM packages
 - [ ] sans is only used in tables, should I drop it?
+- [ ] colors fade from light to dark on first page load. that should be fixed.
