@@ -153,5 +153,5 @@ export const breakpoints = {
   phablet: "(max-width: 540px)",
   tablet: "(max-width: 735px)",
   desktop: "(max-width: 1070px)",
-  desktop_medium: "(max-width: 1280px)",
+  desktopMedium: "(max-width: 1280px)",
 }

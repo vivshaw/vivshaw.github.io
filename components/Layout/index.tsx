@@ -1,16 +1,11 @@
 import React, { PropsWithChildren, useEffect } from "react"
 import { Global } from "@emotion/react"
-import styled from "@emotion/styled"
 import { useColorMode } from "theme-ui"
 
 import { Navbar } from "@components/Navbar"
 import { globalStyles } from "@styles/global"
+import { container } from "./layout.css"
 
-/**
- * <Layout /> needs to wrap every page as it provides styles, navigation,
- * and the main structure of each page. Within Layout we have the <Container />
- * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
- */
 export function Layout({
   children,
 }: PropsWithChildren<{}>): React.ReactElement {
@@ -21,17 +16,10 @@ export function Layout({
   }, [colorMode])
 
   return (
-    <Container>
+    <div className={container}>
       <Global styles={globalStyles} />
       <Navbar />
       {children}
-    </Container>
+    </div>
   )
 }
-
-const Container = styled.div`
-  position: relative;
-  background: ${(p) => p.theme.colors.background};
-  transition: ${(p) => p.theme.colorModeTransition};
-  min-height: 100vh;
-`

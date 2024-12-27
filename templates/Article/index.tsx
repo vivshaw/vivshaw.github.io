@@ -4,7 +4,6 @@ import { PropsWithChildren } from "react"
 
 import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
-import { Section } from "@components/Section"
 import { SEO } from "@components/SEO"
 import type { Article } from "@data"
 import { mediaqueries } from "@styles/media"
@@ -31,6 +30,32 @@ const fakeNextMetas: Article[] = [
     tags: ["python", "ml", "LSTM", "neural networks", "keras"],
   },
 ]
+
+const Section = styled.section<{ narrow?: boolean }>`
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 4rem;
+
+  ${mediaqueries.desktop`
+    max-width: 850px;
+  `};
+
+  ${(p) =>
+    p.narrow
+      ? mediaqueries.tablet`
+          padding: 0 2rem;
+          max-width: 527px;
+        `
+      : mediaqueries.tablet`
+          padding: 0 4rem;
+          max-width: 567px;
+        `}
+
+  ${mediaqueries.phablet`
+    max-width: 100%;
+  `};
+`
 
 type ArticleProps = {
   meta: Article

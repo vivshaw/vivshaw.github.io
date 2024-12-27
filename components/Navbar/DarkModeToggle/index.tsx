@@ -1,100 +1,38 @@
-import styled from "@emotion/styled"
 import { useColorMode } from "theme-ui"
 
-import { mediaqueries } from "@styles/media"
-import { IconWrapper } from "../IconWrapper"
 import { useViriditasTheme } from "@viriditas/context"
+import { iconButton } from "../navbar.css"
+import {
+  moonMask,
+  moonMaskDark,
+  moonMaskLight,
+  moonOrSun,
+  moonOrSunDark,
+  moonOrSunLight,
+} from "./darkModeToggle.css"
 
 export function DarkModeToggle() {
   const [colorMode, setColorMode] = useColorMode()
   const { theme, setTheme } = useViriditasTheme()
-  const isDark = colorMode === `dark`
+  const isDark = theme === "dark"
 
   function toggleColorMode() {
-    setColorMode(isDark ? `light` : `dark`)
+    setColorMode(colorMode === "dark" ? "light" : "dark")
     setTheme(theme === "dark" ? "light" : "dark")
   }
 
   return (
-    <IconWrapper
-      isDark={isDark}
+    <button
+      className={iconButton}
       onClick={toggleColorMode}
       data-a11y="false"
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}
     >
-      <MoonOrSun isDark={isDark} />
-      <MoonMask isDark={isDark} />
-    </IconWrapper>
+      <div
+        className={`${moonOrSun} ${isDark ? moonOrSunDark : moonOrSunLight}`}
+      />
+      <div className={`${moonMask} ${isDark ? moonMaskDark : moonMaskLight}`} />
+    </button>
   )
 }
-
-// This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
-const MoonOrSun = styled.div<{ isDark: boolean }>`
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: ${(p) => (p.isDark ? "4px" : "2px")} solid
-    ${(p) => p.theme.colors.primary};
-  background: ${(p) => p.theme.colors.primary};
-  transform: scale(${(p) => (p.isDark ? 0.55 : 1)});
-  transition: all 0.45s ease;
-  overflow: ${(p) => (p.isDark ? "visible" : "hidden")};
-
-  &::before {
-    content: "";
-    position: absolute;
-    right: -9px;
-    top: -9px;
-    height: 24px;
-    width: 24px;
-    border: 2px solid ${(p) => p.theme.colors.primary};
-    border-radius: 50%;
-    transform: translate(${(p) => (p.isDark ? "14px, -14px" : "0, 0")});
-    opacity: ${(p) => (p.isDark ? 0 : 1)};
-    transition: transform 0.45s ease;
-  }
-
-  &::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin: -4px 0 0 -4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    box-shadow:
-      0 -23px 0 ${(p) => p.theme.colors.primary},
-      0 23px 0 ${(p) => p.theme.colors.primary},
-      23px 0 0 ${(p) => p.theme.colors.primary},
-      -23px 0 0 ${(p) => p.theme.colors.primary},
-      15px 15px 0 ${(p) => p.theme.colors.primary},
-      -15px 15px 0 ${(p) => p.theme.colors.primary},
-      15px -15px 0 ${(p) => p.theme.colors.primary},
-      -15px -15px 0 ${(p) => p.theme.colors.primary};
-    transform: scale(${(p) => (p.isDark ? 1 : 0)});
-    transition: all 0.35s ease;
-
-    ${(p) => mediaqueries.tablet`
-      transform: scale(${p.isDark ? 0.92 : 0});
-    `}
-  }
-`
-
-const MoonMask = styled.div<{ isDark: boolean }>`
-  position: absolute;
-  right: -1px;
-  top: -8px;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  border: 0;
-  background: ${(p) => p.theme.colors.background};
-  transform: translate(${(p) => (p.isDark ? "14px, -14px" : "0, 0")});
-  opacity: ${(p) => (p.isDark ? 0 : 1)};
-  transition:
-    ${(p) => p.theme.colorModeTransition},
-    transform 0.45s ease;
-`
