@@ -1,3 +1,4 @@
+import { clsx } from "clsx"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -28,7 +29,7 @@ export function MobileMenu(): React.ReactElement {
         )}
       </div>
 
-      <div className={`${mobileMenuContents} ${menuOpen ? "show" : undefined}`}>
+      <div className={clsx(mobileMenuContents, menuOpen && "show")}>
         <ul className={mobileMenuNavLinks}>
           <li>
             <Link className={mobileMenuLink} href="/blog">

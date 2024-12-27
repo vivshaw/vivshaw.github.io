@@ -1,3 +1,4 @@
+import { clsx } from "clsx"
 import { useColorMode } from "theme-ui"
 
 import { useViriditasTheme } from "@viriditas/context"
@@ -30,9 +31,9 @@ export function DarkModeToggle() {
       title={isDark ? "Activate light mode" : "Activate dark mode"}
     >
       <div
-        className={`${moonOrSun} ${isDark ? moonOrSunDark : moonOrSunLight}`}
+        className={clsx(moonOrSun, isDark ? moonOrSunDark : moonOrSunLight)}
       />
-      <div className={`${moonMask} ${isDark ? moonMaskDark : moonMaskLight}`} />
+      <div className={clsx(moonMask, isDark ? moonMaskDark : moonMaskLight)} />
     </button>
   )
 }
