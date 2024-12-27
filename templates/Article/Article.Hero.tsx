@@ -17,11 +17,9 @@ export function ArticleHero({ article }: ArticleHeroProps) {
   const prettyDate = prettyPrintDate(article.date)
 
   return (
-    <div>
-      <header className={header}>
-        <h1 className={articleHeroTitle}>{article.title}</h1>
-        <div className={articleHeroSubtitle}>{prettyDate}</div>
-      </header>
-    </div>
+    <header className={header}>
+      <h1 className={articleHeroTitle}>{article.title}</h1>
+      <div className={articleHeroSubtitle}>{prettyDate}</div>
+    </header>
   )
 }

@@ -57,6 +57,7 @@ export function ArticleTemplate({
         }}
         pathname={router.pathname}
       />
+
       <ArticleHero article={meta} />
 
       <article className={articleBody}>

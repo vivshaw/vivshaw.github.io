@@ -5,7 +5,6 @@ import { prettyPrintDate } from "@utils"
 import {
   articleNextExcerpt,
   articleNextGrid,
-  articleNextItem,
   articleNextLink,
   articleNextMetaData,
   articleNextTitle,
@@ -60,11 +59,9 @@ function GridItem({ article }: GridItemProps) {
 
   return (
     <Link className={articleNextLink} href={article.slug}>
-      <div className={articleNextItem}>
-        <h3 className={articleNextTitle}>{article.title}</h3>
-        <p className={articleNextExcerpt}>{article.blurb}</p>
-        <div className={articleNextMetaData}>{prettyDate}</div>
-      </div>
+      <h3 className={articleNextTitle}>{article.title}</h3>
+      <p className={articleNextExcerpt}>{article.blurb}</p>
+      <div className={articleNextMetaData}>{prettyDate}</div>
     </Link>
   )
 }

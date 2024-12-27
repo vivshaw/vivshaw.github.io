@@ -38,8 +38,35 @@ export const articleNextGrid = recipe({
   },
 })
 
-export const articleNextItem = style({
+export const articleNextLink = style({
+  display: "block",
+  left: "0",
+  height: "100%",
   position: "relative",
+  top: "0",
+  transition: "transform 0.33s var(--ease-out-quart)",
+  width: "100%",
+  zIndex: "1",
+
+  WebkitTapHighlightColor: "rgba(255, 255, 255, 0)",
+
+  "@media": {
+    [breakpoints.phablet]: {
+      selectors: {
+        "&:active": {
+          transform: "scale(0.97) translateY(3px)",
+        },
+      },
+    },
+    [breakpoints.tablet]: {
+      selectors: {
+        /** On small screens, only show one Next Article suggestion to avoid clutter. */
+        "&:not(:first-child)": {
+          display: "none",
+        },
+      },
+    },
+  },
 })
 
 // TODO: Stop sharing the MDX headings like this!
@@ -51,6 +78,13 @@ export const articleNextTitle = style([
     fontSize: "22px",
     lineHeight: "1.4",
     marginBottom: "10px",
+    transition: "color 0.3s ease-in-out",
+
+    selectors: {
+      [`${articleNextLink}:hover &`]: {
+        color: tokens.color.accent,
+      },
+    },
 
     "@media": {
       [breakpoints.tablet]: {
@@ -97,36 +131,6 @@ export const articleNextMetaData = style({
     [breakpoints.phablet]: {
       maxWidth: "100%",
       padding: "0 20px 30px",
-    },
-  },
-})
-
-export const articleNextLink = style({
-  position: "relative",
-  display: "block",
-  width: "100%",
-  height: "100%",
-  top: "0",
-  left: "0",
-  zIndex: "1",
-  transition: "transform 0.33s var(--ease-out-quart)",
-  WebkitTapHighlightColor: "rgba(255, 255, 255, 0)",
-
-  "@media": {
-    [breakpoints.phablet]: {
-      selectors: {
-        "&:active": {
-          transform: "scale(0.97) translateY(3px)",
-        },
-      },
-    },
-    [breakpoints.tablet]: {
-      selectors: {
-        /** On small screens, only show one Next Article suggestion to avoid clutter. */
-        "&:not(:first-child)": {
-          display: "none",
-        },
-      },
     },
   },
 })
