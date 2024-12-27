@@ -50,5 +50,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] heading styles in MDX get broken alignment on small screens
 - [ ] fix navbar appearance & alignment in mobile menu
 - [ ] colors fade from light to dark on first page load. that should be fixed. also, fix odd 1px of whitespace on the bottom of the page. probably this all requires moving to global theming so I can style `html` and `body`
-- [ ] redirect old vivshaw.net domain (and remove Vercel infra that hosts it)
 - [ ] image optimization for static exports?
