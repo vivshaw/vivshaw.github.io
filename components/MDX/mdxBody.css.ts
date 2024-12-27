@@ -7,7 +7,6 @@ export const mdxBody = style({
   flexDirection: "column",
   justifyContent: "center",
   position: "relative",
-  zIndex: 10,
 })
 
 /**

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css"
+
 import { tokens } from "@viriditas/theme/theme.css"
 
 export const container = style({
@@ -6,4 +7,8 @@ export const container = style({
   background: tokens.color.background,
   transition: tokens.motion.colorModeTransition,
   minHeight: "100vh",
+})
+
+export const content = style({
+  zIndex: 1,
 })

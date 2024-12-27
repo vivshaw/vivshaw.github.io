@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css"
+
 import { breakpoints, tokens } from "@viriditas/theme/theme.css"
 
 export const interactionHover = style({
@@ -51,7 +52,6 @@ export const logoLink = style({
   color: tokens.color.primary,
   fontSize: "27px",
   transition: "color 0.3s ease",
-  zIndex: 10,
 
   ":hover": {
     color: tokens.color.accent,

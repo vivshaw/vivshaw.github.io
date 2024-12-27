@@ -6,7 +6,7 @@ export const section = style({
   display: "block",
   margin: "0 auto",
   maxWidth: "1220px",
-  padding: "0 4rem",
+  padding: "0 4rem 40px",
   width: "100%",
 
   "@media": {
@@ -14,7 +14,7 @@ export const section = style({
       maxWidth: "850px",
     },
     [breakpoints.tablet]: {
-      padding: "0 2rem",
+      padding: "0 2rem 40px",
       maxWidth: "527px",
     },
     [breakpoints.phablet]: {

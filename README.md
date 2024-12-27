@@ -53,3 +53,7 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] use a path alias that is more easily distinguishable from NPM packages
 - [ ] sans is only used in tables, should I drop it?
 - [ ] colors fade from light to dark on first page load. that should be fixed.
+- [ ] fix the `pre` styles that aren't in code blocks
+- [ ] heading styles in MDX get broken alignment on small screens
+- [ ] fix navbar appearance & alignment in mobile menu
+- [ ] fix odd 1px of whitespace on the bottom of the page

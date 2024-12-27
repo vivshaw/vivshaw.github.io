@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react"
 
 import { Navbar } from "@components/Navbar"
 import "@viriditas/reset.css"
-import { container } from "./layout.css"
+import { container, content } from "./layout.css"
 
 export function Layout({
   children,
@@ -10,7 +10,7 @@ export function Layout({
   return (
     <div className={container}>
       <Navbar />
-      {children}
+      <div className={content}>{children}</div>
     </div>
   )
 }

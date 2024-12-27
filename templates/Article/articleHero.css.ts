@@ -8,7 +8,6 @@ export const header = style({
   maxWidth: "calc(749px - 68px)",
   position: "relative",
   width: "100%",
-  zIndex: "10",
 
   "@media": {
     [breakpoints.desktop]: {

@@ -18,7 +18,9 @@ globalStyle("html", {
   boxSizing: "border-box",
   cursor: "default",
   fontSize: "0.625rem",
+  height: "100%",
   lineHeight: "1.4",
+  minHeight: "100%",
   textRendering: "optimizeLegibility",
 
   msOverflowStyle: "-ms-autohiding-scrollbar",
@@ -36,9 +38,10 @@ globalStyle("html *, html *:before, html *:after", {
 globalStyle("body", {
   fontFamily: "orpheuspro",
   fontSize: "1.6rem",
-  margin: 0,
   fontWeight: 400,
   height: "100%",
+  margin: 0,
+  minHeight: "100%",
 })
 
 globalStyle("article", {
@@ -46,8 +49,8 @@ globalStyle("article", {
 })
 
 globalStyle("button, a", {
-  textDecoration: "none",
   cursor: "pointer",
+  textDecoration: "none",
 })
 
 globalStyle("a:focus", {
@@ -55,8 +58,8 @@ globalStyle("a:focus", {
 })
 
 globalStyle("audio, canvas, iframe, img, svg, video", {
-  verticalAlign: "middle",
   alignSelf: "center",
+  verticalAlign: "middle",
 })
 
 globalStyle("input, textarea, select, button", {
@@ -76,9 +79,9 @@ globalStyle("code, kbd, pre, samp", {
 
 globalStyle("fieldset, button", {
   appearance: "none",
+  background: "transparent",
   border: "none",
   outline: "none",
-  background: "transparent",
 })
 
 globalStyle("table", {
