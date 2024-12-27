@@ -1,16 +1,8 @@
-import { clsx } from "clsx"
 import { useColorMode } from "theme-ui"
 
 import { useViriditasTheme } from "@viriditas/context"
 import { iconButton } from "../navbar.css"
-import {
-  moonMask,
-  moonMaskDark,
-  moonMaskLight,
-  moonOrSun,
-  moonOrSunDark,
-  moonOrSunLight,
-} from "./darkModeToggle.css"
+import { moonMask, moonOrSun } from "./darkModeToggle.css"
 
 export function DarkModeToggle() {
   const [colorMode, setColorMode] = useColorMode()
@@ -30,10 +22,8 @@ export function DarkModeToggle() {
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}
     >
-      <div
-        className={clsx(moonOrSun, isDark ? moonOrSunDark : moonOrSunLight)}
-      />
-      <div className={clsx(moonMask, isDark ? moonMaskDark : moonMaskLight)} />
+      <div className={moonOrSun({ mode: theme })} />
+      <div className={moonMask({ mode: theme })} />
     </button>
   )
 }
