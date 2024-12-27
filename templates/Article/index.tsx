@@ -1,4 +1,3 @@
-import styled from "@emotion/styled"
 import { useRouter } from "next/router"
 import { PropsWithChildren } from "react"
 
@@ -6,11 +5,10 @@ import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
 import { SEO } from "@components/SEO"
 import type { Article } from "@data"
-import { mediaqueries } from "@styles/media"
 import { prettyPrintDate } from "@utils"
 import { ArticleHero } from "./Article.Hero"
 import { ArticleNext } from "./Article.Next"
-
+import { articleBody, footerNext, footerSpacer, section } from "./article.css"
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: Article[] = [
   {
@@ -30,32 +28,6 @@ const fakeNextMetas: Article[] = [
     tags: ["python", "ml", "LSTM", "neural networks", "keras"],
   },
 ]
-
-const Section = styled.section<{ narrow?: boolean }>`
-  width: 100%;
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 0 4rem;
-
-  ${mediaqueries.desktop`
-    max-width: 850px;
-  `};
-
-  ${(p) =>
-    p.narrow
-      ? mediaqueries.tablet`
-          padding: 0 2rem;
-          max-width: 527px;
-        `
-      : mediaqueries.tablet`
-          padding: 0 4rem;
-          max-width: 567px;
-        `}
-
-  ${mediaqueries.phablet`
-    max-width: 100%;
-  `};
-`
 
 type ArticleProps = {
   meta: Article
@@ -87,81 +59,17 @@ export function ArticleTemplate({
       />
       <ArticleHero article={meta} />
 
-      <ArticleBody>
+      <article className={articleBody}>
         <MDXBody>{children}</MDXBody>
-      </ArticleBody>
+      </article>
 
       {next.length > 0 && (
-        <NextArticle narrow>
-          <FooterNext>More articles from vivshaw's</FooterNext>
+        <section className={section}>
+          <h3 className={footerNext}>More articles from vivshaw's</h3>
           <ArticleNext articles={next} />
-          <FooterSpacer />
-        </NextArticle>
+          <div className={footerSpacer} />
+        </section>
       )}
     </Layout>
   )
 }
-
-const ArticleBody = styled.article`
-  position: relative;
-  padding: 0 0 35px;
-  transition: background 0.2s linear;
-  max-width: 744px;
-  margin: 0 auto;
-
-  ${mediaqueries.desktop`
-    padding-left: 53px;
-  `}
-
-  ${mediaqueries.tablet`
-    max-width: 100%;
-    padding: 70px 20px 80px;
-  `}
-
-  ${mediaqueries.phablet`
-    padding: 60px 0;
-  `}
-`
-
-const NextArticle = styled(Section)`
-  display: block;
-`
-
-const FooterNext = styled.h3`
-  position: relative;
-  opacity: 0.25;
-  margin-bottom: 30px;
-  font-weight: 400;
-  color: ${(p) => p.theme.colors.primary};
-
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: ${(p) => p.theme.colors.grey};
-    width: ${(750 / 1140) * 100}%;
-    height: 1px;
-    right: 0;
-    top: 11px;
-
-    ${mediaqueries.tablet`
-      width: ${(600 / 1140) * 100}%;
-    `}
-
-    ${mediaqueries.phablet`
-      width: ${(400 / 1140) * 100}%;
-    `}
-
-    ${mediaqueries.phone`
-      width: 90px
-    `}
-  }
-`
-
-const FooterSpacer = styled.div`
-  margin-bottom: 65px;
-`

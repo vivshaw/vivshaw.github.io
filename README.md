@@ -45,3 +45,9 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Storybook & design system
 - [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
 - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
+- [ ] hover styles for the article footer
+- [ ] more accessible focus states
+- [ ] better names for font tokens
+- [ ] what is `data-a11y` for?
+- [ ] code styles don't _quite_ match old version, correct that!
+- [ ] change "More articles from vivshaw's" to something that reads better
