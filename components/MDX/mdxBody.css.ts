@@ -39,9 +39,9 @@ globalStyle(`${mdxBody} h3, ${mdxBody} h3 *`, {
 // TODO: Fix jacked highlight colors
 // TODO: Add line numbers
 
-export const PRISM_CODE_CLASS = ".prism-code"
+export const PRISM_CODE_CLASS = "prism-code"
 
-globalStyle(`${mdxBody} ${PRISM_CODE_CLASS}`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS}`, {
   overflow: "auto",
   width: "100%",
   padding: "32px",
@@ -55,9 +55,6 @@ globalStyle(`${mdxBody} ${PRISM_CODE_CLASS}`, {
       borderRadius: "0",
       margin: "0 auto 25px",
       padding: "25px 20px",
-      overflow: "initial",
-      width: "unset",
-      maxWidth: "unset",
       float: "left",
       minWidth: "100%",
       position: "relative",
@@ -65,11 +62,11 @@ globalStyle(`${mdxBody} ${PRISM_CODE_CLASS}`, {
   },
 })
 
-globalStyle(`${mdxBody} .prism-code .token-line`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .token-line`, {
   borderLeft: "3px solid transparent",
 })
 
-globalStyle(`${mdxBody} .prism-code .token-line.highlight-line`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .token-line.highlight-line`, {
   margin: "0 -32px",
   padding: "0 32px",
   background: tokens.color.prism.highlight,
@@ -83,7 +80,7 @@ globalStyle(`${mdxBody} .prism-code .token-line.highlight-line`, {
   },
 })
 
-globalStyle(`${mdxBody} .prism-code .number-line`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .number-line`, {
   display: "inline-block",
   width: "32px",
   userSelect: "none",
@@ -97,11 +94,11 @@ globalStyle(`${mdxBody} .prism-code .number-line`, {
   },
 })
 
-globalStyle(`${mdxBody} .prism-code .operator + .maybe-class-name`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .operator + .maybe-class-name`, {
   color: "#ffcf74 !important",
 })
 
-globalStyle(`${mdxBody} .prism-code .plain ~ .operator`, {
+globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .plain ~ .operator`, {
   color: "#ffffff !important",
 })
 
