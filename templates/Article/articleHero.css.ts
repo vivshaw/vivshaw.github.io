@@ -35,7 +35,6 @@ export const articleHeroTitle = style([
   {
     fontFamily: tokens.font.display,
     fontSize: "48px",
-    lineHeight: "1.32",
     marginBottom: "18px",
 
     "@media": {
