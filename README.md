@@ -31,7 +31,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
 - [ ] Make `code` blocks more legible
 - [ ] Nicer component for loading images in MDX?
-- [ ] Actual dev env support for MDX
 - [ ] Line numbers in code blocks
 - [ ] Code block highlights
 - [ ] Code block styles for CLI
