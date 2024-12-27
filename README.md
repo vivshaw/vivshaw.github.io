@@ -33,7 +33,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Figure out what the heck is controlling scrolling in fenced code blocks
 - [ ] Nicer component for loading images in MDX?
 - [ ] Actual dev env support for MDX
-- [ ] Rip out Emotion / ThemeUI in favor of Vanilla Extract
 - [ ] Line numbers in code blocks
 - [ ] Code block highlights
 - [ ] Code block styles for CLI
@@ -43,17 +42,36 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 - [ ] Monorepo it? (Turborepo? NX?)
 - [ ] Storybook & design system
-- [ ] figure out why `srcset` isn't working right, then use it, and fix any other image perf issues
 - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
 - [ ] more accessible focus states
-- [ ] code styles don't _quite_ match old version, correct that!
 - [ ] change "More articles from vivshaw's" to something that reads better
 - [ ] should I use an actual list for the blog list? not sure!
 - [ ] stop using global transition variables, and standardize transitions more generally
 - [ ] use a path alias that is more easily distinguishable from NPM packages
 - [ ] sans is only used in tables, should I drop it?
-- [ ] colors fade from light to dark on first page load. that should be fixed.
-- [ ] fix the `pre` styles that aren't in code blocks
 - [ ] heading styles in MDX get broken alignment on small screens
 - [ ] fix navbar appearance & alignment in mobile menu
-- [ ] fix odd 1px of whitespace on the bottom of the page
+- [ ] colors fade from light to dark on first page load. that should be fixed. also, fix odd 1px of whitespace on the bottom of the page. probably this all requires moving to global theming so I can style `html` and `body`
+- [ ] redirect old vivshaw.net domain (and remove Vercel infra that hosts it)
+- [ ] fix the `pre` styles that aren't in code blocks
+
+# measurements:
+
+with Emotion and ThemeUI:
+
+- main: 244kb
+  - js: 117kb
+  - css: 3.8kb
+  - doc: 5.7kb
+  - fetch: 6.6kb
+  - font: 109kb
+- article (scala): 320kb
+  - js: 128kb
+  - css: 3.8kb
+  - doc: 16.1kb
+  - font: 171kb
+
+with Vanilla Extract:
+
+- main: TBD!
+- article: TBD!
