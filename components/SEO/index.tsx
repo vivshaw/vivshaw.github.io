@@ -30,7 +30,7 @@ type SeoProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-export function Seo({ data }: SeoProps): React.ReactElement {
+export function Seo({ data }: SeoProps): React.ReactElement<any> {
   const pathname = usePathname()
   const pageUrl = site.url + pathname
 

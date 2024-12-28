@@ -27,7 +27,7 @@ interface SocialLinksProps {
  */
 export function SocialLinks({
   fill = "#73737D",
-}: SocialLinksProps): React.ReactElement {
+}: SocialLinksProps): React.ReactElement<any> {
   return (
     <>
       {Object.entries(author.socials).map(([social, url]) => {

@@ -16,7 +16,7 @@ import {
   mobileMenuNavLinks,
 } from "./mobileMenu.css"
 
-export function MobileMenu(): React.ReactElement {
+export function MobileMenu(): React.ReactElement<any> {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => setMenuOpen((menuState) => !menuState)

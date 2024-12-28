@@ -6,7 +6,7 @@ import { container, content } from "./layout.css"
 
 export function Layout({
   children,
-}: PropsWithChildren<{}>): React.ReactElement {
+}: PropsWithChildren<{}>): React.ReactElement<any> {
   return (
     <div className={container}>
       <Navbar />
