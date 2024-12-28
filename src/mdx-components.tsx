@@ -27,14 +27,14 @@ const customComponents = {
   h6: headings.h6,
   hr: HorizontalRule,
   li: ListItem,
-  ul: UnorderedList,
   ol: OrderedList,
   p: Paragraph,
   pre: CodeBlock,
   table: Table,
+  td: TableCell,
   th: TableHeadCell,
   thead: TableHead,
-  td: TableCell,
+  ul: UnorderedList,
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
