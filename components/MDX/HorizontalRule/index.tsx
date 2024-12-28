@@ -1,10 +1,12 @@
+"use client"
+
 import { clsx } from "clsx"
 
 import { useViriditasTheme } from "@viriditas/context"
 import { horizontalRule } from "./horizontalRule.css"
 
 /**
- * A simple horizontal divider.
+ * A styled `<hr>` element, for use in MDX.
  */
 export function HorizontalRule({
   className,

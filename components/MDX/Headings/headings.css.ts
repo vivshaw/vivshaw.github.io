@@ -3,9 +3,9 @@ import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@viriditas/theme/theme.css"
 
 const commonStyles = style({
-  fontWeight: "normal",
   color: tokens.color.primary,
   fontFamily: tokens.font.display,
+  fontWeight: "normal",
 })
 
 export const heading1 = style([

@@ -1,5 +1,6 @@
-import { blockquote } from "./blockquote.css"
 import { clsx } from "clsx"
+
+import { blockquote } from "./blockquote.css"
 
 /**
  * A styled `<blockquote>` element, for use in MDX.

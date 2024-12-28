@@ -49,6 +49,10 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] sans is only used in tables, should I drop it?
 - [ ] heading styles in MDX get broken alignment on small screens
 - [ ] fix navbar appearance & alignment in mobile menu
-- [ ] colors fade from light to dark on first page load. that should be fixed. also, fix odd 1px of whitespace on the bottom of the page. probably this all requires moving to global theming so I can style `html` and `body`
+- [ ] colors fade from light to dark on first page load. that should be fixed. probably this requires moving to global theming so I can style `html` and `body`
 - [ ] image optimization for static exports?
 - [ ] return SEO to being server-side, fully using the new metadata API
+- [ ] hack on `getAllBlogPosts()` some more- where should it live? does it stil have the restrictions of `getStaticProps`? can it be named or organized better?
+- [ ] should TableHeadCell use <th>?
+- [ ] update PWA library
+- [ ] consistent footer spacing- `40px` maybe?

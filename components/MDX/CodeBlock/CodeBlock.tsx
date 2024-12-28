@@ -1,4 +1,5 @@
 import clsx from "clsx"
+import { PropsWithChildren } from "react"
 
 import { PRISM_CODE_CLASS } from "@components/MDX/mdxBody.css"
 
@@ -62,20 +63,26 @@ import { PRISM_CODE_CLASS } from "@components/MDX/mdxBody.css"
 
 type CodePrismProps = {
   className?: string
-  codeString: any
 }
 
-export function CodePrism({ codeString, className }: CodePrismProps) {
+/**
+ * A styled `<pre>` code block for use with the Prism highlighter in MDX.
+ * Caveats:
+ * - This component assumes that _all_ <pre> blocks are code blocks! It does not check if its child is a <code> element.
+ * - The styles are currently applied via globals in `mdxBody.css.ts`.
+ */
+export function CodeBlock({
+  children,
+  className,
+}: PropsWithChildren<CodePrismProps>) {
   return (
-    <div style={{ overflow: "auto" }}>
-      <pre
-        className={clsx(PRISM_CODE_CLASS, className)}
-        style={{ position: "relative" }}
-      >
-        {/* TODO: Stop this from copying a buncha `Object object`... */}
-        {/* <Copy toCopy={codeString} /> */}
-        {codeString}
-      </pre>
-    </div>
+    <pre
+      className={clsx(PRISM_CODE_CLASS, className)}
+      style={{ position: "relative" }}
+    >
+      {/* TODO: Stop this from copying a buncha `Object object`... */}
+      {/* <Copy toCopy={codeString} /> */}
+      {children}
+    </pre>
   )
 }

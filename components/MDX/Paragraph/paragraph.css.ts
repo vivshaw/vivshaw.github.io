@@ -25,14 +25,14 @@ export const paragraph = style({
   selectors: {
     [`${blockquote} &`]: {
       fontFamily: tokens.font.display,
-      maxWidth: "880px !important",
-      paddingRight: "100px",
-      paddingBottom: "0",
-      width: "100%",
-      margin: "0 auto",
       fontSize: "36px",
-      lineHeight: "1.32",
       fontWeight: "bold",
+      lineHeight: "1.32",
+      margin: "0 auto",
+      maxWidth: "880px !important",
+      paddingBottom: "0",
+      paddingRight: "100px",
+      width: "100%",
 
       "@media": {
         [breakpoints.tablet]: {

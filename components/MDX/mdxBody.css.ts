@@ -103,7 +103,7 @@ globalStyle(`${mdxBody} .${PRISM_CODE_CLASS} .plain ~ .operator`, {
 
 /** Inline code styles */
 
-globalStyle(`${mdxBody} code`, {
+globalStyle(`${mdxBody} :not(.${PRISM_CODE_CLASS}) > code`, {
   background: tokens.color.prism.highlight,
   borderRadius: "8px",
   fontFamily: tokens.font.monospace,

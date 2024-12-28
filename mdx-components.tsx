@@ -1,7 +1,6 @@
-import { MDXProvider } from "@mdx-js/react"
+import type { MDXComponents } from "mdx/types"
 
-import { CodePre } from "@components/MDX/Code/CodePre"
-import { CodePrism } from "@components/MDX/Code/CodePrism"
+import { CodeBlock } from "@components/MDX/CodeBlock/CodeBlock"
 import { Figcaption } from "@components/MDX/Figcaption"
 import { headings } from "@components/MDX/Headings"
 import { Anchor } from "@components/MDX/Anchor"
@@ -15,12 +14,10 @@ import { TableCell } from "@components/MDX/Tables/TableCell"
 import { TableHead } from "@components/MDX/Tables/TableHead"
 import { TableHeadCell } from "@components/MDX/Tables/TableHeadCell"
 import { UnorderedList } from "@components/MDX/Lists/UnorderedList"
-import { ViriditasProvider } from "@viriditas/context"
 
-const components = {
+const customComponents = {
   a: Anchor,
   blockquote: Blockquote,
-  code: CodePrism,
   figcaption: Figcaption,
   h1: headings.h2, // h1 reserved for article title
   h2: headings.h2,
@@ -33,21 +30,16 @@ const components = {
   ul: UnorderedList,
   ol: OrderedList,
   p: Paragraph,
-  pre: CodePre,
+  pre: CodeBlock,
   table: Table,
   th: TableHeadCell,
   thead: TableHead,
   td: TableCell,
 }
 
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <ViriditasProvider>
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </ViriditasProvider>
-    </>
-  )
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    ...components,
+    ...customComponents,
+  }
 }
