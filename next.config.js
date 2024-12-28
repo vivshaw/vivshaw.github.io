@@ -1,15 +1,17 @@
 const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin")
+const createMDX = require("@next/mdx")
+const createPWA = require("next-pwa")
 
 const withVanillaExtract = createVanillaExtractPlugin()
 
-const withMDX = require("@next/mdx")({
+const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [require("remark-prism")],
   },
 })
 
-const withPWA = require("next-pwa")({
+const withPWA = createPWA({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
 })
