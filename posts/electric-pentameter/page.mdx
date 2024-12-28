@@ -1,5 +1,3 @@
-import { PostTemplate } from "../_components/PostTemplate"
-
 export const meta = {
   title: "Do Robots Dream of Electric Pentameter?",
   blurb: "Generative poetry with LSTM neural networks",
@@ -252,7 +250,3 @@ However, what I think is even cooler is that these LSTM methods are applicable t
 Personally, I chose to use Flask to build my network into a little web app, so that others might find amusement from it. The result: a [sonnet-spewing interactive robo-Shakespeare](https://github.com/vivshaw/shakespeare-LSTM/).
 
 Hopefully, this has been a helpful intro to what LSTM networks can do and how we can implement them in Keras. If your curiosity is piqued, peruse the Keras [documentation](https://keras.io/) and try building some networks. With Keras, it's endlessly rewarding, and much simpler than it sounds. Happy coding!
-
-export default ({ children }) => (
-  <PostTemplate meta={meta}>{children}</PostTemplate>
-)

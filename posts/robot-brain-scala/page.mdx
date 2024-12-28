@@ -1,5 +1,3 @@
-import { PostTemplate } from "../_components/PostTemplate"
-
 export const meta = {
   title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
   blurb: "Exploring computer vision with a from-scratch neural net in Scala",
@@ -263,7 +261,3 @@ Awesome! Everything works, and we're getting over 94% acuracy with handwritten d
 If we want to make further improvements, we could spend a while tweaking our metaparameters or algorithms. But, I think I'll move on for now. My intent for this project was simply to learn the algorithms. For practical purposes, rolling one's own NN is likely suboptimal. If we want to apply neural networks to real problems, we'd be much better off working with one of the many optimized and tested neural network libraries out there, like [Torch](http://torch.ch/) or [Keras](https://keras.io/). As it so happens, I hope to explore exactly that over the next few weeks using Keras with TensorFlow.
 
 As always, if you want to see the code, [it's up on GitHub](https://github.com/vivshaw/scriptophile) for your viewing pleasure. Happy brain-building!
-
-export default ({ children }) => (
-  <PostTemplate meta={meta}>{children}</PostTemplate>
-)

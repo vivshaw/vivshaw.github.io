@@ -51,15 +51,14 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] fix navbar appearance & alignment in mobile menu
 - [ ] colors fade from light to dark on first page load. that should be fixed. probably this requires moving to global theming so I can style `html` and `body`
 - [ ] image optimization for static exports?
-- [ ] return SEO to being server-side, fully using the new metadata API
-- [ ] hack on `getAllBlogPosts()` some more- where should it live? does it stil have the restrictions of `getStaticProps`? can it be named or organized better?
 - [ ] should TableHeadCell use <th>?
 - [ ] update PWA library
 - [ ] consistent footer spacing- `40px` maybe?
-- [ ] come up with a more ergonomic organization for the blog posts- symlink at top level? figure out how to turn PostTemplate into some kind of layout component?
 - [ ] obliterate `pageStyles` directory
 - [ ] should simple components like `AboutList` and friends be components, or just CSS files?
 - [ ] extract MDX components to a separate package?
 - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] set up Google verification, etc
 - [ ] better branded theme color
+- [ ] restyle so all pages can share `.centeringWrapper` etc.
+- [ ] get structured schema.org metadata working again
