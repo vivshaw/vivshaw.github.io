@@ -56,3 +56,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] should TableHeadCell use <th>?
 - [ ] update PWA library
 - [ ] consistent footer spacing- `40px` maybe?
+- [ ] consistently use either `article` or `post` for blog posts, not both
+- [ ] come up with a more ergonomic organization for the blog posts- symlink at top level?
+- [ ] case css files the same as the component file?
+- [ ] obliterate `pageStyles` directory
+- [ ] should simple components like `AboutList` and friends be components, or just CSS files?

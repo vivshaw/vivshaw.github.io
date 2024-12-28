@@ -2,7 +2,7 @@ import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import type { Article } from "@data"
 import { centeringWrapper, mainpageContent } from "@pageStyles/main.css"
-import { BlogList } from "./Blog.List"
+import { BlogList } from "./BlogList"
 
 type BlogTemplateProps = {
   articles: Article[]

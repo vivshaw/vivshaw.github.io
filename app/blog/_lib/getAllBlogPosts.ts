@@ -13,7 +13,9 @@ export async function getAllBlogPosts(): Promise<ArticleFromServer[]> {
   const root = path.join(process.cwd(), "app/blog/(posts)")
 
   const allPages = await fs.readdir(root)
-  const withoutIndex = allPages.filter((item) => item !== "index.js")
+  const withoutIndex = allPages.filter(
+    (item) => item !== "index.js" && item !== "_components",
+  )
   const blogs = await Promise.all(
     withoutIndex.map((item) => import(`@app/blog/(posts)/${item}/page.mdx`)),
   )

@@ -1,13 +1,13 @@
 import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import { author } from "@data"
-import { aboutList } from "@pageStyles/about.css"
 import {
   centeringWrapper,
   mainpageContent,
   mainpageHeading,
   mainpageLink,
 } from "@pageStyles/main.css"
+import { aboutList } from "./_components/AboutList.css"
 
 /**
  * The about page for the site.

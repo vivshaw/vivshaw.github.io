@@ -1,5 +1,5 @@
 import type { Article } from "@data"
-import { prettyPrintDate } from "@utils"
+import { prettyPrintDate } from "@lib"
 import {
   header,
   articleHeroTitle,

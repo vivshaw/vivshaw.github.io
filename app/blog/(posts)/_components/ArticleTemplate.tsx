@@ -4,10 +4,11 @@ import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
 import { Seo } from "@components/SEO"
 import type { Article } from "@data"
-import { prettyPrintDate } from "@utils"
-import { ArticleHero } from "./Article.Hero"
-import { ArticleNext } from "./Article.Next"
+import { prettyPrintDate } from "@lib"
+import { ArticleHero } from "./ArticleHero"
+import { ArticleNext } from "./ArticleNext"
 import { articleBody, footerNext, footerSpacer, section } from "./article.css"
+
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: Article[] = [
   {

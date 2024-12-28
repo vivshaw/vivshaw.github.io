@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import type { Article } from "@data"
-import { prettyPrintDate } from "@utils"
+import { prettyPrintDate } from "@lib"
 import {
   articleNextExcerpt,
   articleNextGrid,

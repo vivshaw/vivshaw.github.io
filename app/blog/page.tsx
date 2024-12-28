@@ -1,5 +1,5 @@
-import { BlogTemplate } from "@templates/Blog"
-import { getAllBlogPosts } from "@utils/server"
+import { BlogTemplate } from "./_components/BlogTemplate"
+import { getAllBlogPosts } from "./_lib/getAllBlogPosts"
 
 /**
  * The index page for the blog. Lists all the articles.
