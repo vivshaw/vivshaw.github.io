@@ -8,9 +8,11 @@ type SeoData =
     }
   | {
       type: "post"
+      dateModified?: string
       datePublished: string
       description: string
       slug: string
+      tags: string[]
       title: string
     }
   | {
@@ -18,6 +20,7 @@ type SeoData =
       description: string
       slug: string
       title: string
+      tags?: string[]
     }
 
 /**
@@ -79,9 +82,42 @@ export function metadataHelper(data: SeoData): Metadata {
     }
   })()
 
+  const pageKeywords = (() => {
+    const defaultKeywords = [
+      "engineering",
+      "machine learning",
+      "software",
+      "technology",
+    ]
+    switch (data.type) {
+      case "post":
+        return data.tags
+      case "other":
+        return data.tags ?? defaultKeywords
+      case "home":
+      default:
+        return defaultKeywords
+    }
+  })()
+
+  const pageDates = (() => {
+    switch (data.type) {
+      case "post":
+        return {
+          "article:published_time": data.datePublished,
+          ...(data.dateModified && {
+            "article:modified_time": data.dateModified,
+          }),
+        }
+      default:
+        return undefined
+    }
+  })()
+
   return {
     // Basic tags
     description: pageDescription,
+    keywords: pageKeywords,
     title: pageName,
 
     // Social tags
@@ -102,5 +138,7 @@ export function metadataHelper(data: SeoData): Metadata {
       site: site.url,
       title: pageName,
     },
+
+    ...(pageDates ? { other: pageDates } : {}),
   }
 }

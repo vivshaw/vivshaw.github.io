@@ -22,14 +22,6 @@ export const metadata: Metadata = {
   authors: [{ name: author.name, url: site.url }],
   creator: author.name,
   generator: "Next.js",
-  // TODO: Make this depends on the blog post tags!!
-  keywords: [
-    "engineering",
-    "software",
-    "engineering manager",
-    "leadership",
-    "technology",
-  ],
 
   // PWA & icon tags
   appleWebApp: {

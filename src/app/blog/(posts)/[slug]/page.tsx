@@ -78,12 +78,17 @@ export async function generateMetadata({
   const { slug } = await params
   const { meta } = await importBlogPost(slug)
   const prettyDate = prettyPrintDate(meta.date)
+  const prettyDateModified = meta.dateModified
+    ? prettyPrintDate(meta.dateModified)
+    : undefined
 
   return metadataHelper({
     type: "post",
+    dateModified: prettyDateModified,
     datePublished: prettyDate,
     description: meta.blurb,
     slug: slug,
+    tags: meta.tags,
     title: meta.title,
   })
 }
