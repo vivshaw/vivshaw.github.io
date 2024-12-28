@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import type { Post } from "@data"
-import { prettyPrintDate } from "@lib"
+import type { Post } from "#data"
+import { prettyPrintDate } from "#lib"
 import {
   blogList,
   postBlurb,

@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes"
 
-import { breakpoints } from "@viriditas/theme/theme.css"
+import { breakpoints } from "#viriditas/theme/theme.css"
 
 export const horizontalRule = recipe({
   base: {

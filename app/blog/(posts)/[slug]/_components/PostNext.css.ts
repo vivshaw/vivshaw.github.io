@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
-import { heading3 } from "@components/MDX/Headings/headings.css"
-import { breakpoints, tokens } from "@viriditas/theme/theme.css"
+import { heading3 } from "#components/MDX/Headings/headings.css"
+import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
 export const container = recipe({
   base: {

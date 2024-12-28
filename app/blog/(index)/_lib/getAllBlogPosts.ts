@@ -1,5 +1,5 @@
-import type { Post } from "@data"
-import { importBlogPost, listAllBlogSlugs } from "@lib/postHelpers"
+import type { Post } from "#data"
+import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
 
 /** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
 type PostFromServer = Omit<Post, "date"> & { date: string }

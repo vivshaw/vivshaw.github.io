@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 
-import { heading1 } from "@components/MDX/Headings/headings.css"
-import { breakpoints, tokens } from "@viriditas/theme/theme.css"
+import { heading1 } from "#components/MDX/Headings/headings.css"
+import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
 export const header = style({
   margin: "100px auto 70px",

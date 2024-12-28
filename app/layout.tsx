@@ -1,8 +1,8 @@
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"
 
-import { author, site } from "@data"
-import { metadataHelper } from "@lib/metadataHelper"
+import { author, site } from "#data"
+import { metadataHelper } from "#lib/metadataHelper"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
 

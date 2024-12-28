@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 
-import { author } from "@data"
-import { metadataHelper } from "@lib/metadataHelper"
+import { author } from "#data"
+import { metadataHelper } from "#lib/metadataHelper"
 import {
   centeringWrapper,
   mainpageContent,
   mainpageHeading,
   mainpageLink,
-} from "@pageStyles/main.css"
+} from "#pageStyles/main.css"
 import { aboutList } from "./_components/AboutList.css"
 
 export const metadata: Metadata = metadataHelper({

@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "@viriditas/theme/theme.css"
+import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
 export const mdxBody = style({
   display: "flex",

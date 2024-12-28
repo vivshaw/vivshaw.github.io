@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "@viriditas/theme/theme.css"
+import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
 export const interactionHover = style({
   opacity: 0.5,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next/types"
 
-import { author, site } from "@data"
+import { author, site } from "#data"
 
 type SeoData =
   | {

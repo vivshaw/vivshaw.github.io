@@ -5,7 +5,7 @@ import {
   mainpageContent,
   mainpageHeading,
   mainpageLink,
-} from "@pageStyles/main.css"
+} from "#pageStyles/main.css"
 
 /**
  * The home page for the site.

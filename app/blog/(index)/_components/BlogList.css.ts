@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 
-import { heading2 } from "@components/MDX/Headings/headings.css"
-import { breakpoints, tokens } from "@viriditas/theme/theme.css"
+import { heading2 } from "#components/MDX/Headings/headings.css"
+import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
 export const blogList = style({
   transition: "opacity 0.25s",

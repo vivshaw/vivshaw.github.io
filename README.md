@@ -45,7 +45,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] change "More articles from vivshaw's" to something that reads better
 - [ ] should I use an actual list for the blog list? not sure!
 - [ ] stop using global transition variables, and standardize transitions more generally
-- [ ] use a path alias that is more easily distinguishable from NPM packages
 - [ ] sans is only used in tables, should I drop it?
 - [ ] heading styles in MDX get broken alignment on small screens
 - [ ] fix navbar appearance & alignment in mobile menu

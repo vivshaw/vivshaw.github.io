@@ -3,7 +3,7 @@
 import Head from "next/head"
 import { usePathname } from "next/navigation"
 
-import { author, site } from "@data"
+import { author, site } from "#data"
 
 type SeoData =
   | {

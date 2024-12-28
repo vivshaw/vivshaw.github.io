@@ -1,12 +1,12 @@
 import clsx from "clsx"
 import { PropsWithChildren } from "react"
 
-import { PRISM_CODE_CLASS } from "@components/MDX/mdxBody.css"
+import { PRISM_CODE_CLASS } from "#components/MDX/mdxBody.css"
 
 // import { useState } from "react"
 // import styled from "@emotion/styled"
-// import { CopyIcon } from "@icons/ui/Copy"
-// import { CopiedIcon } from "@icons/ui/Copied"
+// import { CopyIcon } from "#icons/ui/Copy"
+// import { CopiedIcon } from "#icons/ui/Copied"
 // import { mediaqueries } from "@styles/media"
 // import { copyToClipboard } from "@utils"
 

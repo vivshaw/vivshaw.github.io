@@ -2,7 +2,7 @@
 
 import { clsx } from "clsx"
 
-import { useViriditasTheme } from "@viriditas/context"
+import { useViriditasTheme } from "#viriditas/context"
 import { horizontalRule } from "./horizontalRule.css"
 
 /**

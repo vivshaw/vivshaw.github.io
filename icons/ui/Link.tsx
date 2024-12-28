@@ -1,4 +1,4 @@
-import type { IconProps } from "@icons/types"
+import type { IconProps } from "#icons/types"
 
 export function LinkIcon({ fill }: IconProps) {
   return (

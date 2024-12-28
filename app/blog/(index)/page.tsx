@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { metadataHelper } from "@lib/metadataHelper"
+import { metadataHelper } from "#lib/metadataHelper"
 import { BlogList } from "./_components/BlogList"
 import { getSortedBlogMetas } from "./_lib/getAllBlogPosts"
 

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
 
-import { centeringWrapper, mainpageContent } from "@pageStyles/main.css"
+import { centeringWrapper, mainpageContent } from "#pageStyles/main.css"
 
 export default function BlogLayout({ children }: PropsWithChildren<{}>) {
   return (

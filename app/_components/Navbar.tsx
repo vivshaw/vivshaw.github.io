@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import { DarkModeToggle } from "@app/_components/DarkModeToggle"
-import { centeringWrapper } from "@pageStyles/main.css"
+import { centeringWrapper } from "#pageStyles/main.css"
+import { DarkModeToggle } from "./DarkModeToggle"
 import { MobileMenu } from "./MobileMenu"
 import { logoLink, container, controls, linkList, link } from "./Navbar.css"
 

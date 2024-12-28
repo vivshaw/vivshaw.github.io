@@ -1,5 +1,5 @@
-import type { Post } from "@data"
-import { prettyPrintDate } from "@lib"
+import type { Post } from "#data"
+import { prettyPrintDate } from "#lib"
 import { header, title, subtitle } from "./PostHero.css"
 
 interface PostHeroProps {

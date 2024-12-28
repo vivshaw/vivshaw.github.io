@@ -4,9 +4,9 @@ import { clsx } from "clsx"
 import Link from "next/link"
 import { useState } from "react"
 
-import { CloseIcon } from "@icons/ui/Close"
-import { MenuIcon } from "@icons/ui/Menu"
-import { tokens } from "@viriditas/theme/theme.css"
+import { CloseIcon } from "#icons/ui/Close"
+import { MenuIcon } from "#icons/ui/Menu"
+import { tokens } from "#viriditas/theme/theme.css"
 import { DarkModeToggle } from "./DarkModeToggle"
 import {
   container,

@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from "react"
 
-import { Navbar } from "@app/_components/Navbar"
-import "@viriditas/reset.css"
+import "#viriditas/reset.css"
 import { container, content } from "./LayoutWrapper.css"
+import { Navbar } from "./Navbar"
 
 export function LayoutWrapper({
   children,
