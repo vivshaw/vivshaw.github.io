@@ -10,9 +10,9 @@ import {
 } from "@pageStyles/main.css"
 
 /**
- * The index page for the blog. Lists all the articles.
+ * The about page for the site.
  */
-export default function Index() {
+export default function About() {
   return (
     <Layout>
       <Seo
