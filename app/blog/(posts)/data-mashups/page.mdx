@@ -1,4 +1,4 @@
-import { ArticleTemplate } from "../_components/ArticleTemplate"
+import { PostTemplate } from "../_components/PostTemplate"
 
 export const meta = {
   title: "Data Mashups: Remix Your Way To Interactive Visualizations",
@@ -19,5 +19,5 @@ export const meta = {
 The delightful [Alison Cossette](https://twitter.com/alison_cossette) and I just co-presented a talk at [Burlington Data Science](https://www.meetup.com/Burlington-Data-Scientists/) on using public data for business purposes. (My first talk ever!) My half of the talk was about using Python, Javascript, & GIS systems to mash up public economic & geographic datasets to build interactive visualizations of trends in employment within the IT industry. [My slides & demo apps are up here](https://vivsha.ws/4-19-public-data-talk/).
 
 export default ({ children }) => (
-  <ArticleTemplate meta={meta}>{children}</ArticleTemplate>
+  <PostTemplate meta={meta}>{children}</PostTemplate>
 )

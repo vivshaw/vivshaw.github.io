@@ -4,11 +4,11 @@ import type { Article } from "@data"
 import { prettyPrintDate } from "@lib"
 import {
   blogList,
-  blogListItemBlurb,
-  blogListItemDate,
-  blogListItemLink,
-  blogListItemTitle,
-} from "./blogList.css"
+  postBlurb,
+  postDate,
+  postLink,
+  postTitle,
+} from "./BlogList.css"
 
 interface BlogListProps {
   articles: Article[]
@@ -33,10 +33,10 @@ function BlogListItem({ article }: BlogListItemProps) {
   const hasBlurb = article.blurb
 
   return (
-    <Link className={blogListItemLink} href={`/blog/${article.slug}`}>
-      <h2 className={blogListItemTitle}>{article.title}</h2>
-      {hasBlurb && <p className={blogListItemBlurb}>{article.blurb}</p>}
-      <div className={blogListItemDate}>{prettyDate}</div>
+    <Link className={postLink} href={`/blog/${article.slug}`}>
+      <h2 className={postTitle}>{article.title}</h2>
+      {hasBlurb && <p className={postBlurb}>{article.blurb}</p>}
+      <div className={postDate}>{prettyDate}</div>
     </Link>
   )
 }

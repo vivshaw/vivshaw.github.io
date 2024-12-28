@@ -1,4 +1,3 @@
-import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import type { Article } from "@data"
 import { centeringWrapper, mainpageContent } from "@pageStyles/main.css"
@@ -14,7 +13,7 @@ type BlogTemplateProps = {
  */
 export function BlogTemplate({ articles }: BlogTemplateProps) {
   return (
-    <Layout>
+    <>
       <Seo
         data={{
           type: "other",
@@ -27,6 +26,6 @@ export function BlogTemplate({ articles }: BlogTemplateProps) {
           <BlogList articles={articles} />
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

@@ -7,14 +7,14 @@ import { useState } from "react"
 import { CloseIcon } from "@icons/ui/Close"
 import { MenuIcon } from "@icons/ui/Menu"
 import { tokens } from "@viriditas/theme/theme.css"
-import { DarkModeToggle } from "../DarkModeToggle"
+import { DarkModeToggle } from "./DarkModeToggle"
 import {
-  mobileMenuWrapper,
+  container,
   iconWrapper,
-  mobileMenuContents,
-  mobileMenuLink,
-  mobileMenuNavLinks,
-} from "./mobileMenu.css"
+  contents,
+  link,
+  linkList,
+} from "./MobileMenu.css"
 
 export function MobileMenu(): React.ReactElement<any> {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -22,7 +22,7 @@ export function MobileMenu(): React.ReactElement<any> {
   const toggleMenu = () => setMenuOpen((menuState) => !menuState)
 
   return (
-    <div className={mobileMenuWrapper}>
+    <div className={container}>
       <div className={iconWrapper} onClick={toggleMenu}>
         {menuOpen ? (
           <CloseIcon fill={tokens.color.primary} />
@@ -31,20 +31,20 @@ export function MobileMenu(): React.ReactElement<any> {
         )}
       </div>
 
-      <div className={clsx(mobileMenuContents, menuOpen && "show")}>
-        <ul className={mobileMenuNavLinks}>
+      <div className={clsx(contents, menuOpen && "show")}>
+        <ul className={linkList}>
           <li>
-            <Link className={mobileMenuLink} href="/blog">
+            <Link className={link} href="/blog">
               Blog
             </Link>
           </li>
           <li>
-            <a className={mobileMenuLink} href="https://zettel.vivsha.ws">
+            <a className={link} href="https://zettel.vivsha.ws">
               Zettel
             </a>
           </li>
           <li>
-            <Link className={mobileMenuLink} href="/about">
+            <Link className={link} href="/about">
               About
             </Link>
           </li>

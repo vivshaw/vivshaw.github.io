@@ -24,7 +24,7 @@ export const iconButton = style([
   },
 ])
 
-export const navContainer = style({
+export const container = style({
   display: "flex",
   height: "40px",
   justifyContent: "space-between",
@@ -58,7 +58,7 @@ export const logoLink = style({
   },
 })
 
-export const navControls = style({
+export const controls = style({
   alignItems: "center",
   display: "flex",
   position: "relative",
@@ -70,14 +70,14 @@ export const navControls = style({
   },
 })
 
-export const navLinks = style({
+export const linkList = style({
   display: "flex",
   gap: "24px",
   listStyle: "none",
   marginRight: "30px",
 })
 
-export const pageLink = style([
+export const link = style([
   interactionHover,
   {
     color: tokens.color.primary,

@@ -1,13 +1,12 @@
 import { PropsWithChildren } from "react"
 
-import { Layout } from "@components/Layout"
 import { MDXBody } from "@components/MDX"
 import { Seo } from "@components/SEO"
 import type { Article } from "@data"
 import { prettyPrintDate } from "@lib"
-import { ArticleHero } from "./ArticleHero"
-import { ArticleNext } from "./ArticleNext"
-import { articleBody, footerNext, footerSpacer, section } from "./article.css"
+import { PostHero } from "./PostHero"
+import { PostNext } from "./PostNext"
+import { postBody, footerNext, footerSpacer, section } from "./PostTemplate.css"
 
 // TODO: Remove these after `next` actually works!!
 const fakeNextMetas: Article[] = [
@@ -36,7 +35,7 @@ type ArticleProps = {
 /**
  * Template for a single blog post.
  */
-export function ArticleTemplate({
+export function PostTemplate({
   meta,
   children,
 }: PropsWithChildren<ArticleProps>) {
@@ -45,7 +44,7 @@ export function ArticleTemplate({
   const prettyDate = prettyPrintDate(meta.date)
 
   return (
-    <Layout>
+    <>
       <Seo
         data={{
           type: "article",
@@ -55,19 +54,19 @@ export function ArticleTemplate({
         }}
       />
 
-      <ArticleHero article={meta} />
+      <PostHero article={meta} />
 
-      <article className={articleBody}>
+      <article className={postBody}>
         <MDXBody>{children}</MDXBody>
       </article>
 
       {next.length > 0 && (
         <section className={section}>
           <h3 className={footerNext}>More articles from vivshaw's</h3>
-          <ArticleNext articles={next} />
+          <PostNext articles={next} />
           <div className={footerSpacer} />
         </section>
       )}
-    </Layout>
+    </>
   )
 }

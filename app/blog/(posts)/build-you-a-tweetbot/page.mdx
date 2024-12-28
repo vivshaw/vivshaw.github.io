@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { ArticleTemplate } from "../_components/ArticleTemplate"
+import { PostTemplate } from "../_components/PostTemplate"
 import tweepyExample from "./tweepy-example.png"
 
 export const meta = {
@@ -276,5 +276,5 @@ That's all there is to it! If you want to see this code in action, you can check
 Happy botsmithing!
 
 export default ({ children }) => (
-  <ArticleTemplate meta={meta}>{children}</ArticleTemplate>
+  <PostTemplate meta={meta}>{children}</PostTemplate>
 )

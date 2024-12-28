@@ -1,6 +1,5 @@
-import { BlogTemplate } from "./_components/BlogTemplate"
 import { getAllBlogPosts } from "./_lib/getAllBlogPosts"
-
+import { BlogTemplate } from "./_components/BlogTemplate"
 /**
  * The index page for the blog. Lists all the articles.
  */

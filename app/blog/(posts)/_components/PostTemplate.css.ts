@@ -23,7 +23,7 @@ export const section = style({
   },
 })
 
-export const articleBody = style({
+export const postBody = style({
   margin: "0 auto",
   maxWidth: "744px",
   padding: "0 0 35px",

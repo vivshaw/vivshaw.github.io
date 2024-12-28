@@ -30,7 +30,7 @@ export const header = style({
 })
 
 // TODO: Stop sharing the MDX headings like this!
-export const articleHeroTitle = style([
+export const title = style([
   heading1,
   {
     fontFamily: tokens.font.display,
@@ -49,7 +49,7 @@ export const articleHeroTitle = style([
   },
 ])
 
-export const articleHeroSubtitle = style({
+export const subtitle = style({
   marginLeft: "0",
   position: "relative",
   display: "flex",

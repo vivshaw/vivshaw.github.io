@@ -1,4 +1,3 @@
-import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import { author } from "@data"
 import {
@@ -14,7 +13,7 @@ import { aboutList } from "./_components/AboutList.css"
  */
 export default function About() {
   return (
-    <Layout>
+    <>
       <Seo
         data={{
           type: "other",
@@ -99,6 +98,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

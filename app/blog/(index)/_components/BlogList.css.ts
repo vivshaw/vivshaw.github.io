@@ -7,7 +7,7 @@ export const blogList = style({
   transition: "opacity 0.25s",
 })
 
-export const blogListItemLink = style({
+export const postLink = style({
   borderRadius: "5px",
   display: "block",
   height: "100%",
@@ -50,7 +50,7 @@ const limitLines = style({
 })
 
 // TODO: Stop sharing the MDX headings like this!
-export const blogListItemTitle = style([
+export const postTitle = style([
   heading2,
   limitLines,
   {
@@ -61,7 +61,7 @@ export const blogListItemTitle = style([
     transition: "color 0.3s ease-in-out",
 
     selectors: {
-      [`${blogListItemLink}:hover &, ${blogListItemLink}:focus &`]: {
+      [`${postLink}:hover &, ${postLink}:focus &`]: {
         color: tokens.color.accent,
       },
     },
@@ -83,7 +83,7 @@ export const blogListItemTitle = style([
   },
 ])
 
-export const blogListItemBlurb = style([
+export const postBlurb = style([
   limitLines,
   {
     color: tokens.color.grey,
@@ -105,7 +105,7 @@ export const blogListItemBlurb = style([
   },
 ])
 
-export const blogListItemDate = style({
+export const postDate = style({
   color: tokens.color.grey,
   fontFamily: tokens.font.book,
   fontSize: "16px",

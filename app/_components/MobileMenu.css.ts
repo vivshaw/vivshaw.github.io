@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "@viriditas/theme/theme.css"
-import { interactionHover } from "../navbar.css"
+import { interactionHover } from "./Navbar.css"
 
-export const mobileMenuWrapper = style({
+export const container = style({
   display: "none",
 
   "@media": {
@@ -23,7 +23,7 @@ export const iconWrapper = style([
   },
 ])
 
-export const mobileMenuContents = style({
+export const contents = style({
   backgroundColor: tokens.color.background,
   height: 0,
   left: 0,
@@ -41,15 +41,7 @@ export const mobileMenuContents = style({
   },
 })
 
-export const mobileMenuLink = style([
-  interactionHover,
-  {
-    color: tokens.color.primary,
-    fontSize: "27px",
-  },
-])
-
-export const mobileMenuNavLinks = style({
+export const linkList = style({
   display: "flex",
   flexDirection: "column",
   gap: "8px",
@@ -57,3 +49,11 @@ export const mobileMenuNavLinks = style({
   marginTop: "80px",
   marginLeft: "32px",
 })
+
+export const link = style([
+  interactionHover,
+  {
+    color: tokens.color.primary,
+    fontSize: "27px",
+  },
+])

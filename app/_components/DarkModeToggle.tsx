@@ -1,8 +1,8 @@
 "use client"
 
 import { useViriditasTheme } from "@viriditas/context"
-import { iconButton } from "../navbar.css"
-import { moonMask, moonOrSun } from "./darkModeToggle.css"
+import { iconButton } from "./Navbar.css"
+import { moonMask, moonOrSun } from "./DarkModeToggle.css"
 
 export function DarkModeToggle() {
   const { theme, setTheme } = useViriditasTheme()

@@ -3,12 +3,12 @@ import Link from "next/link"
 import type { Article } from "@data"
 import { prettyPrintDate } from "@lib"
 import {
-  articleNextExcerpt,
-  articleNextGrid,
-  articleNextLink,
-  articleNextMetaData,
-  articleNextTitle,
-} from "./articleNext.css"
+  postExcerpt,
+  container,
+  postLink,
+  postDate,
+  postTitle,
+} from "./PostNext.css"
 
 interface ArticlesNextProps {
   /**
@@ -30,7 +30,7 @@ interface ArticlesNextProps {
  * as the next one suggested article, which requires special styling we didn't want to
  * mix into the generic list component.
  */
-export function ArticleNext({ articles }: ArticlesNextProps) {
+export function PostNext({ articles }: ArticlesNextProps) {
   const numberOfArticles = articles.length
 
   if (numberOfArticles < 1) {
@@ -40,7 +40,7 @@ export function ArticleNext({ articles }: ArticlesNextProps) {
   const showTwoArticles = numberOfArticles > 1
 
   return (
-    <div className={articleNextGrid({ multipleArticles: showTwoArticles })}>
+    <div className={container({ multipleArticles: showTwoArticles })}>
       <GridItem article={articles[0]} />
       {showTwoArticles && <GridItem article={articles[1]} />}
     </div>
@@ -58,10 +58,10 @@ function GridItem({ article }: GridItemProps) {
   const prettyDate = prettyPrintDate(article.date)
 
   return (
-    <Link className={articleNextLink} href={article.slug}>
-      <h3 className={articleNextTitle}>{article.title}</h3>
-      <p className={articleNextExcerpt}>{article.blurb}</p>
-      <div className={articleNextMetaData}>{prettyDate}</div>
+    <Link className={postLink} href={article.slug}>
+      <h3 className={postTitle}>{article.title}</h3>
+      <p className={postExcerpt}>{article.blurb}</p>
+      <div className={postDate}>{prettyDate}</div>
     </Link>
   )
 }

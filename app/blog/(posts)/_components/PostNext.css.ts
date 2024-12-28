@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes"
 import { heading3 } from "@components/MDX/Headings/headings.css"
 import { breakpoints, tokens } from "@viriditas/theme/theme.css"
 
-export const articleNextGrid = recipe({
+export const container = recipe({
   base: {
     columnGap: "30px",
     display: "grid",
@@ -38,7 +38,7 @@ export const articleNextGrid = recipe({
   },
 })
 
-export const articleNextLink = style({
+export const postLink = style({
   display: "block",
   left: "0",
   height: "100%",
@@ -70,7 +70,7 @@ export const articleNextLink = style({
 })
 
 // TODO: Stop sharing the MDX headings like this!
-export const articleNextTitle = style([
+export const postTitle = style([
   heading3,
   {
     color: tokens.color.primary,
@@ -81,7 +81,7 @@ export const articleNextTitle = style([
     transition: "color 0.3s ease-in-out",
 
     selectors: {
-      [`${articleNextLink}:hover &`]: {
+      [`${postLink}:hover &`]: {
         color: tokens.color.accent,
       },
     },
@@ -99,7 +99,7 @@ export const articleNextTitle = style([
 ])
 
 // TODO: do I _really_ need these Webkit vendor properties?
-export const articleNextExcerpt = style({
+export const postExcerpt = style({
   color: tokens.color.grey,
   fontSize: "16px",
   marginBottom: "10px",
@@ -121,7 +121,7 @@ export const articleNextExcerpt = style({
   },
 })
 
-export const articleNextMetaData = style({
+export const postDate = style({
   color: tokens.color.grey,
   fontSize: "16px",
   fontWeight: "600",

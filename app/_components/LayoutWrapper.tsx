@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react"
 
-import { Navbar } from "@components/Navbar"
+import { Navbar } from "@app/_components/Navbar"
 import "@viriditas/reset.css"
-import { container, content } from "./layout.css"
+import { container, content } from "./LayoutWrapper.css"
 
-export function Layout({
+export function LayoutWrapper({
   children,
 }: PropsWithChildren<{}>): React.ReactElement<any> {
   return (

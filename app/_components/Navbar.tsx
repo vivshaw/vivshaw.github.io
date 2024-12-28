@@ -1,38 +1,32 @@
 import Link from "next/link"
 
-import { DarkModeToggle } from "@components/Navbar/DarkModeToggle"
+import { DarkModeToggle } from "@app/_components/DarkModeToggle"
 import { centeringWrapper } from "@pageStyles/main.css"
 import { MobileMenu } from "./MobileMenu"
-import {
-  logoLink,
-  navContainer,
-  navControls,
-  navLinks,
-  pageLink,
-} from "./navbar.css"
+import { logoLink, container, controls, linkList, link } from "./Navbar.css"
 
 export function Navbar() {
   return (
     <div className={centeringWrapper}>
-      <nav className={navContainer}>
+      <nav className={container}>
         <Link className={logoLink} href="/" title="Go to the homepage">
           <em>vivshaw's</em>
         </Link>
 
-        <div className={navControls}>
-          <ul className={navLinks}>
+        <div className={controls}>
+          <ul className={linkList}>
             <li>
-              <Link className={pageLink} href="/blog">
+              <Link className={link} href="/blog">
                 Blog
               </Link>
             </li>
             <li>
-              <a className={pageLink} href="https://zettel.vivsha.ws">
+              <a className={link} href="https://zettel.vivsha.ws">
                 Zettel
               </a>
             </li>
             <li>
-              <Link className={pageLink} href="/about">
+              <Link className={link} href="/about">
                 About
               </Link>
             </li>
