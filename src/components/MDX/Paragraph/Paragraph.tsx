@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { paragraph } from "./paragraph.css"
+import { paragraph } from "./Paragraph.css"
 
 /**
  * A styled <p> element, for use in MDX.

@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { table, tableWrapper } from "./table.css"
+import { table, tableWrapper } from "./Table.css"
 
 /**
  * A styled `<table>` element, for use in MDX.

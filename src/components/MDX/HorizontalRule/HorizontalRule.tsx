@@ -3,7 +3,7 @@
 import { clsx } from "clsx"
 
 import { useViriditasTheme } from "#viriditas/context"
-import { horizontalRule } from "./horizontalRule.css"
+import { horizontalRule } from "./HorizontalRule.css"
 
 /**
  * A styled `<hr>` element, for use in MDX.

@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "#viriditas/theme/theme.css"
-import { blockquote } from "../Blockquote/blockquote.css"
-import { listItem } from "../Lists/listItem.css"
+import { blockquote } from "../Blockquote/Blockquote.css"
+import { listItem } from "../ListItem/ListItem.css"
 
 export const paragraph = style({
   color: tokens.color.bodyText,

@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { listItem } from "./listItem.css"
+import { listItem } from "./ListItem.css"
 
 /**
  * A styled `<li>` element, for use in MDX lists.

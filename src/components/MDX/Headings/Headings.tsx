@@ -7,7 +7,7 @@ import {
   heading4,
   heading5,
   heading6,
-} from "./headings.css"
+} from "./Headings.css"
 
 /**
  * A styled `<h1>` element, for use in MDX.

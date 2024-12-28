@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { tableHead } from "./tableHead.css"
+import { tableHead } from "./TableHead.css"
 
 /**
  * A styled `<thead>` element, for use in MDX.

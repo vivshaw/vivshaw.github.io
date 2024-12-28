@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { tableCell } from "./tableCell.css"
+import { tableCell } from "./TableCell.css"
 
 /**
  * A styled `<td>` element, for use in MDX.

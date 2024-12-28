@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import { PropsWithChildren } from "react"
 
-import { PRISM_CODE_CLASS } from "#components/MDX/mdxBody.css"
+import { PRISM_CODE_CLASS } from "#components/MDX/MdxBody.css"
 
 // import { useState } from "react"
 // import styled from "@emotion/styled"

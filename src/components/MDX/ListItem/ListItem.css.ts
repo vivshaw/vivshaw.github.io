@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "#viriditas/theme/theme.css"
-import { orderedList } from "./orderedList.css"
-import { unorderedList } from "./unorderedList.css"
+import { orderedList } from "../OrderedList/OrderedList.css"
+import { unorderedList } from "../UnorderedList/UnorderedList.css"
 
 /**
  * A styled `<li>` element, for use in MDX.

@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { unorderedList } from "./unorderedList.css"
+import { unorderedList } from "./UnorderedList.css"
 
 /**
  * A styled `<ul>` element, for use in MDX.

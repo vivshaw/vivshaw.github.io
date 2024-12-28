@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { orderedList } from "./orderedList.css"
+import { orderedList } from "./OrderedList.css"
 
 /**
  * A styled `<ol>` element, for use in MDX.

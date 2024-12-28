@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react"
 
-import { mdxBody } from "./mdxBody.css"
+import { mdxBody } from "./MdxBody.css"
 
 /**
  * Wrapper for MDX content. Applies global styles for things like Prism and images.
  */
-export function MDXBody({ children }: PropsWithChildren<{}>) {
+export function MdxBody({ children }: PropsWithChildren<{}>) {
   return <div className={mdxBody}>{children}</div>
 }

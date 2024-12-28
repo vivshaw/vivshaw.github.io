@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { anchor } from "./anchor.css"
+import { anchor } from "./Anchor.css"
 
 /**
  * A styled `<a>` element, for use in MDX.
