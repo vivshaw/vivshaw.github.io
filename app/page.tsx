@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useRouter } from "next/router"
 
 import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
@@ -14,15 +13,13 @@ import {
  * The index page for the blog. Lists all the articles.
  */
 export default function Index() {
-  const router = useRouter()
-
   return (
     <Layout>
       <Seo
         data={{
           type: "home",
         }}
-        pathname={router.pathname}
+        pathname={"foos"}
       />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>

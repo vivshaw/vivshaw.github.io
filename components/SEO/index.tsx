@@ -1,4 +1,7 @@
+"use client"
+
 import Head from "next/head"
+import { usePathname } from "next/navigation"
 
 import { author, site } from "@data"
 
@@ -28,7 +31,11 @@ type SeoProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-export function Seo({ data, pathname }: SeoProps): React.ReactElement {
+export function Seo({
+  data,
+  pathname: _pathname,
+}: SeoProps): React.ReactElement {
+  const pathname = usePathname()
   const pageUrl = site.url + pathname
 
   const pageName = (() => {

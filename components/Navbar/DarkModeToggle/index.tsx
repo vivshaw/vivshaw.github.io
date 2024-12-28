@@ -1,3 +1,5 @@
+"use client"
+
 import { useViriditasTheme } from "@viriditas/context"
 import { iconButton } from "../navbar.css"
 import { moonMask, moonOrSun } from "./darkModeToggle.css"

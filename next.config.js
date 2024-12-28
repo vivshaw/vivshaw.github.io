@@ -21,7 +21,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  pageExtensions: ["js", "jsx", "mdx"],
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   typescript: {
     ignoreBuildErrors: true,
   },
