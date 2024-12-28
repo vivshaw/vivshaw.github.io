@@ -61,3 +61,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] better branded theme color
 - [ ] restyle so all pages can share `.centeringWrapper` etc.
 - [ ] get structured schema.org metadata working again
+- [ ] generate robots.txt, sitemap.xml, etc.
