@@ -1,4 +1,3 @@
-import { useRouter } from "next/router"
 import { PropsWithChildren } from "react"
 
 import { Layout } from "@components/Layout"
@@ -42,8 +41,6 @@ export function ArticleTemplate({
 }: PropsWithChildren<ArticleProps>) {
   const next = fakeNextMetas.filter((article) => article.slug !== meta.slug)
 
-  const router = useRouter()
-
   const prettyDate = prettyPrintDate(meta.date)
 
   return (
@@ -55,7 +52,6 @@ export function ArticleTemplate({
           description: meta.blurb,
           title: meta.title,
         }}
-        pathname={router.pathname}
       />
 
       <ArticleHero article={meta} />

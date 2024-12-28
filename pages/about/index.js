@@ -1,5 +1,3 @@
-import { useRouter } from "next/router"
-
 import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import { author } from "@data"
@@ -15,8 +13,6 @@ import {
  * The index page for the blog. Lists all the articles.
  */
 export default function Index() {
-  const router = useRouter()
-
   return (
     <Layout>
       <Seo
@@ -25,7 +21,6 @@ export default function Index() {
           title: "About Me",
           description: "Who exactly is vivshaw?",
         }}
-        pathname={router.pathname}
       />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>

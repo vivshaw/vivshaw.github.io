@@ -36,7 +36,7 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Code block styles for CLI
 - [ ] Actually display/use the category tags
 - [ ] Get "Next Article" working for real
-- [ ] Type article meta, if possible
+- [ ] Type article meta, if possible. or swap to using frontmatter!
 - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 - [ ] Monorepo it? (Turborepo? NX?)
 - [ ] Storybook & design system
@@ -51,3 +51,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] fix navbar appearance & alignment in mobile menu
 - [ ] colors fade from light to dark on first page load. that should be fixed. also, fix odd 1px of whitespace on the bottom of the page. probably this all requires moving to global theming so I can style `html` and `body`
 - [ ] image optimization for static exports?
+- [ ] return SEO to being server-side, fully using the new metadata API

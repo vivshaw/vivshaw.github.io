@@ -23,7 +23,6 @@ type SeoData =
 
 type SeoProps = {
   data: SeoData
-  pathname: string
 }
 
 // TODO: Should this be `next/seo`?
@@ -31,10 +30,7 @@ type SeoProps = {
 /**
  * Generates meta content and SEO tags for any page.
  */
-export function Seo({
-  data,
-  pathname: _pathname,
-}: SeoProps): React.ReactElement {
+export function Seo({ data }: SeoProps): React.ReactElement {
   const pathname = usePathname()
   const pageUrl = site.url + pathname
 

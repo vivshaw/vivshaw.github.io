@@ -1,10 +1,8 @@
-import { useRouter } from "next/router"
-
 import { Layout } from "@components/Layout"
 import { Seo } from "@components/SEO"
 import type { Article } from "@data"
-import { BlogList } from "./Blog.List"
 import { centeringWrapper, mainpageContent } from "@pageStyles/main.css"
+import { BlogList } from "./Blog.List"
 
 type BlogTemplateProps = {
   articles: Article[]
@@ -15,8 +13,6 @@ type BlogTemplateProps = {
  * In future, will be used for the tags pages.
  */
 export function BlogTemplate({ articles }: BlogTemplateProps) {
-  const router = useRouter()
-
   return (
     <Layout>
       <Seo
@@ -25,7 +21,6 @@ export function BlogTemplate({ articles }: BlogTemplateProps) {
           title: "Blog",
           description: "vivshaw's blog",
         }}
-        pathname={router.pathname}
       />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>

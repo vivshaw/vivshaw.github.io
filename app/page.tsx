@@ -19,7 +19,6 @@ export default function Index() {
         data={{
           type: "home",
         }}
-        pathname={"foos"}
       />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>
