@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@viriditas/theme/theme.css"
 
 export const orderedList = style({
-  color: tokens.color.articleText,
+  color: tokens.color.bodyText,
   counterReset: "list",
   fontSize: "18px",
   listStyle: "none",

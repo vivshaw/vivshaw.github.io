@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 
 import { metadataHelper } from "@lib/metadataHelper"
-import { BlogTemplate } from "./_components/BlogTemplate"
 import { getAllBlogPosts } from "./_lib/getAllBlogPosts"
+
+import { BlogList } from "./_components/BlogList"
 
 export const metadata: Metadata = metadataHelper({
   type: "other",
@@ -12,15 +13,15 @@ export const metadata: Metadata = metadataHelper({
 })
 
 /**
- * The index page for the blog. Lists all the articles.
+ * The index page for the blog. Lists all the posts.
  */
 export default async function Blog() {
-  const articlesDateless = await getAllBlogPosts()
+  const postsDateless = await getAllBlogPosts()
 
-  const articles = articlesDateless.map((item) => ({
+  const posts = postsDateless.map((item) => ({
     ...item,
     date: new Date(item.date),
   }))
 
-  return <BlogTemplate articles={articles} />
+  return <BlogList posts={posts} />
 }

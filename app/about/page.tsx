@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 
-import { Seo } from "@components/SEO"
 import { author } from "@data"
 import { metadataHelper } from "@lib/metadataHelper"
 import {

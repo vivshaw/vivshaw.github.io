@@ -5,7 +5,7 @@ import { blockquote } from "../Blockquote/blockquote.css"
 import { listItem } from "../Lists/listItem.css"
 
 export const paragraph = style({
-  color: tokens.color.articleText,
+  color: tokens.color.bodyText,
   fontFamily: tokens.font.book,
   fontSize: "22px",
   lineHeight: "1.756",

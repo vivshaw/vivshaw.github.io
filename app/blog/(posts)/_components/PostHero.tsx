@@ -1,20 +1,20 @@
-import type { Article } from "@data"
+import type { Post } from "@data"
 import { prettyPrintDate } from "@lib"
 import { header, title, subtitle } from "./PostHero.css"
 
-interface ArticleHeroProps {
-  article: Article
+interface PostHeroProps {
+  post: Post
 }
 
 /**
- * Displays the Hero section for a given Article.
+ * Displays the Hero section for a given Post.
  */
-export function PostHero({ article }: ArticleHeroProps) {
-  const prettyDate = prettyPrintDate(article.date)
+export function PostHero({ post }: PostHeroProps) {
+  const prettyDate = prettyPrintDate(post.date)
 
   return (
     <header className={header}>
-      <h1 className={title}>{article.title}</h1>
+      <h1 className={title}>{post.title}</h1>
       <div className={subtitle}>{prettyDate}</div>
     </header>
   )

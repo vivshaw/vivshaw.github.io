@@ -1,15 +1,15 @@
 import fs from "fs/promises"
 import path from "path"
 
-import type { Article } from "@data"
+import type { Post } from "@data"
 
 /** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
-type ArticleFromServer = Omit<Article, "date"> & { date: string }
+type PostFromServer = Omit<Post, "date"> & { date: string }
 
 /**
  * Fetches all the blog posts that currently exist.
  */
-export async function getAllBlogPosts(): Promise<ArticleFromServer[]> {
+export async function getAllBlogPosts(): Promise<PostFromServer[]> {
   const root = path.join(process.cwd(), "app/blog/(posts)")
 
   const allPages = await fs.readdir(root)

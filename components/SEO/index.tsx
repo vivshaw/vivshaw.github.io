@@ -10,7 +10,7 @@ type SeoData =
       type: "home"
     }
   | {
-      type: "article"
+      type: "post"
       datePublished: string
       description: string
       title: string
@@ -36,7 +36,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
 
   const pageName = (() => {
     switch (data.type) {
-      case "article":
+      case "post":
         return data.title
       case "home":
         return site.name
@@ -48,7 +48,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
 
   const pageDescription = (() => {
     switch (data.type) {
-      case "article":
+      case "post":
         return data.description
       case "other":
         return data.description
@@ -112,8 +112,8 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
 `
 
   // TODO: Get rid of the gross type assertions
-  /** This schema is used only for the blog articles. */
-  const articleSchema = `{
+  /** This schema is used only for the blog posts. */
+  const postSchema = `{
   "@context": "https://schema.org",
   "@graph": [
     ${alwaysHereSchema},
@@ -130,7 +130,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
       "primaryImageOfPage": {
         "@id": "${pageUrl}/#primaryimage"
       },
-      "datePublished": "${(data as { type: "article"; datePublished: string }).datePublished}",
+      "datePublished": "${(data as { type: "post"; datePublished: string }).datePublished}",
       "description": "${pageDescription}",
       "breadcrumb": {
         "@id": "${pageUrl}/#breadcrumb"
@@ -184,7 +184,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
         "@id": "${site.url}/#${author.id}"
       },
       "headline": "${pageName}",
-      "datePublished": "${(data as { type: "article"; datePublished: string }).datePublished}",
+      "datePublished": "${(data as { type: "post"; datePublished: string }).datePublished}",
       "mainEntityOfPage": {
         "@id": "${pageUrl}/#webpage"
       },
@@ -284,8 +284,8 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
   /** Schema.org structured metadata for the page. */
   const schema = (() => {
     switch (data.type) {
-      case "article":
-        return articleSchema
+      case "post":
+        return postSchema
       case "home":
         return homeSchema
       case "other":
@@ -296,7 +296,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
 
   return (
     <Head>
-      {data.type === "article" && (
+      {data.type === "post" && (
         <meta name="article:published_time" content={data.datePublished} />
       )}
 
@@ -359,7 +359,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
       {/** SORTED */}
       <meta
         property="og:type"
-        content={data.type === "article" ? "article" : "website"}
+        content={data.type === "post" ? "article" : "website"}
       />
       <meta property="og:title" content={pageName} />
       <meta property="og:url" content={pageUrl} />

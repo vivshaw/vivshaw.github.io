@@ -22,7 +22,7 @@ export const listItem = style({
 
   selectors: {
     [`${orderedList} &::before`]: {
-      color: tokens.color.articleText,
+      color: tokens.color.bodyText,
       content: 'counter(list) "."',
       counterIncrement: "list",
       display: "inline-block",
@@ -40,7 +40,7 @@ export const listItem = style({
       },
     },
     [`${unorderedList} &::before`]: {
-      backgroundColor: tokens.color.articleText,
+      backgroundColor: tokens.color.bodyText,
       content: '""',
       height: "8px",
       left: "-30px",

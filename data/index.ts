@@ -3,7 +3,7 @@ import type { StaticImageData } from "next/image"
 import avatarPic from "@images/avatar.jpg"
 import defaultPreview from "@images/default-preview.jpg"
 
-export type Article = {
+export type Post = {
   title: string
   slug: string
   date: Date

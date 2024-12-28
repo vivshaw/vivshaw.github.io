@@ -23,7 +23,7 @@ export const container = recipe({
   },
 
   variants: {
-    multipleArticles: {
+    multiplePosts: {
       true: {
         gridTemplateColumns: "1fr 457px",
         gridTemplateRows: "2",
@@ -60,7 +60,7 @@ export const postLink = style({
     },
     [breakpoints.tablet]: {
       selectors: {
-        /** On small screens, only show one Next Article suggestion to avoid clutter. */
+        /** On small screens, only show one Next Post suggestion to avoid clutter. */
         "&:not(:first-child)": {
           display: "none",
         },

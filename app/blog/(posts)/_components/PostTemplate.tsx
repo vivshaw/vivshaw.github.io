@@ -2,14 +2,14 @@ import { PropsWithChildren } from "react"
 
 import { MDXBody } from "@components/MDX"
 import { Seo } from "@components/SEO"
-import type { Article } from "@data"
+import type { Post } from "@data"
 import { prettyPrintDate } from "@lib"
 import { PostHero } from "./PostHero"
 import { PostNext } from "./PostNext"
 import { postBody, footerNext, footerSpacer, section } from "./PostTemplate.css"
 
 // TODO: Remove these after `next` actually works!!
-const fakeNextMetas: Article[] = [
+const fakeNextMetas: Post[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
     blurb: "Exploring computer vision with a from-scratch neural net in Scala",
@@ -28,8 +28,8 @@ const fakeNextMetas: Article[] = [
   },
 ]
 
-type ArticleProps = {
-  meta: Article
+type PostTemplateProps = {
+  meta: Post
 }
 
 /**
@@ -38,8 +38,8 @@ type ArticleProps = {
 export function PostTemplate({
   meta,
   children,
-}: PropsWithChildren<ArticleProps>) {
-  const next = fakeNextMetas.filter((article) => article.slug !== meta.slug)
+}: PropsWithChildren<PostTemplateProps>) {
+  const next = fakeNextMetas.filter((post) => post.slug !== meta.slug)
 
   const prettyDate = prettyPrintDate(meta.date)
 
@@ -47,14 +47,14 @@ export function PostTemplate({
     <>
       <Seo
         data={{
-          type: "article",
+          type: "post",
           datePublished: prettyDate,
           description: meta.blurb,
           title: meta.title,
         }}
       />
 
-      <PostHero article={meta} />
+      <PostHero post={meta} />
 
       <article className={postBody}>
         <MDXBody>{children}</MDXBody>
@@ -63,7 +63,7 @@ export function PostTemplate({
       {next.length > 0 && (
         <section className={section}>
           <h3 className={footerNext}>More articles from vivshaw's</h3>
-          <PostNext articles={next} />
+          <PostNext posts={next} />
           <div className={footerSpacer} />
         </section>
       )}

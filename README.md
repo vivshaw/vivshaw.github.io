@@ -35,8 +35,8 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] Code block highlights
 - [ ] Code block styles for CLI
 - [ ] Actually display/use the category tags
-- [ ] Get "Next Article" working for real
-- [ ] Type article meta, if possible. or swap to using frontmatter!
+- [ ] Get "Next Post" working for real
+- [ ] Type post meta, if possible. or swap to using frontmatter!
 - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 - [ ] Monorepo it? (Turborepo? NX?)
 - [ ] Storybook & design system

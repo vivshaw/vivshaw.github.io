@@ -7,7 +7,7 @@ type SeoData =
       type: "home"
     }
   | {
-      type: "article"
+      type: "post"
       datePublished: string
       description: string
       slug: string
@@ -32,8 +32,8 @@ export function metadataHelper(data: SeoData): Metadata {
           default: site.name,
           template: `%s | ${site.shortName}`,
         }
-      case "article":
-        // Articles should use _only_ the title as their name.
+      case "post":
+        // Blog posts should use _only_ the title as their name.
         return {
           absolute: data.title,
         }
@@ -46,7 +46,7 @@ export function metadataHelper(data: SeoData): Metadata {
 
   const pageDescription = (() => {
     switch (data.type) {
-      case "article":
+      case "post":
       case "other":
         return data.description
       case "home":
@@ -57,7 +57,7 @@ export function metadataHelper(data: SeoData): Metadata {
 
   const pageType = (() => {
     switch (data.type) {
-      case "article":
+      case "post":
         return "article"
       case "home":
       case "other":
@@ -71,7 +71,7 @@ export function metadataHelper(data: SeoData): Metadata {
     switch (data.type) {
       case "home":
         return "/"
-      case "article":
+      case "post":
         return `/blog/${data.slug}`
       case "other":
       default:

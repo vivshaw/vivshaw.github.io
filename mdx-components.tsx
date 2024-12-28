@@ -19,7 +19,7 @@ const customComponents = {
   a: Anchor,
   blockquote: Blockquote,
   figcaption: Figcaption,
-  h1: headings.h2, // h1 reserved for article title
+  h1: headings.h2, // h1 reserved for blog post title
   h2: headings.h2,
   h3: headings.h3,
   h4: headings.h4,

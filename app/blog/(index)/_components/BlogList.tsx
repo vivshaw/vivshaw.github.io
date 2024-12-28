@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import type { Article } from "@data"
+import type { Post } from "@data"
 import { prettyPrintDate } from "@lib"
 import {
   blogList,
@@ -11,31 +11,31 @@ import {
 } from "./BlogList.css"
 
 interface BlogListProps {
-  articles: Article[]
+  posts: Post[]
 }
 
-export function BlogList({ articles }: BlogListProps) {
+export function BlogList({ posts }: BlogListProps) {
   return (
     <div className={blogList}>
-      {articles.map((article, idx) => (
-        <BlogListItem key={idx} article={article} />
+      {posts.map((post, idx) => (
+        <BlogListItem key={idx} post={post} />
       ))}
     </div>
   )
 }
 
 interface BlogListItemProps {
-  article: Article
+  post: Post
 }
 
-function BlogListItem({ article }: BlogListItemProps) {
-  const prettyDate = prettyPrintDate(article.date)
-  const hasBlurb = article.blurb
+function BlogListItem({ post }: BlogListItemProps) {
+  const prettyDate = prettyPrintDate(post.date)
+  const hasBlurb = post.blurb
 
   return (
-    <Link className={postLink} href={`/blog/${article.slug}`}>
-      <h2 className={postTitle}>{article.title}</h2>
-      {hasBlurb && <p className={postBlurb}>{article.blurb}</p>}
+    <Link className={postLink} href={`/blog/${post.slug}`}>
+      <h2 className={postTitle}>{post.title}</h2>
+      {hasBlurb && <p className={postBlurb}>{post.blurb}</p>}
       <div className={postDate}>{prettyDate}</div>
     </Link>
   )
