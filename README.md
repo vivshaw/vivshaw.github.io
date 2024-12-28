@@ -60,3 +60,6 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 - [ ] obliterate `pageStyles` directory
 - [ ] should simple components like `AboutList` and friends be components, or just CSS files?
 - [ ] extract MDX components to a separate package?
+- [ ] new icon. dark mode icon would be sick whilst I'm at it.
+- [ ] set up Google verification, etc
+- [ ] better branded theme color

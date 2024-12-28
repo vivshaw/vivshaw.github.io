@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-import { Seo } from "@components/SEO"
 import {
   centeringWrapper,
   mainpageContent,
@@ -14,11 +13,6 @@ import {
 export default function Home() {
   return (
     <>
-      <Seo
-        data={{
-          type: "home",
-        }}
-      />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>
           <div className={mainpageHeading}>

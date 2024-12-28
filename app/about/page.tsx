@@ -1,5 +1,8 @@
+import type { Metadata } from "next"
+
 import { Seo } from "@components/SEO"
 import { author } from "@data"
+import { metadataHelper } from "@lib/metadataHelper"
 import {
   centeringWrapper,
   mainpageContent,
@@ -8,19 +11,19 @@ import {
 } from "@pageStyles/main.css"
 import { aboutList } from "./_components/AboutList.css"
 
+export const metadata: Metadata = metadataHelper({
+  type: "other",
+  title: "About Me",
+  description: "Who exactly is vivshaw?",
+  slug: "about",
+})
+
 /**
  * The about page for the site.
  */
 export default function About() {
   return (
     <>
-      <Seo
-        data={{
-          type: "other",
-          title: "About Me",
-          description: "Who exactly is vivshaw?",
-        }}
-      />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>
           <div className={mainpageHeading}>

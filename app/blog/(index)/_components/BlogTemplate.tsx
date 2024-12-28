@@ -14,13 +14,6 @@ type BlogTemplateProps = {
 export function BlogTemplate({ articles }: BlogTemplateProps) {
   return (
     <>
-      <Seo
-        data={{
-          type: "other",
-          title: "Blog",
-          description: "vivshaw's blog",
-        }}
-      />
       <div className={centeringWrapper}>
         <div className={mainpageContent}>
           <BlogList articles={articles} />

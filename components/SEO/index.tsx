@@ -296,28 +296,35 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
 
   return (
     <Head>
-      {/** Title-y stuff */}
-      <title>{pageName}</title>
-      <meta name="name" content={pageName} />
-      <meta itemProp="name" content={pageName} />
-      <meta name="description" content={pageDescription} />
-      <meta itemProp="description" content={pageDescription} />
-      <meta itemProp="image" content={site.defaultPreview.src} />
+      {data.type === "article" && (
+        <meta name="article:published_time" content={data.datePublished} />
+      )}
 
       {/** Schema.org structured metadata */}
       <script type="application/ld+json">{schema}</script>
 
       {/** Boilerplatey stuff */}
+      {/** SORTED */}
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="application-name" content={site.name} />
+
+      {/** Title-y stuff */}
+      {/** SORTED */}
+      <title>{pageName}</title>
+      <meta name="name" content={pageName} />
+      <meta name="description" content={pageDescription} />
 
       {/** PWA & Icon stuff */}
-      <meta name="application-name" content={site.name} />
+      {/** SORTED */}
+      <meta name="msapplication-TileColor" content="#da532c" />
+      <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content={site.name} />
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="mobile-web-app-capable" content="yes" />
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#000000" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link
         rel="apple-touch-icon"
@@ -337,14 +344,10 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
         href="/favicon-16x16.png"
       />
       <link rel="shortcut icon" href="/favicon.ico" />
-      <link rel="manifest" href="/manifest.json" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
-      <meta name="msapplication-config" content="/browserconfig.xml" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="msapplication-tap-highlight" content="no" />
-      <meta name="theme-color" content="#000000" />
 
       {/** Twitter tags */}
+      {/** SORTED */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={site.url} />
       <meta name="twitter:title" content={pageName} />
@@ -353,6 +356,7 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
       <meta name="twitter:image" content={site.defaultPreview.src} />
 
       {/** OpenGraph tags */}
+      {/** SORTED */}
       <meta
         property="og:type"
         content={data.type === "article" ? "article" : "website"}
@@ -363,9 +367,6 @@ export function Seo({ data }: SeoProps): React.ReactElement<any> {
       <meta property="og:description" content={pageDescription} />
       <meta property="og:site_name" content={site.name} />
       <meta property="article:author" content={site.url} />
-      {data.type === "article" && (
-        <meta name="article:published_time" content={data.datePublished} />
-      )}
     </Head>
   )
 }
