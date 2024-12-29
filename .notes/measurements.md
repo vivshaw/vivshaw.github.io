@@ -2,6 +2,8 @@
 
 ## with Emotion and ThemeUI:
 
+Not bad to start with!
+
 ```
 Route (pages)                                    Size     First Load JS
 ┌ ○ /                                            1.08 kB         113 kB
@@ -36,6 +38,8 @@ Route (pages)                                    Size     First Load JS
 
 ## with Vanilla Extract:
 
+Noted across-the-board improvement from yanking out CSS-in-JS and replacing with static CSS generation.
+
 ```
 Route (pages)                                    Size     First Load JS
 ┌ ○ /                                            652 B          89.8 kB
@@ -68,4 +72,37 @@ Route (pages)                                    Size     First Load JS
   - js: 103kb
   - css: 8.9kb
   - doc: 11.3kb
+  - font: 171kb
+
+## With RSC / Next.js app router
+
+somehow, it got a bit worse! Home now ships almost as much as before, and Blog ships _more_ than before!
+
+```
+Route (app)                              Size     First Load JS
+┌ ○ /                                    672 B           110 kB
+├ ○ /_not-found                          981 B           106 kB
+├ ○ /about                               714 B           106 kB
+├ ○ /blog                                481 B           118 kB
+└ ● /blog/[slug]                         693 B           118 kB
+    ├ /blog/build-you-a-tweetbot
+    ├ /blog/data-mashups
+    ├ /blog/electric-pentameter
+    └ [+3 more paths]
++ First Load JS shared by all            105 kB
+  ├ chunks/4bd1b696-e23254852a8baa55.js  52.9 kB
+  ├ chunks/899-98bc5fa0d4f26f5e.js       50.6 kB
+  └ other shared chunks (total)          1.97 kB
+```
+
+- main: **237kb** (+16kb)
+  - js: 116kb
+  - css: 7.7kb
+  - doc: 4.5kb
+  - fetch: 0kb
+  - font: 109kb
+- post (scala): **341kb** (+47kb)
+  - js: 125kb
+  - css: 11.5kb
+  - doc: 23.0kb
   - font: 171kb

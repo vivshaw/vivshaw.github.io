@@ -136,7 +136,7 @@ export function ViriditasProvider({ children }: React.PropsWithChildren<{}>) {
         setTheme,
       }}
     >
-      <div className={`${themeStyles} PROVIDER_CLASS`}>{children}</div>
+      <div className={themeStyles}>{children}</div>
     </ViriditasContext.Provider>
   )
 }
