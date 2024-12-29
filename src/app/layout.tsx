@@ -76,11 +76,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script>{VIRIDITAS_COLOR_MODE_SNIPPET}</script>
+        <link rel="stylesheet" href="https://use.typekit.net/isa7scp.css" />
         <link
           rel="stylesheet"
           href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
         />
-        <link rel="stylesheet" href="https://use.typekit.net/isa7scp.css" />
       </head>
       <body>
         <GlobalProviders>
