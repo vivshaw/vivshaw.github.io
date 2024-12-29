@@ -1,6 +1,7 @@
 import {
   createGlobalThemeContract,
   createGlobalTheme,
+  globalFontFace,
 } from "@vanilla-extract/css"
 
 /**
@@ -111,9 +112,19 @@ const prismColors = {
   operator: `#5FA8AA`,
 }
 
+export const ORPHEUS_FALLBACK = "__times_orpheus_fallback"
+
+globalFontFace(ORPHEUS_FALLBACK, {
+  src: "local(Times New Roman)",
+  sizeAdjust: "98%",
+  ascentOverride: "117%",
+  descentOverride: "45%",
+  lineGapOverride: "normal",
+})
+
 const sharedTheme = {
   font: {
-    display: "orpheuspro, Georgia, Serif",
+    display: `orpheuspro, ${ORPHEUS_FALLBACK}, Serif`,
     book: "Georgia, serif",
     sans: "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
     monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,

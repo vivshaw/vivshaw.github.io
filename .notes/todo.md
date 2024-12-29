@@ -36,4 +36,4 @@
 - [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
 - [ ] container style -> root
 - [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
-- [ ] figure out what to do with font flash. tune Georgia to match widths of Orpheus?
+- [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
