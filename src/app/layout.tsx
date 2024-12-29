@@ -3,6 +3,11 @@ import type { Metadata } from "next/types"
 
 import { author, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
+import {
+  darkTheme,
+  lightTheme,
+  VIRIDITAS_COLOR_MODE_SNIPPET,
+} from "#viriditas/theme/theme.css"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
 
@@ -70,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script>{VIRIDITAS_COLOR_MODE_SNIPPET}</script>
         <link
           rel="stylesheet"
           href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"

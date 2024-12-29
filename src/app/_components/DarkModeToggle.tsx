@@ -19,8 +19,8 @@ export function DarkModeToggle() {
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}
     >
-      <div className={moonOrSun({ mode: theme })} />
-      <div className={moonMask({ mode: theme })} />
+      <div className={moonOrSun} />
+      <div className={moonMask} />
     </button>
   )
 }

@@ -1,73 +1,79 @@
-import { createThemeContract, createTheme } from "@vanilla-extract/css"
+import {
+  createGlobalThemeContract,
+  createGlobalTheme,
+} from "@vanilla-extract/css"
 
 /**
  * Theme contract for the Viriditas design system.
  * All tokens used in the system are defined here.
  */
-export const tokens = createThemeContract({
-  color: {
-    primary: null,
-    grey: null,
-    background: null,
-    accent: null,
-    bodyText: null,
-    card: null,
-    horizontalRule: null,
+export const tokens = createGlobalThemeContract(
+  {
+    color: {
+      primary: null,
+      grey: null,
+      background: null,
+      accent: null,
+      bodyText: null,
+      card: null,
+      horizontalRule: null,
+
+      /**
+       * Colors for the Prism syntax highlighter.
+       */
+      prism: {
+        token: null,
+        languageJavascript: null,
+        javascript: null,
+        background: null,
+        comment: null,
+        string: null,
+        var: null,
+        number: null,
+        constant: null,
+        plain: null,
+        doctype: null,
+        tag: null,
+        keyword: null,
+        boolean: null,
+        function: null,
+        parameter: null,
+        className: null,
+        attrName: null,
+        attrValue: null,
+        interpolation: null,
+        punctuation: null,
+        ["maybe-class-name"]: null,
+        property: null,
+        propertyAccess: null,
+        namespace: null,
+        highlight: null,
+        highlightBorder: null,
+        dom: null,
+        operator: null,
+      },
+    },
 
     /**
-     * Colors for the Prism syntax highlighter.
+     * Typography tokens.
      */
-    prism: {
-      token: null,
-      languageJavascript: null,
-      javascript: null,
-      background: null,
-      comment: null,
-      string: null,
-      var: null,
-      number: null,
-      constant: null,
-      plain: null,
-      doctype: null,
-      tag: null,
-      keyword: null,
-      boolean: null,
-      function: null,
-      parameter: null,
-      className: null,
-      attrName: null,
-      attrValue: null,
-      interpolation: null,
-      punctuation: null,
-      ["maybe-class-name"]: null,
-      property: null,
-      propertyAccess: null,
-      namespace: null,
-      highlight: null,
-      highlightBorder: null,
-      dom: null,
-      operator: null,
+    font: {
+      display: null,
+      book: null,
+      sans: null,
+      monospace: null,
+    },
+
+    /**
+     * Motion tokens.
+     */
+    motion: {
+      colorModeTransition: null,
+      hoverTransition: null,
     },
   },
-
-  /**
-   * Typography tokens.
-   */
-  font: {
-    display: null,
-    book: null,
-    sans: null,
-    monospace: null,
-  },
-
-  /**
-   * Motion tokens.
-   */
-  motion: {
-    colorModeTransition: null,
-    hoverTransition: null,
-  },
-})
+  (_value, path) => path.join("-"),
+)
 
 /**
  * Colors for the Prism syntax highlighter.
@@ -119,33 +125,63 @@ const sharedTheme = {
   },
 }
 
-export const lightTheme = createTheme(tokens, {
-  ...sharedTheme,
-  color: {
-    primary: "#000",
-    grey: "#73737D",
-    background: "#fafafa",
-    accent: "#6166DC",
-    bodyText: "#08080B",
-    card: "#fff",
-    horizontalRule: "rgba(8, 8, 11, 0.15)",
-    prism: prismColors,
-  },
-})
+export const VIRIDITAS_LIGHT_THEME_CLASS = "vvv-light"
+export const VIRIDITAS_DARK_THEME_CLASS = "vvv-dark"
 
-export const darkTheme = createTheme(tokens, {
-  ...sharedTheme,
-  color: {
-    primary: "#fff",
-    grey: "#73737D",
-    background: "#111216",
-    accent: "#E9DAAC",
-    bodyText: "#fff",
-    card: "#1D2128",
-    horizontalRule: "rgba(255, 255, 255, 0.15)",
-    prism: prismColors,
+/**
+ * The key in `localStorage` that Viriditas uses to store its color mode
+ */
+export const VIRIDITAS_COLOR_MODE_STORAGE_KEY = "viriditas-color-theme"
+
+/**
+ * Executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstlyed content.
+ */
+export const foo = `(()=>{
+  console.warn("Attempting to load Viriditas color mode");
+  try {
+    var p=localStorage.getItem('${VIRIDITAS_COLOR_MODE_STORAGE_KEY}');
+} catch(e) {
+    console.warn("Failed to load!");
+    console.warn(e)
+  }
+})()`
+export const VIRIDITAS_COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${VIRIDITAS_COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${VIRIDITAS_DARK_THEME_CLASS}')} else {document.documentElement.classList.add('${VIRIDITAS_LIGHT_THEME_CLASS}')}}catch(e){}})('dark')`
+
+export const lightTheme = createGlobalTheme(
+  `html.${VIRIDITAS_LIGHT_THEME_CLASS}:root`,
+  tokens,
+  {
+    ...sharedTheme,
+    color: {
+      primary: "#000",
+      grey: "#73737D",
+      background: "#fafafa",
+      accent: "#6166DC",
+      bodyText: "#08080B",
+      card: "#fff",
+      horizontalRule: "rgba(8, 8, 11, 0.15)",
+      prism: prismColors,
+    },
   },
-})
+)
+
+export const darkTheme = createGlobalTheme(
+  `html.${VIRIDITAS_DARK_THEME_CLASS}:root`,
+  tokens,
+  {
+    ...sharedTheme,
+    color: {
+      primary: "#fff",
+      grey: "#73737D",
+      background: "#111216",
+      accent: "#E9DAAC",
+      bodyText: "#fff",
+      card: "#1D2128",
+      horizontalRule: "rgba(255, 255, 255, 0.15)",
+      prism: prismColors,
+    },
+  },
+)
 
 export const breakpoints = {
   phone: "(max-width: 376px)",

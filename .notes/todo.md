@@ -19,7 +19,6 @@
 - [ ] sans is only used in tables, should I drop it?
 - [ ] heading styles in MDX get broken alignment on small screens
 - [ ] fix navbar appearance & alignment in mobile menu
-- [ ] colors fade from light to dark on first page load. that should be fixed. probably this requires moving to global theming so I can style `html` and `body`
 - [ ] image optimization for static exports?
 - [ ] update PWA library
 - [ ] consistent footer spacing- `40px` maybe?
@@ -35,3 +34,5 @@
 - [ ] contact page?
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
+- [ ] container style -> root
+- [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the occasional hydration error that appears?
