@@ -66,7 +66,7 @@ export default async function Post({
 
       {nextPosts.length > 0 && (
         <section className={section}>
-          <h3 className={footerNext}>More articles from vivshaw's</h3>
+          <h3 className={footerNext}>More from vivshaw's blog</h3>
           <PostNext posts={nextPosts} />
           <div className={footerSpacer} />
         </section>
