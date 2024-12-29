@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { schemaHelper } from "#lib/metadataHelpers"
 import {
   centeringWrapper,
   mainpageContent,
@@ -11,6 +12,8 @@ import {
  * The home page for the site.
  */
 export default function Home() {
+  const jsonLdSchema = schemaHelper({ type: "home" })
+
   return (
     <>
       <div className={centeringWrapper}>
@@ -47,6 +50,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
     </>
   )
 }

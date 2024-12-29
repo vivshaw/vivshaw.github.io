@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { metadataHelper } from "#lib/metadataHelper"
+import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { BlogList } from "./_components/BlogList"
 import { getSortedBlogMetas } from "./_lib/getAllBlogPosts"
 
@@ -17,10 +17,25 @@ export const metadata: Metadata = metadataHelper({
 export default async function Blog() {
   const postsDateless = await getSortedBlogMetas()
 
+  const jsonLdSchema = schemaHelper({
+    type: "other",
+    description: "vivshaw's blog",
+    slug: "blog",
+    title: "blog",
+  })
+
   const posts = postsDateless.map((item) => ({
     ...item,
     date: new Date(item.date),
   }))
 
-  return <BlogList posts={posts} />
+  return (
+    <>
+      <BlogList posts={posts} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
+    </>
+  )
 }

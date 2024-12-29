@@ -1,7 +1,7 @@
 import { MdxBody } from "#components/MDX/MdxBody"
 import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
-import { metadataHelper } from "#lib/metadataHelper"
+import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
 import { PostHero } from "./_components/PostHero"
 import { PostNext } from "./_components/PostNext"
@@ -43,6 +43,17 @@ export default async function Post({
 
   const nextPosts = fakeNextMetas.filter((post) => post.slug !== meta.slug)
 
+  const prettyDate = prettyPrintDate(meta.date)
+
+  const jsonLdSchema = schemaHelper({
+    type: "post",
+    datePublished: prettyDate,
+    description: meta.blurb,
+    slug: slug,
+    tags: meta.tags,
+    title: meta.title,
+  })
+
   return (
     <>
       <PostHero post={meta} />
@@ -60,6 +71,11 @@ export default async function Post({
           <div className={footerSpacer} />
         </section>
       )}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
     </>
   )
 }
