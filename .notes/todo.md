@@ -1,35 +1,40 @@
 # TODO
 
-- [ ] There's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
-- [ ] Make `code` blocks more legible
-- [ ] Line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
-- [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
+- [ ] code blocks
+  - [ ] There's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
+  - [ ] Make `code` blocks more legible
+  - [ ] Line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
+  - [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
   - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
-- [ ] Nicer component for loading images in MDX?
-- [ ] tags index page & tag pages, someday
-- [ ] Get "Next Post" working for real
-- [ ] Type post meta, if possible. or swap to using frontmatter! and at least document the metadata schema
-- [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
-- [ ] Monorepo it? (Turborepo? NX?)
-- [ ] Storybook & design system
-- [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
-- [ ] more accessible focus states
-- [ ] stop using global transition variables, and standardize transitions more generally
-- [ ] sans is only used in tables, should I drop it?
-- [ ] heading styles in MDX get broken alignment on small screens
-- [ ] fix navbar appearance & alignment in mobile menu
-- [ ] image optimization for static exports?
-- [ ] consistent footer spacing- `40px` maybe?
-- [ ] obliterate `pageStyles` directory
-- [ ] extract MDX components to a separate package?
-- [ ] new icon. dark mode icon would be sick whilst I'm at it.
-- [ ] better branded theme color
-- [ ] restyle so all pages can share `.centeringWrapper` etc.
+- [ ] MDX ergonomics
+  - [ ] Nicer component for loading images in MDX?
+  - [ ] Type post meta, if possible. or swap to using frontmatter! and at least document the metadata schema
+- [ ] tooling
+  - [ ] Monorepo it? (Turborepo? NX?)
+  - [ ] Storybook & design system
+  - [ ] image optimization for static exports?
+  - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
+  - [ ] extract MDX components to a separate package?
+- [ ] features
+  - [ ] tags index page & tag pages, someday
+  - [ ] Get "Next Post" working for real
+  - [ ] contact page?
+- [ ] UX
+  - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
+  - [ ] more accessible focus states
+  - [ ] heading styles in MDX get broken alignment on small screens
+  - [ ] fix navbar appearance & alignment in mobile menu
+  - [ ] new icon. dark mode icon would be sick whilst I'm at it.
+  - [ ] consistent footer spacing- `40px` maybe?
+- [ ] styling
+  - [ ] stop using global transition variables, and standardize transitions more generally
+  - [ ] sans is only used in tables, should I drop it?
+  - [ ] better branded theme color
+  - [ ] obliterate `pageStyles` directory
+  - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
 - [ ] make a better README
-- [ ] contact page?
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
 - [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
 - [ ] stop depending on JS light/dark for <hr>
-- [ ] can Navbar be pulled inside the main layout wrapper?
