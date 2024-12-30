@@ -34,6 +34,5 @@
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
 - [ ] make a better README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
-- [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
 - [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type

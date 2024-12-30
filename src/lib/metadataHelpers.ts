@@ -214,7 +214,23 @@ export function schemaHelper(data: SeoData) {
     width: `${site.defaultPreview.width}`,
   }
 
-  const commonSchema = [websiteSchema, imageSchema]
+  const personSchema: Person = {
+    "@type": "Person",
+    "@id": `${site.url}/#person`,
+    alumniOf: "University of Vermont",
+    callSign: "vivshaw",
+    description:
+      "a human with an inexhaustible curiosity about the intersection of technology and human life.",
+    email: author.mailto,
+    gender: "female",
+    knowsAbout:
+      "frontend, machine learning, Python, TypeScript, developer tooling, engineering management, philosophy",
+    name: "Hannah Vivian Shaw",
+    url: site.url,
+    worksFor: "Mercury",
+  }
+
+  const commonSchema = [websiteSchema, imageSchema, personSchema]
 
   const homePageId = `${site.url}/#home`
 
