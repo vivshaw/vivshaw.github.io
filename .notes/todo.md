@@ -27,7 +27,6 @@
 - [ ] set up Google verification, etc
 - [ ] better branded theme color
 - [ ] restyle so all pages can share `.centeringWrapper` etc.
-- [ ] generate robots.txt, sitemap.xml, etc.
 - [ ] make a better README
 - [ ] contact page?
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
