@@ -1,8 +1,5 @@
-"use client"
-
 import { clsx } from "clsx"
 
-import { useViriditasTheme } from "#viriditas/context"
 import { horizontalRule } from "./HorizontalRule.css"
 
 /**
@@ -12,17 +9,5 @@ export function HorizontalRule({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHRElement>) {
-  const { theme } = useViriditasTheme()
-
-  return (
-    <hr
-      {...restProps}
-      className={clsx(
-        horizontalRule({
-          mode: theme,
-        }),
-        className,
-      )}
-    />
-  )
+  return <hr {...restProps} className={clsx(horizontalRule, className)} />
 }

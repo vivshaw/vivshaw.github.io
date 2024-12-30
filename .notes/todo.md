@@ -37,4 +37,3 @@
 - [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
 - [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
-- [ ] stop depending on JS light/dark for <hr>
