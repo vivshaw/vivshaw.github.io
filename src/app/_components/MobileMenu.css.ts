@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 import { interactionHover } from "./Navbar.css"
 
-export const container = style({
+export const root = style({
   display: "none",
 
   "@media": {

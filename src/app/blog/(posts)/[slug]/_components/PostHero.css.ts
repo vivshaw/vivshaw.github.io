@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css"
 import { heading1 } from "#components/MDX/Headings/Headings.css"
 import { breakpoints, tokens } from "#viriditas/theme/theme.css"
 
-export const header = style({
+export const root = style({
   margin: "100px auto 70px",
   maxWidth: "calc(749px - 68px)",
   position: "relative",
@@ -49,7 +49,7 @@ export const title = style([
   },
 ])
 
-export const subtitle = style({
+export const date = style({
   marginLeft: "0",
   position: "relative",
   display: "flex",

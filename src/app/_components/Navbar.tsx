@@ -3,12 +3,12 @@ import Link from "next/link"
 import { centeringWrapper } from "#pageStyles/main.css"
 import { DarkModeToggle } from "./DarkModeToggle"
 import { MobileMenu } from "./MobileMenu"
-import { logoLink, container, controls, linkList, link } from "./Navbar.css"
+import { logoLink, root, controls, linkList, link } from "./Navbar.css"
 
 export function Navbar() {
   return (
     <div className={centeringWrapper}>
-      <nav className={container}>
+      <nav className={root}>
         <Link className={logoLink} href="/" title="Go to the homepage">
           <em>vivshaw's</em>
         </Link>

@@ -2,13 +2,7 @@ import Link from "next/link"
 
 import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
-import {
-  blogList,
-  postBlurb,
-  postDate,
-  postLink,
-  postTitle,
-} from "./BlogList.css"
+import { root, postBlurb, postDate, postLink, postTitle } from "./BlogList.css"
 
 interface BlogListProps {
   posts: Post[]
@@ -16,7 +10,7 @@ interface BlogListProps {
 
 export function BlogList({ posts }: BlogListProps) {
   return (
-    <div className={blogList}>
+    <div className={root}>
       {posts.map((post, idx) => (
         <BlogListItem key={idx} post={post} />
       ))}

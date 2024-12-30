@@ -21,16 +21,15 @@
 - [ ] image optimization for static exports?
 - [ ] consistent footer spacing- `40px` maybe?
 - [ ] obliterate `pageStyles` directory
-- [ ] should simple components like `AboutList` and friends be components, or just CSS files?
 - [ ] extract MDX components to a separate package?
 - [ ] new icon. dark mode icon would be sick whilst I'm at it.
-- [ ] set up Google verification, etc
 - [ ] better branded theme color
 - [ ] restyle so all pages can share `.centeringWrapper` etc.
 - [ ] make a better README
 - [ ] contact page?
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] metadata q's- should I use Author instead of Person? Should I use Person on about page? add date updated to schema? use categories there too? etc.
-- [ ] container style -> root
 - [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
+- [ ] stop depending on JS light/dark for <hr>
+- [ ] can Navbar be pulled inside the main layout wrapper?

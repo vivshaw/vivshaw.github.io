@@ -8,7 +8,7 @@ import {
   mainpageHeading,
   mainpageLink,
 } from "#pageStyles/main.css"
-import { aboutList } from "./_components/AboutList.css"
+import { aboutList } from "./page.css"
 
 export const metadata: Metadata = metadataHelper({
   type: "other",

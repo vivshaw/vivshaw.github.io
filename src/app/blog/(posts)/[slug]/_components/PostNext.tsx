@@ -4,7 +4,7 @@ import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
 import {
   postExcerpt,
-  container,
+  root,
   postLink,
   postDate,
   postTitle,
@@ -32,7 +32,7 @@ export function PostNext({ posts }: PostNextProps) {
   const showTwoPosts = numberOfPosts > 1
 
   return (
-    <div className={container({ multiplePosts: showTwoPosts })}>
+    <div className={root({ multiplePosts: showTwoPosts })}>
       <GridItem post={posts[0]} />
       {showTwoPosts && <GridItem post={posts[1]} />}
     </div>

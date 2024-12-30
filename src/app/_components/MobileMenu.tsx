@@ -8,13 +8,7 @@ import { CloseIcon } from "#icons/ui/Close"
 import { MenuIcon } from "#icons/ui/Menu"
 import { tokens } from "#viriditas/theme/theme.css"
 import { DarkModeToggle } from "./DarkModeToggle"
-import {
-  container,
-  iconWrapper,
-  contents,
-  link,
-  linkList,
-} from "./MobileMenu.css"
+import { root, iconWrapper, contents, link, linkList } from "./MobileMenu.css"
 
 export function MobileMenu(): React.ReactElement<any> {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -22,7 +16,7 @@ export function MobileMenu(): React.ReactElement<any> {
   const toggleMenu = () => setMenuOpen((menuState) => !menuState)
 
   return (
-    <div className={container}>
+    <div className={root}>
       <div className={iconWrapper} onClick={toggleMenu}>
         {menuOpen ? (
           <CloseIcon fill={tokens.color.primary} />
