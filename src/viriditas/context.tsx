@@ -43,7 +43,9 @@ export function ViriditasProvider({ children }: React.PropsWithChildren<{}>) {
   // On first load, populate the current color scheme.
   useEffect(() => {
     setSelectedTheme(
-      document.documentElement.classList.contains("dark") ? "dark" : "light",
+      document.documentElement.classList.contains(VIRIDITAS_DARK_THEME_CLASS)
+        ? "dark"
+        : "light",
     )
   }, [])
   /**
