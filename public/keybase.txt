@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/vivshaw
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://vivsha.ws
+  * I am vivshaw (https://keybase.io/vivshaw) on keybase.
+  * I have a public key with fingerprint 1AD2 C043 CC62 805F D666  FE9B 86A8 02CA DB0A F8CD
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120bf57b760d03c82816e53f497c5613620c57092a9a85eb2ecc588948005b194390a",
+      "fingerprint": "1ad2c043cc62805fd666fe9b86a802cadb0af8cd",
+      "host": "keybase.io",
+      "key_id": "86a802cadb0af8cd",
+      "kid": "01019d28809fd99d23094cb3709abde66d2d6c102ff083bcb9554892ac06b90a9cb00a",
+      "uid": "c32cc11d63e103227ec6b8f0caed8019",
+      "username": "vivshaw"
+    },
+    "service": {
+      "hostname": "vivsha.ws",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1735537949,
+  "expire_in": 157680000,
+  "prev": "d6095c756f15279d0ea03cc41e374f5d54316e979d5b8252131996a0ba920d33",
+  "seqno": 8,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNrAnicbVJ9TFVlHL5cPlY38ErR6moYnNXUBHzP9zmEQjFcuSHQJrCkLue85z33
+HuB+cM/hAoL2IWlbXDGRXLo5RWWhNRKCJKcEIjcxhsJK5GKaNl2wWqYG4xJ0Lss/
+2vrrfd/f+zzP7/l99MeEG0xhOz8zDgZMM0Nhl3obKww2Dx1fg4kuqRpLrcFK0eKB
+yiSkatZSRcJSMYATQJRpVmQZIAEScgSHM4gmZYpnIc3gJEMASLOAJwRe4GgkEghC
+muN4igOAFnGeInkgYEmYrDhtyOP2KE5Nl8UFiYCAIiFkCA7QssQwjIx4kWMEDhBQ
+kEQgyByUdKLdpYYYujlRUFGK4tJj+sO6aO9/8I98A5yXCI4DvCzx+o0EPAVFUncq
+iBJiGImQGIgDQpYBR4pQ5Gma4vQqIGBE3TEPRbDou2JRDpIEhDguMSTCAUkQLIKM
+yMkACkji9EwhoIo8TsGBdLRX8ap2oRLbloTpQa8CUaivoUL+A0ipVHWe2+PSXNBV
+poftmuZWU0M0rdodwlUi0fqvglVUnJLeQ53hRR5VcTmxVFxHQk0JSeIsSdMky1N8
+Eoaq3IoHWZUQgmYZfRAAhPIgry4pMYCnIUszMk4TLC8BJOhjhRSOSJaSaYmmSH3A
+vP5DixxBEziJ8zwjAFHgCSCRJBaqqdzpwlI53aZg0yVVxeYUtAoPwrb19RZFGMJM
+hqhIY2i3DKbHlz7auIux5oXthwy+1cHmuXO5waK6QMLW3fvLanfV7Ev7q7F2bnPD
+7/U7MoRA4pX1j1GnrydlF+Wc3GtOvx8Z5rMk//ZpcHpjKzWz/J7deTVY5zjzymRe
+9Jzw8fzAijVqydMHBlo++NUO5++tPPXQ/IzFEXZxvXW0f3B1fCf11AnHVw+E9CfX
+JXS0md3hZy8vz98kXkie2N9UZp/Ku+OP3RIo6Ku2DL63vZddOBq9or6ncZ9kLSo1
+mbTb/mOBknfTihvewpuvRyz5ec77knR0tiO1/9adrCtR47mFxVNfvDbx3bi7PTbn
+rOkAt/TmhsKCaxUbz/BTw2YsWBijLdii7ScGC9C1I9kVr7fPZNZ39zpGjnXH1lvB
+9MM9cT3H+1YdGmswrnm+OcEcBybJkvlx36oPy+8GRjSnber724mjw3+2VJ6vyjXk
+tb1RF/FlZ//my5+3T1X6gurshfy1uzLHv9Xk1ksZ9682RVraX6w6zb99wycvrH3n
+D1dO7d1blsYkrsWfkXlyIGosTmuFT6SrLzurv9nQ9GPywR3Goe6EvWNLDj/3fk82
+Ic0GfWndgYbDWZ/8/UJ8GZv9U16+v+vBylP1m7Kqyk0dMXGMLzha1HVz6GDeTM+b
+52x7EkdudBXXyHVtSkk63j3h//pVdp2/88jCoGPYuOXZ4zvDjT9ELlvmnZ4cMvss
+H6GU81vron75ByxLw6U=
+=7D56
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/vivshaw
+
+==================================================================

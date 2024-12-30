@@ -56,7 +56,7 @@ export const author: Author = {
   mailto: "mailto:hey@vivsha.ws",
   name: "Hannah Vivian Shaw",
   socials: {
-    bluesky: "https://bsky.app/profile/vivshaw.bsky.social",
+    bluesky: "https://bsky.app/profile/vivsha.ws",
     github: "https://github.com/vivshaw",
     linkedin: "https://www.linkedin.com/in/hvivianshaw/",
     mastodon: "https://mastodon.social/@vivshaw",
