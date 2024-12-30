@@ -71,18 +71,16 @@ type CodePrismProps = {
  * - This component assumes that _all_ <pre> blocks are code blocks! It does not check if its child is a <code> element.
  * - The styles are currently applied via globals in `mdxBody.css.ts`.
  */
-export function CodeBlock({
-  children,
-  className,
-}: PropsWithChildren<CodePrismProps>) {
+export function CodeBlock(props: PropsWithChildren<CodePrismProps>) {
   return (
     <pre
-      className={clsx(PRISM_CODE_CLASS, className)}
+      {...props}
+      className={clsx(PRISM_CODE_CLASS, props.className)}
       style={{ position: "relative" }}
     >
       {/* TODO: Stop this from copying a buncha `Object object`... */}
       {/* <Copy toCopy={codeString} /> */}
-      {children}
+      {props.children}
     </pre>
   )
 }

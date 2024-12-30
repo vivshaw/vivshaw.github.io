@@ -46,7 +46,7 @@ Copy and paste the keys and access tokens from Twitter into the appropriate vari
 
 This should be the easiest part of the whole process!
 
-```cli
+```bash[class="command-line"]
 pip install tweepy
 pip install markovify
 ```
@@ -107,17 +107,16 @@ model = markovify.Text(corpus)
 
 Time to take our new Markov model for a spin! The `make_sentence()` method will generate a sentence from your model:
 
-```py
-In[1]: model.make_sentence()
-Out[1]: 'I remembered the answer of the house, and once attempted chastisement; but as mere strangers, they had to deceive a fine old hall, rather neglected of late occurrence.'
+```py[class="command-line"][data-prompt=">>>"][data-output="2"]
+model.make_sentence()
+'I remembered the answer of the house, and once attempted chastisement; but as mere strangers, they had to deceive a fine old hall, rather neglected of late occurrence.'
 ```
 
 It worked! But if we want our bot to post on Twitter, we'll need to find a way to keep the length of the generated sentences under 140 characters. Conveniently, Markovify provides the `make_short_sentence()` method to do exactly that. Let's give it a try!
 
-```py
-In[2]: model.make_short_sentence(140)
-Out[2]: 'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
-
+```py[class="command-line"][data-prompt=">>>"][data-output="2"]
+model.make_short_sentence(140)
+'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
 ```
 
 Feel free to [play around with the parameters](https://github.com/jsvine/markovify#advanced-usage) until you like your model's results. Once you're all set, we can move on to building our bot.
@@ -262,7 +261,7 @@ if __name__ == "__main__":
 
 Now, we can run our bot from the command line:
 
-```cli
+```bash[class="command-line"]
 python tweetbot.py
 ```
 

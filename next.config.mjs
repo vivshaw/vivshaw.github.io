@@ -6,7 +6,14 @@ import remarkPrism from "remark-prism"
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkPrism],
+    remarkPlugins: [
+      [
+        remarkPrism,
+        {
+          plugins: ["command-line"],
+        },
+      ],
+    ],
   },
 })
 

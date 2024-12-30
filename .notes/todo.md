@@ -1,11 +1,11 @@
 # TODO
 
-- [ ] There's an error with `'` and `"` in Prism code blocks of unknown language
+- [ ] There's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
 - [ ] Make `code` blocks more legible
+- [ ] Line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
+- [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
+  - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
 - [ ] Nicer component for loading images in MDX?
-- [ ] Line numbers in code blocks
-- [ ] Code block highlights
-- [ ] Code block styles for CLI
 - [ ] tags index page & tag pages, someday
 - [ ] Get "Next Post" working for real
 - [ ] Type post meta, if possible. or swap to using frontmatter! and at least document the metadata schema
