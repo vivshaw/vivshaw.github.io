@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-import { mdxRoot } from "#components/MDX/mdx.css"
+import { mdxRoot } from "@vivshaw/mdx/mdx.css"
 import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"

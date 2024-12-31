@@ -1434,6 +1434,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vivshaw/mdx@workspace:packages/mdx":
+  version: 0.0.0-use.local
+  resolution: "@vivshaw/mdx@workspace:packages/mdx"
+  peerDependencies:
+    "@vanilla-extract/css": ^1.17.0
+    clsx: ^2.1.1
+    react: 19.0.0
+    typescript: 4.9.3
+  languageName: unknown
+  linkType: soft
+
 "@vivshaw/viriditas@workspace:packages/viriditas":
   version: 0.0.0-use.local
   resolution: "@vivshaw/viriditas@workspace:packages/viriditas"

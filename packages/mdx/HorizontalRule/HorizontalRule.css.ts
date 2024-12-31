@@ -1,12 +1,10 @@
-import { recipe } from "@vanilla-extract/recipes"
-
+import { style } from "@vanilla-extract/css"
 import {
   breakpoints,
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_CLASS,
 } from "@vivshaw/viriditas/theme"
-import { style } from "@vanilla-extract/css"
 
 export const horizontalRule = style({
   backgroundPosition: "center",

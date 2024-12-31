@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css"
-
 import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const tableWrapper = style({

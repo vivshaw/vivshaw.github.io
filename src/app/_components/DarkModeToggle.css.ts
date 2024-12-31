@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css"
-
 import {
   tokens,
   DARK_COLOR_MODE_CLASS,

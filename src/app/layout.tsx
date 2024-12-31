@@ -1,16 +1,14 @@
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"
-
-import { author, site } from "#data"
-import { metadataHelper } from "#lib/metadataHelpers"
 import {
   COLOR_MODE_STORAGE_KEY,
   DARK_COLOR_MODE_CLASS,
-  darkColorMode,
   LIGHT_COLOR_MODE_CLASS,
-  lightColorMode,
   SYSTEM_COLOR_MODE_CLASS,
 } from "@vivshaw/viriditas/theme"
+
+import { author, site } from "#data"
+import { metadataHelper } from "#lib/metadataHelpers"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
 

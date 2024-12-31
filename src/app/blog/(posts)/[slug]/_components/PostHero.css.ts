@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 
-import { heading1 } from "#components/MDX/Headings/Headings.css"
+import { heading1 } from "@vivshaw/mdx/Headings/Headings.css"
 import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const root = style({
