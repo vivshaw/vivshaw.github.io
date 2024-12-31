@@ -58,7 +58,3 @@ export default function Home() {
     </>
   )
 }
-
-export const config = {
-  unstable_runtimeJS: false,
-}
