@@ -2,6 +2,8 @@ import {
   createGlobalThemeContract,
   createGlobalTheme,
   globalFontFace,
+  globalStyle,
+  assignVars,
 } from "@vanilla-extract/css"
 
 /**
@@ -136,63 +138,75 @@ const sharedTheme = {
   },
 }
 
-export const VIRIDITAS_LIGHT_THEME_CLASS = "vvv-light"
-export const VIRIDITAS_DARK_THEME_CLASS = "vvv-dark"
+export const LIGHT_COLOR_MODE_CLASS = "vvv-light"
+export const DARK_COLOR_MODE_CLASS = "vvv-dark"
+export const SYSTEM_COLOR_MODE_CLASS = "vvv-prefers"
 
 /**
  * The key in `localStorage` that Viriditas uses to store its color mode
  */
-export const VIRIDITAS_COLOR_MODE_STORAGE_KEY = "viriditas-color-theme"
+export const COLOR_MODE_STORAGE_KEY = "viriditas-color-theme"
+
+const lightVars = {
+  ...sharedTheme,
+  color: {
+    primary: "#000",
+    grey: "#73737D",
+    background: "#fafafa",
+    accent: "#6166DC",
+    bodyText: "#08080B",
+    card: "#fff",
+    horizontalRule: "rgba(8, 8, 11, 0.15)",
+    prism: prismColors,
+  },
+}
 
 /**
- * Executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstlyed content.
+ * Dark mode, applied via placing the class `LIGHT_COLOR_MODE_CLASS` at the top of the document tree.
  */
-export const foo = `(()=>{
-  console.warn("Attempting to load Viriditas color mode");
-  try {
-    var p=localStorage.getItem('${VIRIDITAS_COLOR_MODE_STORAGE_KEY}');
-} catch(e) {
-    console.warn("Failed to load!");
-    console.warn(e)
-  }
-})()`
-export const VIRIDITAS_COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${VIRIDITAS_COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${VIRIDITAS_DARK_THEME_CLASS}')} else {document.documentElement.classList.add('${VIRIDITAS_LIGHT_THEME_CLASS}')}}catch(e){}})('dark')`
-
-export const lightTheme = createGlobalTheme(
-  `html.${VIRIDITAS_LIGHT_THEME_CLASS}:root`,
+export const lightColorMode = createGlobalTheme(
+  `.${LIGHT_COLOR_MODE_CLASS}:root`,
   tokens,
-  {
-    ...sharedTheme,
-    color: {
-      primary: "#000",
-      grey: "#73737D",
-      background: "#fafafa",
-      accent: "#6166DC",
-      bodyText: "#08080B",
-      card: "#fff",
-      horizontalRule: "rgba(8, 8, 11, 0.15)",
-      prism: prismColors,
-    },
-  },
+  lightVars,
 )
 
-export const darkTheme = createGlobalTheme(
-  `html.${VIRIDITAS_DARK_THEME_CLASS}:root`,
+const darkVars = {
+  ...sharedTheme,
+  color: {
+    primary: "#fff",
+    grey: "#73737D",
+    background: "#111216",
+    accent: "#E9DAAC",
+    bodyText: "#fff",
+    card: "#1D2128",
+    horizontalRule: "rgba(255, 255, 255, 0.15)",
+    prism: prismColors,
+  },
+}
+
+/**
+ * Dark mode, applied via placing the class `DARK_COLOR_MODE_CLASS` at the top of the document tree.
+ */
+export const darkColorMode = createGlobalTheme(
+  `.${DARK_COLOR_MODE_CLASS}:root`,
   tokens,
-  {
-    ...sharedTheme,
-    color: {
-      primary: "#fff",
-      grey: "#73737D",
-      background: "#111216",
-      accent: "#E9DAAC",
-      bodyText: "#fff",
-      card: "#1D2128",
-      horizontalRule: "rgba(255, 255, 255, 0.15)",
-      prism: prismColors,
+  darkVars,
+)
+
+/**
+ * System mode, applied via placing the class `SYSTEM_COLOR_MODE_CLASS` at the top of the document tree.
+ * In this mode, the user's `prefers-color-scheme` setting will determine the color mode.
+ */
+export const systemColorMode = globalStyle(`.${SYSTEM_COLOR_MODE_CLASS}`, {
+  "@media": {
+    "(prefers-color-scheme: light)": {
+      vars: assignVars(tokens, lightVars),
+    },
+    "(prefers-color-scheme: dark)": {
+      vars: assignVars(tokens, darkVars),
     },
   },
-)
+})
 
 export const breakpoints = {
   phone: "(max-width: 376px)",

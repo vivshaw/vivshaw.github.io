@@ -1,8 +1,10 @@
 "use client"
 
+import clsx from "clsx"
+
 import { useViriditasTheme } from "#viriditas/context"
 import { iconButton } from "./Navbar.css"
-import { moonMask, moonOrSun } from "./DarkModeToggle.css"
+import { moonMask, moonOrSun, root } from "./DarkModeToggle.css"
 
 export function DarkModeToggle() {
   const { theme, setTheme } = useViriditasTheme()
@@ -14,7 +16,7 @@ export function DarkModeToggle() {
 
   return (
     <button
-      className={iconButton}
+      className={clsx(iconButton, root)}
       onClick={toggleColorMode}
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}

@@ -25,14 +25,14 @@
   - [ ] heading styles in MDX get broken alignment on small screens
   - [ ] fix navbar appearance & alignment in mobile menu
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
-  - [ ] consistent footer spacing- `40px` maybe?
 - [ ] styling
+  - [ ] find a more ergonomic solution for light/dark/system mode
   - [ ] stop using global transition variables, and standardize transitions more generally
   - [ ] sans is only used in tables, should I drop it?
   - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
+    - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapepr
 - [ ] make a better README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
-- [ ] get initial load for color mode to be even smoother. maybe make it work even if JS is inactive? fix the hydration error that appears?
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type

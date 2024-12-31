@@ -4,9 +4,12 @@ import type { Metadata } from "next/types"
 import { author, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
 import {
-  darkTheme,
-  lightTheme,
-  VIRIDITAS_COLOR_MODE_SNIPPET,
+  COLOR_MODE_STORAGE_KEY,
+  DARK_COLOR_MODE_CLASS,
+  darkColorMode,
+  LIGHT_COLOR_MODE_CLASS,
+  lightColorMode,
+  SYSTEM_COLOR_MODE_CLASS,
 } from "#viriditas/theme/theme.css"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
@@ -67,15 +70,24 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstlyed content.
+ */
+const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_COLOR_MODE_CLASS}')} else {document.documentElement.classList.add('${LIGHT_COLOR_MODE_CLASS}')} document.documentElement.classList.remove('${SYSTEM_COLOR_MODE_CLASS}')}catch(e){}})('dark')`
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={SYSTEM_COLOR_MODE_CLASS}
+      suppressHydrationWarning // Necessary because the color mode snippet will swap out the class ASAP after page load!
+    >
       <head>
-        <script>{VIRIDITAS_COLOR_MODE_SNIPPET}</script>
+        <script>{COLOR_MODE_SNIPPET}</script>
         <link rel="stylesheet" href="https://use.typekit.net/isa7scp.css" />
         <link
           rel="stylesheet"

@@ -2,9 +2,22 @@ import { style } from "@vanilla-extract/css"
 
 import {
   tokens,
-  VIRIDITAS_DARK_THEME_CLASS,
-  VIRIDITAS_LIGHT_THEME_CLASS,
+  DARK_COLOR_MODE_CLASS,
+  LIGHT_COLOR_MODE_CLASS,
+  SYSTEM_COLOR_MODE_CLASS,
 } from "#viriditas/theme/theme.css"
+
+export const root = style({
+  selectors: {
+    // One can only toggle the color mode when JS is active to control the color mode.
+    // If the default `SYSTEM_COLOR_MODE_CLASS` is still set, then we can't control the color mode.
+    // (The color mode script that runs on initialization would have removed this, if it ran).
+    // So, we shouldn't display a toggle for something we can't toggle!
+    [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+      display: "none",
+    },
+  },
+})
 
 // Based off a codepen! Much appreciation to: https://codepen.io/aaroniker/pen/KGpXZo
 export const moonOrSun = style({
@@ -50,36 +63,78 @@ export const moonOrSun = style({
       width: "8px",
     },
 
-    [`.${VIRIDITAS_LIGHT_THEME_CLASS} &`]: {
+    [`.${LIGHT_COLOR_MODE_CLASS} &`]: {
       border: `2px solid ${tokens.color.primary}`,
       overflow: "hidden",
       transform: "scale(1)",
     },
 
-    [`.${VIRIDITAS_LIGHT_THEME_CLASS} &:before`]: {
+    [`.${LIGHT_COLOR_MODE_CLASS} &:before`]: {
       opacity: 1,
       transform: "translate(0, 0)",
     },
 
-    [`.${VIRIDITAS_LIGHT_THEME_CLASS} &:after`]: {
+    [`.${LIGHT_COLOR_MODE_CLASS} &:after`]: {
       transform: "scale(0)",
     },
 
-    [`.${VIRIDITAS_DARK_THEME_CLASS} &`]: {
+    [`.${DARK_COLOR_MODE_CLASS} &`]: {
       border: `4px solid ${tokens.color.primary}`,
       overflow: "visible",
       transform: "scale(0.55)",
     },
 
-    [`.${VIRIDITAS_DARK_THEME_CLASS} &:before`]: {
+    [`.${DARK_COLOR_MODE_CLASS} &:before`]: {
       opacity: 0,
       transform: "translate(14px, -14px)",
     },
 
-    [`.${VIRIDITAS_DARK_THEME_CLASS} &:after`]: {
+    [`.${DARK_COLOR_MODE_CLASS} &:after`]: {
       transform: "scale(1)",
     },
   },
+
+  // This is what we'd need to do to make this look correct in system color mode.
+  // Luckily, we don't care! We're going to hide this component completely in system mode.
+  // "@media": {
+  //   "(prefers-color-scheme: light)": {
+  //     selectors: {
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+  //         border: `2px solid ${tokens.color.primary}`,
+  //         overflow: "hidden",
+  //         transform: "scale(1)",
+  //       },
+
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:before`]: {
+  //         opacity: 1,
+  //         transform: "translate(0, 0)",
+  //       },
+
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:after`]: {
+  //         transform: "scale(0)",
+  //       },
+  //     },
+  //   },
+
+  //   "(prefers-color-scheme: dark)": {
+  //     selectors: {
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+  //         border: `4px solid ${tokens.color.primary}`,
+  //         overflow: "visible",
+  //         transform: "scale(0.55)",
+  //       },
+
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:before`]: {
+  //         opacity: 0,
+  //         transform: "translate(14px, -14px)",
+  //       },
+
+  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:after`]: {
+  //         transform: "scale(1)",
+  //       },
+  //     },
+  //   },
+  // },
 })
 
 export const moonMask = style({
@@ -94,11 +149,11 @@ export const moonMask = style({
   transition: `${tokens.motion.colorModeTransition}, transform 0.45s ease`,
 
   selectors: {
-    [`.${VIRIDITAS_LIGHT_THEME_CLASS} &`]: {
+    [`.${LIGHT_COLOR_MODE_CLASS} &`]: {
       transform: "translate(0, 0)",
     },
 
-    [`.${VIRIDITAS_DARK_THEME_CLASS} &`]: {
+    [`.${DARK_COLOR_MODE_CLASS} &`]: {
       transform: "translate(14px, -14px)",
     },
   },

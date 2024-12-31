@@ -2,9 +2,9 @@
 
 import { createContext, useContext, useEffect, useState } from "react"
 import {
-  VIRIDITAS_DARK_THEME_CLASS,
-  VIRIDITAS_LIGHT_THEME_CLASS,
-  VIRIDITAS_COLOR_MODE_STORAGE_KEY,
+  DARK_COLOR_MODE_CLASS,
+  LIGHT_COLOR_MODE_CLASS,
+  COLOR_MODE_STORAGE_KEY,
 } from "./theme/theme.css"
 
 type Themes = "light" | "dark"
@@ -43,7 +43,7 @@ export function ViriditasProvider({ children }: React.PropsWithChildren<{}>) {
   // On first load, populate the current color scheme.
   useEffect(() => {
     setSelectedTheme(
-      document.documentElement.classList.contains(VIRIDITAS_DARK_THEME_CLASS)
+      document.documentElement.classList.contains(DARK_COLOR_MODE_CLASS)
         ? "dark"
         : "light",
     )
@@ -57,18 +57,16 @@ export function ViriditasProvider({ children }: React.PropsWithChildren<{}>) {
     setSelectedTheme(theme)
 
     const newClass =
-      theme === "dark"
-        ? VIRIDITAS_DARK_THEME_CLASS
-        : VIRIDITAS_LIGHT_THEME_CLASS
+      theme === "dark" ? DARK_COLOR_MODE_CLASS : LIGHT_COLOR_MODE_CLASS
 
     document.documentElement.classList.remove(
-      VIRIDITAS_DARK_THEME_CLASS,
-      VIRIDITAS_LIGHT_THEME_CLASS,
+      DARK_COLOR_MODE_CLASS,
+      LIGHT_COLOR_MODE_CLASS,
     )
     document.documentElement.classList.add(newClass)
 
     try {
-      localStorage.setItem(VIRIDITAS_COLOR_MODE_STORAGE_KEY, theme)
+      localStorage.setItem(COLOR_MODE_STORAGE_KEY, theme)
     } catch (err) {
       console.warn(
         "localStorage is disabled! the color mode couldn't be saved.",
