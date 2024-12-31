@@ -6,7 +6,7 @@ import path from "path"
  * Each subdirectory under `posts/` contains a blog post. The slugs are the subdirectory names.
  */
 export async function listAllBlogSlugs() {
-  const root = path.join(process.cwd(), "posts")
+  const root = path.join(process.cwd(), "../../posts")
   const allSlugs = await fs.readdir(root)
 
   return allSlugs
@@ -16,6 +16,8 @@ export async function listAllBlogSlugs() {
  * Imports a given blog post, returning both its content and metadata.
  */
 export async function importBlogPost(slug: string) {
-  const { default: PostContent, meta } = await import(`posts/${slug}/post.mdx`)
+  const { default: PostContent, meta } = await import(
+    `#/../../posts/${slug}/post.mdx`
+  )
   return { PostContent, meta }
 }

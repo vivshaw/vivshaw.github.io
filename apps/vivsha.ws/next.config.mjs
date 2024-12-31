@@ -25,7 +25,7 @@ const withMDX = createMDX({
 })
 
 const withSerwist = createSerwist({
-  swSrc: "src/app/sw.ts",
+  swSrc: "app/sw.ts",
   swDest: "public/sw.js",
 })
 

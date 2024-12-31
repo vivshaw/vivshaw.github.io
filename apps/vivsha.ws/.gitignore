@@ -1,0 +1,11 @@
+# next.js
+.next/
+out/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# generated Service Worker files
+public/sw*
+public/swe-worker*
