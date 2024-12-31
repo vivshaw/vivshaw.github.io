@@ -26,7 +26,6 @@
 - [ ] styling
   - [ ] find a more ergonomic solution for light/dark/system mode
   - [ ] stop using global transition variables, and standardize transitions more generally
-  - [ ] sans is only used in tables, should I drop it?
   - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout

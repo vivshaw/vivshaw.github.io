@@ -129,7 +129,7 @@ const sharedTheme = {
     display: `orpheuspro, ${ORPHEUS_FALLBACK}, Serif`,
     book: "Georgia, serif",
     sans: "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
-    monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
+    monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   motion: {
     colorModeTransition:
