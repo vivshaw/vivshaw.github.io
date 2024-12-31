@@ -2,8 +2,7 @@ import Link from "next/link"
 
 import { centeringWrapper } from "#pageStyles/main.css"
 import { DarkModeToggle } from "./DarkModeToggle"
-import { MobileMenu } from "./MobileMenu"
-import { logoLink, root, controls, linkList, link } from "./Navbar.css"
+import { controls, link, linkList, logoLink, root } from "./Navbar.css"
 
 export function Navbar() {
   return (
@@ -31,10 +30,9 @@ export function Navbar() {
               </Link>
             </li>
           </ul>
-          <DarkModeToggle />
         </div>
 
-        <MobileMenu />
+        <DarkModeToggle />
       </nav>
     </div>
   )

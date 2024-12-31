@@ -23,10 +23,6 @@
   - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
   - [ ] more accessible focus states
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
-  - [ ] selecting a menu option in mobile menu should close that menu
-  - [ ] mobile menu should disable scroll
-  - [ ] fix navbar appearance & alignment in mobile menu- mobile menu options should be left-aligned with navbar
-    - [ ] navbar also aligns jankily with Home and Blog, and shifts jankily when scrollbar is present. maybe a bigger fix needed
 - [ ] styling
   - [ ] find a more ergonomic solution for light/dark/system mode
   - [ ] stop using global transition variables, and standardize transitions more generally
@@ -35,7 +31,7 @@
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
-    - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapepr
+    - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
 - [ ] make a better README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type

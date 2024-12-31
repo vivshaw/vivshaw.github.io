@@ -8,6 +8,9 @@ import {
 } from "#viriditas/theme/theme.css"
 
 export const root = style({
+  position: "relative",
+  top: -1, // for visual centering with the display font
+
   selectors: {
     // One can only toggle the color mode when JS is active to control the color mode.
     // If the default `SYSTEM_COLOR_MODE_CLASS` is still set, then we can't control the color mode.
