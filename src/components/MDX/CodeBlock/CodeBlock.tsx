@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import { PropsWithChildren } from "react"
 
-import { PRISM_CODE_CLASS } from "#components/MDX/MdxBody.css"
+import { CODE_BLOCK_CLASS } from "./CodeBlock.css"
 
 // import { useState } from "react"
 // import styled from "@emotion/styled"
@@ -73,11 +73,7 @@ type CodePrismProps = {
  */
 export function CodeBlock(props: PropsWithChildren<CodePrismProps>) {
   return (
-    <pre
-      {...props}
-      className={clsx(PRISM_CODE_CLASS, props.className)}
-      style={{ position: "relative" }}
-    >
+    <pre {...props} className={clsx(CODE_BLOCK_CLASS, props.className)}>
       {/* TODO: Stop this from copying a buncha `Object object`... */}
       {/* <Copy toCopy={codeString} /> */}
       {props.children}

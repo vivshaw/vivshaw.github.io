@@ -20,12 +20,11 @@ WSL is a compatibility layer that implements Linux system calls on top of the Wi
 
 There are limits, of course: there remain unimplemented system calls which will totally break some programs (for example, until recently all Haskell programs were broken due to unimplemented `timer_create`), and anything graphical is not officially supported. Using Linux cli apps in a Windows CMD or Powershell can also make things look pretty wonky. This was supposed to be [Solarized](http://ethanschoonover.com/solarized):
 
-<div className="Image__Small">
-  <Image
-    alt="WSL in Powershell, showing completely incorrect colors"
-    src={wslColorProbs}
-  />
-</div>
+<Image
+  alt="WSL in Powershell, showing completely incorrect colors"
+  className="Image__Small"
+  src={wslColorProbs}
+/>
 
 Personally, I got fed up with Powershell after spending days trying to get my dotfiles working. But why stop at what's officially supported?
 
@@ -41,12 +40,11 @@ Ultimately I managed to get vim, tmux, zsh, urxvt, feh, and Powerline working th
 
 Here's my current setup:
 
-<div className="Image__Small">
-  <Image
-    alt="tmux, vim, zsh, and Powerline operating inside urxvt on WSL"
-    src={wslTmux}
-  />
-</div>
+<Image
+  alt="tmux, vim, zsh, and Powerline operating inside urxvt on WSL"
+  className="Image__Small"
+  src={wslTmux}
+/>
 
 ## But is it useful?
 

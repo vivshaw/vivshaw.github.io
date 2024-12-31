@@ -22,7 +22,6 @@
 - [ ] UX
   - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
   - [ ] more accessible focus states
-  - [ ] heading styles in MDX get broken alignment on small screens
   - [ ] fix navbar appearance & alignment in mobile menu
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
@@ -32,7 +31,11 @@
   - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
+    - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapepr
 - [ ] make a better README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
+- [ ] blog page needs more top padding on mobile
+- [ ] selecting a menu option in mobile menu should close that menu
+- [ ] mobile menu should disable scroll

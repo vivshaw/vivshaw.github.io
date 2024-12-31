@@ -9,16 +9,15 @@ export const paragraph = style({
   fontFamily: tokens.font.book,
   fontSize: "22px",
   lineHeight: "1.756",
-  margin: "0 auto 35px",
+  marginBottom: 35,
+  marginTop: 0,
   transition: tokens.motion.colorModeTransition,
   width: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: "0 auto 25px",
-    },
-    [breakpoints.phablet]: {
-      padding: "0 20px",
+      marginBottom: 25,
+      marginTop: 0,
     },
   },
 

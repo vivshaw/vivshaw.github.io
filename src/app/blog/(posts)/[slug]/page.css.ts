@@ -1,6 +1,7 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "#viriditas/theme/theme.css"
+import { REMARK_CODE_BLOCK_CLASS } from "#components/MDX/mdx.css"
 
 export const section = style({
   display: "block",
@@ -24,25 +25,60 @@ export const section = style({
 })
 
 export const postBody = style({
+  display: "grid",
+  gridTemplateColumns: `
+    [full-start] 0px 
+    [main-start] 1fr [main-end]
+    0px [full-end]
+  `,
+  position: "relative",
   margin: "0 auto",
   maxWidth: "744px",
   padding: "0 0 35px",
-  position: "relative",
-  transition: "background 0.2s linear",
 
   "@media": {
     [breakpoints.desktop]: {
       paddingLeft: "53px",
     },
     [breakpoints.tablet]: {
+      gridTemplateColumns: `
+      [full-start] 20px 
+      [main-start] 1fr [main-end]
+      20px [full-end]
+    `,
       maxWidth: "100%",
-      padding: "70px 20px 80px",
+      padding: "70px 0 80px",
     },
     [breakpoints.phablet]: {
       padding: "60px 0",
     },
   },
 })
+
+/**
+ * By default, all MDX items get the main grid column.
+ */
+globalStyle(`${postBody} > *`, {
+  gridColumn: "main",
+  minWidth: 0,
+})
+
+/**
+ * By default, all MDX items get the main grid column.
+ */
+globalStyle(
+  `
+  ${postBody} > .${REMARK_CODE_BLOCK_CLASS},
+  ${postBody} > img
+  `,
+  {
+    "@media": {
+      [breakpoints.phablet]: {
+        gridColumn: "full",
+      },
+    },
+  },
+)
 
 export const footerNext = style({
   alignItems: "center",

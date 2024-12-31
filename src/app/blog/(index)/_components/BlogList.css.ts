@@ -54,9 +54,6 @@ export const postTitle = style([
   heading2,
   limitLines,
   {
-    fontFamily: tokens.font.display,
-    fontSize: "32px",
-    fontWeight: "500",
     marginBottom: "4px",
     transition: "color 0.3s ease-in-out",
 
@@ -67,14 +64,7 @@ export const postTitle = style([
     },
 
     "@media": {
-      [breakpoints.desktop]: {
-        fontSize: "32px",
-      },
-      [breakpoints.tablet]: {
-        fontSize: "24px",
-      },
       [breakpoints.phablet]: {
-        fontSize: "22px",
         padding: "0 20px",
 
         WebkitLineClamp: "3",

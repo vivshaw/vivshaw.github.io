@@ -1,4 +1,6 @@
-import { MdxBody } from "#components/MDX/MdxBody"
+import clsx from "clsx"
+
+import { mdxRoot } from "#components/MDX/mdx.css"
 import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
@@ -58,10 +60,8 @@ export default async function Post({
     <>
       <PostHero post={meta} />
 
-      <article className={postBody}>
-        <MdxBody>
-          <PostContent />
-        </MdxBody>
+      <article className={clsx(postBody, mdxRoot)}>
+        <PostContent />
       </article>
 
       {nextPosts.length > 0 && (

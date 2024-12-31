@@ -1,9 +1,9 @@
 import {
-  createGlobalThemeContract,
+  assignVars,
   createGlobalTheme,
+  createGlobalThemeContract,
   globalFontFace,
   globalStyle,
-  assignVars,
 } from "@vanilla-extract/css"
 
 /**
