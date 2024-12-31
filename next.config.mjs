@@ -1,7 +1,12 @@
+import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
 import remarkPrism from "remark-prism"
+
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -36,4 +41,6 @@ const nextConfig = {
   },
 }
 
-export default withVanillaExtract(withSerwist(withMDX(nextConfig)))
+export default withVanillaExtract(
+  withSerwist(withMDX(withBundleAnalyzer(nextConfig))),
+)
