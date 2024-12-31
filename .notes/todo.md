@@ -10,7 +10,6 @@
   - [ ] Nicer component for loading images in MDX?
   - [ ] Type post meta, if possible. or swap to using frontmatter! and at least document the metadata schema
 - [ ] tooling
-  - [ ] Monorepo it? (Turborepo? NX?)
   - [ ] Storybook & design system
   - [ ] image optimization for static exports?
   - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
