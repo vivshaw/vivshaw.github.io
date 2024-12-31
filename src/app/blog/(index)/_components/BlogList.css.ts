@@ -14,7 +14,7 @@ export const postLink = style({
   left: "0",
   marginBottom: "50px",
   position: "relative",
-  transition: "transform 0.33s var(--ease-out-quart)",
+  transition: `transform 0.33s ${tokens.easing.easeOutQuart}`,
   top: "0",
   width: "100%",
   zIndex: "1",

@@ -25,7 +25,6 @@
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
   - [ ] find a more ergonomic solution for light/dark/system mode
-  - [ ] stop using global transition variables, and standardize transitions more generally
   - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout

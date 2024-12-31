@@ -57,6 +57,15 @@ export const tokens = createGlobalThemeContract(
       },
     },
 
+    easing: {
+      easeInQuad: null,
+      easeInQuart: null,
+      easeOutQuad: null,
+      easeOutQuart: null,
+      easeInOutQuad: null,
+      easeInOutQuart: null,
+    },
+
     /**
      * Typography tokens.
      */
@@ -125,6 +134,14 @@ globalFontFace(ORPHEUS_FALLBACK, {
 })
 
 const sharedTheme = {
+  easing: {
+    easeInQuad: "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
+    easeInQuart: "cubic-bezier(0.895, 0.03, 0.685, 0.22)",
+    easeOutQuad: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    easeOutQuart: "cubic-bezier(0.165, 0.84, 0.44, 1)",
+    easeInOutQuad: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+    easeInOutQuart: "cubic-bezier(0.77, 0, 0.175, 1)",
+  },
   font: {
     display: `orpheuspro, ${ORPHEUS_FALLBACK}, Serif`,
     book: "Georgia, serif",
@@ -132,9 +149,8 @@ const sharedTheme = {
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   motion: {
-    colorModeTransition:
-      "background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)",
-    hoverTransition: "border-color 0.1s ease-in, opacity 0.1s ease-in",
+    colorModeTransition: `background 0.25s ${tokens.easing.easeInOutQuad}, color 0.25s ${tokens.easing.easeInOutQuad}`,
+    hoverTransition: `border-color 0.2s ${tokens.easing.easeInQuad}, opacity 0.2s ${tokens.easing.easeInQuad}`,
   },
 }
 
