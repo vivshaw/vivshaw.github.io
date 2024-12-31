@@ -22,8 +22,11 @@
 - [ ] UX
   - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
   - [ ] more accessible focus states
-  - [ ] fix navbar appearance & alignment in mobile menu
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
+  - [ ] selecting a menu option in mobile menu should close that menu
+  - [ ] mobile menu should disable scroll
+  - [ ] fix navbar appearance & alignment in mobile menu- mobile menu options should be left-aligned with navbar
+    - [ ] navbar also aligns jankily with Home and Blog, and shifts jankily when scrollbar is present. maybe a bigger fix needed
 - [ ] styling
   - [ ] find a more ergonomic solution for light/dark/system mode
   - [ ] stop using global transition variables, and standardize transitions more generally
@@ -36,6 +39,3 @@
 - [ ] make a better README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
-- [ ] blog page needs more top padding on mobile
-- [ ] selecting a menu option in mobile menu should close that menu
-- [ ] mobile menu should disable scroll

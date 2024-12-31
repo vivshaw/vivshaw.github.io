@@ -21,7 +21,7 @@ export const mainpageContent = style({
     [breakpoints.tablet]: {
       paddingRight: "24px",
       paddingLeft: "24px",
-      paddingTop: "0px",
+      paddingTop: "40px",
     },
   },
 })
@@ -41,16 +41,21 @@ export const mainpageLink = style({
 })
 
 export const mainpageHeading = style({
+  color: tokens.color.primary,
   fontFamily: tokens.font.display,
   fontWeight: 400,
-  lineHeight: "1.4",
   fontSize: "62px",
-  color: tokens.color.primary,
-  marginTop: "calc(0.83em + 32px)",
+  lineHeight: "1.4",
 
   "@media": {
     [breakpoints.tablet]: {
       fontSize: "36px",
+    },
+  },
+
+  selectors: {
+    "&:not(:first-of-type)": {
+      marginTop: "calc(0.83em + 32px)",
     },
   },
 })
