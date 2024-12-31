@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
 import { heading3 } from "#components/MDX/Headings/Headings.css"
-import { breakpoints, tokens } from "#viriditas/theme/theme.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const root = recipe({
   base: {

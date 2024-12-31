@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "#viriditas/theme/theme.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 import { blockquote } from "../Blockquote/Blockquote.css"
 import { listItem } from "../ListItem/ListItem.css"
 

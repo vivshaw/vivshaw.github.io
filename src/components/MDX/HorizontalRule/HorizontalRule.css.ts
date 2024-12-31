@@ -5,7 +5,7 @@ import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_CLASS,
-} from "#viriditas/theme/theme.css"
+} from "@vivshaw/viriditas/theme"
 import { style } from "@vanilla-extract/css"
 
 export const horizontalRule = style({

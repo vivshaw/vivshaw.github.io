@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "#viriditas/theme/theme.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 /**
  * This class must be applied to whatever element wraps the MDX,

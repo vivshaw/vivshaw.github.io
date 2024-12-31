@@ -47,5 +47,9 @@
   },
   "resolutions": {
     "@types/react": "19.0.2"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

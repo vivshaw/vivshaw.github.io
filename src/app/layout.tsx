@@ -10,7 +10,7 @@ import {
   LIGHT_COLOR_MODE_CLASS,
   lightColorMode,
   SYSTEM_COLOR_MODE_CLASS,
-} from "#viriditas/theme/theme.css"
+} from "@vivshaw/viriditas/theme"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
 

@@ -1,6 +1,6 @@
+import "@vivshaw/viriditas/reset"
 import React, { PropsWithChildren } from "react"
 
-import "#viriditas/reset.css"
 import { root, content } from "./LayoutWrapper.css"
 import { Navbar } from "./Navbar"
 

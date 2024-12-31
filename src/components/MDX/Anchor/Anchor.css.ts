@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 
-import { tokens } from "#viriditas/theme/theme.css"
+import { tokens } from "@vivshaw/viriditas/theme"
 
 export const anchor = style({
   color: tokens.color.accent,

@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css"
 
-import { breakpoints } from "#viriditas/theme/theme.css"
+import { breakpoints } from "@vivshaw/viriditas/theme"
 
 export const CODE_BLOCK_CLASS = "prism-code"
 

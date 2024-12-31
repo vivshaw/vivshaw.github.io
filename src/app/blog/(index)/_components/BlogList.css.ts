@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 
 import { heading2 } from "#components/MDX/Headings/Headings.css"
-import { breakpoints, tokens } from "#viriditas/theme/theme.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const root = style({
   transition: "opacity 0.25s",

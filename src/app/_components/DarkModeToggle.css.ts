@@ -5,7 +5,7 @@ import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_CLASS,
-} from "#viriditas/theme/theme.css"
+} from "@vivshaw/viriditas/theme"
 
 export const root = style({
   position: "relative",
