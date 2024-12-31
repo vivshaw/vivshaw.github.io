@@ -13,7 +13,12 @@ import { root, iconWrapper, contents, link, linkList } from "./MobileMenu.css"
 export function MobileMenu(): React.ReactElement<any> {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const toggleMenu = () => setMenuOpen((menuState) => !menuState)
+  function closeMenu() {
+    setMenuOpen(false)
+  }
+  function toggleMenu() {
+    setMenuOpen((menuState) => !menuState)
+  }
 
   return (
     <div className={root}>
@@ -28,7 +33,7 @@ export function MobileMenu(): React.ReactElement<any> {
       <div className={clsx(contents, menuOpen && "show")}>
         <ul className={linkList}>
           <li>
-            <Link className={link} href="/blog">
+            <Link className={link} href="/blog" onClick={closeMenu}>
               Blog
             </Link>
           </li>
@@ -38,7 +43,7 @@ export function MobileMenu(): React.ReactElement<any> {
             </a>
           </li>
           <li>
-            <Link className={link} href="/about">
+            <Link className={link} href="/about" onClick={closeMenu}>
               About
             </Link>
           </li>
