@@ -7,7 +7,7 @@
   - [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
   - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
 - [ ] tooling
-  - [ ] Storybook & design system
+  - [ ] Storybook
   - [ ] image optimization for static exports?
   - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
 - [ ] features
@@ -31,3 +31,6 @@
 - [ ] make it clearer when I'm importing client-only stuff from Viriditas. (put it under a `@vivshaw/viriditas/client` path?)
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
+- [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
+- [ ] simplify color modes- remove need for system setting class, add light mode/dark mode helper functions
+- [ ] put domain config into IaC w/ Terraform
