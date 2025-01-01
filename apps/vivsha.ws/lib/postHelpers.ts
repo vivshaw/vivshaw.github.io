@@ -16,8 +16,12 @@ export async function listAllBlogSlugs() {
  * Imports a given blog post, returning both its content and metadata.
  */
 export async function importBlogPost(slug: string) {
-  const { default: PostContent, meta } = await import(
+  const { default: PostContent, frontmatter } = await import(
     `#/../../posts/${slug}/post.mdx`
   )
-  return { PostContent, meta }
+
+  return {
+    PostContent,
+    meta: { ...frontmatter, date: new Date(frontmatter.date) },
+  }
 }

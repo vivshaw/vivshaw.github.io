@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { BlogList } from "./_components/BlogList"
-import { getSortedBlogMetas } from "./_lib/getAllBlogPosts"
+import { getSortedBlogMetas } from "./_lib/getSortedBlogMetas"
 
 export const metadata: Metadata = metadataHelper({
   type: "other",

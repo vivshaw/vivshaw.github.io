@@ -42,6 +42,7 @@ export default async function Post({
 }) {
   const slug = (await params).slug
   const { PostContent, meta } = await importBlogPost(slug)
+  console.warn(meta)
 
   const nextPosts = fakeNextMetas.filter((post) => post.slug !== meta.slug)
 

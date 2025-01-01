@@ -7,13 +7,11 @@
   - [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
   - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
 - [ ] MDX ergonomics
-  - [ ] Nicer component for loading images in MDX?
-  - [ ] Type post meta, if possible. or swap to using frontmatter! and at least document the metadata schema
+  - [ ] Type post meta, if possible. or at least document the metadata schema
 - [ ] tooling
   - [ ] Storybook & design system
   - [ ] image optimization for static exports?
   - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
-  - [ ] extract MDX components to a separate package?
 - [ ] features
   - [ ] tags index page & tag pages, someday
   - [ ] Get "Next Post" working for real

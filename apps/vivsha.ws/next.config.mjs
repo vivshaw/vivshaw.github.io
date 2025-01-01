@@ -2,7 +2,9 @@ import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
+import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
+import remarkMdxFrontmatter from "remark-mdx-frontmatter"
 import remarkPrism from "remark-prism"
 
 const withBundleAnalyzer = createBundleAnalyzer({
@@ -13,7 +15,9 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [
+      remarkFrontmatter,
       remarkGfm,
+      remarkMdxFrontmatter,
       [
         remarkPrism,
         {
