@@ -25,6 +25,9 @@
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
-- [ ] make a better README
+- [ ] flesh out package READMEs
+- [ ] add a post README
+- [ ] add a script to quickly create post skeletons
+- [ ] make it clearer when I'm importing client-only stuff from Viriditas. (put it under a `@vivshaw/viriditas/client` path?)
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
