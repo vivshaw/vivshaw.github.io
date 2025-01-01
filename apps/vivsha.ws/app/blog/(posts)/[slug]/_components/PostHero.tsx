@@ -1,9 +1,9 @@
-import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
+import { PostMetadata } from "#data"
 import { root, title, date } from "./PostHero.css"
 
 interface PostHeroProps {
-  post: Post
+  post: PostMetadata
 }
 
 /**

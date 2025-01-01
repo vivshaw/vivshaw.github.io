@@ -1,16 +1,16 @@
+import { mdxRoot } from "@vivshaw/mdx/mdx.css"
 import clsx from "clsx"
 
-import { mdxRoot } from "@vivshaw/mdx/mdx.css"
-import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
+import { PostMetadata } from "#data"
 import { PostHero } from "./_components/PostHero"
 import { PostNext } from "./_components/PostNext"
 import { postBody, footerNext, footerSpacer, section } from "./page.css"
 
 // TODO: Remove these after `next` actually works!!
-const fakeNextMetas: Post[] = [
+const fakeNextMetas: PostMetadata[] = [
   {
     title: "Build a Frankenstein Robot Brain, Teach It to Read Numbers",
     blurb: "Exploring computer vision with a from-scratch neural net in Scala",

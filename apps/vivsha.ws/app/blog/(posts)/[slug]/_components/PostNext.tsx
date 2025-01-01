@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
+import { PostMetadata } from "#data"
 import {
   postExcerpt,
   root,
@@ -15,7 +15,7 @@ interface PostNextProps {
    * Posts to display in the Next Posts block.
    * If the list is empty, we won't display this block at all!
    */
-  posts: Post[]
+  posts: PostMetadata[]
 }
 
 /**
@@ -43,7 +43,7 @@ interface GridItemProps {
   /**
    * The Post to display in this grid item.
    */
-  post: Post
+  post: PostMetadata
 }
 
 function GridItem({ post }: GridItemProps) {

@@ -11,7 +11,6 @@ import type {
 } from "schema-dts"
 
 import { author, site } from "#data"
-import { Author } from "next/dist/lib/metadata/types/metadata-types"
 
 type SeoData =
   | {
@@ -21,7 +20,7 @@ type SeoData =
       type: "post"
       dateModified?: string
       datePublished: string
-      description: string
+      description?: string
       slug: string
       tags: string[]
       title: string

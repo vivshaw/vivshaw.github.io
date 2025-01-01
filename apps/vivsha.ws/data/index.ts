@@ -1,17 +1,37 @@
 import type { StaticImageData } from "next/image"
+import { z } from "zod"
 
 import avatarPic from "#images/avatar.jpg"
 import defaultPreview from "#images/default-preview.jpg"
 
-export type Post = {
-  title: string
-  slug: string
-  date: Date
+/**
+ * The type of the raw Markdown frontmatter included in each blog post.
+ *
+ * This differs a bit from the complete metadata- it lacks the slug, and the dates are strings.
+ */
+export const BlogFrontmatter = z.object({
+  blurb: z.optional(z.string()),
+  date: z.string().date(),
+  dateModified: z.optional(z.string().date()),
+  next: z.optional(z.array(z.string())),
+  tags: z.array(z.string()),
+  title: z.string(),
+})
 
-  blurb: string
-  next?: string[]
-  tags: string[]
-}
+/**
+ * The type of the complete metadata for a blog post.
+ */
+export const PostMeta = z.object({
+  blurb: z.optional(z.string()),
+  date: z.date(),
+  dateModified: z.optional(z.date()),
+  next: z.optional(z.array(z.string())),
+  slug: z.string(),
+  tags: z.array(z.string()),
+  title: z.string(),
+})
+
+export type PostMetadata = z.infer<typeof PostMeta>
 
 export type SocialSite =
   | "linkedin"

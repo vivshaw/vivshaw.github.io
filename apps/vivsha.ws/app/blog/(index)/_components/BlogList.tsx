@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-import type { Post } from "#data"
 import { prettyPrintDate } from "#lib"
+import { PostMetadata } from "#data"
 import { root, postBlurb, postDate, postLink, postTitle } from "./BlogList.css"
 
 interface BlogListProps {
-  posts: Post[]
+  posts: PostMetadata[]
 }
 
 export function BlogList({ posts }: BlogListProps) {
@@ -19,7 +19,7 @@ export function BlogList({ posts }: BlogListProps) {
 }
 
 interface BlogListItemProps {
-  post: Post
+  post: PostMetadata
 }
 
 function BlogListItem({ post }: BlogListItemProps) {

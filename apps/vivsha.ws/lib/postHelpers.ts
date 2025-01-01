@@ -1,6 +1,8 @@
 import fs from "fs/promises"
 import path from "path"
 
+import { BlogFrontmatter, PostMeta } from "#data"
+
 /**
  * Lists all valid blog post slugs.
  * Each subdirectory under `posts/` contains a blog post. The slugs are the subdirectory names.
@@ -20,8 +22,15 @@ export async function importBlogPost(slug: string) {
     `#/../../posts/${slug}/post.mdx`
   )
 
+  const parsedFrontmatter = BlogFrontmatter.parse(frontmatter)
+  const postMeta = PostMeta.parse({
+    ...parsedFrontmatter,
+    date: new Date(frontmatter.date),
+    slug,
+  })
+
   return {
     PostContent,
-    meta: { ...frontmatter, date: new Date(frontmatter.date), slug },
+    meta: postMeta,
   }
 }
