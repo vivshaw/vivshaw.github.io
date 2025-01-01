@@ -22,6 +22,6 @@ export async function importBlogPost(slug: string) {
 
   return {
     PostContent,
-    meta: { ...frontmatter, date: new Date(frontmatter.date) },
+    meta: { ...frontmatter, date: new Date(frontmatter.date), slug },
   }
 }
