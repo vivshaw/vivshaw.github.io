@@ -12,7 +12,7 @@ import { LayoutWrapper } from "./_components/LayoutWrapper"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
-  themeColor: "#000000",
+  themeColor: "#111216",
 }
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     // Don't turn phone numbers into links
     "format-detection": "telephone=no",
     // Windows tile config
-    "msapplication-TileColor": "#da532c",
+    "msapplication-TileColor": "#111216",
   },
 }
 

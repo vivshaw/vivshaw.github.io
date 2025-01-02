@@ -17,7 +17,6 @@
 - [ ] UX
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
-  - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
