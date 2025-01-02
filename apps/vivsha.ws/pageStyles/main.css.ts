@@ -7,12 +7,18 @@ export const centeringWrapper = style({
   flexDirection: "column",
   /** avoid layout shift when there's a scrollbar */
   paddingLeft: "calc(100vw - 100%)",
+
+  "@media": {
+    [breakpoints.desktopLarge]: {
+      paddingLeft: 0,
+    },
+  },
 })
 
 export const mainpageContent = style({
   maxWidth: "1440px",
-  paddingRight: "calc(env(safe-area-inset-right) + 80px)",
-  paddingLeft: "calc(env(safe-area-inset-right) + 80px)",
+  paddingRight: "80px",
+  paddingLeft: "80px",
   paddingBottom: "50px",
   paddingTop: "80px",
   width: "100%",

@@ -15,7 +15,6 @@
   - [ ] Get "Next Post" working for real
   - [ ] contact page?
 - [ ] UX
-  - [ ] Fix janky width changing when scrollbar shows or hides, again. now it's on smaller screens?
   - [ ] more accessible focus states
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
