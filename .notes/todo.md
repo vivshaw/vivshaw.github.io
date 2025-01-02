@@ -19,12 +19,13 @@
   - [ ] more accessible focus states
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
-  - [ ] find a more ergonomic solution for light/dark/system mode
   - [ ] better branded theme color
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
+- [ ] viriditas
+  - [ ] move stuff like color mode classes out of Theme
 - [ ] flesh out package READMEs
 - [ ] add a post README
 - [ ] add a script to quickly create post skeletons
