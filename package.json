@@ -17,10 +17,14 @@
     "build": "yarn apps/vivsha.ws build",
     "dev": "yarn apps/vivsha.ws dev",
     "format:all": "prettier --write .",
-    "start": "yarn apps/vivsha.ws start"
+    "start": "yarn apps/vivsha.ws start",
+    "new:post": "hygen post new"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "hygen": "^6.2.11"
+  }
 }

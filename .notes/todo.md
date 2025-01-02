@@ -28,7 +28,6 @@
   - [ ] move stuff like color mode classes out of Theme
 - [ ] flesh out package READMEs
 - [ ] add a post README
-- [ ] add a script to quickly create post skeletons
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
