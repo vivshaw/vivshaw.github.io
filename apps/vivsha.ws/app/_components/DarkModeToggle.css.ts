@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css"
 import {
   tokens,
-  DARK_COLOR_MODE_CLASS,
-  LIGHT_COLOR_MODE_CLASS,
-  SYSTEM_COLOR_MODE_CLASS,
+  DARK_COLOR_MODE_SELECTOR,
+  LIGHT_COLOR_MODE_SELECTOR,
+  SYSTEM_COLOR_MODE_SELECTOR,
 } from "@vivshaw/viriditas/theme"
 
 export const root = style({
@@ -12,10 +12,10 @@ export const root = style({
 
   selectors: {
     // One can only toggle the color mode when JS is active to control the color mode.
-    // If the default `SYSTEM_COLOR_MODE_CLASS` is still set, then we can't control the color mode.
-    // (The color mode script that runs on initialization would have removed this, if it ran).
+    // vivsha.ws's startup snippet applies a color mode class. So, if one is absent and the
+    // app is still in system color mode, JS ain't working.
     // So, we shouldn't display a toggle for something we can't toggle!
-    [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+    [`${SYSTEM_COLOR_MODE_SELECTOR} &`]: {
       display: "none",
     },
   },
@@ -65,33 +65,33 @@ export const moonOrSun = style({
       width: "8px",
     },
 
-    [`.${LIGHT_COLOR_MODE_CLASS} &`]: {
+    [`${LIGHT_COLOR_MODE_SELECTOR} &`]: {
       border: `2px solid ${tokens.color.primary}`,
       overflow: "hidden",
       transform: "scale(1)",
     },
 
-    [`.${LIGHT_COLOR_MODE_CLASS} &:before`]: {
+    [`${LIGHT_COLOR_MODE_SELECTOR} &:before`]: {
       opacity: 1,
       transform: "translate(0, 0)",
     },
 
-    [`.${LIGHT_COLOR_MODE_CLASS} &:after`]: {
+    [`${LIGHT_COLOR_MODE_SELECTOR} &:after`]: {
       transform: "scale(0)",
     },
 
-    [`.${DARK_COLOR_MODE_CLASS} &`]: {
+    [`${DARK_COLOR_MODE_SELECTOR} &`]: {
       border: `4px solid ${tokens.color.primary}`,
       overflow: "visible",
       transform: "scale(0.55)",
     },
 
-    [`.${DARK_COLOR_MODE_CLASS} &:before`]: {
+    [`${DARK_COLOR_MODE_SELECTOR} &:before`]: {
       opacity: 0,
       transform: "translate(14px, -14px)",
     },
 
-    [`.${DARK_COLOR_MODE_CLASS} &:after`]: {
+    [`${DARK_COLOR_MODE_SELECTOR} &:after`]: {
       transform: "scale(1)",
     },
   },
@@ -101,18 +101,18 @@ export const moonOrSun = style({
   // "@media": {
   //   "(prefers-color-scheme: light)": {
   //     selectors: {
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &`]: {
   //         border: `2px solid ${tokens.color.primary}`,
   //         overflow: "hidden",
   //         transform: "scale(1)",
   //       },
 
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:before`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &:before`]: {
   //         opacity: 1,
   //         transform: "translate(0, 0)",
   //       },
 
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:after`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &:after`]: {
   //         transform: "scale(0)",
   //       },
   //     },
@@ -120,18 +120,18 @@ export const moonOrSun = style({
 
   //   "(prefers-color-scheme: dark)": {
   //     selectors: {
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &`]: {
   //         border: `4px solid ${tokens.color.primary}`,
   //         overflow: "visible",
   //         transform: "scale(0.55)",
   //       },
 
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:before`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &:before`]: {
   //         opacity: 0,
   //         transform: "translate(14px, -14px)",
   //       },
 
-  //       [`.${SYSTEM_COLOR_MODE_CLASS} &:after`]: {
+  //       [`${SYSTEM_COLOR_MODE_SELECTOR} &:after`]: {
   //         transform: "scale(1)",
   //       },
   //     },
@@ -151,11 +151,11 @@ export const moonMask = style({
   transition: `${tokens.motion.colorModeTransition}, transform 0.45s ease`,
 
   selectors: {
-    [`.${LIGHT_COLOR_MODE_CLASS} &`]: {
+    [`${LIGHT_COLOR_MODE_SELECTOR} &`]: {
       transform: "translate(0, 0)",
     },
 
-    [`.${DARK_COLOR_MODE_CLASS} &`]: {
+    [`${DARK_COLOR_MODE_SELECTOR} &`]: {
       transform: "translate(14px, -14px)",
     },
   },

@@ -156,12 +156,9 @@ const sharedTheme = {
 
 export const LIGHT_COLOR_MODE_CLASS = "vvv-light"
 export const DARK_COLOR_MODE_CLASS = "vvv-dark"
-export const SYSTEM_COLOR_MODE_CLASS = "vvv-prefers"
-
-/**
- * The key in `localStorage` that Viriditas uses to store its color mode
- */
-export const COLOR_MODE_STORAGE_KEY = "viriditas-color-theme"
+export const DARK_COLOR_MODE_SELECTOR = `html.${DARK_COLOR_MODE_CLASS}`
+export const LIGHT_COLOR_MODE_SELECTOR = `html.${LIGHT_COLOR_MODE_CLASS}`
+export const SYSTEM_COLOR_MODE_SELECTOR = `html:not(.${DARK_COLOR_MODE_CLASS}, .${LIGHT_COLOR_MODE_CLASS})`
 
 const lightVars = {
   ...sharedTheme,
@@ -210,10 +207,10 @@ export const darkColorMode = createGlobalTheme(
 )
 
 /**
- * System mode, applied via placing the class `SYSTEM_COLOR_MODE_CLASS` at the top of the document tree.
+ * System mode, the default (active when no color mode class has been applied).
  * In this mode, the user's `prefers-color-scheme` setting will determine the color mode.
  */
-export const systemColorMode = globalStyle(`.${SYSTEM_COLOR_MODE_CLASS}`, {
+export const systemColorMode = globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR}`, {
   "@media": {
     "(prefers-color-scheme: light)": {
       vars: assignVars(tokens, lightVars),

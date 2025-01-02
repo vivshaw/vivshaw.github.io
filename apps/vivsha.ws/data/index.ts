@@ -5,6 +5,11 @@ import avatarPic from "#images/avatar.jpg"
 import defaultPreview from "#images/default-preview.jpg"
 
 /**
+ * The key in `localStorage`used to store the app's color mode
+ */
+export const COLOR_MODE_STORAGE_KEY = "color-theme"
+
+/**
  * The type of the raw Markdown frontmatter included in each blog post.
  *
  * This differs a bit from the complete metadata- it lacks the slug, and the dates are strings.

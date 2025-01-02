@@ -9,7 +9,7 @@
 - [ ] tooling
   - [ ] Storybook
   - [ ] image optimization for static exports?
-  - [ ] Yarn PnP support? (Not compatible with Turborepo... yet!)
+  - [ ] is there a need for any additional tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
   - [ ] Get "Next Post" working for real
@@ -28,9 +28,7 @@
 - [ ] flesh out package READMEs
 - [ ] add a post README
 - [ ] add a script to quickly create post skeletons
-- [ ] make it clearer when I'm importing client-only stuff from Viriditas. (put it under a `@vivshaw/viriditas/client` path?)
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
-- [ ] simplify color modes- remove need for system setting class, add light mode/dark mode helper functions
 - [ ] put domain config into IaC w/ Terraform
