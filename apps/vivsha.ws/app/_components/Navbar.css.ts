@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css"
+import { focusRing } from "@vivshaw/viriditas/helpers"
 import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const root = style({
@@ -31,14 +32,19 @@ export const root = style({
   },
 })
 
-export const interactionHover = style({
-  opacity: 0.5,
-  transition: "opacity 0.3s ease",
+export const interactionHover = style([
+  {
+    opacity: 0.5,
+    transition: "opacity 0.3s ease",
 
-  ":hover": {
-    opacity: 1,
+    selectors: {
+      "&:hover, &:focus-visible": {
+        opacity: 1,
+      },
+    },
   },
-})
+  focusRing,
+])
 
 export const iconButton = style([
   interactionHover,
@@ -54,16 +60,21 @@ export const iconButton = style([
   },
 ])
 
-export const logoLink = style({
-  color: tokens.color.primary,
-  fontSize: "27px",
-  gridArea: "logo",
-  transition: "color 0.3s ease",
+export const logoLink = style([
+  {
+    color: tokens.color.primary,
+    fontSize: "27px",
+    gridArea: "logo",
+    transition: "color 0.3s ease",
 
-  ":hover": {
-    color: tokens.color.accent,
+    selectors: {
+      "&:hover, &:focus-visible": {
+        color: tokens.color.accent,
+      },
+    },
   },
-})
+  focusRing,
+])
 
 export const controls = style({
   // By default, the control are in the top row, between the logo and dark mode toggle.

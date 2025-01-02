@@ -15,7 +15,6 @@
   - [ ] Get "Next Post" working for real
   - [ ] contact page?
 - [ ] UX
-  - [ ] more accessible focus states
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
 - [ ] styling
   - [ ] better branded theme color
@@ -25,6 +24,8 @@
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
 - [ ] viriditas
   - [ ] move stuff like color mode classes out of Theme
+  - [ ] adopt Sprinkles?
+  - [ ] start building out components. maybe start with Box, or Typography
 - [ ] flesh out package READMEs
 - [ ] add a post README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers

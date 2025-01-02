@@ -3,6 +3,7 @@ import {
   DARK_COLOR_MODE_SELECTOR,
   LIGHT_COLOR_MODE_SELECTOR,
   SYSTEM_COLOR_MODE_SELECTOR,
+  tokens,
 } from "../theme/index.css"
 
 /**
@@ -86,3 +87,17 @@ export function lightModeStyles(styles: Omit<StyleRule, "@media">) {
     },
   })
 }
+
+/**
+ * A shared style for themed focus rings.
+ */
+export const focusRing = style({
+  borderRadius: 4,
+
+  selectors: {
+    "&:focus-visible": {
+      outline: `2px solid ${tokens.color.accent}`,
+      outlineOffset: 4,
+    },
+  },
+})

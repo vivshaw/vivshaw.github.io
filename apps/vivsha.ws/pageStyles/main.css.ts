@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css"
+import { focusRing } from "@vivshaw/viriditas/helpers"
 import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const centeringWrapper = style({
@@ -32,19 +33,24 @@ export const mainpageContent = style({
   },
 })
 
-export const mainpageLink = style({
-  color: tokens.color.accent,
-  opacity: 0.7,
-  textDecoration: "underline",
-  textDecorationColor: tokens.color.accent,
-  textDecorationThickness: "1px",
-  textUnderlineOffset: "2px",
-  transition: tokens.motion.hoverTransition,
+export const mainpageLink = style([
+  {
+    color: tokens.color.accent,
+    opacity: 0.7,
+    textDecoration: "underline",
+    textDecorationColor: tokens.color.accent,
+    textDecorationThickness: "1px",
+    textUnderlineOffset: "2px",
+    transition: tokens.motion.hoverTransition,
 
-  ":hover": {
-    opacity: 1,
+    selectors: {
+      "&:hover, &:focus-visible": {
+        opacity: 1,
+      },
+    },
   },
-})
+  focusRing,
+])
 
 export const mainpageHeading = style({
   color: tokens.color.primary,
