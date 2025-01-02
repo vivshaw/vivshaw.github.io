@@ -23,7 +23,6 @@
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
 - [ ] viriditas
-  - [ ] move stuff like color mode classes out of Theme
   - [ ] adopt Sprinkles?
   - [ ] start building out components. maybe start with Box, or Typography
 - [ ] flesh out package READMEs

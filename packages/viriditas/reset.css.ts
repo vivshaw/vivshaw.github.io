@@ -1,10 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css"
 
-/**
- * Reset thanks to Benjamin De Cock
- * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
- */
-
 globalStyle("html", {
   boxSizing: "border-box",
   cursor: "default",

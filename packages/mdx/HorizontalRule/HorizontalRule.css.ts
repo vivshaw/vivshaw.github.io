@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints } from "@vivshaw/viriditas/theme"
+import { breakpoints } from "@vivshaw/viriditas"
 import { darkModeStyles, lightModeStyles } from "@vivshaw/viriditas/helpers"
 
 export const horizontalRule = style([

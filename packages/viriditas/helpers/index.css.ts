@@ -1,10 +1,11 @@
 import { style, StyleRule } from "@vanilla-extract/css"
+
 import {
-  DARK_COLOR_MODE_SELECTOR,
-  LIGHT_COLOR_MODE_SELECTOR,
+  DARK_COLOR_MODE_CLASS,
+  LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_SELECTOR,
-  tokens,
-} from "../theme/index.css"
+} from "../config"
+import { tokens } from "../theme/index.css"
 
 /**
  * Utility for writing dark mode styles. These styles will apply both when Viriditas is in dark mode,
@@ -19,7 +20,7 @@ export function darkModeStyles(styles: Omit<StyleRule, "@media">) {
 
   if (selectors != null) {
     for (const selector of Object.keys(selectors)) {
-      darkModeSelectors[`${DARK_COLOR_MODE_SELECTOR} ${selector}`] =
+      darkModeSelectors[`.${DARK_COLOR_MODE_CLASS} ${selector}`] =
         selectors[selector]
       systemModeSelectors[`${SYSTEM_COLOR_MODE_SELECTOR} ${selector}`] =
         selectors[selector]
@@ -28,7 +29,7 @@ export function darkModeStyles(styles: Omit<StyleRule, "@media">) {
 
   return style({
     selectors: {
-      [`${DARK_COLOR_MODE_SELECTOR} &`]: {
+      [`.${DARK_COLOR_MODE_CLASS} &`]: {
         ...restStyles,
       },
       ...darkModeSelectors,
@@ -60,7 +61,7 @@ export function lightModeStyles(styles: Omit<StyleRule, "@media">) {
 
   if (selectors != null) {
     for (const selector of Object.keys(selectors)) {
-      lightModeSelectors[`${LIGHT_COLOR_MODE_SELECTOR} ${selector}`] =
+      lightModeSelectors[`.${LIGHT_COLOR_MODE_CLASS} ${selector}`] =
         selectors[selector]
       systemModeSelectors[`${SYSTEM_COLOR_MODE_SELECTOR} ${selector}`] =
         selectors[selector]
@@ -69,7 +70,7 @@ export function lightModeStyles(styles: Omit<StyleRule, "@media">) {
 
   return style({
     selectors: {
-      [`${LIGHT_COLOR_MODE_SELECTOR} &`]: {
+      [`.${LIGHT_COLOR_MODE_CLASS} &`]: {
         ...restStyles,
       },
       ...lightModeSelectors,

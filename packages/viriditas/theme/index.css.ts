@@ -5,6 +5,11 @@ import {
   globalFontFace,
   globalStyle,
 } from "@vanilla-extract/css"
+import {
+  DARK_COLOR_MODE_CLASS,
+  LIGHT_COLOR_MODE_CLASS,
+  SYSTEM_COLOR_MODE_SELECTOR,
+} from "../config"
 
 /**
  * Theme contract for the Viriditas design system.
@@ -134,6 +139,10 @@ globalFontFace(ORPHEUS_FALLBACK, {
 })
 
 const sharedTheme = {
+  /**
+   * Easing thanks to Benjamin De Cock
+   * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
+   */
   easing: {
     easeInQuad: "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
     easeInQuart: "cubic-bezier(0.895, 0.03, 0.685, 0.22)",
@@ -153,12 +162,6 @@ const sharedTheme = {
     hoverTransition: `border-color 0.2s ${tokens.easing.easeInQuad}, opacity 0.2s ${tokens.easing.easeInQuad}`,
   },
 }
-
-export const LIGHT_COLOR_MODE_CLASS = "vvv-light"
-export const DARK_COLOR_MODE_CLASS = "vvv-dark"
-export const DARK_COLOR_MODE_SELECTOR = `html.${DARK_COLOR_MODE_CLASS}`
-export const LIGHT_COLOR_MODE_SELECTOR = `html.${LIGHT_COLOR_MODE_CLASS}`
-export const SYSTEM_COLOR_MODE_SELECTOR = `html:not(.${DARK_COLOR_MODE_CLASS}, .${LIGHT_COLOR_MODE_CLASS})`
 
 const lightVars = {
   ...sharedTheme,

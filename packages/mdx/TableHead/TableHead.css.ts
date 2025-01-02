@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { tokens } from "@vivshaw/viriditas/theme"
+import { tokens } from "@vivshaw/viriditas"
 
 export const tableHead = style({
   borderCollapse: "collapse",

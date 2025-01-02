@@ -22,9 +22,9 @@
     "@types/react": "19.0.2"
   },
   "exports": {
+    ".": "./index.ts",
     "./client": "./client/index.tsx",
     "./helpers": "./helpers/index.css.ts",
-    "./reset": "./reset.css.ts",
-    "./theme": "./theme/index.css.ts"
+    "./reset": "./reset.css.ts"
   }
 }

@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css"
-import { tokens, SYSTEM_COLOR_MODE_SELECTOR } from "@vivshaw/viriditas/theme"
+import { tokens } from "@vivshaw/viriditas"
 import { darkModeStyles, lightModeStyles } from "@vivshaw/viriditas/helpers"
+import { SYSTEM_COLOR_MODE_SELECTOR } from "@vivshaw/viriditas"
 
 export const root = style({
   position: "relative",

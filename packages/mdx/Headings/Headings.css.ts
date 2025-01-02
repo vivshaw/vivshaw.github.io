@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 const commonStyles = style({
   color: tokens.color.primary,

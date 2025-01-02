@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 import { heading2 } from "@vivshaw/mdx/Headings/Headings.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 import { focusRing } from "@vivshaw/viriditas/helpers"
-import { breakpoints, tokens } from "@vivshaw/viriditas/theme"
 
 export const root = style({
   transition: "opacity 0.25s",

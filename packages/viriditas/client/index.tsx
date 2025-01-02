@@ -1,10 +1,7 @@
 "use client"
 
 import { createContext, useContext, useEffect, useState } from "react"
-import {
-  DARK_COLOR_MODE_CLASS,
-  LIGHT_COLOR_MODE_CLASS,
-} from "../theme/index.css"
+import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "../config"
 
 export type ColorMode = "light" | "dark" | "system"
 type ContextValues = {
