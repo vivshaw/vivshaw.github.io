@@ -9,7 +9,9 @@ import { BlogFrontmatter, PostMeta } from "#data"
  */
 export async function listAllBlogSlugs() {
   const root = path.join(process.cwd(), "../../posts")
-  const allSlugs = await fs.readdir(root)
+  const allEntities = await fs.readdir(root, { withFileTypes: true })
+  const allDirectories = allEntities.filter((entity) => entity.isDirectory())
+  const allSlugs = allDirectories.map((dir) => dir.name)
 
   return allSlugs
 }

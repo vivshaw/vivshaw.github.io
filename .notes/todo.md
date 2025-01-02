@@ -26,7 +26,6 @@
   - [ ] adopt Sprinkles?
   - [ ] start building out components. maybe start with Box, or Typography
 - [ ] flesh out package READMEs
-- [ ] add a post README
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
