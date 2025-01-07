@@ -1,0 +1,91 @@
+---
+title: "New Year, New Website"
+
+blurb: "A rewrite always fixes everything, right?"
+date: 2025-01-05
+next: []
+tags:
+  [
+    "Next.js",
+    "Vanilla Extract",
+    "TypeScript",
+    "GitHub Pages",
+    "GitHub Actions",
+    "design systems",
+    "MDX",
+  ]
+---
+
+So my website had a problem. For the past... _[checks notes]_ 7 years and two iterations, it's always been partially broken. Every time I went to write a new blog post, something would get in my way. Broken image optimization, failed deployments, unreadable mobile layouts... you name it, something was broken with it. Of course I'd divert my attention to fix them, only to find 10 other things that were broken. And so on, ad nauseam, until I'd lost all motivation to write.
+
+Being an engineer, naturally, my first instinct is to rewrite it. Because that _always_ fixes everything, right? 😅
+
+## My evil plan to ~save the world~ fix the blog
+
+This time, I went in with a plan. My perfect 3-point platform to ~fix the world~ mildly improve my website:
+
+1. Ruthlessly cut the site down to its most basic essence.
+2. Port what remains to a far more maintainable architecture.
+3. Make an exhaustive list of the broken things that remain, and plug away until it is usable again.
+
+## Web development is [a continuous cutting motion](https://killsixbilliondemons.com/comic/wielder-of-names-6-111/)
+
+Sometimes the best thing to do with a feature is to ax it. I was surpriswed to discover just how much of my website I did not need. For example, my past iterations all had image-heavy layouts. But my content is largely text, so I shoehorned in meaningless pictures. Then I wrestled with optimization and styling and so on. Solution: remove the images and let the writing be writing. For another, I had been hosting on Vercel, but in fact I have zero need whatsoever for a backend, ISR, or any such fanciness. A static blob of files is more than enough for my needs.
+
+Other things I discovered I didn't need included runtime CSS-in-JS, a comments section, a portfolio page, and embedded social widgets. Why add complexity for features I will not use? So, all these things are now banished.
+
+## The new site
+
+I'll document what I'm using now, more for the benefit of my future self than anybody else.
+
+### Hosting & Deployment
+
+I'm now back on GitHub Pages, and deploying via GitHub Actions. My site is fully static. This is a lot simpler than my prior Vercel deployments were. Choosing to use Pages also let redirect my old, old URL at https://vivshaw.github.io to my new URL, which would otherwise have been tricky.
+
+I'm now at a new URL, https://vivsha.ws. (I would have snagged `vivsh.aw`, but Aruba domains proved annoying to obtain.) My old URLs are redirected to it.
+
+### Design
+
+I've abandoned featuring images heavily, and moved ot a mostly-typographic design.
+
+I kept some things from the template my prior iteration was based on, like a big chunk of the color scheme. But I ripped out most of the old design, and what was left I heavily simplified.
+
+I've begun extracting the core shared styles of my app into [the bones of a design system, Viriditas](https://github.com/vivshaw/vivshaw.github.io/tree/main/packages/viriditas). There's still much to be done there, but I can now iterate on those styles in isolation when I wish to work on them, and when I'm working on the main app I don't have to worry about them. The more I move toward a [constraint-based design system](https://normalflow.pub/posts/2022-08-12-an-introduction-to-constraint-based-design-systems), the more I can free my everyday self from making tedious designs at the same time as I achieve greater visual consistency.
+
+I designed the page to be fully keyboard-accessible, as well as responsive.
+
+I ended up with a serif-on-serif font stack. I love a suave display serif, but I can't exactly use those for body copy. And I find large blocks of sans-serif to be visually fatiguing. So, I paired Orpheus display with a more workmanlike Georgia for body. (I even did the fancy thing where you [tune the fallback font to avoid layout shift](https://rwt.io/typography-tips/part-4-fixing-fout-font-loading-fallback-tuning)).
+
+### Stack
+
+I am still on Next.js. I have now adopted the App Router, along with React Server Components. The only part of my site that requires client React is the dark mode switcher. I could probably have done with an even-more-static metaframework, like Astro or Eleventy, but I chose to stick with what I know so it won't get in my way.
+
+I am now using [Vanilla Extract](https://vanilla-extract.style/) for styling, rather than Emotion and Theme UI. Vanilla Extract gets me some of the benefits of CSS-in-JS, but does no runtime styling- it all builds down to plain CSS. I've liked the type-safe styles a lot; they've helped me avoid many a bug. I will say that I don't _love_ the object format for styling, but it gets the job done, and has way better editor support than Emotion did. I am not yet using Recipes or Sprinkles, but I would like to, especially as I build out my design system.
+
+I'm using a bunch of MDX and Remark tooling to render the posts, and Zod to typecheck the frontmatter.
+
+### Dev Tooling
+
+I've made two main changes. One was complete TypeScript adoption. I'm beginning to believe that a half-baked TypeScript implementation is worse than no TypeScript at all- you get get a fraction of the benefits, with most of the costs, plus a big pile of false confidence in how safe your code really is and a wall of editor red squiggles or `ts-ignore`s. Sadly, a half-baked implementation is what I was stuck with before. No longer! I've typed everything thoroughly, and will continue to tighten in the future.
+
+The second change was adopting Prettier. I don't know why I hadn't done this originally, as I used it everywhere else. But now I use it here too.
+
+I would like to roll out linting and make typecheck/format mandatory in CI, but those are future problems.
+
+### Architecture
+
+I realized that some chunks of my app could be fully isolated from others to increase my ability to compartmentalize. For one, my core shared styles have been split off into my design system. But for another, many of my components existed only to render markdown. Those components have dependencies only on my core styles and aren't needed anywhere else in my app. So, away they go into their own little package as well. I simply used Yarn Workspaces for this; I didn't find a need for any fancier tooling like Nx or Turborepo.
+
+The remainder of the app all hangs out together, but I've tried to organize it a bit better now that I'm on the App Router. Things that are only needed on a single pages can now live in that page's folder. This lets me reserve top-level folders for only those things that really are shared in many places.
+
+### Writing Ergonomics
+
+Last, but most importantly: I have made it far, far easier to write.
+
+Posts are now in plain Markdown by default. Previously, they were heavy on the MDX, with metadata and templating provided by inline JS within the post. No longer! I'm back to plain Markdown and YAML frontmatter. I _can_ still use MDX features when I want to, but I no longer _have_ to use them in every post. This lets me more tidily separate writing from coding.
+
+Posts now live in their own dedicated top-level directory. This means I don't have to go digging through folders of code to find them. I can just start writing without even thinking about my repo structure.
+
+There is now a [Hygen](https://www.hygen.io/) template to repaidly stand up new posts with correct metadata formatting. Additionally, the metadata itself has been simplified. This saves me the old headache of breaking things in confusing ways with ill-formatted metadata.
+
+Altogether, these changes have made my corner of the internet much cozier. There's still plenty that doesn't work quite as well as I'd hope, or lacks a certain visual polish. But the things that were getting between me and writing have been bansished, along with a huge pile of unnecessary complexity. I've finally got myself a maintainable foundation that I can iterate on. Here's hoping this rewrite is the last one!

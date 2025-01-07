@@ -16,11 +16,13 @@
   - [ ] contact page?
 - [ ] UX
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
+  - [ ] darkmode switcher overlaps focus ring :(
 - [ ] styling
   - [ ] obliterate `pageStyles` directory
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
+    - [ ] h2 seems smaller than h1 on some screens?
 - [ ] viriditas
   - [ ] adopt Sprinkles?
   - [ ] start building out components. maybe start with Box, or Typography
