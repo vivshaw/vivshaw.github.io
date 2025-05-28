@@ -3,7 +3,7 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 const commonStyles = style({
   color: tokens.color.primary,
-  fontFamily: tokens.font.display,
+  fontFamily: tokens.font.serif,
   fontWeight: "normal",
 })
 

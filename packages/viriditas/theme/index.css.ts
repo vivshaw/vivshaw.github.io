@@ -75,8 +75,7 @@ export const tokens = createGlobalThemeContract(
      * Typography tokens.
      */
     font: {
-      display: null,
-      book: null,
+      serif: null,
       sans: null,
       monospace: null,
     },
@@ -128,15 +127,14 @@ const prismColors = {
   operator: `#5FA8AA`,
 }
 
-export const ORPHEUS_FALLBACK = "__times_orpheus_fallback"
-
-globalFontFace(ORPHEUS_FALLBACK, {
-  src: "local(Times New Roman)",
-  sizeAdjust: "98%",
-  ascentOverride: "117%",
-  descentOverride: "45%",
-  lineGapOverride: "normal",
-})
+// TODO: Create a fallback for Alegreya and Alegreya Sans
+// globalFontFace(ORPHEUS_FALLBACK, {
+//   src: "local(Times New Roman)",
+//   sizeAdjust: "98%",
+//   ascentOverride: "117%",
+//   descentOverride: "45%",
+//   lineGapOverride: "normal",
+// })
 
 const sharedTheme = {
   /**
@@ -152,9 +150,8 @@ const sharedTheme = {
     easeInOutQuart: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
   font: {
-    display: `orpheuspro, ${ORPHEUS_FALLBACK}, Serif`,
-    book: "Georgia, serif",
-    sans: "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
+    serif: "Alegreya, serif",
+    sans: "'Alegreya Sans', sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   motion: {

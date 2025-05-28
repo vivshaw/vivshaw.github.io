@@ -26,6 +26,7 @@
 - [ ] viriditas
   - [ ] adopt Sprinkles?
   - [ ] start building out components. maybe start with Box, or Typography
+  - [ ] create a fallback for Alegreya and Alegreya Sans
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type

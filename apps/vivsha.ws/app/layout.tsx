@@ -1,4 +1,5 @@
 import type { Viewport } from "next"
+import { Alegreya, Alegreya_Sans } from "next/font/google"
 import type { Metadata } from "next/types"
 import {
   DARK_COLOR_MODE_CLASS,
@@ -9,6 +10,16 @@ import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
 import { GlobalProviders } from "./_components/GlobalProviders"
 import { LayoutWrapper } from "./_components/LayoutWrapper"
+
+const alegreya = Alegreya({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
+
+const alegreyaSans = Alegreya_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
@@ -78,12 +89,12 @@ export default function RootLayout({
 }) {
   return (
     <html
+      className={`${alegreya.className} ${alegreyaSans.className}`}
       lang="en"
       suppressHydrationWarning // Necessary because the color mode snippet will swap out the class ASAP after page load!
     >
       <head>
         <script>{COLOR_MODE_SNIPPET}</script>
-        <link rel="stylesheet" href="https://use.typekit.net/isa7scp.css" />
         <link
           rel="stylesheet"
           href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"

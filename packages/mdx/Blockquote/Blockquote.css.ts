@@ -3,7 +3,7 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const blockquote = style({
   color: tokens.color.bodyText,
-  fontFamily: tokens.font.display,
+  fontFamily: tokens.font.serif,
   fontStyle: "italic",
   margin: "15px auto 50px",
   transition: tokens.motion.colorModeTransition,

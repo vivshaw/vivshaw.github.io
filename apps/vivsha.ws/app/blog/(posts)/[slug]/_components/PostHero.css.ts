@@ -33,7 +33,7 @@ export const root = style({
 export const title = style([
   heading1,
   {
-    fontFamily: tokens.font.display,
+    fontFamily: tokens.font.serif,
     fontSize: "48px",
     marginBottom: "18px",
 

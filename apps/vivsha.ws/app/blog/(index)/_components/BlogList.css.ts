@@ -81,7 +81,7 @@ export const postBlurb = style([
   {
     color: tokens.color.grey,
     display: "flex",
-    fontFamily: tokens.font.book,
+    fontFamily: tokens.font.serif,
     fontSize: "20px",
     marginBottom: "8px",
 
@@ -100,7 +100,7 @@ export const postBlurb = style([
 
 export const postDate = style({
   color: tokens.color.grey,
-  fontFamily: tokens.font.book,
+  fontFamily: tokens.font.serif,
   fontSize: "16px",
   fontWeight: "400",
   opacity: "0.33",

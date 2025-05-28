@@ -6,7 +6,7 @@ import { listItem } from "../ListItem/ListItem.css"
 
 export const paragraph = style({
   color: tokens.color.bodyText,
-  fontFamily: tokens.font.book,
+  fontFamily: tokens.font.serif,
   fontSize: "22px",
   lineHeight: "1.756",
   marginBottom: 35,
@@ -23,7 +23,7 @@ export const paragraph = style({
 
   selectors: {
     [`${blockquote} &`]: {
-      fontFamily: tokens.font.display,
+      fontFamily: tokens.font.serif,
       fontSize: "36px",
       fontWeight: "bold",
       lineHeight: "1.32",
