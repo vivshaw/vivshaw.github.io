@@ -10,17 +10,17 @@ const commonStyles = style({
 export const heading1 = style([
   commonStyles,
   {
-    fontSize: "52px",
+    fontSize: "48px",
     lineHeight: "1.15",
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.desktop]: {
-        fontSize: "38px",
+        fontSize: "36px",
         lineHeight: "1.2",
       },
       [breakpoints.phablet]: {
-        fontSize: "32px",
+        fontSize: "30px",
         lineHeight: "1.3",
       },
     },
@@ -30,20 +30,20 @@ export const heading1 = style([
 export const heading2 = style([
   commonStyles,
   {
-    fontSize: "32px",
+    fontSize: "30px",
     lineHeight: "1.333",
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.desktop]: {
-        fontSize: "21px",
+        fontSize: "20px",
       },
       [breakpoints.tablet]: {
         fontSize: "24px",
         lineHeight: "1.45",
       },
       [breakpoints.phablet]: {
-        fontSize: "22px",
+        fontSize: "20px",
       },
     },
   },
@@ -58,7 +58,7 @@ export const heading3 = style([
 
     "@media": {
       [breakpoints.tablet]: {
-        fontSize: "22px",
+        fontSize: "20px",
       },
       [breakpoints.phablet]: {
         fontSize: "20px",

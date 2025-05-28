@@ -78,7 +78,7 @@ export const postTitle = style([
   {
     color: tokens.color.primary,
     fontFamily: tokens.font.serif,
-    fontSize: "22px",
+    fontSize: "24px",
     lineHeight: "1.4",
     marginBottom: "10px",
     transition: "color 0.3s ease-in-out",

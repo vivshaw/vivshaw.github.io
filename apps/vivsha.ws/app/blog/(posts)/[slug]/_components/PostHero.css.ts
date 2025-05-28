@@ -43,7 +43,7 @@ export const title = style([
         marginBottom: "20px",
       },
       [breakpoints.phablet]: {
-        fontSize: "32px",
+        fontSize: "30px",
       },
     },
   },

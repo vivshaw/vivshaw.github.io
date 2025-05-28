@@ -7,7 +7,7 @@ import { listItem } from "../ListItem/ListItem.css"
 export const paragraph = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,
-  fontSize: "22px",
+  fontSize: "20px",
   lineHeight: "1.756",
   marginBottom: 35,
   marginTop: 0,
@@ -35,7 +35,7 @@ export const paragraph = style({
 
       "@media": {
         [breakpoints.tablet]: {
-          fontSize: "26px",
+          fontSize: "24px",
           padding: "0 180px",
         },
         [breakpoints.phablet]: {

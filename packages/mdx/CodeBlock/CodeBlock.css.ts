@@ -9,7 +9,7 @@ export const CODE_BLOCK_CLASS = "prism-code"
  */
 globalStyle(`.${CODE_BLOCK_CLASS}.${CODE_BLOCK_CLASS}`, {
   borderRadius: "5px",
-  fontSize: "13px",
+  fontSize: "14px",
   margin: "15px auto 50px",
   overflow: "auto",
   padding: "32px",

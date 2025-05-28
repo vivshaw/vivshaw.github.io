@@ -56,7 +56,7 @@ export const mainpageHeading = style({
   color: tokens.color.primary,
   fontFamily: tokens.font.serif,
   fontWeight: 400,
-  fontSize: "62px",
+  fontSize: "60px",
   lineHeight: "1.4",
 
   "@media": {
