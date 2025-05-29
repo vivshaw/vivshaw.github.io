@@ -34,16 +34,19 @@ export const title = style([
   heading1,
   {
     fontFamily: tokens.font.serif,
-    fontSize: "48px",
+    fontSize: tokens.fontSize["5xl"],
+    lineHeight: tokens.lineHeight["5xl"],
     marginBottom: "18px",
 
     "@media": {
       [breakpoints.tablet]: {
-        fontSize: "36px",
+        fontSize: tokens.fontSize["4xl"],
+        lineHeight: tokens.lineHeight["4xl"],
         marginBottom: "20px",
       },
       [breakpoints.phablet]: {
-        fontSize: "30px",
+        fontSize: tokens.fontSize["3xl"],
+        lineHeight: tokens.lineHeight["3xl"],
       },
     },
   },
@@ -53,13 +56,15 @@ export const date = style({
   marginLeft: "0",
   position: "relative",
   display: "flex",
-  fontSize: "18px",
+  fontSize: tokens.fontSize.lg,
+  lineHeight: tokens.lineHeight.lg,
   color: tokens.color.grey,
 
   "@media": {
     [breakpoints.phablet]: {
       flexDirection: "column",
-      fontSize: "14px",
+      fontSize: tokens.fontSize.sm,
+      lineHeight: tokens.lineHeight.sm,
     },
   },
 })

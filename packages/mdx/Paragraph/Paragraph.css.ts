@@ -7,8 +7,8 @@ import { listItem } from "../ListItem/ListItem.css"
 export const paragraph = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,
-  fontSize: "20px",
-  lineHeight: "1.756",
+  fontSize: tokens.fontSize.xl,
+  lineHeight: tokens.lineHeight.xl,
   marginBottom: 35,
   marginTop: 0,
   transition: tokens.motion.colorModeTransition,
@@ -24,9 +24,9 @@ export const paragraph = style({
   selectors: {
     [`${blockquote} &`]: {
       fontFamily: tokens.font.serif,
-      fontSize: "36px",
+      fontSize: tokens.fontSize["4xl"],
       fontWeight: "bold",
-      lineHeight: "1.32",
+      lineHeight: tokens.lineHeight["4xl"],
       margin: "0 auto",
       maxWidth: "880px !important",
       paddingBottom: "0",
@@ -35,11 +35,13 @@ export const paragraph = style({
 
       "@media": {
         [breakpoints.tablet]: {
-          fontSize: "24px",
+          fontSize: tokens.fontSize["2xl"],
+          lineHeight: tokens.lineHeight["2xl"],
           padding: "0 180px",
         },
         [breakpoints.phablet]: {
-          fontSize: "36px",
+          fontSize: tokens.fontSize["4xl"],
+          lineHeight: tokens.lineHeight["4xl"],
           padding: "0 20px 0 40px",
         },
       },

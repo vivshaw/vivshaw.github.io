@@ -3,7 +3,8 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const tableHeadCell = style({
   background: tokens.color.card,
-  fontSize: "16px",
+  fontSize: tokens.fontSize.base,
+  lineHeight: tokens.lineHeight.base,
   padding: "18px 30px",
 
   "@media": {
@@ -11,7 +12,8 @@ export const tableHeadCell = style({
       padding: "14px 20px",
     },
     [breakpoints.tablet]: {
-      fontSize: "14px",
+      fontSize: tokens.fontSize.sm,
+      lineHeight: tokens.lineHeight.sm,
     },
   },
 })

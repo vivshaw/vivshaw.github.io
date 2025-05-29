@@ -79,6 +79,32 @@ export const tokens = createGlobalThemeContract(
       sans: null,
       monospace: null,
     },
+    fontSize: {
+      xs: null,
+      sm: null,
+      base: null,
+      lg: null,
+      xl: null,
+      "2xl": null,
+      "3xl": null,
+      "4xl": null,
+      "5xl": null,
+      "6xl": null,
+      "7xl": null,
+    },
+    lineHeight: {
+      xs: null,
+      sm: null,
+      base: null,
+      lg: null,
+      xl: null,
+      "2xl": null,
+      "3xl": null,
+      "4xl": null,
+      "5xl": null,
+      "6xl": null,
+      "7xl": null,
+    },
 
     /**
      * Motion tokens.
@@ -127,7 +153,7 @@ const prismColors = {
   operator: `#5FA8AA`,
 }
 
-// TODO: Create a fallback for Alegreya and Alegreya Sans
+// TODO: Create a fallback for Alegreya and Alegreya Sans?
 // globalFontFace(ORPHEUS_FALLBACK, {
 //   src: "local(Times New Roman)",
 //   sizeAdjust: "98%",
@@ -153,6 +179,32 @@ const sharedTheme = {
     serif: "Alegreya, serif",
     sans: "'Alegreya Sans', sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
+  },
+  fontSize: {
+    xs: "0.75rem", // 12px
+    sm: "0.875rem", // 14px
+    base: "1rem", // 16px
+    lg: "1.125rem", // 18px
+    xl: "1.25rem", // 20px
+    "2xl": "1.5rem", // 24px
+    "3xl": "1.875rem", // 30px
+    "4xl": "2.25rem", // 36px
+    "5xl": "3rem", // 48px
+    "6xl": "3.75rem", // 60px
+    "7xl": "4.5rem", // 72px
+  },
+  lineHeight: {
+    xs: "calc(1 / 0.75)",
+    sm: "calc(1.25 / 0.875)",
+    base: "calc(1.5 / 1)",
+    lg: "calc(1.75 / 1.125)",
+    xl: "calc(1.75 / 1.25)",
+    "2xl": "calc(2 / 1.5)",
+    "3xl": "calc(2.25 / 1.875)",
+    "4xl": "calc(2.5 / 2.25)",
+    "5xl": "1",
+    "6xl": "1",
+    "7xl": "1",
   },
   motion: {
     colorModeTransition: `background 0.25s ${tokens.easing.easeInOutQuad}, color 0.25s ${tokens.easing.easeInOutQuad}`,

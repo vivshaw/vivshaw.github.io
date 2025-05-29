@@ -10,18 +10,18 @@ const commonStyles = style({
 export const heading1 = style([
   commonStyles,
   {
-    fontSize: "48px",
-    lineHeight: "1.15",
+    fontSize: tokens.fontSize["5xl"],
+    lineHeight: tokens.lineHeight["5xl"],
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.desktop]: {
-        fontSize: "36px",
-        lineHeight: "1.2",
+        fontSize: tokens.fontSize["4xl"],
+        lineHeight: tokens.lineHeight["4xl"],
       },
       [breakpoints.phablet]: {
-        fontSize: "30px",
-        lineHeight: "1.3",
+        fontSize: tokens.fontSize["3xl"],
+        lineHeight: tokens.lineHeight["3xl"],
       },
     },
   },
@@ -30,20 +30,22 @@ export const heading1 = style([
 export const heading2 = style([
   commonStyles,
   {
-    fontSize: "30px",
-    lineHeight: "1.333",
+    fontSize: tokens.fontSize["3xl"],
+    lineHeight: tokens.lineHeight["3xl"],
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.desktop]: {
-        fontSize: "20px",
+        fontSize: tokens.fontSize["xl"],
+        lineHeight: tokens.lineHeight["xl"],
       },
       [breakpoints.tablet]: {
-        fontSize: "24px",
-        lineHeight: "1.45",
+        fontSize: tokens.fontSize["2xl"],
+        lineHeight: tokens.lineHeight["2xl"],
       },
       [breakpoints.phablet]: {
-        fontSize: "20px",
+        fontSize: tokens.fontSize["xl"],
+        lineHeight: tokens.lineHeight["xl"],
       },
     },
   },
@@ -52,16 +54,18 @@ export const heading2 = style([
 export const heading3 = style([
   commonStyles,
   {
-    fontSize: "24px",
-    lineHeight: "1.45",
+    fontSize: tokens.fontSize["2xl"],
+    lineHeight: tokens.lineHeight["2xl"],
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.tablet]: {
-        fontSize: "20px",
+        fontSize: tokens.fontSize["xl"],
+        lineHeight: tokens.lineHeight["xl"],
       },
       [breakpoints.phablet]: {
-        fontSize: "20px",
+        fontSize: tokens.fontSize["xl"],
+        lineHeight: tokens.lineHeight["xl"],
       },
     },
   },
@@ -70,13 +74,14 @@ export const heading3 = style([
 export const heading4 = style([
   commonStyles,
   {
-    fontSize: "18px",
-    lineHeight: "1.45",
+    fontSize: tokens.fontSize.lg,
+    lineHeight: tokens.lineHeight.lg,
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.phablet]: {
-        fontSize: "16px",
+        fontSize: tokens.fontSize.base,
+        lineHeight: tokens.lineHeight.base,
       },
     },
   },
@@ -85,13 +90,14 @@ export const heading4 = style([
 export const heading5 = style([
   commonStyles,
   {
-    fontSize: "18px",
-    lineHeight: "1.45",
+    fontSize: tokens.fontSize.lg,
+    lineHeight: tokens.lineHeight.lg,
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.phablet]: {
-        fontSize: "16px",
+        fontSize: tokens.fontSize.base,
+        lineHeight: tokens.lineHeight.base,
       },
     },
   },
@@ -100,13 +106,14 @@ export const heading5 = style([
 export const heading6 = style([
   commonStyles,
   {
-    fontSize: "16px",
-    lineHeight: "1.45",
+    fontSize: tokens.fontSize.base,
+    lineHeight: tokens.lineHeight.base,
     wordBreak: "keep-all",
 
     "@media": {
       [breakpoints.phablet]: {
-        fontSize: "14px",
+        fontSize: tokens.fontSize.sm,
+        lineHeight: tokens.lineHeight.sm,
       },
     },
   },

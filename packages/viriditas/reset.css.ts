@@ -3,9 +3,7 @@ import { globalStyle } from "@vanilla-extract/css"
 globalStyle("html", {
   boxSizing: "border-box",
   cursor: "default",
-  fontSize: "0.625rem",
   height: "100%",
-  lineHeight: "1.4",
   minHeight: "100%",
   textRendering: "optimizeLegibility",
 
@@ -22,9 +20,6 @@ globalStyle("html *, html *:before, html *:after", {
 })
 
 globalStyle("body", {
-  fontFamily: "orpheuspro",
-  fontSize: "1.6rem",
-  fontWeight: 400,
   height: "100%",
   margin: 0,
   minHeight: "100%",

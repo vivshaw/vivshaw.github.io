@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css"
-import { breakpoints } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const CODE_BLOCK_CLASS = "prism-code"
 
@@ -9,7 +9,8 @@ export const CODE_BLOCK_CLASS = "prism-code"
  */
 globalStyle(`.${CODE_BLOCK_CLASS}.${CODE_BLOCK_CLASS}`, {
   borderRadius: "5px",
-  fontSize: "14px",
+  fontSize: tokens.fontSize.sm,
+  lineHeight: tokens.lineHeight.sm,
   margin: "15px auto 50px",
   overflow: "auto",
   padding: "32px",

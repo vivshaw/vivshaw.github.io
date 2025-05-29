@@ -78,8 +78,8 @@ export const postTitle = style([
   {
     color: tokens.color.primary,
     fontFamily: tokens.font.serif,
-    fontSize: "24px",
-    lineHeight: "1.4",
+    fontSize: tokens.fontSize["2xl"],
+    lineHeight: tokens.lineHeight["2xl"],
     marginBottom: "10px",
     transition: "color 0.3s ease-in-out",
 
@@ -104,7 +104,8 @@ export const postTitle = style([
 // TODO: do I _really_ need these Webkit vendor properties?
 export const postExcerpt = style({
   color: tokens.color.grey,
-  fontSize: "16px",
+  fontSize: tokens.fontSize.base,
+  lineHeight: tokens.lineHeight.base,
   marginBottom: "10px",
   maxWidth: "515px",
 
@@ -126,7 +127,8 @@ export const postExcerpt = style({
 
 export const postDate = style({
   color: tokens.color.grey,
-  fontSize: "16px",
+  fontSize: tokens.fontSize.base,
+  lineHeight: tokens.lineHeight.base,
   fontWeight: "600",
   opacity: "0.33",
 
