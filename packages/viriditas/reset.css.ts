@@ -1,8 +1,10 @@
 import { globalStyle } from "@vanilla-extract/css"
+import { tokens } from "./theme/index.css"
 
 globalStyle("html", {
   boxSizing: "border-box",
   cursor: "default",
+  fontFamily: tokens.font.serif,
   height: "100%",
   minHeight: "100%",
   textRendering: "optimizeLegibility",

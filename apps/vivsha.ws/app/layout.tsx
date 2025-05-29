@@ -89,7 +89,6 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${alegreya.className} ${alegreyaSans.className}`}
       lang="en"
       suppressHydrationWarning // Necessary because the color mode snippet will swap out the class ASAP after page load!
     >
