@@ -26,5 +26,8 @@
   ],
   "devDependencies": {
     "hygen": "^6.2.11"
+  },
+  "dependencies": {
+    "@vanilla-extract/sprinkles": "^1.6.3"
   }
 }

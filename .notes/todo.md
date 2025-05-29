@@ -24,11 +24,11 @@
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
     - [ ] h2 seems smaller than h1 on some screens?
 - [ ] viriditas
-  - [ ] adopt Sprinkles?
-  - [ ] start building out components. maybe start with Box, or Typography
-  - [ ] create a fallback for Alegreya and Alegreya Sans
+  - [ ] flesh out Box primitive, including type safety. then use it to rebuild Link
+  - [ ] adopt Box and Link in product
+  - [ ] create a fallback for Alegreya and Alegreya Sans?
+  - [ ] fix font loading in Storybook- might also require loading CSS reset?
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
-- [ ] stop using Adobe fonts so I can host locally and preload. go directly through Canada Type
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
 - [ ] put domain config into IaC w/ Terraform

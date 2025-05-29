@@ -10,6 +10,7 @@ import {
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_SELECTOR,
 } from "../config"
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 
 /**
  * Theme contract for the Viriditas design system.
@@ -281,3 +282,36 @@ export const breakpoints = {
   desktopMedium: "(max-width: 1280px)",
   desktopLarge: "(max-width: 1440px)",
 }
+
+const unresponiveProperties = defineProperties({
+  properties: {
+    fontFamily: tokens.font,
+  },
+})
+
+const responsiveProperties = defineProperties({
+  conditions: {
+    phone: { "@media": "screen and (max-width: 376px)" },
+    phablet: { "@media": "screen and (max-width: 540px)" },
+    tablet: { "@media": "screen and (max-width: 735px)" },
+    desktop: { "@media": "screen and (max-width: 1070px)" },
+    desktopMedium: { "@media": "screen and (max-width: 1280px)" },
+    desktopLarge: { "@media": "screen and (max-width: 1440px)" },
+    desktopSuperLarge: {},
+  },
+  defaultCondition: "desktopSuperLarge",
+  properties: {
+    fontSize: tokens.fontSize,
+    lineHeight: tokens.lineHeight,
+  },
+  shorthands: {
+    text: ["fontSize", "lineHeight"],
+  },
+})
+
+export const sprinkles = createSprinkles(
+  unresponiveProperties,
+  responsiveProperties,
+)
+
+export type Sprinkles = Parameters<typeof sprinkles>[0]
