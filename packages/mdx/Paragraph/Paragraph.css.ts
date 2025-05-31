@@ -25,7 +25,7 @@ export const paragraph = style({
     [`${blockquote} &`]: {
       fontFamily: tokens.font.serif,
       fontSize: tokens.fontSize["4xl"],
-      fontWeight: "bold",
+      fontWeight: tokens.fontWeight.bold,
       lineHeight: tokens.lineHeight["4xl"],
       margin: "0 auto",
       maxWidth: "880px !important",

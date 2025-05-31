@@ -13,12 +13,14 @@ import { LayoutWrapper } from "./_components/LayoutWrapper"
 
 const alegreya = Alegreya({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 })
 
 const alegreyaSans = Alegreya_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["100", "300", "400", "500", "700", "800", "900"],
+  style: ["normal", "italic"],
 })
 
 export const viewport: Viewport = {

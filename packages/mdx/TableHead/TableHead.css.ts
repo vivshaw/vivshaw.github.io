@@ -5,7 +5,7 @@ export const tableHead = style({
   borderCollapse: "collapse",
   color: tokens.color.primary,
   fontFamily: tokens.font.serif,
-  fontWeight: 600,
+  fontWeight: tokens.fontWeight.bold,
   lineHeight: "1.756",
   position: "relative",
   textAlign: "left",

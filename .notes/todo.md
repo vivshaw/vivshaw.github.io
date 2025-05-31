@@ -25,9 +25,11 @@
     - [ ] h2 seems smaller than h1 on some screens?
 - [ ] viriditas
   - [ ] flesh out Box primitive, including type safety. then use it to rebuild Link
-  - [ ] adopt Box and Link in product
+  - [ ] add classNames to Box
+  - [ ] adopt Box and Link in product. UnorderedList might be a good spot
   - [ ] create a fallback for Alegreya and Alegreya Sans?
-  - [ ] fix font loading in Storybook- might also require loading CSS reset?
+  - [ ] load CSS reset in Storybook
+  - [ ] maybe add semantic type tokens? probably need to settle out usage in the app better first.
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?

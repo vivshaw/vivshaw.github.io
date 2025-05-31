@@ -1,9 +1,153 @@
 import { Meta } from "@storybook/blocks"
 
 import { tokens } from "@vivshaw/viriditas"
+import { Box } from "../components/Box"
 
 <Meta title="Tokens/Typography" />
 
-# Foo
+# Typography scale
 
-<div style={{ color: tokens.color.background }}>Hello</div>
+## Serif
+
+{
+
+<div className="sb-unstyled">
+  <Box fontFamily="serif" text="7xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="6xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="5xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="4xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="3xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="2xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="lg">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="base">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="sm">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="serif" text="xs">
+    Hamburgefonstiv
+  </Box>
+</div>
+}
+
+## Sans
+
+{
+
+<div className="sb-unstyled">
+  <Box fontFamily="sans" text="7xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="6xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="5xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="4xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="3xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="2xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="xl">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="lg">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="base">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="sm">
+    Hamburgefonstiv
+  </Box>
+  <Box fontFamily="sans" text="xs">
+    Hamburgefonstiv
+  </Box>
+</div>
+}
+
+# Text samples
+
+## Serif
+
+{
+
+<div className="sb-unstyled">
+  <Box fontFamily="serif" text="base">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Box>
+</div>
+}
+
+## Sans
+
+{
+
+<div className="sb-unstyled">
+  <Box fontFamily="sans" text="base">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Box>
+</div>
+}
+
+# Weights
+
+{
+
+<div className="sb-unstyled">
+  <Box fontFamily="sans" fontWeight="thin" text="base">
+    Thin
+  </Box>
+  <Box fontFamily="sans" fontWeight="light" text="base">
+    Light
+  </Box>
+  <Box fontFamily="sans" fontWeight="normal" text="base">
+    Normal
+  </Box>
+  <Box fontFamily="sans" fontWeight="medium" text="base">
+    Medium
+  </Box>
+  <Box fontFamily="sans" fontWeight="bold" text="base">
+    Bold
+  </Box>
+  <Box fontFamily="sans" fontWeight="extraBold" text="base">
+    Extra Bold
+  </Box>
+  <Box fontFamily="sans" fontWeight="black" text="base">
+    Black
+  </Box>
+</div>
+}

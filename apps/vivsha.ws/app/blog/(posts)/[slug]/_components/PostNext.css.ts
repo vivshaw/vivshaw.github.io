@@ -129,7 +129,7 @@ export const postDate = style({
   color: tokens.color.grey,
   fontSize: tokens.fontSize.base,
   lineHeight: tokens.lineHeight.base,
-  fontWeight: "600",
+  fontWeight: tokens.fontWeight.bold,
   opacity: "0.33",
 
   "@media": {

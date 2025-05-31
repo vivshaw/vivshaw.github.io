@@ -80,6 +80,15 @@ export const tokens = createGlobalThemeContract(
       sans: null,
       monospace: null,
     },
+    fontWeight: {
+      thin: null,
+      light: null,
+      normal: null,
+      medium: null,
+      bold: null,
+      extraBold: null,
+      black: null,
+    },
     fontSize: {
       xs: null,
       sm: null,
@@ -182,17 +191,17 @@ const sharedTheme = {
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   fontSize: {
-    xs: "0.75rem", // 12px
-    sm: "0.875rem", // 14px
-    base: "1rem", // 16px
-    lg: "1.125rem", // 18px
-    xl: "1.25rem", // 20px
-    "2xl": "1.5rem", // 24px
-    "3xl": "1.875rem", // 30px
-    "4xl": "2.25rem", // 36px
-    "5xl": "3rem", // 48px
-    "6xl": "3.75rem", // 60px
-    "7xl": "4.5rem", // 72px
+    xs: "0.875rem", // 14px
+    sm: "1rem", // 16px
+    base: "1.125rem", // 18px
+    lg: "1.25rem", // 20px
+    xl: "1.5rem", // 24px
+    "2xl": "1.875rem", // 30px
+    "3xl": "2.25rem", // 36px
+    "4xl": "3rem", // 48px
+    "5xl": "3.75rem", // 60px
+    "6xl": "4.5rem", // 72px
+    "7xl": "6rem", // 96px
   },
   lineHeight: {
     xs: "calc(1 / 0.75)",
@@ -203,10 +212,20 @@ const sharedTheme = {
     "2xl": "calc(2 / 1.5)",
     "3xl": "calc(2.25 / 1.875)",
     "4xl": "calc(2.5 / 2.25)",
-    "5xl": "1",
-    "6xl": "1",
-    "7xl": "1",
+    "5xl": "1.125",
+    "6xl": "1.125",
+    "7xl": "1.125",
   },
+  fontWeight: {
+    thin: "100",
+    light: "300",
+    normal: "400",
+    medium: "500",
+    bold: "700",
+    extraBold: "800",
+    black: "900",
+  },
+
   motion: {
     colorModeTransition: `background 0.25s ${tokens.easing.easeInOutQuad}, color 0.25s ${tokens.easing.easeInOutQuad}`,
     hoverTransition: `border-color 0.2s ${tokens.easing.easeInQuad}, opacity 0.2s ${tokens.easing.easeInQuad}`,
@@ -303,6 +322,7 @@ const responsiveProperties = defineProperties({
   properties: {
     fontSize: tokens.fontSize,
     lineHeight: tokens.lineHeight,
+    fontWeight: tokens.fontWeight,
   },
   shorthands: {
     text: ["fontSize", "lineHeight"],

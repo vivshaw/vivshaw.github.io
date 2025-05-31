@@ -27,7 +27,7 @@ export const listItem = style({
       counterIncrement: "list",
       display: "inline-block",
       fontSize: "2rem",
-      fontWeight: 600,
+      fontWeight: tokens.fontWeight.bold,
       left: "-3rem",
       position: "absolute",
       top: "-0.3rem",

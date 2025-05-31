@@ -84,7 +84,7 @@ export const footerNext = style({
   color: tokens.color.primary,
   display: "flex",
   flexDirection: "row",
-  fontWeight: "400",
+  fontWeight: tokens.fontWeight.normal,
   gap: "4px",
   marginBottom: "30px",
   opacity: "0.25",
