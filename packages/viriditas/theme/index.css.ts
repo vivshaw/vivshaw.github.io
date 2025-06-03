@@ -5,12 +5,76 @@ import {
   globalFontFace,
   globalStyle,
 } from "@vanilla-extract/css"
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
+
 import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_SELECTOR,
 } from "../config"
-import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
+
+globalFontFace("vvv-serif", [
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_regular.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "normal",
+    fontWeight: "400",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_italic.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "italic",
+    fontWeight: "400",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "normal",
+    fontWeight: "700",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold_italic.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "italic",
+    fontWeight: "700",
+  },
+])
+
+globalFontFace("vvv-sans", [
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_regular.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "normal",
+    fontWeight: "400",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_italic.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "italic",
+    fontWeight: "400",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "normal",
+    fontWeight: "700",
+  },
+  {
+    src: "url(https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold_italic.woff2)",
+    fontDisplay: "swap",
+    fontStyle: "italic",
+    fontWeight: "700",
+  },
+])
+
+// TODO: Create font fallbacks?
+// globalFontFace(FALLBACK_FONT, {
+//   src: "local(Times New Roman)",
+//   sizeAdjust: "98%",
+//   ascentOverride: "117%",
+//   descentOverride: "45%",
+//   lineGapOverride: "normal",
+// })
 
 /**
  * Theme contract for the Viriditas design system.
@@ -163,15 +227,6 @@ const prismColors = {
   operator: `#5FA8AA`,
 }
 
-// TODO: Create a fallback for Alegreya and Alegreya Sans?
-// globalFontFace(ORPHEUS_FALLBACK, {
-//   src: "local(Times New Roman)",
-//   sizeAdjust: "98%",
-//   ascentOverride: "117%",
-//   descentOverride: "45%",
-//   lineGapOverride: "normal",
-// })
-
 const sharedTheme = {
   /**
    * Easing thanks to Benjamin De Cock
@@ -186,22 +241,22 @@ const sharedTheme = {
     easeInOutQuart: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
   font: {
-    serif: "Alegreya, serif",
-    sans: "'Alegreya Sans', sans-serif",
+    serif: "vvv-serif, serif",
+    sans: "vvv-sans, sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   fontSize: {
-    xs: "0.875rem", // 14px
-    sm: "1rem", // 16px
-    base: "1.125rem", // 18px
-    lg: "1.25rem", // 20px
-    xl: "1.5rem", // 24px
-    "2xl": "1.875rem", // 30px
-    "3xl": "2.25rem", // 36px
-    "4xl": "3rem", // 48px
-    "5xl": "3.75rem", // 60px
-    "6xl": "4.5rem", // 72px
-    "7xl": "6rem", // 96px
+    xs: "0.75rem", // 12px
+    sm: "0.875rem", // 14px
+    base: "1rem", // 16px
+    lg: "1.125rem", // 18px
+    xl: "1.25rem", // 20px
+    "2xl": "1.5rem", // 24px
+    "3xl": "1.875rem", // 30px
+    "4xl": "2.25rem", // 36px
+    "5xl": "3rem", // 48px
+    "6xl": "3.75rem", // 60px
+    "7xl": "4.5rem", // 72px
   },
   lineHeight: {
     xs: "calc(1 / 0.75)",
