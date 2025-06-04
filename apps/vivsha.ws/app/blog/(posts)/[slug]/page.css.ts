@@ -46,7 +46,7 @@ export const postBody = style({
       20px [full-end]
     `,
       maxWidth: "100%",
-      padding: "70px 0 80px",
+      padding: "0 0 80px",
     },
     [breakpoints.phablet]: {
       padding: "60px 0",

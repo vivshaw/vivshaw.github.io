@@ -144,6 +144,11 @@ export const tokens = createGlobalThemeContract(
       sans: null,
       monospace: null,
     },
+    fontFeatureSettings: {
+      serif: null,
+      sans: null,
+      monospace: null,
+    },
     fontWeight: {
       thin: null,
       light: null,
@@ -154,7 +159,6 @@ export const tokens = createGlobalThemeContract(
       black: null,
     },
     fontSize: {
-      xs: null,
       sm: null,
       base: null,
       lg: null,
@@ -167,7 +171,6 @@ export const tokens = createGlobalThemeContract(
       "7xl": null,
     },
     lineHeight: {
-      xs: null,
       sm: null,
       base: null,
       lg: null,
@@ -245,31 +248,34 @@ const sharedTheme = {
     sans: "vvv-sans, sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
+  fontFeatureSettings: {
+    serif: "'calt', 'kern', 'liga', 'onum'",
+    sans: "'calt', 'kern', 'liga', 'onum'",
+    monospace: "normal",
+  },
   fontSize: {
-    xs: "0.75rem", // 12px
     sm: "0.875rem", // 14px
     base: "1rem", // 16px
     lg: "1.125rem", // 18px
     xl: "1.25rem", // 20px
     "2xl": "1.5rem", // 24px
-    "3xl": "1.875rem", // 30px
-    "4xl": "2.25rem", // 36px
-    "5xl": "3rem", // 48px
-    "6xl": "3.75rem", // 60px
-    "7xl": "4.5rem", // 72px
+    "3xl": "1.75rem", // 28px
+    "4xl": "1.875rem", // 30px
+    "5xl": "2.25rem", // 36px
+    "6xl": "3rem", // 48px
+    "7xl": "3.75rem", // 60px
   },
   lineHeight: {
-    xs: "calc(1 / 0.75)",
     sm: "calc(1.25 / 0.875)",
     base: "calc(1.5 / 1)",
     lg: "calc(1.75 / 1.125)",
     xl: "calc(1.75 / 1.25)",
     "2xl": "calc(2 / 1.5)",
-    "3xl": "calc(2.25 / 1.875)",
-    "4xl": "calc(2.5 / 2.25)",
-    "5xl": "1.125",
-    "6xl": "1.125",
-    "7xl": "1.125",
+    "3xl": "calc(2.25 / 1.75)",
+    "4xl": "calc(2.5 / 1.875)",
+    "5xl": "calc(2.75 / 2.25)",
+    "6xl": "calc(3 / 2.25)",
+    "7xl": "calc(3.25 / 2.75)",
   },
   fontWeight: {
     thin: "100",
@@ -313,11 +319,11 @@ export const lightColorMode = createGlobalTheme(
 const darkVars = {
   ...sharedTheme,
   color: {
-    primary: "#fff",
+    primary: "#c7ccd5",
     grey: "#73737D",
     background: "#111216",
     accent: "#E9DAAC",
-    bodyText: "#fff",
+    bodyText: "#c7ccd5",
     card: "#1D2128",
     horizontalRule: "rgba(255, 255, 255, 0.15)",
     prism: prismColors,
@@ -360,6 +366,10 @@ export const breakpoints = {
 const unresponiveProperties = defineProperties({
   properties: {
     fontFamily: tokens.font,
+    fontFeatureSettings: tokens.fontFeatureSettings,
+  },
+  shorthands: {
+    font: ["fontFamily", "fontFeatureSettings"],
   },
 })
 

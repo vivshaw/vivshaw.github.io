@@ -10,44 +10,21 @@ const commonStyles = style({
 export const heading1 = style([
   commonStyles,
   {
-    fontSize: tokens.fontSize["5xl"],
-    lineHeight: tokens.lineHeight["5xl"],
+    fontFeatureSettings: tokens.fontFeatureSettings.serif,
+    fontSize: tokens.fontSize["3xl"],
+    lineHeight: tokens.lineHeight["3xl"],
     wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.desktop]: {
-        fontSize: tokens.fontSize["4xl"],
-        lineHeight: tokens.lineHeight["4xl"],
-      },
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize["3xl"],
-        lineHeight: tokens.lineHeight["3xl"],
-      },
-    },
   },
 ])
 
 export const heading2 = style([
   commonStyles,
   {
+    fontFeatureSettings: tokens.fontFeatureSettings.serif,
     fontSize: tokens.fontSize["3xl"],
+    fontStyle: "italic",
     lineHeight: tokens.lineHeight["3xl"],
     wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.desktop]: {
-        fontSize: tokens.fontSize["xl"],
-        lineHeight: tokens.lineHeight["xl"],
-      },
-      [breakpoints.tablet]: {
-        fontSize: tokens.fontSize["2xl"],
-        lineHeight: tokens.lineHeight["2xl"],
-      },
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize["xl"],
-        lineHeight: tokens.lineHeight["xl"],
-      },
-    },
   },
 ])
 

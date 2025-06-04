@@ -1,70 +1,35 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints } from "@vivshaw/viriditas"
 
 import { heading1 } from "@vivshaw/mdx/Headings/Headings.css"
 
 export const root = style({
-  margin: "100px auto 70px",
-  maxWidth: "calc(749px - 68px)",
+  margin: "100px auto 84px",
+  maxWidth: "744px",
   position: "relative",
   width: "100%",
 
   "@media": {
     [breakpoints.desktop]: {
-      maxWidth: "calc(507px + 53px)",
-      margin: "100px auto 70px",
+      paddingLeft: "53px",
     },
     [breakpoints.tablet]: {
-      margin: "100px auto 0px",
-      maxWidth: "480px",
-      paddingLeft: "0",
+      maxWidth: "100%",
+      paddingLeft: "20px",
+      paddingRight: "20px",
     },
     [breakpoints.phablet]: {
-      margin: "100px auto 0px",
-      padding: "0 40px",
-    },
-    "screen and (max-height: 700px)": {
-      margin: "100px auto 0px",
+      paddingLeft: "20px",
+      paddingRight: "20px",
     },
   },
 })
 
 // TODO: Stop sharing the MDX headings like this!
-export const title = style([
+export const title = heading1
+export const subtitle = style([
   heading1,
   {
-    fontFamily: tokens.font.serif,
-    fontSize: tokens.fontSize["5xl"],
-    lineHeight: tokens.lineHeight["5xl"],
-    marginBottom: "18px",
-
-    "@media": {
-      [breakpoints.tablet]: {
-        fontSize: tokens.fontSize["4xl"],
-        lineHeight: tokens.lineHeight["4xl"],
-        marginBottom: "20px",
-      },
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize["3xl"],
-        lineHeight: tokens.lineHeight["3xl"],
-      },
-    },
+    fontStyle: "italic",
   },
 ])
-
-export const date = style({
-  marginLeft: "0",
-  position: "relative",
-  display: "flex",
-  fontSize: tokens.fontSize.lg,
-  lineHeight: tokens.lineHeight.lg,
-  color: tokens.color.grey,
-
-  "@media": {
-    [breakpoints.phablet]: {
-      flexDirection: "column",
-      fontSize: tokens.fontSize.sm,
-      lineHeight: tokens.lineHeight.sm,
-    },
-  },
-})
