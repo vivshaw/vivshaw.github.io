@@ -56,13 +56,13 @@ export const mainpageHeading = style({
   color: tokens.color.primary,
   fontFamily: tokens.font.serif,
   fontWeight: tokens.fontWeight.normal,
-  fontSize: tokens.fontSize["6xl"],
-  lineHeight: tokens.lineHeight["6xl"],
+  fontSize: tokens.fontSize["600"],
+  lineHeight: tokens.lineHeight.heading,
 
   "@media": {
     [breakpoints.tablet]: {
-      fontSize: tokens.fontSize["4xl"],
-      lineHeight: tokens.lineHeight["4xl"],
+      fontSize: tokens.fontSize["600"],
+      lineHeight: tokens.lineHeight.heading,
     },
   },
 

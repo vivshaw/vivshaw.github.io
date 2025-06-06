@@ -82,8 +82,8 @@ export const postBlurb = style([
     color: tokens.color.grey,
     display: "flex",
     fontFamily: tokens.font.serif,
-    fontSize: tokens.fontSize.xl,
-    lineHeight: tokens.lineHeight.xl,
+    fontSize: tokens.fontSize["400"],
+    lineHeight: tokens.lineHeight.body,
     marginBottom: "8px",
 
     "@media": {
@@ -93,8 +93,8 @@ export const postBlurb = style([
         WebkitLineClamp: "3",
       },
       [breakpoints.tablet]: {
-        fontSize: tokens.fontSize.lg,
-        lineHeight: tokens.lineHeight.lg,
+        fontSize: tokens.fontSize["500"],
+        lineHeight: tokens.lineHeight.body,
       },
     },
   },
@@ -103,9 +103,9 @@ export const postBlurb = style([
 export const postDate = style({
   color: tokens.color.grey,
   fontFamily: tokens.font.serif,
-  fontSize: tokens.fontSize.base,
+  fontSize: tokens.fontSize["100"],
   fontWeight: tokens.fontWeight.normal,
-  lineHeight: tokens.lineHeight.base,
+  lineHeight: tokens.lineHeight.body,
   opacity: "0.33",
 
   "@media": {

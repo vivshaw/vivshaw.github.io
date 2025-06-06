@@ -3,8 +3,8 @@ import { tokens } from "@vivshaw/viriditas"
 
 export const figcaption = style({
   color: tokens.color.grey,
-  fontSize: tokens.fontSize.sm,
-  lineHeight: tokens.lineHeight.sm,
+  fontSize: tokens.fontSize["100"],
+  lineHeight: tokens.lineHeight.body,
   paddingTop: "6px",
   textAlign: "center",
   width: "100%",

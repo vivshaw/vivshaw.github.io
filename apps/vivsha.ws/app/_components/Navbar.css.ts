@@ -63,8 +63,8 @@ export const iconButton = style([
 export const logoLink = style([
   {
     color: tokens.color.primary,
-    fontSize: tokens.fontSize["3xl"],
-    lineHeight: tokens.lineHeight["3xl"],
+    fontSize: tokens.fontSize["600"],
+    lineHeight: tokens.lineHeight.heading,
     gridArea: "logo",
     transition: "color 0.3s ease",
 
@@ -105,13 +105,13 @@ export const link = style([
   interactionHover,
   {
     color: tokens.color.primary,
-    fontSize: tokens.fontSize["3xl"],
-    lineHeight: tokens.lineHeight["3xl"],
+    fontSize: tokens.fontSize["500"],
+    lineHeight: tokens.lineHeight.heading,
 
     "@media": {
       [breakpoints.tablet]: {
-        fontSize: tokens.fontSize.lg,
-        lineHeight: tokens.lineHeight.lg,
+        fontSize: tokens.fontSize["400"],
+        lineHeight: tokens.lineHeight.body,
       },
     },
   },

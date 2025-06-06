@@ -9,8 +9,8 @@ export const CODE_BLOCK_CLASS = "prism-code"
  */
 globalStyle(`.${CODE_BLOCK_CLASS}.${CODE_BLOCK_CLASS}`, {
   borderRadius: "5px",
-  fontSize: tokens.fontSize.sm,
-  lineHeight: tokens.lineHeight.sm,
+  fontSize: tokens.fontSize["100"],
+  lineHeight: tokens.lineHeight.body,
   margin: "15px auto 50px",
   overflow: "auto",
   padding: "32px",

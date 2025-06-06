@@ -150,37 +150,20 @@ export const tokens = createGlobalThemeContract(
       monospace: null,
     },
     fontWeight: {
-      thin: null,
-      light: null,
       normal: null,
-      medium: null,
       bold: null,
-      extraBold: null,
-      black: null,
     },
     fontSize: {
-      sm: null,
-      base: null,
-      lg: null,
-      xl: null,
-      "2xl": null,
-      "3xl": null,
-      "4xl": null,
-      "5xl": null,
-      "6xl": null,
-      "7xl": null,
+      "100": null,
+      "200": null,
+      "300": null,
+      "400": null,
+      "500": null,
+      "600": null,
     },
     lineHeight: {
-      sm: null,
-      base: null,
-      lg: null,
-      xl: null,
-      "2xl": null,
-      "3xl": null,
-      "4xl": null,
-      "5xl": null,
-      "6xl": null,
-      "7xl": null,
+      body: null,
+      heading: null,
     },
 
     /**
@@ -254,37 +237,20 @@ const sharedTheme = {
     monospace: "normal",
   },
   fontSize: {
-    sm: "0.875rem", // 14px
-    base: "1rem", // 16px
-    lg: "1.125rem", // 18px
-    xl: "1.25rem", // 20px
-    "2xl": "1.5rem", // 24px
-    "3xl": "1.75rem", // 28px
-    "4xl": "1.875rem", // 30px
-    "5xl": "2.25rem", // 36px
-    "6xl": "3rem", // 48px
-    "7xl": "3.75rem", // 60px
+    "100": "1rem", // 16px
+    "200": "1.125rem", // 18px
+    "300": "1.25rem", // 20px
+    "400": "1.375rem", // 22px
+    "500": "1.5rem", // 24px
+    "600": "1.75rem", // 28px
   },
   lineHeight: {
-    sm: "calc(1.25 / 0.875)",
-    base: "calc(1.5 / 1)",
-    lg: "calc(1.75 / 1.125)",
-    xl: "calc(1.75 / 1.25)",
-    "2xl": "calc(2 / 1.5)",
-    "3xl": "calc(2.25 / 1.75)",
-    "4xl": "calc(2.5 / 1.875)",
-    "5xl": "calc(2.75 / 2.25)",
-    "6xl": "calc(3 / 2.25)",
-    "7xl": "calc(3.25 / 2.75)",
+    body: "1.5",
+    heading: "1.3",
   },
   fontWeight: {
-    thin: "100",
-    light: "300",
     normal: "400",
-    medium: "500",
     bold: "700",
-    extraBold: "800",
-    black: "900",
   },
 
   motion: {

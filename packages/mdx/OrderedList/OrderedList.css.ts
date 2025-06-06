@@ -4,8 +4,8 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 export const orderedList = style({
   color: tokens.color.bodyText,
   counterReset: "list",
-  fontSize: tokens.fontSize.lg,
-  lineHeight: tokens.lineHeight.lg,
+  fontSize: tokens.fontSize["100"],
+  lineHeight: tokens.lineHeight.body,
   listStyle: "none",
   margin: "0 auto",
   padding: "15px 0 30px 30px",

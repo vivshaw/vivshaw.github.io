@@ -11,8 +11,8 @@ export const heading1 = style([
   commonStyles,
   {
     fontFeatureSettings: tokens.fontFeatureSettings.serif,
-    fontSize: tokens.fontSize["3xl"],
-    lineHeight: tokens.lineHeight["3xl"],
+    fontSize: tokens.fontSize["600"],
+    lineHeight: tokens.lineHeight.heading,
     wordBreak: "keep-all",
   },
 ])
@@ -21,9 +21,9 @@ export const heading2 = style([
   commonStyles,
   {
     fontFeatureSettings: tokens.fontFeatureSettings.serif,
-    fontSize: tokens.fontSize["3xl"],
+    fontSize: tokens.fontSize["500"],
     fontStyle: "italic",
-    lineHeight: tokens.lineHeight["3xl"],
+    lineHeight: tokens.lineHeight.heading,
     wordBreak: "keep-all",
   },
 ])
@@ -31,67 +31,8 @@ export const heading2 = style([
 export const heading3 = style([
   commonStyles,
   {
-    fontSize: tokens.fontSize["2xl"],
-    lineHeight: tokens.lineHeight["2xl"],
+    fontSize: tokens.fontSize["500"],
+    lineHeight: tokens.lineHeight.heading,
     wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.tablet]: {
-        fontSize: tokens.fontSize["xl"],
-        lineHeight: tokens.lineHeight["xl"],
-      },
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize["xl"],
-        lineHeight: tokens.lineHeight["xl"],
-      },
-    },
-  },
-])
-
-export const heading4 = style([
-  commonStyles,
-  {
-    fontSize: tokens.fontSize.lg,
-    lineHeight: tokens.lineHeight.lg,
-    wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize.base,
-        lineHeight: tokens.lineHeight.base,
-      },
-    },
-  },
-])
-
-export const heading5 = style([
-  commonStyles,
-  {
-    fontSize: tokens.fontSize.lg,
-    lineHeight: tokens.lineHeight.lg,
-    wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize.base,
-        lineHeight: tokens.lineHeight.base,
-      },
-    },
-  },
-])
-
-export const heading6 = style([
-  commonStyles,
-  {
-    fontSize: tokens.fontSize.base,
-    lineHeight: tokens.lineHeight.base,
-    wordBreak: "keep-all",
-
-    "@media": {
-      [breakpoints.phablet]: {
-        fontSize: tokens.fontSize.sm,
-        lineHeight: tokens.lineHeight.sm,
-      },
-    },
   },
 ])
