@@ -5,7 +5,7 @@ export const figcaption = style({
   color: tokens.color.grey,
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  paddingTop: "6px",
+  paddingTop: tokens.spacing["1-half"],
   textAlign: "center",
   width: "100%",
 })

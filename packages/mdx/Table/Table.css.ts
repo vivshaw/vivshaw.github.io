@@ -3,18 +3,18 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const tableWrapper = style({
   overflowX: "auto",
-  padding: "0 20px",
+  padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
 })
 
 export const table = style({
   background: tokens.color.card,
   border: `1px solid ${tokens.color.horizontalRule}`,
   borderCollapse: "separate",
-  borderRadius: "5px",
+  borderRadius: tokens.spacing["1"],
   color: tokens.color.grey,
   fontFamily: tokens.font.sans,
   lineHeight: "1.65",
-  margin: "45px auto 85px",
+  margin: `${tokens.spacing["11"]} auto ${tokens.spacing["20"]}`,
   maxWidth: "1004px",
   overflow: "hidden",
   position: "relative",
@@ -23,13 +23,13 @@ export const table = style({
 
   "@media": {
     [breakpoints.desktop]: {
-      margin: "25px auto 65px",
+      margin: `${tokens.spacing["6"]} auto ${tokens.spacing["16"]}`,
     },
     [breakpoints.tablet]: {
       maxWidth: "486px",
     },
     [breakpoints.phablet]: {
-      margin: "15px auto 55px",
+      margin: `${tokens.spacing["4"]} auto ${tokens.spacing["14"]}`,
     },
   },
 })

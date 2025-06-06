@@ -173,6 +173,47 @@ export const tokens = createGlobalThemeContract(
       colorModeTransition: null,
       hoverTransition: null,
     },
+
+    /**
+     * Spacing tokens.
+     * Based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px).
+     */
+    spacing: {
+      "0": null,
+      half: null,
+      "1": null,
+      "1-half": null,
+      "2": null,
+      "2-half": null,
+      "3": null,
+      "3-half": null,
+      "4": null,
+      "5": null,
+      "6": null,
+      "7": null,
+      "8": null,
+      "9": null,
+      "10": null,
+      "11": null,
+      "12": null,
+      "14": null,
+      "16": null,
+      "20": null,
+      "24": null,
+      "28": null,
+      "32": null,
+      "36": null,
+      "40": null,
+      "44": null,
+      "48": null,
+      "52": null,
+      "56": null,
+      "60": null,
+      "64": null,
+      "72": null,
+      "80": null,
+      "96": null,
+    },
   },
   (_value, path) => path.join("-"),
 )
@@ -256,6 +297,47 @@ const sharedTheme = {
   motion: {
     colorModeTransition: `background 0.25s ${tokens.easing.easeInOutQuad}, color 0.25s ${tokens.easing.easeInOutQuad}`,
     hoverTransition: `border-color 0.2s ${tokens.easing.easeInQuad}, opacity 0.2s ${tokens.easing.easeInQuad}`,
+  },
+
+  /**
+   * Spacing scale based on Tailwind CSS.
+   * One spacing unit equals 0.25rem (4px).
+   */
+  spacing: {
+    "0": "0px",
+    half: "0.125rem", // 2px
+    "1": "0.25rem", // 4px
+    "1-half": "0.375rem", // 6px
+    "2": "0.5rem", // 8px
+    "2-half": "0.625rem", // 10px
+    "3": "0.75rem", // 12px
+    "3-half": "0.875rem", // 14px
+    "4": "1rem", // 16px
+    "5": "1.25rem", // 20px
+    "6": "1.5rem", // 24px
+    "7": "1.75rem", // 28px
+    "8": "2rem", // 32px
+    "9": "2.25rem", // 36px
+    "10": "2.5rem", // 40px
+    "11": "2.75rem", // 44px
+    "12": "3rem", // 48px
+    "14": "3.5rem", // 56px
+    "16": "4rem", // 64px
+    "20": "5rem", // 80px
+    "24": "6rem", // 96px
+    "28": "7rem", // 112px
+    "32": "8rem", // 128px
+    "36": "9rem", // 144px
+    "40": "10rem", // 160px
+    "44": "11rem", // 176px
+    "48": "12rem", // 192px
+    "52": "13rem", // 208px
+    "56": "14rem", // 224px
+    "60": "15rem", // 240px
+    "64": "16rem", // 256px
+    "72": "18rem", // 288px
+    "80": "20rem", // 320px
+    "96": "24rem", // 384px
   },
 }
 
@@ -354,9 +436,55 @@ const responsiveProperties = defineProperties({
     fontSize: tokens.fontSize,
     lineHeight: tokens.lineHeight,
     fontWeight: tokens.fontWeight,
+    margin: tokens.spacing,
+    marginTop: tokens.spacing,
+    marginRight: tokens.spacing,
+    marginBottom: tokens.spacing,
+    marginLeft: tokens.spacing,
+    padding: tokens.spacing,
+    paddingTop: tokens.spacing,
+    paddingRight: tokens.spacing,
+    paddingBottom: tokens.spacing,
+    paddingLeft: tokens.spacing,
+    gap: tokens.spacing,
+    columnGap: tokens.spacing,
+    rowGap: tokens.spacing,
+    width: tokens.spacing,
+    minWidth: tokens.spacing,
+    maxWidth: tokens.spacing,
+    height: tokens.spacing,
+    minHeight: tokens.spacing,
+    maxHeight: tokens.spacing,
+    inset: tokens.spacing,
+    insetBlock: tokens.spacing,
+    insetBlockStart: tokens.spacing,
+    insetBlockEnd: tokens.spacing,
+    insetInline: tokens.spacing,
+    insetInlineStart: tokens.spacing,
+    insetInlineEnd: tokens.spacing,
+    top: tokens.spacing,
+    right: tokens.spacing,
+    bottom: tokens.spacing,
+    left: tokens.spacing,
   },
   shorthands: {
     text: ["fontSize", "lineHeight"],
+    m: ["margin"],
+    mt: ["marginTop"],
+    mr: ["marginRight"],
+    mb: ["marginBottom"],
+    ml: ["marginLeft"],
+    mx: ["marginLeft", "marginRight"],
+    my: ["marginTop", "marginBottom"],
+    p: ["padding"],
+    pt: ["paddingTop"],
+    pr: ["paddingRight"],
+    pb: ["paddingBottom"],
+    pl: ["paddingLeft"],
+    px: ["paddingLeft", "paddingRight"],
+    py: ["paddingTop", "paddingBottom"],
+    insetX: ["left", "right"],
+    insetY: ["top", "bottom"],
   },
 })
 

@@ -12,22 +12,22 @@ export const root = style({
     "sub-nav sub-nav  sub-nav"
   `,
   justifyContent: "space-between",
-  marginTop: "100px",
+  marginTop: tokens.spacing["24"],
   maxWidth: "1440px",
-  paddingLeft: "80px",
-  paddingRight: "80px",
+  paddingLeft: tokens.spacing["20"],
+  paddingRight: tokens.spacing["20"],
   position: "relative",
   width: "100%",
   zIndex: 3,
 
   "@media": {
     [breakpoints.desktopMedium]: {
-      marginTop: "50px",
+      marginTop: tokens.spacing["12"],
     },
     [breakpoints.tablet]: {
-      paddingLeft: "24px",
-      paddingRight: "24px",
-      marginTop: "20px",
+      paddingLeft: tokens.spacing["6"],
+      paddingRight: tokens.spacing["6"],
+      marginTop: tokens.spacing["5"],
     },
   },
 })
@@ -50,13 +50,13 @@ export const iconButton = style([
   interactionHover,
   {
     alignItems: "center",
-    borderRadius: "5px",
+    borderRadius: tokens.spacing["1"],
     display: "flex",
     gridArea: "right-button",
-    height: "25px",
+    height: tokens.spacing["6"],
     justifyContent: "center",
     position: "relative",
-    width: "40px",
+    width: tokens.spacing["10"],
   },
 ])
 
@@ -96,9 +96,9 @@ export const controls = style({
 
 export const linkList = style({
   display: "flex",
-  gap: "24px",
+  gap: tokens.spacing["6"],
   listStyle: "none",
-  marginRight: "30px",
+  marginRight: tokens.spacing["8"],
 })
 
 export const link = style([

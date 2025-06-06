@@ -6,12 +6,12 @@ export const tableCell = style({
   borderTop: `1px solid ${tokens.color.horizontalRule}`,
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  padding: "15px 30px",
+  padding: `${tokens.spacing["4"]} ${tokens.spacing["8"]}`,
   wordBreak: "keep-all",
 
   "@media": {
     [breakpoints.desktop]: {
-      padding: "14px 20px",
+      padding: `${tokens.spacing["3-half"]} ${tokens.spacing["5"]}`,
     },
     [breakpoints.tablet]: {
       fontSize: tokens.fontSize["100"],

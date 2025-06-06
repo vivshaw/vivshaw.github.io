@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css"
+import { tokens } from "@vivshaw/viriditas"
 
 export const aboutList = style({
-  paddingLeft: "64px",
-  paddingTop: "16px",
+  paddingLeft: tokens.spacing["16"],
+  paddingTop: tokens.spacing["4"],
 })

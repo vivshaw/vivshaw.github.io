@@ -6,7 +6,7 @@ export const section = style({
   display: "block",
   margin: "0 auto",
   maxWidth: "1220px",
-  padding: "0 4rem 40px",
+  padding: `0 ${tokens.spacing["16"]} ${tokens.spacing["10"]}`,
   width: "100%",
 
   "@media": {
@@ -14,7 +14,7 @@ export const section = style({
       maxWidth: "850px",
     },
     [breakpoints.tablet]: {
-      padding: "0 2rem 40px",
+      padding: `0 ${tokens.spacing["8"]} ${tokens.spacing["10"]}`,
       maxWidth: "527px",
     },
     [breakpoints.phablet]: {
@@ -33,23 +33,23 @@ export const postBody = style({
   position: "relative",
   margin: "0 auto",
   maxWidth: "744px",
-  padding: "0 0 35px",
+  padding: `0 0 ${tokens.spacing["9"]}`,
 
   "@media": {
     [breakpoints.desktop]: {
-      paddingLeft: "53px",
+      paddingLeft: tokens.spacing["13"],
     },
     [breakpoints.tablet]: {
       gridTemplateColumns: `
-      [full-start] 20px 
+      [full-start] ${tokens.spacing["5"]} 
       [main-start] 1fr [main-end]
-      20px [full-end]
+      ${tokens.spacing["5"]} [full-end]
     `,
       maxWidth: "100%",
-      padding: "0 0 80px",
+      padding: `0 0 ${tokens.spacing["20"]}`,
     },
     [breakpoints.phablet]: {
-      padding: "60px 0",
+      padding: `${tokens.spacing["15"]} 0`,
     },
   },
 })
@@ -85,8 +85,8 @@ export const footerNext = style({
   display: "flex",
   flexDirection: "row",
   fontWeight: tokens.fontWeight.normal,
-  gap: "4px",
-  marginBottom: "30px",
+  gap: tokens.spacing["1"],
+  marginBottom: tokens.spacing["8"],
   opacity: "0.25",
   position: "relative",
 
@@ -97,7 +97,7 @@ export const footerNext = style({
       height: "1px",
       position: "absolute",
       right: "0",
-      top: "11px",
+      top: tokens.spacing["2-half"],
       width: "calc(750 / 1140 * 100%)",
 
       "@media": {
@@ -116,5 +116,5 @@ export const footerNext = style({
 })
 
 export const footerSpacer = style({
-  marginBottom: "65px",
+  marginBottom: tokens.spacing["16"],
 })

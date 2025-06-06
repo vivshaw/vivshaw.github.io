@@ -18,17 +18,17 @@ export const centeringWrapper = style({
 
 export const mainpageContent = style({
   maxWidth: "1440px",
-  paddingRight: "80px",
-  paddingLeft: "80px",
-  paddingBottom: "50px",
-  paddingTop: "80px",
+  paddingRight: tokens.spacing["20"],
+  paddingLeft: tokens.spacing["20"],
+  paddingBottom: tokens.spacing["12"],
+  paddingTop: tokens.spacing["20"],
   width: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      paddingRight: "24px",
-      paddingLeft: "24px",
-      paddingTop: "40px",
+      paddingRight: tokens.spacing["6"],
+      paddingLeft: tokens.spacing["6"],
+      paddingTop: tokens.spacing["10"],
     },
   },
 })
@@ -39,8 +39,8 @@ export const mainpageLink = style([
     opacity: 0.7,
     textDecoration: "underline",
     textDecorationColor: tokens.color.accent,
-    textDecorationThickness: "1px",
-    textUnderlineOffset: "2px",
+    textDecorationThickness: tokens.spacing["0-quarter"],
+    textUnderlineOffset: tokens.spacing["0-half"],
     transition: tokens.motion.hoverTransition,
 
     selectors: {
@@ -68,7 +68,7 @@ export const mainpageHeading = style({
 
   selectors: {
     "&:not(:first-of-type)": {
-      marginTop: "calc(0.83em + 32px)",
+      marginTop: `calc(0.83em + ${tokens.spacing["8"]})`,
     },
   },
 })

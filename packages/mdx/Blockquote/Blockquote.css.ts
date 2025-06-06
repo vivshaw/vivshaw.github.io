@@ -5,12 +5,12 @@ export const blockquote = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,
   fontStyle: "italic",
-  margin: "15px auto 50px",
+  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
   transition: tokens.motion.colorModeTransition,
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: "10px auto 35px",
+      margin: `${tokens.spacing["2-half"]} auto ${tokens.spacing["9"]}`,
     },
   },
 })

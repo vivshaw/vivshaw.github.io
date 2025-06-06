@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 import { darkModeStyles, lightModeStyles } from "@vivshaw/viriditas/helpers"
 
 export const horizontalRule = style([
@@ -9,17 +9,17 @@ export const horizontalRule = style([
     border: 0,
     boxSizing: "border-box",
     height: "14.36px",
-    margin: "50px auto",
+    margin: `${tokens.spacing["12"]} auto`,
     position: "relative",
     width: "100%",
 
     "@media": {
       [breakpoints.tablet]: {
-        margin: "0px auto 50px",
+        margin: `${tokens.spacing["0"]} auto ${tokens.spacing["12"]}`,
         width: "calc(100vw - 40px)",
       },
       [breakpoints.phablet]: {
-        padding: "0 20px",
+        padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
       },
     },
   },

@@ -9,11 +9,11 @@ export const root = style({
 
 export const postLink = style([
   {
-    borderRadius: "5px",
+    borderRadius: tokens.spacing["1"],
     display: "block",
     height: "100%",
     left: "0",
-    marginBottom: "50px",
+    marginBottom: tokens.spacing["12"],
     position: "relative",
     transition: `transform 0.33s ${tokens.easing.easeOutQuart}`,
     top: "0",
@@ -26,6 +26,7 @@ export const postLink = style([
       [breakpoints.phablet]: {
         selectors: {
           "&:active": {
+            // Intentionally uses exact px values to get the look right, not Viriditas tokens.
             transform: "scale(0.97) translateY(3px)",
           },
         },
@@ -57,7 +58,7 @@ export const postTitle = style([
   heading2,
   limitLines,
   {
-    marginBottom: "4px",
+    marginBottom: tokens.spacing["1"],
     transition: "color 0.3s ease-in-out",
 
     selectors: {
@@ -68,7 +69,7 @@ export const postTitle = style([
 
     "@media": {
       [breakpoints.phablet]: {
-        padding: "0 20px",
+        padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
 
         WebkitLineClamp: "3",
       },
@@ -84,11 +85,11 @@ export const postBlurb = style([
     fontFamily: tokens.font.serif,
     fontSize: tokens.fontSize["400"],
     lineHeight: tokens.lineHeight.body,
-    marginBottom: "8px",
+    marginBottom: tokens.spacing["2"],
 
     "@media": {
       [breakpoints.phablet]: {
-        padding: "0 20px",
+        padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
 
         WebkitLineClamp: "3",
       },
@@ -110,7 +111,7 @@ export const postDate = style({
 
   "@media": {
     [breakpoints.phablet]: {
-      padding: "0 20px",
+      padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
     },
   },
 })

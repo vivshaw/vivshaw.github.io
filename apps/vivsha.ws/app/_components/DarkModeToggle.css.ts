@@ -19,6 +19,7 @@ export const root = style({
 })
 
 // Based off a codepen! Much appreciation to: https://codepen.io/aaroniker/pen/KGpXZo
+// This file deliberately uses exact px values to get the look right, not Viriditas tokens.
 export const moonOrSun = style([
   {
     borderRadius: "50%",

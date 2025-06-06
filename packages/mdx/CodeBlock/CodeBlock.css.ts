@@ -8,19 +8,19 @@ export const CODE_BLOCK_CLASS = "prism-code"
  * default margins/padding/border radius, etc.
  */
 globalStyle(`.${CODE_BLOCK_CLASS}.${CODE_BLOCK_CLASS}`, {
-  borderRadius: "5px",
+  borderRadius: tokens.spacing["1"],
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  margin: "15px auto 50px",
+  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
   overflow: "auto",
-  padding: "32px",
+  padding: tokens.spacing["8"],
   width: "100%",
 
   "@media": {
     [breakpoints.phablet]: {
       borderRadius: "0",
-      margin: "0 auto 25px",
-      padding: "25px 20px",
+      margin: `0 auto ${tokens.spacing["6"]}`,
+      padding: `${tokens.spacing["6"]} ${tokens.spacing["5"]}`,
       position: "relative",
       textSizeAdjust: "none",
       width: "100%",

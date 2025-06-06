@@ -5,11 +5,11 @@ export const tableHeadCell = style({
   background: tokens.color.card,
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  padding: "18px 30px",
+  padding: `${tokens.spacing["5"]} ${tokens.spacing["8"]}`,
 
   "@media": {
     [breakpoints.desktop]: {
-      padding: "14px 20px",
+      padding: `${tokens.spacing["3-half"]} ${tokens.spacing["5"]}`,
     },
     [breakpoints.tablet]: {
       fontSize: tokens.fontSize["100"],

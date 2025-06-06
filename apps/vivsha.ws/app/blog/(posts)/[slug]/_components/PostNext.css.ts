@@ -6,7 +6,7 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const root = recipe({
   base: {
-    columnGap: "30px",
+    columnGap: tokens.spacing["8"],
     display: "grid",
     margin: "0 auto",
     maxWidth: "680px",
@@ -54,6 +54,7 @@ export const postLink = style([
     "@media": {
       [breakpoints.phablet]: {
         selectors: {
+          // Intentionally uses exact px values to get the look right, not Viriditas tokens.
           "&:active": {
             transform: "scale(0.97) translateY(3px)",
           },
@@ -80,7 +81,7 @@ export const postTitle = style([
     fontFamily: tokens.font.serif,
     fontSize: tokens.fontSize["500"],
     lineHeight: tokens.lineHeight.heading,
-    marginBottom: "10px",
+    marginBottom: tokens.spacing["2-half"],
     transition: "color 0.3s ease-in-out",
 
     selectors: {
@@ -91,11 +92,11 @@ export const postTitle = style([
 
     "@media": {
       [breakpoints.tablet]: {
-        marginBottom: "15px",
+        marginBottom: tokens.spacing["4"],
       },
       [breakpoints.phablet]: {
         marginBottom: "10px",
-        padding: "0 20px 0",
+        padding: `0 ${tokens.spacing["5"]} 0`,
       },
     },
   },
@@ -106,7 +107,7 @@ export const postExcerpt = style({
   color: tokens.color.grey,
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  marginBottom: "10px",
+  marginBottom: tokens.spacing["2-half"],
   maxWidth: "515px",
 
   "@media": {
@@ -117,9 +118,9 @@ export const postExcerpt = style({
       marginBottom: "15px",
     },
     [breakpoints.phablet]: {
-      marginBottom: "20px",
+      marginBottom: tokens.spacing["5"],
       maxWidth: "100%",
-      padding: "0 20px",
+      padding: `0 ${tokens.spacing["5"]}`,
       WebkitLineClamp: "3",
     },
   },
@@ -135,7 +136,7 @@ export const postDate = style({
   "@media": {
     [breakpoints.phablet]: {
       maxWidth: "100%",
-      padding: "0 20px 30px",
+      padding: `0 ${tokens.spacing["5"]} ${tokens.spacing["8"]}`,
     },
   },
 })

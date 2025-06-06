@@ -9,14 +9,14 @@ export const paragraph = style({
   fontFamily: tokens.font.serif,
   fontSize: tokens.fontSize["500"],
   lineHeight: tokens.lineHeight.body,
-  marginBottom: 35,
+  marginBottom: tokens.spacing["9"],
   marginTop: 0,
   transition: tokens.motion.colorModeTransition,
   width: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      marginBottom: 25,
+      marginBottom: tokens.spacing["6"],
       marginTop: 0,
     },
   },
@@ -30,19 +30,19 @@ export const paragraph = style({
       margin: "0 auto",
       maxWidth: "880px !important",
       paddingBottom: "0",
-      paddingRight: "100px",
+      paddingRight: tokens.spacing["24"],
       width: "100%",
 
       "@media": {
         [breakpoints.tablet]: {
           fontSize: tokens.fontSize["500"],
           lineHeight: tokens.lineHeight.body,
-          padding: "0 180px",
+          padding: `${tokens.spacing["0"]} ${tokens.spacing["44"]}`,
         },
         [breakpoints.phablet]: {
           fontSize: tokens.fontSize["500"],
           lineHeight: tokens.lineHeight.body,
-          padding: "0 20px 0 40px",
+          padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]} ${tokens.spacing["0"]} ${tokens.spacing["10"]}`,
         },
       },
     },

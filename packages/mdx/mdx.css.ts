@@ -20,20 +20,20 @@ globalStyle(
 )
 
 globalStyle(`${mdxRoot} h1, ${mdxRoot} h1 *, ${mdxRoot} h2, ${mdxRoot} h2 *`, {
-  marginBottom: 18,
-  marginTop: 25,
+  marginBottom: tokens.spacing["4-half"],
+  marginTop: tokens.spacing["6"],
 
   "@media": {
     [breakpoints.tablet]: {
-      marginBottom: 18,
-      marginTop: 30,
+      marginBottom: tokens.spacing["4-half"],
+      marginTop: tokens.spacing["8"],
     },
   },
 })
 
 globalStyle(`${mdxRoot} h3, ${mdxRoot} h3 *`, {
-  marginBottom: 10,
-  marginTop: 20,
+  marginBottom: tokens.spacing["2-half"],
+  marginTop: tokens.spacing["5"],
 })
 
 /** Prism code block styles */
@@ -48,13 +48,13 @@ globalStyle(
   {
     background: tokens.color.prism.highlight,
     borderLeft: "3px solid transparent",
-    margin: "0 -32px",
-    padding: "0 32px",
+    margin: `0 -${tokens.spacing["8"]}`,
+    padding: `0 ${tokens.spacing["8"]}`,
 
     "@media": {
       [breakpoints.tablet]: {
-        margin: "0 -20px",
-        padding: "0 20px",
+        margin: `0 -${tokens.spacing["5"]}`,
+        padding: `0 ${tokens.spacing["5"]}`,
       },
     },
   },
@@ -64,7 +64,7 @@ globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .number-line`, {
   display: "inline-block",
   opacity: "0.3",
   userSelect: "none",
-  width: "32px",
+  width: tokens.spacing["8"],
 
   "@media": {
     [breakpoints.tablet]: {
@@ -89,9 +89,9 @@ globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .plain ~ .operator`, {
 
 globalStyle(`${mdxRoot} :not(pre) > code`, {
   background: tokens.color.prism.highlight,
-  borderRadius: "8px",
+  borderRadius: tokens.spacing["2"],
   fontFamily: tokens.font.monospace,
-  padding: "2px 4px",
+  padding: `${tokens.spacing["half"]} ${tokens.spacing["1"]}`,
 })
 
 /** Image styles */
@@ -103,29 +103,29 @@ const IMAGE_WIDTHS = {
 }
 
 globalStyle(`${mdxRoot} img`, {
-  borderRadius: "5px",
+  borderRadius: tokens.spacing["1"],
   display: "inline-block",
   height: "auto",
-  margin: "15px auto 50px",
+  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
   maxWidth: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: "10px auto 45px",
+      margin: `${tokens.spacing["2-half"]} auto ${tokens.spacing["11"]}`,
     },
     [breakpoints.phablet]: {
-      margin: "0 auto 25px",
+      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
     },
   },
 })
 
 globalStyle(`${mdxRoot} .Image__Small`, {
-  margin: "15px auto 50px",
+  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
   maxWidth: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: "0 auto 25px",
+      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
     },
   },
 })
@@ -139,21 +139,21 @@ globalStyle(`${mdxRoot} img.Image__Small`, {
 })
 
 globalStyle(`${mdxRoot} .Image__Medium`, {
-  margin: "15px auto 50px",
+  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
   maxWidth: IMAGE_WIDTHS.large,
   width: "100%",
 
   "@media": {
     [breakpoints.desktopMedium]: {
-      left: "-34px",
+      left: `-${tokens.spacing["8-half"]}`,
     },
     [breakpoints.desktop]: {
-      left: "-26px",
+      left: `-${tokens.spacing["6-half"]}`,
     },
     [breakpoints.tablet]: {
       borderRadius: "0",
       left: "0",
-      margin: "0 auto 25px",
+      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
     },
   },
 })
@@ -167,17 +167,17 @@ globalStyle(`${mdxRoot} img.Image__Medium`, {
 })
 
 globalStyle(`${mdxRoot} .Image__Large`, {
-  left: "-68px",
-  margin: "25px auto 60px",
+  left: `-${tokens.spacing["16"]}`,
+  margin: `${tokens.spacing["6"]} auto ${tokens.spacing["14"]}`,
   width: IMAGE_WIDTHS.full,
 
   "@media": {
     [breakpoints.desktop]: {
-      left: "-53px",
+      left: `-${tokens.spacing["13"]}`,
     },
     [breakpoints.tablet]: {
       left: "0",
-      margin: "0 auto 25px",
+      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
     },
   },
 })
