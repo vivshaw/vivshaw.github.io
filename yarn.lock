@@ -2664,6 +2664,7 @@ __metadata:
     "@storybook/test": ^8.6.14
     "@vanilla-extract/vite-plugin": ^5.0.2
     "@vitejs/plugin-react": ^4.5.0
+    clsx: ^2.1.1
     storybook: ^8.6.14
   peerDependencies:
     "@vanilla-extract/css": ^1.17.0

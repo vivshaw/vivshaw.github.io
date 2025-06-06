@@ -4,7 +4,13 @@ import { focusRing } from "@vivshaw/viriditas/helpers"
 
 export const link = style([
   {
-    color: tokens.color.background,
+    color: tokens.color.accent,
+    textDecoration: "none",
+    transition: tokens.motion.hoverTransition,
+
+    ":hover": {
+      opacity: 0.8,
+    },
   },
   focusRing,
 ])

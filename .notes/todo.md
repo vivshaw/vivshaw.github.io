@@ -24,8 +24,6 @@
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
     - [ ] h2 seems smaller than h1 on some screens?
 - [ ] viriditas
-  - [ ] flesh out Box primitive, including type safety. then use it to rebuild Link
-  - [ ] add classNames to Box
   - [ ] adopt Box and Link in product. UnorderedList might be a good spot
   - [ ] create a fallback for Alegreya and Alegreya Sans?
   - [ ] load CSS reset in Storybook
