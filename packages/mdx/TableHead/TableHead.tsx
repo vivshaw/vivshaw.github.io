@@ -1,3 +1,4 @@
+import { Box } from "@vivshaw/viriditas/components"
 import { clsx } from "clsx"
 
 import { tableHead } from "./TableHead.css"
@@ -8,6 +9,16 @@ import { tableHead } from "./TableHead.css"
 export function TableHead({
   className,
   ...restProps
-}: React.HTMLAttributes<HTMLTableSectionElement>) {
-  return <thead {...restProps} className={clsx(tableHead, className)} />
+}: Omit<React.HTMLAttributes<HTMLTableSectionElement>, "color">) {
+  return (
+    <Box
+      as="thead"
+      className={clsx(tableHead, className)}
+      color="primary"
+      font="serif"
+      fontWeight="bold"
+      lineHeight="heading"
+      {...restProps}
+    />
+  )
 }

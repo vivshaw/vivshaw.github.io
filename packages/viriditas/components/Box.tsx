@@ -1,19 +1,14 @@
-import {
-  ComponentPropsWithRef,
-  ElementType,
-  ForwardedRef,
-  forwardRef,
-} from "react"
+import { ComponentPropsWithoutRef, ElementType } from "react"
 import type { ReactElement } from "react"
 import { Sprinkles, sprinkles } from "../theme/index.css"
 import clsx from "clsx"
 
-export type BoxProps<T extends ElementType = "div"> = {
+export type BoxProps<T extends ElementType> = {
   /**
    * The HTML element to render. Defaults to "div".
    */
   as?: T
-} & ComponentPropsWithRef<T> &
+} & Omit<ComponentPropsWithoutRef<T>, "color"> &
   Sprinkles
 
 /**
@@ -24,10 +19,13 @@ export type BoxProps<T extends ElementType = "div"> = {
  * Spacing: margin/padding (m*, p*), gap, width/height (min/max)
  * Position: inset*, top/right/bottom/left
  */
-export const Box = forwardRef(function Box<T extends ElementType = "div">(
-  { as: Component = "div", className, ...other }: BoxProps<T>,
-  ref: ForwardedRef<Element>,
-): ReactElement {
+export const Box = function Box<T extends ElementType>({
+  as,
+  className,
+  ...other
+}: BoxProps<T>): ReactElement {
+  const Element = as || "div"
+
   const sprinklesProps: Record<string, unknown> = {}
   const otherProps: Record<string, unknown> = {}
 
@@ -40,10 +38,9 @@ export const Box = forwardRef(function Box<T extends ElementType = "div">(
   })
 
   return (
-    <Component
+    <Element
       {...otherProps}
       className={clsx(sprinkles(sprinklesProps), className)}
-      ref={ref}
     />
   )
-})
+}

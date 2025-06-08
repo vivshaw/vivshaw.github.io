@@ -413,6 +413,8 @@ export const breakpoints = {
 
 const unresponiveProperties = defineProperties({
   properties: {
+    color: tokens.color,
+    bar: tokens.color,
     fontFamily: tokens.font,
     fontFeatureSettings: tokens.fontFeatureSettings,
   },
