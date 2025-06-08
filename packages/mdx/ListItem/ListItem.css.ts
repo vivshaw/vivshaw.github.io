@@ -8,15 +8,15 @@ import { unorderedList } from "../UnorderedList/UnorderedList.css"
  * A styled `<li>` element, for use in MDX.
  */
 export const listItem = style({
-  paddingBottom: tokens.spacing["4"],
+  paddingBottom: tokens.sizing["4"],
   position: "relative",
 
   "@media": {
     [breakpoints.tablet]: {
-      paddingLeft: tokens.spacing["8"],
+      paddingLeft: tokens.sizing["8"],
     },
     [breakpoints.phablet]: {
-      paddingLeft: tokens.spacing["8"],
+      paddingLeft: tokens.sizing["8"],
     },
   },
 
@@ -42,11 +42,11 @@ export const listItem = style({
     [`${unorderedList} &::before`]: {
       backgroundColor: tokens.color.bodyText,
       content: '""',
-      height: tokens.spacing["2"],
-      left: `-${tokens.spacing["8"]}`,
+      height: tokens.sizing["2"],
+      left: `-${tokens.sizing["8"]}`,
       position: "absolute",
-      top: tokens.spacing["2"],
-      width: tokens.spacing["2"],
+      top: tokens.sizing["2"],
+      width: tokens.sizing["2"],
 
       "@media": {
         [breakpoints.tablet]: {

@@ -9,11 +9,11 @@ export const root = style({
 
 export const postLink = style([
   {
-    borderRadius: tokens.spacing["1"],
+    borderRadius: tokens.sizing["1"],
     display: "block",
     height: "100%",
     left: "0",
-    marginBottom: tokens.spacing["12"],
+    marginBottom: tokens.sizing["12"],
     position: "relative",
     transition: `transform 0.33s ${tokens.easing.easeOutQuart}`,
     top: "0",
@@ -58,7 +58,7 @@ export const postTitle = style([
   heading2,
   limitLines,
   {
-    marginBottom: tokens.spacing["1"],
+    marginBottom: tokens.sizing["1"],
     transition: "color 0.3s ease-in-out",
 
     selectors: {
@@ -69,7 +69,7 @@ export const postTitle = style([
 
     "@media": {
       [breakpoints.phablet]: {
-        padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
+        padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
 
         WebkitLineClamp: "3",
       },
@@ -85,11 +85,11 @@ export const postBlurb = style([
     fontFamily: tokens.font.serif,
     fontSize: tokens.fontSize["400"],
     lineHeight: tokens.lineHeight.body,
-    marginBottom: tokens.spacing["2"],
+    marginBottom: tokens.sizing["2"],
 
     "@media": {
       [breakpoints.phablet]: {
-        padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
+        padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
 
         WebkitLineClamp: "3",
       },
@@ -111,7 +111,7 @@ export const postDate = style({
 
   "@media": {
     [breakpoints.phablet]: {
-      padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]}`,
+      padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
     },
   },
 })

@@ -175,10 +175,10 @@ export const tokens = createGlobalThemeContract(
     },
 
     /**
-     * Spacing tokens.
+     * Sizing tokens.
      * Based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px).
      */
-    spacing: {
+    sizing: {
       "0": null,
       half: null,
       "1": null,
@@ -303,7 +303,7 @@ const sharedTheme = {
    * Spacing scale based on Tailwind CSS.
    * One spacing unit equals 0.25rem (4px).
    */
-  spacing: {
+  sizing: {
     "0": "0px",
     half: "0.125rem", // 2px
     "1": "0.25rem", // 4px
@@ -438,36 +438,36 @@ const responsiveProperties = defineProperties({
     fontSize: tokens.fontSize,
     lineHeight: tokens.lineHeight,
     fontWeight: tokens.fontWeight,
-    margin: tokens.spacing,
-    marginTop: tokens.spacing,
-    marginRight: tokens.spacing,
-    marginBottom: tokens.spacing,
-    marginLeft: tokens.spacing,
-    padding: tokens.spacing,
-    paddingTop: tokens.spacing,
-    paddingRight: tokens.spacing,
-    paddingBottom: tokens.spacing,
-    paddingLeft: tokens.spacing,
-    gap: tokens.spacing,
-    columnGap: tokens.spacing,
-    rowGap: tokens.spacing,
-    width: tokens.spacing,
-    minWidth: tokens.spacing,
-    maxWidth: tokens.spacing,
-    height: tokens.spacing,
-    minHeight: tokens.spacing,
-    maxHeight: tokens.spacing,
-    inset: tokens.spacing,
-    insetBlock: tokens.spacing,
-    insetBlockStart: tokens.spacing,
-    insetBlockEnd: tokens.spacing,
-    insetInline: tokens.spacing,
-    insetInlineStart: tokens.spacing,
-    insetInlineEnd: tokens.spacing,
-    top: tokens.spacing,
-    right: tokens.spacing,
-    bottom: tokens.spacing,
-    left: tokens.spacing,
+    margin: tokens.sizing,
+    marginTop: tokens.sizing,
+    marginRight: tokens.sizing,
+    marginBottom: tokens.sizing,
+    marginLeft: tokens.sizing,
+    padding: tokens.sizing,
+    paddingTop: tokens.sizing,
+    paddingRight: tokens.sizing,
+    paddingBottom: tokens.sizing,
+    paddingLeft: tokens.sizing,
+    gap: tokens.sizing,
+    columnGap: tokens.sizing,
+    rowGap: tokens.sizing,
+    width: tokens.sizing,
+    minWidth: tokens.sizing,
+    maxWidth: tokens.sizing,
+    height: tokens.sizing,
+    minHeight: tokens.sizing,
+    maxHeight: tokens.sizing,
+    inset: tokens.sizing,
+    insetBlock: tokens.sizing,
+    insetBlockStart: tokens.sizing,
+    insetBlockEnd: tokens.sizing,
+    insetInline: tokens.sizing,
+    insetInlineStart: tokens.sizing,
+    insetInlineEnd: tokens.sizing,
+    top: tokens.sizing,
+    right: tokens.sizing,
+    bottom: tokens.sizing,
+    left: tokens.sizing,
   },
   shorthands: {
     text: ["fontSize", "lineHeight"],

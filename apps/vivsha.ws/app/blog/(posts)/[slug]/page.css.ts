@@ -6,7 +6,7 @@ export const section = style({
   display: "block",
   margin: "0 auto",
   maxWidth: "1220px",
-  padding: `0 ${tokens.spacing["16"]} ${tokens.spacing["10"]}`,
+  padding: `0 ${tokens.sizing["16"]} ${tokens.sizing["10"]}`,
   width: "100%",
 
   "@media": {
@@ -14,7 +14,7 @@ export const section = style({
       maxWidth: "850px",
     },
     [breakpoints.tablet]: {
-      padding: `0 ${tokens.spacing["8"]} ${tokens.spacing["10"]}`,
+      padding: `0 ${tokens.sizing["8"]} ${tokens.sizing["10"]}`,
       maxWidth: "527px",
     },
     [breakpoints.phablet]: {
@@ -33,23 +33,23 @@ export const postBody = style({
   position: "relative",
   margin: "0 auto",
   maxWidth: "744px",
-  padding: `0 0 ${tokens.spacing["9"]}`,
+  padding: `0 0 ${tokens.sizing["9"]}`,
 
   "@media": {
     [breakpoints.desktop]: {
-      paddingLeft: tokens.spacing["13"],
+      paddingLeft: tokens.sizing["13"],
     },
     [breakpoints.tablet]: {
       gridTemplateColumns: `
-      [full-start] ${tokens.spacing["5"]} 
+      [full-start] ${tokens.sizing["5"]} 
       [main-start] 1fr [main-end]
-      ${tokens.spacing["5"]} [full-end]
+      ${tokens.sizing["5"]} [full-end]
     `,
       maxWidth: "100%",
-      padding: `0 0 ${tokens.spacing["20"]}`,
+      padding: `0 0 ${tokens.sizing["20"]}`,
     },
     [breakpoints.phablet]: {
-      padding: `${tokens.spacing["15"]} 0`,
+      padding: `${tokens.sizing["15"]} 0`,
     },
   },
 })
@@ -85,8 +85,8 @@ export const footerNext = style({
   display: "flex",
   flexDirection: "row",
   fontWeight: tokens.fontWeight.normal,
-  gap: tokens.spacing["1"],
-  marginBottom: tokens.spacing["8"],
+  gap: tokens.sizing["1"],
+  marginBottom: tokens.sizing["8"],
   opacity: "0.25",
   position: "relative",
 
@@ -97,7 +97,7 @@ export const footerNext = style({
       height: "1px",
       position: "absolute",
       right: "0",
-      top: tokens.spacing["2-half"],
+      top: tokens.sizing["2-half"],
       width: "calc(750 / 1140 * 100%)",
 
       "@media": {
@@ -116,5 +116,5 @@ export const footerNext = style({
 })
 
 export const footerSpacer = style({
-  marginBottom: tokens.spacing["16"],
+  marginBottom: tokens.sizing["16"],
 })

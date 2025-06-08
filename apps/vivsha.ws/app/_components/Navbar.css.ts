@@ -12,22 +12,22 @@ export const root = style({
     "sub-nav sub-nav  sub-nav"
   `,
   justifyContent: "space-between",
-  marginTop: tokens.spacing["24"],
+  marginTop: tokens.sizing["24"],
   maxWidth: "1440px",
-  paddingLeft: tokens.spacing["20"],
-  paddingRight: tokens.spacing["20"],
+  paddingLeft: tokens.sizing["20"],
+  paddingRight: tokens.sizing["20"],
   position: "relative",
   width: "100%",
   zIndex: 3,
 
   "@media": {
     [breakpoints.desktopMedium]: {
-      marginTop: tokens.spacing["12"],
+      marginTop: tokens.sizing["12"],
     },
     [breakpoints.tablet]: {
-      paddingLeft: tokens.spacing["6"],
-      paddingRight: tokens.spacing["6"],
-      marginTop: tokens.spacing["5"],
+      paddingLeft: tokens.sizing["6"],
+      paddingRight: tokens.sizing["6"],
+      marginTop: tokens.sizing["5"],
     },
   },
 })
@@ -50,13 +50,13 @@ export const iconButton = style([
   interactionHover,
   {
     alignItems: "center",
-    borderRadius: tokens.spacing["1"],
+    borderRadius: tokens.sizing["1"],
     display: "flex",
     gridArea: "right-button",
-    height: tokens.spacing["6"],
+    height: tokens.sizing["6"],
     justifyContent: "center",
     position: "relative",
-    width: tokens.spacing["10"],
+    width: tokens.sizing["10"],
   },
 ])
 
@@ -96,9 +96,9 @@ export const controls = style({
 
 export const linkList = style({
   display: "flex",
-  gap: tokens.spacing["6"],
+  gap: tokens.sizing["6"],
   listStyle: "none",
-  marginRight: tokens.spacing["8"],
+  marginRight: tokens.sizing["8"],
 })
 
 export const link = style([

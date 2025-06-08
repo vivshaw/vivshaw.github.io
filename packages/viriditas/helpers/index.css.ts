@@ -93,12 +93,12 @@ export function lightModeStyles(styles: Omit<StyleRule, "@media">) {
  * A shared style for themed focus rings.
  */
 export const focusRing = style({
-  borderRadius: tokens.spacing["1"],
+  borderRadius: tokens.sizing["1"],
 
   selectors: {
     "&:focus-visible": {
-      outline: `${tokens.spacing["0-half"]} solid ${tokens.color.accent}`,
-      outlineOffset: tokens.spacing["1"],
+      outline: `${tokens.sizing["0-half"]} solid ${tokens.color.accent}`,
+      outlineOffset: tokens.sizing["1"],
     },
   },
 })

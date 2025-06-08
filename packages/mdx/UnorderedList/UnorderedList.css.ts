@@ -8,7 +8,7 @@ export const unorderedList = style({
   lineHeight: tokens.lineHeight.body,
   listStyle: "none",
   margin: "0 auto",
-  padding: `${tokens.spacing["4"]} 0 ${tokens.spacing["8"]} ${tokens.spacing["8"]}`,
+  padding: `${tokens.sizing["4"]} 0 ${tokens.sizing["8"]} ${tokens.sizing["8"]}`,
   position: "relative",
   transition: tokens.motion.colorModeTransition,
   width: "100%",
@@ -18,7 +18,7 @@ export const unorderedList = style({
       paddingLeft: 0,
     },
     [breakpoints.phablet]: {
-      paddingLeft: tokens.spacing["5"],
+      paddingLeft: tokens.sizing["5"],
     },
   },
 })

@@ -18,17 +18,17 @@ export const centeringWrapper = style({
 
 export const mainpageContent = style({
   maxWidth: "1440px",
-  paddingRight: tokens.spacing["20"],
-  paddingLeft: tokens.spacing["20"],
-  paddingBottom: tokens.spacing["12"],
-  paddingTop: tokens.spacing["20"],
+  paddingRight: tokens.sizing["20"],
+  paddingLeft: tokens.sizing["20"],
+  paddingBottom: tokens.sizing["12"],
+  paddingTop: tokens.sizing["20"],
   width: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      paddingRight: tokens.spacing["6"],
-      paddingLeft: tokens.spacing["6"],
-      paddingTop: tokens.spacing["10"],
+      paddingRight: tokens.sizing["6"],
+      paddingLeft: tokens.sizing["6"],
+      paddingTop: tokens.sizing["10"],
     },
   },
 })
@@ -39,8 +39,8 @@ export const mainpageLink = style([
     opacity: 0.7,
     textDecoration: "underline",
     textDecorationColor: tokens.color.accent,
-    textDecorationThickness: tokens.spacing["0-quarter"],
-    textUnderlineOffset: tokens.spacing["0-half"],
+    textDecorationThickness: tokens.sizing["0-quarter"],
+    textUnderlineOffset: tokens.sizing["0-half"],
     transition: tokens.motion.hoverTransition,
 
     selectors: {
@@ -68,7 +68,7 @@ export const mainpageHeading = style({
 
   selectors: {
     "&:not(:first-of-type)": {
-      marginTop: `calc(0.83em + ${tokens.spacing["8"]})`,
+      marginTop: `calc(0.83em + ${tokens.sizing["8"]})`,
     },
   },
 })

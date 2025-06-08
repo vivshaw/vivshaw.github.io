@@ -9,14 +9,14 @@ export const paragraph = style({
   fontFamily: tokens.font.serif,
   fontSize: tokens.fontSize["500"],
   lineHeight: tokens.lineHeight.body,
-  marginBottom: tokens.spacing["9"],
+  marginBottom: tokens.sizing["9"],
   marginTop: 0,
   transition: tokens.motion.colorModeTransition,
   width: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      marginBottom: tokens.spacing["6"],
+      marginBottom: tokens.sizing["6"],
       marginTop: 0,
     },
   },
@@ -30,19 +30,19 @@ export const paragraph = style({
       margin: "0 auto",
       maxWidth: "880px !important",
       paddingBottom: "0",
-      paddingRight: tokens.spacing["24"],
+      paddingRight: tokens.sizing["24"],
       width: "100%",
 
       "@media": {
         [breakpoints.tablet]: {
           fontSize: tokens.fontSize["500"],
           lineHeight: tokens.lineHeight.body,
-          padding: `${tokens.spacing["0"]} ${tokens.spacing["44"]}`,
+          padding: `${tokens.sizing["0"]} ${tokens.sizing["44"]}`,
         },
         [breakpoints.phablet]: {
           fontSize: tokens.fontSize["500"],
           lineHeight: tokens.lineHeight.body,
-          padding: `${tokens.spacing["0"]} ${tokens.spacing["5"]} ${tokens.spacing["0"]} ${tokens.spacing["10"]}`,
+          padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]} ${tokens.sizing["0"]} ${tokens.sizing["10"]}`,
         },
       },
     },

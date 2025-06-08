@@ -24,13 +24,12 @@
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
     - [ ] h2 seems smaller than h1 on some screens?
 - [ ] viriditas
-  - [ ] adopt Link in product
-  - [ ] create a fallback for Alegreya and Alegreya Sans?
+  - [ ] style Link and in product
+  - [ ] create a fallback for the MB fonts?
   - [ ] load CSS reset in Storybook
   - [ ] maybe add semantic type tokens? probably need to settle out usage in the app better first.
-  - [ ] move to `sx` syntax
+  - [ ] get `ref`s working for polymorphic components?
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
 - [ ] put domain config into IaC w/ Terraform
-- [ ] after upgrading to React 19, drop innerRef for forwardRef

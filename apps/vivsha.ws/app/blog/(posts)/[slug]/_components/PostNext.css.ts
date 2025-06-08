@@ -6,7 +6,7 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const root = recipe({
   base: {
-    columnGap: tokens.spacing["8"],
+    columnGap: tokens.sizing["8"],
     display: "grid",
     margin: "0 auto",
     maxWidth: "680px",
@@ -81,7 +81,7 @@ export const postTitle = style([
     fontFamily: tokens.font.serif,
     fontSize: tokens.fontSize["500"],
     lineHeight: tokens.lineHeight.heading,
-    marginBottom: tokens.spacing["2-half"],
+    marginBottom: tokens.sizing["2-half"],
     transition: "color 0.3s ease-in-out",
 
     selectors: {
@@ -92,11 +92,11 @@ export const postTitle = style([
 
     "@media": {
       [breakpoints.tablet]: {
-        marginBottom: tokens.spacing["4"],
+        marginBottom: tokens.sizing["4"],
       },
       [breakpoints.phablet]: {
         marginBottom: "10px",
-        padding: `0 ${tokens.spacing["5"]} 0`,
+        padding: `0 ${tokens.sizing["5"]} 0`,
       },
     },
   },
@@ -107,7 +107,7 @@ export const postExcerpt = style({
   color: tokens.color.grey,
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,
-  marginBottom: tokens.spacing["2-half"],
+  marginBottom: tokens.sizing["2-half"],
   maxWidth: "515px",
 
   "@media": {
@@ -118,9 +118,9 @@ export const postExcerpt = style({
       marginBottom: "15px",
     },
     [breakpoints.phablet]: {
-      marginBottom: tokens.spacing["5"],
+      marginBottom: tokens.sizing["5"],
       maxWidth: "100%",
-      padding: `0 ${tokens.spacing["5"]}`,
+      padding: `0 ${tokens.sizing["5"]}`,
       WebkitLineClamp: "3",
     },
   },
@@ -136,7 +136,7 @@ export const postDate = style({
   "@media": {
     [breakpoints.phablet]: {
       maxWidth: "100%",
-      padding: `0 ${tokens.spacing["5"]} ${tokens.spacing["8"]}`,
+      padding: `0 ${tokens.sizing["5"]} ${tokens.sizing["8"]}`,
     },
   },
 })

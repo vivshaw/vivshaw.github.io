@@ -20,20 +20,20 @@ globalStyle(
 )
 
 globalStyle(`${mdxRoot} h1, ${mdxRoot} h1 *, ${mdxRoot} h2, ${mdxRoot} h2 *`, {
-  marginBottom: tokens.spacing["4-half"],
-  marginTop: tokens.spacing["6"],
+  marginBottom: tokens.sizing["4-half"],
+  marginTop: tokens.sizing["6"],
 
   "@media": {
     [breakpoints.tablet]: {
-      marginBottom: tokens.spacing["4-half"],
-      marginTop: tokens.spacing["8"],
+      marginBottom: tokens.sizing["4-half"],
+      marginTop: tokens.sizing["8"],
     },
   },
 })
 
 globalStyle(`${mdxRoot} h3, ${mdxRoot} h3 *`, {
-  marginBottom: tokens.spacing["2-half"],
-  marginTop: tokens.spacing["5"],
+  marginBottom: tokens.sizing["2-half"],
+  marginTop: tokens.sizing["5"],
 })
 
 /** Prism code block styles */
@@ -48,13 +48,13 @@ globalStyle(
   {
     background: tokens.color.prism.highlight,
     borderLeft: "3px solid transparent",
-    margin: `0 -${tokens.spacing["8"]}`,
-    padding: `0 ${tokens.spacing["8"]}`,
+    margin: `0 -${tokens.sizing["8"]}`,
+    padding: `0 ${tokens.sizing["8"]}`,
 
     "@media": {
       [breakpoints.tablet]: {
-        margin: `0 -${tokens.spacing["5"]}`,
-        padding: `0 ${tokens.spacing["5"]}`,
+        margin: `0 -${tokens.sizing["5"]}`,
+        padding: `0 ${tokens.sizing["5"]}`,
       },
     },
   },
@@ -64,7 +64,7 @@ globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .number-line`, {
   display: "inline-block",
   opacity: "0.3",
   userSelect: "none",
-  width: tokens.spacing["8"],
+  width: tokens.sizing["8"],
 
   "@media": {
     [breakpoints.tablet]: {
@@ -89,9 +89,9 @@ globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .plain ~ .operator`, {
 
 globalStyle(`${mdxRoot} :not(pre) > code`, {
   background: tokens.color.prism.highlight,
-  borderRadius: tokens.spacing["2"],
+  borderRadius: tokens.sizing["2"],
   fontFamily: tokens.font.monospace,
-  padding: `${tokens.spacing["half"]} ${tokens.spacing["1"]}`,
+  padding: `${tokens.sizing["half"]} ${tokens.sizing["1"]}`,
 })
 
 /** Image styles */
@@ -103,29 +103,29 @@ const IMAGE_WIDTHS = {
 }
 
 globalStyle(`${mdxRoot} img`, {
-  borderRadius: tokens.spacing["1"],
+  borderRadius: tokens.sizing["1"],
   display: "inline-block",
   height: "auto",
-  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
+  margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
   maxWidth: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: `${tokens.spacing["2-half"]} auto ${tokens.spacing["11"]}`,
+      margin: `${tokens.sizing["2-half"]} auto ${tokens.sizing["11"]}`,
     },
     [breakpoints.phablet]: {
-      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,
     },
   },
 })
 
 globalStyle(`${mdxRoot} .Image__Small`, {
-  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
+  margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
   maxWidth: "100%",
 
   "@media": {
     [breakpoints.tablet]: {
-      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,
     },
   },
 })
@@ -139,21 +139,21 @@ globalStyle(`${mdxRoot} img.Image__Small`, {
 })
 
 globalStyle(`${mdxRoot} .Image__Medium`, {
-  margin: `${tokens.spacing["4"]} auto ${tokens.spacing["12"]}`,
+  margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
   maxWidth: IMAGE_WIDTHS.large,
   width: "100%",
 
   "@media": {
     [breakpoints.desktopMedium]: {
-      left: `-${tokens.spacing["8-half"]}`,
+      left: `-${tokens.sizing["8-half"]}`,
     },
     [breakpoints.desktop]: {
-      left: `-${tokens.spacing["6-half"]}`,
+      left: `-${tokens.sizing["6-half"]}`,
     },
     [breakpoints.tablet]: {
       borderRadius: "0",
       left: "0",
-      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,
     },
   },
 })
@@ -167,17 +167,17 @@ globalStyle(`${mdxRoot} img.Image__Medium`, {
 })
 
 globalStyle(`${mdxRoot} .Image__Large`, {
-  left: `-${tokens.spacing["16"]}`,
-  margin: `${tokens.spacing["6"]} auto ${tokens.spacing["14"]}`,
+  left: `-${tokens.sizing["16"]}`,
+  margin: `${tokens.sizing["6"]} auto ${tokens.sizing["14"]}`,
   width: IMAGE_WIDTHS.full,
 
   "@media": {
     [breakpoints.desktop]: {
-      left: `-${tokens.spacing["13"]}`,
+      left: `-${tokens.sizing["13"]}`,
     },
     [breakpoints.tablet]: {
       left: "0",
-      margin: `${tokens.spacing["0"]} auto ${tokens.spacing["6"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,
     },
   },
 })
