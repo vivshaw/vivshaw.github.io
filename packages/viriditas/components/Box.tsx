@@ -3,13 +3,17 @@ import type { ReactElement } from "react"
 import { Sprinkles, sprinkles } from "../theme/index.css"
 import clsx from "clsx"
 
-export type BoxProps<T extends ElementType> = {
+export type BoxProps<T extends ElementType = "div"> = {
   /**
    * The HTML element to render. Defaults to "div".
    */
   as?: T
-} & Omit<ComponentPropsWithoutRef<T>, "color"> &
-  Sprinkles
+
+  /**
+   * A string of CSS properties to apply to the element.
+   */
+  sx?: Sprinkles
+} & Omit<ComponentPropsWithoutRef<T>, "color">
 
 /**
  * A primitive component that provides access to the design system's tokens.
@@ -19,28 +23,13 @@ export type BoxProps<T extends ElementType> = {
  * Spacing: margin/padding (m*, p*), gap, width/height (min/max)
  * Position: inset*, top/right/bottom/left
  */
-export const Box = function Box<T extends ElementType>({
+export function Box<T extends ElementType = "div">({
   as,
   className,
+  sx = {},
   ...other
 }: BoxProps<T>): ReactElement {
   const Element = as || "div"
 
-  const sprinklesProps: Record<string, unknown> = {}
-  const otherProps: Record<string, unknown> = {}
-
-  Object.entries(other).forEach(([key, value]) => {
-    if (sprinkles.properties.has(key as keyof Sprinkles)) {
-      sprinklesProps[key] = value
-    } else {
-      otherProps[key] = value
-    }
-  })
-
-  return (
-    <Element
-      {...otherProps}
-      className={clsx(sprinkles(sprinklesProps), className)}
-    />
-  )
+  return <Element {...other} className={clsx(sprinkles(sx), className)} />
 }

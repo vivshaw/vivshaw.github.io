@@ -11,7 +11,7 @@ const meta = {
   },
   args: {
     children: "Lorem ipsum dolor sit amet.",
-    fontFamily: "serif",
+    sx: { fontFamily: "serif" },
   },
 } satisfies Meta<typeof Box>
 
@@ -23,8 +23,10 @@ export const Default: Story = {}
 export const WithSpacing: Story = {
   args: {
     children: "Box with margin and padding",
-    m: "4",
-    p: "2",
+    sx: {
+      m: "4",
+      p: "2",
+    },
     style: { border: "1px solid currentColor" },
   },
 }
@@ -32,17 +34,19 @@ export const WithSpacing: Story = {
 export const WithInset: Story = {
   args: {
     children: "Box with inset positioning",
-    position: "relative",
-    inset: "4",
-    style: { border: "1px solid currentColor" },
+    sx: {
+      inset: "4",
+    },
+    style: { border: "1px solid currentColor", position: "relative" },
   },
 }
 
 export const WithGap: Story = {
   args: {
-    display: "grid",
-    gap: "4",
-    style: { border: "1px solid currentColor" },
+    sx: {
+      gap: "4",
+    },
+    style: { border: "1px solid currentColor", display: "grid" },
     children: (
       <>
         <Box>First item</Box>
@@ -55,8 +59,10 @@ export const WithGap: Story = {
 
 export const WithDimensions: Story = {
   args: {
-    width: "32",
-    height: "16",
+    sx: {
+      width: "32",
+      height: "16",
+    },
     style: { border: "1px solid currentColor" },
     children: "Box with fixed dimensions",
   },

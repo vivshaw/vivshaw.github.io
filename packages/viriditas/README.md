@@ -10,21 +10,37 @@ The Box component is the foundation of the Viriditas layout system. It provides 
 
 ```tsx
 // Basic usage
-<Box m="4" p="2">Content</Box>
+<Box
+  sx={{
+    m: "4",
+    p: "2"
+  }}
+>
+  Content
+</Box>
 
 // With responsive props
 <Box
-  m={{
-    phone: "2",
-    tablet: "4",
-    desktop: "8"
+  sx={{
+    m: {
+      phone: "2",
+      tablet: "4",
+      desktop: "8"
+    }
   }}
 >
   Content
 </Box>
 
 // As another element
-<Box as="section" m="4">Content</Box>
+<Box
+  sx={{
+    m: "4"
+  }}
+  as="section"
+>
+  Content
+</Box>
 ```
 
 #### Available Props

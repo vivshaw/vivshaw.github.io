@@ -12,12 +12,14 @@ export function TableHead({
 }: Omit<React.HTMLAttributes<HTMLTableSectionElement>, "color">) {
   return (
     <Box
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "bold",
+        lineHeight: "heading",
+      }}
       as="thead"
       className={clsx(tableHead, className)}
-      color="primary"
-      font="serif"
-      fontWeight="bold"
-      lineHeight="heading"
       {...restProps}
     />
   )

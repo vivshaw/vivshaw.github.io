@@ -48,7 +48,13 @@ export default function About() {
 
           <div className={mainpageHeading}>
             My professional interests are in:
-            <Box as="ul" pl="16" pt="4">
+            <Box
+              sx={{
+                pl: "16",
+                pt: "4",
+              }}
+              as="ul"
+            >
               <li>
                 <em>human-computer interaction</em>, especially in the context
                 of <em>developer tooling</em> or{" "}
