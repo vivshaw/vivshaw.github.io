@@ -17,12 +17,17 @@
 - [ ] UX
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
   - [ ] darkmode switcher overlaps focus ring :(
+  - [ ] add a "Skip to main content" thingy
 - [ ] styling
+  - [ ] handle font features in a more global way
   - [ ] obliterate `pageStyles` directory
+  - [ ] why does navbar shift up slightly when I go to mobile?
+  - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraoh anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
     - [ ] h2 seems smaller than h1 on some screens?
+    - [ ] could also eliminate `.centeringWrapper` entirely, maybe? seems fine to remove from the navbar, at least
 - [ ] viriditas
   - [ ] style Link and in product
   - [ ] create a fallback for the MB fonts?

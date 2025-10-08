@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This rule describes standards for using the Viriditas design system in product.
+
+# Using Viriditas
+
+ - Use Viriditas style tokens whenever possible. This includes font sizes and weights, colors, spacing, and anything else tokenized in the theme.
+ - Use the Viriditas `<Text>` component for all typography.
+
+# Spacing
+
+## When to Use Spacing Tokens
+- Use `tokens.spacing[...]` for all general spacing values including:
+  - Margins and padding
+  - Dimensions and sizes
+  - Border radius
+  - Grid gaps
+  - Position offsets
+
+## When to Use Exact Pixel Values
+Keep exact pixel/rem values ONLY for:
+1. Precise visual effects and animations where the exact value is crucial
+2. 1px borders and divider lines
+3. Components that require pixel-perfect dimensions (like DarkModeToggle)
+
+## Examples
+
+```typescript
+// ✅ Good
+padding: tokens.spacing["4"]
+margin: `${tokens.spacing["2"]} 0`
+gap: tokens.spacing["1"]
+
+// ❌ Bad (unless specifically needed)
+padding: "16px"
+margin: "0.5rem 0"
+gap: "4px"
+```
