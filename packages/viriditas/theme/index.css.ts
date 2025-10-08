@@ -160,6 +160,7 @@ export const tokens = createGlobalThemeContract(
       "400": null,
       "500": null,
       "600": null,
+      "700": null,
     },
     lineHeight: {
       body: null,
@@ -213,6 +214,7 @@ export const tokens = createGlobalThemeContract(
       "72": null,
       "80": null,
       "96": null,
+      "168": null,
     },
   },
   (_value, path) => path.join("-"),
@@ -284,9 +286,10 @@ const sharedTheme = {
     "400": "1.375rem", // 22px
     "500": "1.5rem", // 24px
     "600": "1.75rem", // 28px
+    "700": "2rem", // 32px
   },
   lineHeight: {
-    body: "1.5",
+    body: "1.4",
     heading: "1.3",
   },
   fontWeight: {
@@ -338,6 +341,7 @@ const sharedTheme = {
     "72": "18rem", // 288px
     "80": "20rem", // 320px
     "96": "24rem", // 384px
+    "168": "42rem", // 672px
   },
 }
 

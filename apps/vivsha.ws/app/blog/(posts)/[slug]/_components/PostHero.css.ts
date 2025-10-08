@@ -1,11 +1,14 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 import { heading1 } from "@vivshaw/mdx/Headings/Headings.css"
 
 export const root = style({
-  margin: "100px auto 84px",
-  maxWidth: "744px",
+  marginBottom: tokens.sizing["20"],
+  marginLeft: "auto",
+  marginRight: "auto",
+  marginTop: tokens.sizing["48"],
+  maxWidth: tokens.sizing["168"],
   position: "relative",
   width: "100%",
 

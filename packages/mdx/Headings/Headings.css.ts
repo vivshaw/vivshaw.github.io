@@ -11,7 +11,7 @@ export const heading1 = style([
   commonStyles,
   {
     fontFeatureSettings: tokens.fontFeatureSettings.serif,
-    fontSize: tokens.fontSize["600"],
+    fontSize: tokens.fontSize["700"],
     lineHeight: tokens.lineHeight.heading,
     wordBreak: "keep-all",
   },

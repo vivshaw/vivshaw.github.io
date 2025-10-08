@@ -33,13 +33,10 @@ export const postBody = style({
   `,
   position: "relative",
   margin: "0 auto",
-  maxWidth: "744px",
+  maxWidth: tokens.sizing["168"],
   padding: `0 0 ${tokens.sizing["9"]}`,
 
   "@media": {
-    [breakpoints.desktop]: {
-      paddingLeft: tokens.sizing["13"],
-    },
     [breakpoints.tablet]: {
       gridTemplateColumns: `
       [full-start] ${tokens.sizing["5"]} 
@@ -64,7 +61,7 @@ globalStyle(`${postBody} > *`, {
 })
 
 /**
- * By default, all MDX items get the main grid column.
+ * Images and code blocks should be fullwidth on mobile
  */
 globalStyle(
   `
@@ -121,7 +118,7 @@ export const footerSpacer = style({
 })
 
 /**
- * Style the first three words of the first paragraph green
+ * Style the first three words of the first paragraph as small caps
  */
 globalStyle(`${postBody} > p:first-of-type .${firstThree}`, {
   fontFeatureSettings: '"c2sc", "calt", "kern", "liga", "onum", "smcp"',

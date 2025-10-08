@@ -13,9 +13,11 @@ export const paragraph = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,
   fontSize: tokens.fontSize["500"],
+  hyphens: "auto",
   lineHeight: tokens.lineHeight.body,
-  marginBottom: tokens.sizing["9"],
+  marginBottom: tokens.sizing["8"],
   marginTop: 0,
+  textWrap: "pretty",
   transition: tokens.motion.colorModeTransition,
   width: "100%",
 
