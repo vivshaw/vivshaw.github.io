@@ -4,6 +4,11 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
 import { blockquote } from "../Blockquote/Blockquote.css"
 import { listItem } from "../ListItem/ListItem.css"
 
+/**
+ * Will be used to style the first the words as smallcaps
+ */
+export const firstThree = style({})
+
 export const paragraph = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,

@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { REMARK_CODE_BLOCK_CLASS } from "@vivshaw/mdx/mdx.css"
+import { firstThree } from "@vivshaw/mdx/Paragraph/Paragraph.css"
 import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const section = style({
@@ -117,4 +118,12 @@ export const footerNext = style({
 
 export const footerSpacer = style({
   marginBottom: tokens.sizing["16"],
+})
+
+/**
+ * Style the first three words of the first paragraph green
+ */
+globalStyle(`${postBody} > p:first-of-type .${firstThree}`, {
+  fontFeatureSettings: '"c2sc", "calt", "kern", "liga", "onum", "smcp"',
+  letterSpacing: "0px",
 })
