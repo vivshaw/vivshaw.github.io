@@ -12,22 +12,18 @@ export const root = style({
     "sub-nav sub-nav  sub-nav"
   `,
   justifyContent: "space-between",
-  marginTop: tokens.sizing["24"],
-  maxWidth: "1440px",
-  paddingLeft: tokens.sizing["20"],
-  paddingRight: tokens.sizing["20"],
+  paddingTop: tokens.sizing["6"],
+  paddingLeft: tokens.sizing["6"],
+  paddingRight: tokens.sizing["5"],
   position: "relative",
   width: "100%",
   zIndex: 3,
 
   "@media": {
-    [breakpoints.desktopMedium]: {
-      marginTop: tokens.sizing["12"],
-    },
     [breakpoints.tablet]: {
       paddingLeft: tokens.sizing["6"],
       paddingRight: tokens.sizing["6"],
-      marginTop: tokens.sizing["5"],
+      paddingTop: tokens.sizing["5"],
     },
   },
 })
