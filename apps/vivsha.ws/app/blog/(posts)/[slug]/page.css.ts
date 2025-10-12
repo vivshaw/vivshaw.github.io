@@ -27,7 +27,7 @@ export const section = style({
 export const postBody = style({
   display: "grid",
   gridTemplateColumns: `
-    [full-start] 0px 
+    [full-start] 0px
     [main-start] 1fr [main-end]
     0px [full-end]
   `,
@@ -45,9 +45,6 @@ export const postBody = style({
     `,
       maxWidth: "100%",
       padding: `0 0 ${tokens.sizing["20"]}`,
-    },
-    [breakpoints.phablet]: {
-      padding: `${tokens.sizing["15"]} 0`,
     },
   },
 })

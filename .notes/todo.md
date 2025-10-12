@@ -20,6 +20,15 @@
   - [ ] add a "Skip to main content" thingy
 - [ ] styling
   - [ ] handle font features in a more global way
+  - [ ] simplify text ramp:
+    - [ ] 32px main heading / ??? mobile, maybe 24
+    - [ ] intermediate size for one level of subhead. no need for more
+    - [ ] 24px main body text / 18px mobile
+    - [ ] small text for UI elements and such?
+  - [ ] simplify breakpoints
+    - [ ] desktop for most any large size
+    - [ ] tablet??? 735ish
+    - [ ] mobile??? 540ish
   - [ ] obliterate `pageStyles` directory
   - [ ] why does navbar shift up slightly when I go to mobile?
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraoh anymore.

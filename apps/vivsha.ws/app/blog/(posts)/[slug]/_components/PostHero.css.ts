@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 import { heading1 } from "@vivshaw/mdx/Headings/Headings.css"
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const root = style({
   marginBottom: tokens.sizing["20"],
@@ -13,17 +13,12 @@ export const root = style({
   width: "100%",
 
   "@media": {
-    [breakpoints.desktop]: {
-      paddingLeft: "53px",
-    },
     [breakpoints.tablet]: {
+      marginBottom: tokens.sizing["12"],
+      marginTop: tokens.sizing["24"],
       maxWidth: "100%",
-      paddingLeft: "20px",
-      paddingRight: "20px",
-    },
-    [breakpoints.phablet]: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
+      paddingLeft: tokens.sizing["5"],
+      paddingRight: tokens.sizing["5"],
     },
   },
 })

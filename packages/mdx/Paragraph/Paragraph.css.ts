@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
 
+import { breakpoints, tokens } from "@vivshaw/viriditas"
 import { blockquote } from "../Blockquote/Blockquote.css"
 import { listItem } from "../ListItem/ListItem.css"
 
@@ -23,6 +23,7 @@ export const paragraph = style({
 
   "@media": {
     [breakpoints.tablet]: {
+      fontSize: tokens.fontSize["300"],
       marginBottom: tokens.sizing["6"],
       marginTop: 0,
     },

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css"
+
 import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 const commonStyles = style({
@@ -14,6 +15,12 @@ export const heading1 = style([
     fontSize: tokens.fontSize["700"],
     lineHeight: tokens.lineHeight.heading,
     wordBreak: "keep-all",
+
+    "@media": {
+      [breakpoints.tablet]: {
+        fontSize: tokens.fontSize["500"],
+      },
+    },
   },
 ])
 

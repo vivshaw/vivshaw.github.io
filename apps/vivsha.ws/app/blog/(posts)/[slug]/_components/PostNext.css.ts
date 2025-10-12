@@ -1,8 +1,9 @@
 import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
+
 import { heading3 } from "@vivshaw/mdx/Headings/Headings.css"
-import { focusRing } from "@vivshaw/viriditas/helpers"
 import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { focusRing } from "@vivshaw/viriditas/helpers"
 
 export const root = recipe({
   base: {
