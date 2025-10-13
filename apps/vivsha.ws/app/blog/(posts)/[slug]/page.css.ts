@@ -118,6 +118,6 @@ export const footerSpacer = style({
  * Style the first three words of the first paragraph as small caps
  */
 globalStyle(`${postBody} > p:first-of-type .${firstThree}`, {
-  fontFeatureSettings: '"c2sc", "calt", "kern", "liga", "onum", "smcp"',
+  fontFeatureSettings: tokens.fontFeatureSettings.serifSmallCaps,
   letterSpacing: "0px",
 })

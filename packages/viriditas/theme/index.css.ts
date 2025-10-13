@@ -146,6 +146,7 @@ export const tokens = createGlobalThemeContract(
     },
     fontFeatureSettings: {
       serif: null,
+      serifSmallCaps: null,
       sans: null,
       monospace: null,
     },
@@ -276,6 +277,7 @@ const sharedTheme = {
   },
   fontFeatureSettings: {
     serif: "'calt', 'kern', 'liga', 'onum'",
+    serifSmallCaps: '"c2sc", "calt", "kern", "liga", "onum", "smcp"',
     sans: "'calt', 'kern', 'liga', 'onum'",
     monospace: "normal",
   },

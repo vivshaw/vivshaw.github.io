@@ -12,6 +12,7 @@ export const firstThree = style({})
 export const paragraph = style({
   color: tokens.color.bodyText,
   fontFamily: tokens.font.serif,
+  fontFeatureSettings: tokens.fontFeatureSettings.serif,
   fontSize: tokens.fontSize["500"],
   hyphens: "auto",
   lineHeight: tokens.lineHeight.body,
