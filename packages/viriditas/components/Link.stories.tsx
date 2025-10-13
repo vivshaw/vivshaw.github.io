@@ -25,22 +25,22 @@ export const Default: Story = {}
 export const WithSpacing: Story = {
   args: {
     children: "Link with margin",
-    m: "4",
+    sx: { m: "4" },
   },
 }
 
 export const WithPadding: Story = {
   args: {
     children: "Link with padding",
-    p: "2",
     style: { border: "1px solid currentColor" },
+    sx: { p: "2" },
   },
 }
 
 export const WithInlineSpacing: Story = {
   render: () => (
     <div>
-      <Link href="/" mr="4">
+      <Link sx={{ mr: "4" }} href="/">
         First link
       </Link>
       <Link href="/">Second link</Link>
@@ -51,7 +51,9 @@ export const WithInlineSpacing: Story = {
 export const WithCustomFont: Story = {
   args: {
     children: "Link with custom font",
-    font: "monospace",
-    fontSize: "300",
+    sx: {
+      font: "monospace",
+      fontSize: "300",
+    },
   },
 }

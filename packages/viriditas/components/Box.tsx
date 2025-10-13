@@ -1,7 +1,8 @@
+import clsx from "clsx"
 import { ComponentPropsWithoutRef, ElementType } from "react"
 import type { ReactElement } from "react"
+
 import { Sprinkles, sprinkles } from "../theme/index.css"
-import clsx from "clsx"
 
 export type BoxProps<T extends ElementType = "div"> = {
   /**

@@ -1,5 +1,6 @@
 import { clsx } from "clsx"
 
+import { Link } from "@vivshaw/viriditas/components"
 import { anchor } from "./Anchor.css"
 
 /**
@@ -9,5 +10,5 @@ export function Anchor({
   className,
   ...restProps
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return <a className={clsx(anchor, className)} {...restProps} />
+  return <Link className={clsx(anchor, className)} {...restProps} />
 }

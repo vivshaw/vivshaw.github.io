@@ -20,6 +20,7 @@
   - [ ] add a "Skip to main content" thingy
 - [ ] styling
   - [ ] handle font features in a more global way
+  - [ ] use layers
   - [ ] simplify text ramp:
     - [ ] 32px main heading / ??? mobile, maybe 24
     - [ ] intermediate size for one level of subhead. no need for more
@@ -31,7 +32,7 @@
     - [ ] mobile??? 540ish
   - [ ] obliterate `pageStyles` directory
   - [ ] why does navbar shift up slightly when I go to mobile?
-  - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraoh anymore.
+  - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
