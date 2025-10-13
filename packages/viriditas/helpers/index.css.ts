@@ -97,7 +97,7 @@ export const focusRing = style({
 
   selectors: {
     "&:focus-visible": {
-      outline: `${tokens.sizing["0-half"]} solid ${tokens.color.accent}`,
+      outline: `${tokens.sizing["half"]} solid ${tokens.color.accent}`,
       outlineOffset: tokens.sizing["1"],
     },
   },
