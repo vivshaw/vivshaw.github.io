@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
-import { heading3 } from "@vivshaw/mdx/Headings/Headings.css"
 import { breakpoints, tokens } from "@vivshaw/viriditas"
 import { focusRing } from "@vivshaw/viriditas/helpers"
 
@@ -74,9 +73,7 @@ export const postLink = style([
   focusRing,
 ])
 
-// TODO: Stop sharing the MDX headings like this!
 export const postTitle = style([
-  heading3,
   {
     color: tokens.color.primary,
     fontFamily: tokens.font.serif,

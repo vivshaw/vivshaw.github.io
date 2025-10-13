@@ -39,7 +39,6 @@
     - [ ] h2 seems smaller than h1 on some screens?
     - [ ] could also eliminate `.centeringWrapper` entirely, maybe? seems fine to remove from the navbar, at least
 - [ ] viriditas
-  - [ ] style Link and in product
   - [ ] create a fallback for the MB fonts?
   - [ ] load CSS reset in Storybook
   - [ ] maybe add semantic type tokens? probably need to settle out usage in the app better first.

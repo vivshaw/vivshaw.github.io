@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { heading1, heading2, heading3 } from "./Headings.css"
+import { heading1, heading2 } from "./Headings.css"
 
 /**
  * A styled `<h1>` element, for use in MDX.
@@ -29,11 +29,45 @@ export function h3({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h3 className={clsx(heading3, className)} {...restProps} />
+  return <h3 className={clsx(heading2, className)} {...restProps} />
+}
+
+/**
+ * A styled `<h4>` element, for use in MDX.
+ */
+
+export function h4({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return <h4 className={clsx(heading2, className)} {...restProps} />
+}
+
+/**
+ * A styled `<h5>` element, for use in MDX.
+ */
+export function h5({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return <h5 className={clsx(heading2, className)} {...restProps} />
+}
+
+/**
+ * A styled `<h6>` element, for use in MDX.
+ */
+export function h6({
+  className,
+  ...restProps
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return <h6 className={clsx(heading2, className)} {...restProps} />
 }
 
 export const headings = {
   h1,
   h2,
   h3,
+  h4,
+  h5,
+  h6,
 }

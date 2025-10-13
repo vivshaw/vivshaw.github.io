@@ -7,35 +7,6 @@ import { breakpoints, tokens } from "@vivshaw/viriditas"
  */
 export const mdxRoot = style({})
 
-/**
- * Heading styles
- */
-
-// TODO: Remove the need for this!
-globalStyle(
-  `${mdxRoot} h1, ${mdxRoot} h2, ${mdxRoot} h3, ${mdxRoot} h4, ${mdxRoot} h5, ${mdxRoot} h6`,
-  {
-    margin: 0,
-  },
-)
-
-globalStyle(`${mdxRoot} h1, ${mdxRoot} h1 *, ${mdxRoot} h2, ${mdxRoot} h2 *`, {
-  marginBottom: tokens.sizing["4-half"],
-  marginTop: tokens.sizing["6"],
-
-  "@media": {
-    [breakpoints.tablet]: {
-      marginBottom: tokens.sizing["4-half"],
-      marginTop: tokens.sizing["8"],
-    },
-  },
-})
-
-globalStyle(`${mdxRoot} h3, ${mdxRoot} h3 *`, {
-  marginBottom: tokens.sizing["2-half"],
-  marginTop: tokens.sizing["5"],
-})
-
 /** Prism code block styles */
 export const REMARK_CODE_BLOCK_CLASS = "remark-highlight"
 
@@ -130,6 +101,7 @@ globalStyle(`${mdxRoot} .Image__Small`, {
   },
 })
 
+// TODO: why are there necessary? is it just conflict with the `.img` block above?
 globalStyle(`${mdxRoot} img.Image__Small`, {
   "@media": {
     [breakpoints.phablet]: {
