@@ -420,6 +420,21 @@ export const breakpoints = {
 const unresponiveProperties = defineProperties({
   properties: {
     color: tokens.color,
+    focusRing: {
+      none: {
+        outline: "none",
+      },
+      default: {
+        borderRadius: tokens.sizing["1"],
+
+        selectors: {
+          "&:focus-visible": {
+            outline: `${tokens.sizing["half"]} solid ${tokens.color.accent}`,
+            outlineOffset: tokens.sizing["1"],
+          },
+        },
+      },
+    },
     fontFamily: tokens.font,
     fontFeatureSettings: tokens.fontFeatureSettings,
     text: {

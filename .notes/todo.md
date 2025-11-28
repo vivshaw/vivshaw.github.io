@@ -19,17 +19,7 @@
   - [ ] darkmode switcher overlaps focus ring :(
   - [ ] add a "Skip to main content" thingy
 - [ ] styling
-  - [ ] handle font features in a more global way
   - [ ] use layers
-  - [ ] simplify text ramp:
-    - [ ] 32px main heading / ??? mobile, maybe 24
-    - [ ] intermediate size for one level of subhead. no need for more
-    - [ ] 24px main body text / 18px mobile
-    - [ ] small text for UI elements and such?
-  - [ ] simplify breakpoints
-    - [ ] desktop for most any large size
-    - [ ] tablet??? 735ish
-    - [ ] mobile??? 540ish
   - [ ] obliterate `pageStyles` directory
   - [ ] why does navbar shift up slightly when I go to mobile?
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
@@ -39,10 +29,26 @@
     - [ ] h2 seems smaller than h1 on some screens?
     - [ ] could also eliminate `.centeringWrapper` entirely, maybe? seems fine to remove from the navbar, at least
 - [ ] viriditas
+  - [ ] simplify text ramp:
+    - [ ] 32px main heading / ??? mobile, maybe 24
+    - [ ] intermediate size for one level of subhead. no need for more
+    - [ ] 24px main body text / 18px mobile
+    - [ ] small text for UI elements and such?
+  - [ ] simplify breakpoints
+    - [ ] desktop for most any large size
+    - [ ] tablet??? 735ish
+    - [ ] mobile??? 540ish
+  - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] create a fallback for the MB fonts?
   - [ ] load CSS reset in Storybook
-  - [ ] maybe add semantic type tokens? probably need to settle out usage in the app better first.
+  - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] get `ref`s working for polymorphic components?
+  - [ ] change name to Basalt
+  - [ ] look at Slot pattern from Radix, see if i need that
+  - [ ] create Text and Heading components
+  - [ ] pull squiggle link styling into Link component
+  - [ ] remove `classNames` props as `sx` support gets better
+  - [ ] figure out how to use `<Link>` also for Next links
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
