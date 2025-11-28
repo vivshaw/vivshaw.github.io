@@ -1,6 +1,6 @@
 import { PostMetadata } from "#data"
-import { Box } from "@vivshaw/viriditas/components"
-import { root, subtitle, title } from "./PostHero.css"
+import { Heading } from "@vivshaw/viriditas/components"
+import { root } from "./PostHero.css"
 
 interface PostHeroProps {
   post: PostMetadata
@@ -12,30 +12,15 @@ interface PostHeroProps {
 export function PostHero({ post }: PostHeroProps) {
   return (
     <header className={root}>
-      <Box
-        as="h1"
-        className={title}
-        sx={{
-          color: "primary",
-          font: "serif",
-          fontWeight: "normal",
-          text: "heading1",
-        }}
-      >
+      <Heading level="1">
         {post.title}
-      </Box>
-      <Box
-        as="h2"
-        className={subtitle}
-        sx={{
-          color: "primary",
-          font: "serif",
-          fontWeight: "normal",
-          text: "heading2",
-        }}
-      >
-        {post.blurb}
-      </Box>
+        {post.blurb && (
+          <>
+            <br />
+            <em>{post.blurb}</em>
+          </>
+        )}
+      </Heading>
     </header>
   )
 }

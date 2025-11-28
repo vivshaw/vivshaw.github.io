@@ -1,6 +1,5 @@
 import { style } from "@vanilla-extract/css"
 
-import { heading1 } from "@vivshaw/mdx/Headings/Headings.css"
 import { breakpoints, tokens } from "@vivshaw/viriditas"
 
 export const root = style({
@@ -22,12 +21,3 @@ export const root = style({
     },
   },
 })
-
-// TODO: Stop sharing the MDX headings like this!
-export const title = heading1
-export const subtitle = style([
-  heading1,
-  {
-    fontStyle: "italic",
-  },
-])

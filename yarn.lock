@@ -2526,6 +2526,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vanilla-extract/recipes@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@vanilla-extract/recipes@npm:0.5.7"
+  peerDependencies:
+    "@vanilla-extract/css": ^1.0.0
+  checksum: cc57caea9f4072b718d91948e4072f6afbebc406f426c4c6c231234a4dc9d8e09863c9bcf40a734d9bc77b3752d3a6dc46ae28696a855dd2bbf4274d9b085ddc
+  languageName: node
+  linkType: hard
+
 "@vanilla-extract/sprinkles@npm:^1.6.3":
   version: 1.6.3
   resolution: "@vanilla-extract/sprinkles@npm:1.6.3"
@@ -8548,6 +8557,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vivsha.ws@workspace:."
   dependencies:
+    "@vanilla-extract/recipes": ^0.5.7
     "@vanilla-extract/sprinkles": ^1.6.3
     hygen: ^6.2.11
   languageName: unknown
