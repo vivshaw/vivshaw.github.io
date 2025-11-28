@@ -20,11 +20,7 @@ export function Link({ className, sx, ...props }: LinkProps) {
       className={clsx(link, className)}
       sx={{
         color: "primary",
-        fontSize: {
-          desktop: "500",
-          tablet: "400",
-        },
-        lineHeight: "body",
+        text: "body",
         ...sx,
       }}
       {...props}

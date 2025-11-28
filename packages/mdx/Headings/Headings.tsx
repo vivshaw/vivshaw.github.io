@@ -1,5 +1,7 @@
 import { clsx } from "clsx"
 
+import { Box } from "@vivshaw/viriditas/components"
+
 import { heading1, heading2 } from "./Headings.css"
 
 /**
@@ -9,7 +11,19 @@ export function h1({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h1 className={clsx(heading1, className)} {...restProps} />
+  return (
+    <Box
+      as="h1"
+      className={clsx(heading1, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading1",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 /**
@@ -19,7 +33,19 @@ export function h2({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h2 className={clsx(heading2, className)} {...restProps} />
+  return (
+    <Box
+      as="h2"
+      className={clsx(heading2, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading2",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 /**
@@ -29,7 +55,19 @@ export function h3({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h3 className={clsx(heading2, className)} {...restProps} />
+  return (
+    <Box
+      as="h3"
+      className={clsx(heading2, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading2",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 /**
@@ -40,7 +78,19 @@ export function h4({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h4 className={clsx(heading2, className)} {...restProps} />
+  return (
+    <Box
+      as="h4"
+      className={clsx(heading2, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading2",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 /**
@@ -50,7 +100,19 @@ export function h5({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h5 className={clsx(heading2, className)} {...restProps} />
+  return (
+    <Box
+      as="h5"
+      className={clsx(heading2, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading2",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 /**
@@ -60,7 +122,19 @@ export function h6({
   className,
   ...restProps
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return <h6 className={clsx(heading2, className)} {...restProps} />
+  return (
+    <Box
+      as="h6"
+      className={clsx(heading2, className)}
+      sx={{
+        color: "primary",
+        font: "serif",
+        fontWeight: "normal",
+        text: "heading2",
+      }}
+      {...restProps}
+    />
+  )
 }
 
 export const headings = {

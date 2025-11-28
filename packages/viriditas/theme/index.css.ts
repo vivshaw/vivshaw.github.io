@@ -422,6 +422,32 @@ const unresponiveProperties = defineProperties({
     color: tokens.color,
     fontFamily: tokens.font,
     fontFeatureSettings: tokens.fontFeatureSettings,
+    text: {
+      body: {
+        fontSize: tokens.fontSize["500"],
+        lineHeight: tokens.lineHeight["body"],
+      },
+      heading1: {
+        fontSize: tokens.fontSize["700"],
+        lineHeight: tokens.lineHeight["heading"],
+
+        "@media": {
+          [breakpoints.tablet]: {
+            fontSize: tokens.fontSize["500"],
+          },
+        },
+      },
+      heading2: {
+        fontSize: tokens.fontSize["600"],
+        lineHeight: tokens.lineHeight["heading"],
+
+        "@media": {
+          [breakpoints.tablet]: {
+            fontSize: tokens.fontSize["400"],
+          },
+        },
+      },
+    },
   },
   shorthands: {
     font: ["fontFamily", "fontFeatureSettings"],
