@@ -10,9 +10,24 @@ export type LinkProps = Omit<ComponentPropsWithRef<"a">, "color"> & {
 }
 
 /**
- * A styled link component that extends Box.
- * Supports all Box props plus standard anchor props.
+ * a styled link component that extends Box.
+ * supports all Box props plus standard anchor props.
  */
 export function Link({ className, sx, ...props }: LinkProps) {
-  return <Box as="a" className={clsx(link, className)} sx={sx} {...props} />
+  return (
+    <Box
+      as="a"
+      className={clsx(link, className)}
+      sx={{
+        color: "primary",
+        fontSize: {
+          desktop: "500",
+          tablet: "400",
+        },
+        lineHeight: "body",
+        ...sx,
+      }}
+      {...props}
+    />
+  )
 }

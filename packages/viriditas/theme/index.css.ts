@@ -67,7 +67,7 @@ globalFontFace("vvv-sans", [
   },
 ])
 
-// TODO: Create font fallbacks?
+// TODO: create font fallbacks?
 // globalFontFace(FALLBACK_FONT, {
 //   src: "local(Times New Roman)",
 //   sizeAdjust: "98%",
@@ -77,8 +77,8 @@ globalFontFace("vvv-sans", [
 // })
 
 /**
- * Theme contract for the Viriditas design system.
- * All tokens used in the system are defined here.
+ * theme contract for the Viriditas design system.
+ * all tokens used in the system are defined here.
  */
 export const tokens = createGlobalThemeContract(
   {
@@ -92,7 +92,7 @@ export const tokens = createGlobalThemeContract(
       horizontalRule: null,
 
       /**
-       * Colors for the Prism syntax highlighter.
+       * colors for the Prism syntax highlighter.
        */
       prism: {
         token: null,
@@ -137,7 +137,7 @@ export const tokens = createGlobalThemeContract(
     },
 
     /**
-     * Typography tokens.
+     * typography tokens.
      */
     font: {
       serif: null,
@@ -169,7 +169,7 @@ export const tokens = createGlobalThemeContract(
     },
 
     /**
-     * Motion tokens.
+     * motion tokens.
      */
     motion: {
       colorModeTransition: null,
@@ -177,8 +177,8 @@ export const tokens = createGlobalThemeContract(
     },
 
     /**
-     * Sizing tokens.
-     * Based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px).
+     * sizing tokens.
+     * based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px).
      */
     sizing: {
       "0": null,
@@ -222,8 +222,8 @@ export const tokens = createGlobalThemeContract(
 )
 
 /**
- * Colors for the Prism syntax highlighter.
- * These are shared between the light and dark themes.
+ * colors for the Prism syntax highlighter.
+ * these are shared between the light and dark themes.
  */
 const prismColors = {
   token: `#fff`,
@@ -259,7 +259,7 @@ const prismColors = {
 
 const sharedTheme = {
   /**
-   * Easing thanks to Benjamin De Cock
+   * easing thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
   easing: {
@@ -305,8 +305,8 @@ const sharedTheme = {
   },
 
   /**
-   * Spacing scale based on Tailwind CSS.
-   * One spacing unit equals 0.25rem (4px).
+   * spacing scale based on Tailwind CSS.
+   * one spacing unit equals 0.25rem (4px).
    */
   sizing: {
     "0": "0px",
@@ -362,7 +362,7 @@ const lightVars = {
 }
 
 /**
- * Dark mode, applied via placing the class `LIGHT_COLOR_MODE_CLASS` at the top of the document tree.
+ * dark mode, applied via placing the class `LIGHT_COLOR_MODE_CLASS` at the top of the document tree.
  */
 export const lightColorMode = createGlobalTheme(
   `.${LIGHT_COLOR_MODE_CLASS}:root`,
@@ -385,7 +385,7 @@ const darkVars = {
 }
 
 /**
- * Dark mode, applied via placing the class `DARK_COLOR_MODE_CLASS` at the top of the document tree.
+ * dark mode, applied via placing the class `DARK_COLOR_MODE_CLASS` at the top of the document tree.
  */
 export const darkColorMode = createGlobalTheme(
   `.${DARK_COLOR_MODE_CLASS}:root`,
@@ -394,8 +394,8 @@ export const darkColorMode = createGlobalTheme(
 )
 
 /**
- * System mode, the default (active when no color mode class has been applied).
- * In this mode, the user's `prefers-color-scheme` setting will determine the color mode.
+ * system mode, the default (active when no color mode class has been applied).
+ * in this mode, the user's `prefers-color-scheme` setting will determine the color mode.
  */
 export const systemColorMode = globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR}`, {
   "@media": {
@@ -420,7 +420,6 @@ export const breakpoints = {
 const unresponiveProperties = defineProperties({
   properties: {
     color: tokens.color,
-    bar: tokens.color,
     fontFamily: tokens.font,
     fontFeatureSettings: tokens.fontFeatureSettings,
   },
@@ -463,20 +462,12 @@ const responsiveProperties = defineProperties({
     height: tokens.sizing,
     minHeight: tokens.sizing,
     maxHeight: tokens.sizing,
-    inset: tokens.sizing,
-    insetBlock: tokens.sizing,
-    insetBlockStart: tokens.sizing,
-    insetBlockEnd: tokens.sizing,
-    insetInline: tokens.sizing,
-    insetInlineStart: tokens.sizing,
-    insetInlineEnd: tokens.sizing,
     top: tokens.sizing,
     right: tokens.sizing,
     bottom: tokens.sizing,
     left: tokens.sizing,
   },
   shorthands: {
-    text: ["fontSize", "lineHeight"],
     m: ["margin"],
     mt: ["marginTop"],
     mr: ["marginRight"],
@@ -491,8 +482,6 @@ const responsiveProperties = defineProperties({
     pl: ["paddingLeft"],
     px: ["paddingLeft", "paddingRight"],
     py: ["paddingTop", "paddingBottom"],
-    insetX: ["left", "right"],
-    insetY: ["top", "bottom"],
   },
 })
 

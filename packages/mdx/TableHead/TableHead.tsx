@@ -4,23 +4,13 @@ import { clsx } from "clsx"
 import { tableHead } from "./TableHead.css"
 
 /**
- * A styled `<thead>` element, for use in MDX.
+ * a styled `<thead>` element, for use in MDX.
  */
 export function TableHead({
   className,
   ...restProps
 }: Omit<React.HTMLAttributes<HTMLTableSectionElement>, "color">) {
   return (
-    <Box
-      sx={{
-        color: "primary",
-        font: "serif",
-        fontWeight: "bold",
-        lineHeight: "heading",
-      }}
-      as="thead"
-      className={clsx(tableHead, className)}
-      {...restProps}
-    />
+    <Box as="thead" className={clsx(tableHead, className)} {...restProps} />
   )
 }

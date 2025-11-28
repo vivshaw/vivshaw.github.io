@@ -31,16 +31,6 @@ export const WithSpacing: Story = {
   },
 }
 
-export const WithInset: Story = {
-  args: {
-    children: "Box with inset positioning",
-    sx: {
-      inset: "4",
-    },
-    style: { border: "1px solid currentColor", position: "relative" },
-  },
-}
-
 export const WithGap: Story = {
   args: {
     sx: {
