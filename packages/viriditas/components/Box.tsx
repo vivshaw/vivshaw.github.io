@@ -26,7 +26,7 @@ export function Box<T extends ElementType = "div">({
   sx = {},
   ...other
 }: BoxProps<T>): ReactElement {
-  const Element = as || "div"
+  const Element = as ?? "div"
 
   return <Element {...other} className={clsx(sprinkles(sx), className)} />
 }

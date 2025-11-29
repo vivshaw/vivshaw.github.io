@@ -1,6 +1,5 @@
-import { clsx } from "clsx"
+import { Text } from "@vivshaw/viriditas/components"
 
-import { paragraph } from "./Paragraph.css"
 import { wrapFirstThreeWords } from "./utils"
 
 /**
@@ -14,8 +13,16 @@ export function Paragraph({
   const wrappedChildren = wrapFirstThreeWords(children)
 
   return (
-    <p {...restProps} className={clsx(paragraph, className)}>
+    <Text
+      {...restProps}
+      sx={{
+        marginBottom: {
+          desktopSuperLarge: "8",
+          tablet: "6",
+        },
+      }}
+    >
       {wrappedChildren}
-    </p>
+    </Text>
   )
 }

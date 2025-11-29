@@ -3,9 +3,11 @@ import { recipe } from "@vanilla-extract/recipes"
 
 import { sprinkles, tokens } from "../theme/index.css"
 
-export const heading = recipe({
+export const text = recipe({
   base: [
     style({
+      hyphens: "auto",
+      textWrap: "pretty",
       transition: tokens.motion.colorModeTransition,
       wordBreak: "keep-all",
     }),
@@ -17,9 +19,8 @@ export const heading = recipe({
   ],
 
   variants: {
-    level: {
-      "1": sprinkles({ marginBottom: "12", text: "heading1" }),
-      "2": sprinkles({ marginBottom: "5", text: "heading2" }),
+    size: {
+      normal: sprinkles({ text: "body" }),
     },
   },
 })

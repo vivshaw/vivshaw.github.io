@@ -441,6 +441,12 @@ const unresponiveProperties = defineProperties({
       body: {
         fontSize: tokens.fontSize["500"],
         lineHeight: tokens.lineHeight["body"],
+
+        "@media": {
+          [breakpoints.tablet]: {
+            fontSize: tokens.fontSize["300"],
+          },
+        },
       },
       heading1: {
         fontSize: tokens.fontSize["700"],
