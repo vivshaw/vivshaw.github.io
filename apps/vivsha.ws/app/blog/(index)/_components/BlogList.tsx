@@ -1,8 +1,9 @@
 import Link from "next/link"
 
+import { Box, Heading, Text } from "@vivshaw/viriditas/components"
+
 import { prettyPrintDate } from "#lib"
 import { PostMetadata } from "#data"
-import { root, postBlurb, postDate, postLink, postTitle } from "./BlogList.css"
 
 interface BlogListProps {
   posts: PostMetadata[]
@@ -10,11 +11,11 @@ interface BlogListProps {
 
 export function BlogList({ posts }: BlogListProps) {
   return (
-    <div className={root}>
+    <>
       {posts.map((post, idx) => (
         <BlogListItem key={idx} post={post} />
       ))}
-    </div>
+    </>
   )
 }
 
@@ -27,10 +28,22 @@ function BlogListItem({ post }: BlogListItemProps) {
   const hasBlurb = post.blurb
 
   return (
-    <Link className={postLink} href={`/blog/${post.slug}`}>
-      <h2 className={postTitle}>{post.title}</h2>
-      {hasBlurb && <p className={postBlurb}>{post.blurb}</p>}
-      <div className={postDate}>{prettyDate}</div>
-    </Link>
+    <Box
+      as={Link}
+      href={`/blog/${post.slug}`}
+      sx={{ display: "block", focusRing: "default", mb: "12" }}
+    >
+      <Heading level="2" sx={{ marginBottom: "1" }}>
+        {post.title}
+      </Heading>
+      {hasBlurb && (
+        <Text size="normal" sx={{ color: "grey", mb: "2" }}>
+          {post.blurb}
+        </Text>
+      )}
+      <Text size="small" sx={{ color: "grey" }}>
+        {prettyDate}
+      </Text>
+    </Box>
   )
 }

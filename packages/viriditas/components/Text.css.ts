@@ -21,6 +21,7 @@ export const text = recipe({
   variants: {
     size: {
       normal: sprinkles({ text: "body" }),
+      small: sprinkles({ text: "small" }),
     },
   },
 

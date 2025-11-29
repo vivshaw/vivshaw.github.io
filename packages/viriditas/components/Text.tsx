@@ -9,7 +9,7 @@ export type TextProps<T extends ElementType = "p"> = Omit<
   "className"
 > & {
   as?: T
-  size?: "normal"
+  size?: "normal" | "small"
   sx?: Sprinkles
 }
 

@@ -420,6 +420,7 @@ export const breakpoints = {
 const unresponiveProperties = defineProperties({
   properties: {
     color: tokens.color,
+    display: ["block", "inline"],
     focusRing: {
       none: {
         outline: "none",
@@ -438,6 +439,16 @@ const unresponiveProperties = defineProperties({
     fontFamily: tokens.font,
     fontFeatureSettings: tokens.fontFeatureSettings,
     text: {
+      small: {
+        fontSize: tokens.fontSize["200"],
+        lineHeight: tokens.lineHeight["body"],
+
+        "@media": {
+          [breakpoints.tablet]: {
+            fontSize: tokens.fontSize["100"],
+          },
+        },
+      },
       body: {
         fontSize: tokens.fontSize["500"],
         lineHeight: tokens.lineHeight["body"],

@@ -18,8 +18,8 @@ export const heading = recipe({
 
   variants: {
     level: {
-      "1": sprinkles({ marginBottom: "12", text: "heading1" }),
-      "2": sprinkles({ marginBottom: "5", text: "heading2" }),
+      "1": sprinkles({ text: "heading1" }),
+      "2": sprinkles({ text: "heading2" }),
     },
   },
 })

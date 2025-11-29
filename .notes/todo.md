@@ -48,10 +48,10 @@
   - [ ] create Text component
   - [ ] pull squiggle link styling into Link component
   - [ ] figure out how to use `<Link>` also for Next links
-  - [ ] should i use the sprinkles _inside_ of `.css.ts`/regular styles stuff within Basalt? figure that out
   - [ ] add an h3
   - [ ] should `word-break` be pulled into sprinkles?
   - [ ] make sure `<em>` and `<strong>` work
+  - [ ] extract wiggly underline from Link as a sprinkle
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
