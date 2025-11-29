@@ -1,14 +1,14 @@
-import { ComponentPropsWithRef } from "react"
+import type { ComponentPropsWithRef, ElementType } from "react"
 
+import type { Sprinkles } from "../theme/index.css"
 import { Box } from "./Box"
-import { Sprinkles } from "../theme/index.css"
 import { text } from "./Text.css"
 
-export type TextProps = Omit<
-  ComponentPropsWithRef<"p" | "span">,
+export type TextProps<T extends ElementType = "p"> = Omit<
+  ComponentPropsWithRef<T>,
   "className"
 > & {
-  as?: "p" | "span"
+  as?: T
   size?: "normal"
   sx?: Sprinkles
 }
@@ -16,6 +16,6 @@ export type TextProps = Omit<
 /**
  * a text component.
  */
-export function Text({ as, size = "normal", ...props }: TextProps) {
-  return <Box as={as ?? "p"} className={text({ size })} {...props} />
+export function Text({ as = "p", size = "normal", ...props }: TextProps) {
+  return <Box as={as} className={text({ size })} {...props} />
 }
