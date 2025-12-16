@@ -1,65 +1,57 @@
 "use client"
 
 import { createContext, useContext, useEffect, useState } from "react"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "../config"
+import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
 
 export type ColorMode = "light" | "dark" | "system"
+
 type ContextValues = {
   colorMode: ColorMode
   setColorMode: (colorMode: ColorMode) => void
 }
 
-/**
- * Context for the Basalt theme.
- */
-const BasaltContext = createContext<ContextValues>({
+const ColorModeContext = createContext<ContextValues>({
   colorMode: "system",
   setColorMode: () => {},
 })
 
 /**
- * Hook for accessing the Basalt theme.
- *
- * @returns {ContextValues} The current theme and a function to set the theme.
+ * Hook for accessing the current color mode.
  */
-export function useBasaltTheme(): ContextValues {
-  const { colorMode, setColorMode } = useContext(BasaltContext)
-
+export function useColorMode(): ContextValues {
+  const { colorMode, setColorMode } = useContext(ColorModeContext)
   return { colorMode, setColorMode }
 }
 
-type BasaltProviderProps = {
+type ColorModeProviderProps = {
   /**
-   * A callback that can be used to respond when the color mode changes.
-   * You might use this, for example, to save it in `localStorage` or send it to a backend.
+   * A callback that fires when the color mode changes.
+   * Use this to persist the preference (e.g., to localStorage).
    */
   onUpdateColorMode?: (colorMode: ColorMode) => void
 }
 
 /**
- * Provider for the Basalt color mode. It is fully _optional_! You only need this if you
- * wish to interact with Basalt's color mode at runtime.
+ * Provider for managing the site's color mode.
  */
-export function BasaltProvider({
+export function ColorModeProvider({
   children,
   onUpdateColorMode,
-}: React.PropsWithChildren<BasaltProviderProps>) {
-  // Defaults to the system preference
+}: React.PropsWithChildren<ColorModeProviderProps>) {
   const [colorMode, setColorMode] = useState<ColorMode>("system")
 
-  // On first load, populate the current color scheme.
+  // On first load, detect the current color scheme from the DOM.
   useEffect(() => {
     if (document.documentElement.classList.contains(DARK_COLOR_MODE_CLASS)) {
       setColorMode("dark")
     }
-    if (document.documentElement.classList.contains(LIGHT_COLOR_MODE_CLASS))
+    if (document.documentElement.classList.contains(LIGHT_COLOR_MODE_CLASS)) {
       setColorMode("light")
+    }
   }, [])
 
   /**
-   * Set the Basalt color mode.
-   *
-   * @param newColorMode - The color mode to set.
+   * Set the color mode and update the document classes.
    */
   function setColorModeAndUpdateStyles(newColorMode: ColorMode) {
     setColorMode(newColorMode)
@@ -85,13 +77,13 @@ export function BasaltProvider({
   }
 
   return (
-    <BasaltContext.Provider
+    <ColorModeContext.Provider
       value={{
         colorMode,
         setColorMode: setColorModeAndUpdateStyles,
       }}
     >
       {children}
-    </BasaltContext.Provider>
+    </ColorModeContext.Provider>
   )
 }

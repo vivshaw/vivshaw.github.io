@@ -1,9 +1,9 @@
 "use client"
 
-import { ColorMode, BasaltProvider } from "@vivshaw/basalt/client"
 import { PropsWithChildren } from "react"
 
 import { COLOR_MODE_STORAGE_KEY } from "#data"
+import { ColorMode, ColorModeProvider } from "./ColorModeContext"
 
 /**
  * Saves the site's color mode to localStorage. This allows the user's choice
@@ -23,8 +23,8 @@ function saveColorModeToLocalStorage(colorMode: ColorMode) {
 
 export function GlobalProviders({ children }: PropsWithChildren<{}>) {
   return (
-    <BasaltProvider onUpdateColorMode={saveColorModeToLocalStorage}>
+    <ColorModeProvider onUpdateColorMode={saveColorModeToLocalStorage}>
       {children}
-    </BasaltProvider>
+    </ColorModeProvider>
   )
 }

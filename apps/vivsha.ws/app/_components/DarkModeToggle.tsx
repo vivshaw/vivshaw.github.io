@@ -1,13 +1,13 @@
 "use client"
 
-import { useBasaltTheme } from "@vivshaw/basalt/client"
 import clsx from "clsx"
 
-import { iconButton } from "./Navbar.css"
+import { useColorMode } from "./ColorModeContext"
 import { moonMask, moonOrSun, root } from "./DarkModeToggle.css"
+import { iconButton } from "./Navbar.css"
 
 export function DarkModeToggle() {
-  const { colorMode, setColorMode } = useBasaltTheme()
+  const { colorMode, setColorMode } = useColorMode()
 
   const isDark = (() => {
     switch (colorMode) {
