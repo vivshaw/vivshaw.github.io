@@ -12,6 +12,10 @@ import type {
 
 import { author, site } from "#data"
 
+/**
+ * metadata specs for a page. each page must provide this.
+ * it's used to generate metadata such as Next.js metadata, social tags, and Schema.org structured metadata.
+ */
 type SeoData =
   | {
       type: "home"
@@ -26,68 +30,71 @@ type SeoData =
       title: string
     }
   | {
-      type: "other"
+      type: "topLevel"
       description: string
       slug: string
       title: string
-      tags?: string[]
     }
 
 /**
- * Creates page-dependent metadata, to be used with Next.js's metadata exports.
- * This includes the page title, description, and social tags.
+ * gets the page name for the given page.
+ */
+function getPageName(data: SeoData): string {
+  switch (data.type) {
+    case "home":
+      return site.name
+    case "topLevel":
+      return `${data.title} | ${site.shortName}`
+    case "post":
+      return data.title
+  }
+}
+
+/**
+ * gets the page description for the given page.
+ */
+function getPageDescription(data: SeoData): string | undefined {
+  switch (data.type) {
+    case "home":
+      return site.description
+    case "topLevel":
+      return data.description
+    case "post":
+      return data.description
+  }
+}
+
+/**
+ * gets the page URL for the given page.
+ */
+function getPageUrl(data: SeoData): string {
+  switch (data.type) {
+    case "home":
+      return "/"
+    case "topLevel":
+      return `/${data.slug}`
+    case "post":
+      return `/blog/${data.slug}`
+  }
+}
+
+/**
+ * creates page-dependent metadata, to be used with Next.js's metadata exports.
+ * this includes the page title, description, and social tags.
  */
 export function metadataHelper(data: SeoData): Metadata {
-  const pageName = (() => {
-    switch (data.type) {
-      case "home":
-        return {
-          default: site.name,
-          template: `%s | ${site.shortName}`,
-        }
-      case "post":
-        // Blog posts should use _only_ the title as their name.
-        return {
-          absolute: data.title,
-        }
-      case "other":
-      default:
-        // Other pages will inherit the `template` from the home page.
-        return data.title
-    }
-  })()
-
-  const pageDescription = (() => {
-    switch (data.type) {
-      case "post":
-      case "other":
-        return data.description
-      case "home":
-      default:
-        return site.description
-    }
-  })()
+  const pageName = getPageName(data)
+  const pageDescription = getPageDescription(data)
+  const pageUrl = getPageUrl(data)
 
   const pageType = (() => {
     switch (data.type) {
+      case "home":
+        return "website"
+      case "topLevel":
+        return "website"
       case "post":
         return "article"
-      case "home":
-      case "other":
-      default:
-        return "website"
-    }
-  })()
-
-  const pageUrl = (() => {
-    switch (data.type) {
-      case "home":
-        return "/"
-      case "post":
-        return `/blog/${data.slug}`
-      case "other":
-      default:
-        return `/${data.slug}`
     }
   })()
 
@@ -99,18 +106,21 @@ export function metadataHelper(data: SeoData): Metadata {
       "technology",
     ]
     switch (data.type) {
+      case "home":
+        return defaultKeywords
+      case "topLevel":
+        return defaultKeywords
       case "post":
         return data.tags
-      case "other":
-        return data.tags ?? defaultKeywords
-      case "home":
-      default:
-        return defaultKeywords
     }
   })()
 
   const pageDates = (() => {
     switch (data.type) {
+      case "home":
+        return undefined
+      case "topLevel":
+        return undefined
       case "post":
         return {
           "article:published_time": data.datePublished,
@@ -118,8 +128,6 @@ export function metadataHelper(data: SeoData): Metadata {
             "article:modified_time": data.dateModified,
           }),
         }
-      default:
-        return undefined
     }
   })()
 
@@ -153,47 +161,15 @@ export function metadataHelper(data: SeoData): Metadata {
 }
 
 /**
- * Creates Schema.org JSON-LD structured metadata for the pages.
+ * creates Schema.org JSON-LD structured metadata for the pages.
  */
 export function schemaHelper(data: SeoData) {
-  const pageName = (() => {
-    switch (data.type) {
-      case "home":
-        return site.name
-      case "post":
-        // Blog posts should use _only_ the title as their name.
-        return data.title
-      case "other":
-      default:
-        // Other pages will inherit the `template` from the home page.
-        return `${data.title} | ${site.shortName}`
-    }
-  })()
-
-  const pageDescription = (() => {
-    switch (data.type) {
-      case "post":
-      case "other":
-        return data.description
-      case "home":
-      default:
-        return site.description
-    }
-  })()
-
-  const pageUrl = (() => {
-    switch (data.type) {
-      case "home":
-        return "/"
-      case "post":
-        return `/blog/${data.slug}`
-      case "other":
-      default:
-        return `/${data.slug}`
-    }
-  })()
-
+  const pageName = getPageName(data)
+  const pageDescription = getPageDescription(data)
+  const pageUrl = getPageUrl(data)
   const webSiteId = `${site.url}/#website`
+  const authorId = `${site.url}/#${author.id}`
+  const authorImageId = `${site.url}/#avatar`
 
   const websiteSchema: WebSite = {
     "@type": "WebSite",
@@ -213,23 +189,49 @@ export function schemaHelper(data: SeoData) {
     width: `${site.defaultPreview.width}`,
   }
 
-  const personSchema: Person = {
+  const authorSchema: Person = {
     "@type": "Person",
-    "@id": `${site.url}/#person`,
-    alumniOf: "University of Vermont",
-    callSign: "vivshaw",
-    description:
-      "a human with an inexhaustible curiosity about the intersection of technology and human life.",
+    "@id": authorId,
+    alumniOf: author.alumniOf,
+    callSign: author.id,
+    description: author.bio,
     email: author.mailto,
-    gender: "female",
-    knowsAbout:
-      "frontend, machine learning, Python, TypeScript, developer tooling, engineering management, philosophy",
-    name: "Hannah Vivian Shaw",
+    gender: author.gender,
+    image: {
+      "@type": "ImageObject",
+      "@id": authorImageId,
+      caption: author.avatar.alt,
+      inLanguage: "en-US",
+    },
+    knowsAbout: author.knowsAbout,
+    name: author.name,
+    sameAs: [
+      author.keybase,
+      author.socials.bluesky,
+      author.socials.github,
+      author.socials.linkedin,
+      author.socials.mastodon,
+      author.socials.twitter,
+    ],
     url: site.url,
-    worksFor: "Mercury",
+    worksFor: author.worksFor,
   }
 
-  const commonSchema = [websiteSchema, imageSchema, personSchema]
+  const authorImageSchema: ImageObject = {
+    "@type": "ImageObject",
+    "@id": authorImageId,
+    inLanguage: "en-US",
+    url: author.avatar.image.src,
+    width: `${author.avatar.image.width}`,
+    height: `${author.avatar.image.height}`,
+  }
+
+  const commonSchema = [
+    websiteSchema,
+    imageSchema,
+    authorSchema,
+    authorImageSchema,
+  ]
 
   const homePageId = `${site.url}/#home`
 
@@ -270,63 +272,59 @@ export function schemaHelper(data: SeoData) {
     }
   }
 
-  function createTopLevelSchema(): Graph {
-    const topLevelWebpageId = `${pageUrl}/#webpage`
-    const topLevelBreadcrumbId = `${pageUrl}/#breadcrumb`
+  function createTopLevelSchema(
+    data: Extract<SeoData, { type: "topLevel" }>,
+  ): Graph {
+    const pageWebPageId = `${pageUrl}/#webpage`
+    const pageBreadcrumbId = `${pageUrl}/#breadcrumb`
 
-    const topLevelWebPage: WebPage = {
-      "@type":
-        (data as { type: "other"; slug: string }).slug === "about"
-          ? "AboutPage"
-          : "WebPage",
-      "@id": topLevelWebpageId,
+    const pageWebPage: WebPage = {
+      "@type": data.slug === "about" ? "AboutPage" : "WebPage",
+      "@id": pageWebPageId,
       breadcrumb: {
-        "@id": topLevelBreadcrumbId,
+        "@id": pageBreadcrumbId,
       },
       description: pageDescription,
       isPartOf: {
         "@id": webSiteId,
       },
-      name: `${pageName}`,
+      name: pageName,
       primaryImageOfPage: {
         "@id": `${pageUrl}/#primaryimage`,
       },
-      url: `${pageUrl}`,
+      url: pageUrl,
       inLanguage: "en-US",
     }
 
-    const topLevelBreadcrumb: ListItem = {
+    const pageBreadcrumb: ListItem = {
       "@type": "ListItem",
       item: {
         "@type": "WebPage",
-        "@id": topLevelWebpageId,
+        "@id": pageWebPageId,
         name: pageName,
         url: pageUrl,
       },
       position: 2,
     }
 
-    const topLevelBreadcrumbs: BreadcrumbList = {
+    const pageBreadcrumbs: BreadcrumbList = {
       "@type": "BreadcrumbList",
-      "@id": topLevelBreadcrumbId,
-      itemListElement: [homePageBreadcrumb, topLevelBreadcrumb],
+      "@id": pageBreadcrumbId,
+      itemListElement: [homePageBreadcrumb, pageBreadcrumb],
       name: "Breadcrumbs",
     }
 
     return {
       "@context": "https://schema.org",
-      "@graph": [...commonSchema, topLevelWebPage, topLevelBreadcrumbs],
+      "@graph": [...commonSchema, pageWebPage, pageBreadcrumbs],
     }
   }
 
-  function createPostSchema(): Graph {
+  function createPostSchema(data: Extract<SeoData, { type: "post" }>): Graph {
     const postWebPageId = `${pageUrl}/#webpage`
     const postBreadcrumbId = `${pageUrl}/#breadcrumb`
-    const postAuthorId = `${site.url}/#${author.id}`
     const postImageId = `${pageUrl}/#primaryimage`
-    const postPersonImageId = `${site.url}/#avatar`
-    const postDatePublished = (data as { type: "post"; datePublished: string })
-      .datePublished
+    const postDatePublished = data.datePublished
 
     const postWebPage: WebPage = {
       "@type": "WebPage",
@@ -379,7 +377,7 @@ export function schemaHelper(data: SeoData) {
       "@type": "Article",
       "@id": `${pageUrl}/#article`,
       author: {
-        "@id": postAuthorId,
+        "@id": authorId,
       },
       datePublished: postDatePublished,
       headline: pageName,
@@ -394,64 +392,22 @@ export function schemaHelper(data: SeoData) {
         "@id": postWebPageId,
       },
       publisher: {
-        "@id": postAuthorId,
+        "@id": authorId,
       },
-    }
-
-    const postPerson: Person = {
-      "@type": "Person",
-      "@id": postAuthorId,
-      description: author.bio,
-      name: author.name,
-      image: {
-        "@type": "ImageObject",
-        "@id": postPersonImageId,
-        caption: author.avatar.alt,
-        inLanguage: "en-US",
-      },
-      sameAs: [
-        author.keybase,
-        author.socials.bluesky,
-        author.socials.github,
-        author.socials.linkedin,
-        author.socials.mastodon,
-        author.socials.twitter,
-      ],
-    }
-
-    const postPersonImage: ImageObject = {
-      "@type": "ImageObject",
-      "@id": postPersonImageId,
-      inLanguage: "en-US",
-      url: author.avatar.image.src,
-      width: `${author.avatar.image.width}`,
-      height: `${author.avatar.image.height}`,
     }
 
     return {
       "@context": "https://schema.org",
-      "@graph": [
-        ...commonSchema,
-        postWebPage,
-        postBreadcrumbs,
-        postArticle,
-        postPerson,
-        postPersonImage,
-      ],
+      "@graph": [...commonSchema, postWebPage, postBreadcrumbs, postArticle],
     }
   }
 
-  const schema: Graph = (() => {
-    switch (data.type) {
-      case "post":
-        return createPostSchema()
-      case "home":
-        return createHomeSchema()
-      case "other":
-      default:
-        return createTopLevelSchema()
-    }
-  })()
-
-  return schema
+  switch (data.type) {
+    case "home":
+      return createHomeSchema()
+    case "topLevel":
+      return createTopLevelSchema(data)
+    case "post":
+      return createPostSchema(data)
+  }
 }

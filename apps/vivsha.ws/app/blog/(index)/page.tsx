@@ -5,7 +5,7 @@ import { BlogList } from "./_components/BlogList"
 import { getSortedBlogMetas } from "./_lib/getSortedBlogMetas"
 
 export const metadata: Metadata = metadataHelper({
-  type: "other",
+  type: "topLevel",
   description: "vivshaw's blog",
   slug: "blog",
   title: "Blog",
@@ -18,7 +18,7 @@ export default async function Blog() {
   const postsDateless = await getSortedBlogMetas()
 
   const jsonLdSchema = schemaHelper({
-    type: "other",
+    type: "topLevel",
     description: "vivshaw's blog",
     slug: "blog",
     title: "blog",

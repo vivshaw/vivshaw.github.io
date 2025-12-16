@@ -11,7 +11,7 @@ import {
 } from "#pageStyles/main.css"
 
 export const metadata: Metadata = metadataHelper({
-  type: "other",
+  type: "topLevel",
   description: "Who exactly is vivshaw?",
   slug: "about",
   title: "About Me",
@@ -22,7 +22,7 @@ export const metadata: Metadata = metadataHelper({
  */
 export default function About() {
   const jsonLdSchema = schemaHelper({
-    type: "other",
+    type: "topLevel",
     description: "Who exactly is vivshaw?",
     slug: "about",
     title: "About Me",

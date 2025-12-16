@@ -44,38 +44,54 @@ export type SocialSite =
   | "bluesky"
 
 type Author = {
-  id: string
+  /** educational background */
+  alumniOf: string
 
-  /** Profile picture and alt text */
+  /** profile picture and alt text */
   avatar: {
     alt: string
     image: StaticImageData
   }
 
-  /** Short bio */
+  /** short bio */
   bio: string
 
-  /** Keybase profile */
+  /** gender */
+  gender: string
+
+  id: string
+
+  /** keybase profile */
   keybase: string
 
-  /** Email address */
+  /** areas of expertise */
+  knowsAbout: string
+
+  /** email address */
   mailto: string
 
-  /** Full name */
+  /** full name */
   name: string
 
-  /** Social links */
+  /** social links */
   socials: Record<SocialSite, string>
+
+  /** current employer */
+  worksFor: string
 }
 
 export const author: Author = {
+  alumniOf: "University of Vermont",
   avatar: {
     image: avatarPic,
     alt: "A photo of Hannah in a Smithsonian display of a giant salt molecule",
   },
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",
+  gender: "female",
   id: "vivshaw",
   keybase: "https://keybase.io/vivshaw",
+  knowsAbout:
+    "frontend, machine learning, Python, TypeScript, developer tooling, engineering management, philosophy",
   mailto: "mailto:hey@vivsha.ws",
   name: "Hannah Vivian Shaw",
   socials: {
@@ -85,9 +101,27 @@ export const author: Author = {
     mastodon: "https://mastodon.social/@vivshaw",
     twitter: "https://twitter.com/vvvivshaw",
   },
+  worksFor: "Mercury",
 }
 
-export const site = {
+type Site = {
+  /** default preview image */
+  defaultPreview: StaticImageData
+
+  /** site description */
+  description: string
+
+  /** site name */
+  name: string
+
+  /** site short name */
+  shortName: string
+
+  /** site URL */
+  url: string
+}
+
+export const site: Site = {
   defaultPreview: defaultPreview,
   description: "Hannah Vivian Shaw's personal website & blog",
   name: "vivshaw's webbed sight",

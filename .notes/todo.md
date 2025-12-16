@@ -50,5 +50,4 @@
   - [ ] add an h3
   - [ ] make sure `<em>` and `<strong>` work
 - [ ] flesh out package READMEs
-- [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] put domain config into IaC w/ Terraform?
