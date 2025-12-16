@@ -8,4 +8,3 @@ export const h1Style = style({
 export const h2Style = style({
   marginBottom: tokens.sizing["5"],
 })
-

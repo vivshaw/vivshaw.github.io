@@ -38,4 +38,6 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 
 # Rules
 
-- After making changes, you _must_ typecheck the app with `yarn typecheck` to verify your changes were correct.
+- After making changes:
+  - you _must_ typecheck the app with `yarn typecheck` to verify your changes were correct.
+  - you _must_ format with Prettier using `yarn format:all`

@@ -14,7 +14,7 @@
     "url": "https://vivsha.ws"
   },
   "scripts": {
-    "bar": "echo \"HELLO\"",
+    "format:all": "prettier --write .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
