@@ -18,7 +18,6 @@ export const BlogFrontmatter = z.object({
   blurb: z.optional(z.string()),
   date: z.string().date(),
   dateModified: z.optional(z.string().date()),
-  next: z.optional(z.array(z.string())),
   tags: z.array(z.string()),
   title: z.string(),
 })
@@ -30,7 +29,6 @@ export const PostMeta = z.object({
   blurb: z.optional(z.string()),
   date: z.date(),
   dateModified: z.optional(z.date()),
-  next: z.optional(z.array(z.string())),
   slug: z.string(),
   tags: z.array(z.string()),
   title: z.string(),

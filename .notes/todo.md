@@ -13,10 +13,10 @@
   - [ ] is there a need for any additional monorepo tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
-  - [ ] Get "Next Post" working for real
   - [ ] contact page?
 - [ ] UX
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
+    - [ ] heavvy metal font `V`, maybe?
   - [ ] darkmode switcher overlaps focus ring :(
   - [ ] add a "Skip to main content" thingy
 - [ ] styling
