@@ -1,9 +1,15 @@
 import Link from "next/link"
 
-import { Box, Heading, Text } from "@vivshaw/viriditas/components"
+import { Heading, Text } from "@vivshaw/viriditas/components"
 
 import { prettyPrintDate } from "#lib"
 import { PostMetadata } from "#data"
+import {
+  blogListItemLink,
+  blogListItemHeading,
+  blogListItemBlurb,
+  blogListItemDate,
+} from "./BlogList.css"
 
 interface BlogListProps {
   posts: PostMetadata[]
@@ -28,22 +34,18 @@ function BlogListItem({ post }: BlogListItemProps) {
   const hasBlurb = post.blurb
 
   return (
-    <Box
-      as={Link}
-      href={`/blog/${post.slug}`}
-      sx={{ display: "block", focusRing: "default", mb: "12" }}
-    >
-      <Heading level="2" sx={{ marginBottom: "1" }}>
+    <Link href={`/blog/${post.slug}`} className={blogListItemLink}>
+      <Heading level="2" className={blogListItemHeading}>
         {post.title}
       </Heading>
       {hasBlurb && (
-        <Text size="normal" sx={{ color: "grey", mb: "2" }}>
+        <Text size="normal" className={blogListItemBlurb}>
           {post.blurb}
         </Text>
       )}
-      <Text size="small" sx={{ color: "grey" }}>
+      <Text size="small" className={blogListItemDate}>
         {prettyDate}
       </Text>
-    </Box>
+    </Link>
   )
 }

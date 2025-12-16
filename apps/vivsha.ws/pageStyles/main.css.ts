@@ -72,3 +72,8 @@ export const mainpageHeading = style({
     },
   },
 })
+
+export const mainpageList = style({
+  paddingLeft: tokens.sizing["16"],
+  paddingTop: tokens.sizing["4"],
+})

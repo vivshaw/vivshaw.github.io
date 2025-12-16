@@ -1,5 +1,6 @@
 import { Text } from "@vivshaw/viriditas/components"
 
+import { paragraphStyle } from "./Paragraph.css"
 import { wrapFirstThreeWords } from "./utils"
 
 /**
@@ -13,15 +14,7 @@ export function Paragraph({
   const wrappedChildren = wrapFirstThreeWords(children)
 
   return (
-    <Text
-      {...restProps}
-      sx={{
-        marginBottom: {
-          desktopSuperLarge: "8",
-          tablet: "6",
-        },
-      }}
-    >
+    <Text {...restProps} className={paragraphStyle}>
       {wrappedChildren}
     </Text>
   )

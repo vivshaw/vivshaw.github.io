@@ -20,7 +20,6 @@
   - [ ] add a "Skip to main content" thingy
 - [ ] styling
   - [ ] use layers
-  - [ ] obliterate `pageStyles` directory
   - [ ] why does navbar shift up slightly when I go to mobile?
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
@@ -42,17 +41,13 @@
   - [ ] create a fallback for the MB fonts?
   - [ ] load CSS reset in Storybook
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
-  - [ ] get `ref`s working for polymorphic components?
+  - [ ] look at Slot pattern from Radix, see if i need that for better polymorphism
+    - [ ] get `ref`s working for polymorphic components?
   - [ ] change name to Basalt
-  - [ ] look at Slot pattern from Radix, see if i need that
-  - [ ] create Text component
-  - [ ] pull squiggle link styling into Link component
   - [ ] figure out how to use `<Link>` also for Next links
   - [ ] add an h3
-  - [ ] should `word-break` be pulled into sprinkles?
   - [ ] make sure `<em>` and `<strong>` work
-  - [ ] extract wiggly underline from Link as a sprinkle
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
 - [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
-- [ ] put domain config into IaC w/ Terraform
+- [ ] put domain config into IaC w/ Terraform?

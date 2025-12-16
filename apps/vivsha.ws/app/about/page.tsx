@@ -1,4 +1,3 @@
-import { Box } from "@vivshaw/viriditas/components"
 import type { Metadata } from "next"
 
 import { author } from "#data"
@@ -8,6 +7,7 @@ import {
   mainpageContent,
   mainpageHeading,
   mainpageLink,
+  mainpageList,
 } from "#pageStyles/main.css"
 
 export const metadata: Metadata = metadataHelper({
@@ -48,13 +48,7 @@ export default function About() {
 
           <div className={mainpageHeading}>
             My professional interests are in:
-            <Box
-              sx={{
-                pl: "16",
-                pt: "4",
-              }}
-              as="ul"
-            >
+            <ul className={mainpageList}>
               <li>
                 <em>human-computer interaction</em>, especially in the context
                 of <em>developer tooling</em> or{" "}
@@ -69,7 +63,7 @@ export default function About() {
                 <em>machine learning</em>, especially insofar as it intersects
                 with the above.
               </li>
-            </Box>
+            </ul>
           </div>
 
           <div className={mainpageHeading}>

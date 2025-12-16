@@ -10,7 +10,5 @@ export function TableHead({
   className,
   ...restProps
 }: Omit<React.HTMLAttributes<HTMLTableSectionElement>, "color">) {
-  return (
-    <Box as="thead" className={clsx(tableHead, className)} {...restProps} />
-  )
+  return <thead className={clsx(tableHead, className)} {...restProps} />
 }
