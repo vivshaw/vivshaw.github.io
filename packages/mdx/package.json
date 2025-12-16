@@ -14,7 +14,8 @@
     "url": "https://vivsha.ws"
   },
   "scripts": {
-    "bar": "echo \"HELLO\""
+    "bar": "echo \"HELLO\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@vivshaw/viriditas": "workspace:^"

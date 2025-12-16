@@ -8,8 +8,9 @@
   - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
 - [ ] tooling
   - [ ] Storybook
+  - [ ] unit tests? Playwright tests?
   - [ ] image optimization for static exports?
-  - [ ] is there a need for any additional tooling? Yarn PnP? Turborepo?/Nx?
+  - [ ] is there a need for any additional monorepo tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
   - [ ] Get "Next Post" working for real
@@ -21,6 +22,7 @@
 - [ ] styling
   - [ ] use layers
   - [ ] why does navbar shift up slightly when I go to mobile?
+  - [ ] banish `pageStyles` directory
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
@@ -43,11 +45,10 @@
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] look at Slot pattern from Radix, see if i need that for better polymorphism
     - [ ] get `ref`s working for polymorphic components?
+    - [ ] figure out how to use `<Link>` also for Next links
   - [ ] change name to Basalt
-  - [ ] figure out how to use `<Link>` also for Next links
   - [ ] add an h3
   - [ ] make sure `<em>` and `<strong>` work
 - [ ] flesh out package READMEs
 - [ ] get rid of ugly typecasts and disorganized logic in the metadata helpers
-- [ ] fix odd `tsconfig.json` problems - why can't I extend the root `tsconfig` in the Next.js one?
 - [ ] put domain config into IaC w/ Terraform?

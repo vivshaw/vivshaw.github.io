@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es2015",
-    "lib": ["dom", "dom.iterable", "esnext", "WebWorker"],
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,15 +13,8 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "types": ["@serwist/next/typings"],
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "jsx": "react-jsx",
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "public/sw.js"]
+  "exclude": ["node_modules"]
 }

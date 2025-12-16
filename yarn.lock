@@ -8560,6 +8560,7 @@ __metadata:
     "@vanilla-extract/recipes": ^0.5.7
     "@vanilla-extract/sprinkles": ^1.6.3
     hygen: ^6.2.11
+    typescript: ^5.3.3
   languageName: unknown
   linkType: soft
 
