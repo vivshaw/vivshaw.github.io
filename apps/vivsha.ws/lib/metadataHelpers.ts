@@ -132,12 +132,12 @@ export function metadataHelper(data: SeoData): Metadata {
   })()
 
   return {
-    // Basic tags
+    // basic tags
     description: pageDescription,
     keywords: pageKeywords,
     title: pageName,
 
-    // Social tags
+    // social tags
     openGraph: {
       authors: site.url,
       description: pageDescription,

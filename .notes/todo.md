@@ -29,7 +29,7 @@
     - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
     - [ ] h2 seems smaller than h1 on some screens?
     - [ ] could also eliminate `.centeringWrapper` entirely, maybe? seems fine to remove from the navbar, at least
-- [ ] viriditas
+- [ ] basalt
   - [ ] simplify text ramp:
     - [ ] 32px main heading / ??? mobile, maybe 24
     - [ ] intermediate size for one level of subhead. no need for more
@@ -41,7 +41,6 @@
     - [ ] mobile??? 540ish
   - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] create a fallback for the MB fonts?
-  - [ ] load CSS reset in Storybook
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] look at Slot pattern from Radix, see if i need that for better polymorphism
     - [ ] get `ref`s working for polymorphic components?
