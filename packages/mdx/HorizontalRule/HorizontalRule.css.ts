@@ -18,7 +18,7 @@ export const horizontalRule = style([
         margin: `${tokens.sizing["0"]} auto ${tokens.sizing["12"]}`,
         width: "calc(100vw - 40px)",
       },
-      [breakpoints.phablet]: {
+      [breakpoints.phone]: {
         padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
       },
     },

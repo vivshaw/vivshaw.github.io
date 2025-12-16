@@ -409,15 +409,11 @@ export const systemColorMode = globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR}`, {
 })
 
 export const breakpoints = {
-  phone: "(max-width: 376px)",
-  phablet: "(max-width: 540px)",
+  phone: "(max-width: 540px)",
   tablet: "(max-width: 735px)",
-  desktop: "(max-width: 1070px)",
-  desktopMedium: "(max-width: 1280px)",
-  desktopLarge: "(max-width: 1440px)",
 }
 
-const unresponiveProperties = defineProperties({
+const unresponsiveProperties = defineProperties({
   properties: {
     color: tokens.color,
     display: ["block", "inline"],
@@ -488,15 +484,11 @@ const unresponiveProperties = defineProperties({
 
 const responsiveProperties = defineProperties({
   conditions: {
-    phone: { "@media": "screen and (max-width: 376px)" },
-    phablet: { "@media": "screen and (max-width: 540px)" },
-    tablet: { "@media": "screen and (max-width: 735px)" },
-    desktop: { "@media": "screen and (max-width: 1070px)" },
-    desktopMedium: { "@media": "screen and (max-width: 1280px)" },
-    desktopLarge: { "@media": "screen and (max-width: 1440px)" },
-    desktopSuperLarge: {},
+    phone: { "@media": `screen and ${breakpoints.phone}` },
+    tablet: { "@media": `screen and ${breakpoints.tablet}` },
+    desktop: {},
   },
-  defaultCondition: "desktopSuperLarge",
+  defaultCondition: "desktop",
   properties: {
     fontSize: tokens.fontSize,
     lineHeight: tokens.lineHeight,
@@ -544,7 +536,7 @@ const responsiveProperties = defineProperties({
 })
 
 export const sprinkles = createSprinkles(
-  unresponiveProperties,
+  unresponsiveProperties,
   responsiveProperties,
 )
 

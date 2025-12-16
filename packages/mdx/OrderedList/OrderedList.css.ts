@@ -17,7 +17,7 @@ export const orderedList = style({
     [breakpoints.tablet]: {
       paddingLeft: 0,
     },
-    [breakpoints.phablet]: {
+    [breakpoints.phone]: {
       paddingLeft: tokens.sizing["5"],
     },
   },

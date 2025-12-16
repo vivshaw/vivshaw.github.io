@@ -17,7 +17,7 @@ globalStyle(`.${CODE_BLOCK_CLASS}.${CODE_BLOCK_CLASS}`, {
   width: "100%",
 
   "@media": {
-    [breakpoints.phablet]: {
+    [breakpoints.phone]: {
       borderRadius: "0",
       margin: `0 auto ${tokens.sizing["6"]}`,
       padding: `${tokens.sizing["6"]} ${tokens.sizing["5"]}`,

@@ -46,7 +46,7 @@ globalStyle(
   `,
   {
     "@media": {
-      [breakpoints.phablet]: {
+      [breakpoints.phone]: {
         gridColumn: "full",
       },
     },

@@ -85,7 +85,7 @@ globalStyle(`${mdxRoot} img`, {
     [breakpoints.tablet]: {
       margin: `${tokens.sizing["2-half"]} auto ${tokens.sizing["11"]}`,
     },
-    [breakpoints.phablet]: {
+    [breakpoints.phone]: {
       margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,
     },
   },
@@ -105,7 +105,7 @@ globalStyle(`${mdxRoot} .Image__Small`, {
 // TODO: why are there necessary? is it just conflict with the `.img` block above?
 globalStyle(`${mdxRoot} img.Image__Small`, {
   "@media": {
-    [breakpoints.phablet]: {
+    [breakpoints.phone]: {
       borderRadius: "0",
     },
   },
@@ -117,12 +117,6 @@ globalStyle(`${mdxRoot} .Image__Medium`, {
   width: "100%",
 
   "@media": {
-    [breakpoints.desktopMedium]: {
-      left: `-${tokens.sizing["8-half"]}`,
-    },
-    [breakpoints.desktop]: {
-      left: `-${tokens.sizing["6-half"]}`,
-    },
     [breakpoints.tablet]: {
       borderRadius: "0",
       left: "0",
@@ -145,9 +139,6 @@ globalStyle(`${mdxRoot} .Image__Large`, {
   width: IMAGE_WIDTHS.full,
 
   "@media": {
-    [breakpoints.desktop]: {
-      left: `-${tokens.sizing["13"]}`,
-    },
     [breakpoints.tablet]: {
       left: "0",
       margin: `${tokens.sizing["0"]} auto ${tokens.sizing["6"]}`,

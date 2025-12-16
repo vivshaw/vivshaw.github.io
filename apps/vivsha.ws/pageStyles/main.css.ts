@@ -8,12 +8,6 @@ export const centeringWrapper = style({
   flexDirection: "column",
   /** avoid layout shift when there's a scrollbar */
   paddingLeft: "calc(100vw - 100%)",
-
-  "@media": {
-    [breakpoints.desktopLarge]: {
-      paddingLeft: 0,
-    },
-  },
 })
 
 export const mainpageContent = style({

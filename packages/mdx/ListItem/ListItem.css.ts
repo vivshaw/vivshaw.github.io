@@ -15,7 +15,7 @@ export const listItem = style({
     [breakpoints.tablet]: {
       paddingLeft: tokens.sizing["8"],
     },
-    [breakpoints.phablet]: {
+    [breakpoints.phone]: {
       paddingLeft: tokens.sizing["8"],
     },
   },

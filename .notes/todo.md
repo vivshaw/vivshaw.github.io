@@ -36,9 +36,7 @@
     - [ ] 24px main body text / 18px mobile
     - [ ] small text for UI elements and such?
   - [ ] simplify breakpoints
-    - [ ] desktop for most any large size
-    - [ ] tablet??? 735ish
-    - [ ] mobile??? 540ish
+    - [ ] swap to mobile-first order
   - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] create a fallback for the MB fonts?
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
