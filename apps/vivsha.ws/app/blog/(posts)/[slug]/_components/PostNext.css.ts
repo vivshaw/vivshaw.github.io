@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
-import { breakpoints, tokens } from "@vivshaw/viriditas"
-import { focusRing } from "@vivshaw/viriditas/helpers"
+import { breakpoints, tokens } from "@vivshaw/basalt"
+import { focusRing } from "@vivshaw/basalt/helpers"
 
 export const root = recipe({
   base: {
@@ -54,7 +54,7 @@ export const postLink = style([
     "@media": {
       [breakpoints.phablet]: {
         selectors: {
-          // Intentionally uses exact px values to get the look right, not Viriditas tokens.
+          // Intentionally uses exact px values to get the look right, not Basalt tokens.
           "&:active": {
             transform: "scale(0.97) translateY(3px)",
           },

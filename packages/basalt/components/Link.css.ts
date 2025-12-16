@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
-import { darkModeStyles, lightModeStyles } from "@vivshaw/viriditas/helpers"
+import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
 import { sprinkles, tokens } from "../theme/index.css"
 
 export const link = recipe({

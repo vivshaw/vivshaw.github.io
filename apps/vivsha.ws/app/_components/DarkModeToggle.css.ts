@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
-import { tokens } from "@vivshaw/viriditas"
-import { darkModeStyles, lightModeStyles } from "@vivshaw/viriditas/helpers"
-import { SYSTEM_COLOR_MODE_SELECTOR } from "@vivshaw/viriditas"
+import { tokens } from "@vivshaw/basalt"
+import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
+import { SYSTEM_COLOR_MODE_SELECTOR } from "@vivshaw/basalt"
 
 export const root = style({
   position: "relative",
@@ -19,7 +19,7 @@ export const root = style({
 })
 
 // Based off a codepen! Much appreciation to: https://codepen.io/aaroniker/pen/KGpXZo
-// This file deliberately uses exact px values to get the look right, not Viriditas tokens.
+// This file deliberately uses exact px values to get the look right, not Basalt tokens.
 export const moonOrSun = style([
   {
     borderRadius: "50%",

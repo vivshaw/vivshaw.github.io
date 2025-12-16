@@ -42,7 +42,7 @@ const nextConfig = {
   },
   output: "export",
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  transpilePackages: ["@vivshaw/viriditas"],
+  transpilePackages: ["@vivshaw/basalt"],
   typescript: {
     ignoreBuildErrors: true,
   },

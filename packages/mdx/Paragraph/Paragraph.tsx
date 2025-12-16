@@ -1,4 +1,4 @@
-import { Text } from "@vivshaw/viriditas/components"
+import { Text } from "@vivshaw/basalt/components"
 
 import { paragraphStyle } from "./Paragraph.css"
 import { wrapFirstThreeWords } from "./utils"

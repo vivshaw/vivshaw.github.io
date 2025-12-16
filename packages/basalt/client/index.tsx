@@ -10,25 +10,25 @@ type ContextValues = {
 }
 
 /**
- * Context for the Viriditas theme.
+ * Context for the Basalt theme.
  */
-const ViriditasContext = createContext<ContextValues>({
+const BasaltContext = createContext<ContextValues>({
   colorMode: "system",
   setColorMode: () => {},
 })
 
 /**
- * Hook for accessing the Viriditas theme.
+ * Hook for accessing the Basalt theme.
  *
  * @returns {ContextValues} The current theme and a function to set the theme.
  */
-export function useViriditasTheme(): ContextValues {
-  const { colorMode, setColorMode } = useContext(ViriditasContext)
+export function useBasaltTheme(): ContextValues {
+  const { colorMode, setColorMode } = useContext(BasaltContext)
 
   return { colorMode, setColorMode }
 }
 
-type ViriditasProviderProps = {
+type BasaltProviderProps = {
   /**
    * A callback that can be used to respond when the color mode changes.
    * You might use this, for example, to save it in `localStorage` or send it to a backend.
@@ -37,13 +37,13 @@ type ViriditasProviderProps = {
 }
 
 /**
- * Provider for the Viriditas color mode. It is fully _optional_! You only need this if you
- * wish to interact with Viriditas's color mode at runtime.
+ * Provider for the Basalt color mode. It is fully _optional_! You only need this if you
+ * wish to interact with Basalt's color mode at runtime.
  */
-export function ViriditasProvider({
+export function BasaltProvider({
   children,
   onUpdateColorMode,
-}: React.PropsWithChildren<ViriditasProviderProps>) {
+}: React.PropsWithChildren<BasaltProviderProps>) {
   // Defaults to the system preference
   const [colorMode, setColorMode] = useState<ColorMode>("system")
 
@@ -57,7 +57,7 @@ export function ViriditasProvider({
   }, [])
 
   /**
-   * Set the Viriditas color mode.
+   * Set the Basalt color mode.
    *
    * @param newColorMode - The color mode to set.
    */
@@ -85,13 +85,13 @@ export function ViriditasProvider({
   }
 
   return (
-    <ViriditasContext.Provider
+    <BasaltContext.Provider
       value={{
         colorMode,
         setColorMode: setColorModeAndUpdateStyles,
       }}
     >
       {children}
-    </ViriditasContext.Provider>
+    </BasaltContext.Provider>
   )
 }

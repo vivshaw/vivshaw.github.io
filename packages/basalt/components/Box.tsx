@@ -18,7 +18,7 @@ export type BoxProps<T extends ElementType = "div"> = {
 
 /**
  * a primitive component that provides access to the design system's tokens.
- * all properties are responsive and accept Viriditas tokens.
+ * all properties are responsive and accept Basalt tokens.
  */
 export function Box<T extends ElementType = "div">({
   as,

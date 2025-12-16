@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { tokens } from "@vivshaw/viriditas"
+import { tokens } from "@vivshaw/basalt"
 
 export const root = style({
   background: tokens.color.background,

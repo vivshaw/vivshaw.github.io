@@ -19,7 +19,7 @@
     "format:all": "prettier --write .",
     "start": "yarn apps/vivsha.ws start",
     "new:post": "hygen post new",
-    "typecheck": "yarn workspace @vivshaw/vivsha.ws typecheck && yarn workspace @vivshaw/viriditas typecheck && yarn workspace @vivshaw/mdx typecheck"
+    "typecheck": "yarn workspace @vivshaw/vivsha.ws typecheck && yarn workspace @vivshaw/basalt typecheck && yarn workspace @vivshaw/mdx typecheck"
   },
   "workspaces": [
     "apps/*",

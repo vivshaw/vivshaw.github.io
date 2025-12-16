@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 /**
  * this class wraps the first three words of each paragraph.

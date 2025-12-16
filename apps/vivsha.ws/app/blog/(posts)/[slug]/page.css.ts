@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { REMARK_CODE_BLOCK_CLASS } from "@vivshaw/mdx/mdx.css"
 import { firstThree } from "@vivshaw/mdx/Paragraph/Paragraph.css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 export const section = style({
   display: "block",

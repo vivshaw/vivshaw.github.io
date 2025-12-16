@@ -1,6 +1,8 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
- - use `clsx` to concatenate classes
+
+- use `clsx` to concatenate classes
+- for React components, prefer `export function` syntax over `export const`

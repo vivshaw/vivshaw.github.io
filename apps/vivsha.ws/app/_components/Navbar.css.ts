@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
-import { focusRing } from "@vivshaw/viriditas/helpers"
+import { breakpoints, tokens } from "@vivshaw/basalt"
+import { focusRing } from "@vivshaw/basalt/helpers"
 
 export const root = style({
   alignItems: "center",

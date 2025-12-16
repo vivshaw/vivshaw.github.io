@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
-import { focusRing } from "@vivshaw/viriditas/helpers"
-import { tokens } from "@vivshaw/viriditas"
+import { focusRing } from "@vivshaw/basalt/helpers"
+import { tokens } from "@vivshaw/basalt"
 
 export const blogListItemLink = style([
   {

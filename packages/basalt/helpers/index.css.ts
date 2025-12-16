@@ -8,8 +8,8 @@ import {
 import { tokens } from "../theme/index.css"
 
 /**
- * Utility for writing dark mode styles. These styles will apply both when Viriditas is in dark mode,
- * and when Viriditas is in system mode and `(prefers-color-scheme: dark)`.
+ * Utility for writing dark mode styles. These styles will apply both when Basalt is in dark mode,
+ * and when Basalt is in system mode and `(prefers-color-scheme: dark)`.
  * This creates a normal Vanilla Extract class to be composed with other classes.
  */
 export function darkModeStyles(styles: Omit<StyleRule, "@media">) {
@@ -49,8 +49,8 @@ export function darkModeStyles(styles: Omit<StyleRule, "@media">) {
 }
 
 /**
- * Utility for writing light mode styles. These styles will apply both when Viriditas is in light mode,
- * and when Viriditas is in system mode and `(prefers-color-scheme: light)`.
+ * Utility for writing light mode styles. These styles will apply both when Basalt is in light mode,
+ * and when Basalt is in system mode and `(prefers-color-scheme: light)`.
  * This creates a normal Vanilla Extract class to be composed with other classes.
  */
 export function lightModeStyles(styles: Omit<StyleRule, "@media">) {

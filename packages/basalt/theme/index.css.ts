@@ -77,7 +77,7 @@ globalFontFace("vvv-sans", [
 // })
 
 /**
- * theme contract for the Viriditas design system.
+ * theme contract for the Basalt design system.
  * all tokens used in the system are defined here.
  */
 export const tokens = createGlobalThemeContract(

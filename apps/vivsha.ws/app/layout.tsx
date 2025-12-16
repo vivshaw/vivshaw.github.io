@@ -3,7 +3,7 @@ import type { Metadata } from "next/types"
 import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
-} from "@vivshaw/viriditas"
+} from "@vivshaw/basalt"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"

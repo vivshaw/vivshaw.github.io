@@ -1,4 +1,4 @@
-import "@vivshaw/viriditas/reset"
+import "@vivshaw/basalt/reset"
 import React, { PropsWithChildren } from "react"
 
 import { root, content } from "./LayoutWrapper.css"

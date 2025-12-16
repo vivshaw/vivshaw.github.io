@@ -1,5 +1,5 @@
 import { PostMetadata } from "#data"
-import { Heading } from "@vivshaw/viriditas/components"
+import { Heading } from "@vivshaw/basalt/components"
 import { root } from "./PostHero.css"
 
 interface PostHeroProps {

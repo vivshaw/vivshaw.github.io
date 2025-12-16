@@ -1,4 +1,4 @@
-# @vivshaw/viriditas
+# @vivshaw/basalt
 
 This package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). It's built with [Vanilla Extract](https://vanilla-extract.style/), and uses no runtime stylesheets. The library itself does not use client React and is fully appropriate for React Server Components, although a Context is provided for cases where you _do_ want to access theme values dynamically at runtime.
 
@@ -6,7 +6,7 @@ This package contains (the bones of) the design system used to style [vivsha.ws]
 
 ### Box
 
-The Box component is the foundation of the Viriditas layout system. It provides access to all Viriditas design tokens through a prop-based API.
+The Box component is the foundation of the Basalt layout system. It provides access to all Basalt design tokens through a prop-based API.
 
 ```tsx
 // Basic usage
@@ -53,7 +53,7 @@ Box supports all standard spacing properties:
 - Width/Height: `width`, `minWidth`, `maxWidth`, `height`, `minHeight`, `maxHeight`
 - Position: `inset`, `top`, `right`, `bottom`, `left`
 
-All spacing props accept Viriditas standard spacing tokens, which follow a scale where 1 unit = 0.25rem (4px).
+All spacing props accept Basalt standard spacing tokens, which follow a scale where 1 unit = 0.25rem (4px).
 
 Box also provides access to typography tokens through props:
 

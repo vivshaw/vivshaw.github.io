@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 export const CODE_BLOCK_CLASS = "prism-code"
 

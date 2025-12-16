@@ -1,6 +1,6 @@
 {
-  "name": "@vivshaw/viriditas",
-  "description": "the Viriditas design system, used to build vivsha.ws",
+  "name": "@vivshaw/basalt",
+  "description": "the Basalt design system, used to build vivsha.ws",
   "homepage": "https://vivsha.ws",
   "repository": {
     "type": "git",

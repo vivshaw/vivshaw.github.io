@@ -1,13 +1,13 @@
 "use client"
 
-import { useViriditasTheme } from "@vivshaw/viriditas/client"
+import { useBasaltTheme } from "@vivshaw/basalt/client"
 import clsx from "clsx"
 
 import { iconButton } from "./Navbar.css"
 import { moonMask, moonOrSun, root } from "./DarkModeToggle.css"
 
 export function DarkModeToggle() {
-  const { colorMode, setColorMode } = useViriditasTheme()
+  const { colorMode, setColorMode } = useBasaltTheme()
 
   const isDark = (() => {
     switch (colorMode) {

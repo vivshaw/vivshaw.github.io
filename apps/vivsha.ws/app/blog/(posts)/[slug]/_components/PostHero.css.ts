@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 export const root = style({
   marginBottom: tokens.sizing["20"],

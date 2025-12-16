@@ -20,8 +20,8 @@ yarn dev
 As for the JavaScript, the code is split into several packages using Yarn workspaces.
 
 - [`./apps/vivsha.ws`](./apps/vivsha.ws) contains the Next.js app for the site.
-- [`./packages/viriditas`](./packages/viriditas) contains (the bones of) Viriditas, the design system I am assembling to structure this site.
-- [`./packages/mdx`](./packages/mdx) contains a small library of prebuilt MDX components using the Viriditas styles.
+- [`./packages/basalt`](./packages/basalt) contains (the bones of) Basalt, the design system I am assembling to structure this site.
+- [`./packages/mdx`](./packages/mdx) contains a small library of prebuilt MDX components using the Basalt styles.
 
 ## Why `vivsha.ws`?
 

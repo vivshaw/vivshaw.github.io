@@ -1,18 +1,20 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
-This rule describes standards for using the Viriditas design system in product.
 
-# Using Viriditas
+This rule describes standards for using the Basalt design system in product.
 
- - Use Viriditas style tokens whenever possible. This includes font sizes and weights, colors, spacing, and anything else tokenized in the theme.
- - Use the Viriditas `<Text>` component for all typography.
+# Using Basalt
+
+- Use Basalt style tokens whenever possible. This includes font sizes and weights, colors, spacing, and anything else tokenized in the theme.
+- Use the Basalt `<Text>` component for all typography.
 
 # Spacing
 
 ## When to Use Spacing Tokens
+
 - Use `tokens.spacing[...]` for all general spacing values including:
   - Margins and padding
   - Dimensions and sizes
@@ -21,7 +23,9 @@ This rule describes standards for using the Viriditas design system in product.
   - Position offsets
 
 ## When to Use Exact Pixel Values
+
 Keep exact pixel/rem values ONLY for:
+
 1. Precise visual effects and animations where the exact value is crucial
 2. 1px borders and divider lines
 3. Components that require pixel-perfect dimensions (like DarkModeToggle)

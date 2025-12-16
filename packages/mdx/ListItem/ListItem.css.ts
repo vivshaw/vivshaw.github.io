@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 import { orderedList } from "../OrderedList/OrderedList.css"
 import { unorderedList } from "../UnorderedList/UnorderedList.css"

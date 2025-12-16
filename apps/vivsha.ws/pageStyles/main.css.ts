@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
-import { focusRing } from "@vivshaw/viriditas/helpers"
-import { breakpoints, tokens } from "@vivshaw/viriditas"
+import { focusRing } from "@vivshaw/basalt/helpers"
+import { breakpoints, tokens } from "@vivshaw/basalt"
 
 export const centeringWrapper = style({
   alignItems: "center",

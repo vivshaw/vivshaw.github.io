@@ -1,4 +1,4 @@
-import { Heading } from "@vivshaw/viriditas/components"
+import { Heading } from "@vivshaw/basalt/components"
 
 import { h1Style, h2Style } from "./Headings.css"
 

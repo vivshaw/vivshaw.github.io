@@ -2648,22 +2648,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vivshaw/mdx@workspace:^, @vivshaw/mdx@workspace:packages/mdx":
+"@vivshaw/basalt@workspace:^, @vivshaw/basalt@workspace:packages/basalt":
   version: 0.0.0-use.local
-  resolution: "@vivshaw/mdx@workspace:packages/mdx"
-  dependencies:
-    "@vivshaw/viriditas": "workspace:^"
-  peerDependencies:
-    "@vanilla-extract/css": ^1.17.0
-    clsx: ^2.1.1
-    react: 19.0.0
-    typescript: 4.9.3
-  languageName: unknown
-  linkType: soft
-
-"@vivshaw/viriditas@workspace:^, @vivshaw/viriditas@workspace:packages/viriditas":
-  version: 0.0.0-use.local
-  resolution: "@vivshaw/viriditas@workspace:packages/viriditas"
+  resolution: "@vivshaw/basalt@workspace:packages/basalt"
   dependencies:
     "@storybook/addon-essentials": ^8.6.14
     "@storybook/addon-interactions": ^8.6.14
@@ -2677,6 +2664,19 @@ __metadata:
     storybook: ^8.6.14
   peerDependencies:
     "@vanilla-extract/css": ^1.17.0
+    react: 19.0.0
+    typescript: 4.9.3
+  languageName: unknown
+  linkType: soft
+
+"@vivshaw/mdx@workspace:^, @vivshaw/mdx@workspace:packages/mdx":
+  version: 0.0.0-use.local
+  resolution: "@vivshaw/mdx@workspace:packages/mdx"
+  dependencies:
+    "@vivshaw/basalt": "workspace:^"
+  peerDependencies:
+    "@vanilla-extract/css": ^1.17.0
+    clsx: ^2.1.1
     react: 19.0.0
     typescript: 4.9.3
   languageName: unknown
@@ -2697,8 +2697,8 @@ __metadata:
     "@vanilla-extract/css": ^1.17.0
     "@vanilla-extract/next-plugin": ^2.4.8
     "@vanilla-extract/recipes": ^0.5.5
+    "@vivshaw/basalt": "workspace:^"
     "@vivshaw/mdx": "workspace:^"
-    "@vivshaw/viriditas": "workspace:^"
     clsx: ^2.1.1
     lodash: ^4.17.21
     next: 15.1.3

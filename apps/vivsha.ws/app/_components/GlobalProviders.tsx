@@ -1,6 +1,6 @@
 "use client"
 
-import { ColorMode, ViriditasProvider } from "@vivshaw/viriditas/client"
+import { ColorMode, BasaltProvider } from "@vivshaw/basalt/client"
 import { PropsWithChildren } from "react"
 
 import { COLOR_MODE_STORAGE_KEY } from "#data"
@@ -23,8 +23,8 @@ function saveColorModeToLocalStorage(colorMode: ColorMode) {
 
 export function GlobalProviders({ children }: PropsWithChildren<{}>) {
   return (
-    <ViriditasProvider onUpdateColorMode={saveColorModeToLocalStorage}>
+    <BasaltProvider onUpdateColorMode={saveColorModeToLocalStorage}>
       {children}
-    </ViriditasProvider>
+    </BasaltProvider>
   )
 }
