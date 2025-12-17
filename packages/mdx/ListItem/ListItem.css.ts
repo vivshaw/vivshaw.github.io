@@ -9,14 +9,12 @@ import { unorderedList } from "../UnorderedList/UnorderedList.css"
  */
 export const listItem = style({
   paddingBottom: tokens.sizing["4"],
+  paddingLeft: tokens.sizing["8"],
   position: "relative",
 
   "@media": {
-    [breakpoints.tablet]: {
-      paddingLeft: tokens.sizing["8"],
-    },
-    [breakpoints.phone]: {
-      paddingLeft: tokens.sizing["8"],
+    [breakpoints.desktop]: {
+      paddingLeft: 0,
     },
   },
 
@@ -28,14 +26,14 @@ export const listItem = style({
       display: "inline-block",
       fontSize: "2rem",
       fontWeight: tokens.fontWeight.bold,
-      left: "-3rem",
+      left: 0,
       position: "absolute",
       top: "-0.3rem",
       width: "3rem",
 
       "@media": {
-        [breakpoints.tablet]: {
-          left: 0,
+        [breakpoints.desktop]: {
+          left: "-3rem",
         },
       },
     },
@@ -43,14 +41,14 @@ export const listItem = style({
       backgroundColor: tokens.color.bodyText,
       content: '""',
       height: tokens.sizing["2"],
-      left: `-${tokens.sizing["8"]}`,
+      left: 0,
       position: "absolute",
       top: tokens.sizing["2"],
       width: tokens.sizing["2"],
 
       "@media": {
-        [breakpoints.tablet]: {
-          left: 0,
+        [breakpoints.desktop]: {
+          left: `-${tokens.sizing["8"]}`,
         },
       },
     },

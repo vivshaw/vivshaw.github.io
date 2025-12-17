@@ -8,11 +8,11 @@ import { breakpoints, tokens } from "@vivshaw/basalt"
 export const firstThree = style({})
 
 export const paragraphStyle = style({
-  marginBottom: tokens.sizing["8"],
+  marginBottom: tokens.sizing["6"],
 
   "@media": {
-    [breakpoints.tablet]: {
-      marginBottom: tokens.sizing["6"],
+    [breakpoints.desktop]: {
+      marginBottom: tokens.sizing["8"],
     },
   },
 })

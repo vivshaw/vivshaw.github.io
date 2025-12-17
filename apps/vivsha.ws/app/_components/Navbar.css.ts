@@ -12,18 +12,17 @@ export const root = style({
     "sub-nav sub-nav  sub-nav"
   `,
   justifyContent: "space-between",
-  paddingTop: tokens.sizing["6"],
+  paddingTop: tokens.sizing["5"],
   paddingLeft: tokens.sizing["6"],
-  paddingRight: tokens.sizing["5"],
+  paddingRight: tokens.sizing["6"],
   position: "relative",
   width: "100%",
   zIndex: 3,
 
   "@media": {
-    [breakpoints.tablet]: {
-      paddingLeft: tokens.sizing["6"],
-      paddingRight: tokens.sizing["6"],
-      paddingTop: tokens.sizing["5"],
+    [breakpoints.desktop]: {
+      paddingTop: tokens.sizing["6"],
+      paddingRight: tokens.sizing["5"],
     },
   },
 })
@@ -74,18 +73,18 @@ export const logoLink = style([
 ])
 
 export const controls = style({
-  // By default, the control are in the top row, between the logo and dark mode toggle.
+  // On small screens, the controls go in a second row.
   alignItems: "center",
   display: "flex",
-  gridArea: "controls",
-  justifyContent: "flex-end",
+  gridArea: "sub-nav",
+  justifyContent: "flex-start",
   position: "relative",
 
   "@media": {
-    [breakpoints.tablet]: {
-      // On small screens, the controls go in a second row.
-      gridArea: "sub-nav",
-      justifyContent: "flex-start",
+    [breakpoints.desktop]: {
+      // On larger screens, the controls are in the top row, between the logo and dark mode toggle.
+      gridArea: "controls",
+      justifyContent: "flex-end",
     },
   },
 })
@@ -101,13 +100,13 @@ export const link = style([
   interactionHover,
   {
     color: tokens.color.primary,
-    fontSize: tokens.fontSize["500"],
-    lineHeight: tokens.lineHeight.heading,
+    fontSize: tokens.fontSize["400"],
+    lineHeight: tokens.lineHeight.body,
 
     "@media": {
-      [breakpoints.tablet]: {
-        fontSize: tokens.fontSize["400"],
-        lineHeight: tokens.lineHeight.body,
+      [breakpoints.desktop]: {
+        fontSize: tokens.fontSize["500"],
+        lineHeight: tokens.lineHeight.heading,
       },
     },
   },

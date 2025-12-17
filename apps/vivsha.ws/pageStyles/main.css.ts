@@ -12,17 +12,17 @@ export const centeringWrapper = style({
 
 export const mainpageContent = style({
   maxWidth: "1440px",
-  paddingRight: tokens.sizing["20"],
-  paddingLeft: tokens.sizing["20"],
+  paddingRight: tokens.sizing["6"],
+  paddingLeft: tokens.sizing["6"],
   paddingBottom: tokens.sizing["12"],
-  paddingTop: tokens.sizing["20"],
+  paddingTop: tokens.sizing["10"],
   width: "100%",
 
   "@media": {
-    [breakpoints.tablet]: {
-      paddingRight: tokens.sizing["6"],
-      paddingLeft: tokens.sizing["6"],
-      paddingTop: tokens.sizing["10"],
+    [breakpoints.desktop]: {
+      paddingRight: tokens.sizing["20"],
+      paddingLeft: tokens.sizing["20"],
+      paddingTop: tokens.sizing["20"],
     },
   },
 })
@@ -52,13 +52,6 @@ export const mainpageHeading = style({
   fontWeight: tokens.fontWeight.normal,
   fontSize: tokens.fontSize["600"],
   lineHeight: tokens.lineHeight.heading,
-
-  "@media": {
-    [breakpoints.tablet]: {
-      fontSize: tokens.fontSize["600"],
-      lineHeight: tokens.lineHeight.heading,
-    },
-  },
 
   selectors: {
     "&:not(:first-of-type)": {

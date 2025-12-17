@@ -6,24 +6,24 @@ import { breakpoints, tokens } from "@vivshaw/basalt"
 export const postBody = style({
   display: "grid",
   gridTemplateColumns: `
-    [full-start] 0px
+    [full-start] ${tokens.sizing["5"]} 
     [main-start] 1fr [main-end]
-    0px [full-end]
+    ${tokens.sizing["5"]} [full-end]
   `,
   position: "relative",
   margin: "0 auto",
-  maxWidth: tokens.sizing["168"],
-  padding: `0 0 ${tokens.sizing["9"]}`,
+  maxWidth: "100%",
+  padding: `0 0 ${tokens.sizing["20"]}`,
 
   "@media": {
-    [breakpoints.tablet]: {
+    [breakpoints.desktop]: {
       gridTemplateColumns: `
-      [full-start] ${tokens.sizing["5"]} 
+      [full-start] 0px
       [main-start] 1fr [main-end]
-      ${tokens.sizing["5"]} [full-end]
+      0px [full-end]
     `,
-      maxWidth: "100%",
-      padding: `0 0 ${tokens.sizing["20"]}`,
+      maxWidth: tokens.sizing["168"],
+      padding: `0 0 ${tokens.sizing["9"]}`,
     },
   },
 })
@@ -45,9 +45,11 @@ globalStyle(
   ${postBody} > img
   `,
   {
+    gridColumn: "full",
+
     "@media": {
-      [breakpoints.phone]: {
-        gridColumn: "full",
+      [breakpoints.desktop]: {
+        gridColumn: "main",
       },
     },
   },

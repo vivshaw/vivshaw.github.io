@@ -409,8 +409,8 @@ export const systemColorMode = globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR}`, {
 })
 
 export const breakpoints = {
-  phone: "(max-width: 540px)",
-  tablet: "(max-width: 735px)",
+  tablet: "(min-width: 541px)",
+  desktop: "(min-width: 736px)",
 }
 
 const unresponsiveProperties = defineProperties({
@@ -436,42 +436,42 @@ const unresponsiveProperties = defineProperties({
     fontFeatureSettings: tokens.fontFeatureSettings,
     text: {
       small: {
-        fontSize: tokens.fontSize["200"],
+        fontSize: tokens.fontSize["100"],
         lineHeight: tokens.lineHeight["body"],
 
         "@media": {
-          [breakpoints.tablet]: {
-            fontSize: tokens.fontSize["100"],
+          [breakpoints.desktop]: {
+            fontSize: tokens.fontSize["200"],
           },
         },
       },
       body: {
-        fontSize: tokens.fontSize["500"],
+        fontSize: tokens.fontSize["300"],
         lineHeight: tokens.lineHeight["body"],
 
         "@media": {
-          [breakpoints.tablet]: {
-            fontSize: tokens.fontSize["300"],
-          },
-        },
-      },
-      heading1: {
-        fontSize: tokens.fontSize["700"],
-        lineHeight: tokens.lineHeight["heading"],
-
-        "@media": {
-          [breakpoints.tablet]: {
+          [breakpoints.desktop]: {
             fontSize: tokens.fontSize["500"],
           },
         },
       },
-      heading2: {
-        fontSize: tokens.fontSize["600"],
+      heading1: {
+        fontSize: tokens.fontSize["500"],
         lineHeight: tokens.lineHeight["heading"],
 
         "@media": {
-          [breakpoints.tablet]: {
-            fontSize: tokens.fontSize["400"],
+          [breakpoints.desktop]: {
+            fontSize: tokens.fontSize["700"],
+          },
+        },
+      },
+      heading2: {
+        fontSize: tokens.fontSize["400"],
+        lineHeight: tokens.lineHeight["heading"],
+
+        "@media": {
+          [breakpoints.desktop]: {
+            fontSize: tokens.fontSize["600"],
           },
         },
       },
@@ -484,11 +484,11 @@ const unresponsiveProperties = defineProperties({
 
 const responsiveProperties = defineProperties({
   conditions: {
-    phone: { "@media": `screen and ${breakpoints.phone}` },
+    phone: {},
     tablet: { "@media": `screen and ${breakpoints.tablet}` },
-    desktop: {},
+    desktop: { "@media": `screen and ${breakpoints.desktop}` },
   },
-  defaultCondition: "desktop",
+  defaultCondition: "phone",
   properties: {
     fontSize: tokens.fontSize,
     lineHeight: tokens.lineHeight,

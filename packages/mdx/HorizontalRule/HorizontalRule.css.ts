@@ -9,17 +9,18 @@ export const horizontalRule = style([
     border: 0,
     boxSizing: "border-box",
     height: "14.36px",
-    margin: `${tokens.sizing["12"]} auto`,
+    margin: `${tokens.sizing["0"]} auto ${tokens.sizing["12"]}`,
+    padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
     position: "relative",
-    width: "100%",
+    width: "calc(100vw - 40px)",
 
     "@media": {
       [breakpoints.tablet]: {
-        margin: `${tokens.sizing["0"]} auto ${tokens.sizing["12"]}`,
-        width: "calc(100vw - 40px)",
+        padding: 0,
       },
-      [breakpoints.phone]: {
-        padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
+      [breakpoints.desktop]: {
+        margin: `${tokens.sizing["12"]} auto`,
+        width: "100%",
       },
     },
   },

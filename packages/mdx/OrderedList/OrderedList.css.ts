@@ -8,7 +8,7 @@ export const orderedList = style({
   lineHeight: tokens.lineHeight.body,
   listStyle: "none",
   margin: "0 auto",
-  padding: `${tokens.sizing["4"]} 0 ${tokens.sizing["8"]} ${tokens.sizing["8"]}`,
+  padding: `${tokens.sizing["4"]} 0 ${tokens.sizing["8"]} ${tokens.sizing["5"]}`,
   position: "relative",
   transition: tokens.motion.colorModeTransition,
   width: "100%",
@@ -17,8 +17,8 @@ export const orderedList = style({
     [breakpoints.tablet]: {
       paddingLeft: 0,
     },
-    [breakpoints.phone]: {
-      paddingLeft: tokens.sizing["5"],
+    [breakpoints.desktop]: {
+      paddingLeft: tokens.sizing["8"],
     },
   },
 })

@@ -15,7 +15,7 @@
   - [ ] tags index page & tag pages, someday
   - [ ] contact page?
 - [ ] UX
-  - [ ] new icon. dark mode icon would be sick whilst I'm at it.
+  - [ ] new icon. dark mode icon would be sick whilst I'm at it.asa
     - [ ] heavvy metal font `V`, maybe?
   - [ ] darkmode switcher overlaps focus ring :(
   - [ ] add a "Skip to main content" thingy
@@ -35,15 +35,13 @@
     - [ ] intermediate size for one level of subhead. no need for more
     - [ ] 24px main body text / 18px mobile
     - [ ] small text for UI elements and such?
-  - [ ] simplify breakpoints
-    - [ ] swap to mobile-first order
+  - [ ] improve breakpoints. do these really make sense?
   - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] create a fallback for the MB fonts?
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] look at Slot pattern from Radix, see if i need that for better polymorphism
     - [ ] get `ref`s working for polymorphic components?
     - [ ] figure out how to use `<Link>` also for Next links
-  - [ ] change name to Basalt
   - [ ] add an h3
   - [ ] make sure `<em>` and `<strong>` work
 - [ ] flesh out package READMEs
