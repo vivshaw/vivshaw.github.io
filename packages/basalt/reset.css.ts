@@ -46,7 +46,7 @@ globalStyle("audio, canvas, iframe, img, svg, video", {
 })
 
 globalStyle("input, textarea, select, button", {
-  fontFamily: "orpheuspro",
+  fontFamily: "inherit",
 })
 
 globalStyle("input, textarea, select, button", {
