@@ -11,9 +11,13 @@ export const root = style({
   transition: tokens.motion.colorModeTransition,
 })
 
+/**
+ * Size of the chamfered (angled) corners on the content panel.
+ */
+const chamferSize = tokens.sizing["6"]
+
 export const contentPanel = style({
   backgroundColor: tokens.color.background,
-  borderRadius: 0,
   bottom: 0,
   left: 0,
   position: "fixed",
@@ -24,8 +28,20 @@ export const contentPanel = style({
 
   "@media": {
     [breakpoints.tablet]: {
-      borderRadius: tokens.sizing["4"],
       bottom: tokens.sizing["6"],
+      /**
+       * `clip-path: polygon()` creates angled/chamfered corners instead of rounded.
+       */
+      clipPath: `polygon(
+        ${chamferSize} 0,
+        calc(100% - ${chamferSize}) 0,
+        100% ${chamferSize},
+        100% calc(100% - ${chamferSize}),
+        calc(100% - ${chamferSize}) 100%,
+        ${chamferSize} 100%,
+        0 calc(100% - ${chamferSize}),
+        0 ${chamferSize}
+      )`,
       left: tokens.sizing["6"],
       right: tokens.sizing["6"],
       top: tokens.sizing["6"],

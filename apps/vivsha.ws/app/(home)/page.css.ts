@@ -2,6 +2,18 @@ import { style } from "@vanilla-extract/css"
 import { focusRing } from "@vivshaw/basalt/helpers"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
+/** Creates a clip-path polygon for chamfered (angled) corners */
+const chamferedCorners = (size: string) => `polygon(
+  ${size} 0,
+  calc(100% - ${size}) 0,
+  100% ${size},
+  100% calc(100% - ${size}),
+  calc(100% - ${size}) 100%,
+  ${size} 100%,
+  0 calc(100% - ${size}),
+  0 ${size}
+)`
+
 export const homeWrapper = style({
   alignItems: "center",
   display: "flex",
@@ -14,7 +26,7 @@ export const homeWrapper = style({
 
 export const profileCard = style({
   backgroundColor: tokens.color.background,
-  borderRadius: tokens.sizing["6"],
+  clipPath: chamferedCorners(tokens.sizing["4"]),
   display: "flex",
   flexDirection: "column",
   gap: tokens.sizing["4"],
@@ -25,6 +37,7 @@ export const profileCard = style({
 
   "@media": {
     [breakpoints.tablet]: {
+      clipPath: chamferedCorners(tokens.sizing["6"]),
       padding: tokens.sizing["6"],
     },
   },
@@ -108,7 +121,7 @@ export const socialPill = style([
 export const calloutCard = style({
   alignSelf: "center",
   backgroundColor: tokens.color.background,
-  borderRadius: tokens.sizing["4"],
+  clipPath: chamferedCorners(tokens.sizing["4"]),
   color: tokens.color.primary,
   display: "flex",
   flexDirection: "column",
