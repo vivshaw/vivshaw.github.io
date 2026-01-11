@@ -46,3 +46,12 @@
   - [ ] make sure `<em>` and `<strong>` work
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
+- [ ] SEO
+  - [ ] get metadata tag working correctly on non-home pages
+- [ ] style refactor
+  - [ ] better icons
+  - [ ] remove topbar
+  - [ ] new logo
+  - [ ] new menu
+  - [ ] make new menu mobile-friendly
+  - [ ] b/w imagery for existing blogposts

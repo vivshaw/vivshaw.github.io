@@ -10,12 +10,13 @@ This rule describes standards for using the Basalt design system in product.
 
 - Use Basalt style tokens whenever possible. This includes font sizes and weights, colors, spacing, and anything else tokenized in the theme.
 - Use the Basalt `<Text>` component for all typography.
+- Use the Basalt `<Link>` for all links
 
 # Spacing
 
 ## When to Use Spacing Tokens
 
-- Use `tokens.spacing[...]` for all general spacing values including:
+- Use `tokens.sizing[...]` for all general spacing values including:
   - Margins and padding
   - Dimensions and sizes
   - Border radius

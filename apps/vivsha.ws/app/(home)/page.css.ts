@@ -7,7 +7,7 @@ export const homeWrapper = style({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  minHeight: "calc(100vh - 60px)", // Account for navbar
+  minHeight: "calc(100vh - 60px)",
   padding: tokens.sizing["6"],
   paddingTop: tokens.sizing["18"],
 })

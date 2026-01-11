@@ -5,7 +5,6 @@ import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
 import { GlobalProviders } from "./_components/GlobalProviders"
-import { LayoutWrapper } from "./_components/LayoutWrapper"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
@@ -87,9 +86,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/prism-cli.css" />
       </head>
       <body>
-        <GlobalProviders>
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </GlobalProviders>
+        <GlobalProviders>{children}</GlobalProviders>
       </body>
     </html>
   )

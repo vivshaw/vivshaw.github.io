@@ -2,12 +2,18 @@ import { globalStyle } from "@vanilla-extract/css"
 import { tokens } from "./theme/index.css"
 
 globalStyle("html", {
+  /**
+   * Set explicit background to override browser's default dark mode background.
+   * This affects "pull to refresh" areas, margin bleed-through, etc.
+   */
+  backgroundColor: tokens.color.background,
   boxSizing: "border-box",
   cursor: "default",
   fontFamily: tokens.font.serif,
   height: "100%",
   minHeight: "100%",
   textRendering: "optimizeLegibility",
+  transition: tokens.motion.colorModeTransition,
 
   msOverflowStyle: "-ms-autohiding-scrollbar",
   WebkitFontSmoothing: "antialiased",
