@@ -15,10 +15,9 @@
   - [ ] tags index page & tag pages, someday
   - [ ] contact page?
 - [ ] UX
-  - [ ] new icon. dark mode icon would be sick whilst I'm at it.asa
+  - [ ] new icon. dark mode icon would be sick whilst I'm at it.
     - [ ] heavvy metal font `V`, maybe?
   - [ ] darkmode switcher overlaps focus ring :(
-  - [ ] add a "Skip to main content" thingy
 - [ ] styling
   - [ ] use layers
   - [ ] why does navbar shift up slightly when I go to mobile?
@@ -49,9 +48,8 @@
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
-  - [ ] better icons
-  - [ ] remove topbar
   - [ ] new logo
   - [ ] new menu
   - [ ] make new menu mobile-friendly
   - [ ] b/w imagery for existing blogposts
+  - [ ] new darkmode switcher

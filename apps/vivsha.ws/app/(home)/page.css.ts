@@ -85,7 +85,7 @@ export const name = style({
 export const location = style({
   alignItems: "center",
   display: "flex",
-  gap: tokens.sizing["1"],
+  gap: tokens.sizing["2"],
   color: tokens.color.primary,
   fontFamily: tokens.font.sans,
   fontSize: tokens.fontSize["200"],
@@ -117,6 +117,12 @@ export const socialPill = style([
   },
   focusRing,
 ])
+
+export const socialIcon = style({
+  height: 14,
+  marginTop: 1,
+  width: 14,
+})
 
 export const calloutCard = style({
   alignSelf: "center",

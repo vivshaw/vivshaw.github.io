@@ -948,6 +948,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/fontawesome-common-types@npm:7.1.0":
+  version: 7.1.0
+  resolution: "@fortawesome/fontawesome-common-types@npm:7.1.0"
+  checksum: 4cc34a4cd4b96dcf4e83a40f9537038e25a6069b6c6f57c15138b9e00188b3f610ff794995672548831c51634b5513111743ae41b9ce68b836954e0f0044766a
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-svg-core@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@fortawesome/fontawesome-svg-core@npm:7.1.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 7.1.0
+  checksum: 83d0839257c979dfd689ca068d231fca00896da97e1f91fd4a1e27de87b5afb1bf341dc2cbc90e9476885bb720bd9d0cf1d29f7736338ecdba3fceb6f923298e
+  languageName: node
+  linkType: hard
+
+"@fortawesome/free-brands-svg-icons@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@fortawesome/free-brands-svg-icons@npm:7.1.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 7.1.0
+  checksum: 9f4b5f412fa3452b5a70514316339521123bfe8320922860ec11bd396445e2e2882be34690600526b86d2b45be2a122903bf26cf1659f67ec449d30e173720ab
+  languageName: node
+  linkType: hard
+
+"@fortawesome/free-solid-svg-icons@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@fortawesome/free-solid-svg-icons@npm:7.1.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 7.1.0
+  checksum: f239480ac1bb3591bbec3c01690054aa3801fa78cd5eafe9128c2e14a9a2a760fc0f5a34b7ed2533056d524c284114af0a6e1dd1f4b8ca89fefb8f8660a3a158
+  languageName: node
+  linkType: hard
+
+"@fortawesome/react-fontawesome@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@fortawesome/react-fontawesome@npm:3.1.1"
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ~6 || ~7
+    react: ^18.0.0 || ^19.0.0
+  checksum: e25654313ed35d792c0a0f4a7223ffbc881a407da4d7c1ded6fc6f9d91c04627aff02f200d2c4d7d737e3d240e4b69bd42c820e916dae5714cf300720d28be8a
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -2686,6 +2730,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vivshaw/vivsha.ws@workspace:apps/vivsha.ws"
   dependencies:
+    "@fortawesome/fontawesome-svg-core": ^7.1.0
+    "@fortawesome/free-brands-svg-icons": ^7.1.0
+    "@fortawesome/free-solid-svg-icons": ^7.1.0
+    "@fortawesome/react-fontawesome": ^3.1.1
     "@mdx-js/loader": 3.1.0
     "@mdx-js/react": 3.1.0
     "@next/bundle-analyzer": ^15.1.3

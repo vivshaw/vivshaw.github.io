@@ -1,16 +1,22 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faBluesky,
+  faGithub,
+  faGoodreads,
+  faLinkedin,
+  faMastodon,
+} from "@fortawesome/free-brands-svg-icons"
+import {
+  faEnvelope,
+  faLink,
+  faMountainCity,
+  faZ,
+} from "@fortawesome/free-solid-svg-icons"
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import Image from "next/image"
 import { Link } from "@vivshaw/basalt/components"
 
 import { author } from "#data"
-import { BlueskyIcon } from "#icons/social/Bluesky"
-import { GithubIcon } from "#icons/social/Github"
-import { LinkedInIcon } from "#icons/social/LinkedIn"
-import { MailtoIcon } from "#icons/social/Mailto"
-import { MastodonIcon } from "#icons/social/Mastodon"
-import { GoodreadsIcon } from "#icons/social/Goodreads"
-import { UrlIcon } from "#icons/social/Url"
-import { ZoteroIcon } from "#icons/social/Zotero"
-import { MountainsIcon } from "#icons/ui/Mountains"
 import { schemaHelper } from "#lib/metadataHelpers"
 
 import {
@@ -22,50 +28,51 @@ import {
   location,
   name,
   profileCard,
+  socialIcon,
   socialLinks,
   socialPill,
 } from "./page.css"
 
-const socialItems = [
+const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
   {
     href: author.socials.github,
-    icon: GithubIcon,
+    icon: faGithub,
     label: "vivshaw",
   },
   {
     href: author.socials.bluesky,
-    icon: BlueskyIcon,
-    label: "vivsha.ws",
+    icon: faBluesky,
+    label: "@vivsha.ws",
   },
   {
     href: author.socials.mastodon,
-    icon: MastodonIcon,
+    icon: faMastodon,
     label: "@vivshaw",
   },
   {
     href: "https://www.goodreads.com/vivshaw",
-    icon: GoodreadsIcon,
+    icon: faGoodreads,
     label: "vivshaw",
   },
   {
     href: author.socials.linkedin,
-    icon: LinkedInIcon,
+    icon: faLinkedin,
     label: "LinkedIn",
   },
   {
     href: author.socials.zotero,
-    icon: ZoteroIcon,
+    icon: faZ,
     label: "vivshaw",
   },
   {
     href: "https://zettel.vivsha.ws",
-    icon: UrlIcon,
+    icon: faLink,
     label: "zettelkasten",
   },
   {
     href: author.mailto,
-    icon: MailtoIcon,
-    label: "Email",
+    icon: faEnvelope,
+    label: "email",
   },
 ]
 
@@ -89,14 +96,14 @@ export default function Home() {
             <figcaption className={figCap}>
               <h1 className={name}>{author.name}</h1>
               <h2 className={location}>
-                <MountainsIcon fill="currentColor" />
-                Vermont
+                <FontAwesomeIcon icon={faMountainCity} width={14} height={14} />
+                Burlington, Vermont
               </h2>
             </figcaption>
           </figure>
 
           <ul className={socialLinks}>
-            {socialItems.map(({ href, icon: Icon, label }) => (
+            {socialItems.map(({ href, icon, label }) => (
               <li key={label}>
                 <a
                   href={href}
@@ -104,7 +111,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon fill="currentColor" />
+                  <FontAwesomeIcon icon={icon} className={socialIcon} />
                   {label}
                 </a>
               </li>

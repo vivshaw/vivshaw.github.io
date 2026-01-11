@@ -4,5 +4,17 @@ globs:
 alwaysApply: true
 ---
 
-- use `clsx` to concatenate classes
-- for React components, prefer `export function` syntax over `export const`
+# TypeScript
+
+- For React components, prefer `export function` syntax over `export const`.
+
+# CSS
+
+- _NEVER_ use `!important`.
+- _NEVER_ use inline styles.
+- Use `clsx` to concatenate classes when applying them to React components.
+- Only use global styles when they are absolutely necessary.
+
+# JSX
+
+- Always prefer semantic markup.
