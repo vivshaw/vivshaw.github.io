@@ -13,7 +13,6 @@ export const text = recipe({
     }),
     sprinkles({
       color: "primary",
-      font: "serif",
       fontWeight: "normal",
     }),
   ],
@@ -23,9 +22,14 @@ export const text = recipe({
       normal: sprinkles({ text: "body" }),
       small: sprinkles({ text: "small" }),
     },
+    font: {
+      serif: sprinkles({ font: "serif" }),
+      sans: sprinkles({ font: "sans" }),
+    },
   },
 
   defaultVariants: {
     size: "normal",
+    font: "serif",
   },
 })

@@ -24,6 +24,7 @@ export const link = recipe({
           backgroundPosition: "0 100%",
           backgroundRepeat: "repeat-x",
           backgroundSize: "2px 2px",
+          paddingBottom: "1px",
         },
         lightModeStyles({
           selectors: {

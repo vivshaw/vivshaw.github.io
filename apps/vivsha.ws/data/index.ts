@@ -42,6 +42,7 @@ export type SocialSite =
   | "github"
   | "mastodon"
   | "bluesky"
+  | "zotero"
 
 type Author = {
   /** educational background */
@@ -100,6 +101,7 @@ export const author: Author = {
     linkedin: "https://www.linkedin.com/in/hvivianshaw/",
     mastodon: "https://mastodon.social/@vivshaw",
     twitter: "https://twitter.com/vvvivshaw",
+    zotero: "https://www.zotero.org/vivshaw",
   },
   worksFor: "Mercury",
 }
