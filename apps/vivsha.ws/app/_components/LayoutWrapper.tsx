@@ -1,4 +1,6 @@
 import "@vivshaw/basalt/reset"
+
+import Link from "next/link"
 import React, { PropsWithChildren } from "react"
 
 import {
@@ -9,8 +11,10 @@ import {
   borderRight,
   borderTop,
   borderBottom,
+  logoLink,
+  logoSvg,
 } from "./LayoutWrapper.css"
-import { Navbar } from "./Navbar"
+import { Logo } from "./Logo"
 
 type LayoutWrapperProps = PropsWithChildren<{
   showContentPanel?: boolean
@@ -51,6 +55,10 @@ export function LayoutWrapper({
           <FrameOverlay />
         </>
       )}
+
+      <Link className={logoLink} href="/" title="Go to the homepage">
+        <Logo className={logoSvg} />
+      </Link>
 
       <div className={content}>{children}</div>
     </div>

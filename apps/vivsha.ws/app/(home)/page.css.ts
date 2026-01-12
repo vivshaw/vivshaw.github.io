@@ -21,7 +21,13 @@ export const homeWrapper = style({
   justifyContent: "space-between",
   minHeight: "calc(100vh - 60px)",
   padding: tokens.sizing["6"],
-  paddingTop: tokens.sizing["18"],
+  paddingTop: tokens.sizing["24"], // Extra space for logo on mobile
+
+  "@media": {
+    [breakpoints.tablet]: {
+      paddingTop: tokens.sizing["18"],
+    },
+  },
 })
 
 export const profileCard = style({

@@ -17,7 +17,6 @@
 - [ ] UX
   - [ ] new icon. dark mode icon would be sick whilst I'm at it.
     - [ ] heavvy metal font `V`, maybe?
-  - [ ] darkmode switcher overlaps focus ring :(
 - [ ] styling
   - [ ] use layers
   - [ ] why does navbar shift up slightly when I go to mobile?
@@ -52,4 +51,6 @@
   - [ ] new menu
   - [ ] make new menu mobile-friendly
   - [ ] b/w imagery for existing blogposts
-  - [ ] new darkmode switcher
+  - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
+- [ ] Tooling
+  - [ ] Claude support
