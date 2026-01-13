@@ -5,26 +5,17 @@ import { focusRing } from "@vivshaw/basalt/helpers"
 export const root = style({
   alignItems: "center",
   display: "grid",
-  gridTemplateColumns: "min-content 1fr min-content",
+  gridTemplateColumns: "min-content 1fr",
   gridTemplateRows: "auto",
-  gridTemplateAreas: `
-    "logo    controls right-button"
-    "sub-nav sub-nav  sub-nav"
-  `,
+  gridTemplateAreas: `"logo controls"`,
+  height: `calc(${tokens.sizing["9"]} + ${tokens.sizing["6"]})`, // navbar height + padding
   justifyContent: "space-between",
-  paddingTop: tokens.sizing["5"],
+  paddingTop: tokens.sizing["6"],
   paddingLeft: tokens.sizing["6"],
   paddingRight: tokens.sizing["6"],
   position: "relative",
   width: "100%",
   zIndex: 3,
-
-  "@media": {
-    [breakpoints.desktop]: {
-      paddingTop: tokens.sizing["6"],
-      paddingRight: tokens.sizing["5"],
-    },
-  },
 })
 
 export const interactionHover = style([
@@ -39,20 +30,6 @@ export const interactionHover = style([
     },
   },
   focusRing,
-])
-
-export const iconButton = style([
-  interactionHover,
-  {
-    alignItems: "center",
-    borderRadius: tokens.sizing["1"],
-    display: "flex",
-    gridArea: "right-button",
-    height: tokens.sizing["6"],
-    justifyContent: "center",
-    position: "relative",
-    width: tokens.sizing["10"],
-  },
 ])
 
 export const logoLink = style([
@@ -73,27 +50,17 @@ export const logoLink = style([
 ])
 
 export const controls = style({
-  // On small screens, the controls go in a second row.
   alignItems: "center",
   display: "flex",
-  gridArea: "sub-nav",
-  justifyContent: "flex-start",
+  gridArea: "controls",
+  justifyContent: "flex-end",
   position: "relative",
-
-  "@media": {
-    [breakpoints.desktop]: {
-      // On larger screens, the controls are in the top row, between the logo and dark mode toggle.
-      gridArea: "controls",
-      justifyContent: "flex-end",
-    },
-  },
 })
 
 export const linkList = style({
   display: "flex",
   gap: tokens.sizing["6"],
   listStyle: "none",
-  marginRight: tokens.sizing["8"],
 })
 
 export const link = style([

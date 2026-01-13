@@ -1,10 +1,7 @@
 "use client"
 
-import clsx from "clsx"
-
 import { useColorMode } from "./ColorModeContext"
 import { moonMask, moonOrSun, root } from "./DarkModeToggle.css"
-import { iconButton } from "./Navbar.css"
 
 export function DarkModeToggle() {
   const { colorMode, setColorMode } = useColorMode()
@@ -30,7 +27,7 @@ export function DarkModeToggle() {
 
   return (
     <button
-      className={clsx(iconButton, root)}
+      className={root}
       onClick={toggleColorMode}
       aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
       title={isDark ? "Activate light mode" : "Activate dark mode"}

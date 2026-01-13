@@ -3,5 +3,5 @@ import { PropsWithChildren } from "react"
 import { LayoutWrapper } from "../_components/LayoutWrapper"
 
 export default function MainLayout({ children }: PropsWithChildren<{}>) {
-  return <LayoutWrapper showContentPanel>{children}</LayoutWrapper>
+  return <LayoutWrapper>{children}</LayoutWrapper>
 }

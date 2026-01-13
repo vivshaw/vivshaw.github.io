@@ -1,38 +1,18 @@
 import { style } from "@vanilla-extract/css"
-import { focusRing } from "@vivshaw/basalt/helpers"
 import { breakpoints, tokens } from "@vivshaw/basalt"
-
-/** Creates a clip-path polygon for chamfered (angled) corners */
-const chamferedCorners = (size: string) => `polygon(
-  ${size} 0,
-  calc(100% - ${size}) 0,
-  100% ${size},
-  100% calc(100% - ${size}),
-  calc(100% - ${size}) 100%,
-  ${size} 100%,
-  0 calc(100% - ${size}),
-  0 ${size}
-)`
+import { focusRing } from "@vivshaw/basalt/helpers"
 
 export const homeWrapper = style({
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
+  height: `calc(100vh - ${tokens.sizing["9"]} - ${tokens.sizing["6"]})`, // viewport height - navbar height - padding
   justifyContent: "space-between",
-  minHeight: "calc(100vh - 60px)",
   padding: tokens.sizing["6"],
-  paddingTop: tokens.sizing["24"], // Extra space for logo on mobile
-
-  "@media": {
-    [breakpoints.tablet]: {
-      paddingTop: tokens.sizing["18"],
-    },
-  },
 })
 
 export const profileCard = style({
   backgroundColor: tokens.color.background,
-  clipPath: chamferedCorners(tokens.sizing["4"]),
   display: "flex",
   flexDirection: "column",
   gap: tokens.sizing["4"],
@@ -43,7 +23,6 @@ export const profileCard = style({
 
   "@media": {
     [breakpoints.tablet]: {
-      clipPath: chamferedCorners(tokens.sizing["6"]),
       padding: tokens.sizing["6"],
     },
   },
@@ -133,7 +112,6 @@ export const socialIcon = style({
 export const calloutCard = style({
   alignSelf: "center",
   backgroundColor: tokens.color.background,
-  clipPath: chamferedCorners(tokens.sizing["4"]),
   color: tokens.color.primary,
   display: "flex",
   flexDirection: "column",

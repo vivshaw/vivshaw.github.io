@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-import { DarkModeToggle } from "./DarkModeToggle"
 import { controls, link, linkList, logoLink, root } from "./Navbar.css"
 
 export function Navbar() {
@@ -14,23 +13,21 @@ export function Navbar() {
         <ul className={linkList}>
           <li>
             <Link className={link} href="/blog">
-              Blog
+              blog
             </Link>
           </li>
           <li>
             <a className={link} href="https://zettel.vivsha.ws">
-              Zettel
+              zettel
             </a>
           </li>
           <li>
             <Link className={link} href="/about">
-              About
+              about
             </Link>
           </li>
         </ul>
       </div>
-
-      <DarkModeToggle />
     </nav>
   )
 }

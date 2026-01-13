@@ -13,13 +13,10 @@
   - [ ] is there a need for any additional monorepo tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
-  - [ ] contact page?
 - [ ] UX
-  - [ ] new icon. dark mode icon would be sick whilst I'm at it.
-    - [ ] heavvy metal font `V`, maybe?
+  - [ ] animate social pills on main screen? https://www.joshwcomeau.com/
 - [ ] styling
   - [ ] use layers
-  - [ ] why does navbar shift up slightly when I go to mobile?
   - [ ] banish `pageStyles` directory
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
@@ -47,10 +44,18 @@
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
-  - [ ] new logo
-  - [ ] new menu
-  - [ ] make new menu mobile-friendly
+  - [ ] new favicon
+  - [ ] line up blog index with blog content
+  - [ ] restyle about
+  - [ ] tweak navbar - maybe sans for links?
   - [ ] b/w imagery for existing blogposts
-  - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
+  - [ ] slideout side panel for extra controls/links?
+    - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
+    - [ ] colophon?
+    - [ ] RSS link?
+    - [ ] email?
+    - [ ] move rest of navbar in there??
 - [ ] Tooling
   - [ ] Claude support
+- [ ] add PGP key download link?
+- [ ] make sure RSS works
