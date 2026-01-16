@@ -7,7 +7,6 @@ import { PostMetadata } from "#data"
 import {
   blogListItemLink,
   blogListItemHeading,
-  blogListItemBlurb,
   blogListItemDate,
 } from "./BlogList.css"
 
@@ -31,18 +30,18 @@ interface BlogListItemProps {
 
 function BlogListItem({ post }: BlogListItemProps) {
   const prettyDate = prettyPrintDate(post.date)
-  const hasBlurb = post.blurb
 
   return (
     <Link href={`/blog/${post.slug}`} className={blogListItemLink}>
       <Heading level="2" className={blogListItemHeading}>
         {post.title}
+        {post.blurb && (
+          <>
+            <br />
+            <em>{post.blurb}</em>
+          </>
+        )}
       </Heading>
-      {hasBlurb && (
-        <Text size="normal" className={blogListItemBlurb}>
-          {post.blurb}
-        </Text>
-      )}
       <Text size="small" className={blogListItemDate}>
         {prettyDate}
       </Text>

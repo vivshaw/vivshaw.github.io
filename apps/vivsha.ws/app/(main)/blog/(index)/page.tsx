@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
 
+import { Heading } from "@vivshaw/basalt/components"
+
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { BlogList } from "./_components/BlogList"
 import { getSortedBlogMetas } from "./_lib/getSortedBlogMetas"
+import { blogIndexHeading } from "./layout.css"
 
 export const metadata: Metadata = metadataHelper({
   type: "topLevel",
@@ -31,7 +34,12 @@ export default async function Blog() {
 
   return (
     <>
+      <Heading level="1" className={blogIndexHeading}>
+        Blog
+      </Heading>
+
       <BlogList posts={posts} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

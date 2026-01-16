@@ -45,9 +45,10 @@
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
   - [ ] new favicon
-  - [ ] line up blog index with blog content
+  - [ ] homepage spacing
   - [ ] restyle about
-  - [ ] tweak navbar - maybe sans for links?
+    - [ ] mention systems thinking?
+    - [ ] update content
   - [ ] b/w imagery for existing blogposts
   - [ ] slideout side panel for extra controls/links?
     - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher

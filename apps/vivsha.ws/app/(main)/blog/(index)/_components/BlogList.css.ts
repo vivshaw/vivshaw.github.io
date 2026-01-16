@@ -11,11 +11,6 @@ export const blogListItemLink = style([
 ])
 
 export const blogListItemHeading = style({
-  marginBottom: tokens.sizing["1"],
-})
-
-export const blogListItemBlurb = style({
-  color: tokens.color.grey,
   marginBottom: tokens.sizing["2"],
 })
 
