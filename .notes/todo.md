@@ -45,7 +45,6 @@
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
   - [ ] new favicon
-  - [ ] homepage spacing
   - [ ] restyle about
     - [ ] mention systems thinking?
     - [ ] update content

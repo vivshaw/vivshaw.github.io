@@ -17,6 +17,7 @@ export const profileCard = style({
   flexDirection: "column",
   gap: tokens.sizing["4"],
   height: "fit-content",
+  marginTop: tokens.sizing["16"],
   maxWidth: "450px",
   padding: tokens.sizing["4"],
   width: "fit-content",
