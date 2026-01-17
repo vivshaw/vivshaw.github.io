@@ -1,8 +1,8 @@
-# Bundle measurements:
+# bundle measurements:
 
 ## with Emotion and ThemeUI:
 
-Not bad to start with!
+not bad to start with!
 
 ```
 Route (pages)                                    Size     First Load JS
@@ -38,7 +38,7 @@ Route (pages)                                    Size     First Load JS
 
 ## with Vanilla Extract:
 
-Noted across-the-board improvement from yanking out CSS-in-JS and replacing with static CSS generation.
+noted across-the-board improvement from yanking out CSS-in-JS and replacing with static CSS generation.
 
 ```
 Route (pages)                                    Size     First Load JS
@@ -74,9 +74,9 @@ Route (pages)                                    Size     First Load JS
   - doc: 11.3kb
   - font: 171kb
 
-## With RSC / Next.js app router
+## with RSC / Next.js app router
 
-somehow, it got a bit worse! Home now ships almost as much as before, and Blog ships _more_ than before!
+somehow, it got a bit worse! `/home` now ships almost as much as before, and `/blog` ships _more_ than before!
 
 ```
 Route (app)                              Size     First Load JS

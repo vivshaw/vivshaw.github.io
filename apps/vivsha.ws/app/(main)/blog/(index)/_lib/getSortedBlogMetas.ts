@@ -1,11 +1,11 @@
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
 import { PostMetadata } from "#data"
 
-/** The dates have to get munged to and from string to be serialized for `getStaticProps` 😔 */
+/** the dates have to get munged to and from string to be serialized for `getStaticProps` (｡╯︵╰｡) */
 type PostFromServer = Omit<PostMetadata, "date"> & { date: string }
 
 /**
- * Fetches all the blog posts that currently exist.
+ * fetches all the blog posts that currently exist.
  */
 export async function getSortedBlogMetas(): Promise<PostFromServer[]> {
   const allSlugs = await listAllBlogSlugs()

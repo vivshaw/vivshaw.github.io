@@ -77,7 +77,7 @@ const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
 ]
 
 /**
- * The home page for the site.
+ * the home page for the site.
  */
 export default function Home() {
   const jsonLdSchema = schemaHelper({ type: "home" })

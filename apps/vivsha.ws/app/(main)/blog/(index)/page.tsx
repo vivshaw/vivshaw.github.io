@@ -15,7 +15,7 @@ export const metadata: Metadata = metadataHelper({
 })
 
 /**
- * The index page for the blog. Lists all the posts.
+ * the index page for the blog. lists all the posts.
  */
 export default async function Blog() {
   const postsDateless = await getSortedBlogMetas()

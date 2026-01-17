@@ -5,26 +5,21 @@ module.exports = [
   {
     type: "input",
     name: "slug",
-    message: "What should the slug be?",
+    message: "post slug:",
   },
   {
     type: "input",
     name: "title",
-    message: "What should the post's title be?",
+    message: "post title:",
   },
   {
     type: "input",
     name: "blurb",
-    message: "Write a short blurb describing this post.",
-  },
-  {
-    type: "list",
-    name: "next",
-    message: "Any related posts? List their slugs here.",
+    message: "write a short blurb describing this post.",
   },
   {
     type: "list",
     name: "tags",
-    message: "What categories is this post about?",
+    message: "tags:",
   },
 ]

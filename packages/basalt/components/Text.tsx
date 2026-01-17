@@ -12,7 +12,7 @@ export type TextProps<T extends ElementType = "p"> =
   }
 
 /**
- * A polymorphic text component.
+ * a polymorphic text component.
  */
 export function Text<T extends ElementType = "p">({
   as,

@@ -66,15 +66,15 @@ type CodePrismProps = {
 }
 
 /**
- * A styled `<pre>` code block for use with the Prism highlighter in MDX.
- * Caveats:
- * - This component assumes that _all_ <pre> blocks are code blocks! It does not check if its child is a <code> element.
- * - The styles are currently applied via globals in `mdxBody.css.ts`.
+ * a styled `<pre>` code block for use with the Prism highlighter in MDX.
+ * caveats:
+ * - this component assumes that _all_ `<pre>` blocks are code blocks! it does not check if its child is a `<code>` element.
+ * - the styles are currently applied via globals in `mdxBody.css.ts`.
  */
 export function CodeBlock(props: PropsWithChildren<CodePrismProps>) {
   return (
     <pre {...props} className={clsx(CODE_BLOCK_CLASS, props.className)}>
-      {/* TODO: Stop this from copying a buncha `Object object`... */}
+      {/* TODO: stop this from copying a buncha `Object object`... */}
       {/* <Copy toCopy={codeString} /> */}
       {props.children}
     </pre>

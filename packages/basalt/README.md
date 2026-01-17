@@ -1,15 +1,15 @@
 # @vivshaw/basalt
 
-This package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). It's built with [Vanilla Extract](https://vanilla-extract.style/), and uses no runtime stylesheets. The library does not use client React and is fully appropriate for React Server Components.
+this package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). it's built with [Vanilla Extract](https://vanilla-extract.style/), and uses no runtime stylesheets. the library does not use client React and is fully appropriate for React Server Components.
 
 ## Components
 
 ### Box
 
-The Box component is the foundation of the Basalt layout system. It provides access to all Basalt design tokens through a prop-based API.
+the `<Box>` component is the foundation of the Basalt layout system. It provides access to all Basalt design tokens through a prop-based API.
 
 ```tsx
-// Basic usage
+// basic usage
 <Box
   sx={{
     m: "4",
@@ -19,7 +19,7 @@ The Box component is the foundation of the Basalt layout system. It provides acc
   Content
 </Box>
 
-// With responsive props
+// with responsive props
 <Box
   sx={{
     m: {
@@ -32,7 +32,7 @@ The Box component is the foundation of the Basalt layout system. It provides acc
   Content
 </Box>
 
-// As another element
+// as another element
 <Box
   sx={{
     m: "4"
@@ -45,7 +45,7 @@ The Box component is the foundation of the Basalt layout system. It provides acc
 
 #### Available Props
 
-Box supports all standard spacing properties:
+`<Box>` supports all standard spacing properties:
 
 - Margin: `m`, `mt`, `mr`, `mb`, `ml`, `mx`, `my`
 - Padding: `p`, `pt`, `pr`, `pb`, `pl`, `px`, `py`
@@ -53,9 +53,9 @@ Box supports all standard spacing properties:
 - Width/Height: `width`, `minWidth`, `maxWidth`, `height`, `minHeight`, `maxHeight`
 - Position: `inset`, `top`, `right`, `bottom`, `left`
 
-All spacing props accept Basalt standard spacing tokens, which follow a scale where 1 unit = 0.25rem (4px).
+all spacing props accept Basalt standard spacing tokens, which follow a scale where 1 unit = 0.25rem (4px).
 
-Box also provides access to typography tokens through props:
+`<Box>` also provides access to typography tokens through props:
 
 - `font`: Font family (`serif`, `sans`, `monospace`)
 - `fontSize`: Font size tokens

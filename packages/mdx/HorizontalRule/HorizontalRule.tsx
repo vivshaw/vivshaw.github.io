@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 import { horizontalRule } from "./HorizontalRule.css"
 
 /**
- * A styled `<hr>` element, for use in MDX.
+ * a styled `<hr>` element, for use in MDX.
  */
 export function HorizontalRule({
   className,

@@ -1,15 +1,15 @@
-# Dependencies
+# dependencies
 node_modules/
 .yarn/
 
-# Build outputs
+# build outputs
 out/
 .next/
 storybook-static/
 
-# Generated files
+# generated files
 *.lock
 tsconfig.tsbuildinfo
 
-# Public assets
+# public assets
 public/

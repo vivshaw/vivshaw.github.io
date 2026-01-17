@@ -6,7 +6,7 @@ import { COLOR_MODE_STORAGE_KEY } from "#data"
 import { ColorMode, ColorModeProvider } from "./ColorModeContext"
 
 /**
- * Saves the site's color mode to localStorage. This allows the user's choice
+ * saves the site's color mode to localStorage. this allows the user's choice
  * to persist across sessions.
  */
 function saveColorModeToLocalStorage(colorMode: ColorMode) {

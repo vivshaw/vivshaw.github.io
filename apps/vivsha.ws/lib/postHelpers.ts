@@ -4,8 +4,8 @@ import path from "path"
 import { BlogFrontmatter, PostMeta } from "#data"
 
 /**
- * Lists all valid blog post slugs.
- * Each subdirectory under `posts/` contains a blog post. The slugs are the subdirectory names.
+ * lists all valid blog post slugs.
+ * each subdirectory under `posts/` contains a blog post. the slugs are the subdirectory names.
  */
 export async function listAllBlogSlugs() {
   const root = path.join(process.cwd(), "../../posts")
@@ -17,7 +17,7 @@ export async function listAllBlogSlugs() {
 }
 
 /**
- * Imports a given blog post, returning both its content and metadata.
+ * imports a given blog post, returning both its content and metadata.
  */
 export async function importBlogPost(slug: string) {
   const { default: PostContent, frontmatter } = await import(

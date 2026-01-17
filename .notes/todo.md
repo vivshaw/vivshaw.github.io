@@ -1,10 +1,10 @@
 # TODO
 
 - [ ] code blocks
-  - [ ] There's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
-  - [ ] Make `code` blocks more legible
-  - [ ] Line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
-  - [ ] Code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
+  - [ ] there's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
+  - [ ] make `code` blocks more legible
+  - [ ] line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
+  - [ ] code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
   - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
 - [ ] tooling
   - [ ] Storybook

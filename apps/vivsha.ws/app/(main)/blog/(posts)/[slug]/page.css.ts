@@ -29,7 +29,7 @@ export const postBody = style({
 })
 
 /**
- * By default, all MDX items get the main grid column.
+ * by default, all MDX items get the main grid column.
  */
 globalStyle(`${postBody} > *`, {
   gridColumn: "main",
@@ -37,7 +37,7 @@ globalStyle(`${postBody} > *`, {
 })
 
 /**
- * Images and code blocks should be fullwidth on mobile
+ * images and code blocks should be fullwidth on mobile
  */
 globalStyle(
   `
@@ -56,7 +56,7 @@ globalStyle(
 )
 
 /**
- * Style the first three words of the first paragraph as small caps
+ * style the first three words of the first paragraph as small caps
  */
 globalStyle(`${postBody} > p:first-of-type .${firstThree}`, {
   fontFeatureSettings: tokens.fontFeatureSettings.serifSmallCaps,

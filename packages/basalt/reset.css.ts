@@ -3,8 +3,8 @@ import { tokens } from "./theme/index.css"
 
 globalStyle("html", {
   /**
-   * Set explicit background to override browser's default dark mode background.
-   * This affects "pull to refresh" areas, margin bleed-through, etc.
+   * set explicit background to override browser's default dark mode background.
+   * this affects "pull to refresh" areas, margin bleed-through, etc.
    */
   backgroundColor: tokens.color.background,
   boxSizing: "border-box",

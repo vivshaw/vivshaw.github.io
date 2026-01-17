@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   // Next config
   metadataBase: new URL("https://vivsha.ws"),
 
-  // Basic tages
+  // basic tags
   applicationName: site.name,
   authors: [{ name: author.name, url: site.url }],
   creator: author.name,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
 
-  // Crawler tags
+  // crawler tags
   robots: {
     index: true,
     follow: true,
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     },
   },
 
-  // Grab bag!
+  // grab bag!
   other: {
-    // Don't turn phone numbers into links
+    // don't turn phone numbers into links
     "format-detection": "telephone=no",
     // Windows tile config
     "msapplication-TileColor": "#111216",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 }
 
 /**
- * Executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
+ * executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
  */
 const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_COLOR_MODE_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_COLOR_MODE_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`
 
@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning // Necessary because the color mode snippet will swap out the class ASAP after page load!
+      suppressHydrationWarning // necessary because the color mode snippet will swap out the class ASAP after page load!
     >
       <head>
         <script>{COLOR_MODE_SNIPPET}</script>

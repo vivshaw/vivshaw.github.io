@@ -7,7 +7,7 @@ interface PostHeroProps {
 }
 
 /**
- * Displays the Hero section for a given Post.
+ * displays the hero section for a given post.
  */
 export function PostHero({ post }: PostHeroProps) {
   return (

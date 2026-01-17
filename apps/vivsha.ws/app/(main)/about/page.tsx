@@ -18,7 +18,7 @@ export const metadata: Metadata = metadataHelper({
 })
 
 /**
- * The about page for the site.
+ * the about page for the site.
  */
 export default function About() {
   const jsonLdSchema = schemaHelper({

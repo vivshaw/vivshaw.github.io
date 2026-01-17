@@ -3,7 +3,7 @@ import { globalStyle, style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
 /**
- * This class must be applied to whatever element wraps the MDX,
+ * this class must be applied to whatever element wraps the MDX,
  * in order for the global MDX styles to apply correctly.
  */
 export const mdxRoot = style({})
@@ -57,7 +57,7 @@ globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .plain ~ .operator`, {
   color: "#ffffff !important",
 })
 
-/** Inline code styles */
+/** inline code styles */
 
 globalStyle(`${mdxRoot} :not(pre) > code`, {
   background: tokens.color.prism.highlight,
@@ -66,7 +66,7 @@ globalStyle(`${mdxRoot} :not(pre) > code`, {
   padding: `${tokens.sizing["half"]} ${tokens.sizing["1"]}`,
 })
 
-/** Image styles */
+/** image styles */
 
 const IMAGE_WIDTHS = {
   regular: "680px",

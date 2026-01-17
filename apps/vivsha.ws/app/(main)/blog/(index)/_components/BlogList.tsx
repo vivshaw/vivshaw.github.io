@@ -14,6 +14,9 @@ interface BlogListProps {
   posts: PostMetadata[]
 }
 
+/**
+ * a list of links to blog posts.
+ */
 export function BlogList({ posts }: BlogListProps) {
   return (
     <>
@@ -28,6 +31,9 @@ interface BlogListItemProps {
   post: PostMetadata
 }
 
+/**
+ * a single link to a blog post in the list.
+ */
 function BlogListItem({ post }: BlogListItemProps) {
   const prettyDate = prettyPrintDate(post.date)
 

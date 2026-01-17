@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 import { unorderedList } from "./UnorderedList.css"
 
 /**
- * A styled `<ul>` element, for use in MDX.
+ * a styled `<ul>` element, for use in MDX.
  */
 export function UnorderedList({
   className,

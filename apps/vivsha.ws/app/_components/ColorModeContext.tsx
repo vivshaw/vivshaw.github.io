@@ -16,7 +16,7 @@ const ColorModeContext = createContext<ContextValues>({
 })
 
 /**
- * Hook for accessing the current color mode.
+ * hook for accessing the current color mode.
  */
 export function useColorMode(): ContextValues {
   const { colorMode, setColorMode } = useContext(ColorModeContext)
@@ -25,14 +25,14 @@ export function useColorMode(): ContextValues {
 
 type ColorModeProviderProps = {
   /**
-   * A callback that fires when the color mode changes.
-   * Use this to persist the preference (e.g., to localStorage).
+   * a callback that fires when the color mode changes.
+   * use this to persist the preference (e.g., to localStorage).
    */
   onUpdateColorMode?: (colorMode: ColorMode) => void
 }
 
 /**
- * Provider for managing the site's color mode.
+ * provider for managing the site's color mode.
  */
 export function ColorModeProvider({
   children,
@@ -40,7 +40,7 @@ export function ColorModeProvider({
 }: React.PropsWithChildren<ColorModeProviderProps>) {
   const [colorMode, setColorMode] = useState<ColorMode>("system")
 
-  // On first load, detect the current color scheme from the DOM.
+  // on first load, detect the current color scheme from the DOM.
   useEffect(() => {
     if (document.documentElement.classList.contains(DARK_COLOR_MODE_CLASS)) {
       setColorMode("dark")
@@ -51,7 +51,7 @@ export function ColorModeProvider({
   }, [])
 
   /**
-   * Set the color mode and update the document classes.
+   * set the color mode and update the document classes.
    */
   function setColorModeAndUpdateStyles(newColorMode: ColorMode) {
     setColorMode(newColorMode)

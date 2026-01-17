@@ -8,18 +8,18 @@ export const root = style({
   top: -1, // for visual centering with the display font
 
   selectors: {
-    // One can only toggle the color mode when JS is active to control the color mode.
-    // vivsha.ws's startup snippet applies a color mode class. So, if one is absent and the
+    // one can only toggle the color mode when JS is active to control the color mode.
+    // vivsha.ws's startup snippet applies a color mode class. if one is absent and the
     // app is still in system color mode, JS ain't working.
-    // So, we shouldn't display a toggle for something we can't toggle!
+    // i shouldn't display a toggle for something i can't toggle!
     [`${SYSTEM_COLOR_MODE_SELECTOR} &`]: {
       display: "none",
     },
   },
 })
 
-// Based off a codepen! Much appreciation to: https://codepen.io/aaroniker/pen/KGpXZo
-// This file deliberately uses exact px values to get the look right, not Basalt tokens.
+// based off a codepen! much appreciation to: https://codepen.io/aaroniker/pen/KGpXZo
+// this file deliberately uses exact px values to get the look right, not Basalt tokens.
 export const moonOrSun = style([
   {
     borderRadius: "50%",

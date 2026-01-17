@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 import { table, tableWrapper } from "./Table.css"
 
 /**
- * A styled `<table>` element, for use in MDX.
+ * a styled `<table>` element, for use in MDX.
  */
 export function Table({
   className,

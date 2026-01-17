@@ -1,7 +1,7 @@
 import { Link } from "@vivshaw/basalt/components"
 
 /**
- * A styled `<a>` element, for use in MDX.
+ * a styled `<a>` element, for use in MDX.
  */
 export function Anchor({
   ...anchorProps
