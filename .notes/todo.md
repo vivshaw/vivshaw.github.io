@@ -45,9 +45,6 @@
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
   - [ ] new favicon
-  - [ ] restyle about
-    - [ ] mention systems thinking?
-    - [ ] update content
   - [ ] b/w imagery for existing blogposts
   - [ ] slideout side panel for extra controls/links?
     - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
@@ -55,7 +52,6 @@
     - [ ] RSS link?
     - [ ] email?
     - [ ] move rest of navbar in there??
-- [ ] Tooling
-  - [ ] Claude support
 - [ ] add PGP key download link?
 - [ ] make sure RSS works
+- [ ] dedicated Identity page, then repurpose front page for something else

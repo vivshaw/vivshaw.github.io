@@ -1,14 +1,15 @@
 import type { Metadata } from "next"
 
+import { Heading, Link, Text } from "@vivshaw/basalt/components"
+
 import { author } from "#data"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import {
-  centeringWrapper,
-  mainpageContent,
-  mainpageHeading,
-  mainpageLink,
-  mainpageList,
-} from "#pageStyles/main.css"
+  aboutWrapper,
+  aboutHeading,
+  aboutParagraph,
+  aboutList,
+} from "./page.css"
 
 export const metadata: Metadata = metadataHelper({
   type: "topLevel",
@@ -30,82 +31,83 @@ export default function About() {
 
   return (
     <>
-      <div className={centeringWrapper}>
-        <div className={mainpageContent}>
-          <div className={mainpageHeading}>
-            I'm a human with an inexhaustible curiosity about the intersection
-            of technology and human life. Currently, I'm an engineering manager
-            at{" "}
-            <a
-              className={mainpageLink}
-              href="https://mercury.com"
-              target="_blank"
-            >
-              Mercury
-            </a>
-            , where I work on our frontend platform team.
-          </div>
+      <div className={aboutWrapper}>
+        <Heading level="1" className={aboutHeading}>
+          About Me
+        </Heading>
 
-          <div className={mainpageHeading}>
-            My professional interests are in:
-            <ul className={mainpageList}>
-              <li>
-                <em>human-computer interaction</em>, especially in the context
-                of <em>developer tooling</em> or{" "}
-                <em>frontend web applications</em>.
-              </li>
-              <li>
-                <em>platform engineering</em> (or <em>DevOps</em>, or{" "}
-                <em>infrastructure engineering</em>, or whichever is the
-                buzzword du jour).
-              </li>
-              <li>
-                <em>machine learning</em>, especially insofar as it intersects
-                with the above.
-              </li>
-            </ul>
-          </div>
+        <Text size="normal" className={aboutParagraph}>
+          I'm a human with an inexhaustible curiosity about the intersection of
+          technology and human life. Currently, I'm an engineering manager at{" "}
+          <Link href="https://mercury.com" target="_blank">
+            Mercury
+          </Link>
+          , where I lead a frontend platform team.
+        </Text>
 
-          <div className={mainpageHeading}>
-            (My amateur interests are many and cryptic. Ask me about heraldry
-            sometime!)
-          </div>
+        <Text size="normal" className={aboutParagraph}>
+          My professional interests are in:
+        </Text>
+        <ul className={aboutList}>
+          <li>
+            <Text size="normal">
+              <em>human-computer interaction</em>, especially in the context of{" "}
+              <em>developer tooling</em> or <em>user interfaces</em>.
+            </Text>
+          </li>
+          <li>
+            <Text size="normal">
+              <em>platform engineering</em> (or <em>DevOps</em>, or{" "}
+              <em>infrastructure engineering</em>, or whichever is the buzzword
+              du jour).
+            </Text>
+          </li>
+          <li>
+            <Text size="normal">
+              <em>machine learning</em>, especially insofar as it intersects
+              with the above.
+            </Text>
+          </li>
+        </ul>
 
-          <div className={mainpageHeading}>
-            I'm an alumna of the University of Vermont, with a B.A. in Economics
-            and Philosophy. When I'm not hacking on stuff, you'll generally find
-            me reading weird fiction or philosophy, stir-frying things, watching
-            Cronenberg films, or DJing techno sets.{" "}
-            <a
-              className={mainpageLink}
-              href="https://github.com/vivshaw/three-wise-monkeys"
-            >
-              Obfuscated code
-            </a>{" "}
-            is a side hobby of mine.
-          </div>
+        <Text size="normal" className={aboutParagraph}>
+          My amateur interests are many and cryptic. Ask me about{" "}
+          <Link href="https://zettel.vivsha.ws/#/page/heraldry" target="_blank">
+            heraldry
+          </Link>{" "}
+          or{" "}
+          <Link
+            href="https://zettel.vivsha.ws/#/page/illumination"
+            target="_blank"
+          >
+            illumination
+          </Link>{" "}
+          sometime!
+        </Text>
 
-          <div className={mainpageHeading}>
-            You can reach me at{" "}
-            <a className={mainpageLink} href={author.mailto}>
-              hey@vivsha.ws
-            </a>
-            . I can sometimes be spotted in various other corners of the
-            internet:{" "}
-            <a className={mainpageLink} href={author.socials.mastodon}>
-              the fediverse
-            </a>
-            ,{" "}
-            <a className={mainpageLink} href={author.socials.bluesky}>
-              Bluesky
-            </a>
-            , and wherever else you might see on{" "}
-            <a className={mainpageLink} href={author.keybase}>
-              my Keybase
-            </a>
-            .
-          </div>
-        </div>
+        <Text size="normal" className={aboutParagraph}>
+          I'm an alumna of the University of Vermont, with a B.A. in Economics
+          and Philosophy, and of University of Colorado Boulder, with an M.Eng.
+          When I'm not hacking on stuff, you'll generally find me reading weird
+          fiction or philosophy, stir-frying things, or DJing techno sets.{" "}
+          <Link
+            href="https://github.com/vivshaw/three-wise-monkeys"
+            target="_blank"
+          >
+            Obfuscated code
+          </Link>{" "}
+          is a side hobby of mine, as is{" "}
+          <Link href="https://github.com/vivshaw/homelab" target="_blank">
+            maintaining my homelab
+          </Link>
+          .
+        </Text>
+
+        <Text size="normal" className={aboutParagraph}>
+          You can reach me at <Link href={author.mailto}>hey@vivsha.ws</Link>.
+          You can find a more complete list of my online presence in{" "}
+          <Link href="/">the profile card on the main page</Link>.
+        </Text>
       </div>
 
       <script
