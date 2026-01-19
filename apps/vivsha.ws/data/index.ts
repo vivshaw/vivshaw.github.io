@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image"
 import { z } from "zod"
 
 import avatarPic from "#images/avatar.jpg"
-import defaultPreview from "#images/default-preview.jpg"
+import defaultPreview from "#images/jb-1610.jpg"
 
 /**
  * The key in `localStorage`used to store the app's color mode
@@ -82,7 +82,7 @@ type Author = {
 }
 
 export const author: Author = {
-  alumniOf: "University of Vermont",
+  alumniOf: "University of Vermont, University of Colorado Boulder",
   avatar: {
     image: avatarPic,
     alt: "A photo of Hannah in a Smithsonian display of a giant salt molecule",

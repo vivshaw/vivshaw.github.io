@@ -44,8 +44,13 @@
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
-  - [ ] new favicon
-  - [ ] b/w imagery for existing blogposts
+  - [ ] image cleanup
+    - [ ] light mode bg for frontpage, QC rest of app too
+    - [ ] social tag preview image - make it lightweight
+    - [ ] make avatar smaller, B&Wify it
+  - [ ] existing posts cleanup
+    - [ ] b/w imagery for existing blogposts
+    - [ ] more concise title & tagline
   - [ ] slideout side panel for extra controls/links?
     - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
     - [ ] colophon?

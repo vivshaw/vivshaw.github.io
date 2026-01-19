@@ -33,11 +33,7 @@ export const metadata: Metadata = {
     apple: [{ sizes: "180x180", url: "/apple-touch-icon.png" }],
     icon: [
       { type: "image/svg+xml", url: "/favicon.svg" },
-      { sizes: "32x32", type: "image/png", url: "/favicon-32x32.png" },
-      { sizes: "16x16", type: "image/png", url: "/favicon-16x16.png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000000" },
+      { sizes: "96x96", type: "image/png", url: "/favicon-96x96.png" },
     ],
     shortcut: "/favicon.ico",
   },
@@ -57,8 +53,6 @@ export const metadata: Metadata = {
   other: {
     // don't turn phone numbers into links
     "format-detection": "telephone=no",
-    // Windows tile config
-    "msapplication-TileColor": "#111216",
   },
 }
 
