@@ -1,6 +1,6 @@
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
+import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS, tokens } from "@vivshaw/basalt"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
@@ -8,7 +8,7 @@ import { GlobalProviders } from "./_components/GlobalProviders"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
-  themeColor: "#111216",
+  themeColor: tokens.color["base-700"],
 }
 
 export const metadata: Metadata = {

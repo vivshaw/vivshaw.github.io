@@ -77,6 +77,24 @@ globalFontFace("vvv-sans", [
 // })
 
 /**
+ * underlying neutral color scale, from lightest (50) to darkest (900).
+ * these are static values that don't change between light/dark modes.
+ */
+const palette = {
+  "base-50": "#ffffff",
+  "base-100": "#fbfbfa",
+  "base-200": "#c7ccd1",
+  "base-300": "#b7bdb4",
+  "base-400": "#73737a",
+  "base-500": "#484a53",
+  "base-550": "#28282b",
+  "base-600": "#1d2126",
+  "base-700": "#111214",
+  "base-800": "#08080a",
+  "base-900": "#000000",
+} as const
+
+/**
  * theme contract for the Basalt design system.
  * all tokens used in the system are defined here.
  */
@@ -90,6 +108,19 @@ export const tokens = createGlobalThemeContract(
       bodyText: null,
       card: null,
       horizontalRule: null,
+
+      /** neutral color scale, from lightest (50) to darkest (900). */
+      "base-50": null,
+      "base-100": null,
+      "base-200": null,
+      "base-300": null,
+      "base-400": null,
+      "base-500": null,
+      "base-550": null,
+      "base-600": null,
+      "base-700": null,
+      "base-800": null,
+      "base-900": null,
 
       /**
        * colors for the Prism syntax highlighter.
@@ -350,13 +381,14 @@ const sharedTheme = {
 const lightVars = {
   ...sharedTheme,
   color: {
-    primary: "#000",
-    grey: "#73737D",
-    background: "#fafafa",
-    accent: "#28282B",
-    bodyText: "#08080B",
-    card: "#fff",
-    horizontalRule: "rgba(8, 8, 11, 0.15)",
+    ...palette,
+    primary: palette["base-900"],
+    grey: palette["base-400"],
+    background: palette["base-100"],
+    accent: palette["base-550"],
+    bodyText: palette["base-800"],
+    card: palette["base-50"],
+    horizontalRule: palette["base-800"],
     prism: prismColors,
   },
 }
@@ -373,13 +405,14 @@ export const lightColorMode = createGlobalTheme(
 const darkVars = {
   ...sharedTheme,
   color: {
-    primary: "#c7ccd5",
-    grey: "#73737D",
-    background: "#111216",
-    accent: "#b7bcb5",
-    bodyText: "#c7ccd5",
-    card: "#1D2128",
-    horizontalRule: "rgba(255, 255, 255, 0.15)",
+    ...palette,
+    primary: palette["base-200"],
+    grey: palette["base-400"],
+    background: palette["base-700"],
+    accent: palette["base-300"],
+    bodyText: palette["base-200"],
+    card: palette["base-600"],
+    horizontalRule: palette["base-200"],
     prism: prismColors,
   },
 }

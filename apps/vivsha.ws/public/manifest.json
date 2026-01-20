@@ -1,5 +1,5 @@
 {
-  "background_color": "#111216",
+  "background_color": "#111214",
   "categories": ["software", "blog", "personal", "machine learning", "human-computer interaction"],
   "description": "Hannah Vivian Shaw's personal website & blog",
   "display": "browser",
@@ -22,5 +22,5 @@
   "orientation": "portrait",
   "short_name": "vivshaw's",
   "start_url": "/",
-  "theme_color": "#111216"
+  "theme_color": "#111214"
 }

@@ -6,6 +6,7 @@ import {
 
 import {
   breakpoints,
+  palette,
   tokens,
   darkColorMode,
   lightColorMode,
@@ -17,5 +18,6 @@ export {
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_SELECTOR,
   breakpoints,
+  palette,
   tokens,
 }
