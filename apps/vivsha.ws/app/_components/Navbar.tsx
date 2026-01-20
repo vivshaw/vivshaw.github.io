@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { author } from "#data"
 import { controls, link, linkList, logoLink, root } from "./Navbar.css"
 
 export function Navbar() {
@@ -17,7 +18,7 @@ export function Navbar() {
             </Link>
           </li>
           <li>
-            <a className={link} href="https://zettel.vivsha.ws">
+            <a className={link} href={author.zettelkasten}>
               zettel
             </a>
           </li>

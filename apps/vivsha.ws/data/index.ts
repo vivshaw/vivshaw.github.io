@@ -2,7 +2,6 @@ import type { StaticImageData } from "next/image"
 import { z } from "zod"
 
 import avatarPic from "#images/avatar.jpg"
-import defaultPreview from "#images/jb-1610.jpg"
 
 /**
  * The key in `localStorage`used to store the app's color mode
@@ -79,6 +78,9 @@ type Author = {
 
   /** current employer */
   worksFor: string
+
+  /** zettelkasten */
+  zettelkasten: string
 }
 
 export const author: Author = {
@@ -104,11 +106,16 @@ export const author: Author = {
     zotero: "https://www.zotero.org/vivshaw",
   },
   worksFor: "Mercury",
+  zettelkasten: "https://zettel.vivsha.ws",
 }
 
 type Site = {
   /** default preview image */
-  defaultPreview: StaticImageData
+  defaultPreview: {
+    src: string
+    width: number
+    height: number
+  }
 
   /** site description */
   description: string
@@ -124,7 +131,11 @@ type Site = {
 }
 
 export const site: Site = {
-  defaultPreview: defaultPreview,
+  defaultPreview: {
+    src: "/home-bg-dark-optimized.jpg",
+    width: 1920,
+    height: 1200,
+  },
   description: "Hannah Vivian Shaw's personal website & blog",
   name: "vivshaw's webbed sight",
   shortName: "vivshaw's",

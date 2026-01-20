@@ -72,12 +72,12 @@ export default function About() {
 
         <Text size="normal" className={aboutParagraph}>
           My amateur interests are many and cryptic. Ask me about{" "}
-          <Link href="https://zettel.vivsha.ws/#/page/heraldry" target="_blank">
+          <Link href={`${author.zettelkasten}/#/page/heraldry`} target="_blank">
             heraldry
           </Link>{" "}
           or{" "}
           <Link
-            href="https://zettel.vivsha.ws/#/page/illumination"
+            href={`${author.zettelkasten}/#/page/illumination`}
             target="_blank"
           >
             illumination

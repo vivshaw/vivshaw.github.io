@@ -53,7 +53,6 @@ export const figCap = style({
 
 export const avatar = style({
   borderRadius: "40%",
-  filter: "grayscale(100%)",
   gridArea: "avatar",
   height: "80px",
   objectFit: "cover",

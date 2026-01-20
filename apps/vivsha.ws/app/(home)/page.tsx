@@ -65,7 +65,7 @@ const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
     label: "vivshaw",
   },
   {
-    href: "https://zettel.vivsha.ws",
+    href: author.zettelkasten,
     icon: faLink,
     label: "zettelkasten",
   },
@@ -123,8 +123,8 @@ export default function Home() {
           <strong>What&apos;s New</strong>
           <p>
             Check out my digital garden at{" "}
-            <Link href="https://zettel.vivsha.ws" target="_blank">
-              zettel.vivsha.ws
+            <Link href={author.zettelkasten} target="_blank">
+              {author.zettelkasten}
             </Link>{" "}
             for daily updates.
           </p>
