@@ -1,3 +1,0 @@
-This directory exists to contain vanilla-extract styles that will be applied within the NextJS `pages` directory.
-
-It is a temporary workaround- the app will be ported to the `app` directory in the future.

@@ -17,7 +17,6 @@
   - [ ] animate social pills on main screen? https://www.joshwcomeau.com/
 - [ ] styling
   - [ ] use layers
-  - [ ] banish `pageStyles` directory
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
   - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
     - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
