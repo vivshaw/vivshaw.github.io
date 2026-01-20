@@ -29,7 +29,6 @@ Keep exact pixel/rem values ONLY for:
 
 1. Precise visual effects and animations where the exact value is crucial
 2. 1px borders and divider lines
-3. Components that require pixel-perfect dimensions (like DarkModeToggle)
 
 ## Examples
 
@@ -44,3 +43,27 @@ padding: "16px"
 margin: "0.5rem 0"
 gap: "4px"
 ```
+
+# Color Mode
+
+Use `darkModeStyles()` and `lightModeStyles()` from `@vivshaw/basalt/helpers` for mode-specific styles. These handle both explicit mode (toggle) and system preference.
+
+```typescript
+import { style } from "@vanilla-extract/css"
+import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
+
+// ✅ Good
+export const myStyle = style([
+  {
+    // Base styles for both modes
+  },
+  darkModeStyles({
+    backgroundColor: "#111",
+  }),
+  lightModeStyles({
+    backgroundColor: "#fff",
+  }),
+])
+```
+
+Don't manually use `DARK_COLOR_MODE_CLASS`/`LIGHT_COLOR_MODE_CLASS` or raw `prefers-color-scheme` queries.
