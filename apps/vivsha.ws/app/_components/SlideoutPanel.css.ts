@@ -43,6 +43,7 @@ export const panel = style({
   flexDirection: "column",
   padding: tokens.sizing["6"],
   paddingTop: tokens.sizing["10"],
+  paddingRight: tokens.sizing["5"], // align content with X icon (accounts for button's internal padding)
   overflowY: "auto",
   fontFamily: tokens.font.sans,
 
@@ -62,7 +63,7 @@ export const closeButton = style([
   {
     position: "absolute",
     top: tokens.sizing["3"],
-    right: tokens.sizing["4"],
+    right: `calc(${tokens.sizing["4"]} - ${tokens.sizing["2"]})`, // align with hamburger
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
