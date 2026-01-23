@@ -6,7 +6,7 @@ export const homeWrapper = style({
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  height: `calc(100vh - ${tokens.sizing["9"]} - ${tokens.sizing["6"]})`, // viewport height - navbar height - padding
+  height: `calc(100vh - ${tokens.sizing["8"]} - ${tokens.sizing["3"]})`, // viewport height - navbar height (matches Navbar.css.ts)
   justifyContent: "space-between",
   padding: tokens.sizing["6"],
 })

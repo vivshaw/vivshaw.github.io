@@ -55,7 +55,6 @@ export const controls = style({
   display: "flex",
   gridArea: "controls",
   justifyContent: "flex-end",
-  position: "relative",
 })
 
 export const linkList = style({
@@ -65,14 +64,13 @@ export const linkList = style({
   display: "flex",
   gap: tokens.sizing["4"],
   listStyle: "none",
+  zIndex: 1,
 
   "@media": {
     [breakpoints.tablet]: {
       position: "static",
       gap: tokens.sizing["6"],
-      gridArea: "controls",
-      justifySelf: "end",
-      marginRight: tokens.sizing["10"],
+      zIndex: "auto",
     },
   },
 })

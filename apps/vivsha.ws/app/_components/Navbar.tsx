@@ -16,27 +16,26 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
         <em>vivshaw's</em>
       </Link>
 
-      {variant === "full" && (
-        <ul className={linkList}>
-          <li>
-            <Link className={link} href="/blog">
-              blog
-            </Link>
-          </li>
-          <li>
-            <a className={link} href={author.zettelkasten}>
-              zettel
-            </a>
-          </li>
-          <li>
-            <Link className={link} href="/about">
-              about
-            </Link>
-          </li>
-        </ul>
-      )}
-
       <div className={controls}>
+        {variant === "full" && (
+          <ul className={linkList}>
+            <li>
+              <Link className={link} href="/blog">
+                blog
+              </Link>
+            </li>
+            <li>
+              <a className={link} href={author.zettelkasten}>
+                zettel
+              </a>
+            </li>
+            <li>
+              <Link className={link} href="/about">
+                about
+              </Link>
+            </li>
+          </ul>
+        )}
         <SlideoutPanel />
       </div>
     </nav>

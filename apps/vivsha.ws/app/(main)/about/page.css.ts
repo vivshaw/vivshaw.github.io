@@ -36,4 +36,5 @@ export const aboutParagraph = style({
 export const aboutList = style({
   paddingLeft: tokens.sizing["8"],
   marginBottom: tokens.sizing["6"],
+  color: tokens.color.primary,
 })
