@@ -10,7 +10,7 @@ export const heading = recipe({
       wordBreak: "keep-all",
     }),
     sprinkles({
-      color: "primary",
+      color: "textDefault",
       font: "serif",
       fontWeight: "normal",
     }),

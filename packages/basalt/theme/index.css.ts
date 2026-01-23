@@ -101,13 +101,17 @@ const palette = {
 export const tokens = createGlobalThemeContract(
   {
     color: {
-      primary: null,
-      grey: null,
-      background: null,
-      accent: null,
-      bodyText: null,
-      card: null,
-      horizontalRule: null,
+      /**
+       * semantic color tokens
+       * naming convention: <color>-<role>
+       */
+      accentDefault: null,
+      backgroundDefault: null,
+      backgroundSecondary: null,
+      borderDefault: null,
+      borderMuted: null,
+      textDefault: null,
+      textMuted: null,
 
       /** neutral color scale, from lightest (50) to darkest (900). */
       "base-50": null,
@@ -382,13 +386,13 @@ const lightVars = {
   ...sharedTheme,
   color: {
     ...palette,
-    primary: palette["base-900"],
-    grey: palette["base-400"],
-    background: palette["base-100"],
-    accent: palette["base-550"],
-    bodyText: palette["base-800"],
-    card: palette["base-50"],
-    horizontalRule: palette["base-800"],
+    accentDefault: palette["base-550"],
+    backgroundDefault: palette["base-100"],
+    backgroundSecondary: palette["base-50"],
+    borderDefault: palette["base-800"],
+    borderMuted: palette["base-400"],
+    textDefault: palette["base-900"],
+    textMuted: palette["base-400"],
     prism: prismColors,
   },
 }
@@ -406,13 +410,13 @@ const darkVars = {
   ...sharedTheme,
   color: {
     ...palette,
-    primary: palette["base-200"],
-    grey: palette["base-400"],
-    background: palette["base-700"],
-    accent: palette["base-300"],
-    bodyText: palette["base-200"],
-    card: palette["base-600"],
-    horizontalRule: palette["base-200"],
+    accentDefault: palette["base-300"],
+    backgroundDefault: palette["base-700"],
+    backgroundSecondary: palette["base-600"],
+    borderDefault: palette["base-200"],
+    borderMuted: palette["base-400"],
+    textDefault: palette["base-200"],
+    textMuted: palette["base-400"],
     prism: prismColors,
   },
 }
@@ -459,7 +463,7 @@ const unresponsiveProperties = defineProperties({
 
         selectors: {
           "&:focus-visible": {
-            outline: `${tokens.sizing["half"]} solid ${tokens.color.accent}`,
+            outline: `${tokens.sizing["half"]} solid ${tokens.color.accentDefault}`,
             outlineOffset: tokens.sizing["1"],
           },
         },

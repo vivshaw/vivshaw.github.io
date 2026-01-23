@@ -17,7 +17,7 @@ export const hamburgerButton = style([
     background: "transparent",
     border: "none",
     cursor: "pointer",
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     opacity: 0.5,
     transition: "opacity 0.3s ease",
 
@@ -35,7 +35,7 @@ export const panel = style({
   right: 0,
   bottom: 0,
   width: "100vw",
-  background: tokens.color.card,
+  background: tokens.color.backgroundSecondary,
   transform: "translateX(100%)",
   transition: `transform 0.3s ease-in-out, ${tokens.motion.colorModeTransition}`,
   zIndex: 11,
@@ -71,7 +71,7 @@ export const closeButton = style([
     background: "transparent",
     border: "none",
     cursor: "pointer",
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     opacity: 0.5,
     transition: "opacity 0.3s ease",
 
@@ -92,8 +92,8 @@ export const themeSwitcherPosition = style({
 export const section = style({
   marginTop: tokens.sizing["4"],
   marginBottom: tokens.sizing["1"],
-  borderTop: `1px solid color-mix(in srgb, ${tokens.color.grey} 30%, transparent)`,
-  borderBottom: `1px solid color-mix(in srgb, ${tokens.color.grey} 30%, transparent)`,
+  borderTop: `1px solid color-mix(in srgb, ${tokens.color.borderMuted} 30%, transparent)`,
+  borderBottom: `1px solid color-mix(in srgb, ${tokens.color.borderMuted} 30%, transparent)`,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-start",
@@ -101,7 +101,7 @@ export const section = style({
 })
 
 export const sectionLabel = style({
-  color: tokens.color.grey,
+  color: tokens.color.textMuted,
   fontSize: tokens.fontSize["300"],
   paddingTop: tokens.sizing["1"],
 })
@@ -118,7 +118,7 @@ export const navList = style({
 export const navLink = style([
   focusRing,
   {
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     fontSize: tokens.fontSize["400"],
     lineHeight: tokens.lineHeight.body,
     opacity: 0.7,
@@ -153,11 +153,11 @@ export const socialButton = style([
     display: "inline-flex",
     alignItems: "center",
     gap: tokens.sizing["1-half"],
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     fontSize: tokens.fontSize["200"],
     padding: `${tokens.sizing["1"]} ${tokens.sizing["2"]}`,
     background: "transparent",
-    border: `1px solid color-mix(in srgb, ${tokens.color.grey} 50%, transparent)`,
+    border: `1px solid color-mix(in srgb, ${tokens.color.borderMuted} 50%, transparent)`,
     borderRadius: tokens.sizing["1"],
     opacity: 0.7,
     transition: "opacity 0.3s ease",

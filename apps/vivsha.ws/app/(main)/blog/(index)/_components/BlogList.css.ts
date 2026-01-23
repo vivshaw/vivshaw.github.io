@@ -15,5 +15,5 @@ export const blogListItemHeading = style({
 })
 
 export const blogListItemDate = style({
-  color: tokens.color.grey,
+  color: tokens.color.textMuted,
 })

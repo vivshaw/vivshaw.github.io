@@ -3,7 +3,7 @@ import { tokens } from "@vivshaw/basalt"
 import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
 
 export const root = style({
-  backgroundColor: tokens.color.background,
+  backgroundColor: tokens.color.backgroundDefault,
   minHeight: "100vh",
   transition: tokens.motion.colorModeTransition,
 })

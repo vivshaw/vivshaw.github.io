@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
 export const orderedList = style({
-  color: tokens.color.bodyText,
+  color: tokens.color.textDefault,
   counterReset: "list",
   fontSize: tokens.fontSize["100"],
   lineHeight: tokens.lineHeight.body,

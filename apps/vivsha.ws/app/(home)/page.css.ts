@@ -12,7 +12,7 @@ export const homeWrapper = style({
 })
 
 export const profileCard = style({
-  backgroundColor: tokens.color.background,
+  backgroundColor: tokens.color.backgroundDefault,
   display: "flex",
   flexDirection: "column",
   gap: tokens.sizing["4"],
@@ -60,7 +60,7 @@ export const avatar = style({
 })
 
 export const name = style({
-  color: tokens.color.primary,
+  color: tokens.color.textDefault,
   fontFamily: tokens.font.sans,
   fontSize: tokens.fontSize["400"],
   fontWeight: tokens.fontWeight.bold,
@@ -71,7 +71,7 @@ export const location = style({
   alignItems: "center",
   display: "flex",
   gap: tokens.sizing["2"],
-  color: tokens.color.primary,
+  color: tokens.color.textDefault,
   fontFamily: tokens.font.sans,
   fontSize: tokens.fontSize["200"],
   fontWeight: tokens.fontWeight.normal,
@@ -90,10 +90,10 @@ export const socialLinks = style({
 export const socialPill = style([
   {
     alignItems: "center",
-    backgroundColor: tokens.color.background,
-    border: `1px solid ${tokens.color.horizontalRule}`,
+    backgroundColor: tokens.color.backgroundDefault,
+    border: `1px solid ${tokens.color.borderDefault}`,
     borderRadius: "999px",
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     display: "inline-flex",
     fontFamily: tokens.font.sans,
     fontSize: tokens.fontSize["100"],
@@ -111,8 +111,8 @@ export const socialIcon = style({
 
 export const calloutCard = style({
   alignSelf: "center",
-  backgroundColor: tokens.color.background,
-  color: tokens.color.primary,
+  backgroundColor: tokens.color.backgroundDefault,
+  color: tokens.color.textDefault,
   display: "flex",
   flexDirection: "column",
   fontFamily: tokens.font.sans,

@@ -10,7 +10,7 @@ export const container = style({
   height: "32px",
   padding: tokens.sizing["half"],
   borderRadius: "9999px",
-  border: `1px solid color-mix(in srgb, ${tokens.color.grey} 50%, transparent)`,
+  border: `1px solid color-mix(in srgb, ${tokens.color.borderMuted} 50%, transparent)`,
 })
 
 export const button = style([
@@ -26,21 +26,21 @@ export const button = style([
     border: "none",
     borderRadius: "50%",
     background: "transparent",
-    color: tokens.color.grey,
+    color: tokens.color.textMuted,
     cursor: "pointer",
     transition: "color 0.2s ease",
     zIndex: 1,
 
     selectors: {
       "&:hover": {
-        color: tokens.color.primary,
+        color: tokens.color.textDefault,
       },
     },
   },
 ])
 
 export const buttonActive = style({
-  color: tokens.color.primary,
+  color: tokens.color.textDefault,
 })
 
 export const indicator = style({
@@ -48,7 +48,7 @@ export const indicator = style({
   width: "24px",
   height: "24px",
   borderRadius: "50%",
-  background: tokens.color.background,
+  background: tokens.color.backgroundDefault,
   transition: "transform 0.25s ease",
   zIndex: 0,
 })

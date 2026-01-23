@@ -12,7 +12,7 @@ export const text = recipe({
       wordBreak: "keep-all",
     }),
     sprinkles({
-      color: "primary",
+      color: "textDefault",
       fontWeight: "normal",
     }),
   ],

@@ -6,7 +6,7 @@ globalStyle("html", {
    * set explicit background to override browser's default dark mode background.
    * this affects "pull to refresh" areas, margin bleed-through, etc.
    */
-  backgroundColor: tokens.color.background,
+  backgroundColor: tokens.color.backgroundDefault,
   boxSizing: "border-box",
   cursor: "default",
   fontFamily: tokens.font.serif,

@@ -35,7 +35,7 @@ export const interactionHover = style([
 
 export const logoLink = style([
   {
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     fontSize: tokens.fontSize["500"],
     lineHeight: tokens.lineHeight.heading,
     gridArea: "logo",
@@ -43,7 +43,7 @@ export const logoLink = style([
 
     selectors: {
       "&:hover, &:focus-visible": {
-        color: tokens.color.accent,
+        color: tokens.color.accentDefault,
       },
     },
   },
@@ -78,7 +78,7 @@ export const linkList = style({
 export const link = style([
   interactionHover,
   {
-    color: tokens.color.primary,
+    color: tokens.color.textDefault,
     fontSize: tokens.fontSize["300"],
     lineHeight: tokens.lineHeight.body,
 

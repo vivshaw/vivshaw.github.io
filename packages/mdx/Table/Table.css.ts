@@ -7,11 +7,11 @@ export const tableWrapper = style({
 })
 
 export const table = style({
-  background: tokens.color.card,
-  border: `1px solid ${tokens.color.horizontalRule}`,
+  background: tokens.color.backgroundSecondary,
+  border: `1px solid ${tokens.color.borderDefault}`,
   borderCollapse: "separate",
   borderRadius: tokens.sizing["1"],
-  color: tokens.color.grey,
+  color: tokens.color.textMuted,
   fontFamily: tokens.font.sans,
   lineHeight: "1.65",
   margin: `${tokens.sizing["4"]} auto ${tokens.sizing["14"]}`,

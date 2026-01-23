@@ -10,7 +10,7 @@ export const link = recipe({
       transition: tokens.motion.colorModeTransition,
     }),
     sprinkles({
-      color: "primary",
+      color: "textDefault",
       focusRing: "default",
     }),
   ],
@@ -20,7 +20,7 @@ export const link = recipe({
       none: [],
       underline: style([
         {
-          backgroundImage: `linear-gradient(to bottom, ${tokens.color.accent} 0%, ${tokens.color.accent} 100%)`,
+          backgroundImage: `linear-gradient(to bottom, ${tokens.color.accentDefault} 0%, ${tokens.color.accentDefault} 100%)`,
           backgroundPosition: "0 100%",
           backgroundRepeat: "repeat-x",
           backgroundSize: "2px 2px",
