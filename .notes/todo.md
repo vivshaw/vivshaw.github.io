@@ -40,8 +40,7 @@
     - [ ] figure out how to use `<Link>` also for Next links
   - [ ] add an h3
   - [ ] make sure `<em>` and `<strong>` work
-  - [ ] extract a pill component, for the social links
-    - [ ] animate social pills on main screen? https://www.joshwcomeau.com/
+  - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] SEO
@@ -51,7 +50,7 @@
     - [ ] b/w imagery for existing blogposts
     - [ ] more concise title & tagline
   - [ ] colors
-    - [ ] more distinct `card` color, and rename it to `background-secondary`
+    - [ ] more distinct `background-secondary` in light mode
   - [ ] slideout side panel for extra controls/links?
     - [ ] colophon?
 - [ ] add PGP key download link?

@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import Image from "next/image"
-import { Link } from "@vivshaw/basalt/components"
+import { Link, Pill } from "@vivshaw/basalt/components"
 
 import { author } from "#data"
 import { schemaHelper } from "#lib/metadataHelpers"
@@ -30,7 +30,6 @@ import {
   profileCard,
   socialIcon,
   socialLinks,
-  socialPill,
 } from "./page.css"
 
 const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
@@ -57,7 +56,7 @@ const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
   {
     href: author.socials.linkedin,
     icon: faLinkedin,
-    label: "LinkedIn",
+    label: "linkedin",
   },
   {
     href: author.socials.zotero,
@@ -105,15 +104,15 @@ export default function Home() {
           <ul className={socialLinks}>
             {socialItems.map(({ href, icon, label }) => (
               <li key={label}>
-                <a
+                <Pill
+                  as="a"
                   href={href}
-                  className={socialPill}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={icon} className={socialIcon} />
                   {label}
-                </a>
+                </Pill>
               </li>
             ))}
           </ul>

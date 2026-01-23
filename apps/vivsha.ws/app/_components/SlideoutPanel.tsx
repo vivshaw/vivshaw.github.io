@@ -8,6 +8,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Pill } from "@vivshaw/basalt/components"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 
@@ -21,7 +22,6 @@ import {
   panelOpen,
   section,
   sectionLabel,
-  socialButton,
   socialList,
   socialSection,
   themeSwitcherPosition,
@@ -181,38 +181,38 @@ export function SlideoutPanel() {
         <div className={socialSection}>
           <ul className={socialList}>
             <li>
-              <a className={socialButton} href={author.mailto}>
+              <Pill as="a" href={author.mailto}>
                 <FontAwesomeIcon icon={faEnvelope} />
-                Email
-              </a>
+                email
+              </Pill>
             </li>
             <li>
-              <a
-                className={socialButton}
+              <Pill
+                as="a"
                 href={author.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faGithub} />
-                GitHub
-              </a>
+                github
+              </Pill>
             </li>
             <li>
-              <a
-                className={socialButton}
+              <Pill
+                as="a"
                 href={author.socials.bluesky}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faBluesky} />
-                Bluesky
-              </a>
+                bluesky
+              </Pill>
             </li>
             <li>
-              <a className={socialButton} href="/feed.xml">
+              <Pill as="a" href="/feed.xml">
                 <FontAwesomeIcon icon={faRss} />
-                RSS
-              </a>
+                rss
+              </Pill>
             </li>
           </ul>
         </div>

@@ -146,26 +146,3 @@ export const socialList = style({
   flexWrap: "wrap",
   justifyContent: "space-between",
 })
-
-export const socialButton = style([
-  focusRing,
-  {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: tokens.sizing["1-half"],
-    color: tokens.color.textDefault,
-    fontSize: tokens.fontSize["200"],
-    padding: `${tokens.sizing["1"]} ${tokens.sizing["2"]}`,
-    background: "transparent",
-    border: `1px solid color-mix(in srgb, ${tokens.color.borderMuted} 50%, transparent)`,
-    borderRadius: tokens.sizing["1"],
-    opacity: 0.7,
-    transition: "opacity 0.3s ease",
-
-    selectors: {
-      "&:hover, &:focus-visible": {
-        opacity: 1,
-      },
-    },
-  },
-])

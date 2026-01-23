@@ -1,6 +1,5 @@
 import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
-import { focusRing } from "@vivshaw/basalt/helpers"
 
 export const homeWrapper = style({
   alignItems: "center",
@@ -86,22 +85,6 @@ export const socialLinks = style({
   margin: 0,
   padding: 0,
 })
-
-export const socialPill = style([
-  {
-    alignItems: "center",
-    backgroundColor: tokens.color.backgroundDefault,
-    border: `1px solid ${tokens.color.borderDefault}`,
-    borderRadius: "999px",
-    color: tokens.color.textDefault,
-    display: "inline-flex",
-    fontFamily: tokens.font.sans,
-    fontSize: tokens.fontSize["100"],
-    gap: tokens.sizing["2"],
-    padding: `${tokens.sizing["1"]} ${tokens.sizing["2"]}`,
-  },
-  focusRing,
-])
 
 export const socialIcon = style({
   height: 14,
