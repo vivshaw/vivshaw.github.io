@@ -13,8 +13,10 @@
   - [ ] is there a need for any additional monorepo tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
-- [ ] UX
-  - [ ] animate social pills on main screen? https://www.joshwcomeau.com/
+- [ ] MDX
+  - [ ] sidenotes!
+  - [ ] kitchen sink
+  - [ ] once-over for all currently-unused-in-articles components
 - [ ] styling
   - [ ] use layers
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
@@ -38,6 +40,8 @@
     - [ ] figure out how to use `<Link>` also for Next links
   - [ ] add an h3
   - [ ] make sure `<em>` and `<strong>` work
+  - [ ] extract a pill component, for the social links
+    - [ ] animate social pills on main screen? https://www.joshwcomeau.com/
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] SEO
@@ -46,12 +50,12 @@
   - [ ] existing posts cleanup
     - [ ] b/w imagery for existing blogposts
     - [ ] more concise title & tagline
+  - [ ] colors
+    - [ ] ul dots on About don't display in light mode, fix that
+    - [ ] more distinct `card` color, and rename it to `background-secondary`
   - [ ] slideout side panel for extra controls/links?
-    - [ ] new darkmode switcher - adopt ShadCN? https://www.shadcn.io/button/theme-switcher
     - [ ] colophon?
     - [ ] RSS link?
-    - [ ] email?
-    - [ ] move rest of navbar in there??
 - [ ] add PGP key download link?
 - [ ] make sure RSS works
-- [ ] dedicated Identity page, then repurpose front page for something else
+- [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/

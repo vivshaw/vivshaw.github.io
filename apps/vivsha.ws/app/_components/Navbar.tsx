@@ -1,16 +1,22 @@
 import Link from "next/link"
 
 import { author } from "#data"
-import { controls, link, linkList, logoLink, root } from "./Navbar.css"
 
-export function Navbar() {
+import { controls, link, linkList, logoLink, root } from "./Navbar.css"
+import { SlideoutPanel } from "./SlideoutPanel"
+
+type NavbarProps = {
+  variant?: "full" | "abbreviated"
+}
+
+export function Navbar({ variant = "abbreviated" }: NavbarProps) {
   return (
     <nav className={root}>
       <Link className={logoLink} href="/" title="Go to the homepage">
         <em>vivshaw's</em>
       </Link>
 
-      <div className={controls}>
+      {variant === "full" && (
         <ul className={linkList}>
           <li>
             <Link className={link} href="/blog">
@@ -28,6 +34,10 @@ export function Navbar() {
             </Link>
           </li>
         </ul>
+      )}
+
+      <div className={controls}>
+        <SlideoutPanel />
       </div>
     </nav>
   )
