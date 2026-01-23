@@ -35,6 +35,7 @@
     "@vivshaw/basalt": "workspace:^",
     "@vivshaw/mdx": "workspace:^",
     "clsx": "^2.1.1",
+    "feed": "^5.2.0",
     "lodash": "^4.17.21",
     "next": "15.1.3",
     "react": "19.0.0",

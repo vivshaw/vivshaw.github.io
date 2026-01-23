@@ -144,7 +144,7 @@ export const socialList = style({
   margin: 0,
   display: "flex",
   flexWrap: "wrap",
-  gap: tokens.sizing["2"],
+  justifyContent: "space-between",
 })
 
 export const socialButton = style([

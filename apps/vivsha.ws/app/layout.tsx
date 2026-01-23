@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   // Next config
   metadataBase: new URL("https://vivsha.ws"),
 
+  // RSS feed
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
+
   // basic tags
   applicationName: site.name,
   authors: [{ name: author.name, url: site.url }],

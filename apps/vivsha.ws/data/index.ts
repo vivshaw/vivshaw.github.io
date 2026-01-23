@@ -136,7 +136,7 @@ export const site: Site = {
     width: 1920,
     height: 1200,
   },
-  description: "Hannah Vivian Shaw's personal website & blog",
+  description: "hannah vivian shaw's personal website & blog",
   name: "vivshaw's webbed sight",
   shortName: "vivshaw's",
   url: "https://vivsha.ws",

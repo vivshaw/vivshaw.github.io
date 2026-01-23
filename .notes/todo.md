@@ -55,7 +55,6 @@
     - [ ] more distinct `card` color, and rename it to `background-secondary`
   - [ ] slideout side panel for extra controls/links?
     - [ ] colophon?
-    - [ ] RSS link?
 - [ ] add PGP key download link?
 - [ ] make sure RSS works
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/

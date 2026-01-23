@@ -1,7 +1,12 @@
 "use client"
 
 import { faBluesky, faGithub } from "@fortawesome/free-brands-svg-icons"
-import { faBars, faEnvelope, faXmark } from "@fortawesome/free-solid-svg-icons"
+import {
+  faBars,
+  faEnvelope,
+  faRss,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
@@ -201,6 +206,12 @@ export function SlideoutPanel() {
               >
                 <FontAwesomeIcon icon={faBluesky} />
                 Bluesky
+              </a>
+            </li>
+            <li>
+              <a className={socialButton} href="/feed.xml">
+                <FontAwesomeIcon icon={faRss} />
+                RSS
               </a>
             </li>
           </ul>
