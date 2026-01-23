@@ -47,6 +47,9 @@ public/sw*
 public/swe-worker*
 *storybook.log
 
-#test posts
+# test posts
 posts/test/
 posts/test2/
+
+# scratch space
+.scratch/
