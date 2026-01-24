@@ -10,7 +10,7 @@ import Image from "next/image"
 
 import tweepyExample from "./tweepy-example-bw.png"
 
-Perhaps you've run across Twitter bots like [@thesefutures](http://motherboard.vice.com/read/twitter-bot-predicts-these-futures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. It's surprisingly simple and you should give it a try! For the less-technically-inclined, one can create a bot with minimal code using [a tool that will handle the heavy lifting for you](http://cheapbotsdonequick.com/). But if perchance you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
+Perhaps you've run across Twitter bots like [@thesefutures](http://motherboard.vice.com/read/twitter-bot-predicts-these-futures) or [@thinkpiecebot](https://twitter.com/thinkpiecebot) and wondered how to do that yourself. It's surprisingly simple and you should give it a try! For the less technically-inclined, one can create a bot with minimal code using [a tool that will handle the heavy lifting for you](http://cheapbotsdonequick.com/). But if perchance you desire something more than that— you've come to the right place. Today we're going to get our hands dirty with Python and the Twitter API, and code our own Twitter bot from scratch. If this piques your curiosity, then I'd love to show you how simple it can really be, with a pinch of Python magic.
 
 ## Introductory matters
 
@@ -26,13 +26,13 @@ Go to [apps.twitter.com](https://apps.twitter.com/) and click on the "Create New
 
 ⚠️ It's important that you keep these keys private, because anyone with access to them can access the API in your name and freely post to your account! To prevent this from happening, we're going to ensure that your keys do not get checked in to version control. Make a directory for your project, `git init` as you usually would, then create a file entitled `.gitignore` with these contents:
 
-```
+```plain
 twitter_credentials.py
 ```
 
 Now, let's create `twitter_credentials.py` and store your access keys in it:
 
-```py
+```python
 consumer_key = ""
 consumer_secret = ""
 access_token = ""
@@ -45,7 +45,7 @@ Copy and paste the keys and access tokens from Twitter into the appropriate vari
 
 This should be the easiest part of the whole process!
 
-```bash[class="command-line"]
+```shell
 pip install tweepy
 pip install markovify
 ```
@@ -56,14 +56,14 @@ That's it! Now we're ready to code.
 
 OK, let's dive into the code. Make yourself a `tweetbot.py`, and import Tweepy and your Twitter keys:
 
-```py
+```python
 import tweepy
 from twitter_credentials import consumer_key, consumer_secret, access_token, access_token_secret
 ```
 
 Now we need to get authorized with Twitter. Tweepy makes this super simple:
 
-```py
+```python
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
@@ -71,7 +71,7 @@ api = tweepy.API(auth)
 
 Let's test it out!
 
-```py
+```python
 api.update_status("Hello, world! Just testing Python twitter automation with tweepy")
 ```
 
@@ -93,7 +93,7 @@ Before generating Markov chains, we'll need a corpus. This doesn't need to be an
 
 In your `tweetbot.py` you'll need to import Markovify. Then, we'll load up the corpus and build a model with it.
 
-```py
+```python
 import markovify
 
 with open("corpus.txt") as corpus_file:
@@ -104,16 +104,16 @@ model = markovify.Text(corpus)
 
 Time to take our new Markov model for a spin! The `make_sentence()` method will generate a sentence from your model:
 
-```py[class="command-line"][data-prompt=">>>"][data-output="2"]
+```python
 model.make_sentence()
-'I remembered the answer of the house, and once attempted chastisement; but as mere strangers, they had to deceive a fine old hall, rather neglected of late occurrence.'
+# => 'I remembered the answer of the house, and once attempted chastisement; but as mere strangers, they had to deceive a fine old hall, rather neglected of late occurrence.'
 ```
 
 It worked! But if we want our bot to post on Twitter, we'll need to find a way to keep the length of the generated sentences under 140 characters. Conveniently, Markovify provides the `make_short_sentence()` method to do exactly that. Let's give it a try!
 
-```py[class="command-line"][data-prompt=">>>"][data-output="2"]
+```python
 model.make_short_sentence(140)
-'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
+# => 'Refuse to be happy at his features, beautiful in their still severity; at his eyes, bright and dark conjectures.'
 ```
 
 Feel free to [play around with the parameters](https://github.com/jsvine/markovify#advanced-usage) until you like your model's results. Once you're all set, we can move on to building our bot.
@@ -131,7 +131,7 @@ Let's pause a moment and figure out what we want our bot to do before we start w
 
 Let's try to break this down into some variables and methods. Clearly, we'll need to give our bot a `corpus` to load and a `delay` between tweets. We'll need to store a Markovify `model` in order to generate tweets. We've also seen from noodling with Tweepy that we'll need an `api` object. Of these, the `api` and the `model` are the only ones we'll need to use repeatedly, so they'll be class fields; the other two need merely be method arguments. As for methods: we'll only need to authenticate, load our corpus, and make our model once, so it makes sense to put these in the constructor. However, if we pull out the corpus and modeling into a helper method, we'll also be able to change our corpus after the bot is initilized. Making sentences and tweeting them can go in the same method, since we'll always be doing both together. Lastly, automating can be its own thing. If we mock up those class methods, it'll look like this:
 
-```py
+```python
 class TweetBot:
     def __init__(self, corpus):
         # load the text corpus & build a model
@@ -159,7 +159,7 @@ Now that we know what our bot class will look like, let's start filling in the c
 
 If we want to initialize our Markov model in the constructor, we'll need to pass it the path to our `corpus`. We can then call the `load_corpus` method we'll later write. As for the authentication, it'll work just the same as in our earlier Tweepy exploration, except that we'll need to store it in a field.
 
-```py
+```python
     def __init__(self, corpus):
         self.load_corpus(corpus)
 
@@ -173,7 +173,7 @@ If we want to initialize our Markov model in the constructor, we'll need to pass
 
 Just like in our Markovify example, this method will take the path to our corpus file, load its contents into a variable, and train a Markov `model` with it. We'll then store the `model` as a field.
 
-```py
+```python
     def load_corpus(self, corpus):
         with open(corpus) as corpus_file:
             corpus_lines = corpus_file.read()
@@ -184,7 +184,7 @@ Just like in our Markovify example, this method will take the path to our corpus
 
 We've already seen how to generate a tweet from our `model` and how to update our status, so we can just put them together. However, we don't want our bot to crash if a tweet fails for some reason (say, an improperly-formed tweet, or hitting a rate limit). So, let's wrap it in a try-except block to catch any Tweepy errors that get thrown.
 
-```py
+```python
     def tweet(self):
         message = self.model.make_short_sentence(140)
         try:
@@ -197,13 +197,13 @@ We've already seen how to generate a tweet from our `model` and how to update ou
 
 Now we just need to get our bot to post every `delay` seconds until we stop it. The easiest way to do this is Python's `sleep` function. Let's import it:
 
-```py
+```python
 from time import sleep
 ```
 
 Now the rest is trivial.
 
-```py
+```python
     def automate(self, delay):
         while True:
             self.tweet()
@@ -214,7 +214,7 @@ Now the rest is trivial.
 
 Now that we have all the pieces, let's put them together, then write ourselves a main method to automatically tweet every hour.
 
-```py
+```python
 import tweepy
 import markovify
 from time import sleep
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
 Now, we can run our bot from the command line:
 
-```bash[class="command-line"]
+```shell
 python tweetbot.py
 ```
 
