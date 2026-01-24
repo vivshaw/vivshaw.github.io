@@ -4,14 +4,13 @@ import { z } from "zod"
 import avatarPic from "#images/avatar.jpg"
 
 /**
- * The key in `localStorage`used to store the app's color mode
+ * the key in `localStorage`used to store the app's color mode
  */
 export const COLOR_MODE_STORAGE_KEY = "color-theme"
 
 /**
- * The type of the raw Markdown frontmatter included in each blog post.
- *
- * This differs a bit from the complete metadata- it lacks the slug, and the dates are strings.
+ * the raw Markdown frontmatter included in each blog post.
+ * this differs a bit from the complete metadata- it lacks the slug, and the dates are strings.
  */
 export const BlogFrontmatter = z.object({
   blurb: z.optional(z.string()),
@@ -22,7 +21,7 @@ export const BlogFrontmatter = z.object({
 })
 
 /**
- * The type of the complete metadata for a blog post.
+ * the complete metadata for a blog post.
  */
 export const PostMeta = z.object({
   blurb: z.optional(z.string()),
@@ -34,6 +33,16 @@ export const PostMeta = z.object({
 })
 
 export type PostMetadata = z.infer<typeof PostMeta>
+
+/**
+ * the the raw Markdown frontmatter included in each standalone page.
+ */
+export const PageFrontmatter = z.object({
+  title: z.string(),
+  description: z.string(),
+})
+
+export type PageMeta = z.infer<typeof PageFrontmatter>
 
 export type SocialSite =
   | "linkedin"
