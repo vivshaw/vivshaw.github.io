@@ -1,8 +1,5 @@
 # TODO
 
-- [ ] code blocks
-  - [ ] make `code` blocks more legible - are these the unstyled ones?
-  - [ ] CLI style
 - [ ] tooling
   - [ ] Storybook
   - [ ] unit tests? Playwright tests?
@@ -11,6 +8,7 @@
 - [ ] MDX
   - [ ] sidenotes!
   - [ ] kitchen sink
+  - [ ] add github-style callouts, replace ⚠️ grafs with them
   - [ ] once-over for all currently-unused-in-articles components
 - [ ] styling
   - [ ] use layers
@@ -41,3 +39,4 @@
   - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.
   - [ ] showy/hidey navbar - move handler to JS snippet, keep normal otherwise
   - [ ] slideout panel?
+- [ ] 

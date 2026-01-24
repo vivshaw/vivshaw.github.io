@@ -14,6 +14,7 @@ globalStyle(`${mdxRoot} :not(pre) > code`, {
   background: "rgba(101, 117, 133, 0.16)",
   borderRadius: tokens.sizing["2"],
   fontFamily: tokens.font.monospace,
+  fontSize: "0.875em",
   padding: `${tokens.sizing["half"]} ${tokens.sizing["1"]}`,
 })
 
