@@ -82,7 +82,7 @@ globalFontFace("vvv-sans", [
  */
 const palette = {
   "base-50": "#ffffff",
-  "base-100": "#fbfbfa",
+  "base-100": "#f5f5f4",
   "base-200": "#c7ccd1",
   "base-300": "#b7bdb4",
   "base-400": "#73737a",

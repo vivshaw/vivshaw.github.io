@@ -49,8 +49,6 @@
   - [ ] existing posts cleanup
     - [ ] b/w imagery for existing blogposts
     - [ ] more concise title & tagline
-  - [ ] colors
-    - [ ] more distinct `background-secondary` in light mode
   - [ ] slideout side panel for extra controls/links?
     - [ ] colophon?
 - [ ] add PGP key download link?
