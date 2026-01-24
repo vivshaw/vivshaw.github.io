@@ -15,6 +15,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { author } from "#data"
 import {
   closeButton,
+  colophonLink,
   hamburgerButton,
   navLink,
   navList,
@@ -216,6 +217,10 @@ export function SlideoutPanel() {
             </li>
           </ul>
         </div>
+
+        <Link className={colophonLink} href="/colophon" onClick={close}>
+          colophon
+        </Link>
       </div>
     </>
   )

@@ -147,3 +147,24 @@ export const socialList = style({
   flexWrap: "wrap",
   justifyContent: "space-between",
 })
+
+export const colophonLink = style([
+  focusRing,
+  {
+    marginTop: "auto",
+    marginBottom: `calc(-1 * ${tokens.sizing["3"]})`,
+    paddingTop: tokens.sizing["6"],
+    textAlign: "center",
+    fontFamily: tokens.font.sans,
+    fontSize: tokens.fontSize["100"],
+    color: tokens.color.textMuted,
+    opacity: 0.6,
+    transition: "opacity 0.3s ease",
+
+    selectors: {
+      "&:hover, &:focus-visible": {
+        opacity: 1,
+      },
+    },
+  },
+])

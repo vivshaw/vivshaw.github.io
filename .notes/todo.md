@@ -45,8 +45,6 @@
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
-- [ ] style refactor
-  - [ ] slideout side panel for extra controls/links?
-    - [ ] colophon?
 - [ ] add PGP key download link?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
+- [ ] get the cool sticky navbar on scroll up
