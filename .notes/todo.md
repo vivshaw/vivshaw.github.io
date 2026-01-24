@@ -20,11 +20,6 @@
 - [ ] styling
   - [ ] use layers
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
-  - [ ] restyle so all pages can share `.centeringWrapper` etc. and Navbar can be pulled into the main layout
-    - [ ] could then expand the use of grid from something that lives inside the blog post, to something used globally
-    - [ ] that'd also let me make footer spacing really consistent, by defining it on the main wrapper
-    - [ ] h2 seems smaller than h1 on some screens?
-    - [ ] could also eliminate `.centeringWrapper` entirely, maybe? seems fine to remove from the navbar, at least
 - [ ] basalt
   - [ ] simplify text ramp:
     - [ ] 32px main heading / ??? mobile, maybe 24
@@ -47,4 +42,7 @@
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] add PGP key download link?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
-- [ ] get the cool sticky navbar on scroll up
+- [ ] how many of these can i do in a progressive-enhancement way?
+  - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.
+  - [ ] showy/hidey navbar - move handler to JS snippet, keep normal otherwise
+  - [ ] slideout panel?

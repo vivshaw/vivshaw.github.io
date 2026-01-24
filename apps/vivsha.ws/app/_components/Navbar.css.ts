@@ -3,20 +3,30 @@ import { style } from "@vanilla-extract/css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 import { focusRing } from "@vivshaw/basalt/helpers"
 
+export const navbarHeight = `calc(${tokens.sizing["8"]} + ${tokens.sizing["3"]})`
+
 export const root = style({
   alignItems: "center",
   display: "grid",
   gridTemplateColumns: "min-content 1fr",
   gridTemplateRows: "auto",
   gridTemplateAreas: `"logo controls"`,
-  height: `calc(${tokens.sizing["8"]} + ${tokens.sizing["3"]})`, // navbar height + padding
+  height: navbarHeight,
   justifyContent: "space-between",
   paddingTop: tokens.sizing["3"],
   paddingLeft: tokens.sizing["4"],
   paddingRight: tokens.sizing["4"],
-  position: "relative",
+  position: "fixed",
+  top: 0,
+  left: 0,
   width: "100%",
-  zIndex: 3,
+  zIndex: 10,
+  transform: "translateY(0)",
+  transition: `transform 0.3s ease-in-out`,
+})
+
+export const rootHidden = style({
+  transform: "translateY(-100%)",
 })
 
 export const interactionHover = style([

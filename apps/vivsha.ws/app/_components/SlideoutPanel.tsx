@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Pill } from "@vivshaw/basalt/components"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 
 import { author } from "#data"
 import {
@@ -31,9 +32,15 @@ import { ThemeSwitcher } from "./ThemeSwitcher"
 
 export function SlideoutPanel() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  // Track mount state for portal (SSR safety)
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const open = useCallback(() => {
     setIsOpen(true)
@@ -123,6 +130,95 @@ export function SlideoutPanel() {
     }
   }, [isOpen])
 
+  const panelContent = (
+    <div
+      ref={panelRef}
+      id="slideout-panel"
+      className={`${panel} ${isOpen ? panelOpen : ""}`}
+      aria-hidden={!isOpen}
+      inert={!isOpen ? true : undefined}
+      role="dialog"
+      aria-label="Navigation menu"
+    >
+      <div className={themeSwitcherPosition}>
+        <ThemeSwitcher />
+      </div>
+
+      <button
+        ref={closeButtonRef}
+        className={closeButton}
+        onClick={close}
+        aria-label="Close menu"
+      >
+        <FontAwesomeIcon icon={faXmark} />
+      </button>
+
+      <div className={section}>
+        <span className={sectionLabel}>pages</span>
+        <ul className={navList}>
+          <li>
+            <Link className={navLink} href="/blog" onClick={close}>
+              blog
+            </Link>
+          </li>
+          <li>
+            <a className={navLink} href={author.zettelkasten} onClick={close}>
+              zettel
+            </a>
+          </li>
+          <li>
+            <Link className={navLink} href="/about" onClick={close}>
+              about
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className={socialSection}>
+        <ul className={socialList}>
+          <li>
+            <Pill as="a" href={author.mailto}>
+              <FontAwesomeIcon icon={faEnvelope} />
+              email
+            </Pill>
+          </li>
+          <li>
+            <Pill
+              as="a"
+              href={author.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+              github
+            </Pill>
+          </li>
+          <li>
+            <Pill
+              as="a"
+              href={author.socials.bluesky}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faBluesky} />
+              bluesky
+            </Pill>
+          </li>
+          <li>
+            <Pill as="a" href="/feed.xml">
+              <FontAwesomeIcon icon={faRss} />
+              rss
+            </Pill>
+          </li>
+        </ul>
+      </div>
+
+      <Link className={colophonLink} href="/colophon" onClick={close}>
+        colophon
+      </Link>
+    </div>
+  )
+
   return (
     <>
       <button
@@ -136,92 +232,7 @@ export function SlideoutPanel() {
         <FontAwesomeIcon icon={faBars} />
       </button>
 
-      <div
-        ref={panelRef}
-        id="slideout-panel"
-        className={`${panel} ${isOpen ? panelOpen : ""}`}
-        aria-hidden={!isOpen}
-        inert={!isOpen ? true : undefined}
-        role="dialog"
-        aria-label="Navigation menu"
-      >
-        <div className={themeSwitcherPosition}>
-          <ThemeSwitcher />
-        </div>
-
-        <button
-          ref={closeButtonRef}
-          className={closeButton}
-          onClick={close}
-          aria-label="Close menu"
-        >
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
-
-        <div className={section}>
-          <span className={sectionLabel}>pages</span>
-          <ul className={navList}>
-            <li>
-              <Link className={navLink} href="/blog" onClick={close}>
-                blog
-              </Link>
-            </li>
-            <li>
-              <a className={navLink} href={author.zettelkasten} onClick={close}>
-                zettel
-              </a>
-            </li>
-            <li>
-              <Link className={navLink} href="/about" onClick={close}>
-                about
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className={socialSection}>
-          <ul className={socialList}>
-            <li>
-              <Pill as="a" href={author.mailto}>
-                <FontAwesomeIcon icon={faEnvelope} />
-                email
-              </Pill>
-            </li>
-            <li>
-              <Pill
-                as="a"
-                href={author.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-                github
-              </Pill>
-            </li>
-            <li>
-              <Pill
-                as="a"
-                href={author.socials.bluesky}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faBluesky} />
-                bluesky
-              </Pill>
-            </li>
-            <li>
-              <Pill as="a" href="/feed.xml">
-                <FontAwesomeIcon icon={faRss} />
-                rss
-              </Pill>
-            </li>
-          </ul>
-        </div>
-
-        <Link className={colophonLink} href="/colophon" onClick={close}>
-          colophon
-        </Link>
-      </div>
+      {isMounted && createPortal(panelContent, document.body)}
     </>
   )
 }

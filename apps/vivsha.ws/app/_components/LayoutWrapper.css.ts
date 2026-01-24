@@ -2,10 +2,16 @@ import { style } from "@vanilla-extract/css"
 import { tokens } from "@vivshaw/basalt"
 import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
 
+import { navbarHeight } from "./Navbar.css"
+
 export const root = style({
   backgroundColor: tokens.color.backgroundDefault,
   minHeight: "100vh",
   transition: tokens.motion.colorModeTransition,
+})
+
+export const navbarSpacer = style({
+  height: navbarHeight,
 })
 
 export const imageBackground = style([
