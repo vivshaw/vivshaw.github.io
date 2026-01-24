@@ -46,9 +46,6 @@
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
 - [ ] style refactor
-  - [ ] existing posts cleanup
-    - [ ] b/w imagery for existing blogposts
-    - [ ] more concise title & tagline
   - [ ] slideout side panel for extra controls/links?
     - [ ] colophon?
 - [ ] add PGP key download link?
