@@ -42,8 +42,8 @@ const withMDX = createMDX({
         rehypeShiki,
         {
           themes: {
-            light: "github-light",
-            dark: "dracula",
+            light: "vitesse-light",
+            dark: "kanagawa-dragon",
           },
           defaultColor: false,
           transformers: [

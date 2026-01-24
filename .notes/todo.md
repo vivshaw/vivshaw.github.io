@@ -3,7 +3,6 @@
 - [ ] code blocks
   - [ ] make `code` blocks more legible - are these the unstyled ones?
   - [ ] CLI style
-  - [ ] theme change up
 - [ ] tooling
   - [ ] Storybook
   - [ ] unit tests? Playwright tests?
