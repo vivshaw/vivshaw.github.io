@@ -26,8 +26,11 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@shikijs/rehype": "^3.21.0",
+    "@shikijs/transformers": "^3.21.0",
     "hygen": "^6.2.11",
     "prettier": "^3.4.2",
+    "shiki": "^3.21.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {

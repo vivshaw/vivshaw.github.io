@@ -8,59 +8,10 @@ import { breakpoints, tokens } from "@vivshaw/basalt"
  */
 export const mdxRoot = style({})
 
-/** Prism code block styles */
-export const REMARK_CODE_BLOCK_CLASS = "remark-highlight"
-
-globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .token-line`, {
-  borderLeft: "3px solid transparent",
-})
-
-globalStyle(
-  `${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .token-line.highlight-line`,
-  {
-    background: tokens.color.prism.highlight,
-    borderLeft: "3px solid transparent",
-    margin: `0 -${tokens.sizing["5"]}`,
-    padding: `0 ${tokens.sizing["5"]}`,
-
-    "@media": {
-      [breakpoints.desktop]: {
-        margin: `0 -${tokens.sizing["8"]}`,
-        padding: `0 ${tokens.sizing["8"]}`,
-      },
-    },
-  },
-)
-
-globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .number-line`, {
-  display: "inline-block",
-  opacity: "0",
-  userSelect: "none",
-  width: "0",
-
-  "@media": {
-    [breakpoints.desktop]: {
-      opacity: "0.3",
-      width: tokens.sizing["8"],
-    },
-  },
-})
-
-globalStyle(
-  `${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .operator + .maybe-class-name`,
-  {
-    color: "#ffcf74 !important",
-  },
-)
-
-globalStyle(`${mdxRoot} .${REMARK_CODE_BLOCK_CLASS} .plain ~ .operator`, {
-  color: "#ffffff !important",
-})
-
 /** inline code styles */
 
 globalStyle(`${mdxRoot} :not(pre) > code`, {
-  background: tokens.color.prism.highlight,
+  background: "rgba(101, 117, 133, 0.16)",
   borderRadius: tokens.sizing["2"],
   fontFamily: tokens.font.monospace,
   padding: `${tokens.sizing["half"]} ${tokens.sizing["1"]}`,

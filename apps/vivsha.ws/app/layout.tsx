@@ -84,11 +84,6 @@ export default function RootLayout({
     >
       <head>
         <script>{COLOR_MODE_SNIPPET}</script>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
-        />
-        <link rel="stylesheet" href="/prism-cli.css" />
       </head>
       <body>
         <GlobalProviders>{children}</GlobalProviders>

@@ -1,16 +1,12 @@
 # TODO
 
 - [ ] code blocks
-  - [ ] there's an error with `'` and `"` in Prism code blocks of unknown language, they turn into &quot;&quot;
-  - [ ] make `code` blocks more legible
-  - [ ] line numbers in code blocks - the line number plugin for remark-mdx seems somewhat borked, won't let me select a custom starting line
-  - [ ] code block highlights - the highlight plugin for remark-mdx applies correct tags but would require a deep restyle to look right
-  - [ ] might make sense to swap to Shiki at this point? already doing dynamic routes
+  - [ ] make `code` blocks more legible - are these the unstyled ones?
+  - [ ] CLI style
+  - [ ] theme change up
 - [ ] tooling
   - [ ] Storybook
   - [ ] unit tests? Playwright tests?
-  - [ ] image optimization for static exports?
-  - [ ] is there a need for any additional monorepo tooling? Yarn PnP? Turborepo?/Nx?
 - [ ] features
   - [ ] tags index page & tag pages, someday
 - [ ] MDX

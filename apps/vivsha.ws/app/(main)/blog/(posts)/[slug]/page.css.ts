@@ -1,5 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css"
-import { REMARK_CODE_BLOCK_CLASS } from "@vivshaw/mdx/mdx.css"
+import { CODE_BLOCK_CONTAINER_CLASS } from "@vivshaw/mdx/CodeBlock/CodeBlock.css"
 import { firstThree } from "@vivshaw/mdx/Paragraph/Paragraph.css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
@@ -41,7 +41,7 @@ globalStyle(`${postBody} > *`, {
  */
 globalStyle(
   `
-  ${postBody} > .${REMARK_CODE_BLOCK_CLASS},
+  ${postBody} > .${CODE_BLOCK_CONTAINER_CLASS},
   ${postBody} > img
   `,
   {

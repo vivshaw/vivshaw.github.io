@@ -2,10 +2,32 @@ import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
+import rehypeShiki from "@shikijs/rehype"
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+} from "@shikijs/transformers"
 import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
-import remarkPrism from "remark-prism"
+
+/** custom Shiki transformer that wraps code blocks in a container with a language label */
+const transformerLanguageLabel = () => ({
+  name: "language-label",
+  root(root) {
+    const pre = root.children[0]
+    // wrap the pre in a container div with the language as a data attribute
+    root.children[0] = {
+      type: "element",
+      tagName: "div",
+      properties: {
+        class: "shiki-container",
+        "data-language": this.options.lang,
+      },
+      children: [pre],
+    }
+  },
+})
 
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -14,14 +36,21 @@ const withBundleAnalyzer = createBundleAnalyzer({
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [
-      remarkFrontmatter,
-      remarkGfm,
-      remarkMdxFrontmatter,
+    remarkPlugins: [remarkFrontmatter, remarkGfm, remarkMdxFrontmatter],
+    rehypePlugins: [
       [
-        remarkPrism,
+        rehypeShiki,
         {
-          plugins: ["command-line"],
+          themes: {
+            light: "github-light",
+            dark: "dracula",
+          },
+          defaultColor: false,
+          transformers: [
+            transformerNotationHighlight(),
+            transformerNotationDiff(),
+            transformerLanguageLabel(),
+          ],
         },
       ],
     ],
