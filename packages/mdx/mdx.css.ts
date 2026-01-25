@@ -14,6 +14,96 @@ import {
  */
 export const mdxRoot = style({})
 
+/** footnote reference (superscript) styles */
+
+globalStyle(`${mdxRoot} sup:has([data-footnote-ref])`, {
+  lineHeight: 0,
+  verticalAlign: "baseline",
+})
+
+globalStyle(`${mdxRoot} [data-footnote-ref]`, {
+  fontSize: "0.85em",
+  position: "relative",
+  top: "-0.5em",
+  marginLeft: "0.1em",
+  backgroundImage: "none",
+  paddingBottom: 0,
+})
+
+globalStyle(`${mdxRoot} [data-footnote-ref]:hover`, {
+  backgroundImage: "none",
+})
+
+/** footnote backlink styles */
+
+globalStyle(`${mdxRoot} [data-footnote-backref]`, {
+  fontSize: "0.75em",
+  marginLeft: tokens.sizing["1"],
+  opacity: 0.5,
+  color: "inherit",
+  transition: `opacity 0.15s ${tokens.easing.easeInQuad}`,
+})
+
+globalStyle(`${mdxRoot} [data-footnote-backref]:visited`, {
+  color: "inherit",
+})
+
+globalStyle(`${mdxRoot} [data-footnote-backref]:hover`, {
+  opacity: 1,
+})
+
+globalStyle(`${mdxRoot} [data-footnote-backref]:focus-visible`, {
+  opacity: 1,
+  outline: `${tokens.sizing["half"]} solid ${tokens.color.accentDefault}`,
+  outlineOffset: tokens.sizing["half"],
+  borderRadius: tokens.sizing["1"],
+})
+
+/** footnotes section styles */
+
+const hrPatternDark = `url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.432617' y='13.8564' width='16' height='1' transform='rotate(-60 0.432617 13.8564)' fill='%2350525B'/%3E%3C/svg%3E")`
+const hrPatternLight = `url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.567383' y='14.1777' width='16' height='1' transform='rotate(-60 0.567383 14.1777)' fill='%232D2E33'/%3E%3C/svg%3E")`
+
+globalStyle(`${mdxRoot} .footnotes h2`, {
+  marginBottom: tokens.sizing["4"],
+  paddingTop: tokens.sizing["10"],
+  backgroundPosition: "top",
+  backgroundRepeat: "repeat-x",
+})
+
+globalStyle(`.${DARK_COLOR_MODE_CLASS} ${mdxRoot} .footnotes h2`, {
+  backgroundImage: hrPatternDark,
+})
+
+globalStyle(`.${LIGHT_COLOR_MODE_CLASS} ${mdxRoot} .footnotes h2`, {
+  backgroundImage: hrPatternLight,
+})
+
+globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR} ${mdxRoot} .footnotes h2`, {
+  "@media": {
+    "(prefers-color-scheme: dark)": {
+      backgroundImage: hrPatternDark,
+    },
+    "(prefers-color-scheme: light)": {
+      backgroundImage: hrPatternLight,
+    },
+  },
+})
+
+globalStyle(`${mdxRoot} .footnotes ol`, {
+  display: "flex",
+  flexDirection: "column",
+  gap: tokens.sizing["2"],
+})
+
+globalStyle(`${mdxRoot} .footnotes li`, {
+  marginBottom: 0,
+})
+
+globalStyle(`${mdxRoot} .footnotes li p`, {
+  marginBottom: 0,
+})
+
 /** inline code styles */
 
 globalStyle(`${mdxRoot} :not(pre) > code`, {
