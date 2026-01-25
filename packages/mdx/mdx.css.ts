@@ -116,6 +116,11 @@ globalStyle(`${mdxRoot} :not(pre) > code`, {
 
 /** image styles */
 
+/* Remove margin from paragraphs that only contain an image */
+globalStyle(`${mdxRoot} p:has(> img:only-child)`, {
+  marginBottom: 0,
+})
+
 const IMAGE_WIDTHS = {
   regular: "680px",
   large: "1004px",
@@ -130,11 +135,8 @@ globalStyle(`${mdxRoot} img`, {
   maxWidth: "100%",
 
   "@media": {
-    [breakpoints.tablet]: {
-      margin: `${tokens.sizing["2-half"]} auto ${tokens.sizing["11"]}`,
-    },
     [breakpoints.desktop]: {
-      margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["8"]}`,
     },
   },
 })
@@ -145,7 +147,7 @@ globalStyle(`${mdxRoot} .Image__Small`, {
 
   "@media": {
     [breakpoints.desktop]: {
-      margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["8"]}`,
     },
   },
 })
@@ -171,7 +173,7 @@ globalStyle(`${mdxRoot} .Image__Medium`, {
   "@media": {
     [breakpoints.desktop]: {
       borderRadius: tokens.sizing["1"],
-      margin: `${tokens.sizing["4"]} auto ${tokens.sizing["12"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["8"]}`,
     },
   },
 })
@@ -194,7 +196,7 @@ globalStyle(`${mdxRoot} .Image__Large`, {
   "@media": {
     [breakpoints.desktop]: {
       left: `-${tokens.sizing["16"]}`,
-      margin: `${tokens.sizing["6"]} auto ${tokens.sizing["14"]}`,
+      margin: `${tokens.sizing["0"]} auto ${tokens.sizing["8"]}`,
     },
   },
 })

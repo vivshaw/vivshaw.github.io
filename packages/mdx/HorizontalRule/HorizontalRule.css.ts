@@ -9,7 +9,7 @@ export const horizontalRule = style([
     border: 0,
     boxSizing: "border-box",
     height: "14.36px",
-    margin: `${tokens.sizing["0"]} auto ${tokens.sizing["12"]}`,
+    margin: `${tokens.sizing["2"]} auto ${tokens.sizing["14"]}`,
     padding: `${tokens.sizing["0"]} ${tokens.sizing["5"]}`,
     position: "relative",
     width: "calc(100vw - 40px)",
@@ -19,7 +19,7 @@ export const horizontalRule = style([
         padding: 0,
       },
       [breakpoints.desktop]: {
-        margin: `${tokens.sizing["12"]} auto`,
+        margin: `${tokens.sizing["2"]} auto ${tokens.sizing["10"]}`,
         width: "100%",
       },
     },

@@ -14,7 +14,7 @@ export const table = style({
   color: tokens.color.textMuted,
   fontFamily: tokens.font.sans,
   lineHeight: "1.65",
-  margin: `${tokens.sizing["4"]} auto ${tokens.sizing["14"]}`,
+  margin: `${tokens.sizing["4"]} auto ${tokens.sizing["6"]}`,
   maxWidth: "486px",
   overflow: "hidden",
   position: "relative",
@@ -22,10 +22,8 @@ export const table = style({
   width: "100%",
 
   "@media": {
-    [breakpoints.tablet]: {
-      margin: `${tokens.sizing["6"]} auto ${tokens.sizing["16"]}`,
-    },
     [breakpoints.desktop]: {
+      margin: `${tokens.sizing["4"]} auto ${tokens.sizing["8"]}`,
       maxWidth: "1004px",
     },
   },

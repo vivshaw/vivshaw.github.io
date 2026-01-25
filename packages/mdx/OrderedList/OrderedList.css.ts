@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 import { sprinkles, tokens } from "@vivshaw/basalt"
 
 export const orderedList = style([
@@ -9,3 +9,8 @@ export const orderedList = style([
     paddingLeft: tokens.sizing["8"],
   },
 ])
+
+/* Remove bottom margin from nested lists */
+globalStyle(`${orderedList} ol, ${orderedList} ul`, {
+  marginBottom: 0,
+})
