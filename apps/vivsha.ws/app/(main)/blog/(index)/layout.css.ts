@@ -7,14 +7,14 @@ export const blogIndexWrapper = style({
   paddingLeft: tokens.sizing["5"],
   paddingRight: tokens.sizing["5"],
   paddingBottom: tokens.sizing["20"],
-  paddingTop: tokens.sizing["24"],
+  paddingTop: tokens.sizing["20"],
 
   "@media": {
     [breakpoints.desktop]: {
       paddingLeft: tokens.sizing["0"],
       paddingRight: tokens.sizing["0"],
       paddingBottom: tokens.sizing["9"],
-      paddingTop: tokens.sizing["48"],
+      paddingTop: tokens.sizing["40"],
     },
   },
 })

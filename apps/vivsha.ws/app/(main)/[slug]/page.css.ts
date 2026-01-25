@@ -11,7 +11,7 @@ export const pageBody = style({
   position: "relative",
   margin: "0 auto",
   maxWidth: "100%",
-  paddingTop: tokens.sizing["24"],
+  paddingTop: tokens.sizing["20"],
   paddingBottom: tokens.sizing["20"],
 
   "@media": {
@@ -22,7 +22,7 @@ export const pageBody = style({
       0px [full-end]
     `,
       maxWidth: tokens.sizing["168"],
-      paddingTop: tokens.sizing["48"],
+      paddingTop: tokens.sizing["40"],
       paddingBottom: tokens.sizing["9"],
     },
   },

@@ -6,8 +6,7 @@
 - [ ] features
   - [ ] tags index page & tag pages, someday
 - [ ] MDX
-  - [ ] sidenotes
-  - [ ] once-over for all currently-unused-in-articles components
+  - [ ] sidenotes!
 - [ ] styling
   - [ ] use layers
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.

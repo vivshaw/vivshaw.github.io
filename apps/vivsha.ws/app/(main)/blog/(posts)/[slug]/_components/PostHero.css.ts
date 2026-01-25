@@ -9,7 +9,7 @@ export const root = style({
   maxWidth: "100%",
   paddingLeft: tokens.sizing["5"],
   paddingRight: tokens.sizing["5"],
-  marginTop: tokens.sizing["24"],
+  marginTop: tokens.sizing["20"],
   position: "relative",
   width: "100%",
 
@@ -19,7 +19,7 @@ export const root = style({
       maxWidth: tokens.sizing["168"],
       paddingLeft: 0,
       paddingRight: 0,
-      marginTop: tokens.sizing["48"],
+      marginTop: tokens.sizing["40"],
     },
   },
 })
