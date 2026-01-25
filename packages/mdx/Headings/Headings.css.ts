@@ -8,3 +8,7 @@ export const h1Style = style({
 export const h2Style = style({
   marginBottom: tokens.sizing["5"],
 })
+
+export const h3Style = style({
+  marginBottom: tokens.sizing["4"],
+})

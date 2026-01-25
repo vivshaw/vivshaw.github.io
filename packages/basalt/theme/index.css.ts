@@ -439,6 +439,16 @@ const unresponsiveProperties = defineProperties({
           },
         },
       },
+      heading3: {
+        fontSize: tokens.fontSize["300"],
+        lineHeight: tokens.lineHeight["heading"],
+
+        "@media": {
+          [breakpoints.desktop]: {
+            fontSize: tokens.fontSize["500"],
+          },
+        },
+      },
     },
   },
   shorthands: {

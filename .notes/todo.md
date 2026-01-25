@@ -6,7 +6,7 @@
 - [ ] features
   - [ ] tags index page & tag pages, someday
 - [ ] MDX
-  - [ ] sidenotes!
+  - [ ] sidenotes
   - [ ] once-over for all currently-unused-in-articles components
 - [ ] styling
   - [ ] use layers
@@ -24,7 +24,6 @@
   - [ ] look at Slot pattern from Radix, see if i need that for better polymorphism
     - [ ] get `ref`s working for polymorphic components?
     - [ ] figure out how to use `<Link>` also for Next links
-  - [ ] add an
   - [ ] make sure `<em>` and `<strong>` work
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
 - [ ] flesh out package READMEs

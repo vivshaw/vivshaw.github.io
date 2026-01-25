@@ -20,6 +20,10 @@ export const heading = recipe({
     level: {
       "1": sprinkles({ text: "heading1" }),
       "2": sprinkles({ text: "heading2" }),
+      "3": sprinkles({ text: "heading3" }),
+      "4": sprinkles({ text: "heading3" }),
+      "5": sprinkles({ text: "heading3" }),
+      "6": sprinkles({ text: "heading3" }),
     },
   },
 })
