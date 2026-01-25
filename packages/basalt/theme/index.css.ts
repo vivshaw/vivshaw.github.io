@@ -251,8 +251,8 @@ const sharedTheme = {
     easeInOutQuart: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
   font: {
-    serif: "vvv-serif, ${FALLBACK_FONT_SERIF}, serif",
-    sans: "vvv-sans, ${FALLBACK_FONT_SANS}, sans-serif",
+    serif: `vvv-serif, ${FALLBACK_FONT_SERIF}, serif`,
+    sans: `vvv-sans, ${FALLBACK_FONT_SANS}, sans-serif`,
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   fontFeatureSettings: {

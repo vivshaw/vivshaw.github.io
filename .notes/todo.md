@@ -1,7 +1,6 @@
 # TODO
 
 - [ ] tooling
-  - [ ] Storybook
   - [ ] unit tests? Playwright tests?
 - [ ] features
   - [ ] tags index page & tag pages, someday
@@ -20,6 +19,8 @@
   - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
+  - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
+  - [ ] Storybook for individual components
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] SEO
