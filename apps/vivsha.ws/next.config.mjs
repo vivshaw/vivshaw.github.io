@@ -7,6 +7,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
 } from "@shikijs/transformers"
+import remarkAlert from "remark-github-blockquote-alert"
 import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
@@ -36,7 +37,12 @@ const withBundleAnalyzer = createBundleAnalyzer({
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkFrontmatter, remarkGfm, remarkMdxFrontmatter],
+    remarkPlugins: [
+      remarkFrontmatter,
+      remarkGfm,
+      remarkAlert,
+      remarkMdxFrontmatter,
+    ],
     rehypePlugins: [
       [
         rehypeShiki,

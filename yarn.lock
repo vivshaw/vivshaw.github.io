@@ -7042,6 +7042,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remark-github-blockquote-alert@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "remark-github-blockquote-alert@npm:2.0.1"
+  dependencies:
+    unist-util-visit: ^5.0.0
+  checksum: 99d19357ada723591f4943cd24282934aa06892ae25287747ec46116fa9b020cb87b04ae8850052098f651f86072edad286650800908cb0b67b697ac3431897f
+  languageName: node
+  linkType: hard
+
 "remark-mdx-frontmatter@npm:^5.0.0":
   version: 5.0.0
   resolution: "remark-mdx-frontmatter@npm:5.0.0"
@@ -8331,6 +8340,7 @@ __metadata:
     "@vanilla-extract/sprinkles": ^1.6.3
     hygen: ^6.2.11
     prettier: ^3.4.2
+    remark-github-blockquote-alert: ^2.0.1
     shiki: ^3.21.0
     typescript: ^5.3.3
   languageName: unknown

@@ -24,7 +24,8 @@ To start, you'll need to get some Twitter credentials so that you can access the
 
 Go to [apps.twitter.com](https://apps.twitter.com/) and click on the "Create New App" button. You'll need to fill out a few fields for your bot's name, description, and website, and to agree to the [Twitter Developer Agreement](https://dev.twitter.com/overview/terms/agreement-and-policy), and then you'll have a new app! Now, go to the Permissions tab and ensure that your app has read and write permissions. Finally, go to the Keys and Access Tokens tab, and create your access tokens. We'll need to store these for your bot.
 
-⚠️ It's important that you keep these keys private, because anyone with access to them can access the API in your name and freely post to your account! To prevent this from happening, we're going to ensure that your keys do not get checked in to version control. Make a directory for your project, `git init` as you usually would, then create a file entitled `.gitignore` with these contents:
+> [!IMPORTANT]
+> It's important that you keep these keys private, because anyone with access to them can access the API in your name and freely post to your account! To prevent this from happening, we're going to ensure that your keys do not get checked in to version control. Make a directory for your project, `git init` as you usually would, then create a file entitled `.gitignore` with these contents:
 
 ```plain
 twitter_credentials.py

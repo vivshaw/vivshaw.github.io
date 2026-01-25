@@ -8,7 +8,7 @@
 - [ ] MDX
   - [ ] sidenotes!
   - [ ] kitchen sink
-  - [ ] add github-style callouts, replace ⚠️ grafs with them
+  - [ ] further improve blockquotes & callouts
   - [ ] once-over for all currently-unused-in-articles components
 - [ ] styling
   - [ ] use layers
@@ -39,4 +39,3 @@
   - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.
   - [ ] showy/hidey navbar - move handler to JS snippet, keep normal otherwise
   - [ ] slideout panel?
-- [ ] 

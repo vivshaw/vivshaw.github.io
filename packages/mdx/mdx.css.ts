@@ -106,3 +106,39 @@ globalStyle(`${mdxRoot} .Image__Large`, {
 globalStyle(`${mdxRoot} img.Image__Large`, {
   borderRadius: "0",
 })
+
+/** GitHub-style alert/callout styles */
+
+globalStyle(`${mdxRoot} .markdown-alert`, {
+  borderLeft: `4px solid ${tokens.color.borderMuted}`,
+  margin: `${tokens.sizing["6"]} 0`,
+  padding: `${tokens.sizing["2"]} ${tokens.sizing["4"]}`,
+})
+
+globalStyle(`${mdxRoot} .markdown-alert > :first-child`, {
+  marginTop: "0",
+})
+
+globalStyle(`${mdxRoot} .markdown-alert > :last-child`, {
+  marginBottom: "0",
+})
+
+globalStyle(`${mdxRoot} .markdown-alert-title`, {
+  display: "flex",
+  alignItems: "center",
+  gap: tokens.sizing["1-half"],
+  fontFamily: `${tokens.font.sans} !important`,
+  fontSize: tokens.fontSize["100"],
+  fontStyle: "normal",
+  fontWeight: tokens.fontWeight.normal,
+  textTransform: "none",
+  marginBottom: tokens.sizing["2"],
+  color: tokens.color.textMuted,
+})
+
+globalStyle(`${mdxRoot} .markdown-alert-title svg`, {
+  width: "1em",
+  height: "1em",
+  fill: "currentColor",
+  flexShrink: 0,
+})

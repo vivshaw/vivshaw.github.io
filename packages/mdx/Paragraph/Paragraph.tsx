@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import { Text } from "@vivshaw/basalt/components"
 
 import { paragraphStyle } from "./Paragraph.css"
@@ -14,7 +15,7 @@ export function Paragraph({
   const wrappedChildren = wrapFirstThreeWords(children)
 
   return (
-    <Text {...restProps} className={paragraphStyle}>
+    <Text {...restProps} className={clsx(paragraphStyle, className)}>
       {wrappedChildren}
     </Text>
   )

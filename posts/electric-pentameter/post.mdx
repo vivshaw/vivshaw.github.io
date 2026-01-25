@@ -77,7 +77,8 @@ Suddenly, it's linear algebra time! We've encoded our corpus as lists of integer
 
 For our labels, we have one label for each sentence, each of which should become a `t`-dimensional one-hot encoded vector. This will be a `num_sentences x num_chars` array. So, we'll initialize another array. Since we are already looping over each sentence in the outer loop of the previous step, we can just use that same loop. Its index will correspond with the 0-dimension, and the integer character encoding will correspond with the 1-dimension.
 
-⚠️ We should make sure to sanity check our matrix dimensions before going any further! It will save you a lot of unnecessary headaches.
+> [!IMPORTANT]
+> We should make sure to sanity check our matrix dimensions before going any further! It will save you a lot of unnecessary headaches.
 
 ```py
 # Vectorize our data and labels. We want everything in one-hot
