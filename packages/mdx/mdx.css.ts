@@ -1,6 +1,12 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 
-import { breakpoints, tokens } from "@vivshaw/basalt"
+import {
+  breakpoints,
+  DARK_COLOR_MODE_CLASS,
+  LIGHT_COLOR_MODE_CLASS,
+  SYSTEM_COLOR_MODE_SELECTOR,
+  tokens,
+} from "@vivshaw/basalt"
 
 /**
  * this class must be applied to whatever element wraps the MDX,
@@ -110,9 +116,32 @@ globalStyle(`${mdxRoot} img.Image__Large`, {
 /** GitHub-style alert/callout styles */
 
 globalStyle(`${mdxRoot} .markdown-alert`, {
-  borderLeft: `4px solid ${tokens.color.borderMuted}`,
-  margin: `${tokens.sizing["6"]} 0`,
-  padding: `${tokens.sizing["2"]} ${tokens.sizing["4"]}`,
+  margin: `0 0 ${tokens.sizing["6"]}`,
+  padding: `${tokens.sizing["2"]} ${tokens.sizing["4"]} ${tokens.sizing["2"]} ${tokens.sizing["5"]}`,
+  backgroundPosition: "left",
+  backgroundRepeat: "repeat-y",
+})
+
+const dashedBorderDark = `url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%2350525B'/%3E%3C/svg%3E")`
+const dashedBorderLight = `url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%232D2E33'/%3E%3C/svg%3E")`
+
+globalStyle(`.${DARK_COLOR_MODE_CLASS} ${mdxRoot} .markdown-alert`, {
+  backgroundImage: dashedBorderDark,
+})
+
+globalStyle(`.${LIGHT_COLOR_MODE_CLASS} ${mdxRoot} .markdown-alert`, {
+  backgroundImage: dashedBorderLight,
+})
+
+globalStyle(`${SYSTEM_COLOR_MODE_SELECTOR} ${mdxRoot} .markdown-alert`, {
+  "@media": {
+    "(prefers-color-scheme: dark)": {
+      backgroundImage: dashedBorderDark,
+    },
+    "(prefers-color-scheme: light)": {
+      backgroundImage: dashedBorderLight,
+    },
+  },
 })
 
 globalStyle(`${mdxRoot} .markdown-alert > :first-child`, {
