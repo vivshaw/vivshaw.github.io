@@ -13,6 +13,9 @@ import {
   SYSTEM_COLOR_MODE_SELECTOR,
 } from "../config"
 
+export const FALLBACK_FONT_SERIF = "vvv-serif-fallback"
+export const FALLBACK_FONT_SANS = "vvv-sans-fallback"
+
 globalFontFace("vvv-serif", [
   {
     src: "url(https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_regular.woff2)",
@@ -67,14 +70,27 @@ globalFontFace("vvv-sans", [
   },
 ])
 
-// TODO: create font fallbacks?
-// globalFontFace(FALLBACK_FONT, {
-//   src: "local(Times New Roman)",
-//   sizeAdjust: "98%",
-//   ascentOverride: "117%",
-//   descentOverride: "45%",
-//   lineGapOverride: "normal",
-// })
+/**
+ * fallback font for serifs
+ */
+globalFontFace(FALLBACK_FONT_SERIF, {
+  src: "local(Times New Roman)",
+  sizeAdjust: "102%",
+  ascentOverride: "normal",
+  descentOverride: "normal",
+  lineGapOverride: "normal",
+})
+
+/**
+ * fallback font for sans-serif
+ */
+globalFontFace(FALLBACK_FONT_SANS, {
+  src: "local(Arial)",
+  sizeAdjust: "89%",
+  ascentOverride: "106%",
+  descentOverride: "25%",
+  lineGapOverride: "normal",
+})
 
 /**
  * underlying neutral color scale, from lightest (50) to darkest (900).
@@ -235,8 +251,8 @@ const sharedTheme = {
     easeInOutQuart: "cubic-bezier(0.77, 0, 0.175, 1)",
   },
   font: {
-    serif: "vvv-serif, serif",
-    sans: "vvv-sans, sans-serif",
+    serif: "vvv-serif, ${FALLBACK_FONT_SERIF}, serif",
+    sans: "vvv-sans, ${FALLBACK_FONT_SANS}, sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   fontFeatureSettings: {

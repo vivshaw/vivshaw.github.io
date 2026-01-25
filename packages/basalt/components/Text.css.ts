@@ -1,16 +1,18 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
 import { sprinkles, tokens } from "../theme/index.css"
 
+const textBase = style({
+  hyphens: "auto",
+  textWrap: "pretty",
+  transition: tokens.motion.colorModeTransition,
+  wordBreak: "keep-all",
+})
+
 export const text = recipe({
   base: [
-    style({
-      hyphens: "auto",
-      textWrap: "pretty",
-      transition: tokens.motion.colorModeTransition,
-      wordBreak: "keep-all",
-    }),
+    textBase,
     sprinkles({
       color: "textDefault",
       fontWeight: "normal",
@@ -32,4 +34,12 @@ export const text = recipe({
     size: "normal",
     font: "serif",
   },
+})
+
+globalStyle(`${textBase} strong, ${textBase} b`, {
+  fontWeight: "bold",
+})
+
+globalStyle(`${textBase} em, ${textBase} i`, {
+  fontStyle: "italic",
 })
