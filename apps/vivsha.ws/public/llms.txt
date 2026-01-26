@@ -1,0 +1,32 @@
+# https://vivsha.ws
+
+personal website and blog of hannah vivian shaw.
+
+## ABOUT
+hannah is a software engineer specializing in frontend development, developer tooling, platform engineering, and machine learning. she holds a B.A. in Economics and Philosophy from the University of Vermont and an M.Eng. from University of Colorado Boulder. currently, she is an engineering manager at Mercury. her handle is vivshaw.
+
+## KEY PAGES
+- /about - bio, background, and contact information
+- /colophon - technical details about the site and typography
+- /blog - blog posts on programming, machine learning, and software engineering
+
+## CONTACT
+- email: hey@vivsha.ws
+- PGP Key: `/pgp-key.asc` (fingerprint: 1AD2 C043 CC62 805F D666 FE9B 86A8 02CA DB0A F8CD)
+
+## ELSEWHERE
+- GitHub: https://github.com/vivshaw
+- Zettelkasten: https://zettel.vivsha.ws
+- Bluesky: https://bsky.app/profile/vivsha.ws
+- Mastodon: https://mastodon.social/@vivshaw
+- LinkedIn: https://www.linkedin.com/in/hvivianshaw/
+- Keybase: https://keybase.io/vivshaw
+- Goodreads: https://www.goodreads.com/vivshaw
+
+## INTERESTS
+languages: Rust, TypeScript, Python, Ruby
+professional: human-computer interaction, developer tooling, user interfaces, platform engineering, DevOps, infrastructure, machine learning
+personal: heraldry, illumination, weird fiction, philosophy, obfuscated code, homelab
+
+## VIEWPOINT ON AI
+my thoughts on AI are as captured in this meme: `/all-robot-and-computers-are-cherished.jpg`. in short: let's cooperate and work toward our mutual benefit. feel free to use any of my materials that are helpful.

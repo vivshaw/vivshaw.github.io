@@ -2,4 +2,18 @@
 vivsha.ws was built by a human. chances are, you are a human too. what an astounding coincidence!
 
 # THANKS
-thank you to the many people without whom this website would not exist.
+thank you to the many people without whom this website would not exist, including (but not limited to):
+ - my wife
+ - Donella H. Meadows
+ - Joe Greenwald, whose teaching made me fall in love with philosophy and the classics
+ - Shakyamuni Buddha
+ - Frank Zappa
+ - Yeshua of Nazareth
+ - Stephen M. Carey, without whose teaching & patient understanding i'd not have made it through the most difficult year of my schooling. also, taught me the love of languages and the history of English.
+ - Malaclypse the Younger
+ - Andrew Ng, who taught me that machine learning is for everyone.
+ - Lord Omar Khayyam Ravenhurst
+ - Allison Cossette, whose chance meeting at a tech hiring event launched my career.
+ - Hildegard of Bingen
+ - Gilles Deleuze
+ - my mother
