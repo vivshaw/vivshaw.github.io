@@ -15,7 +15,6 @@
     - [ ] intermediate size for one level of subhead. no need for more
     - [ ] 24px main body text / 18px mobile
     - [ ] small text for UI elements and such?
-  - [ ] improve breakpoints. do these really make sense?
   - [ ] handle font features in a more global way, so individual components don't need to set it
   - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
@@ -25,7 +24,6 @@
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] SEO
   - [ ] get metadata tag working correctly on non-home pages
-- [ ] add PGP key download link?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
 - [ ] how many of these can i do in a progressive-enhancement way?
   - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.

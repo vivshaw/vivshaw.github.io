@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import {
   faEnvelope,
+  faKey,
   faLink,
   faMountainCity,
   faZ,
@@ -72,6 +73,11 @@ const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
     href: author.mailto,
     icon: faEnvelope,
     label: "email",
+  },
+  {
+    href: "/pgp-key.asc",
+    icon: faKey,
+    label: "pgp key",
   },
 ]
 
