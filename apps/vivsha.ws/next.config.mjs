@@ -2,6 +2,7 @@ import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
+import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import rehypeShiki from "@shikijs/rehype"
 import {
   transformerNotationDiff,
@@ -44,6 +45,7 @@ const withMDX = createMDX({
       remarkMdxFrontmatter,
     ],
     rehypePlugins: [
+      rehypeMdxImportMedia,
       [
         rehypeShiki,
         {

@@ -27,3 +27,4 @@
   - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.
   - [ ] showy/hidey navbar - move handler to JS snippet, keep normal otherwise
   - [ ] slideout panel?
+- [ ] FA icon and avatar image flicker on page reload, font flicker on hard refresh

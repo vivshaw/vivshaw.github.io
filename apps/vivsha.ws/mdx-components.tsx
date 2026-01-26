@@ -5,6 +5,7 @@ import { CodeBlock } from "@vivshaw/mdx/CodeBlock/CodeBlock"
 import { headings } from "@vivshaw/mdx/Headings/Headings"
 import { Figcaption } from "@vivshaw/mdx/Figcaption/Figcaption"
 import { HorizontalRule } from "@vivshaw/mdx/HorizontalRule/HorizontalRule"
+import { Image } from "@vivshaw/mdx/Image/Image"
 import { ListItem } from "@vivshaw/mdx/ListItem/ListItem"
 import { OrderedList } from "@vivshaw/mdx/OrderedList/OrderedList"
 import { Paragraph } from "@vivshaw/mdx/Paragraph/Paragraph"
@@ -18,6 +19,7 @@ const customComponents = {
   a: Anchor,
   blockquote: Blockquote,
   figcaption: Figcaption,
+  img: Image,
   h1: headings.h1,
   h2: headings.h2,
   h3: headings.h3,

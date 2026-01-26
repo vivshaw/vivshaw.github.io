@@ -4655,6 +4655,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hast-util-properties-to-mdx-jsx-attributes@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "hast-util-properties-to-mdx-jsx-attributes@npm:1.0.1"
+  dependencies:
+    "@types/estree": ^1.0.0
+    "@types/hast": ^3.0.0
+    comma-separated-tokens: ^2.0.0
+    estree-util-value-to-estree: ^3.0.0
+    mdast-util-mdx-jsx: ^3.0.0
+    property-information: ^7.0.0
+    space-separated-tokens: ^2.0.0
+    style-to-js: ^1.0.0
+  checksum: 944b46a465a58d2d6b3d471987f9081bf164ace0a75e9fdee105aae86857330db25fccd98425d4a0bd43cadb103ad19a3e8326deadb21661505d7375de9fb165
+  languageName: node
+  linkType: hard
+
 "hast-util-to-estree@npm:^3.0.0":
   version: 3.1.0
   resolution: "hast-util-to-estree@npm:3.1.0"
@@ -4919,6 +4935,13 @@ __metadata:
   version: 0.2.4
   resolution: "inline-style-parser@npm:0.2.4"
   checksum: 5df20a21dd8d67104faaae29774bb50dc9690c75bc5c45dac107559670a5530104ead72c4cf54f390026e617e7014c65b3d68fb0bb573a37c4d1f94e9c36e1ca
+  languageName: node
+  linkType: hard
+
+"inline-style-parser@npm:0.2.7":
+  version: 0.2.7
+  resolution: "inline-style-parser@npm:0.2.7"
+  checksum: 7bf0b92aeae1f96f8a4316e38fc7441a885c221cc4b7fc1aa05835004b42a66fa863aaa5f7555a62e47fdf3da02628fbabee89d38b9edddd9e93597a55c18b5d
   languageName: node
   linkType: hard
 
@@ -6584,6 +6607,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parse-srcset@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "parse-srcset@npm:1.0.2"
+  checksum: 3a0380380c6082021fcce982f0b89fb8a493ce9dfd7d308e5e6d855201e80db8b90438649b31fdd82a3d6089a8ca17dccddaa2b730a718389af4c037b8539ebf
+  languageName: node
+  linkType: hard
+
 "pascal-case@npm:^2.0.0":
   version: 2.0.1
   resolution: "pascal-case@npm:2.0.1"
@@ -7014,6 +7044,19 @@ __metadata:
   dependencies:
     regex-utilities: ^2.3.0
   checksum: 8ea9656dbafe8f324f605653b75ce954e9d695b4bb54dbf1fea20d8095b7530f4552bc3e7890b58542441ee2287f64a35d512601fb3417ba542a7a20f48fb855
+  languageName: node
+  linkType: hard
+
+"rehype-mdx-import-media@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "rehype-mdx-import-media@npm:1.2.0"
+  dependencies:
+    "@types/hast": ^3.0.0
+    hast-util-properties-to-mdx-jsx-attributes: ^1.0.0
+    parse-srcset: ^1.0.0
+    unified: ^11.0.0
+    unist-util-visit: ^5.0.0
+  checksum: e219390388f9631c490c4dfc4c1fa938c501d8d8c52f5599b60ae660410967ede295b7d78915d325b102639c2fe9f0f88f0e6296460587b6456f03cef42bc771
   languageName: node
   linkType: hard
 
@@ -7817,6 +7860,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"style-to-js@npm:^1.0.0":
+  version: 1.1.21
+  resolution: "style-to-js@npm:1.1.21"
+  dependencies:
+    style-to-object: 1.0.14
+  checksum: 01541bf726cc44ad574e4b77a65bd40aba9d652a13a9b8eeb5ca358ef52faad6c5047c591b384d4ef6a2fb315855088372ece7ec580fe73ebbbf7713935707f6
+  languageName: node
+  linkType: hard
+
+"style-to-object@npm:1.0.14":
+  version: 1.0.14
+  resolution: "style-to-object@npm:1.0.14"
+  dependencies:
+    inline-style-parser: 0.2.7
+  checksum: 0095da3053995eb3069bba0520a52975f319eaa0d7e74e357854b805b18b622c62bfd8787cdd9d9e96b82ac0e399f6ebf90d365954bc03adc77ddcf841de5431
+  languageName: node
+  linkType: hard
+
 "style-to-object@npm:^0.4.0":
   version: 0.4.4
   resolution: "style-to-object@npm:0.4.4"
@@ -8352,6 +8413,7 @@ __metadata:
     "@vanilla-extract/sprinkles": ^1.6.3
     hygen: ^6.2.11
     prettier: ^3.4.2
+    rehype-mdx-import-media: ^1.2.0
     remark-github-blockquote-alert: ^2.0.1
     shiki: ^3.21.0
     typescript: ^5.3.3
