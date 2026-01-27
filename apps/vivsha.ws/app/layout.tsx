@@ -1,5 +1,7 @@
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
@@ -7,6 +9,10 @@ import {
 } from "@vivshaw/basalt"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
+
+// prevent Font Awesome from auto-injecting CSS (i import it above)
+// i do this because the auto-injection was causing a flicker of weird sizing
+config.autoAddCss = false
 import { metadataHelper } from "#lib/metadataHelpers"
 
 export const viewport: Viewport = {

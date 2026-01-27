@@ -221,9 +221,9 @@ export function schemaHelper(data: SeoData) {
     "@type": "ImageObject",
     "@id": authorImageId,
     inLanguage: "en-US",
-    url: author.avatar.image.src,
-    width: `${author.avatar.image.width}`,
-    height: `${author.avatar.image.height}`,
+    url: author.avatar.src,
+    width: `${author.avatar.width}`,
+    height: `${author.avatar.height}`,
   }
 
   const commonSchema = [

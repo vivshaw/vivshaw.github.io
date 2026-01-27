@@ -1,7 +1,4 @@
-import type { StaticImageData } from "next/image"
 import { z } from "zod"
-
-import avatarPic from "#images/avatar.jpg"
 
 /**
  * the key in `localStorage`used to store the app's color mode
@@ -59,7 +56,9 @@ type Author = {
   /** profile picture and alt text */
   avatar: {
     alt: string
-    image: StaticImageData
+    src: string
+    width: number
+    height: number
   }
 
   /** short bio */
@@ -95,8 +94,10 @@ type Author = {
 export const author: Author = {
   alumniOf: "University of Vermont, University of Colorado Boulder",
   avatar: {
-    image: avatarPic,
+    src: "/avatar.jpg",
     alt: "A photo of Hannah in a Smithsonian display of a giant salt molecule",
+    width: 400,
+    height: 400,
   },
   bio: "function enthusiast, JavaScript wrangler, browser whisperer, code obfuscator, machine enlightener",
   gender: "female",

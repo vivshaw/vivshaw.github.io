@@ -23,5 +23,4 @@
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
-- [ ] FA icon and avatar image flicker on page reload, font flicker on hard refresh
-- [ ] remove need for light/dark context
+- [ ] font flicker on hard refresh - could be a fallback problem?

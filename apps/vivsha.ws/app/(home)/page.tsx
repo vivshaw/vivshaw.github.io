@@ -93,8 +93,10 @@ export default function Home() {
         <div className={profileCard}>
           <figure className={fig}>
             <Image
-              src={author.avatar.image}
+              src={author.avatar.src}
               alt={author.avatar.alt}
+              width={80}
+              height={80}
               className={avatar}
               priority
             />
