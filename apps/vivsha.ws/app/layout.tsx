@@ -8,7 +8,6 @@ import {
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 import { metadataHelper } from "#lib/metadataHelpers"
-import { GlobalProviders } from "./_components/GlobalProviders"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
@@ -92,9 +91,7 @@ export default function RootLayout({
         <script>{JS_DETECTION_SNIPPET}</script>
         <script>{COLOR_MODE_SNIPPET}</script>
       </head>
-      <body>
-        <GlobalProviders>{children}</GlobalProviders>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
