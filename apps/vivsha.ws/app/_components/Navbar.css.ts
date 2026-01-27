@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "@vivshaw/basalt"
 import { focusRing } from "@vivshaw/basalt/helpers"
@@ -100,3 +100,30 @@ export const link = style([
     },
   },
 ])
+
+export const abbreviated = style({})
+
+/** spacer to push content below fixed navbar */
+export const spacer = style({
+  height: navbarHeight,
+})
+
+/** when JS is disabled, navbar is just normally positioned (no showy/hidey) */
+globalStyle(`.no-js ${root}`, {
+  position: "relative",
+  transform: "none",
+  transition: "none",
+})
+
+/** when JS is disabled, navbar is in normal flow, so no spacer needed */
+globalStyle(`.no-js ${spacer}`, {
+  display: "none",
+})
+
+/**
+ * when JS is active and abbreviated variant, hide the nav links.
+ * still show them when JS is disabled, though! otherwise there would be no way to nav.
+ */
+globalStyle(`.js ${abbreviated}`, {
+  display: "none",
+})

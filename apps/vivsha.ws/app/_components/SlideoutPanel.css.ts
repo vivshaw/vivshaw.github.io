@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { breakpoints, tokens } from "@vivshaw/basalt"
 import { focusRing } from "@vivshaw/basalt/helpers"
@@ -168,3 +168,8 @@ export const colophonLink = style([
     },
   },
 ])
+
+/** hide slideout panel trigger when JS is disabled */
+globalStyle(`.no-js ${hamburgerButton}`, {
+  display: "none",
+})

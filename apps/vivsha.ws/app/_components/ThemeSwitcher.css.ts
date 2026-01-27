@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { tokens } from "@vivshaw/basalt"
 import { focusRing } from "@vivshaw/basalt/helpers"
@@ -63,4 +63,9 @@ export const indicatorLight = style({
 
 export const indicatorDark = style({
   transform: "translateX(48px)",
+})
+
+/** hide theme switcher when JS is disabled */
+globalStyle(`.no-js ${container}`, {
+  display: "none",
 })

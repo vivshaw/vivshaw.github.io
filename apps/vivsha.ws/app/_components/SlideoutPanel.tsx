@@ -37,7 +37,7 @@ export function SlideoutPanel() {
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Track mount state for portal (SSR safety)
+  // track mount state for portal (SSR safety)
   useEffect(() => {
     setIsMounted(true)
   }, [])
@@ -51,7 +51,7 @@ export function SlideoutPanel() {
     hamburgerRef.current?.focus()
   }, [])
 
-  // Handle escape key
+  // handle escape key
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape" && isOpen) {
@@ -63,7 +63,7 @@ export function SlideoutPanel() {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [isOpen, close])
 
-  // Handle click outside
+  // handle click outside
   useEffect(() => {
     if (!isOpen) return
 
@@ -83,7 +83,7 @@ export function SlideoutPanel() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [isOpen, close])
 
-  // Focus trap
+  // focus trap
   useEffect(() => {
     if (!isOpen || !panelRef.current) return
 
@@ -110,14 +110,14 @@ export function SlideoutPanel() {
       }
     }
 
-    // Focus first element when opened
+    // focus first element when opened
     closeButtonRef.current?.focus()
 
     document.addEventListener("keydown", handleTabKey)
     return () => document.removeEventListener("keydown", handleTabKey)
   }, [isOpen])
 
-  // Prevent body scroll when open
+  // prevent body scroll when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"

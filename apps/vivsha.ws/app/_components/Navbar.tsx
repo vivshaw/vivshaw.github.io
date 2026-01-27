@@ -10,9 +10,11 @@ import {
   controls,
   link,
   linkList,
+  abbreviated,
   logoLink,
   root,
   rootHidden,
+  spacer,
 } from "./Navbar.css"
 import { SlideoutPanel } from "./SlideoutPanel"
 
@@ -28,19 +30,19 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
     const currentScrollY = window.scrollY
     const scrollThreshold = 10 // minimum scroll before hiding
 
-    // Don't hide when near the top of the page
+    // don't hide when near the top of the page
     if (currentScrollY < 50) {
       setIsHidden(false)
       setLastScrollY(currentScrollY)
       return
     }
 
-    // Only react to scroll if we've moved more than the threshold
+    // only react to scroll if we've moved more than the threshold
     if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
       return
     }
 
-    // Scrolling down -> hide, scrolling up -> show
+    // scrolling down -> hide, scrolling up -> show
     if (currentScrollY > lastScrollY) {
       setIsHidden(true)
     } else {
@@ -56,14 +58,19 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
   }, [handleScroll])
 
   return (
-    <nav className={clsx(root, isHidden && rootHidden)}>
-      <Link className={logoLink} href="/" title="Go to the homepage">
-        <em>vivshaw's</em>
-      </Link>
+    <>
+      <nav className={clsx(root, isHidden && rootHidden)}>
+        <Link className={logoLink} href="/" title="Go to the homepage">
+          <em>vivshaw's</em>
+        </Link>
 
-      <div className={controls}>
-        {variant === "full" && (
-          <ul className={linkList}>
+        <div className={controls}>
+          <ul
+            className={clsx(
+              linkList,
+              variant === "abbreviated" && abbreviated,
+            )}
+          >
             <li>
               <Link className={link} href="/blog">
                 blog
@@ -80,9 +87,10 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
               </Link>
             </li>
           </ul>
-        )}
-        <SlideoutPanel />
-      </div>
-    </nav>
+          <SlideoutPanel />
+        </div>
+      </nav>
+      <div className={spacer} />
+    </>
   )
 }

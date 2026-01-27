@@ -23,8 +23,5 @@
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
-- [ ] how many of these can i do in a progressive-enhancement way?
-  - [ ] light/dark mode. move JS logic to update mode out of react, into a page-level JS snippet. only show controls if JS active.
-  - [ ] showy/hidey navbar - move handler to JS snippet, keep normal otherwise
-  - [ ] slideout panel?
 - [ ] FA icon and avatar image flicker on page reload, font flicker on hard refresh
+- [ ] remove need for light/dark context

@@ -68,6 +68,11 @@ export const metadata: Metadata = {
 }
 
 /**
+ * track whether JS is enabled, so we can do progressive enhancement stuff
+ */
+const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('no-js','js')`
+
+/**
  * executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
  */
 const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_COLOR_MODE_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_COLOR_MODE_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`
@@ -80,9 +85,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning // necessary because the color mode snippet will swap out the class ASAP after page load!
+      className="no-js"
+      suppressHydrationWarning // necessary because the snippets will swap out classes ASAP after page load!
     >
       <head>
+        <script>{JS_DETECTION_SNIPPET}</script>
         <script>{COLOR_MODE_SNIPPET}</script>
       </head>
       <body>
