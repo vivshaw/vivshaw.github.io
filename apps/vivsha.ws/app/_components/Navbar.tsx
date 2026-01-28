@@ -66,10 +66,7 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
 
         <div className={controls}>
           <ul
-            className={clsx(
-              linkList,
-              variant === "abbreviated" && abbreviated,
-            )}
+            className={clsx(linkList, variant === "abbreviated" && abbreviated)}
           >
             <li>
               <Link className={link} href="/blog">
