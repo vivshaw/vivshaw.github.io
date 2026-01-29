@@ -4,8 +4,6 @@
   - [ ] unit tests? Playwright tests?
 - [ ] features
   - [ ] tags index page & tag pages, someday
-- [ ] MDX
-  - [ ] sidenotes!
 - [ ] styling
   - [ ] use layers
   - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
@@ -25,3 +23,5 @@
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
 - [ ] font flicker on hard refresh - could be a fallback problem?
+- [ ] sidenotes
+  - [ ] clean up sidenote/styles so that they can live in one spot rather than be scattered around

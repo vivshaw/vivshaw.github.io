@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { createVar, globalStyle, style } from "@vanilla-extract/css"
 
 import {
   breakpoints,
@@ -14,24 +14,54 @@ import {
  */
 export const mdxRoot = style({})
 
+/**
+ * sidenote width is fluid: fills the available right margin space,
+ * clamped between 10rem (160px) min and 20rem (320px) max.
+ * available space = (100vw - 42rem content) / 2 - 1.5rem gap - 1rem right padding
+ */
+const sidenoteWidth = createVar()
+
+/**
+ * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
+ * + right padding (1rem) on the right, mirrored on the left since content is centered.
+ * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
+ */
+const sidenotesBreakpoint = "(min-width: 67rem)"
+
 /** footnote reference (superscript) styles */
 
-globalStyle(`${mdxRoot} sup:has([data-footnote-ref])`, {
-  lineHeight: 0,
-  verticalAlign: "baseline",
-})
+globalStyle(
+  `${mdxRoot} sup:has([data-footnote-ref]), ${mdxRoot} sup[data-footnote-ref]`,
+  {
+    lineHeight: 0,
+    verticalAlign: "baseline",
+    fontSize: "0.85em",
+    position: "relative",
+    top: "-0.5em",
+    marginLeft: "0.1em",
+  },
+)
 
-globalStyle(`${mdxRoot} [data-footnote-ref]`, {
-  fontSize: "0.85em",
-  position: "relative",
-  top: "-0.5em",
-  marginLeft: "0.1em",
-  backgroundImage: "none",
-  paddingBottom: 0,
+/**
+ * toggle between footnote link and plaintext sidenote ref by breakpoint, because i don't
+ * want a link to a nonexistent footnote
+ * mobile: show the `<a>`, hide the plain text `.sidenote-ref`
+ * desktop: hide the `<a>`, show the plain text `.sidenote-ref`
+ */
+globalStyle(`${mdxRoot} .sidenote-ref`, {
+  display: "none",
+  "@media": {
+    [`screen and ${sidenotesBreakpoint}`]: {
+      display: "inline",
+    },
+  },
 })
-
-globalStyle(`${mdxRoot} [data-footnote-ref]:hover`, {
-  backgroundImage: "none",
+globalStyle(`${mdxRoot} sup[data-footnote-ref] > a`, {
+  "@media": {
+    [`screen and ${sidenotesBreakpoint}`]: {
+      display: "none",
+    },
+  },
 })
 
 /** footnote backlink styles */
@@ -102,6 +132,61 @@ globalStyle(`${mdxRoot} .footnotes li`, {
 
 globalStyle(`${mdxRoot} .footnotes li p`, {
   marginBottom: 0,
+})
+
+/* hide the footnotes section when sidenotes are visible */
+globalStyle(`${mdxRoot} .footnotes`, {
+  "@media": {
+    [`screen and ${sidenotesBreakpoint}`]: {
+      display: "none",
+    },
+  },
+})
+
+/** sidenote styles (Tufte-style margin notes) */
+
+/* mobile: sidenotes hidden */
+globalStyle(`${mdxRoot} .sidenote`, {
+  display: "none",
+})
+
+/*
+ * desktop: show sidenotes in margin using float
+ */
+globalStyle(`${mdxRoot} .sidenote`, {
+  "@media": {
+    [`screen and ${sidenotesBreakpoint}`]: {
+      display: "inline",
+      float: "right",
+      clear: "right",
+
+      /*
+       * width is fluid: fills available margin space, clamped to min/max.
+       * margin-right = -(width + gap) so the float takes up zero content space.
+       */
+      vars: {
+        [sidenoteWidth]:
+          "clamp(10rem, calc((100vw - 42rem) / 2 - 2.5rem), 20rem)",
+      },
+      width: sidenoteWidth,
+      marginRight: `calc(-1 * ${sidenoteWidth} - 1.5rem)`,
+      marginTop: 0,
+      marginBottom: "1rem",
+      paddingRight: "1rem",
+
+      /* typography */
+      color: tokens.color.textMuted,
+      fontFamily: tokens.font.sans,
+      fontSize: tokens.fontSize["100"],
+      lineHeight: tokens.lineHeight.body,
+    },
+  },
+})
+
+/* sidenote number label */
+globalStyle(`${mdxRoot} .sidenote-number`, {
+  fontWeight: tokens.fontWeight.bold,
+  marginRight: tokens.sizing["1"],
 })
 
 /** inline code styles */

@@ -1,43 +1,35 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { createVar, globalStyle, style } from "@vanilla-extract/css"
 import { CODE_BLOCK_CONTAINER_CLASS } from "@vivshaw/mdx/CodeBlock/CodeBlock.css"
 import { firstThree } from "@vivshaw/mdx/Paragraph/Paragraph.css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
+/** horizontal padding for the post body (used for fullbleed breakout) */
+const postPadding = createVar()
+
 export const postBody = style({
-  display: "grid",
-  gridTemplateColumns: `
-    [full-start] ${tokens.sizing["5"]} 
-    [main-start] 1fr [main-end]
-    ${tokens.sizing["5"]} [full-end]
-  `,
+  vars: {
+    [postPadding]: tokens.sizing["5"],
+  },
   position: "relative",
   margin: "0 auto",
   maxWidth: "100%",
-  padding: `0 0 ${tokens.sizing["20"]}`,
+  paddingLeft: postPadding,
+  paddingRight: postPadding,
+  paddingBottom: tokens.sizing["20"],
 
   "@media": {
     [breakpoints.desktop]: {
-      gridTemplateColumns: `
-      [full-start] 0px
-      [main-start] 1fr [main-end]
-      0px [full-end]
-    `,
+      vars: {
+        [postPadding]: "0px",
+      },
       maxWidth: tokens.sizing["168"],
-      padding: `0 0 ${tokens.sizing["9"]}`,
+      paddingBottom: tokens.sizing["9"],
     },
   },
 })
 
 /**
- * by default, all MDX items get the main grid column.
- */
-globalStyle(`${postBody} > *`, {
-  gridColumn: "main",
-  minWidth: 0,
-})
-
-/**
- * images and code blocks should be fullwidth on mobile
+ * images and code blocks should be fullbleed on mobile.
  */
 globalStyle(
   `
@@ -45,13 +37,10 @@ globalStyle(
   ${postBody} > img
   `,
   {
-    gridColumn: "full",
-
-    "@media": {
-      [breakpoints.desktop]: {
-        gridColumn: "main",
-      },
-    },
+    marginLeft: `calc(-1 * ${postPadding})`,
+    marginRight: `calc(-1 * ${postPadding})`,
+    width: `calc(100% + 2 * ${postPadding})`,
+    maxWidth: `calc(100% + 2 * ${postPadding})`,
   },
 )
 
