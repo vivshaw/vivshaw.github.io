@@ -1,6 +1,5 @@
 import { createVar, globalStyle, style } from "@vanilla-extract/css"
 import { CODE_BLOCK_CONTAINER_CLASS } from "@vivshaw/mdx/CodeBlock/CodeBlock.css"
-import { firstThree } from "@vivshaw/mdx/Paragraph/Paragraph.css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
 /** horizontal padding for the post body (used for fullbleed breakout) */
@@ -47,7 +46,7 @@ globalStyle(
 /**
  * style the first three words of the first paragraph as small caps
  */
-globalStyle(`${postBody} > p:first-of-type .${firstThree}`, {
+globalStyle(`${postBody} > p:first-of-type .first-three`, {
   fontFeatureSettings: tokens.fontFeatureSettings.serifSmallCaps,
   letterSpacing: "0px",
 })

@@ -13,6 +13,7 @@ import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
 
+import rehypeFirstThreeWords from "./lib/rehype-first-three-words.mjs"
 import rehypeSidenotes from "./lib/rehype-sidenotes.mjs"
 
 /** custom Shiki transformer that wraps code blocks in a container with a language label */
@@ -48,6 +49,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeMdxImportMedia,
+      rehypeFirstThreeWords,
       rehypeSidenotes,
       [
         rehypeShiki,
