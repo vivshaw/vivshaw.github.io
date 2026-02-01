@@ -315,7 +315,7 @@ function TextStyles() {
               color: tokens.color.textMuted,
             }}
           >
-            sprinkles({"{"} text: "{name}" {"}"})
+            @mixin text-{name}
           </code>
         </div>
       ))}

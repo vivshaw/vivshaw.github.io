@@ -35,7 +35,10 @@
   - [ ] typecheck that class names actually exist?
   - [ ] clean up Basalt CSS entry points
   - [ ] move dark-mode aware color defaults into reset stylesheet
-  - [ ] confirm that reset-level default transition works
+  - [ ] confirm that reset-level default transition works. remove where redundant.
+  - [ ] are there a bunch of redundant text color defs? check!
 - [ ] lint/etc
   - [ ] sort imports
 - [ ] custom 404 page, model after index
+- [ ] AI
+  - [ ] unique CLAUDE.md for each package

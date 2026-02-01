@@ -2692,24 +2692,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vanilla-extract/recipes@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "@vanilla-extract/recipes@npm:0.5.7"
-  peerDependencies:
-    "@vanilla-extract/css": ^1.0.0
-  checksum: cc57caea9f4072b718d91948e4072f6afbebc406f426c4c6c231234a4dc9d8e09863c9bcf40a734d9bc77b3752d3a6dc46ae28696a855dd2bbf4274d9b085ddc
-  languageName: node
-  linkType: hard
-
-"@vanilla-extract/sprinkles@npm:^1.6.3":
-  version: 1.6.3
-  resolution: "@vanilla-extract/sprinkles@npm:1.6.3"
-  peerDependencies:
-    "@vanilla-extract/css": ^1.0.0
-  checksum: 7eb4fe0f1a6048bf5ffb5ffab964c2d127ff95244da79dca2e448af380b591c7af3b4f63ab243584baa8a42c7694d8fe9eeb366587a2da381a481fe1a9e02af8
-  languageName: node
-  linkType: hard
-
 "@vanilla-extract/vite-plugin@npm:^5.0.2":
   version: 5.0.2
   resolution: "@vanilla-extract/vite-plugin@npm:5.0.2"
@@ -8546,8 +8528,6 @@ __metadata:
   dependencies:
     "@shikijs/rehype": ^3.21.0
     "@shikijs/transformers": ^3.21.0
-    "@vanilla-extract/recipes": ^0.5.7
-    "@vanilla-extract/sprinkles": ^1.6.3
     hygen: ^6.2.11
     postcss-mixins: ^12.1.2
     prettier: ^3.4.2

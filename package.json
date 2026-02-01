@@ -36,8 +36,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@vanilla-extract/recipes": "^0.5.7",
-    "@vanilla-extract/sprinkles": "^1.6.3",
     "remark-github-blockquote-alert": "^2.0.1"
   }
 }

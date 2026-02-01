@@ -117,8 +117,7 @@ function ResponsiveDocumentation() {
           size="small"
           style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
         >
-          Responsive properties in sprinkles accept an object with breakpoint
-          keys.
+          Use Basalt's breakpoint mixins for responsive styles.
         </Text>
 
         <div
@@ -138,15 +137,16 @@ function ResponsiveDocumentation() {
               whiteSpace: "pre-wrap",
             }}
           >
-            {`<Box
-  sx={{
-    p: {
-      phone: "4",
-      tablet: "6",
-      desktop: "8",
-    },
-  }}
-/>`}
+            {`.content {
+  padding: var(--basalt-sizing-4);
+
+  @mixin tablet {
+    padding: var(--basalt-sizing-6);
+  }
+  @mixin desktop {
+    padding: var(--basalt-sizing-8);
+  }
+}`}
           </code>
         </div>
       </section>

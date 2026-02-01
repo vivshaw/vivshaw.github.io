@@ -182,38 +182,26 @@ function UsageExample() {
       {[
         {
           title: "Margin & Padding",
-          code: `sprinkles({
-  m: "4",      // margin: 16px
-  p: "2",      // padding: 8px
-  mx: "auto",  // margin-left/right: auto
-  py: "6",     // padding-top/bottom: 24px
-})`,
+          code: `.card {
+  margin: var(--basalt-sizing-4);    /* 16px */
+  padding: var(--basalt-sizing-2);   /* 8px */
+}`,
         },
         {
           title: "Dimensions",
-          code: `sprinkles({
-  width: "64",     // 256px
-  height: "32",    // 128px
-  maxWidth: "168", // 672px (content)
-})`,
+          code: `.container {
+  width: var(--basalt-sizing-64);      /* 256px */
+  height: var(--basalt-sizing-32);     /* 128px */
+  max-width: var(--basalt-sizing-168); /* 672px */
+}`,
         },
         {
           title: "Gap",
-          code: `sprinkles({
-  gap: "4",       // 16px
-  columnGap: "6", // 24px
-  rowGap: "2",    // 8px
-})`,
-        },
-        {
-          title: "Responsive",
-          code: `sprinkles({
-  p: {
-    phone: "4",
-    tablet: "6",
-    desktop: "8",
-  },
-})`,
+          code: `.grid {
+  gap: var(--basalt-sizing-4);        /* 16px */
+  column-gap: var(--basalt-sizing-6); /* 24px */
+  row-gap: var(--basalt-sizing-2);    /* 8px */
+}`,
         },
       ].map(({ title, code }) => (
         <div
@@ -289,88 +277,10 @@ function SpacingDocumentation() {
       </Section>
 
       <Section
-        title="Usage with Sprinkles"
-        description="Spacing tokens can be used with the sprinkles utility."
+        title="Usage"
+        description="Spacing tokens are available as CSS custom properties."
       >
         <UsageExample />
-      </Section>
-
-      <Section title="Shorthands">
-        <div
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <table
-            style={{
-              width: "100%",
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.875rem",
-              borderCollapse: "collapse",
-            }}
-          >
-            <thead>
-              <tr>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "0.5rem",
-                    borderBottom: `1px solid ${tokens.color.borderMuted}`,
-                    fontFamily: tokens.font.sans,
-                    fontWeight: 700,
-                  }}
-                >
-                  Shorthand
-                </th>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "0.5rem",
-                    borderBottom: `1px solid ${tokens.color.borderMuted}`,
-                    fontFamily: tokens.font.sans,
-                    fontWeight: 700,
-                  }}
-                >
-                  Properties
-                </th>
-              </tr>
-            </thead>
-            <tbody style={{ color: tokens.color.textMuted }}>
-              {[
-                { short: "m", props: "margin" },
-                { short: "mt, mr, mb, ml", props: "margin-top, -right, etc." },
-                { short: "mx", props: "margin-left, margin-right" },
-                { short: "my", props: "margin-top, margin-bottom" },
-                { short: "p", props: "padding" },
-                { short: "pt, pr, pb, pl", props: "padding-top, -right, etc." },
-                { short: "px", props: "padding-left, padding-right" },
-                { short: "py", props: "padding-top, padding-bottom" },
-              ].map(({ short, props }) => (
-                <tr key={short}>
-                  <td
-                    style={{
-                      padding: "0.5rem",
-                      borderBottom: `1px solid ${tokens.color.borderMuted}`,
-                    }}
-                  >
-                    {short}
-                  </td>
-                  <td
-                    style={{
-                      padding: "0.5rem",
-                      borderBottom: `1px solid ${tokens.color.borderMuted}`,
-                    }}
-                  >
-                    {props}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </Section>
     </div>
   )
