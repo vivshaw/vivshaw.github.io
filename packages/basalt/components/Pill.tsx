@@ -1,8 +1,7 @@
 import clsx from "clsx"
 import type { ComponentPropsWithRef, ElementType } from "react"
 
-import { Box } from "./Box"
-import { pill } from "./Pill.css"
+import styles from "./Pill.module.css"
 
 export type PillProps<T extends ElementType = "span"> =
   ComponentPropsWithRef<T> & {
@@ -19,5 +18,5 @@ export function Pill<T extends ElementType = "span">({
   ...props
 }: PillProps<T>) {
   const Component = as || "span"
-  return <Box as={Component} className={clsx(pill(), className)} {...props} />
+  return <Component className={clsx(styles.pill, className)} {...props} />
 }

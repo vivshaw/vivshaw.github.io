@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Pill } from "./Pill"
-import { Box } from "./Box"
 
 const meta = {
   title: "Components/Pill",
@@ -56,7 +55,7 @@ export const AsButton: Story = {
  */
 export const PillGroup: Story = {
   render: () => (
-    <Box
+    <div
       style={{
         display: "flex",
         flexWrap: "wrap",
@@ -68,6 +67,6 @@ export const PillGroup: Story = {
       <Pill>React</Pill>
       <Pill>Next.js</Pill>
       <Pill>Vanilla Extract</Pill>
-    </Box>
+    </div>
   ),
 }
