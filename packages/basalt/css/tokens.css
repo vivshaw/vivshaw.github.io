@@ -142,20 +142,41 @@ html:not(.vvv-dark, .vvv-light) {
 
 :root {
   /* easing functions */
-  --basalt-easing-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  --basalt-easing-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-  --basalt-easing-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --basalt-easing-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-  --basalt-easing-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  --basalt-easing-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --basalt-motion-ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --basalt-motion-ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --basalt-motion-ease-in-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --basalt-motion-ease-in-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --basalt-motion-ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --basalt-motion-ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 
   /* transitions */
-  --basalt-motion-transition-theme: background 0.25s
-      var(--basalt-easing-in-out-quad),
-    color 0.25s var(--basalt-easing-in-out-quad);
-  --basalt-motion-transition-hover: border-color 0.2s
-      var(--basalt-easing-in-quad),
-    opacity 0.2s var(--basalt-easing-in-quad);
+  /*
+   * each transition is defined in two ways:
+   * 1. as a list of longhand values
+   * 2. as a shorthand string
+   * 
+   * that's a workaround for this annoying lightningcss limitation:
+   * https://github.com/parcel-bundler/lightningcss/issues/194
+   */
+  --basalt-motion-transition-theme-property: background, color;
+  --basalt-motion-transition-theme-duration: 0.25s;
+  --basalt-motion-transition-theme-timing: var(
+    --basalt-motion-ease-in-out-quad
+  );
+  --basalt-motion-transition-theme: background
+      var(--basalt-motion-transition-theme-duration)
+      var(--basalt-motion-transition-theme-timing),
+    color var(--basalt-motion-transition-theme-duration)
+      var(--basalt-motion-transition-theme-timing);
+
+  --basalt-motion-transition-hover-property: border-color, opacity;
+  --basalt-motion-transition-hover-duration: 0.2s;
+  --basalt-motion-transition-hover-timing: var(--basalt-motion-ease-in-quad);
+  --basalt-motion-transition-hover: border-color
+      var(--basalt-motion-transition-hover-duration)
+      var(--basalt-motion-transition-hover-timing),
+    opacity var(--basalt-motion-transition-hover-duration)
+      var(--basalt-motion-transition-hover-timing);
 }
 
 /* ===== sizing ===== */
