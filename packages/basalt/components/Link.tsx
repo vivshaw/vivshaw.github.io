@@ -1,8 +1,7 @@
+import clsx from "clsx"
 import { ComponentPropsWithRef, ElementType, forwardRef, Ref } from "react"
 
-import { Sprinkles } from "../theme/index.css"
-import { Box } from "./Box"
-import { link } from "./Link.css"
+import styles from "./Link.module.css"
 
 /**
  * base props for Link, without the polymorphic element props.
@@ -10,27 +9,30 @@ import { link } from "./Link.css"
 type LinkOwnProps<T extends ElementType> = {
   as?: T
   decoration?: "none" | "underline"
-  sx?: Sprinkles
 }
 
 export type LinkProps<T extends ElementType = "a"> = LinkOwnProps<T> &
   Omit<ComponentPropsWithRef<T>, keyof LinkOwnProps<T>>
 
+const decorationClasses = {
+  none: undefined,
+  underline: styles.underline,
+} as const
+
 /**
- * a styled link component that extends Box.
- * supports all Box props plus standard anchor props.
+ * a styled link component.
+ * supports a decoration prop to control the underline style.
  */
 export const Link = forwardRef(
   <T extends ElementType = "a">(
-    { as, decoration = "underline", ...props }: LinkProps<T>,
+    { as, className, decoration = "underline", ...props }: LinkProps<T>,
     ref: Ref<Element>,
   ) => {
     const Component = (as ?? "a") as ElementType
     return (
-      <Box
-        as={Component}
+      <Component
         ref={ref}
-        className={link({ decoration })}
+        className={clsx(styles.link, decorationClasses[decoration], className)}
         {...props}
       />
     )
