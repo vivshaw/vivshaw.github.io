@@ -29,6 +29,7 @@
     "@shikijs/rehype": "^3.21.0",
     "@shikijs/transformers": "^3.21.0",
     "hygen": "^6.2.11",
+    "postcss-mixins": "^12.1.2",
     "prettier": "^3.4.2",
     "rehype-mdx-import-media": "^1.2.0",
     "shiki": "^3.21.0",

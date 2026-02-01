@@ -1,0 +1,88 @@
+/* Equity B — serif */
+@font-face {
+  font-family: "vvv-serif";
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_regular.woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "vvv-serif";
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_italic.woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "vvv-serif";
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold.woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "vvv-serif";
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold_italic.woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+/* Concourse 3 — sans */
+@font-face {
+  font-family: "vvv-sans";
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_regular.woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "vvv-sans";
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_italic.woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "vvv-sans";
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold.woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "vvv-sans";
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold_italic.woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+/* serif fallback — Times New Roman */
+@font-face {
+  font-family: "vvv-serif-fallback";
+  src: local("Times New Roman");
+  size-adjust: 102%;
+  ascent-override: normal;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+
+
+/* sans fallback — Arial */
+@font-face {
+  font-family: "vvv-sans-fallback";
+  src: local("Arial");
+  size-adjust: 89%;
+  ascent-override: 106%;
+  descent-override: 25%;
+  line-gap-override: normal;
+}

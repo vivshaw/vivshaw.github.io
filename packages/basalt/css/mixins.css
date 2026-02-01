@@ -1,0 +1,103 @@
+/* ===== breakpoints ===== */
+
+@define-mixin tablet {
+  @media (min-width: 541px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin desktop {
+  @media (min-width: 736px) {
+    @mixin-content;
+  }
+}
+
+
+/* ===== themes ===== */
+
+@define-mixin dark-mode {
+  .vvv-dark & {
+    @mixin-content;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not(.vvv-dark, .vvv-light) & {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin light-mode {
+  .vvv-light & {
+    @mixin-content;
+  }
+
+  @media (prefers-color-scheme: light) {
+    html:not(.vvv-dark, .vvv-light) & {
+      @mixin-content;
+    }
+  }
+}
+
+
+/* ===== fonts ===== */
+
+@define-mixin font-serif {
+  font-family: var(--basalt-font-serif);
+  font-feature-settings: var(--basalt-font-feature-settings-serif);
+}
+
+@define-mixin font-serif-small-caps {
+  font-family: var(--basalt-font-serif);
+  font-feature-settings: var(--basalt-font-feature-settings-serif-small-caps);
+}
+
+@define-mixin font-sans {
+  font-family: var(--basalt-font-sans);
+  font-feature-settings: var(--basalt-font-feature-settings-sans);
+}
+
+@define-mixin font-monospace {
+  font-family: var(--basalt-font-monospace);
+  font-feature-settings: var(--basalt-font-feature-settings-monospace);
+}
+
+
+/* ===== text presets ===== */
+
+@define-mixin text-small {
+  font-size: var(--basalt-font-size-small);
+  line-height: var(--basalt-line-height-body);
+}
+
+@define-mixin text-body {
+  font-size: var(--basalt-font-size-body);
+  line-height: var(--basalt-line-height-body);
+}
+
+@define-mixin text-heading1 {
+  font-size: var(--basalt-font-size-heading1);
+  line-height: var(--basalt-line-height-heading);
+}
+
+@define-mixin text-heading2 {
+  font-size: var(--basalt-font-size-heading2);
+  line-height: var(--basalt-line-height-heading);
+}
+
+@define-mixin text-heading3 {
+  font-size: var(--basalt-font-size-heading3);
+  line-height: var(--basalt-line-height-heading);
+}
+
+
+/* ===== focus ring ===== */
+
+@define-mixin focus-ring {
+  border-radius: var(--basalt-sizing-1);
+
+  &:focus-visible {
+    outline: var(--basalt-sizing-half) solid var(--basalt-color-accent-default);
+    outline-offset: var(--basalt-sizing-1);
+  }
+}

@@ -25,7 +25,12 @@
     ".": "./index.ts",
     "./helpers": "./helpers/index.css.ts",
     "./reset": "./reset.css.ts",
-    "./components": "./components/index.ts"
+    "./components": "./components/index.ts",
+    "./css": "./css/index.css",
+    "./css/tokens": "./css/tokens.css",
+    "./css/fonts": "./css/fonts.css",
+    "./css/reset": "./css/reset.css",
+    "./css/mixins": "./css/mixins.css"
   },
   "dependencies": {
     "clsx": "^2.1.1"

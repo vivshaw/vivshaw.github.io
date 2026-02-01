@@ -7,6 +7,8 @@ import {
   LIGHT_COLOR_MODE_CLASS,
   tokens,
 } from "@vivshaw/basalt"
+/* TODO: switch with real entry point when VE is swapped out */
+import "@vivshaw/basalt/css/tokens"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 
