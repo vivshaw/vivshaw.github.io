@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box, Heading, Text } from "../components"
+import { Heading, Text } from "../components"
 import { tokens } from "./index.css"
 
 function Section({
@@ -13,7 +13,7 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <Box as="section" sx={{ mb: "16" }}>
+    <section style={{ marginBottom: "4rem" }}>
       <Heading level="2" style={{ marginBottom: "0.5rem" }}>
         {title}
       </Heading>
@@ -26,7 +26,7 @@ function Section({
         </Text>
       )}
       {children}
-    </Box>
+    </section>
   )
 }
 
@@ -56,17 +56,17 @@ function SpacingScale() {
   ]
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       {spacings.map(({ name, value }) => (
-        <Box
+        <div
           key={name}
-          sx={{ py: "2", px: "4" }}
           style={{
             display: "flex",
             alignItems: "center",
             gap: "1rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.25rem",
+            padding: "0.5rem 1rem",
           }}
         >
           <code
@@ -99,9 +99,9 @@ function SpacingScale() {
           >
             {value}
           </span>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }
 
@@ -124,9 +124,9 @@ function LargeSpacings() {
   ]
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
       {spacings.map(({ name, value }) => (
-        <Box
+        <div
           key={name}
           style={{
             display: "flex",
@@ -164,164 +164,98 @@ function LargeSpacings() {
           >
             {value}
           </span>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }
 
 function UsageExample() {
   return (
-    <Box
+    <div
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
         gap: "1.5rem",
       }}
     >
-      <Box
-        sx={{ p: "6" }}
-        style={{
-          backgroundColor: tokens.color.backgroundSecondary,
-          borderRadius: "0.5rem",
-          border: `1px solid ${tokens.color.borderMuted}`,
-        }}
-      >
-        <Text
-          as="h3"
-          font="sans"
-          size="small"
-          style={{ marginBottom: "1rem", fontWeight: 700 }}
-        >
-          Margin & Padding
-        </Text>
-        <code
-          style={{
-            display: "block",
-            fontFamily: tokens.font.monospace,
-            fontSize: "0.75rem",
-            color: tokens.color.textMuted,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {`sprinkles({
+      {[
+        {
+          title: "Margin & Padding",
+          code: `sprinkles({
   m: "4",      // margin: 16px
   p: "2",      // padding: 8px
   mx: "auto",  // margin-left/right: auto
   py: "6",     // padding-top/bottom: 24px
-})`}
-        </code>
-      </Box>
-
-      <Box
-        sx={{ p: "6" }}
-        style={{
-          backgroundColor: tokens.color.backgroundSecondary,
-          borderRadius: "0.5rem",
-          border: `1px solid ${tokens.color.borderMuted}`,
-        }}
-      >
-        <Text
-          as="h3"
-          font="sans"
-          size="small"
-          style={{ marginBottom: "1rem", fontWeight: 700 }}
-        >
-          Dimensions
-        </Text>
-        <code
-          style={{
-            display: "block",
-            fontFamily: tokens.font.monospace,
-            fontSize: "0.75rem",
-            color: tokens.color.textMuted,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {`sprinkles({
+})`,
+        },
+        {
+          title: "Dimensions",
+          code: `sprinkles({
   width: "64",     // 256px
   height: "32",    // 128px
   maxWidth: "168", // 672px (content)
-})`}
-        </code>
-      </Box>
-
-      <Box
-        sx={{ p: "6" }}
-        style={{
-          backgroundColor: tokens.color.backgroundSecondary,
-          borderRadius: "0.5rem",
-          border: `1px solid ${tokens.color.borderMuted}`,
-        }}
-      >
-        <Text
-          as="h3"
-          font="sans"
-          size="small"
-          style={{ marginBottom: "1rem", fontWeight: 700 }}
-        >
-          Gap
-        </Text>
-        <code
-          style={{
-            display: "block",
-            fontFamily: tokens.font.monospace,
-            fontSize: "0.75rem",
-            color: tokens.color.textMuted,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {`sprinkles({
+})`,
+        },
+        {
+          title: "Gap",
+          code: `sprinkles({
   gap: "4",       // 16px
   columnGap: "6", // 24px
   rowGap: "2",    // 8px
-})`}
-        </code>
-      </Box>
-
-      <Box
-        sx={{ p: "6" }}
-        style={{
-          backgroundColor: tokens.color.backgroundSecondary,
-          borderRadius: "0.5rem",
-          border: `1px solid ${tokens.color.borderMuted}`,
-        }}
-      >
-        <Text
-          as="h3"
-          font="sans"
-          size="small"
-          style={{ marginBottom: "1rem", fontWeight: 700 }}
-        >
-          Responsive
-        </Text>
-        <code
-          style={{
-            display: "block",
-            fontFamily: tokens.font.monospace,
-            fontSize: "0.75rem",
-            color: tokens.color.textMuted,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {`sprinkles({
+})`,
+        },
+        {
+          title: "Responsive",
+          code: `sprinkles({
   p: {
     phone: "4",
     tablet: "6",
     desktop: "8",
   },
-})`}
-        </code>
-      </Box>
-    </Box>
+})`,
+        },
+      ].map(({ title, code }) => (
+        <div
+          key={title}
+          style={{
+            padding: "1.5rem",
+            backgroundColor: tokens.color.backgroundSecondary,
+            borderRadius: "0.5rem",
+            border: `1px solid ${tokens.color.borderMuted}`,
+          }}
+        >
+          <Text
+            as="h3"
+            font="sans"
+            size="small"
+            style={{ marginBottom: "1rem", fontWeight: 700 }}
+          >
+            {title}
+          </Text>
+          <code
+            style={{
+              display: "block",
+              fontFamily: tokens.font.monospace,
+              fontSize: "0.75rem",
+              color: tokens.color.textMuted,
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {code}
+          </code>
+        </div>
+      ))}
+    </div>
   )
 }
 
 function SpacingDocumentation() {
   return (
-    <Box
-      sx={{ p: "8", color: "textDefault" }}
+    <div
       style={{
+        padding: "2rem",
+        color: tokens.color.textDefault,
         backgroundColor: tokens.color.backgroundDefault,
         minHeight: "100vh",
       }}
@@ -362,9 +296,9 @@ function SpacingDocumentation() {
       </Section>
 
       <Section title="Shorthands">
-        <Box
-          sx={{ p: "6" }}
+        <div
           style={{
+            padding: "1.5rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
             border: `1px solid ${tokens.color.borderMuted}`,
@@ -436,9 +370,9 @@ function SpacingDocumentation() {
               ))}
             </tbody>
           </table>
-        </Box>
+        </div>
       </Section>
-    </Box>
+    </div>
   )
 }
 

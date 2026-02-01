@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box, Heading, Text } from "../components"
+import { Heading, Text } from "../components"
 import { tokens } from "./index.css"
 
 function Section({
@@ -13,7 +13,7 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <Box as="section" sx={{ mb: "16" }}>
+    <section style={{ marginBottom: "4rem" }}>
       <Heading level="2" style={{ marginBottom: "0.5rem" }}>
         {title}
       </Heading>
@@ -26,7 +26,7 @@ function Section({
         </Text>
       )}
       {children}
-    </Box>
+    </section>
   )
 }
 
@@ -44,17 +44,18 @@ function FontShowcase({
   specimen: string
 }) {
   return (
-    <Box
-      sx={{ mb: "8", p: "6" }}
+    <div
       style={{
+        marginBottom: "2rem",
+        padding: "1.5rem",
         backgroundColor: tokens.color.backgroundSecondary,
         borderRadius: "0.5rem",
         border: `1px solid ${tokens.color.borderMuted}`,
       }}
     >
-      <Box
-        sx={{ mb: "4" }}
+      <div
         style={{
+          marginBottom: "1rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "baseline",
@@ -76,14 +77,14 @@ function FontShowcase({
         >
           tokens.font.{tokenName}
         </code>
-      </Box>
+      </div>
       <Text
         size="small"
         style={{ marginBottom: "1rem", color: tokens.color.textMuted }}
       >
         {description}
       </Text>
-      <Box
+      <div
         style={{
           fontFamily,
           fontSize: "1.5rem",
@@ -92,10 +93,11 @@ function FontShowcase({
         }}
       >
         {specimen}
-      </Box>
-      <Box
-        sx={{ mt: "6", pt: "6" }}
+      </div>
+      <div
         style={{
+          marginTop: "1.5rem",
+          paddingTop: "1.5rem",
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1rem",
@@ -152,8 +154,8 @@ function FontShowcase({
             Bold Italic 700
           </span>
         </div>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 
@@ -169,17 +171,17 @@ function SizeScale() {
   ]
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       {sizes.map(({ name, size, px }) => (
-        <Box
+        <div
           key={name}
-          sx={{ py: "3", px: "4" }}
           style={{
             display: "flex",
             alignItems: "baseline",
             gap: "1rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
+            padding: "0.75rem 1rem",
           }}
         >
           <code
@@ -212,9 +214,9 @@ function SizeScale() {
           >
             {px}
           </span>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }
 
@@ -258,20 +260,20 @@ function TextStyles() {
   ]
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
       {styles.map(({ name, label, mobile, desktop, lineHeight }) => (
-        <Box
+        <div
           key={name}
-          sx={{ p: "6" }}
           style={{
+            padding: "1.5rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
             border: `1px solid ${tokens.color.borderMuted}`,
           }}
         >
-          <Box
-            sx={{ mb: "4" }}
+          <div
             style={{
+              marginBottom: "1rem",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -280,7 +282,7 @@ function TextStyles() {
             <Text as="h3" font="sans" style={{ fontWeight: 700 }}>
               {label}
             </Text>
-            <Box
+            <div
               style={{
                 display: "flex",
                 gap: "1rem",
@@ -292,8 +294,8 @@ function TextStyles() {
               <span>Mobile: {mobile}</span>
               <span>Desktop: {desktop}</span>
               <span>Line height: {lineHeight}</span>
-            </Box>
-          </Box>
+            </div>
+          </div>
           <Text
             style={{
               fontSize: desktop,
@@ -315,17 +317,18 @@ function TextStyles() {
           >
             sprinkles({"{"} text: "{name}" {"}"})
           </code>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }
 
 function TypographyDocumentation() {
   return (
-    <Box
-      sx={{ p: "8", color: "textDefault" }}
+    <div
       style={{
+        padding: "2rem",
+        color: tokens.color.textDefault,
         backgroundColor: tokens.color.backgroundDefault,
         minHeight: "100vh",
       }}
@@ -363,17 +366,17 @@ function TypographyDocumentation() {
           description="Used for UI elements, labels, and secondary text. A clean sans-serif that pairs well with Equity."
           specimen="Clean, modern, and highly legible."
         />
-        <Box
-          sx={{ p: "6" }}
+        <div
           style={{
+            padding: "1.5rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
             border: `1px solid ${tokens.color.borderMuted}`,
           }}
         >
-          <Box
-            sx={{ mb: "4" }}
+          <div
             style={{
+              marginBottom: "1rem",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "baseline",
@@ -391,7 +394,7 @@ function TypographyDocumentation() {
             >
               tokens.font.monospace
             </code>
-          </Box>
+          </div>
           <Text
             size="small"
             style={{ marginBottom: "1rem", color: tokens.color.textMuted }}
@@ -407,7 +410,7 @@ function TypographyDocumentation() {
           >
             const greeting = "Hello, world!";
           </code>
-        </Box>
+        </div>
       </Section>
 
       <Section
@@ -425,9 +428,9 @@ function TypographyDocumentation() {
       </Section>
 
       <Section title="OpenType Features">
-        <Box
-          sx={{ p: "6" }}
+        <div
           style={{
+            padding: "1.5rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
             border: `1px solid ${tokens.color.borderMuted}`,
@@ -440,7 +443,7 @@ function TypographyDocumentation() {
             The serif and sans fonts include OpenType features for improved
             typography.
           </Text>
-          <Box
+          <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -501,10 +504,10 @@ function TypographyDocumentation() {
                 fi fl ff ffi ffl
               </Text>
             </div>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Section>
-    </Box>
+    </div>
   )
 }
 

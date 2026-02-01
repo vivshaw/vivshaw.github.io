@@ -1,63 +1,41 @@
 # @vivshaw/basalt
 
-this package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). it's built with [Vanilla Extract](https://vanilla-extract.style/), and uses no runtime stylesheets. the library does not use client React and is fully appropriate for React Server Components.
+this package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). it uses CSS Modules with PostCSS mixins for component styling, and [Vanilla Extract](https://vanilla-extract.style/) for the theme/sprinkles layer. the library does not use client React and is fully appropriate for React Server Components.
 
 ## Components
 
-### Box
+### Heading
 
-the `<Box>` component is the foundation of the Basalt layout system. It provides access to all Basalt design tokens through a prop-based API.
+the `<Heading>` component renders semantic heading elements (`h1`–`h6`).
 
 ```tsx
-// basic usage
-<Box
-  sx={{
-    m: "4",
-    p: "2"
-  }}
->
-  Content
-</Box>
-
-// with responsive props
-<Box
-  sx={{
-    m: {
-      phone: "2",
-      tablet: "4",
-      desktop: "8"
-    }
-  }}
->
-  Content
-</Box>
-
-// as another element
-<Box
-  sx={{
-    m: "4"
-  }}
-  as="section"
->
-  Content
-</Box>
+<Heading level="1">Page Title</Heading>
+<Heading level="2">Section Title</Heading>
 ```
 
-#### Available Props
+### Text
 
-`<Box>` supports all standard spacing properties:
+the `<Text>` component handles all typography. it supports font selection, size presets, and polymorphic rendering.
 
-- Margin: `m`, `mt`, `mr`, `mb`, `ml`, `mx`, `my`
-- Padding: `p`, `pt`, `pr`, `pb`, `pl`, `px`, `py`
-- Gap: `gap`, `columnGap`, `rowGap`
-- Width/Height: `width`, `minWidth`, `maxWidth`, `height`, `minHeight`, `maxHeight`
-- Position: `inset`, `top`, `right`, `bottom`, `left`
+```tsx
+<Text>Body text in serif</Text>
+<Text font="sans" size="small">Small sans-serif text</Text>
+<Text as="span">Inline text</Text>
+```
 
-all spacing props accept Basalt standard spacing tokens, which follow a scale where 1 unit = 0.25rem (4px).
+### Link
 
-`<Box>` also provides access to typography tokens through props:
+the `<Link>` component renders styled anchor elements with an optional squiggly underline hover effect.
 
-- `font`: Font family (`serif`, `sans`, `monospace`)
-- `fontSize`: Font size tokens
-- `lineHeight`: Line height tokens
-- `fontWeight`: Font weight tokens
+```tsx
+<Link href="/about">About</Link>
+<Link href="/plain" decoration="none">No underline</Link>
+```
+
+### Pill
+
+the `<Pill>` component renders a small, pill-shaped inline element for tags and labels.
+
+```tsx
+<Pill href="/tags/react">React</Pill>
+```

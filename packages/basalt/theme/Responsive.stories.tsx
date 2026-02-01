@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box, Heading, Text } from "../components"
+import { Heading, Text } from "../components"
 import { breakpoints, tokens } from "./index.css"
 
 function ResponsiveDocumentation() {
@@ -26,9 +26,10 @@ function ResponsiveDocumentation() {
   ]
 
   return (
-    <Box
-      sx={{ p: "8", color: "textDefault" }}
+    <div
       style={{
+        padding: "2rem",
+        color: tokens.color.textDefault,
         backgroundColor: tokens.color.backgroundDefault,
         minHeight: "100vh",
       }}
@@ -45,25 +46,25 @@ function ResponsiveDocumentation() {
         Basalt uses a mobile-first responsive system with three breakpoints.
       </Text>
 
-      <Box as="section" sx={{ mb: "16" }}>
+      <section style={{ marginBottom: "4rem" }}>
         <Heading level="2" style={{ marginBottom: "1.5rem" }}>
           Breakpoints
         </Heading>
 
-        <Box style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {breakpointData.map(({ name, condition, range, description }) => (
-            <Box
+            <div
               key={name}
-              sx={{ p: "6" }}
               style={{
+                padding: "1.5rem",
                 backgroundColor: tokens.color.backgroundSecondary,
                 borderRadius: "0.5rem",
                 border: `1px solid ${tokens.color.borderMuted}`,
               }}
             >
-              <Box
-                sx={{ mb: "3" }}
+              <div
                 style={{
+                  marginBottom: "0.75rem",
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "baseline",
@@ -81,7 +82,7 @@ function ResponsiveDocumentation() {
                 >
                   {range}
                 </code>
-              </Box>
+              </div>
               <Text
                 size="small"
                 style={{
@@ -103,12 +104,12 @@ function ResponsiveDocumentation() {
                   ? "Default (no media query)"
                   : condition}
               </code>
-            </Box>
+            </div>
           ))}
-        </Box>
-      </Box>
+        </div>
+      </section>
 
-      <Box as="section" sx={{ mb: "16" }}>
+      <section style={{ marginBottom: "4rem" }}>
         <Heading level="2" style={{ marginBottom: "0.5rem" }}>
           Usage
         </Heading>
@@ -120,9 +121,9 @@ function ResponsiveDocumentation() {
           keys.
         </Text>
 
-        <Box
-          sx={{ p: "6" }}
+        <div
           style={{
+            padding: "1.5rem",
             backgroundColor: tokens.color.backgroundSecondary,
             borderRadius: "0.5rem",
             border: `1px solid ${tokens.color.borderMuted}`,
@@ -147,9 +148,9 @@ function ResponsiveDocumentation() {
   }}
 />`}
           </code>
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </section>
+    </div>
   )
 }
 

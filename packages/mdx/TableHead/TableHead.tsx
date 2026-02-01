@@ -1,4 +1,3 @@
-import { Box } from "@vivshaw/basalt/components"
 import { clsx } from "clsx"
 
 import { tableHead } from "./TableHead.css"

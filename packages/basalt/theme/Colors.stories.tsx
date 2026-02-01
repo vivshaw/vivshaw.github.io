@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box, Heading, Text } from "../components"
+import { Heading, Text } from "../components"
 import { tokens } from "./index.css"
 
 function ColorSwatch({
@@ -14,13 +14,13 @@ function ColorSwatch({
   showBorder?: boolean
 }) {
   return (
-    <Box
-      sx={{ py: "3", px: "4" }}
+    <div
       style={{
         display: "flex",
         alignItems: "center",
         gap: "1rem",
         borderRadius: "0.5rem",
+        padding: "0.75rem 1rem",
       }}
     >
       <div
@@ -33,7 +33,7 @@ function ColorSwatch({
           flexShrink: 0,
         }}
       />
-      <Box>
+      <div>
         <Text font="sans" style={{ fontWeight: 700, marginBottom: "0.25rem" }}>
           {name}
         </Text>
@@ -46,8 +46,8 @@ function ColorSwatch({
         >
           tokens.color.{tokenName}
         </code>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 
@@ -61,7 +61,7 @@ function ColorSection({
   children: React.ReactNode
 }) {
   return (
-    <Box as="section" sx={{ mb: "12" }}>
+    <section style={{ marginBottom: "3rem" }}>
       <Heading level="2" style={{ marginBottom: "0.5rem" }}>
         {title}
       </Heading>
@@ -73,7 +73,7 @@ function ColorSection({
           {description}
         </Text>
       )}
-      <Box
+      <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
@@ -81,8 +81,8 @@ function ColorSection({
         }}
       >
         {children}
-      </Box>
-    </Box>
+      </div>
+    </section>
   )
 }
 
@@ -102,7 +102,7 @@ function PaletteStrip() {
   ]
 
   return (
-    <Box
+    <div
       style={{
         display: "flex",
         borderRadius: "0.5rem",
@@ -111,9 +111,8 @@ function PaletteStrip() {
       }}
     >
       {shades.map(({ name, value }) => (
-        <Box
+        <div
           key={name}
-          sx={{ pb: "2" }}
           style={{
             flex: 1,
             height: "5rem",
@@ -121,6 +120,7 @@ function PaletteStrip() {
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "center",
+            paddingBottom: "0.5rem",
           }}
         >
           <span
@@ -133,17 +133,18 @@ function PaletteStrip() {
           >
             {name}
           </span>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }
 
 function ColorsDocumentation() {
   return (
-    <Box
-      sx={{ p: "8", color: "textDefault" }}
+    <div
       style={{
+        padding: "2rem",
+        color: tokens.color.textDefault,
         backgroundColor: tokens.color.backgroundDefault,
         minHeight: "100vh",
       }}
@@ -211,7 +212,7 @@ function ColorsDocumentation() {
           tokenValue={tokens.color.accentDefault}
         />
       </ColorSection>
-    </Box>
+    </div>
   )
 }
 
