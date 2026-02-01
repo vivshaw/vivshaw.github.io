@@ -15,24 +15,24 @@
 /* ===== themes ===== */
 
 @define-mixin dark-mode {
-  .vvv-dark & {
+  :global(.vvv-dark) & {
     @mixin-content;
   }
 
   @media (prefers-color-scheme: dark) {
-    html:not(.vvv-dark, .vvv-light) & {
+    :global(html:not(.vvv-dark, .vvv-light)) & {
       @mixin-content;
     }
   }
 }
 
 @define-mixin light-mode {
-  .vvv-light & {
+  :global(.vvv-light) & {
     @mixin-content;
   }
 
   @media (prefers-color-scheme: light) {
-    html:not(.vvv-dark, .vvv-light) & {
+    :global(html:not(.vvv-dark, .vvv-light)) & {
       @mixin-content;
     }
   }
