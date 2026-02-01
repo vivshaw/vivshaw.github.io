@@ -3,9 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Box, Heading, Text } from "../components"
 import { tokens } from "./index.css"
 
-/**
- * Color documentation component
- */
 function ColorSwatch({
   name,
   tokenName,
@@ -65,7 +62,7 @@ function ColorSection({
 }) {
   return (
     <Box as="section" sx={{ mb: "12" }}>
-      <Heading level="2" sx={{ mb: "2" }}>
+      <Heading level="2" style={{ marginBottom: "0.5rem" }}>
         {title}
       </Heading>
       {description && (
@@ -151,7 +148,7 @@ function ColorsDocumentation() {
         minHeight: "100vh",
       }}
     >
-      <Heading level="1" sx={{ mb: "2" }}>
+      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
         Color Tokens
       </Heading>
       <Text

@@ -1,5 +1,5 @@
 export { Box } from "./Box"
-export { Heading } from "./Heading"
+export { Heading, type HeadingProps } from "./Heading"
 export { Link } from "./Link"
 export { Pill } from "./Pill"
 export { Text, type TextProps } from "./Text"

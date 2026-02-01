@@ -21,6 +21,7 @@
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
   - [ ] swap vvv prefix to basalt
 - [ ] MDX
+  - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - [ ] render markdown kitchen sink as a Story?
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?

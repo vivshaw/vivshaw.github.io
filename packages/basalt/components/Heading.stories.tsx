@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading } from "./Heading"
-import { Box } from "./Box"
 
 const meta = {
   title: "Components/Heading",
@@ -58,14 +57,14 @@ export const AllLevels: Story = {
     level: "1",
   },
   render: () => (
-    <Box style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <Heading level="1">Heading Level 1</Heading>
       <Heading level="2">Heading Level 2</Heading>
       <Heading level="3">Heading Level 3</Heading>
       <Heading level="4">Heading Level 4 (same style as 3)</Heading>
       <Heading level="5">Heading Level 5 (same style as 3)</Heading>
       <Heading level="6">Heading Level 6 (same style as 3)</Heading>
-    </Box>
+    </div>
   ),
 }
 
@@ -79,16 +78,5 @@ export const SemanticOverride: Story = {
     as: "h2",
     children: "Looks like h1, but is an <h2> element",
     level: "1",
-  },
-}
-
-/**
- * headings accept Sprinkles props via `sx` for additional styling.
- */
-export const WithSprinkles: Story = {
-  args: {
-    children: "Heading with accent color",
-    level: "2",
-    sx: { color: "accentDefault", mb: "4" },
   },
 }

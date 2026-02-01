@@ -1,9 +1,7 @@
 import clsx from "clsx"
 import { ComponentPropsWithRef, forwardRef, Ref } from "react"
 
-import { Box } from "./Box"
-import { Sprinkles } from "../theme/index.css"
-import { heading } from "./Heading.css"
+import styles from "./Heading.module.css"
 
 type HeadingElement = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 
@@ -13,7 +11,6 @@ type HeadingElement = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 type HeadingOwnProps<T extends HeadingElement> = {
   as?: T
   level: "1" | "2" | "3" | "4" | "5" | "6"
-  sx?: Sprinkles
 }
 
 export type HeadingProps<T extends HeadingElement = "h1"> = HeadingOwnProps<T> &
@@ -26,6 +23,15 @@ const resolveDefaultElement = {
   "4": "h4",
   "5": "h5",
   "6": "h6",
+} as const
+
+const levelClasses = {
+  "1": styles.level1,
+  "2": styles.level2,
+  "3": styles.level3,
+  "4": styles.level3,
+  "5": styles.level3,
+  "6": styles.level3,
 } as const
 
 /**
@@ -41,10 +47,9 @@ export const Heading = forwardRef(
   ) => {
     const Component = as ?? resolveDefaultElement[level]
     return (
-      <Box
-        as={Component}
+      <Component
         ref={ref}
-        className={clsx(heading({ level }), className)}
+        className={clsx(styles.heading, levelClasses[level], className)}
         {...props}
       />
     )

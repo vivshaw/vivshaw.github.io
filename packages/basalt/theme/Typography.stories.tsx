@@ -14,7 +14,7 @@ function Section({
 }) {
   return (
     <Box as="section" sx={{ mb: "16" }}>
-      <Heading level="2" sx={{ mb: "2" }}>
+      <Heading level="2" style={{ marginBottom: "0.5rem" }}>
         {title}
       </Heading>
       {description && (
@@ -330,7 +330,7 @@ function TypographyDocumentation() {
         minHeight: "100vh",
       }}
     >
-      <Heading level="1" sx={{ mb: "2" }}>
+      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
         Typography
       </Heading>
       <Text

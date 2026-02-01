@@ -33,7 +33,7 @@ function ResponsiveDocumentation() {
         minHeight: "100vh",
       }}
     >
-      <Heading level="1" sx={{ mb: "2" }}>
+      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
         Responsive
       </Heading>
       <Text
@@ -46,7 +46,7 @@ function ResponsiveDocumentation() {
       </Text>
 
       <Box as="section" sx={{ mb: "16" }}>
-        <Heading level="2" sx={{ mb: "6" }}>
+        <Heading level="2" style={{ marginBottom: "1.5rem" }}>
           Breakpoints
         </Heading>
 
@@ -109,7 +109,7 @@ function ResponsiveDocumentation() {
       </Box>
 
       <Box as="section" sx={{ mb: "16" }}>
-        <Heading level="2" sx={{ mb: "2" }}>
+        <Heading level="2" style={{ marginBottom: "0.5rem" }}>
           Usage
         </Heading>
         <Text
