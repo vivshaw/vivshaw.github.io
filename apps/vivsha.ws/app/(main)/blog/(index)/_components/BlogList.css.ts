@@ -13,7 +13,3 @@ export const blogListItemLink = style([
 export const blogListItemHeading = style({
   marginBottom: tokens.sizing["2"],
 })
-
-export const blogListItemDate = style({
-  color: tokens.color.textMuted,
-})

@@ -1,14 +1,14 @@
 import clsx from "clsx"
 import { ComponentPropsWithRef, ElementType, forwardRef, Ref } from "react"
 
-import { Box } from "./Box"
-import { text } from "./Text.css"
+import styles from "./Text.module.css"
 
 /**
  * base props for Text, without the polymorphic element props.
  */
 type TextOwnProps<T extends ElementType> = {
   as?: T
+  color?: "default" | "muted"
   font?: "serif" | "sans"
   size?: "normal" | "small"
 }
@@ -16,20 +16,47 @@ type TextOwnProps<T extends ElementType> = {
 export type TextProps<T extends ElementType = "p"> = TextOwnProps<T> &
   Omit<ComponentPropsWithRef<T>, keyof TextOwnProps<T>>
 
+const sizeClasses = {
+  normal: styles.sizeNormal,
+  small: styles.sizeSmall,
+} as const
+
+const fontClasses = {
+  serif: styles.fontSerif,
+  sans: styles.fontSans,
+} as const
+
+const colorClasses = {
+  default: styles.colorDefault,
+  muted: styles.colorMuted,
+} as const
+
 /**
  * a polymorphic text component.
  */
 export const Text = forwardRef(
   <T extends ElementType = "p">(
-    { as, className, font = "serif", size = "normal", ...props }: TextProps<T>,
+    {
+      as,
+      className,
+      color,
+      font = "serif",
+      size = "normal",
+      ...props
+    }: TextProps<T>,
     ref: Ref<Element>,
   ) => {
     const Component = (as ?? "p") as ElementType
     return (
-      <Box
-        as={Component}
+      <Component
         ref={ref}
-        className={clsx(text({ font, size }), className)}
+        className={clsx(
+          styles.text,
+          sizeClasses[size],
+          fontClasses[font],
+          color && colorClasses[color],
+          className,
+        )}
         {...props}
       />
     )

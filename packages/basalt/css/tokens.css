@@ -30,7 +30,7 @@
  *  --basalt-color-text-muted
  */
 
- @define-mixin light-theme {
+@define-mixin light-theme {
   /* TODO: move this into the reset once the VE one is removed */
   color: var(--basalt-color-text-default);
 
@@ -73,7 +73,6 @@ html:not(.vvv-dark, .vvv-light) {
     @mixin dark-theme;
   }
 }
-
 
 /* ===== typography ===== */
 
@@ -139,7 +138,6 @@ html:not(.vvv-dark, .vvv-light) {
   }
 }
 
-
 /* ===== motion ===== */
 
 :root {
@@ -159,7 +157,6 @@ html:not(.vvv-dark, .vvv-light) {
       var(--basalt-easing-in-quad),
     opacity 0.2s var(--basalt-easing-in-quad);
 }
-
 
 /* ===== sizing ===== */
 

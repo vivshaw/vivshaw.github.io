@@ -31,7 +31,6 @@
   font-weight: 700;
 }
 
-
 /* Concourse 3 — sans */
 @font-face {
   font-family: "vvv-sans";
@@ -65,7 +64,6 @@
   font-weight: 700;
 }
 
-
 /* serif fallback — Times New Roman */
 @font-face {
   font-family: "vvv-serif-fallback";
@@ -75,7 +73,6 @@
   descent-override: normal;
   line-gap-override: normal;
 }
-
 
 /* sans fallback — Arial */
 @font-face {

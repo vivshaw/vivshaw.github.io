@@ -1,0 +1,41 @@
+.text {
+  font-weight: var(--basalt-font-weight-normal);
+  hyphens: auto;
+  text-wrap: pretty;
+  word-break: keep-all;
+
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
+}
+
+/* sizes */
+.sizeNormal {
+  @mixin text-body;
+}
+
+.sizeSmall {
+  @mixin text-small;
+}
+
+/* fonts */
+.fontSerif {
+  @mixin font-serif;
+}
+
+.fontSans {
+  @mixin font-sans;
+}
+
+/* colors */
+.colorDefault {
+  color: var(--basalt-color-text-default);
+}
+
+.colorMuted {
+  color: var(--basalt-color-text-muted);
+}

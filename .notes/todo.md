@@ -6,7 +6,6 @@
   - [ ] tags index page & tag pages, someday
 - [ ] styling
   - [ ] use layers
-  - [ ] find a neater way to handle `firstThree` in blog posts. don't wrap first 3 of _every_ paragraph anymore.
 - [ ] basalt
   - [ ] simplify text ramp:
     - [ ] 32px main heading / ??? mobile, maybe 24
@@ -19,9 +18,23 @@
   - [ ] specify a default foreground color? might simplify Stories and reduce effect ofs CSS oversights in prod?
   - [ ] Storybook
     - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
+  - [ ] expand Text and Heading to also allow base sizes, then use in more places
+  - [ ] swap vvv prefix to basalt
+- [ ] MDX
+- [ ] render markdown kitchen sink as a Story?
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
 - [ ] font flicker on hard refresh - could be a fallback problem?
-- [ ] sidenotes
+- [ ] rehype
   - [ ] clean up sidenote/styles so that they can live in one spot rather than be scattered around
+  - [ ] clean up first-three-words plugin & styles to colocate also
+- [ ] css
+  - [ ] find a tidier thing to do with the .d.ts
+  - [ ] typecheck that class names actually exist?
+  - [ ] clean up Basalt CSS entry points
+  - [ ] move dark-mode aware color defaults into reset stylesheet
+  - [ ] confirm that reset-level default transition works
+- [ ] lint/etc
+  - [ ] sort imports
+- [ ] custom 404 page, model after index

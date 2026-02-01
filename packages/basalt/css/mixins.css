@@ -12,7 +12,6 @@
   }
 }
 
-
 /* ===== themes ===== */
 
 @define-mixin dark-mode {
@@ -39,7 +38,6 @@
   }
 }
 
-
 /* ===== fonts ===== */
 
 @define-mixin font-serif {
@@ -61,7 +59,6 @@
   font-family: var(--basalt-font-monospace);
   font-feature-settings: var(--basalt-font-feature-settings-monospace);
 }
-
 
 /* ===== text presets ===== */
 
@@ -89,7 +86,6 @@
   font-size: var(--basalt-font-size-heading3);
   line-height: var(--basalt-line-height-heading);
 }
-
 
 /* ===== focus ring ===== */
 

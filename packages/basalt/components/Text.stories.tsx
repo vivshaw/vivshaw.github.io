@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Text } from "./Text"
-import { Box } from "./Box"
 
 const sampleText =
   "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs."
@@ -93,15 +92,5 @@ export const AsSpan: Story = {
   args: {
     as: "span",
     children: "This is a <span> element",
-  },
-}
-
-/**
- * text accepts Sprinkles props via `sx` for additional styling.
- */
-export const WithSprinkles: Story = {
-  args: {
-    sx: { color: "textMuted" },
-    children: "Text with muted color via Sprinkles",
   },
 }

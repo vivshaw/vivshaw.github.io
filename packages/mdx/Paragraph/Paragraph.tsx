@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Text } from "@vivshaw/basalt/components"
+import { Text, type TextProps } from "@vivshaw/basalt/components"
 
 import { paragraphStyle } from "./Paragraph.css"
 
@@ -10,7 +10,7 @@ export function Paragraph({
   className,
   children,
   ...restProps
-}: React.HTMLAttributes<HTMLParagraphElement>) {
+}: TextProps<"p">) {
   return (
     <Text {...restProps} className={clsx(paragraphStyle, className)}>
       {children}
