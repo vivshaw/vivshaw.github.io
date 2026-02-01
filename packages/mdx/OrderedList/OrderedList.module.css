@@ -1,0 +1,13 @@
+.orderedList {
+  @mixin text-body;
+  @mixin font-serif;
+
+  color: var(--basalt-color-text-default);
+  margin-bottom: var(--basalt-sizing-6);
+  padding-left: var(--basalt-sizing-8);
+
+  & ol,
+  & ul {
+    margin-bottom: 0;
+  }
+}
