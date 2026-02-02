@@ -1,0 +1,89 @@
+/* container for Shiki code blocks- holds the language label */
+.container {
+  margin-bottom: var(--basalt-sizing-6);
+  position: relative;
+
+  @mixin desktop {
+    margin-bottom: var(--basalt-sizing-8);
+  }
+}
+
+/* language label in top right corner- on container so it doesn't scroll */
+.container::after {
+  content: attr(data-language);
+  font-family: var(--basalt-font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  right: var(--basalt-sizing-2);
+  top: var(--basalt-sizing-2);
+}
+
+/* base styles for Shiki code blocks */
+.codeBlock {
+  font-size: var(--basalt-font-size-100);
+  line-height: var(--basalt-line-height-body);
+  overflow: auto;
+  padding: var(--basalt-sizing-4);
+  text-size-adjust: none;
+  width: 100%;
+
+  @mixin desktop {
+    border-radius: var(--basalt-sizing-1);
+  }
+
+  /* light theme */
+  @mixin light-mode {
+    background-color: var(--shiki-light-bg) !important;
+
+    & span {
+      color: var(--shiki-light) !important;
+    }
+  }
+
+  /* dark theme */
+  @mixin dark-mode {
+    background-color: var(--shiki-dark-bg) !important;
+
+    & span {
+      color: var(--shiki-dark) !important;
+    }
+  }
+
+  /* line highlighting - use [!code highlight] in code blocks */
+  & :global(.line.highlighted) {
+    background-color: rgba(101, 117, 133, 0.2) !important;
+  }
+
+  /* diff notation - use [!code ++] and [!code --] in code blocks */
+  & :global(.line.diff) {
+    padding-left: var(--basalt-sizing-6);
+    position: relative;
+  }
+
+  & :global(.line.diff)::before {
+    left: 0;
+    position: absolute;
+    width: var(--basalt-sizing-6);
+  }
+
+  & :global(.line.diff.add) {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+  }
+
+  & :global(.line.diff.add)::before {
+    color: #10b981;
+    content: "+";
+  }
+
+  & :global(.line.diff.remove) {
+    background-color: rgba(244, 63, 94, 0.2) !important;
+  }
+
+  & :global(.line.diff.remove)::before {
+    color: #f43f5e;
+    content: "-";
+  }
+}

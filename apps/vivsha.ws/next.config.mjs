@@ -16,21 +16,11 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter"
 import rehypeFirstThreeWords from "./lib/rehype-first-three-words.mjs"
 import rehypeSidenotes from "./lib/rehype-sidenotes.mjs"
 
-/** custom Shiki transformer that wraps code blocks in a container with a language label */
+/** custom Shiki transformer that adds the language as a data attribute to the pre element */
 const transformerLanguageLabel = () => ({
   name: "language-label",
-  root(root) {
-    const pre = root.children[0]
-    // wrap the pre in a container div with the language as a data attribute
-    root.children[0] = {
-      type: "element",
-      tagName: "div",
-      properties: {
-        class: "shiki-container",
-        "data-language": this.options.lang,
-      },
-      children: [pre],
-    }
+  pre(node) {
+    node.properties["data-language"] = this.options.lang
   },
 })
 

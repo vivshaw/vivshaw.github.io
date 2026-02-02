@@ -1,7 +1,6 @@
 import { createVar, globalStyle, style } from "@vanilla-extract/css"
 
 import {
-  breakpoints,
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
   SYSTEM_COLOR_MODE_SELECTOR,

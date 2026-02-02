@@ -1,5 +1,4 @@
 import { createVar, globalStyle, style } from "@vanilla-extract/css"
-import { CODE_BLOCK_CONTAINER_CLASS } from "@vivshaw/mdx/CodeBlock/CodeBlock.css"
 import { breakpoints, tokens } from "@vivshaw/basalt"
 
 /** horizontal padding for the post body (used for fullbleed breakout) */
@@ -29,10 +28,11 @@ export const postBody = style({
 
 /**
  * images and code blocks should be fullbleed on mobile.
+ * code blocks are wrapped in a container div, so target div:has(> pre).
  */
 globalStyle(
   `
-  ${postBody} > .${CODE_BLOCK_CONTAINER_CLASS},
+  ${postBody} > div:has(> pre),
   ${postBody} > img
   `,
   {
