@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { blockquote } from "./Blockquote.css"
+import styles from "./Blockquote.module.css"
 
 /**
  * a styled `<blockquote>` element, for use in MDX.
@@ -9,5 +9,7 @@ export function Blockquote({
   className,
   ...restProps
 }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) {
-  return <blockquote className={clsx(blockquote, className)} {...restProps} />
+  return (
+    <blockquote className={clsx(styles.blockquote, className)} {...restProps} />
+  )
 }
