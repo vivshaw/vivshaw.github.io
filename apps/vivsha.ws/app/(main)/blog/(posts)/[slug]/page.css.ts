@@ -28,12 +28,13 @@ export const postBody = style({
 
 /**
  * images and code blocks should be fullbleed on mobile.
- * code blocks are wrapped in a container div, so target div:has(> pre).
+ * code blocks are wrapped in a container div, and images
+ * are wrapped in a `<p>` by the Markdown parser.
  */
 globalStyle(
   `
   ${postBody} > div:has(> pre),
-  ${postBody} > img
+  ${postBody} > p:has(> img)
   `,
   {
     marginLeft: `calc(-1 * ${postPadding})`,
