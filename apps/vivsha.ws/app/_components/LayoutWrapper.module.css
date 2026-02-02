@@ -1,0 +1,19 @@
+.root {
+  background-color: var(--basalt-color-background-default);
+  min-height: 100vh;
+  transition: var(--basalt-motion-transition-theme);
+}
+
+.imageBackground {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  @mixin dark-mode {
+    background-image: url("/home-bg-dark-optimized.jpg");
+  }
+
+  @mixin light-mode {
+    background-image: url("/home-bg-light-optimized.jpg");
+  }
+}

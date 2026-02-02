@@ -3,7 +3,7 @@ import "@vivshaw/basalt/reset"
 import clsx from "clsx"
 import React, { PropsWithChildren } from "react"
 
-import { imageBackground, root } from "./LayoutWrapper.css"
+import styles from "./LayoutWrapper.module.css"
 import { Navbar } from "./Navbar"
 
 type LayoutWrapperProps = PropsWithChildren<{
@@ -17,7 +17,12 @@ export function LayoutWrapper({
   navbarVariant = "abbreviated",
 }: LayoutWrapperProps): React.ReactElement<any> {
   return (
-    <div className={clsx(root, showImageBackground && imageBackground)}>
+    <div
+      className={clsx(
+        styles.root,
+        showImageBackground && styles.imageBackground,
+      )}
+    >
       <Navbar variant={navbarVariant} />
       {children}
     </div>
