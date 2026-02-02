@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import { Text, type TextProps } from "@vivshaw/basalt/components"
 
-import { paragraphStyle } from "./Paragraph.css"
+import styles from "./Paragraph.module.css"
 
 /**
  * a styled <p> element, for use in MDX.
@@ -12,7 +12,7 @@ export function Paragraph({
   ...restProps
 }: TextProps<"p">) {
   return (
-    <Text {...restProps} className={clsx(paragraphStyle, className)}>
+    <Text {...restProps} className={clsx(styles.paragraph, className)}>
       {children}
     </Text>
   )

@@ -1,0 +1,7 @@
+.paragraph {
+  margin-bottom: var(--basalt-sizing-6);
+
+  @mixin desktop {
+    margin-bottom: var(--basalt-sizing-8);
+  }
+}

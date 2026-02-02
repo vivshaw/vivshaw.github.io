@@ -47,3 +47,4 @@
 next up: port MDX components, one by one
 after: remove the things that use focusRing, update docs again
 later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.
+clean up peer dependencies
