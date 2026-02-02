@@ -1,0 +1,11 @@
+.h1 {
+  margin-bottom: var(--basalt-sizing-12);
+}
+
+.h2 {
+  margin-bottom: var(--basalt-sizing-5);
+}
+
+.h3 {
+  margin-bottom: var(--basalt-sizing-4);
+}
