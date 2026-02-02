@@ -1,0 +1,202 @@
+/* shared styles for token documentation stories */
+
+/* ===== layout ===== */
+
+.page {
+  @mixin font-serif;
+
+  background-color: var(--basalt-color-background-default);
+  color: var(--basalt-color-text-default);
+  min-height: 100vh;
+  padding: var(--basalt-sizing-8);
+}
+
+.section {
+  margin-bottom: var(--basalt-sizing-16);
+}
+
+/* ===== text ===== */
+
+.lead {
+  color: var(--basalt-color-text-muted);
+  margin-bottom: var(--basalt-sizing-12);
+}
+
+.sectionDescription {
+  color: var(--basalt-color-text-muted);
+  margin-bottom: var(--basalt-sizing-6);
+}
+
+.textMuted {
+  color: var(--basalt-color-text-muted);
+}
+
+.bold {
+  font-weight: var(--basalt-font-weight-bold);
+}
+
+/* ===== mono / code ===== */
+
+.mono {
+  color: var(--basalt-color-text-muted);
+  font-family: var(--basalt-font-monospace);
+  font-size: var(--basalt-font-size-100);
+}
+
+.monoSmall {
+  color: var(--basalt-color-text-muted);
+  font-family: var(--basalt-font-monospace);
+  font-size: 0.75rem;
+}
+
+.codeBlock {
+  color: var(--basalt-color-text-muted);
+  display: block;
+  font-family: var(--basalt-font-monospace);
+  font-size: 0.75rem;
+  margin-top: var(--basalt-sizing-4);
+  white-space: pre-wrap;
+}
+
+/* ===== cards ===== */
+
+.card {
+  background-color: var(--basalt-color-background-secondary);
+  border: 1px solid var(--basalt-color-border-muted);
+  border-radius: var(--basalt-sizing-2);
+  padding: var(--basalt-sizing-6);
+}
+
+.cardHeader {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--basalt-sizing-4);
+}
+
+.cardDescription {
+  color: var(--basalt-color-text-muted);
+  margin-bottom: var(--basalt-sizing-4);
+}
+
+.cardGrid {
+  display: grid;
+  gap: var(--basalt-sizing-6);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ===== flex helpers ===== */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--basalt-sizing-4);
+}
+
+.stackWide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--basalt-sizing-6);
+}
+
+.stackTight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--basalt-sizing-2);
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  gap: var(--basalt-sizing-4);
+}
+
+.rowBaseline {
+  align-items: baseline;
+  display: flex;
+  gap: var(--basalt-sizing-4);
+}
+
+/* ===== scale / swatch rows ===== */
+
+.scaleRow {
+  align-items: center;
+  background-color: var(--basalt-color-background-secondary);
+  border-radius: var(--basalt-sizing-2);
+  display: flex;
+  gap: var(--basalt-sizing-4);
+  padding: var(--basalt-sizing-3) var(--basalt-sizing-4);
+}
+
+.label {
+  flex-shrink: 0;
+  width: var(--basalt-sizing-16);
+}
+
+/* ===== typography stories ===== */
+
+.specimen {
+  font-size: var(--basalt-font-size-500);
+  line-height: var(--basalt-line-height-body);
+}
+
+.weightGrid {
+  border-top: 1px solid var(--basalt-color-border-muted);
+  display: grid;
+  gap: var(--basalt-sizing-4);
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: var(--basalt-sizing-6);
+  padding-top: var(--basalt-sizing-6);
+}
+
+.weightSample {
+  font-size: var(--basalt-font-size-200);
+}
+
+.metaRow {
+  display: flex;
+  gap: var(--basalt-sizing-4);
+}
+
+/* ===== color stories ===== */
+
+.paletteStrip {
+  border: 1px solid var(--basalt-color-border-muted);
+  border-radius: var(--basalt-sizing-2);
+  display: flex;
+  overflow: hidden;
+}
+
+.paletteSwatch {
+  align-items: flex-end;
+  display: flex;
+  flex: 1;
+  height: var(--basalt-sizing-20);
+  justify-content: center;
+  padding-bottom: var(--basalt-sizing-2);
+}
+
+.colorSwatch {
+  border: 1px solid var(--basalt-color-border-muted);
+  border-radius: var(--basalt-sizing-2);
+  flex-shrink: 0;
+  height: var(--basalt-sizing-16);
+  width: var(--basalt-sizing-16);
+}
+
+/* ===== spacing stories ===== */
+
+.spacingBar {
+  background-color: var(--basalt-color-accent-default);
+  border-radius: var(--basalt-sizing-half);
+  flex-shrink: 0;
+  height: var(--basalt-sizing-6);
+}
+
+.spacingBarLarge {
+  background-color: var(--basalt-color-accent-default);
+  border-radius: var(--basalt-sizing-1);
+  height: var(--basalt-sizing-8);
+  max-width: 100%;
+  opacity: 0.6;
+}

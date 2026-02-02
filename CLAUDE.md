@@ -26,7 +26,8 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 
 - This application uses React and Next.js as its foundation. It uses Next's App Router.
 - The app is written in Typescript.
-- Styling is done with Vanilla Extract. The Sprinkles and Recipes sub-packages are available.
+- Basalt components are styled with CSS Modules and PostCSS mixins, backed by `--basalt-*` CSS custom properties.
+- Some legacy Vanilla Extract (`.css.ts`) remains in the app and MDX package. New styles should use CSS Modules.
 
 # Rules
 
@@ -62,7 +63,7 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 
 ### When to Use Spacing Tokens
 
-- Use `tokens.sizing[...]` for all general spacing values including:
+- Use `var(--basalt-sizing-*)` in CSS Modules for all general spacing values including:
   - Margins and padding
   - Dimensions and sizes
   - Border radius
@@ -78,39 +79,37 @@ Keep exact pixel/rem values ONLY for:
 
 ### Examples
 
-```typescript
-// ✅ Good
-padding: tokens.spacing["4"]
-margin: `${tokens.spacing["2"]} 0`
-gap: tokens.spacing["1"]
+```css
+/* ✅ Good */
+.card {
+  padding: var(--basalt-sizing-4);
+  margin: var(--basalt-sizing-2) 0;
+  gap: var(--basalt-sizing-1);
+}
 
-// ❌ Bad (unless specifically needed)
-padding: "16px"
-margin: "0.5rem 0"
-gap: "4px"
+/* ❌ Bad (unless specifically needed) */
+.card {
+  padding: 16px;
+  margin: 0.5rem 0;
+  gap: 4px;
+}
 ```
 
 ## Color Mode
 
-Use `darkModeStyles()` and `lightModeStyles()` from `@vivshaw/basalt/helpers` for mode-specific styles. These handle both explicit mode (toggle) and system preference.
+In CSS Modules, use `@mixin dark-mode` and `@mixin light-mode` from the PostCSS mixins:
 
-```typescript
-import { style } from "@vanilla-extract/css"
-import { darkModeStyles, lightModeStyles } from "@vivshaw/basalt/helpers"
+```css
+.myComponent {
+  background-color: #fff;
 
-// ✅ Good
-export const myStyle = style([
-  {
-    // Base styles for both modes
-  },
-  darkModeStyles({
-    backgroundColor: "#111",
-  }),
-  lightModeStyles({
-    backgroundColor: "#fff",
-  }),
-])
+  @mixin dark-mode {
+    background-color: #111;
+  }
+}
 ```
+
+In legacy Vanilla Extract files, use `darkModeStyles()` and `lightModeStyles()` from `@vivshaw/basalt/helpers`.
 
 Don't manually use `DARK_COLOR_MODE_CLASS`/`LIGHT_COLOR_MODE_CLASS` or raw `prefers-color-scheme` queries.
 

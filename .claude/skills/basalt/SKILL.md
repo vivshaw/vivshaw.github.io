@@ -9,41 +9,100 @@ Use these guidelines when making changes to the Basalt design system itself (not
 
 ## Component Organization
 
-Components in the Basalt design system follow this structure:
-
 - Each component lives in its own file in `packages/basalt/components/`
-- Components are accompanied by their stories (`.stories.tsx`) and styles (`.css.ts`)
+- Components are styled with CSS Modules (`.module.css`) and PostCSS mixins
+- Stories (`.stories.tsx`) live alongside their components
 - All components must be exported through `components/index.ts`
-- Component imports should always come from `@vivshaw/basalt/components` rather than deep imports
 
 ## Styling
 
-- Use Vanilla Extract for all styling
-- Use Sprinkles for responsive utility styles
-- Use Recipes for component variants
+- Use CSS Modules (`.module.css`) for component styles
+- Use `--basalt-*` CSS custom properties for all token values
+- Use PostCSS mixins for responsive breakpoints, color modes, text presets, and font stacks
+- Use `clsx` to concatenate class names
 - **Never** use inline styles or `!important`
 
-## Theme Tokens
+### PostCSS Mixins
 
-Theme tokens are defined in `packages/basalt/theme/index.css.ts`:
+Mixins are defined in `packages/basalt/css/mixins.css` and loaded via `postcss-mixins`. They are designed to work in CSS Modules (class selectors for color modes are wrapped in `:global()`).
 
-| Export           | Purpose                                                    |
-| ---------------- | ---------------------------------------------------------- |
-| `tokens`         | Theme contract with colors, fonts, spacing, fontSize       |
-| `breakpoints`    | Responsive breakpoints (tablet >= 541px, desktop >= 736px) |
-| `sprinkles`      | Utility function for responsive styling                    |
-| `lightColorMode` | Light theme values                                         |
-| `darkColorMode`  | Dark theme values                                          |
+#### Font stacks
+
+Set font family and OpenType feature settings:
+
+| Mixin                          | Font                           |
+| ------------------------------ | ------------------------------ |
+| `@mixin font-serif`            | Equity B (serif) + `onum` etc. |
+| `@mixin font-sans`             | Concourse (sans) + `onum` etc. |
+| `@mixin font-monospace`        | System monospace stack         |
+| `@mixin font-serif-small-caps` | Serif + small caps features    |
+
+#### Text sizing
+
+Responsive font size and line height (mobile → desktop):
+
+| Mixin                  | Sizes       |
+| ---------------------- | ----------- |
+| `@mixin text-small`    | 16px → 18px |
+| `@mixin text-body`     | 20px → 24px |
+| `@mixin text-heading3` | 20px → 24px |
+| `@mixin text-heading2` | 22px → 28px |
+| `@mixin text-heading1` | 24px → 32px |
+
+#### Responsive breakpoints
+
+Wrap content in a media query:
+
+| Mixin            | Condition        |
+| ---------------- | ---------------- |
+| `@mixin tablet`  | min-width: 541px |
+| `@mixin desktop` | min-width: 736px |
+
+#### Color mode
+
+Scope styles to light or dark mode:
+
+| Mixin               | Mode  |
+| ------------------- | ----- |
+| `@mixin light-mode` | Light |
+| `@mixin dark-mode`  | Dark  |
+
+#### Interaction
+
+| Mixin               | Purpose             |
+| ------------------- | ------------------- |
+| `@mixin focus-ring` | Standard focus ring |
+
+### CSS Custom Properties
+
+Tokens are defined in `packages/basalt/css/tokens.css` on `:root`. Naming convention:
+
+| Category   | Pattern                  | Example                            |
+| ---------- | ------------------------ | ---------------------------------- |
+| Colors     | `--basalt-color-*`       | `--basalt-color-text-default`      |
+| Palette    | `--basalt-color-base-*`  | `--basalt-color-base-500`          |
+| Fonts      | `--basalt-font-*`        | `--basalt-font-serif`              |
+| Font sizes | `--basalt-font-size-*`   | `--basalt-font-size-300`           |
+| Spacing    | `--basalt-sizing-*`      | `--basalt-sizing-4`                |
+| Motion     | `--basalt-motion-*`      | `--basalt-motion-transition-theme` |
+| Easing     | `--basalt-motion-ease-*` | `--basalt-motion-ease-in-quad`     |
+
+### Transition workaround
+
+lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-bundler/lightningcss#194). When combining multiple transitions, use longhand properties with the primitive tokens (`--basalt-motion-transition-*-property`, `-duration`, `-timing`). See `Pill.module.css` for an example.
 
 ## Key Files
 
-| File                                   | Purpose                                            |
-| -------------------------------------- | -------------------------------------------------- |
-| `packages/basalt/theme/index.css.ts`   | Theme tokens, sprinkles, color modes               |
-| `packages/basalt/components/index.ts`  | Component exports                                  |
-| `packages/basalt/config.ts`            | Color mode class names (`vvv-light`, `vvv-dark`)   |
-| `packages/basalt/helpers/index.css.ts` | `darkModeStyles()` and `lightModeStyles()` helpers |
-| `packages/basalt/reset.css.ts`         | CSS reset styles                                   |
+| File                                   | Purpose                                             |
+| -------------------------------------- | --------------------------------------------------- |
+| `packages/basalt/css/tokens.css`       | CSS custom property tokens                          |
+| `packages/basalt/css/mixins.css`       | PostCSS mixin definitions                           |
+| `packages/basalt/css/fonts.css`        | @font-face declarations                             |
+| `packages/basalt/css/reset.css`        | CSS reset                                           |
+| `packages/basalt/components/index.ts`  | Component exports                                   |
+| `packages/basalt/config.ts`            | Color mode class names (`vvv-light`, `vvv-dark`)    |
+| `packages/basalt/theme/index.css.ts`   | Vanilla Extract theme (tokens, color modes)         |
+| `packages/basalt/helpers/index.css.ts` | VE `darkModeStyles()` / `lightModeStyles()` helpers |
 
 ## Storybook
 
@@ -56,24 +115,17 @@ Theme tokens are defined in `packages/basalt/theme/index.css.ts`:
 ## Adding a New Component
 
 1. Create `packages/basalt/components/MyComponent.tsx`
-2. Create `packages/basalt/components/MyComponent.css.ts` for styles
+2. Create `packages/basalt/components/MyComponent.module.css` for styles
 3. Export from `packages/basalt/components/index.ts`
 4. Create `packages/basalt/components/MyComponent.stories.tsx`
 5. Run `yarn typecheck` and `yarn format:all`
-
-## Adding Theme Tokens
-
-1. Add to the contract in `createGlobalThemeContract()`
-2. Add values in `lightColorMode` and `darkColorMode`
-3. Update token documentation stories if needed
-4. Run `yarn typecheck` and `yarn format:all`
 
 ## Checklist
 
 When making changes to Basalt:
 
-- [ ] Follow the component organization pattern
-- [ ] Use Vanilla Extract for all styling
+- [ ] Use CSS Modules + PostCSS mixins for styling
+- [ ] Use `--basalt-*` tokens for all design values
 - [ ] Export new components from `components/index.ts`
 - [ ] Add or update stories for documentation
 - [ ] Test in both light and dark modes

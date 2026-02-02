@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading, Text } from "../components"
-import { breakpoints, tokens } from "./index.css"
+import { breakpoints } from "./index.css"
+import styles from "./stories.module.css"
 
 function ResponsiveDocumentation() {
   const breakpointData = [
@@ -26,80 +27,27 @@ function ResponsiveDocumentation() {
   ]
 
   return (
-    <div
-      style={{
-        padding: "2rem",
-        color: tokens.color.textDefault,
-        backgroundColor: tokens.color.backgroundDefault,
-        minHeight: "100vh",
-      }}
-    >
-      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
-        Responsive
-      </Heading>
-      <Text
-        style={{
-          marginBottom: "3rem",
-          color: tokens.color.textMuted,
-        }}
-      >
+    <div className={styles.page}>
+      <Heading level="1">Responsive</Heading>
+      <Text className={styles.lead}>
         Basalt uses a mobile-first responsive system with three breakpoints.
       </Text>
 
-      <section style={{ marginBottom: "4rem" }}>
-        <Heading level="2" style={{ marginBottom: "1.5rem" }}>
-          Breakpoints
-        </Heading>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <section className={styles.section}>
+        <Heading level="2">Breakpoints</Heading>
+        <div className={styles.stack}>
           {breakpointData.map(({ name, condition, range, description }) => (
-            <div
-              key={name}
-              style={{
-                padding: "1.5rem",
-                backgroundColor: tokens.color.backgroundSecondary,
-                borderRadius: "0.5rem",
-                border: `1px solid ${tokens.color.borderMuted}`,
-              }}
-            >
-              <div
-                style={{
-                  marginBottom: "0.75rem",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
-                }}
-              >
-                <Text as="h3" font="sans" style={{ fontWeight: 700 }}>
+            <div key={name} className={styles.card}>
+              <div className={styles.cardHeader}>
+                <Text as="h3" font="sans" className={styles.bold}>
                   {name}
                 </Text>
-                <code
-                  style={{
-                    fontSize: "0.875rem",
-                    fontFamily: tokens.font.monospace,
-                    color: tokens.color.textMuted,
-                  }}
-                >
-                  {range}
-                </code>
+                <code className={styles.mono}>{range}</code>
               </div>
-              <Text
-                size="small"
-                style={{
-                  marginBottom: "0.75rem",
-                  color: tokens.color.textMuted,
-                }}
-              >
+              <Text size="small" className={styles.textMuted}>
                 {description}
               </Text>
-              <code
-                style={{
-                  display: "block",
-                  fontSize: "0.75rem",
-                  fontFamily: tokens.font.monospace,
-                  color: tokens.color.textMuted,
-                }}
-              >
+              <code className={styles.monoSmall}>
                 {condition === "Default"
                   ? "Default (no media query)"
                   : condition}
@@ -109,34 +57,13 @@ function ResponsiveDocumentation() {
         </div>
       </section>
 
-      <section style={{ marginBottom: "4rem" }}>
-        <Heading level="2" style={{ marginBottom: "0.5rem" }}>
-          Usage
-        </Heading>
-        <Text
-          size="small"
-          style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
-        >
+      <section className={styles.section}>
+        <Heading level="2">Usage</Heading>
+        <Text size="small" className={styles.sectionDescription}>
           Use Basalt's breakpoint mixins for responsive styles.
         </Text>
-
-        <div
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <code
-            style={{
-              display: "block",
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.875rem",
-              color: tokens.color.textMuted,
-              whiteSpace: "pre-wrap",
-            }}
-          >
+        <div className={styles.card}>
+          <code className={styles.codeBlock}>
             {`.content {
   padding: var(--basalt-sizing-4);
 

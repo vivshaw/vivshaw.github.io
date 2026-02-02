@@ -1,34 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import clsx from "clsx"
 
 import { Heading, Text } from "../components"
-import { tokens } from "./index.css"
-
-function Section({
-  title,
-  description,
-  children,
-}: {
-  title: string
-  description?: string
-  children: React.ReactNode
-}) {
-  return (
-    <section style={{ marginBottom: "4rem" }}>
-      <Heading level="2" style={{ marginBottom: "0.5rem" }}>
-        {title}
-      </Heading>
-      {description && (
-        <Text
-          size="small"
-          style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
-        >
-          {description}
-        </Text>
-      )}
-      {children}
-    </section>
-  )
-}
+import styles from "./stories.module.css"
 
 function SpacingScale() {
   const spacings = [
@@ -56,49 +30,12 @@ function SpacingScale() {
   ]
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <div className={styles.stackTight}>
       {spacings.map(({ name, value }) => (
-        <div
-          key={name}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.25rem",
-            padding: "0.5rem 1rem",
-          }}
-        >
-          <code
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-              width: "4rem",
-              flexShrink: 0,
-            }}
-          >
-            {name}
-          </code>
-          <div
-            style={{
-              height: "1.5rem",
-              width: value,
-              backgroundColor: tokens.color.accentDefault,
-              borderRadius: "0.125rem",
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-              marginLeft: "auto",
-            }}
-          >
-            {value}
-          </span>
+        <div key={name} className={styles.scaleRow}>
+          <code className={clsx(styles.monoSmall, styles.label)}>{name}</code>
+          <div className={styles.spacingBar} style={{ width: value }} />
+          <span className={styles.monoSmall}>{value}</span>
         </div>
       ))}
     </div>
@@ -124,46 +61,12 @@ function LargeSpacings() {
   ]
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+    <div className={styles.stack}>
       {spacings.map(({ name, value }) => (
-        <div
-          key={name}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
-          }}
-        >
-          <code
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-              width: "4rem",
-              flexShrink: 0,
-            }}
-          >
-            {name}
-          </code>
-          <div
-            style={{
-              height: "2rem",
-              width: value,
-              maxWidth: "100%",
-              backgroundColor: tokens.color.accentDefault,
-              borderRadius: "0.25rem",
-              opacity: 0.6,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-            }}
-          >
-            {value}
-          </span>
+        <div key={name} className={styles.row}>
+          <code className={clsx(styles.monoSmall, styles.label)}>{name}</code>
+          <div className={styles.spacingBarLarge} style={{ width: value }} />
+          <span className={styles.monoSmall}>{value}</span>
         </div>
       ))}
     </div>
@@ -172,13 +75,7 @@ function LargeSpacings() {
 
 function UsageExample() {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-        gap: "1.5rem",
-      }}
-    >
+    <div className={styles.cardGrid}>
       {[
         {
           title: "Margin & Padding",
@@ -204,34 +101,11 @@ function UsageExample() {
 }`,
         },
       ].map(({ title, code }) => (
-        <div
-          key={title}
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <Text
-            as="h3"
-            font="sans"
-            size="small"
-            style={{ marginBottom: "1rem", fontWeight: 700 }}
-          >
+        <div key={title} className={styles.card}>
+          <Text as="h3" font="sans" size="small" className={styles.bold}>
             {title}
           </Text>
-          <code
-            style={{
-              display: "block",
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            {code}
-          </code>
+          <code className={styles.codeBlock}>{code}</code>
         </div>
       ))}
     </div>
@@ -240,48 +114,38 @@ function UsageExample() {
 
 function SpacingDocumentation() {
   return (
-    <div
-      style={{
-        padding: "2rem",
-        color: tokens.color.textDefault,
-        backgroundColor: tokens.color.backgroundDefault,
-        minHeight: "100vh",
-      }}
-    >
-      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
-        Spacing
-      </Heading>
-      <Text
-        style={{
-          marginBottom: "3rem",
-          color: tokens.color.textMuted,
-        }}
-      >
+    <div className={styles.page}>
+      <Heading level="1">Spacing</Heading>
+      <Text className={styles.lead}>
         The spacing scale is based on a 4px grid (1 unit = 4px), similar to
         Tailwind. Use these tokens for consistent margins, padding, gaps, and
         dimensions.
       </Text>
 
-      <Section
-        title="Base Scale (0–96px)"
-        description="Common spacing values for padding, margins, and gaps."
-      >
+      <section className={styles.section}>
+        <Heading level="2">Base Scale (0–96px)</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          Common spacing values for padding, margins, and gaps.
+        </Text>
         <SpacingScale />
-      </Section>
+      </section>
 
-      <Section
-        title="Large Scale (112px–672px)"
-        description="Larger values for layout dimensions, max-widths, and page-level spacing."
-      >
+      <section className={styles.section}>
+        <Heading level="2">Large Scale (112px–672px)</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          Larger values for layout dimensions, max-widths, and page-level
+          spacing.
+        </Text>
         <LargeSpacings />
-      </Section>
+      </section>
 
-      <Section
-        title="Usage"
-        description="Spacing tokens are available as CSS custom properties."
-      >
+      <section className={styles.section}>
+        <Heading level="2">Usage</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          Spacing tokens are available as CSS custom properties.
+        </Text>
         <UsageExample />
-      </Section>
+      </section>
     </div>
   )
 }

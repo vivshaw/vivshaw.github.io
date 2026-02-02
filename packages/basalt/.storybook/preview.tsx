@@ -13,6 +13,8 @@ const channel = addons.getChannel()
 // import theme first to ensure @font-face declarations are registered
 import "../theme/index.css"
 import "../reset.css"
+// import CSS custom properties so Basalt can be used in its own docs
+import "../css/tokens.css"
 import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "../config"
 
 // Basalt color palette (from theme/index.css.ts)
@@ -171,7 +173,7 @@ const preview: Preview = {
           "Tokens",
           ["Colors", "Typography", "Spacing", "Responsive"],
           "Components",
-          ["Box", "Heading", "Text", "Link", "Pill"],
+          ["Heading", "Text", "Link", "Pill"],
         ],
       },
     },

@@ -20,6 +20,7 @@
     - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
   - [ ] swap vvv prefix to basalt
+  - [ ] tokenize border radius?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - [ ] render markdown kitchen sink as a Story?
@@ -42,3 +43,7 @@
 - [ ] custom 404 page, model after index
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
+
+next up: remove the things that use lightModeStyles, update docs again
+after: port MDX components, one by one
+later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.

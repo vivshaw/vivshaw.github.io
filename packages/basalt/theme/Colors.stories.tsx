@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading, Text } from "../components"
 import { tokens } from "./index.css"
+import styles from "./stories.module.css"
 
 function ColorSwatch({
   name,
@@ -11,78 +12,20 @@ function ColorSwatch({
   name: string
   tokenName: string
   tokenValue: string
-  showBorder?: boolean
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1rem",
-        borderRadius: "0.5rem",
-        padding: "0.75rem 1rem",
-      }}
-    >
+    <div className={styles.row}>
       <div
-        style={{
-          width: "4rem",
-          height: "4rem",
-          borderRadius: "0.5rem",
-          backgroundColor: tokenValue,
-          border: `1px solid ${tokens.color.borderMuted}`,
-          flexShrink: 0,
-        }}
+        className={styles.colorSwatch}
+        style={{ backgroundColor: tokenValue }}
       />
       <div>
-        <Text font="sans" style={{ fontWeight: 700, marginBottom: "0.25rem" }}>
+        <Text font="sans" className={styles.bold}>
           {name}
         </Text>
-        <code
-          style={{
-            fontSize: "0.875rem",
-            color: tokens.color.textMuted,
-            fontFamily: tokens.font.monospace,
-          }}
-        >
-          tokens.color.{tokenName}
-        </code>
+        <code className={styles.monoSmall}>--basalt-color-{tokenName}</code>
       </div>
     </div>
-  )
-}
-
-function ColorSection({
-  title,
-  description,
-  children,
-}: {
-  title: string
-  description?: string
-  children: React.ReactNode
-}) {
-  return (
-    <section style={{ marginBottom: "3rem" }}>
-      <Heading level="2" style={{ marginBottom: "0.5rem" }}>
-        {title}
-      </Heading>
-      {description && (
-        <Text
-          size="small"
-          style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
-        >
-          {description}
-        </Text>
-      )}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-          gap: "0.5rem",
-        }}
-      >
-        {children}
-      </div>
-    </section>
   )
 }
 
@@ -102,31 +45,16 @@ function PaletteStrip() {
   ]
 
   return (
-    <div
-      style={{
-        display: "flex",
-        borderRadius: "0.5rem",
-        overflow: "hidden",
-        border: `1px solid ${tokens.color.borderMuted}`,
-      }}
-    >
+    <div className={styles.paletteStrip}>
       {shades.map(({ name, value }) => (
         <div
           key={name}
-          style={{
-            flex: 1,
-            height: "5rem",
-            backgroundColor: value,
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "center",
-            paddingBottom: "0.5rem",
-          }}
+          className={styles.paletteSwatch}
+          style={{ backgroundColor: value }}
         >
           <span
+            className={styles.monoSmall}
             style={{
-              fontSize: "0.75rem",
-              fontFamily: tokens.font.monospace,
               color: Number(name) >= 500 ? "#fff" : "#000",
               opacity: 0.8,
             }}
@@ -141,77 +69,67 @@ function PaletteStrip() {
 
 function ColorsDocumentation() {
   return (
-    <div
-      style={{
-        padding: "2rem",
-        color: tokens.color.textDefault,
-        backgroundColor: tokens.color.backgroundDefault,
-        minHeight: "100vh",
-      }}
-    >
-      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
-        Color Tokens
-      </Heading>
-      <Text
-        style={{
-          marginBottom: "3rem",
-          color: tokens.color.textMuted,
-        }}
-      >
+    <div className={styles.page}>
+      <Heading level="1">Color Tokens</Heading>
+      <Text className={styles.lead}>
         The Basalt color system uses semantic tokens that automatically adapt to
         light and dark modes. Use semantic tokens for most purposes; raw palette
         values are available when needed.
       </Text>
 
-      <ColorSection
-        title="Neutral Palette"
-        description="The underlying color scale from lightest (50) to darkest (900). These values are consistent across color modes."
-      >
-        <div style={{ gridColumn: "1 / -1" }}>
-          <PaletteStrip />
-        </div>
-      </ColorSection>
+      <section className={styles.section}>
+        <Heading level="2">Neutral Palette</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          The underlying color scale from lightest (50) to darkest (900). These
+          values are consistent across color modes.
+        </Text>
+        <PaletteStrip />
+      </section>
 
-      <ColorSection
-        title="Semantic Colors"
-        description="Use these tokens in your components. They automatically adapt to the current color mode."
-      >
-        <ColorSwatch
-          name="Text Default"
-          tokenName="textDefault"
-          tokenValue={tokens.color.textDefault}
-        />
-        <ColorSwatch
-          name="Text Muted"
-          tokenName="textMuted"
-          tokenValue={tokens.color.textMuted}
-        />
-        <ColorSwatch
-          name="Background Default"
-          tokenName="backgroundDefault"
-          tokenValue={tokens.color.backgroundDefault}
-        />
-        <ColorSwatch
-          name="Background Secondary"
-          tokenName="backgroundSecondary"
-          tokenValue={tokens.color.backgroundSecondary}
-        />
-        <ColorSwatch
-          name="Border Default"
-          tokenName="borderDefault"
-          tokenValue={tokens.color.borderDefault}
-        />
-        <ColorSwatch
-          name="Border Muted"
-          tokenName="borderMuted"
-          tokenValue={tokens.color.borderMuted}
-        />
-        <ColorSwatch
-          name="Accent Default"
-          tokenName="accentDefault"
-          tokenValue={tokens.color.accentDefault}
-        />
-      </ColorSection>
+      <section className={styles.section}>
+        <Heading level="2">Semantic Colors</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          Use these tokens in your components. They automatically adapt to the
+          current color mode.
+        </Text>
+        <div className={styles.cardGrid}>
+          <ColorSwatch
+            name="Text Default"
+            tokenName="text-default"
+            tokenValue={tokens.color.textDefault}
+          />
+          <ColorSwatch
+            name="Text Muted"
+            tokenName="text-muted"
+            tokenValue={tokens.color.textMuted}
+          />
+          <ColorSwatch
+            name="Background Default"
+            tokenName="background-default"
+            tokenValue={tokens.color.backgroundDefault}
+          />
+          <ColorSwatch
+            name="Background Secondary"
+            tokenName="background-secondary"
+            tokenValue={tokens.color.backgroundSecondary}
+          />
+          <ColorSwatch
+            name="Border Default"
+            tokenName="border-default"
+            tokenValue={tokens.color.borderDefault}
+          />
+          <ColorSwatch
+            name="Border Muted"
+            tokenName="border-muted"
+            tokenValue={tokens.color.borderMuted}
+          />
+          <ColorSwatch
+            name="Accent Default"
+            tokenName="accent-default"
+            tokenValue={tokens.color.accentDefault}
+          />
+        </div>
+      </section>
     </div>
   )
 }

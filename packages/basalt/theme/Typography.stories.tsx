@@ -1,34 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import clsx from "clsx"
 
 import { Heading, Text } from "../components"
 import { tokens } from "./index.css"
-
-function Section({
-  title,
-  description,
-  children,
-}: {
-  title: string
-  description?: string
-  children: React.ReactNode
-}) {
-  return (
-    <section style={{ marginBottom: "4rem" }}>
-      <Heading level="2" style={{ marginBottom: "0.5rem" }}>
-        {title}
-      </Heading>
-      {description && (
-        <Text
-          size="small"
-          style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
-        >
-          {description}
-        </Text>
-      )}
-      {children}
-    </section>
-  )
-}
+import styles from "./stories.module.css"
 
 function FontShowcase({
   name,
@@ -44,116 +19,41 @@ function FontShowcase({
   specimen: string
 }) {
   return (
-    <div
-      style={{
-        marginBottom: "2rem",
-        padding: "1.5rem",
-        backgroundColor: tokens.color.backgroundSecondary,
-        borderRadius: "0.5rem",
-        border: `1px solid ${tokens.color.borderMuted}`,
-      }}
-    >
-      <div
-        style={{
-          marginBottom: "1rem",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-        }}
-      >
-        <Text
-          as="h3"
-          font="sans"
-          style={{ fontWeight: 700, color: tokens.color.textDefault }}
-        >
+    <div className={styles.card}>
+      <div className={styles.cardHeader}>
+        <Text as="h3" font="sans" className={styles.bold}>
           {name}
         </Text>
-        <code
-          style={{
-            fontSize: "0.75rem",
-            fontFamily: tokens.font.monospace,
-            color: tokens.color.textMuted,
-          }}
-        >
-          tokens.font.{tokenName}
-        </code>
+        <code className={styles.monoSmall}>--basalt-font-{tokenName}</code>
       </div>
-      <Text
-        size="small"
-        style={{ marginBottom: "1rem", color: tokens.color.textMuted }}
-      >
+      <Text size="small" className={styles.cardDescription}>
         {description}
       </Text>
-      <div
-        style={{
-          fontFamily,
-          fontSize: "1.5rem",
-          color: tokens.color.textDefault,
-          lineHeight: 1.4,
-        }}
-      >
+      <div className={styles.specimen} style={{ fontFamily }}>
         {specimen}
       </div>
-      <div
-        style={{
-          marginTop: "1.5rem",
-          paddingTop: "1.5rem",
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "1rem",
-          borderTop: `1px solid ${tokens.color.borderMuted}`,
-        }}
-      >
-        <div>
-          <span
-            style={{
-              fontFamily,
-              fontWeight: 400,
-              fontSize: "1.125rem",
-              color: tokens.color.textDefault,
-            }}
-          >
-            Regular 400
-          </span>
-        </div>
-        <div>
-          <span
-            style={{
-              fontFamily,
-              fontWeight: 400,
-              fontStyle: "italic",
-              fontSize: "1.125rem",
-              color: tokens.color.textDefault,
-            }}
-          >
-            Italic 400
-          </span>
-        </div>
-        <div>
-          <span
-            style={{
-              fontFamily,
-              fontWeight: 700,
-              fontSize: "1.125rem",
-              color: tokens.color.textDefault,
-            }}
-          >
-            Bold 700
-          </span>
-        </div>
-        <div>
-          <span
-            style={{
-              fontFamily,
-              fontWeight: 700,
-              fontStyle: "italic",
-              fontSize: "1.125rem",
-              color: tokens.color.textDefault,
-            }}
-          >
-            Bold Italic 700
-          </span>
-        </div>
+      <div className={styles.weightGrid}>
+        <span className={styles.weightSample} style={{ fontFamily }}>
+          Regular 400
+        </span>
+        <span
+          className={styles.weightSample}
+          style={{ fontFamily, fontStyle: "italic" }}
+        >
+          Italic 400
+        </span>
+        <span
+          className={clsx(styles.weightSample, styles.bold)}
+          style={{ fontFamily }}
+        >
+          Bold 700
+        </span>
+        <span
+          className={clsx(styles.weightSample, styles.bold)}
+          style={{ fontFamily, fontStyle: "italic" }}
+        >
+          Bold Italic 700
+        </span>
       </div>
     </div>
   )
@@ -171,49 +71,16 @@ function SizeScale() {
   ]
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.stack}>
       {sizes.map(({ name, size, px }) => (
-        <div
-          key={name}
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            gap: "1rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            padding: "0.75rem 1rem",
-          }}
-        >
-          <code
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-              width: "3rem",
-              flexShrink: 0,
-            }}
-          >
-            {name}
-          </code>
+        <div key={name} className={styles.scaleRow}>
+          <code className={clsx(styles.monoSmall, styles.label)}>{name}</code>
           <span
-            style={{
-              fontFamily: tokens.font.serif,
-              fontSize: size,
-              color: tokens.color.textDefault,
-              flex: 1,
-            }}
+            style={{ fontFamily: tokens.font.serif, fontSize: size, flex: 1 }}
           >
             The quick brown fox
           </span>
-          <span
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-            }}
-          >
-            {px}
-          </span>
+          <span className={styles.monoSmall}>{px}</span>
         </div>
       ))}
     </div>
@@ -221,7 +88,7 @@ function SizeScale() {
 }
 
 function TextStyles() {
-  const styles = [
+  const textStyles = [
     {
       name: "heading1",
       label: "Heading 1",
@@ -260,61 +127,25 @@ function TextStyles() {
   ]
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-      {styles.map(({ name, label, mobile, desktop, lineHeight }) => (
-        <div
-          key={name}
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <div
-            style={{
-              marginBottom: "1rem",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Text as="h3" font="sans" style={{ fontWeight: 700 }}>
+    <div className={styles.stackWide}>
+      {textStyles.map(({ name, label, mobile, desktop, lineHeight }) => (
+        <div key={name} className={styles.card}>
+          <div className={styles.cardHeader}>
+            <Text as="h3" font="sans" className={styles.bold}>
               {label}
             </Text>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                fontFamily: tokens.font.monospace,
-                fontSize: "0.75rem",
-                color: tokens.color.textMuted,
-              }}
-            >
+            <div className={clsx(styles.monoSmall, styles.metaRow)}>
               <span>Mobile: {mobile}</span>
               <span>Desktop: {desktop}</span>
               <span>Line height: {lineHeight}</span>
             </div>
           </div>
-          <Text
-            style={{
-              fontSize: desktop,
-              lineHeight,
-            }}
-          >
+          <Text style={{ fontSize: desktop, lineHeight }}>
             {name.includes("heading")
               ? "A well-crafted heading"
               : "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs."}
           </Text>
-          <code
-            style={{
-              display: "block",
-              marginTop: "1rem",
-              fontFamily: tokens.font.monospace,
-              fontSize: "0.75rem",
-              color: tokens.color.textMuted,
-            }}
-          >
+          <code className={clsx(styles.codeBlock, styles.monoSmall)}>
             @mixin text-{name}
           </code>
         </div>
@@ -323,190 +154,124 @@ function TextStyles() {
   )
 }
 
+function OpenTypeFeature({
+  name,
+  specimen,
+  featureSettings,
+}: {
+  name: string
+  specimen: string
+  featureSettings: string
+}) {
+  return (
+    <div className={styles.card}>
+      <Text as="h3" font="sans" size="small" className={styles.bold}>
+        {name}
+      </Text>
+      <Text
+        className={styles.specimen}
+        style={{ fontFeatureSettings: featureSettings }}
+      >
+        {specimen}
+      </Text>
+      <code className={clsx(styles.codeBlock, styles.monoSmall)}>
+        font-feature-settings: {featureSettings}
+      </code>
+    </div>
+  )
+}
+
 function TypographyDocumentation() {
   return (
-    <div
-      style={{
-        padding: "2rem",
-        color: tokens.color.textDefault,
-        backgroundColor: tokens.color.backgroundDefault,
-        minHeight: "100vh",
-      }}
-    >
-      <Heading level="1" style={{ marginBottom: "0.5rem" }}>
-        Typography
-      </Heading>
-      <Text
-        style={{
-          marginBottom: "3rem",
-          color: tokens.color.textMuted,
-        }}
-      >
+    <div className={styles.page}>
+      <Heading level="1">Typography</Heading>
+      <Text className={styles.lead}>
         Basalt uses two primary fonts, both from MB Type: a serif, Equity, for
         body text and headings, and a sans-serif, Concourse, for UI elements.
         Both support regular, italic, bold, and bold italic weights. A system
         monospace font is used for code blocks.
       </Text>
 
-      <Section
-        title="Font Families"
-        description="The three font stacks available in the design system."
-      >
-        <FontShowcase
-          name="Equity B (Serif)"
-          fontFamily={tokens.font.serif}
-          tokenName="serif"
-          description="The primary typeface for body text and headings. A serif with excellent readability at various sizes."
-          specimen="Typography is the craft of endowing human language with a durable visual form."
-        />
-        <FontShowcase
-          name="Concourse (Sans)"
-          fontFamily={tokens.font.sans}
-          tokenName="sans"
-          description="Used for UI elements, labels, and secondary text. A clean sans-serif that pairs well with Equity."
-          specimen="Clean, modern, and highly legible."
-        />
-        <div
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <div
-            style={{
-              marginBottom: "1rem",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "baseline",
-            }}
-          >
-            <Text as="h3" font="sans" style={{ fontWeight: 700 }}>
-              Monospace
+      <section className={styles.section}>
+        <Heading level="2">Font Families</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          The three font stacks available in the design system.
+        </Text>
+        <div className={styles.stackWide}>
+          <FontShowcase
+            name="Equity B (Serif)"
+            fontFamily={tokens.font.serif}
+            tokenName="serif"
+            description="The primary typeface for body text and headings. A serif with excellent readability at various sizes."
+            specimen="Typography is the craft of endowing human language with a durable visual form."
+          />
+          <FontShowcase
+            name="Concourse (Sans)"
+            fontFamily={tokens.font.sans}
+            tokenName="sans"
+            description="Used for UI elements, labels, and secondary text. A clean sans-serif that pairs well with Equity."
+            specimen="Clean, modern, and highly legible."
+          />
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <Text as="h3" font="sans" className={styles.bold}>
+                Monospace
+              </Text>
+              <code className={styles.monoSmall}>--basalt-font-monospace</code>
+            </div>
+            <Text size="small" className={styles.cardDescription}>
+              System monospace stack for code blocks and technical content.
             </Text>
-            <code
-              style={{
-                fontSize: "0.75rem",
-                fontFamily: tokens.font.monospace,
-                color: tokens.color.textMuted,
-              }}
-            >
-              tokens.font.monospace
+            <code className={styles.mono}>
+              const greeting = &quot;Hello, world!&quot;;
             </code>
           </div>
-          <Text
-            size="small"
-            style={{ marginBottom: "1rem", color: tokens.color.textMuted }}
-          >
-            System monospace stack for code blocks and technical content.
-          </Text>
-          <code
-            style={{
-              fontFamily: tokens.font.monospace,
-              fontSize: "1rem",
-              color: tokens.color.textDefault,
-            }}
-          >
-            const greeting = "Hello, world!";
-          </code>
         </div>
-      </Section>
+      </section>
 
-      <Section
-        title="Font Size Scale"
-        description="A seven-step scale from 16px to 32px. Use fontSize tokens for precise control, or text style tokens for responsive presets."
-      >
+      <section className={styles.section}>
+        <Heading level="2">Font Size Scale</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          A seven-step scale from 16px to 32px. Use fontSize tokens for precise
+          control, or text style mixins for responsive presets.
+        </Text>
         <SizeScale />
-      </Section>
+      </section>
 
-      <Section
-        title="Text Styles"
-        description="Pre-configured responsive text styles that combine font size and line height. These automatically adjust between mobile and desktop breakpoints."
-      >
+      <section className={styles.section}>
+        <Heading level="2">Text Styles</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          Pre-configured responsive text styles that combine font size and line
+          height. These automatically adjust between mobile and desktop
+          breakpoints.
+        </Text>
         <TextStyles />
-      </Section>
+      </section>
 
-      <Section title="OpenType Features">
-        <div
-          style={{
-            padding: "1.5rem",
-            backgroundColor: tokens.color.backgroundSecondary,
-            borderRadius: "0.5rem",
-            border: `1px solid ${tokens.color.borderMuted}`,
-          }}
-        >
-          <Text
-            size="small"
-            style={{ marginBottom: "1.5rem", color: tokens.color.textMuted }}
-          >
-            The serif and sans fonts include OpenType features for improved
-            typography.
-          </Text>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "2rem",
-            }}
-          >
-            <div>
-              <Text
-                as="h4"
-                font="sans"
-                size="small"
-                style={{ marginBottom: "0.75rem", fontWeight: 700 }}
-              >
-                Oldstyle Figures
-              </Text>
-              <Text
-                style={{
-                  fontSize: "1.5rem",
-                  fontFeatureSettings: "'onum'",
-                }}
-              >
-                0123456789
-              </Text>
-            </div>
-            <div>
-              <Text
-                as="h4"
-                font="sans"
-                size="small"
-                style={{ marginBottom: "0.75rem", fontWeight: 700 }}
-              >
-                Small Caps
-              </Text>
-              <Text
-                style={{
-                  fontSize: "1.5rem",
-                  fontFeatureSettings: '"smcp", "c2sc"',
-                }}
-              >
-                Small Caps Text
-              </Text>
-            </div>
-            <div>
-              <Text
-                as="h4"
-                font="sans"
-                size="small"
-                style={{ marginBottom: "0.75rem", fontWeight: 700 }}
-              >
-                Ligatures
-              </Text>
-              <Text
-                style={{
-                  fontSize: "1.5rem",
-                  fontFeatureSettings: "'liga'",
-                }}
-              >
-                fi fl ff ffi ffl
-              </Text>
-            </div>
-          </div>
+      <section className={styles.section}>
+        <Heading level="2">OpenType Features</Heading>
+        <Text size="small" className={styles.sectionDescription}>
+          The serif and sans fonts include OpenType features for improved
+          typography.
+        </Text>
+        <div className={styles.cardGrid}>
+          <OpenTypeFeature
+            name="Oldstyle Figures"
+            specimen="0123456789"
+            featureSettings="'onum'"
+          />
+          <OpenTypeFeature
+            name="Small Caps"
+            specimen="Small Caps Text"
+            featureSettings={'"smcp", "c2sc"'}
+          />
+          <OpenTypeFeature
+            name="Ligatures"
+            specimen="fi fl ff ffi ffl"
+            featureSettings="'liga'"
+          />
         </div>
-      </Section>
+      </section>
     </div>
   )
 }
