@@ -190,6 +190,10 @@ globalStyle(`${mdxRoot} .sidenote-number`, {
 
 /** inline code styles */
 
+/*
+ * these can't be a `<code>` component, because we'll also see those inside code blocks.
+ * we need to targer
+ */
 globalStyle(`${mdxRoot} :not(pre) > code`, {
   background: "rgba(101, 117, 133, 0.16)",
   borderRadius: tokens.sizing["2"],
@@ -200,7 +204,8 @@ globalStyle(`${mdxRoot} :not(pre) > code`, {
 
 /** image styles */
 
-/* Remove margin from paragraphs that only contain an image */
+/* Remove margin from paragraphs that only contain an image.
+ * necessary because MDX automatically wraps `<img>`s with `<p>`s. */
 globalStyle(`${mdxRoot} p:has(> img:only-child)`, {
   marginBottom: 0,
 })

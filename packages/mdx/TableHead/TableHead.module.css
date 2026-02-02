@@ -1,0 +1,8 @@
+.tableHead {
+  border-collapse: collapse;
+  color: var(--basalt-color-text-default);
+  font-weight: var(--basalt-font-weight-bold);
+  position: relative;
+  text-align: left;
+  transition: var(--basalt-motion-transition-theme);
+}
