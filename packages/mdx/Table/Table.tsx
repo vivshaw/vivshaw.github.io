@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { table, tableWrapper } from "./Table.css"
+import styles from "./Table.module.css"
 
 /**
  * a styled `<table>` element, for use in MDX.
@@ -10,8 +10,8 @@ export function Table({
   ...restProps
 }: React.TableHTMLAttributes<HTMLTableElement>) {
   return (
-    <div className={tableWrapper}>
-      <table {...restProps} className={clsx(table, className)} />
+    <div className={styles.wrapper}>
+      <table {...restProps} className={clsx(styles.table, className)} />
     </div>
   )
 }
