@@ -18,13 +18,13 @@ Use these guidelines when making changes to the Basalt design system itself (not
 
 - Use CSS Modules (`.module.css`) for component styles
 - Use `--basalt-*` CSS custom properties for all token values
-- Use PostCSS mixins for responsive breakpoints, color modes, text presets, and font stacks
+- Use PostCSS mixins for responsive breakpoints, theming, text presets, and font stacks
 - Use `clsx` to concatenate class names
 - **Never** use inline styles or `!important`
 
 ### PostCSS Mixins
 
-Mixins are defined in `packages/basalt/css/mixins.css` and loaded via `postcss-mixins`. They are designed to work in CSS Modules (class selectors for color modes are wrapped in `:global()`).
+Mixins are defined in `packages/basalt/css/mixins.css` and loaded via `postcss-mixins`. They are designed to work in CSS Modules (class selectors for theming are wrapped in `:global()`).
 
 #### Font stacks
 
@@ -58,9 +58,9 @@ Wrap content in a media query:
 | `@mixin tablet`  | min-width: 541px |
 | `@mixin desktop` | min-width: 736px |
 
-#### Color mode
+#### Theme
 
-Scope styles to light or dark mode:
+Scope styles to light or dark theme:
 
 | Mixin               | Mode  |
 | ------------------- | ----- |
@@ -93,16 +93,16 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 
 ## Key Files
 
-| File                                   | Purpose                                             |
-| -------------------------------------- | --------------------------------------------------- |
-| `packages/basalt/css/tokens.css`       | CSS custom property tokens                          |
-| `packages/basalt/css/mixins.css`       | PostCSS mixin definitions                           |
-| `packages/basalt/css/fonts.css`        | @font-face declarations                             |
-| `packages/basalt/css/reset.css`        | CSS reset                                           |
-| `packages/basalt/components/index.ts`  | Component exports                                   |
-| `packages/basalt/config.ts`            | Color mode class names (`vvv-light`, `vvv-dark`)    |
-| `packages/basalt/theme/index.css.ts`   | Vanilla Extract theme (tokens, color modes)         |
-| `packages/basalt/helpers/index.css.ts` | VE `darkModeStyles()` / `lightModeStyles()` helpers |
+| File                                   | Purpose                                     |
+| -------------------------------------- | ------------------------------------------- |
+| `packages/basalt/css/tokens.css`       | CSS custom property tokens                  |
+| `packages/basalt/css/mixins.css`       | PostCSS mixin definitions                   |
+| `packages/basalt/css/fonts.css`        | @font-face declarations                     |
+| `packages/basalt/css/reset.css`        | CSS reset                                   |
+| `packages/basalt/components/index.ts`  | Component exports                           |
+| `packages/basalt/config.ts`            | Theme class names (`vvv-light`, `vvv-dark`) |
+| `packages/basalt/theme/index.css.ts`   | Vanilla Extract theme (tokens, light/dark)  |
+| `packages/basalt/helpers/index.css.ts` | VE `focusRing` style helper                 |
 
 ## Storybook
 

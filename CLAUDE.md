@@ -95,9 +95,9 @@ Keep exact pixel/rem values ONLY for:
 }
 ```
 
-## Color Mode
+## Theme
 
-In CSS Modules, use `@mixin dark-mode` and `@mixin light-mode` from the PostCSS mixins:
+Use `@mixin dark-mode` and `@mixin light-mode` from the PostCSS mixins:
 
 ```css
 .myComponent {
@@ -108,8 +108,6 @@ In CSS Modules, use `@mixin dark-mode` and `@mixin light-mode` from the PostCSS 
   }
 }
 ```
-
-In legacy Vanilla Extract files, use `darkModeStyles()` and `lightModeStyles()` from `@vivshaw/basalt/helpers`.
 
 Don't manually use `DARK_COLOR_MODE_CLASS`/`LIGHT_COLOR_MODE_CLASS` or raw `prefers-color-scheme` queries.
 

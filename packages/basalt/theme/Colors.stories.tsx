@@ -73,7 +73,7 @@ function ColorsDocumentation() {
       <Heading level="1">Color Tokens</Heading>
       <Text className={styles.lead}>
         The Basalt color system uses semantic tokens that automatically adapt to
-        light and dark modes. Use semantic tokens for most purposes; raw palette
+        the current theme. Use semantic tokens for most purposes; raw palette
         values are available when needed.
       </Text>
 
@@ -81,7 +81,7 @@ function ColorsDocumentation() {
         <Heading level="2">Neutral Palette</Heading>
         <Text size="small" className={styles.sectionDescription}>
           The underlying color scale from lightest (50) to darkest (900). These
-          values are consistent across color modes.
+          values are consistent across themes.
         </Text>
         <PaletteStrip />
       </section>
@@ -90,7 +90,7 @@ function ColorsDocumentation() {
         <Heading level="2">Semantic Colors</Heading>
         <Text size="small" className={styles.sectionDescription}>
           Use these tokens in your components. They automatically adapt to the
-          current color mode.
+          current theme.
         </Text>
         <div className={styles.cardGrid}>
           <ColorSwatch

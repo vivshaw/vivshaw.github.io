@@ -90,9 +90,9 @@ wrap content in a media query:
 | `@mixin tablet`  | min-width: 541px |
 | `@mixin desktop` | min-width: 736px |
 
-### color mode
+### theme
 
-scope styles to light or dark mode:
+scope styles to light or dark theme:
 
 | Mixin               | Mode  |
 | ------------------- | ----- |
