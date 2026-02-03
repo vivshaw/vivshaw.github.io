@@ -51,7 +51,11 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
   return (
     <>
       <nav className={clsx(styles.root, isHidden && styles.rootHidden)}>
-        <Link className={styles.wordmarkLink} href="/" title="Go to the homepage">
+        <Link
+          className={styles.wordmarkLink}
+          href="/"
+          title="Go to the homepage"
+        >
           <em>vivshaw's</em>
         </Link>
 

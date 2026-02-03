@@ -1,0 +1,106 @@
+.homeWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* viewport height - navbar height (matches Navbar.module.css) */
+  height: calc(100vh - var(--basalt-sizing-8) - var(--basalt-sizing-3));
+  justify-content: space-between;
+  padding: var(--basalt-sizing-6);
+}
+
+.profileCard {
+  background-color: var(--basalt-color-background-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--basalt-sizing-4);
+  height: fit-content;
+  margin-top: var(--basalt-sizing-16);
+  max-width: 450px;
+  padding: var(--basalt-sizing-4);
+  width: fit-content;
+
+  @mixin tablet {
+    padding: var(--basalt-sizing-6);
+  }
+}
+
+.fig {
+  align-items: center;
+  column-gap: var(--basalt-sizing-4);
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "avatar ."
+    "avatar name"
+    "avatar location"
+    "avatar .";
+  row-gap: var(--basalt-sizing-2);
+}
+
+.figCap {
+  display: grid;
+  grid: subgrid / subgrid;
+  grid-row: 1 / -1;
+  grid-column: 2;
+}
+
+.avatar {
+  border-radius: 40%;
+  grid-area: avatar;
+  height: 80px;
+  object-fit: cover;
+  width: 80px;
+}
+
+.name {
+  color: var(--basalt-color-text-default);
+  font-family: var(--basalt-font-sans);
+  font-size: var(--basalt-font-size-400);
+  font-weight: var(--basalt-font-weight-bold);
+  grid-area: name;
+}
+
+.location {
+  align-items: center;
+  display: flex;
+  gap: var(--basalt-sizing-2);
+  color: var(--basalt-color-text-default);
+  font-family: var(--basalt-font-sans);
+  font-size: var(--basalt-font-size-200);
+  font-weight: var(--basalt-font-weight-normal);
+  grid-area: location;
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--basalt-sizing-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socialIcon {
+  height: 14px;
+  margin-top: 1px;
+  width: 14px;
+}
+
+.calloutCard {
+  align-self: center;
+  background-color: var(--basalt-color-background-default);
+  color: var(--basalt-color-text-default);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--basalt-font-sans);
+  font-size: var(--basalt-font-size-100);
+  gap: var(--basalt-sizing-1);
+  line-height: 1.5;
+  padding: var(--basalt-sizing-4);
+  width: 240px;
+
+  @mixin desktop {
+    align-self: flex-end;
+  }
+}

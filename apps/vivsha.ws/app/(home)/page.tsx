@@ -20,18 +20,7 @@ import { Link, Pill } from "@vivshaw/basalt/components"
 import { author } from "#data"
 import { schemaHelper } from "#lib/metadataHelpers"
 
-import {
-  avatar,
-  calloutCard,
-  figCap,
-  fig,
-  homeWrapper,
-  location,
-  name,
-  profileCard,
-  socialIcon,
-  socialLinks,
-} from "./page.css"
+import styles from "./page.module.css"
 
 const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
   {
@@ -89,27 +78,27 @@ export default function Home() {
 
   return (
     <>
-      <div className={homeWrapper}>
-        <div className={profileCard}>
-          <figure className={fig}>
+      <div className={styles.homeWrapper}>
+        <div className={styles.profileCard}>
+          <figure className={styles.fig}>
             <Image
               src={author.avatar.src}
               alt={author.avatar.alt}
               width={80}
               height={80}
-              className={avatar}
+              className={styles.avatar}
               priority
             />
-            <figcaption className={figCap}>
-              <h1 className={name}>{author.name}</h1>
-              <h2 className={location}>
+            <figcaption className={styles.figCap}>
+              <h1 className={styles.name}>{author.name}</h1>
+              <h2 className={styles.location}>
                 <FontAwesomeIcon icon={faMountainCity} width={14} height={14} />
                 Burlington, Vermont
               </h2>
             </figcaption>
           </figure>
 
-          <ul className={socialLinks}>
+          <ul className={styles.socialLinks}>
             {socialItems.map(({ href, icon, label }) => (
               <li key={label}>
                 <Pill
@@ -118,7 +107,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FontAwesomeIcon icon={icon} className={socialIcon} />
+                  <FontAwesomeIcon icon={icon} className={styles.socialIcon} />
                   {label}
                 </Pill>
               </li>
@@ -126,7 +115,7 @@ export default function Home() {
           </ul>
         </div>
 
-        <aside className={calloutCard}>
+        <aside className={styles.calloutCard}>
           <strong>What&apos;s New</strong>
           <p>
             Check out my digital garden at{" "}

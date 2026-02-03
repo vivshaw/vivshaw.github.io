@@ -7,6 +7,8 @@
   - [ ] tags index page & tag pages, someday
 - [ ] styling
   - [ ] use layers
+- [ ] vivsha.ws
+  - [ ] share the navbar height in a better way between the places that need it
 - [ ] basalt
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
   - [ ] specify a default foreground color? might simplify Stories and reduce effect of CSS oversights in prod?
