@@ -1,4 +1,4 @@
-import { Heading } from "@vivshaw/basalt/components"
+import { Heading } from "@vivshaw/basalt"
 
 import styles from "./Headings.module.css"
 

@@ -12,7 +12,7 @@ const channel = addons.getChannel()
 
 // import Basalt CSS (fonts + tokens + reset) to be used to style its own docs
 import "../css/index.css"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "../config"
+import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from ".."
 
 // Basalt color palette
 const palette = {

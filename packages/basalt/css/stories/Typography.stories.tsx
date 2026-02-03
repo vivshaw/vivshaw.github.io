@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import clsx from "clsx"
 
-import { Heading, Text } from "../components"
+import { Heading, Text } from "../.."
 import styles from "./stories.module.css"
 
 const fonts = {

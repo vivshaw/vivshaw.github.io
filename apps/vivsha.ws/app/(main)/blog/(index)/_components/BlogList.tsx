@@ -1,6 +1,5 @@
 import Link from "next/link"
-
-import { Heading, Text } from "@vivshaw/basalt/components"
+import { Heading, Text } from "@vivshaw/basalt"
 
 import { prettyPrintDate } from "#lib"
 import { PostMetadata } from "#data"

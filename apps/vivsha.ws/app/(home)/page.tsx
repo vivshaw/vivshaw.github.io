@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import Image from "next/image"
-import { Link, Pill } from "@vivshaw/basalt/components"
+import { Link, Pill } from "@vivshaw/basalt"
 
 import { author } from "#data"
 import { schemaHelper } from "#lib/metadataHelpers"

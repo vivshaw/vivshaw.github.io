@@ -1,5 +1,8 @@
-export {
-  DARK_COLOR_MODE_CLASS,
-  LIGHT_COLOR_MODE_CLASS,
-  SYSTEM_COLOR_MODE_SELECTOR,
-} from "./config"
+export const LIGHT_COLOR_MODE_CLASS = "vvv-light"
+export const DARK_COLOR_MODE_CLASS = "vvv-dark"
+export const SYSTEM_COLOR_MODE_SELECTOR = `html:not(.${DARK_COLOR_MODE_CLASS}, .${LIGHT_COLOR_MODE_CLASS})`
+
+export { Heading, type HeadingProps } from "./components/Heading"
+export { Link, type LinkProps } from "./components/Link"
+export { Pill, type PillProps } from "./components/Pill"
+export { Text, type TextProps } from "./components/Text"

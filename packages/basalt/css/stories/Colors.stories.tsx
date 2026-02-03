@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Heading, Text } from "../components"
+import { Heading, Text } from "../.."
 const palette = {
   "base-50": "#ffffff",
   "base-100": "#f5f5f4",

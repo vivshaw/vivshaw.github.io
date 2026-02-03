@@ -1,4 +1,4 @@
-import { Link } from "@vivshaw/basalt/components"
+import { Link } from "@vivshaw/basalt"
 
 /**
  * a styled `<a>` element, for use in MDX.

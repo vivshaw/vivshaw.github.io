@@ -22,8 +22,6 @@
   },
   "exports": {
     ".": "./index.ts",
-    "./config": "./config.ts",
-    "./components": "./components/index.ts",
     "./css": "./css/index.css"
   },
   "dependencies": {

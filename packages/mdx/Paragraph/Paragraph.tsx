@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Text, type TextProps } from "@vivshaw/basalt/components"
+import { Text, type TextProps } from "@vivshaw/basalt"
 
 import styles from "./Paragraph.module.css"
 

@@ -2,10 +2,7 @@ import type { Viewport } from "next"
 import type { Metadata } from "next/types"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import {
-  DARK_COLOR_MODE_CLASS,
-  LIGHT_COLOR_MODE_CLASS,
-} from "@vivshaw/basalt/config"
+import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
 import "@vivshaw/basalt/css"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
