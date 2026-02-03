@@ -1,11 +1,9 @@
-import mdxStyles from "@vivshaw/mdx/mdx.module.css"
-import clsx from "clsx"
-
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
+import { MdxBody } from "../../../../_components/MdxBody"
 import { PostHero } from "./_components/PostHero"
-import { postBody } from "./page.css"
+import styles from "./page.module.css"
 
 /**
  * The page for a single blog post.
@@ -36,9 +34,9 @@ export default async function Post({
     <>
       <PostHero post={meta} />
 
-      <article className={clsx(postBody, mdxStyles.mdxRoot)}>
+      <MdxBody className={styles.postBody}>
         <PostContent />
-      </article>
+      </MdxBody>
 
       <script
         type="application/ld+json"

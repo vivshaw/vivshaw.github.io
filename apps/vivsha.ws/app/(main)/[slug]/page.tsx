@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 
 import { Heading } from "@vivshaw/basalt/components"
-import mdxStyles from "@vivshaw/mdx/mdx.module.css"
-import clsx from "clsx"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importPage, listAllPageSlugs } from "#lib/postHelpers"
-import { pageBody } from "./page.css"
+import { MdxBody } from "../../_components/MdxBody"
+import styles from "./page.module.css"
 
 type PageParams = {
   params: Promise<{ slug: string }>
@@ -47,10 +46,10 @@ export default async function Page({ params }: PageParams) {
 
   return (
     <>
-      <article className={clsx(pageBody, mdxStyles.mdxRoot)}>
+      <MdxBody className={styles.pageBody}>
         <Heading level="1">{meta.title}</Heading>
         <PageContent />
-      </article>
+      </MdxBody>
 
       <script
         type="application/ld+json"

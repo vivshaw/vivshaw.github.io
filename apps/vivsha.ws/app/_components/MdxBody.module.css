@@ -1,0 +1,30 @@
+.body {
+  --mdx-body-padding: var(--basalt-sizing-5);
+
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-left: var(--mdx-body-padding);
+  padding-right: var(--mdx-body-padding);
+  padding-bottom: var(--basalt-sizing-20);
+
+  @mixin desktop {
+    --mdx-body-padding: 0px;
+
+    max-width: var(--basalt-sizing-168);
+    padding-bottom: var(--basalt-sizing-9);
+  }
+}
+
+/*
+ * images and code blocks should be fullbleed on mobile.
+ * code blocks are wrapped in a container div, and images
+ * are wrapped in a `<p>` by the Markdown parser.
+ */
+.body > :global(div:has(> pre)),
+.body > :global(p:has(> img)) {
+  margin-left: calc(-1 * var(--mdx-body-padding));
+  margin-right: calc(-1 * var(--mdx-body-padding));
+  width: calc(100% + 2 * var(--mdx-body-padding));
+  max-width: calc(100% + 2 * var(--mdx-body-padding));
+}
