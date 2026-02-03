@@ -1,0 +1,19 @@
+.root {
+  margin-bottom: var(--basalt-sizing-12);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding-left: var(--basalt-sizing-5);
+  padding-right: var(--basalt-sizing-5);
+  margin-top: var(--basalt-sizing-20);
+  position: relative;
+  width: 100%;
+
+  @mixin desktop {
+    margin-bottom: var(--basalt-sizing-20);
+    max-width: var(--basalt-sizing-168);
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: var(--basalt-sizing-40);
+  }
+}

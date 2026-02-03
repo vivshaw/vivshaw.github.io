@@ -22,6 +22,7 @@
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
   - [ ] Storybook coverage
   - [ ] kitchen sink in Storybook
+  - [ ] should <MdxBody> be part of the MDX package?
 - [ ] render markdown kitchen sink as a Story?
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?

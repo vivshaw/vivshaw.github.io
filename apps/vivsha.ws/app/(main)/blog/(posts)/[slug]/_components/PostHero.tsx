@@ -1,6 +1,6 @@
 import { PostMetadata } from "#data"
 import { Heading } from "@vivshaw/basalt/components"
-import { root } from "./PostHero.css"
+import styles from "./PostHero.module.css"
 
 interface PostHeroProps {
   post: PostMetadata
@@ -11,7 +11,7 @@ interface PostHeroProps {
  */
 export function PostHero({ post }: PostHeroProps) {
   return (
-    <header className={root}>
+    <header className={styles.root}>
       <Heading level="1">
         {post.title}
         {post.blurb && (
