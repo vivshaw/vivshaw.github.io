@@ -1,4 +1,4 @@
-import { mdxRoot } from "@vivshaw/mdx/mdx.css"
+import mdxStyles from "@vivshaw/mdx/mdx.module.css"
 import clsx from "clsx"
 
 import { prettyPrintDate } from "#lib"
@@ -36,7 +36,7 @@ export default async function Post({
     <>
       <PostHero post={meta} />
 
-      <article className={clsx(postBody, mdxRoot)}>
+      <article className={clsx(postBody, mdxStyles.mdxRoot)}>
         <PostContent />
       </article>
 

@@ -7,20 +7,14 @@
 - [ ] styling
   - [ ] use layers
 - [ ] basalt
-  - [ ] simplify text ramp:
-    - [ ] 32px main heading / ??? mobile, maybe 24
-    - [ ] intermediate size for one level of subhead. no need for more
-    - [ ] 24px main body text / 18px mobile
-    - [ ] small text for UI elements and such?
-  - [ ] handle font features in a more global way, so individual components don't need to set it
-  - [ ] add semantic type tokens, make them responsive. probably need to settle out usage in the app better first.
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
-  - [ ] specify a default foreground color? might simplify Stories and reduce effect ofs CSS oversights in prod?
+  - [ ] specify a default foreground color? might simplify Stories and reduce effect of CSS oversights in prod?
   - [ ] Storybook
     - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
   - [ ] swap vvv prefix to basalt
   - [ ] tokenize border radius?
+  - [ ] swap motion for Emil Kowalski's easing?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - [ ] render markdown kitchen sink as a Story?
@@ -44,7 +38,6 @@
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
 
-next up: port MDX components, one by one
 after: remove the things that use focusRing, update docs again
 later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.
 clean up peer dependencies

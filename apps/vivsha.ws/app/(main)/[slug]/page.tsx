@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 import { Heading } from "@vivshaw/basalt/components"
-import { mdxRoot } from "@vivshaw/mdx/mdx.css"
+import mdxStyles from "@vivshaw/mdx/mdx.module.css"
 import clsx from "clsx"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
@@ -47,7 +47,7 @@ export default async function Page({ params }: PageParams) {
 
   return (
     <>
-      <article className={clsx(pageBody, mdxRoot)}>
+      <article className={clsx(pageBody, mdxStyles.mdxRoot)}>
         <Heading level="1">{meta.title}</Heading>
         <PageContent />
       </article>
