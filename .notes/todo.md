@@ -17,6 +17,8 @@
   - [ ] swap motion for Emil Kowalski's easing?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
+  - [ ] Storybook coverage
+  - [ ] kitchen sink in Storybook
 - [ ] render markdown kitchen sink as a Story?
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?
@@ -25,6 +27,7 @@
 - [ ] rehype
   - [ ] clean up sidenote/styles so that they can live in one spot rather than be scattered around
   - [ ] clean up first-three-words plugin & styles to colocate also
+  - [ ] pull plugins into packages in repo?
 - [ ] css
   - [ ] find a tidier thing to do with the .d.ts
   - [ ] typecheck that class names actually exist?
@@ -37,6 +40,7 @@
 - [ ] custom 404 page, model after index
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
+  - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.
 
 after: remove the things that use focusRing, update docs again
 later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.
