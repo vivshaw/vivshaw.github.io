@@ -41,7 +41,6 @@
   color: var(--basalt-color-text-default);
 }
 
-
 /* this indicator that highlights the currently selected theme smoothly animates between
  * the three theme options. instead of a highlight behind each option, there's just this
  * one element, which moves around using `translateX`.*/

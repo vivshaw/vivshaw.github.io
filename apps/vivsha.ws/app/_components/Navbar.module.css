@@ -1,0 +1,112 @@
+/* shared navbar height: sizing-8 + sizing-3 */
+@define-mixin navbar-height {
+  height: calc(var(--basalt-sizing-8) + var(--basalt-sizing-3));
+}
+
+.root {
+  @mixin navbar-height;
+
+  align-items: center;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "logo controls";
+  justify-content: space-between;
+  padding-top: var(--basalt-sizing-3);
+  padding-left: var(--basalt-sizing-4);
+  padding-right: var(--basalt-sizing-4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rootHidden {
+  transform: translateY(-100%);
+}
+
+.logoLink {
+  @mixin focus-ring;
+
+  color: var(--basalt-color-text-default);
+  font-size: var(--basalt-font-size-500);
+  line-height: var(--basalt-line-height-heading);
+  grid-area: logo;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--basalt-color-accent-default);
+  }
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  grid-area: controls;
+  justify-content: flex-end;
+}
+
+.linkList {
+  position: absolute;
+  top: calc(var(--basalt-sizing-8) + var(--basalt-sizing-3));
+  left: var(--basalt-sizing-4);
+  display: flex;
+  gap: var(--basalt-sizing-4);
+  list-style: none;
+  z-index: 1;
+
+  @mixin tablet {
+    position: static;
+    gap: var(--basalt-sizing-6);
+    z-index: auto;
+  }
+}
+
+.link {
+  @mixin focus-ring;
+
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  color: var(--basalt-color-text-default);
+  font-size: var(--basalt-font-size-300);
+  line-height: var(--basalt-line-height-body);
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  @mixin desktop {
+    font-size: var(--basalt-font-size-400);
+    line-height: var(--basalt-line-height-heading);
+  }
+}
+
+/* spacer to push content below fixed navbar */
+.spacer {
+  @mixin navbar-height;
+}
+
+/* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is just normally positioned (no show/hide) */
+:global(.no-js) .root {
+  position: relative;
+  transform: none;
+  transition: none;
+}
+
+/* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is in normal flow, so no spacer needed */
+:global(.no-js) .spacer {
+  display: none;
+}
+
+/*
+ * [PROGRESSIVE-ENHANCEMENT] when JS is active and abbreviated variant, hide the nav links.
+ * still show them when JS is disabled, though! otherwise there would be no way to nav.
+ */
+:global(.js) .abbreviated {
+  display: none;
+}

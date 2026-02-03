@@ -2,6 +2,7 @@
 
 - [ ] tooling
   - [ ] unit tests? Playwright tests?
+  - [ ] get better setup for VSCode plugins
 - [ ] features
   - [ ] tags index page & tag pages, someday
 - [ ] styling

@@ -6,16 +6,7 @@ import { useCallback, useEffect, useState } from "react"
 
 import { author } from "#data"
 
-import {
-  controls,
-  link,
-  linkList,
-  abbreviated,
-  logoLink,
-  root,
-  rootHidden,
-  spacer,
-} from "./Navbar.css"
+import styles from "./Navbar.module.css"
 import { SlideoutPanel } from "./SlideoutPanel"
 
 type NavbarProps = {
@@ -59,27 +50,30 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
 
   return (
     <>
-      <nav className={clsx(root, isHidden && rootHidden)}>
-        <Link className={logoLink} href="/" title="Go to the homepage">
+      <nav className={clsx(styles.root, isHidden && styles.rootHidden)}>
+        <Link className={styles.logoLink} href="/" title="Go to the homepage">
           <em>vivshaw's</em>
         </Link>
 
-        <div className={controls}>
+        <div className={styles.controls}>
           <ul
-            className={clsx(linkList, variant === "abbreviated" && abbreviated)}
+            className={clsx(
+              styles.linkList,
+              variant === "abbreviated" && styles.abbreviated,
+            )}
           >
             <li>
-              <Link className={link} href="/blog">
+              <Link className={styles.link} href="/blog">
                 blog
               </Link>
             </li>
             <li>
-              <a className={link} href={author.zettelkasten}>
+              <a className={styles.link} href={author.zettelkasten}>
                 zettel
               </a>
             </li>
             <li>
-              <Link className={link} href="/about">
+              <Link className={styles.link} href="/about">
                 about
               </Link>
             </li>
@@ -87,7 +81,7 @@ export function Navbar({ variant = "abbreviated" }: NavbarProps) {
           <SlideoutPanel />
         </div>
       </nav>
-      <div className={spacer} />
+      <div className={styles.spacer} />
     </>
   )
 }
