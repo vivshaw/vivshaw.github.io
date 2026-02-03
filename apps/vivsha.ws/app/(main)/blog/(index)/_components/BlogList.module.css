@@ -1,0 +1,10 @@
+.link {
+  display: block;
+  margin-bottom: var(--basalt-sizing-12);
+  
+  @mixin focus-ring;
+}
+
+.heading {
+  margin-bottom: var(--basalt-sizing-2);
+}

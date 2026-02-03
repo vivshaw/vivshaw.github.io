@@ -4,7 +4,7 @@ import { Heading, Text } from "@vivshaw/basalt/components"
 
 import { prettyPrintDate } from "#lib"
 import { PostMetadata } from "#data"
-import { blogListItemLink, blogListItemHeading } from "./BlogList.css"
+import styles from "./BlogList.module.css"
 
 interface BlogListProps {
   posts: PostMetadata[]
@@ -34,8 +34,8 @@ function BlogListItem({ post }: BlogListItemProps) {
   const prettyDate = prettyPrintDate(post.date)
 
   return (
-    <Link href={`/blog/${post.slug}`} className={blogListItemLink}>
-      <Heading level="2" className={blogListItemHeading}>
+    <Link href={`/blog/${post.slug}`} className={styles.link}>
+      <Heading level="2" className={styles.heading}>
         {post.title}
         {post.blurb && (
           <>
