@@ -1,7 +1,7 @@
 .link {
   display: block;
   margin-bottom: var(--basalt-sizing-12);
-  
+
   @mixin focus-ring;
 }
 

@@ -3,18 +3,11 @@
 import { faDesktop, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
-import { useEffect, useState } from "react"
+import clsx from "clsx"
+import { useState } from "react"
 
 import { COLOR_MODE_STORAGE_KEY } from "#data"
-import {
-  button,
-  buttonActive,
-  container,
-  indicator,
-  indicatorDark,
-  indicatorLight,
-  indicatorSystem,
-} from "./ThemeSwitcher.css"
+import styles from "./ThemeSwitcher.module.css"
 
 type ColorMode = "light" | "dark" | "system"
 
@@ -25,9 +18,9 @@ const themes: { key: ColorMode; icon: typeof faDesktop; label: string }[] = [
 ]
 
 const indicatorPositions: Record<ColorMode, string> = {
-  system: indicatorSystem,
-  light: indicatorLight,
-  dark: indicatorDark,
+  system: styles.indicatorSystem,
+  light: styles.indicatorLight,
+  dark: styles.indicatorDark,
 }
 
 /**
@@ -77,15 +70,18 @@ export function ThemeSwitcher() {
   }
 
   return (
-    <div className={container}>
-      <div className={`${indicator} ${indicatorPositions[colorMode]}`} />
+    <div className={styles.container}>
+      <div className={clsx(styles.indicator, indicatorPositions[colorMode])} />
       {themes.map(({ key, icon, label }) => (
         <button
           key={key}
           type="button"
           aria-label={label}
           aria-pressed={colorMode === key}
-          className={`${button} ${colorMode === key ? buttonActive : ""}`}
+          className={clsx(
+            styles.button,
+            colorMode === key && styles.buttonActive,
+          )}
           onClick={() => handleSetColorMode(key)}
         >
           <FontAwesomeIcon icon={icon} size="sm" />

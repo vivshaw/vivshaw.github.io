@@ -1,0 +1,68 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: var(--basalt-sizing-half);
+  border-radius: 9999px;
+  border: 1px solid
+    color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
+}
+
+/* [PROGRESSIVE-ENHANCEMENT] hide theme switcher when JS is disabled */
+:global(.no-js) .container {
+  display: none;
+}
+
+.button {
+  @mixin focus-ring;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--basalt-color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 1;
+
+  &:hover {
+    color: var(--basalt-color-text-default);
+  }
+}
+
+.buttonActive {
+  color: var(--basalt-color-text-default);
+}
+
+
+/* this indicator that highlights the currently selected theme smoothly animates between
+ * the three theme options. instead of a highlight behind each option, there's just this
+ * one element, which moves around using `translateX`.*/
+.indicator {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--basalt-color-background-default);
+  transition: transform 0.25s ease;
+  z-index: 0;
+}
+
+.indicatorSystem {
+  transform: translateX(0);
+}
+
+.indicatorLight {
+  transform: translateX(24px);
+}
+
+.indicatorDark {
+  transform: translateX(48px);
+}
