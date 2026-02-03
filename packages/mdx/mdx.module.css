@@ -3,13 +3,6 @@
  * in order for the global MDX styles to apply correctly.
  */
 
-/*
- * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
- * + right padding (1rem) on the right, mirrored on the left since content is centered.
- * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
- */
-@custom-media --sidenotes-breakpoint screen and (min-width: 67rem);
-
 .mdxRoot {
   /* ===== footnote references ===== */
 
@@ -32,13 +25,18 @@
   & :global(.sidenote-ref) {
     display: none;
 
-    @media (--sidenotes-breakpoint) {
+    /*
+     * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
+     * + right padding (1rem) on the right, mirrored on the left since content is centered.
+     * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
+     */
+    @media screen and (min-width: 67rem) {
       display: inline;
     }
   }
 
   & sup[data-footnote-ref] > a {
-    @media (--sidenotes-breakpoint) {
+    @media screen and (min-width: 67rem) {
       display: none;
     }
   }
@@ -102,7 +100,7 @@
 
   /* hide the footnotes section when sidenotes are visible */
   & :global(.footnotes) {
-    @media (--sidenotes-breakpoint) {
+    @media screen and (min-width: 67rem) {
       display: none;
     }
   }
@@ -118,7 +116,7 @@
      * width is fluid: fills available margin space, clamped to min/max.
      * margin-right = -(width + gap) so the float takes up zero content space.
      */
-    @media (--sidenotes-breakpoint) {
+    @media screen and (min-width: 67rem) {
       --sidenote-width: clamp(10rem, calc((100vw - 42rem) / 2 - 2.5rem), 20rem);
 
       display: inline;
