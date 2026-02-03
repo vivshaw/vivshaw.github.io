@@ -5,7 +5,7 @@ import { Heading } from "@vivshaw/basalt/components"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { BlogList } from "./_components/BlogList"
 import { getSortedBlogMetas } from "./_lib/getSortedBlogMetas"
-import { blogIndexHeading } from "./layout.css"
+import styles from "./page.module.css"
 
 export const metadata: Metadata = metadataHelper({
   type: "topLevel",
@@ -33,8 +33,8 @@ export default async function Blog() {
   }))
 
   return (
-    <>
-      <Heading level="1" className={blogIndexHeading}>
+    <div className={styles.wrapper}>
+      <Heading level="1" className={styles.heading}>
         Blog
       </Heading>
 
@@ -44,6 +44,6 @@ export default async function Blog() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-    </>
+    </div>
   )
 }

@@ -6,10 +6,10 @@ import { PostHero } from "./_components/PostHero"
 import styles from "./page.module.css"
 
 /**
- * The page for a single blog post.
- * I fetch them dynamically primarily because I want to maintain a very clean `posts/` directory.
- * I don't want to worry about maintaining Next.js metadata or layout code while writing posts.
- * This allows my MDX files to be almost pure markdown.
+ * the page for a single blog post.
+ * i fetch them dynamically primarily because I want to maintain a very clean `posts/` directory.
+ * i don't want to worry about maintaining Next.js metadata or layout code while writing posts.
+ * this allows my MDX files to be pure markdown.
  */
 export default async function Post({
   params,

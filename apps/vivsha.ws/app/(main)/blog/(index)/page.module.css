@@ -1,0 +1,23 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: var(--basalt-sizing-168);
+  padding-left: var(--basalt-sizing-5);
+  padding-right: var(--basalt-sizing-5);
+  padding-bottom: var(--basalt-sizing-20);
+  padding-top: var(--basalt-sizing-20);
+
+  @mixin desktop {
+    padding-left: var(--basalt-sizing-0);
+    padding-right: var(--basalt-sizing-0);
+    padding-bottom: var(--basalt-sizing-9);
+    padding-top: var(--basalt-sizing-40);
+  }
+}
+
+.heading {
+  margin-bottom: var(--basalt-sizing-12);
+
+  @mixin desktop {
+    margin-bottom: var(--basalt-sizing-20);
+  }
+}
