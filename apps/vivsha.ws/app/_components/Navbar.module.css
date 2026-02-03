@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "logo controls";
+  grid-template-areas: "wordmark controls";
   justify-content: space-between;
   padding-top: var(--basalt-sizing-3);
   padding-left: var(--basalt-sizing-4);
@@ -28,13 +28,13 @@
   transform: translateY(-100%);
 }
 
-.logoLink {
+.wordmarkLink {
   @mixin focus-ring;
 
   color: var(--basalt-color-text-default);
   font-size: var(--basalt-font-size-500);
   line-height: var(--basalt-line-height-heading);
-  grid-area: logo;
+  grid-area: wordmark;
   transition: color 0.3s ease;
 
   &:hover,
