@@ -9,25 +9,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Pill } from "@vivshaw/basalt/components"
+import clsx from "clsx"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 
 import { author } from "#data"
-import {
-  closeButton,
-  colophonLink,
-  hamburgerButton,
-  navLink,
-  navList,
-  panel,
-  panelOpen,
-  section,
-  sectionLabel,
-  socialList,
-  socialSection,
-  themeSwitcherPosition,
-} from "./SlideoutPanel.css"
+import styles from "./SlideoutPanel.module.css"
 import { ThemeSwitcher } from "./ThemeSwitcher"
 
 export function SlideoutPanel() {
@@ -134,48 +122,52 @@ export function SlideoutPanel() {
     <div
       ref={panelRef}
       id="slideout-panel"
-      className={`${panel} ${isOpen ? panelOpen : ""}`}
+      className={clsx(styles.panel, isOpen && styles.panelOpen)}
       aria-hidden={!isOpen}
       inert={!isOpen ? true : undefined}
       role="dialog"
       aria-label="Navigation menu"
     >
-      <div className={themeSwitcherPosition}>
+      <div className={styles.themeSwitcherPosition}>
         <ThemeSwitcher />
       </div>
 
       <button
         ref={closeButtonRef}
-        className={closeButton}
+        className={styles.closeButton}
         onClick={close}
         aria-label="Close menu"
       >
         <FontAwesomeIcon icon={faXmark} />
       </button>
 
-      <div className={section}>
-        <span className={sectionLabel}>pages</span>
-        <ul className={navList}>
+      <div className={styles.section}>
+        <span className={styles.sectionLabel}>pages</span>
+        <ul className={styles.navList}>
           <li>
-            <Link className={navLink} href="/blog" onClick={close}>
+            <Link className={styles.navLink} href="/blog" onClick={close}>
               blog
             </Link>
           </li>
           <li>
-            <a className={navLink} href={author.zettelkasten} onClick={close}>
+            <a
+              className={styles.navLink}
+              href={author.zettelkasten}
+              onClick={close}
+            >
               zettel
             </a>
           </li>
           <li>
-            <Link className={navLink} href="/about" onClick={close}>
+            <Link className={styles.navLink} href="/about" onClick={close}>
               about
             </Link>
           </li>
         </ul>
       </div>
 
-      <div className={socialSection}>
-        <ul className={socialList}>
+      <div className={styles.socialSection}>
+        <ul className={styles.socialList}>
           <li>
             <Pill as="a" href={author.mailto}>
               <FontAwesomeIcon icon={faEnvelope} />
@@ -213,7 +205,7 @@ export function SlideoutPanel() {
         </ul>
       </div>
 
-      <Link className={colophonLink} href="/colophon" onClick={close}>
+      <Link className={styles.colophonLink} href="/colophon" onClick={close}>
         colophon
       </Link>
     </div>
@@ -223,7 +215,7 @@ export function SlideoutPanel() {
     <>
       <button
         ref={hamburgerRef}
-        className={hamburgerButton}
+        className={styles.hamburgerButton}
         onClick={open}
         aria-expanded={isOpen}
         aria-label="Open menu"
