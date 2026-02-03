@@ -93,16 +93,15 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 
 ## Key Files
 
-| File                                   | Purpose                                     |
-| -------------------------------------- | ------------------------------------------- |
-| `packages/basalt/css/tokens.css`       | CSS custom property tokens                  |
-| `packages/basalt/css/mixins.css`       | PostCSS mixin definitions                   |
-| `packages/basalt/css/fonts.css`        | @font-face declarations                     |
-| `packages/basalt/css/reset.css`        | CSS reset                                   |
-| `packages/basalt/components/index.ts`  | Component exports                           |
-| `packages/basalt/config.ts`            | Theme class names (`vvv-light`, `vvv-dark`) |
-| `packages/basalt/theme/index.css.ts`   | Vanilla Extract theme (tokens, light/dark)  |
-| `packages/basalt/helpers/index.css.ts` | VE `focusRing` style helper                 |
+| File                                  | Purpose                                     |
+| ------------------------------------- | ------------------------------------------- |
+| `packages/basalt/css/tokens.css`      | CSS custom property tokens                  |
+| `packages/basalt/css/mixins.css`      | PostCSS mixin definitions                   |
+| `packages/basalt/css/fonts.css`       | @font-face declarations                     |
+| `packages/basalt/css/reset.css`       | CSS reset                                   |
+| `packages/basalt/components/index.ts` | Component exports                           |
+| `packages/basalt/config.ts`           | Theme class names (`vvv-light`, `vvv-dark`) |
+| `packages/basalt/theme/index.css.ts`  | Vanilla Extract theme (tokens, light/dark)  |
 
 ## Storybook
 

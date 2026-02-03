@@ -43,6 +43,5 @@
   - [ ] unique CLAUDE.md for each package
   - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.
 
-after: remove the things that use focusRing, update docs again
 later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.
 clean up peer dependencies

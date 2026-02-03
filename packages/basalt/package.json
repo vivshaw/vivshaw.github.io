@@ -23,7 +23,6 @@
   },
   "exports": {
     ".": "./index.ts",
-    "./helpers": "./helpers/index.css.ts",
     "./reset": "./reset.css.ts",
     "./components": "./components/index.ts",
     "./css": "./css/index.css",
