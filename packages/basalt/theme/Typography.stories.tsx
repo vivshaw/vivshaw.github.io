@@ -2,8 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react"
 import clsx from "clsx"
 
 import { Heading, Text } from "../components"
-import { tokens } from "./index.css"
 import styles from "./stories.module.css"
+
+const fonts = {
+  serif: "vvv-serif, vvv-serif-fallback, serif",
+  sans: "vvv-sans, vvv-sans-fallback, sans-serif",
+  monospace: "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace",
+}
 
 function FontShowcase({
   name,
@@ -75,9 +80,7 @@ function SizeScale() {
       {sizes.map(({ name, size, px }) => (
         <div key={name} className={styles.scaleRow}>
           <code className={clsx(styles.monoSmall, styles.label)}>{name}</code>
-          <span
-            style={{ fontFamily: tokens.font.serif, fontSize: size, flex: 1 }}
-          >
+          <span style={{ fontFamily: fonts.serif, fontSize: size, flex: 1 }}>
             The quick brown fox
           </span>
           <span className={styles.monoSmall}>{px}</span>
@@ -200,14 +203,14 @@ function TypographyDocumentation() {
         <div className={styles.stackWide}>
           <FontShowcase
             name="Equity B (Serif)"
-            fontFamily={tokens.font.serif}
+            fontFamily={fonts.serif}
             tokenName="serif"
             description="The primary typeface for body text and headings. A serif with excellent readability at various sizes."
             specimen="Typography is the craft of endowing human language with a durable visual form."
           />
           <FontShowcase
             name="Concourse (Sans)"
-            fontFamily={tokens.font.sans}
+            fontFamily={fonts.sans}
             tokenName="sans"
             description="Used for UI elements, labels, and secondary text. A clean sans-serif that pairs well with Equity."
             specimen="Clean, modern, and highly legible."

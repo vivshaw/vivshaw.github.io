@@ -1,5 +1,3 @@
-import "@vivshaw/basalt/reset"
-
 import clsx from "clsx"
 import React, { PropsWithChildren } from "react"
 

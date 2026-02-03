@@ -1,7 +1,6 @@
 import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
-import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
 import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import rehypeShiki from "@shikijs/rehype"
 import {
@@ -65,8 +64,6 @@ const withSerwist = createSerwist({
   swDest: "public/sw.js",
 })
 
-const withVanillaExtract = createVanillaExtractPlugin()
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -80,6 +77,4 @@ const nextConfig = {
   },
 }
 
-export default withVanillaExtract(
-  withSerwist(withMDX(withBundleAnalyzer(nextConfig))),
-)
+export default withSerwist(withMDX(withBundleAnalyzer(nextConfig)))

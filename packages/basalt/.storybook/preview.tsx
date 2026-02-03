@@ -10,14 +10,11 @@ import React, { useEffect, useState, type PropsWithChildren } from "react"
 
 const channel = addons.getChannel()
 
-// import theme first to ensure @font-face declarations are registered
-import "../theme/index.css"
-import "../reset.css"
-// import CSS custom properties so Basalt can be used in its own docs
-import "../css/tokens.css"
+// import Basalt CSS (fonts + tokens + reset) to be used to style its own docs
+import "../css/index.css"
 import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "../config"
 
-// Basalt color palette (from theme/index.css.ts)
+// Basalt color palette
 const palette = {
   "base-50": "#ffffff",
   "base-100": "#f5f5f4",
@@ -37,7 +34,7 @@ const basaltLight = create({
   ...themes.light,
   base: "light",
 
-  // Brand
+  // brand
   colorPrimary: palette["base-550"],
   colorSecondary: palette["base-500"],
 
@@ -47,17 +44,17 @@ const basaltLight = create({
   appPreviewBg: palette["base-100"],
   appBorderColor: palette["base-300"],
 
-  // Text
+  // text
   textColor: palette["base-900"],
   textInverseColor: palette["base-50"],
 
-  // Toolbar
+  // toolbar
   barBg: palette["base-100"],
   barTextColor: palette["base-900"],
   barSelectedColor: palette["base-550"],
   barHoverColor: palette["base-500"],
 
-  // Form inputs
+  // form inputs
   inputBg: palette["base-50"],
   inputBorder: palette["base-300"],
   inputTextColor: palette["base-900"],
@@ -67,7 +64,7 @@ const basaltDark = create({
   ...themes.dark,
   base: "dark",
 
-  // Brand
+  // brand
   colorPrimary: palette["base-300"],
   colorSecondary: palette["base-400"],
 
@@ -77,11 +74,11 @@ const basaltDark = create({
   appPreviewBg: palette["base-700"],
   appBorderColor: palette["base-500"],
 
-  // Text
+  // text
   textColor: palette["base-200"],
   textInverseColor: palette["base-900"],
 
-  // Toolbar
+  // toolbar
   barBg: palette["base-700"],
   barTextColor: palette["base-200"],
   barSelectedColor: palette["base-300"],

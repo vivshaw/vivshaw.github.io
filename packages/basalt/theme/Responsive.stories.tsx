@@ -1,8 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading, Text } from "../components"
-import { breakpoints } from "./index.css"
 import styles from "./stories.module.css"
+
+const breakpoints = {
+  tablet: "(min-width: 541px)",
+  desktop: "(min-width: 736px)",
+}
 
 function ResponsiveDocumentation() {
   const breakpointData = [

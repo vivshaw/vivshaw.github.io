@@ -1,7 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading, Text } from "../components"
-import { tokens } from "./index.css"
+const palette = {
+  "base-50": "#ffffff",
+  "base-100": "#f5f5f4",
+  "base-200": "#c7ccd1",
+  "base-300": "#b7bdb4",
+  "base-400": "#73737a",
+  "base-500": "#484a53",
+  "base-550": "#28282b",
+  "base-600": "#1d2126",
+  "base-700": "#111214",
+  "base-800": "#08080a",
+  "base-900": "#000000",
+}
+
+const semanticColors = {
+  textDefault: "var(--basalt-color-text-default)",
+  textMuted: "var(--basalt-color-text-muted)",
+  backgroundDefault: "var(--basalt-color-background-default)",
+  backgroundSecondary: "var(--basalt-color-background-secondary)",
+  borderDefault: "var(--basalt-color-border-default)",
+  borderMuted: "var(--basalt-color-border-muted)",
+  accentDefault: "var(--basalt-color-accent-default)",
+}
 import styles from "./stories.module.css"
 
 function ColorSwatch({
@@ -31,17 +53,17 @@ function ColorSwatch({
 
 function PaletteStrip() {
   const shades = [
-    { name: "50", value: tokens.color["base-50"] },
-    { name: "100", value: tokens.color["base-100"] },
-    { name: "200", value: tokens.color["base-200"] },
-    { name: "300", value: tokens.color["base-300"] },
-    { name: "400", value: tokens.color["base-400"] },
-    { name: "500", value: tokens.color["base-500"] },
-    { name: "550", value: tokens.color["base-550"] },
-    { name: "600", value: tokens.color["base-600"] },
-    { name: "700", value: tokens.color["base-700"] },
-    { name: "800", value: tokens.color["base-800"] },
-    { name: "900", value: tokens.color["base-900"] },
+    { name: "50", value: palette["base-50"] },
+    { name: "100", value: palette["base-100"] },
+    { name: "200", value: palette["base-200"] },
+    { name: "300", value: palette["base-300"] },
+    { name: "400", value: palette["base-400"] },
+    { name: "500", value: palette["base-500"] },
+    { name: "550", value: palette["base-550"] },
+    { name: "600", value: palette["base-600"] },
+    { name: "700", value: palette["base-700"] },
+    { name: "800", value: palette["base-800"] },
+    { name: "900", value: palette["base-900"] },
   ]
 
   return (
@@ -96,37 +118,37 @@ function ColorsDocumentation() {
           <ColorSwatch
             name="Text Default"
             tokenName="text-default"
-            tokenValue={tokens.color.textDefault}
+            tokenValue={semanticColors.textDefault}
           />
           <ColorSwatch
             name="Text Muted"
             tokenName="text-muted"
-            tokenValue={tokens.color.textMuted}
+            tokenValue={semanticColors.textMuted}
           />
           <ColorSwatch
             name="Background Default"
             tokenName="background-default"
-            tokenValue={tokens.color.backgroundDefault}
+            tokenValue={semanticColors.backgroundDefault}
           />
           <ColorSwatch
             name="Background Secondary"
             tokenName="background-secondary"
-            tokenValue={tokens.color.backgroundSecondary}
+            tokenValue={semanticColors.backgroundSecondary}
           />
           <ColorSwatch
             name="Border Default"
             tokenName="border-default"
-            tokenValue={tokens.color.borderDefault}
+            tokenValue={semanticColors.borderDefault}
           />
           <ColorSwatch
             name="Border Muted"
             tokenName="border-muted"
-            tokenValue={tokens.color.borderMuted}
+            tokenValue={semanticColors.borderMuted}
           />
           <ColorSwatch
             name="Accent Default"
             tokenName="accent-default"
-            tokenValue={tokens.color.accentDefault}
+            tokenValue={semanticColors.accentDefault}
           />
         </div>
       </section>

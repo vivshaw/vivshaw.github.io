@@ -5,10 +5,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 import {
   DARK_COLOR_MODE_CLASS,
   LIGHT_COLOR_MODE_CLASS,
-  tokens,
-} from "@vivshaw/basalt"
-/* TODO: switch with real entry point when VE is swapped out */
-import "@vivshaw/basalt/css/tokens"
+} from "@vivshaw/basalt/config"
+import "@vivshaw/basalt/css"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 
@@ -19,7 +17,7 @@ import { metadataHelper } from "#lib/metadataHelpers"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
-  themeColor: tokens.color["base-700"],
+  themeColor: "#111214", // Basalt's `--basalt-color-base-700`
 }
 
 export const metadata: Metadata = {
