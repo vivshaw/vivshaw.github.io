@@ -1,0 +1,252 @@
+---
+title: Markdown Kitchen Sink
+description: A showcase of every Markdown feature
+draft: true
+---
+
+This post demonstrates every Markdown feature supported by the blog. The text samples are drawn from various public domain works.
+
+## Headings
+
+The following heading levels are available:
+
+# First-Level Heading
+
+## Second-Level Heading
+
+### Third-Level Heading
+
+#### Fourth-Level Heading
+
+##### Fifth-Level Heading
+
+###### Sixth-Level Heading
+
+---
+
+## Paragraphs and Inline Formatting
+
+It is a truth universally acknowledged, that a single man in possession of a good fortune[^foo], **must be in want of a wife**. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the _rightful property_ of some one or other of their daughters.
+
+"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?" Mr. Bennet replied that he had not. "But it is," returned she; "for Mrs. Long has just been here, and she told me all about it."
+
+You can combine **bold and _italic_ text** together, or use ~~strikethrough~~ for deleted content. Inline `code` looks like this, useful for referencing things like `useState` or `className` in technical writing.
+
+---
+
+## Links
+
+Here is [a link to an external site](https://example.com) and here is [a link with a title](https://example.com "Example Domain"). You can also use automatic links: https://vivsha.ws.
+
+---
+
+## Blockquotes
+
+> We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.
+>
+> — _Declaration of Independence_, 1776
+
+Nested blockquotes are also possible[^bignote]:
+
+> Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do.
+>
+> > "What is the use of a book," thought Alice, "without pictures or conversation?"
+
+---
+
+## Lists
+
+### Unordered List
+
+- Call me Ishmael
+- Some years ago—never mind how long precisely
+- Having little or no money in my purse
+  - And nothing particular to interest me on shore
+  - I thought I would sail about a little
+- And see the watery part of the world
+
+### Ordered List
+
+1. In the beginning God created the heaven and the earth
+2. And the earth was without form, and void
+3. And darkness was upon the face of the deep
+   1. And the Spirit of God moved upon the face of the waters
+   2. And God said, Let there be light
+4. And there was light
+
+---
+
+## Code Blocks
+
+Inline code like `const x = 42` appears with a subtle background.
+
+Here is a JavaScript code block:
+
+```javascript
+function fibonacci(n) {
+  if (n <= 1) return n
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+const result = fibonacci(10)
+console.log(result) // 55
+```
+
+### Line Highlighting
+
+Use `[!code highlight]` to highlight specific lines:
+
+```typescript
+interface User {
+  id: number
+  name: string // [!code highlight]
+  email: string // [!code highlight]
+}
+
+function greet(user: User) {
+  return `Hello, ${user.name}!`
+}
+```
+
+### Diff Notation
+
+Use `[!code ++]` and `[!code --]` for diff highlighting:
+
+```python
+def calculate_total(items):
+    total = 0 # [!code --]
+    total = sum(item.price for item in items) # [!code ++]
+    for item in items: # [!code --]
+        total += item.price # [!code --]
+    return total
+```
+
+### Various Languages
+
+```rust
+fn main() {
+    let greeting = "Hello, world!";
+    println!("{}", greeting);
+}
+```
+
+```haskell
+quicksort :: Ord a => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) = quicksort smaller ++ [x] ++ quicksort larger
+  where
+    smaller = [a | a <- xs, a <= x]
+    larger  = [a | a <- xs, a > x]
+```
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+```
+
+---
+
+## Tables
+
+| Author          | Work                             | Year |
+| --------------- | -------------------------------- | ---: |
+| Jane Austen     | Pride and Prejudice              | 1813 |
+| Herman Melville | Moby-Dick                        | 1851 |
+| Lewis Carroll   | Alice's Adventures in Wonderland | 1865 |
+| Mary Shelley    | Frankenstein                     | 1818 |
+
+---
+
+## Images
+
+Images can be included with alt text:
+
+![A placeholder image](./80-800x400.jpg)
+
+---
+
+## Horizontal Rules
+
+Three or more dashes create a horizontal rule:
+
+---
+
+## Callout Blocks
+
+GitHub-style alert syntax is supported:
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+---
+
+## Combining Elements
+
+> **Note:** You can combine multiple formatting elements. For example, this blockquote contains **bold text**, _italic text_, and even `inline code`.
+>
+> It can also contain lists:
+>
+> - First item
+> - Second item
+> - Third item
+
+---
+
+## Long Code Block (Scrolling Test)
+
+```javascript
+// This is a long line that should cause horizontal scrolling in the code block to test that the language label stays fixed
+const veryLongVariableName = someFunction(
+  argumentOne,
+  argumentTwo,
+  argumentThree,
+  argumentFour,
+  argumentFive,
+)
+
+function anotherExample() {
+  return {
+    property:
+      "This object literal has a very long string value that extends beyond the normal width",
+  }
+}
+```
+
+---
+
+## Footnotes
+
+Here is a sentence with a footnote[^1]. You can also use named footnotes for clarity[^named].
+
+[^foo]: Here's a sidenote. It turns into a footnote on mobile.
+
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+
+[^1]: This is a simple footnote.
+
+[^named]: Named footnotes can be easier to manage in longer documents.
+
+---
+
+That concludes this kitchen sink of Markdown features. If something looks wrong, there's probably a bug in the styles!
