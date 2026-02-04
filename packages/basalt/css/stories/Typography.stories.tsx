@@ -5,8 +5,8 @@ import { Heading, Text } from "../.."
 import styles from "./stories.module.css"
 
 const fonts = {
-  serif: "vvv-serif, vvv-serif-fallback, serif",
-  sans: "vvv-sans, vvv-sans-fallback, sans-serif",
+  serif: "basalt-serif, basalt-serif-fallback, serif",
+  sans: "basalt-sans, basalt-sans-fallback, sans-serif",
   monospace: "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace",
 }
 

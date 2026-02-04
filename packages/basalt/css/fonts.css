@@ -1,6 +1,6 @@
 /* Equity B — serif */
 @font-face {
-  font-family: "vvv-serif";
+  font-family: "basalt-serif";
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_regular.woff2");
   font-display: swap;
   font-style: normal;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: "vvv-serif";
+  font-family: "basalt-serif";
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_italic.woff2");
   font-display: swap;
   font-style: italic;
@@ -16,7 +16,7 @@
 }
 
 @font-face {
-  font-family: "vvv-serif";
+  font-family: "basalt-serif";
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold.woff2");
   font-display: swap;
   font-style: normal;
@@ -24,7 +24,7 @@
 }
 
 @font-face {
-  font-family: "vvv-serif";
+  font-family: "basalt-serif";
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold_italic.woff2");
   font-display: swap;
   font-style: italic;
@@ -33,7 +33,7 @@
 
 /* Concourse 3 — sans */
 @font-face {
-  font-family: "vvv-sans";
+  font-family: "basalt-sans";
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_regular.woff2");
   font-display: swap;
   font-style: normal;
@@ -41,7 +41,7 @@
 }
 
 @font-face {
-  font-family: "vvv-sans";
+  font-family: "basalt-sans";
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_italic.woff2");
   font-display: swap;
   font-style: italic;
@@ -49,7 +49,7 @@
 }
 
 @font-face {
-  font-family: "vvv-sans";
+  font-family: "basalt-sans";
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold.woff2");
   font-display: swap;
   font-style: normal;
@@ -57,7 +57,7 @@
 }
 
 @font-face {
-  font-family: "vvv-sans";
+  font-family: "basalt-sans";
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold_italic.woff2");
   font-display: swap;
   font-style: italic;
@@ -66,7 +66,7 @@
 
 /* serif fallback — Times New Roman */
 @font-face {
-  font-family: "vvv-serif-fallback";
+  font-family: "basalt-serif-fallback";
   src: local("Times New Roman");
   size-adjust: 102%;
   ascent-override: normal;
@@ -76,7 +76,7 @@
 
 /* sans fallback — Arial */
 @font-face {
-  font-family: "vvv-sans-fallback";
+  font-family: "basalt-sans-fallback";
   src: local("Arial");
   size-adjust: 89%;
   ascent-override: 106%;

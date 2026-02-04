@@ -50,15 +50,15 @@
   --basalt-color-text-muted: var(--basalt-color-base-400);
 }
 
-.vvv-light:root {
+.basalt-light:root {
   @mixin light-theme;
 }
 
-.vvv-dark:root {
+.basalt-dark:root {
   @mixin dark-theme;
 }
 
-html:not(.vvv-dark, .vvv-light) {
+html:not(.basalt-dark, .basalt-light) {
   @media (prefers-color-scheme: light) {
     @mixin light-theme;
   }
@@ -72,8 +72,8 @@ html:not(.vvv-dark, .vvv-light) {
 
 :root {
   /* fonts and font features */
-  --basalt-font-serif: vvv-serif, vvv-serif-fallback, serif;
-  --basalt-font-sans: vvv-sans, vvv-sans-fallback, sans-serif;
+  --basalt-font-serif: basalt-serif, basalt-serif-fallback, serif;
+  --basalt-font-sans: basalt-sans, basalt-sans-fallback, sans-serif;
   --basalt-font-monospace: Consolas, Menlo, Monaco, source-code-pro,
     Courier New, monospace;
 
