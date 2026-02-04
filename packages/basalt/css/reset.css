@@ -1,6 +1,7 @@
 html {
   background-color: var(--basalt-color-background-default);
   box-sizing: border-box;
+  color: var(--basalt-color-text-default);
   cursor: default;
   font-family: var(--basalt-font-serif);
   height: 100%;

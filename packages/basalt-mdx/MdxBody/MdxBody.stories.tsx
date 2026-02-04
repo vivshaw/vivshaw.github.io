@@ -61,8 +61,8 @@ export const KitchenSink: Story = {
 
       <Paragraph>
         This story demonstrates every <code>basalt-mdx</code> component in
-        context, rendered inside an <code>&lt;MdxBody&gt;</code> wrapper — just like a
-        real blog post.
+        context, rendered inside an <code>&lt;MdxBody&gt;</code> wrapper — just
+        like a real blog post.
       </Paragraph>
 
       <HorizontalRule />

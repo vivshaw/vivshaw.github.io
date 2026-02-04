@@ -31,9 +31,6 @@
  */
 
 @define-mixin light-theme {
-  /* TODO: move this into the reset once the VE one is removed */
-  color: var(--basalt-color-text-default);
-
   --basalt-color-accent-default: var(--basalt-color-base-550);
   --basalt-color-background-default: var(--basalt-color-base-100);
   --basalt-color-background-secondary: var(--basalt-color-base-50);
@@ -44,9 +41,6 @@
 }
 
 @define-mixin dark-theme {
-  /* TODO: move this into the reset once the VE one is removed */
-  color: var(--basalt-color-text-default);
-
   --basalt-color-accent-default: var(--basalt-color-base-300);
   --basalt-color-background-default: var(--basalt-color-base-700);
   --basalt-color-background-secondary: var(--basalt-color-base-600);

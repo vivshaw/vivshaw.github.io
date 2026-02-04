@@ -32,9 +32,6 @@
 - [ ] css
   - [ ] find a tidier thing to do with the .d.ts
   - [ ] typecheck that class names actually exist?
-  - [ ] move dark-mode aware color defaults into reset stylesheet
-  - [ ] confirm that reset-level default transition works. remove where redundant.
-  - [ ] are there a bunch of redundant text color defs? check!
 - [ ] lint/etc
   - [ ] sort imports
 - [ ] AI
