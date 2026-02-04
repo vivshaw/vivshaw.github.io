@@ -46,7 +46,7 @@
 }
 
 .avatar {
-  border-radius: 40%;
+  border-radius: var(--basalt-sizing-radius-squircle);
   grid-area: avatar;
   height: 80px;
   object-fit: cover;

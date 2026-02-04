@@ -4,7 +4,7 @@
   align-items: center;
   height: 32px;
   padding: var(--basalt-sizing-half);
-  border-radius: 9999px;
+  border-radius: var(--basalt-sizing-radius-pill);
   border: 1px solid
     color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
 }
@@ -25,7 +25,7 @@
   height: 24px;
   padding: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: var(--basalt-sizing-radius-circle);
   background: transparent;
   color: var(--basalt-color-text-muted);
   cursor: pointer;
@@ -48,7 +48,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: var(--basalt-sizing-radius-circle);
   background: var(--basalt-color-background-default);
   transition: transform 0.25s ease;
   z-index: 0;

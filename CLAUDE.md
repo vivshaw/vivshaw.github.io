@@ -65,7 +65,6 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 - Use `var(--basalt-sizing-*)` in CSS Modules for all general spacing values including:
   - Margins and padding
   - Dimensions and sizes
-  - Border radius
   - Grid gaps
   - Position offsets
 

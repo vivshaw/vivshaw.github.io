@@ -31,7 +31,7 @@
   width: 100%;
 
   @mixin desktop {
-    border-radius: var(--basalt-sizing-1);
+    border-radius: var(--basalt-sizing-radius-small);
   }
 
   /* light theme */

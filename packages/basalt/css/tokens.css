@@ -217,4 +217,12 @@ html:not(.basalt-dark, .basalt-light) {
   --basalt-sizing-80: 20rem;
   --basalt-sizing-96: 24rem;
   --basalt-sizing-168: 42rem;
+
+  /* border radius */
+  --basalt-sizing-radius-small: var(--basalt-sizing-1);
+  --basalt-sizing-radius-default: var(--basalt-sizing-2);
+  --basalt-sizing-radius-squircle: 40%;
+  --basalt-sizing-radius-circle: 50%;
+  --basalt-sizing-radius-pill: 9999px;
 }
+

@@ -83,7 +83,7 @@ Tokens are defined in `packages/basalt/css/tokens.css` on `:root`. Naming conven
 | Palette    | `--basalt-color-base-*` | `--basalt-color-base-500`                                          |
 | Fonts      | `--basalt-font-*`       | `--basalt-font-serif`                                              |
 | Font sizes | `--basalt-font-size-*`  | `--basalt-font-size-300`                                           |
-| Spacing    | `--basalt-sizing-*`     | `--basalt-sizing-4`                                                |
+| Spacing    | `--basalt-sizing-*`     | `--basalt-sizing-4`, `--basalt-sizing-radius-pill`                 |
 | Motion     | `--basalt-motion-*`     | `--basalt-motion-transition-theme`, `--basalt-motion-ease-in-quad` |
 
 ### Transition workaround

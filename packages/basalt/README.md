@@ -40,8 +40,8 @@ export default {
 
 basalt supports light/dark theme via CSS classes on the `<html>` element. three constants are exported for managing this:
 
-| Export                   | Value         | Purpose                               |
-| ------------------------ | ------------- | ------------------------------------- |
+| Export                   | Value            | Purpose                               |
+| ------------------------ | ---------------- | ------------------------------------- |
 | `DARK_COLOR_MODE_CLASS`  | `"basalt-dark"`  | apply to `<html>` to force dark mode  |
 | `LIGHT_COLOR_MODE_CLASS` | `"basalt-light"` | apply to `<html>` to force light mode |
 
