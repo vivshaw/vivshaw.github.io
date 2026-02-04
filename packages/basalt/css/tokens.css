@@ -136,6 +136,11 @@ html:not(.vvv-dark, .vvv-light) {
 
 :root {
   /* easing functions */
+  /*
+   * these easing functions courtesy of Emil Kowalski, and in turn courtesy
+   * of Benjamin De Cock.
+   * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
+   */
   --basalt-motion-ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --basalt-motion-ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
   --basalt-motion-ease-in-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);

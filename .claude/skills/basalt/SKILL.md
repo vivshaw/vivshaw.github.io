@@ -77,15 +77,14 @@ Scope styles to light or dark theme:
 
 Tokens are defined in `packages/basalt/css/tokens.css` on `:root`. Naming convention:
 
-| Category   | Pattern                  | Example                            |
-| ---------- | ------------------------ | ---------------------------------- |
-| Colors     | `--basalt-color-*`       | `--basalt-color-text-default`      |
-| Palette    | `--basalt-color-base-*`  | `--basalt-color-base-500`          |
-| Fonts      | `--basalt-font-*`        | `--basalt-font-serif`              |
-| Font sizes | `--basalt-font-size-*`   | `--basalt-font-size-300`           |
-| Spacing    | `--basalt-sizing-*`      | `--basalt-sizing-4`                |
-| Motion     | `--basalt-motion-*`      | `--basalt-motion-transition-theme` |
-| Easing     | `--basalt-motion-ease-*` | `--basalt-motion-ease-in-quad`     |
+| Category   | Pattern                 | Example                                                            |
+| ---------- | ----------------------- | ------------------------------------------------------------------ |
+| Colors     | `--basalt-color-*`      | `--basalt-color-text-default`                                      |
+| Palette    | `--basalt-color-base-*` | `--basalt-color-base-500`                                          |
+| Fonts      | `--basalt-font-*`       | `--basalt-font-serif`                                              |
+| Font sizes | `--basalt-font-size-*`  | `--basalt-font-size-300`                                           |
+| Spacing    | `--basalt-sizing-*`     | `--basalt-sizing-4`                                                |
+| Motion     | `--basalt-motion-*`     | `--basalt-motion-transition-theme`, `--basalt-motion-ease-in-quad` |
 
 ### Transition workaround
 

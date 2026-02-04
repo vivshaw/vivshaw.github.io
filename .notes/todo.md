@@ -16,7 +16,6 @@
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
   - [ ] swap vvv prefix to basalt
   - [ ] tokenize border radius?
-  - [ ] swap motion for Emil Kowalski's easing?
 - MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - [ ] font flicker on hard refresh - could be a fallback problem?

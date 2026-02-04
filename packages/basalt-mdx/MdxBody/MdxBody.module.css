@@ -59,7 +59,7 @@
     margin-left: var(--basalt-sizing-1);
     opacity: 0.5;
     color: inherit;
-    transition: opacity 0.15s var(--basalt-easing-ease-in-quad);
+    transition: opacity 0.15s var(--basalt-motion-ease-in-quad);
 
     &:visited {
       color: inherit;
