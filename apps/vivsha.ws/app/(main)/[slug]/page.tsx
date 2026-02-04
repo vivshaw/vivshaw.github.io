@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 import { Heading } from "@vivshaw/basalt"
+import { MdxBody } from "@vivshaw/basalt-mdx"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importPage, listAllPageSlugs } from "#lib/postHelpers"
-import { MdxBody } from "../../_components/MdxBody"
 import styles from "./page.module.css"
 
 type PageParams = {
@@ -30,7 +30,7 @@ export async function generateMetadata({
 }
 
 /**
- * Generic page component for standalone MDX pages.
+ * generic page component for standalone MDX pages.
  */
 export default async function Page({ params }: PageParams) {
   const { slug } = await params

@@ -1,7 +1,8 @@
+import { MdxBody } from "@vivshaw/basalt-mdx"
+
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
-import { MdxBody } from "../../../../_components/MdxBody"
 import { PostHero } from "./_components/PostHero"
 import styles from "./page.module.css"
 

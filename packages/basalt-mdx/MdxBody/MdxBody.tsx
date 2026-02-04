@@ -1,4 +1,4 @@
-import mdxStyles from "@vivshaw/basalt-mdx/mdx.module.css"
+import mdxStyles from "../mdx.module.css"
 import clsx from "clsx"
 
 import styles from "./MdxBody.module.css"

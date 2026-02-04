@@ -27,7 +27,7 @@ this package provides components to cover the following roles:
 
 ### setup
 
-- apply the `.mdxRoot` class from `mdx.module.css` to whatever element wraps the MDX content.
+- import `<MdxBody>` and use it in your layout to wrap the MDX content.
 - wire up the components as MDX overrides in the app's `mdx-components.tsx` via `useMDXComponents`.
 
 ### MDX plugins
