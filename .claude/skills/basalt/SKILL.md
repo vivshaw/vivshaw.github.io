@@ -64,8 +64,8 @@ Scope styles to light or dark theme:
 
 | Mixin               | Mode  |
 | ------------------- | ----- |
-| `@mixin light-mode` | Light |
-| `@mixin dark-mode`  | Dark  |
+| `@mixin light-theme` | Light |
+| `@mixin dark-theme`  | Dark  |
 
 #### Interaction
 

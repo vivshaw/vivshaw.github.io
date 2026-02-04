@@ -2,7 +2,7 @@
 
 import { faDesktop, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
 import clsx from "clsx"
 import { useState } from "react"
 
@@ -43,14 +43,14 @@ function getStoredColorMode(): ColorMode {
  */
 function applyStoredColorMode(mode: ColorMode) {
   document.documentElement.classList.remove(
-    DARK_COLOR_MODE_CLASS,
-    LIGHT_COLOR_MODE_CLASS,
+    DARK_THEME_CLASS,
+    LIGHT_THEME_CLASS,
   )
 
   if (mode === "dark") {
-    document.documentElement.classList.add(DARK_COLOR_MODE_CLASS)
+    document.documentElement.classList.add(DARK_THEME_CLASS)
   } else if (mode === "light") {
-    document.documentElement.classList.add(LIGHT_COLOR_MODE_CLASS)
+    document.documentElement.classList.add(LIGHT_THEME_CLASS)
   }
   // "system" means no explicit class - CSS handles via prefers-color-scheme
 

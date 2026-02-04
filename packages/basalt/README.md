@@ -40,12 +40,12 @@ export default {
 
 basalt supports light/dark theme via CSS classes on the `<html>` element. three constants are exported for managing this:
 
-| Export                   | Value            | Purpose                               |
-| ------------------------ | ---------------- | ------------------------------------- |
-| `DARK_COLOR_MODE_CLASS`  | `"basalt-dark"`  | apply to `<html>` to force dark mode  |
-| `LIGHT_COLOR_MODE_CLASS` | `"basalt-light"` | apply to `<html>` to force light mode |
+| Export                   | Value            | Purpose                                |
+| ------------------------ | ---------------- | -------------------------------------- |
+| `DARK_THEME_CLASS`  | `"basalt-dark"`  | apply to `<html>` to force dark theme  |
+| `LIGHT_THEME_CLASS` | `"basalt-light"` | apply to `<html>` to force light theme |
 
-it's your responsibility to apply these classes and switch them when desired. when neither class is present, basalt falls back to `prefers-color-scheme`. use `@mixin dark-mode` and `@mixin light-mode` in CSS rather than referencing these classes directly.
+it's your responsibility to apply these classes and switch them when desired. when neither class is present, basalt falls back to `prefers-color-scheme`. use `@mixin dark-theme` and `@mixin light-theme` in CSS rather than referencing these classes directly.
 
 ## components
 
@@ -147,8 +147,8 @@ scope styles to light or dark theme:
 
 | Mixin               | Mode  |
 | ------------------- | ----- |
-| `@mixin light-mode` | light |
-| `@mixin dark-mode`  | dark  |
+| `@mixin light-theme` | light |
+| `@mixin dark-theme`  | dark  |
 
 ### interaction
 

@@ -35,7 +35,7 @@
   }
 
   /* light theme */
-  @mixin light-mode {
+  @mixin light-theme {
     background-color: var(--shiki-light-bg) !important;
 
     & span {
@@ -44,7 +44,7 @@
   }
 
   /* dark theme */
-  @mixin dark-mode {
+  @mixin dark-theme {
     background-color: var(--shiki-dark-bg) !important;
 
     & span {

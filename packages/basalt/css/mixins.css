@@ -14,7 +14,7 @@
 
 /* ===== themes ===== */
 
-@define-mixin dark-mode {
+@define-mixin dark-theme {
   :global(.basalt-dark) & {
     @mixin-content;
   }
@@ -26,7 +26,7 @@
   }
 }
 
-@define-mixin light-mode {
+@define-mixin light-theme {
   :global(.basalt-light) & {
     @mixin-content;
   }

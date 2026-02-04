@@ -12,7 +12,7 @@ const channel = addons.getChannel()
 
 // import Basalt CSS (fonts + tokens + reset)
 import "@vivshaw/basalt/css"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
 
 // Basalt color palette
 const palette = {
@@ -152,8 +152,8 @@ const preview: Preview = {
     backgrounds: { disable: true },
     darkMode: {
       classTarget: "html",
-      darkClass: DARK_COLOR_MODE_CLASS,
-      lightClass: LIGHT_COLOR_MODE_CLASS,
+      darkClass: DARK_THEME_CLASS,
+      lightClass: LIGHT_THEME_CLASS,
       stylePreview: true,
       dark: basaltDark,
       light: basaltLight,

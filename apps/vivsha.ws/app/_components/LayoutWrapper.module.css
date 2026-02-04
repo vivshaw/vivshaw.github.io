@@ -9,11 +9,11 @@
   background-position: center;
   background-size: cover;
 
-  @mixin dark-mode {
+  @mixin dark-theme {
     background-image: url("/home-bg-dark-optimized.jpg");
   }
 
-  @mixin light-mode {
+  @mixin light-theme {
     background-image: url("/home-bg-light-optimized.jpg");
   }
 }

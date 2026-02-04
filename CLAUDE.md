@@ -95,19 +95,19 @@ Keep exact pixel/rem values ONLY for:
 
 ## Theme
 
-Use `@mixin dark-mode` and `@mixin light-mode` from the PostCSS mixins:
+Use `@mixin dark-theme` and `@mixin light-theme` from the PostCSS mixins:
 
 ```css
 .myComponent {
   background-color: #fff;
 
-  @mixin dark-mode {
+  @mixin dark-theme {
     background-color: #111;
   }
 }
 ```
 
-Don't manually use `DARK_COLOR_MODE_CLASS`/`LIGHT_COLOR_MODE_CLASS` or raw `prefers-color-scheme` queries.
+Don't manually use `DARK_THEME_CLASS`/`LIGHT_THEME_CLASS` or raw `prefers-color-scheme` queries.
 
 # Skills
 

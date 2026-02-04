@@ -14,8 +14,7 @@
   - [ ] Storybook
     - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
-  - [ ] mode -> theme
-- MDX
+- basalt-mdx
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - rehype
   - [ ] clean up sidenote/styles so that they can live in one spot rather than be scattered around

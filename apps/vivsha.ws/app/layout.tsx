@@ -2,7 +2,7 @@ import type { Viewport } from "next"
 import type { Metadata } from "next/types"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import { DARK_COLOR_MODE_CLASS, LIGHT_COLOR_MODE_CLASS } from "@vivshaw/basalt"
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
 import "@vivshaw/basalt/css"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
@@ -77,7 +77,7 @@ const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('no-js'
 /**
  * executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
  */
-const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_COLOR_MODE_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_COLOR_MODE_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`
+const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_THEME_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_THEME_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`
 
 export default function RootLayout({
   children,
