@@ -3,6 +3,8 @@ import path from "path"
 
 import { BlogFrontmatter, PageFrontmatter, PostMeta } from "#data"
 
+const isProduction = process.env.NODE_ENV === "production"
+
 /**
  * lists all valid blog post slugs.
  * each subdirectory under `posts/` contains a blog post. the slugs are the subdirectory names.
@@ -13,7 +15,16 @@ export async function listAllBlogSlugs() {
   const allDirectories = allEntities.filter((entity) => entity.isDirectory())
   const allSlugs = allDirectories.map((dir) => dir.name)
 
-  return allSlugs
+  if (!isProduction) return allSlugs
+
+  const published = await Promise.all(
+    allSlugs.map(async (slug) => {
+      const { meta } = await importBlogPost(slug)
+      return meta.draft ? null : slug
+    }),
+  )
+
+  return published.filter((slug): slug is string => slug !== null)
 }
 
 /**
@@ -47,7 +58,16 @@ export async function listAllPageSlugs() {
   const allDirectories = allEntities.filter((entity) => entity.isDirectory())
   const allSlugs = allDirectories.map((dir) => dir.name)
 
-  return allSlugs
+  if (!isProduction) return allSlugs
+
+  const published = await Promise.all(
+    allSlugs.map(async (slug) => {
+      const { meta } = await importPage(slug)
+      return meta.draft ? null : slug
+    }),
+  )
+
+  return published.filter((slug): slug is string => slug !== null)
 }
 
 /**

@@ -13,6 +13,7 @@ export const BlogFrontmatter = z.object({
   blurb: z.optional(z.string()),
   date: z.string().date(),
   dateModified: z.optional(z.string().date()),
+  draft: z.optional(z.boolean()),
   tags: z.array(z.string()),
   title: z.string(),
 })
@@ -24,6 +25,7 @@ export const PostMeta = z.object({
   blurb: z.optional(z.string()),
   date: z.date(),
   dateModified: z.optional(z.date()),
+  draft: z.optional(z.boolean()),
   slug: z.string(),
   tags: z.array(z.string()),
   title: z.string(),
@@ -35,6 +37,7 @@ export type PostMetadata = z.infer<typeof PostMeta>
  * the the raw Markdown frontmatter included in each standalone page.
  */
 export const PageFrontmatter = z.object({
+  draft: z.optional(z.boolean()),
   title: z.string(),
   description: z.string(),
 })
