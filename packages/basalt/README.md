@@ -2,7 +2,49 @@
 
 this package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). component styling uses CSS Modules with PostCSS mixins, backed by design tokens defined as CSS custom properties. the library does not use client React and is fully appropriate for React Server Components.
 
+## setup
+
+import the CSS entry point once in your app's root layout. this brings in fonts, design tokens, and the CSS reset:
+
+```tsx
+import "@vivshaw/basalt/css"
+```
+
+basalt's PostCSS mixins require `postcss-mixins` in your PostCSS config, pointed at the mixins file:
+
+```js
+// postcss.config.mjs
+import { join } from "path"
+
+export default {
+  plugins: {
+    "postcss-mixins": {
+      mixinsFiles: [
+        join(import.meta.dirname, "packages/basalt/css/mixins.css"),
+      ],
+    },
+  },
+}
+```
+
+## theme
+
+basalt supports light/dark theme via CSS classes on the `<html>` element. three constants are exported for managing this:
+
+| Export                       | Value                               | Purpose                                                          |
+| ---------------------------- | ----------------------------------- | ---------------------------------------------------------------- |
+| `DARK_COLOR_MODE_CLASS`      | `"vvv-dark"`                        | apply to `<html>` to force dark mode                             |
+| `LIGHT_COLOR_MODE_CLASS`     | `"vvv-light"`                       | apply to `<html>` to force light mode                            |
+
+it's your responsibility to apply these classes and switch them when desired. when neither class is present, basalt falls back to `prefers-color-scheme`. use `@mixin dark-mode` and `@mixin light-mode` in CSS rather than referencing these classes directly.
+
 ## components
+
+components can be imported from the main entry point:
+
+```tsx
+import { Heading, Link, Pill, Text } from "@vivshaw/basalt"
+```
 
 ### heading
 

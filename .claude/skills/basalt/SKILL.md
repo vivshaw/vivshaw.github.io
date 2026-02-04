@@ -12,7 +12,7 @@ Use these guidelines when making changes to the Basalt design system itself (not
 - Each component lives in its own file in `packages/basalt/components/`
 - Components are styled with CSS Modules (`.module.css`) and PostCSS mixins
 - Stories (`.stories.tsx`) live alongside their components
-- All components must be exported through `components/index.ts`
+- All components must be exported through `packages/basalt/index.ts`
 
 ## Styling
 
@@ -93,20 +93,18 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 
 ## Key Files
 
-| File                                  | Purpose                                     |
-| ------------------------------------- | ------------------------------------------- |
-| `packages/basalt/css/tokens.css`      | CSS custom property tokens                  |
-| `packages/basalt/css/mixins.css`      | PostCSS mixin definitions                   |
-| `packages/basalt/css/fonts.css`       | @font-face declarations                     |
-| `packages/basalt/css/reset.css`       | CSS reset                                   |
-| `packages/basalt/components/index.ts` | Component exports                           |
-| `packages/basalt/config.ts`           | Theme class names (`vvv-light`, `vvv-dark`) |
-| `packages/basalt/theme/index.css.ts`  | Vanilla Extract theme (tokens, light/dark)  |
+| File                             | Purpose                                   |
+| -------------------------------- | ----------------------------------------- |
+| `packages/basalt/css/tokens.css` | CSS custom property tokens                |
+| `packages/basalt/css/mixins.css` | PostCSS mixin definitions                 |
+| `packages/basalt/css/fonts.css`  | @font-face declarations                   |
+| `packages/basalt/css/reset.css`  | CSS reset                                 |
+| `packages/basalt/index.ts`       | Package entry point (components + config) |
 
 ## Storybook
 
 - Run with `yarn storybook` from the basalt package
-- Token documentation stories: `packages/basalt/theme/*.stories.tsx`
+- Token documentation stories: `packages/basalt/css/stories/*.stories.tsx`
 - Component stories: alongside their components
 - Custom viewports match Basalt breakpoints (Phone, Tablet, Desktop)
 - Theme toggle available for light/dark mode testing
@@ -115,7 +113,7 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 
 1. Create `packages/basalt/components/MyComponent.tsx`
 2. Create `packages/basalt/components/MyComponent.module.css` for styles
-3. Export from `packages/basalt/components/index.ts`
+3. Export from `packages/basalt/index.ts`
 4. Create `packages/basalt/components/MyComponent.stories.tsx`
 5. Run `yarn typecheck` and `yarn format:all`
 
@@ -125,7 +123,7 @@ When making changes to Basalt:
 
 - [ ] Use CSS Modules + PostCSS mixins for styling
 - [ ] Use `--basalt-*` tokens for all design values
-- [ ] Export new components from `components/index.ts`
+- [ ] Export new components from `index.ts`
 - [ ] Add or update stories for documentation
 - [ ] Test in both light and dark modes
 - [ ] Test at all breakpoints (Phone, Tablet, Desktop)

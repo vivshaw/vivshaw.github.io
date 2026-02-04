@@ -27,7 +27,6 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 - This application uses React and Next.js as its foundation. It uses Next's App Router.
 - The app is written in Typescript.
 - Basalt components are styled with CSS Modules and PostCSS mixins, backed by `--basalt-*` CSS custom properties.
-- Some legacy Vanilla Extract (`.css.ts`) remains in the app. New styles should use CSS Modules.
 
 # Rules
 

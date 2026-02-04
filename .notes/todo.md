@@ -35,7 +35,6 @@
 - [ ] css
   - [ ] find a tidier thing to do with the .d.ts
   - [ ] typecheck that class names actually exist?
-  - [ ] clean up Basalt CSS entry points
   - [ ] move dark-mode aware color defaults into reset stylesheet
   - [ ] confirm that reset-level default transition works. remove where redundant.
   - [ ] are there a bunch of redundant text color defs? check!
@@ -45,6 +44,3 @@
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
   - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.
-
-later: once last use of Breakpoints is used, clean up. swap reset to CSS Modules. deprecate theme. update docs again when it's all done.
-clean up peer dependencies
