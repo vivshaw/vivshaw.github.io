@@ -166,7 +166,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Components"],
+        order: ["Components", "Layout"],
       },
     },
   },

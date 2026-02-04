@@ -20,7 +20,6 @@
   - [ ] swap motion for Emil Kowalski's easing?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-  - [ ] kitchen sink in Storybook
 - [ ] render markdown kitchen sink as a Story?
 - [ ] flesh out package READMEs
 - [ ] put domain config into IaC w/ Terraform?

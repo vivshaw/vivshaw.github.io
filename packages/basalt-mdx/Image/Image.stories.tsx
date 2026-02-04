@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Image } from "./Image"
+import placeholderImage from "../.storybook/assets/placeholder.jpg"
 
 const meta = {
   title: "Components/Image",
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    src: "https://picsum.photos/600/400",
+    src: placeholderImage,
     alt: "A placeholder image",
   },
 }
