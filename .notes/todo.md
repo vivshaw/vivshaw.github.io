@@ -20,7 +20,6 @@
   - [ ] swap motion for Emil Kowalski's easing?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-  - [ ] Storybook coverage
   - [ ] kitchen sink in Storybook
   - [ ] should <MdxBody> be part of the MDX package?
 - [ ] render markdown kitchen sink as a Story?
@@ -43,3 +42,5 @@
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
   - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.
+- [ ] copy
+  - [ ] better public domain text content instead of lipsum etc.

@@ -4,7 +4,7 @@ import { Text, type TextProps } from "@vivshaw/basalt"
 import styles from "./Paragraph.module.css"
 
 /**
- * a styled <p> element, for use in MDX.
+ * a styled `<p>` element, for use in MDX.
  */
 export function Paragraph({
   className,

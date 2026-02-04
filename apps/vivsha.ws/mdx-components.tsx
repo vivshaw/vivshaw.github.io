@@ -2,7 +2,7 @@ import type { MDXComponents } from "mdx/types"
 import { Anchor } from "@vivshaw/mdx/Anchor/Anchor"
 import { Blockquote } from "@vivshaw/mdx/Blockquote/Blockquote"
 import { CodeBlock } from "@vivshaw/mdx/CodeBlock/CodeBlock"
-import { headings } from "@vivshaw/mdx/Headings/Headings"
+import { H1, H2, H3, H4, H5, H6 } from "@vivshaw/mdx/Headings/Headings"
 import { Figcaption } from "@vivshaw/mdx/Figcaption/Figcaption"
 import { HorizontalRule } from "@vivshaw/mdx/HorizontalRule/HorizontalRule"
 import { Image } from "@vivshaw/mdx/Image/Image"
@@ -19,12 +19,12 @@ const customComponents = {
   blockquote: Blockquote,
   figcaption: Figcaption,
   img: Image,
-  h1: headings.h1,
-  h2: headings.h2,
-  h3: headings.h3,
-  h4: headings.h4,
-  h5: headings.h5,
-  h6: headings.h6,
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+  h5: H5,
+  h6: H6,
   hr: HorizontalRule,
   ol: OrderedList,
   p: Paragraph,

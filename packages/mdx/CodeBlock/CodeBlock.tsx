@@ -1,10 +1,8 @@
 import clsx from "clsx"
-import { PropsWithChildren } from "react"
 
 import styles from "./CodeBlock.module.css"
 
-type CodeBlockProps = {
-  className?: string
+type CodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
   "data-language"?: string
 }
 
@@ -14,7 +12,7 @@ type CodeBlockProps = {
  * caveats:
  * - this component assumes that _all_ `<pre>` blocks are code blocks.
  */
-export function CodeBlock(props: PropsWithChildren<CodeBlockProps>) {
+export function CodeBlock(props: CodeBlockProps) {
   const { "data-language": dataLanguage, ...rest } = props
 
   return (
