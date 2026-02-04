@@ -2,6 +2,16 @@
 
 this package contains the Next.js app that powers [`vivsha.ws`](https://vivsha.ws). it uses the App Router with static export, [Basalt](../../packages/basalt/) for styling, and [Basalt MDX](../../packages/basalt-mdx/) for rendered Markdown content.
 
+## scripts
+
+all scripts should be run from the monorepo root.
+
+| command      | what it does                       |
+| ------------ | ---------------------------------- |
+| `yarn dev`   | start the Next.js dev server       |
+| `yarn build` | build the static site              |
+| `yarn start` | serve the production build locally |
+
 ## routes
 
 | route          | what it is                                              |

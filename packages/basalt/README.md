@@ -2,6 +2,15 @@
 
 this package contains (the bones of) the design system used to style [vivsha.ws](https://vivsha.ws). component styling uses CSS Modules with PostCSS mixins, backed by design tokens defined as CSS custom properties. the library does not use client React and is fully appropriate for React Server Components.
 
+## scripts
+
+all scripts should be run from the monorepo root.
+
+| command                                          | what it does                   |
+| ------------------------------------------------ | ------------------------------ |
+| `yarn workspace @vivshaw/basalt storybook`       | launch Storybook on port 6006  |
+| `yarn workspace @vivshaw/basalt build-storybook` | build Storybook for deployment |
+
 ## setup
 
 import the CSS entry point once in your app's root layout. this brings in fonts, design tokens, and the CSS reset:

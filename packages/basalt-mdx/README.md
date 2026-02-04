@@ -2,6 +2,15 @@
 
 this package is a library of prebuilt MDX components, styled with [Basalt](../basalt/). think of it as a Basalt expansion pack for Markdown docs. it is fully static and uses no runtime stylesheets or client React, so it's appropriate for use in server components.
 
+## scripts
+
+all scripts should be run from the monorepo root.
+
+| command                                              | what it does                   |
+| ---------------------------------------------------- | ------------------------------ |
+| `yarn workspace @vivshaw/basalt-mdx storybook`       | launch Storybook on port 6007  |
+| `yarn workspace @vivshaw/basalt-mdx build-storybook` | build Storybook for deployment |
+
 ## components
 
 this package provides components to cover the following roles:

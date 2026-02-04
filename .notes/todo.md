@@ -20,9 +20,6 @@
   - [ ] swap motion for Emil Kowalski's easing?
 - [ ] MDX
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-- [ ] render markdown kitchen sink as a Story?
-- [ ] flesh out package READMEs
-- [ ] put domain config into IaC w/ Terraform?
 - [ ] dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
 - [ ] font flicker on hard refresh - could be a fallback problem?
 - [ ] rehype
