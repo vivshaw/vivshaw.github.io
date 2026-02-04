@@ -2212,6 +2212,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vivshaw/basalt-mdx@workspace:^, @vivshaw/basalt-mdx@workspace:packages/basalt-mdx":
+  version: 0.0.0-use.local
+  resolution: "@vivshaw/basalt-mdx@workspace:packages/basalt-mdx"
+  dependencies:
+    "@storybook/addon-essentials": ^8.6.14
+    "@storybook/addon-interactions": ^8.6.14
+    "@storybook/blocks": ^8.6.14
+    "@storybook/react": ^8.6.14
+    "@storybook/react-vite": ^8.6.14
+    "@storybook/test": ^8.6.14
+    "@vitejs/plugin-react": ^4.5.0
+    "@vivshaw/basalt": "workspace:^"
+    storybook: ^8.6.14
+    storybook-dark-mode: ^4.0.2
+    vite: ^6.1.0
+  peerDependencies:
+    clsx: ^2.1.1
+    react: 19.0.0
+    typescript: 4.9.3
+  languageName: unknown
+  linkType: soft
+
 "@vivshaw/basalt@workspace:^, @vivshaw/basalt@workspace:packages/basalt":
   version: 0.0.0-use.local
   resolution: "@vivshaw/basalt@workspace:packages/basalt"
@@ -2228,28 +2250,6 @@ __metadata:
     storybook-dark-mode: ^4.0.2
     vite: ^6.1.0
   peerDependencies:
-    react: 19.0.0
-    typescript: 4.9.3
-  languageName: unknown
-  linkType: soft
-
-"@vivshaw/mdx@workspace:^, @vivshaw/mdx@workspace:packages/mdx":
-  version: 0.0.0-use.local
-  resolution: "@vivshaw/mdx@workspace:packages/mdx"
-  dependencies:
-    "@storybook/addon-essentials": ^8.6.14
-    "@storybook/addon-interactions": ^8.6.14
-    "@storybook/blocks": ^8.6.14
-    "@storybook/react": ^8.6.14
-    "@storybook/react-vite": ^8.6.14
-    "@storybook/test": ^8.6.14
-    "@vitejs/plugin-react": ^4.5.0
-    "@vivshaw/basalt": "workspace:^"
-    storybook: ^8.6.14
-    storybook-dark-mode: ^4.0.2
-    vite: ^6.1.0
-  peerDependencies:
-    clsx: ^2.1.1
     react: 19.0.0
     typescript: 4.9.3
   languageName: unknown
@@ -2272,7 +2272,7 @@ __metadata:
     "@types/node": 18.11.9
     "@types/react": 19.0.2
     "@vivshaw/basalt": "workspace:^"
-    "@vivshaw/mdx": "workspace:^"
+    "@vivshaw/basalt-mdx": "workspace:^"
     clsx: ^2.1.1
     feed: ^5.2.0
     lodash: ^4.17.21

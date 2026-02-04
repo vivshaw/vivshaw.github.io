@@ -2,7 +2,7 @@ import clsx from "clsx"
 
 import styles from "./CodeBlock.module.css"
 
-type CodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
+export type CodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
   "data-language"?: string
 }
 

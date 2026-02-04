@@ -1,5 +1,5 @@
 {
-  "name": "@vivshaw/mdx",
+  "name": "@vivshaw/basalt-mdx",
   "description": "prebuilt MDX components, styled with Basalt",
   "homepage": "https://vivsha.ws",
   "repository": {
@@ -18,6 +18,9 @@
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./index.ts"
   },
   "dependencies": {
     "@vivshaw/basalt": "workspace:^"

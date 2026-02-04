@@ -10,7 +10,7 @@ This repo is a Yarn monorepo, split into three separate Yarn packages:
 
 - @vivshaw/vivshaws (`./apps/vivsha.ws`), the blog application itself
 - @vivshaw/basalt (`./packages/basalt`), the design system used to build it
-- @vivshaw/mdx (`./packages/mdx`), a package of MDX components used to render Markdown in the app
+- @vivshaw/basalt-mdx (`./packages/mdx`), a package of MDX components used to render Markdown in the app
 
 Each of these pacakges has its own `README.md` you can reference.
 

@@ -1,18 +1,25 @@
 import type { MDXComponents } from "mdx/types"
-import { Anchor } from "@vivshaw/mdx/Anchor/Anchor"
-import { Blockquote } from "@vivshaw/mdx/Blockquote/Blockquote"
-import { CodeBlock } from "@vivshaw/mdx/CodeBlock/CodeBlock"
-import { H1, H2, H3, H4, H5, H6 } from "@vivshaw/mdx/Headings/Headings"
-import { Figcaption } from "@vivshaw/mdx/Figcaption/Figcaption"
-import { HorizontalRule } from "@vivshaw/mdx/HorizontalRule/HorizontalRule"
-import { Image } from "@vivshaw/mdx/Image/Image"
-import { OrderedList } from "@vivshaw/mdx/OrderedList/OrderedList"
-import { Paragraph } from "@vivshaw/mdx/Paragraph/Paragraph"
-import { Table } from "@vivshaw/mdx/Table/Table"
-import { TableCell } from "@vivshaw/mdx/TableCell/TableCell"
-import { TableHead } from "@vivshaw/mdx/TableHead/TableHead"
-import { TableHeadCell } from "@vivshaw/mdx/TableHeadCell/TableHeadCell"
-import { UnorderedList } from "@vivshaw/mdx/UnorderedList/UnorderedList"
+import {
+  Anchor,
+  Blockquote,
+  CodeBlock,
+  Figcaption,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  HorizontalRule,
+  Image,
+  OrderedList,
+  Paragraph,
+  Table,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  UnorderedList,
+} from "@vivshaw/basalt-mdx"
 
 const customComponents = {
   a: Anchor,

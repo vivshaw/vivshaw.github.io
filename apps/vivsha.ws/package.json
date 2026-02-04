@@ -31,7 +31,7 @@
     "@next/mdx": "15.1.3",
     "@serwist/next": "^9.0.11",
     "@vivshaw/basalt": "workspace:^",
-    "@vivshaw/mdx": "workspace:^",
+    "@vivshaw/basalt-mdx": "workspace:^",
     "clsx": "^2.1.1",
     "feed": "^5.2.0",
     "lodash": "^4.17.21",

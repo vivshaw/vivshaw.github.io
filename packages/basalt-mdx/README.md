@@ -1,6 +1,6 @@
-# @vivshaw/mdx
+# @vivshaw/basalt-mdx
 
-this package is a library of prebuilt MDX components, styled with [Basalt](../basalt/). it is fully static and uses no runtime stylesheets or client React, so it's appropriate for use in server components.
+this package is a library of prebuilt MDX components, styled with [Basalt](../basalt/). think of it as a Basalt expansion pack for Markdown docs. it is fully static and uses no runtime stylesheets or client React, so it's appropriate for use in server components.
 
 ## components
 
@@ -15,7 +15,6 @@ this package provides components to cover the following roles:
 | `Headings`       | `<h1>`–`<h6>` (but only has visual styles for `<h1>`-`<h3>`! try not to need more than 3 levels of heading) |
 | `HorizontalRule` | `<hr>`                                                                                                      |
 | `Image`          | `<img>`                                                                                                     |
-| `ListItem`       | `<li>`                                                                                                      |
 | `OrderedList`    | `<ol>`                                                                                                      |
 | `Paragraph`      | `<p>`                                                                                                       |
 | `Table`          | `<table>`                                                                                                   |
