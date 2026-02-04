@@ -3,7 +3,7 @@ import { MdxBody } from "@vivshaw/basalt-mdx"
 import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
-import { PostHero } from "./_components/PostHero"
+import { Hero } from "../../../../_components/Hero"
 import styles from "./page.module.css"
 
 /**
@@ -33,7 +33,7 @@ export default async function Post({
 
   return (
     <>
-      <PostHero post={meta} />
+      <Hero title={meta.title} subtitle={meta.blurb} />
 
       <MdxBody className={styles.postBody}>
         <PostContent />

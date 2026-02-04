@@ -1,10 +1,9 @@
 import type { Metadata } from "next"
-import { Heading } from "@vivshaw/basalt"
 import { MdxBody } from "@vivshaw/basalt-mdx"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importPage, listAllPageSlugs } from "#lib/postHelpers"
-import styles from "./page.module.css"
+import { Hero } from "../../_components/Hero"
 
 type PageParams = {
   params: Promise<{ slug: string }>
@@ -45,8 +44,9 @@ export default async function Page({ params }: PageParams) {
 
   return (
     <>
-      <MdxBody className={styles.pageBody}>
-        <Heading level="1">{meta.title}</Heading>
+      <Hero title={meta.title} />
+
+      <MdxBody>
         <PageContent />
       </MdxBody>
 
