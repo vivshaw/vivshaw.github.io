@@ -11,7 +11,6 @@
   - [ ] share the navbar height in a better way between the places that need it
 - [ ] basalt
   - [ ] animate Pill component? similar to https://www.joshwcomeau.com/
-  - [ ] specify a default foreground color? might simplify Stories and reduce effect of CSS oversights in prod?
   - [ ] Storybook
     - [ ] follow GH Primer example on token naming and docs pages? https://primer.style/product/primitives/token-names/
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
@@ -31,8 +30,3 @@
   - [ ] typecheck that class names actually exist?
 - [ ] lint/etc
   - [ ] sort imports
-- [ ] AI
-  - [ ] unique CLAUDE.md for each package
-  - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.
-- [ ] copy
-  - [ ] better public domain text content instead of lipsum etc.

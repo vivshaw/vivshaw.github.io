@@ -112,4 +112,4 @@ Don't manually use `DARK_COLOR_MODE_CLASS`/`LIGHT_COLOR_MODE_CLASS` or raw `pref
 
 # Skills
 
-- `/basalt` - Guidelines for developing the Basalt design system (components, theme, stories). Auto-invoked when working on `packages/basalt/`.
+- `basalt` - Guidelines for developing the Basalt design system (components, theme, stories). Auto-invoked when working on `packages/basalt/`.
