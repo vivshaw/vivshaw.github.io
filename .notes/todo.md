@@ -40,7 +40,6 @@
   - [ ] are there a bunch of redundant text color defs? check!
 - [ ] lint/etc
   - [ ] sort imports
-- [ ] custom 404 page, model after index
 - [ ] AI
   - [ ] unique CLAUDE.md for each package
   - [ ] better instructions per-package in root? like, say "use MDX package when doing MDX stuff", etc.

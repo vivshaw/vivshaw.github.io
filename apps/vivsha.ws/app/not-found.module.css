@@ -1,0 +1,51 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* viewport height - navbar height (matches Navbar.module.css) */
+  height: calc(100vh - var(--basalt-sizing-8) - var(--basalt-sizing-3));
+  justify-content: space-between;
+  padding: var(--basalt-sizing-6);
+}
+
+.card {
+  background-color: var(--basalt-color-background-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--basalt-sizing-4);
+  height: fit-content;
+  margin-top: var(--basalt-sizing-16);
+  max-width: 450px;
+  padding: var(--basalt-sizing-4) var(--basalt-sizing-4) var(--basalt-sizing-2);
+  width: 100%;
+
+  @mixin tablet {
+    padding: var(--basalt-sizing-6) var(--basalt-sizing-6)
+      var(--basalt-sizing-4);
+  }
+}
+
+.heading {
+  @mixin font-sans;
+
+  color: var(--basalt-color-text-default);
+  font-size: var(--basalt-font-size-500);
+  font-weight: var(--basalt-font-weight-bold);
+  margin: 0;
+}
+
+.haiku {
+  @mixin font-serif;
+
+  align-self: center;
+  font-style: italic;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.homeLink {
+  @mixin font-sans;
+
+  align-self: flex-end;
+  width: fit-content;
+}
