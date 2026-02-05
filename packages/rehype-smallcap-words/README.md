@@ -7,11 +7,12 @@ rehype plugin that wraps the first N words of the first paragraph in a `<span>`,
 ```js
 import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
 
-// default (first 3 words)
-rehypeSmallcapWords
-
-// custom word count
-[rehypeSmallcapWords, { wordCount: 5 }]
+rehypePlugins: [
+    // default (first 3 words)
+    rehypeSmallcapWords,
+    //  orcustom word count
+    [rehypeSmallcapWords, { wordCount: 5 }]
+]
 ```
 
 ## what it does
