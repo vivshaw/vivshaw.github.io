@@ -5,7 +5,6 @@ import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
 
 import { author } from "#data"
-
 import styles from "./Navbar.module.css"
 import { SlideoutPanel } from "./SlideoutPanel"
 

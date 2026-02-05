@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { MdxBody } from "./MdxBody"
+import placeholderImage from "../.storybook/assets/placeholder.jpg"
 import { Anchor } from "../Anchor/Anchor"
 import { Blockquote } from "../Blockquote/Blockquote"
 import { CodeBlock } from "../CodeBlock/CodeBlock"
@@ -15,8 +16,6 @@ import { TableCell } from "../TableCell/TableCell"
 import { TableHead } from "../TableHead/TableHead"
 import { TableHeadCell } from "../TableHeadCell/TableHeadCell"
 import { UnorderedList } from "../UnorderedList/UnorderedList"
-
-import placeholderImage from "../.storybook/assets/placeholder.jpg"
 
 const meta: Meta<typeof MdxBody> = {
   title: "Layout/MdxBody",
@@ -46,7 +45,7 @@ const punct = token("#999999", "#9A9A9A")
 const variable = token("#B07D48", "#E6C384")
 const type = token("#2E8F82", "#7AA89F")
 const returnKw = token("#1E754F", "#E46876")
-const string = token("#B5695977", "#D27E99")
+const _string = token("#B5695977", "#D27E99")
 const comment = token("#A0ADA0", "#737C73")
 
 const shikiBg = {
@@ -239,7 +238,7 @@ export const KitchenSink: Story = {
             <span style={punct}>(</span>
             <span style={variable}>result</span>
             <span style={punct}>) </span>
-            <span style={comment}>// 55</span>
+            <span style={comment}>{`// 55`}</span>
           </span>
         </code>
       </CodeBlock>

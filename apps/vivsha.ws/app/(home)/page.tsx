@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { type IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import {
   faBluesky,
   faGithub,
@@ -13,13 +13,12 @@ import {
   faMountainCity,
   faZ,
 } from "@fortawesome/free-solid-svg-icons"
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
-import Image from "next/image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link, Pill } from "@vivshaw/basalt"
+import Image from "next/image"
 
 import { author } from "#data"
 import { schemaHelper } from "#lib/metadataHelpers"
-
 import styles from "./page.module.css"
 
 const socialItems: { href: string; icon: IconDefinition; label: string }[] = [

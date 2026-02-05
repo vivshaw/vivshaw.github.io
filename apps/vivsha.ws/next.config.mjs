@@ -1,17 +1,17 @@
 import createBundleAnalyzer from "@next/bundle-analyzer"
 import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
-import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import rehypeShiki from "@shikijs/rehype"
-import rehypeSidenotes from "@vivshaw/rehype-sidenotes"
-import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
 } from "@shikijs/transformers"
-import remarkAlert from "remark-github-blockquote-alert"
+import rehypeSidenotes from "@vivshaw/rehype-sidenotes"
+import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
+import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
+import remarkAlert from "remark-github-blockquote-alert"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
 
 /** custom Shiki transformer that adds the language as a data attribute to the pre element */

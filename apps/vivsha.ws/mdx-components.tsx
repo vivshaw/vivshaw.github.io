@@ -1,4 +1,3 @@
-import type { MDXComponents } from "mdx/types"
 import {
   Anchor,
   Blockquote,
@@ -20,6 +19,7 @@ import {
   TableHeadCell,
   UnorderedList,
 } from "@vivshaw/basalt-mdx"
+import type { MDXComponents } from "mdx/types"
 
 const customComponents = {
   a: Anchor,

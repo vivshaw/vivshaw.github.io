@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Table } from "./Table"
+import { TableCell } from "../TableCell/TableCell"
 import { TableHead } from "../TableHead/TableHead"
 import { TableHeadCell } from "../TableHeadCell/TableHeadCell"
-import { TableCell } from "../TableCell/TableCell"
 
-const meta: Meta = {
+const meta: Meta<typeof Table> = {
   title: "Components/Table",
+  component: Table,
   tags: ["autodocs"],
   parameters: {
     layout: "padded",

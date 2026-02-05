@@ -1,18 +1,18 @@
-import type { Preview } from "@storybook/react"
+// import Basalt CSS first (fonts + tokens + reset)
+import "@vivshaw/basalt/css"
+
 import {
   DocsContainer as BaseContainer,
   type DocsContainerProps,
 } from "@storybook/blocks"
 import { addons } from "@storybook/preview-api"
+import { type Preview } from "@storybook/react"
 import { create, themes } from "@storybook/theming"
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
+import React, { useEffect, useState } from "react"
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode"
-import React, { useEffect, useState, type PropsWithChildren } from "react"
 
 const channel = addons.getChannel()
-
-// import Basalt CSS (fonts + tokens + reset)
-import "@vivshaw/basalt/css"
-import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
 
 // Basalt color palette
 const palette = {

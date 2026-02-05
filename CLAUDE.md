@@ -34,6 +34,7 @@ The `./.notes/` directory is a scratch space for any miscellaneous notes and TOD
 
 - All `yarn` commands (including `yarn typecheck`, `yarn format:all`, etc.) _must_ be run from the monorepo root (`/home/vivshaw/dev/vivsha.ws`), not from a subdirectory.
 - After making changes:
+  - you _must_ lint with `yarn lint` to check for code quality issues.
   - you _must_ typecheck the app with `yarn typecheck` to verify your changes were correct.
   - you _must_ format with Prettier using `yarn format:all`
 

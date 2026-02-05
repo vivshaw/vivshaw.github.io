@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
 import { Heading } from "@vivshaw/basalt"
+import type { Metadata } from "next"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { BlogList } from "./_components/BlogList"

@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { PropsWithChildren } from "react"
+import React, { type PropsWithChildren } from "react"
 
 import styles from "./LayoutWrapper.module.css"
 import { Navbar } from "./Navbar"
@@ -13,7 +13,7 @@ export function LayoutWrapper({
   children,
   showImageBackground = false,
   navbarVariant = "abbreviated",
-}: LayoutWrapperProps): React.ReactElement<any> {
+}: LayoutWrapperProps) {
   return (
     <div
       className={clsx(

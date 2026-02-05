@@ -1,5 +1,5 @@
+import { type PostMetadata } from "#data"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
-import { PostMetadata } from "#data"
 
 /** the dates have to get munged to and from string to be serialized for `getStaticProps` (｡╯︵╰｡) */
 type PostFromServer = Omit<PostMetadata, "date"> & { date: string }

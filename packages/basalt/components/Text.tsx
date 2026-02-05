@@ -1,5 +1,10 @@
 import clsx from "clsx"
-import { ComponentPropsWithRef, ElementType, forwardRef, Ref } from "react"
+import {
+  type ComponentPropsWithRef,
+  type ElementType,
+  forwardRef,
+  type Ref,
+} from "react"
 
 import styles from "./Text.module.css"
 

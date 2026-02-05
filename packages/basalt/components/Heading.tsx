@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { ComponentPropsWithRef, forwardRef, Ref } from "react"
+import { type ComponentPropsWithRef, forwardRef, type Ref } from "react"
 
 import styles from "./Heading.module.css"
 

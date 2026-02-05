@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Heading, Text } from "../.."
+import styles from "./stories.module.css"
+
 const palette = {
   "base-50": "#ffffff",
   "base-100": "#f5f5f4",
@@ -24,7 +26,6 @@ const semanticColors = {
   borderMuted: "var(--basalt-color-border-muted)",
   accentDefault: "var(--basalt-color-accent-default)",
 }
-import styles from "./stories.module.css"
 
 function ColorSwatch({
   name,

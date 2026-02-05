@@ -3,18 +3,18 @@ import "./layers.css"
 import "@vivshaw/basalt/css"
 import "./globalVars.css"
 
-import type { Viewport } from "next"
-import type { Metadata } from "next/types"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
+import type { Viewport } from "next"
+import type { Metadata } from "next/types"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
+import { metadataHelper } from "#lib/metadataHelpers"
 
 // prevent Font Awesome from auto-injecting CSS (i import it above)
 // i do this because the auto-injection was causing a flicker of weird sizing
 config.autoAddCss = false
-import { metadataHelper } from "#lib/metadataHelpers"
 
 export const viewport: Viewport = {
   colorScheme: "dark light",

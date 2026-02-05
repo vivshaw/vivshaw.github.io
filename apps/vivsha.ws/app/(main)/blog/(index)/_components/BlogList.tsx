@@ -1,8 +1,8 @@
-import Link from "next/link"
 import { Heading, Text } from "@vivshaw/basalt"
+import Link from "next/link"
 
+import { type PostMetadata } from "#data"
 import { prettyPrintDate } from "#lib"
-import { PostMetadata } from "#data"
 import styles from "./BlogList.module.css"
 
 interface BlogListProps {

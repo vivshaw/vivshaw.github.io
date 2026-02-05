@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
 import { MdxBody } from "@vivshaw/basalt-mdx"
+import type { Metadata } from "next"
 
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importPage, listAllPageSlugs } from "#lib/postHelpers"
