@@ -1,10 +1,5 @@
-/* shared navbar height: sizing-8 + sizing-3 */
-@define-mixin navbar-height {
-  height: calc(var(--basalt-sizing-8) + var(--basalt-sizing-3));
-}
-
 .root {
-  @mixin navbar-height;
+  height: var(--navbar-height);
 
   align-items: center;
   display: grid;
@@ -50,9 +45,11 @@
   justify-content: flex-end;
 }
 
+/* on small screens, this list is below the wordmark.
+ * on larger screens it's inline with the navbar. */
 .linkList {
   position: absolute;
-  top: calc(var(--basalt-sizing-8) + var(--basalt-sizing-3));
+  top: var(--navbar-height);
   left: var(--basalt-sizing-4);
   display: flex;
   gap: var(--basalt-sizing-4);
@@ -88,7 +85,7 @@
 
 /* spacer to push content below fixed navbar */
 .spacer {
-  @mixin navbar-height;
+  height: var(--navbar-height);
 }
 
 /* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is just normally positioned (no show/hide) */

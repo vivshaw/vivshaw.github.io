@@ -1,0 +1,9 @@
+/* define custom properties that are used in multiple places throughout vivsha.ws */
+
+:root {
+  /* navbar height, needed for some height calcs in various layouts */
+  --navbar-height: calc(var(--basalt-sizing-8) + var(--basalt-sizing-3));
+
+  /* space available for content below the navbar */
+  --content-height: calc(100vh - var(--navbar-height));
+}

@@ -1,6 +1,7 @@
 /** layers need to load first so that CSS precedence is correct */
 import "./layers.css"
 import "@vivshaw/basalt/css"
+import "./globalVars.css"
 
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"

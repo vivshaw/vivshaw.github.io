@@ -4,7 +4,6 @@
   - [ ] unit tests? Playwright tests?
   - [ ] get better setup for VSCode plugins
 - vivsha.ws
-  - [ ] share the navbar height in a better way between the places that need it
   - [ ] tags index page & tag pages, someday
   - [ ] font flicker on hard refresh - could be a fallback problem?
 - basalt

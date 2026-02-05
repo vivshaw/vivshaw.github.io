@@ -2,8 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  /* viewport height - navbar height (matches Navbar.module.css) */
-  height: calc(100vh - var(--basalt-sizing-8) - var(--basalt-sizing-3));
+  height: var(--content-height);
   justify-content: space-between;
   padding: var(--basalt-sizing-6);
 }
