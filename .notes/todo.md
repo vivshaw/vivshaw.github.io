@@ -13,9 +13,6 @@
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
 - basalt-mdx
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-- css
-  - [ ] find a tidier thing to do with the .d.ts
-  - [ ] typecheck that class names actually exist?
 - lint/etc
   - [ ] sort imports
 - writing
