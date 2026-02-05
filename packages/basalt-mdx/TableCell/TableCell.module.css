@@ -1,8 +1,10 @@
-.tableCell {
-  background: var(--basalt-color-background-secondary);
-  border-top: 1px solid var(--basalt-color-border-default);
-  font-size: var(--basalt-font-size-100);
-  line-height: var(--basalt-line-height-body);
-  padding: var(--basalt-sizing-3-half) var(--basalt-sizing-5);
-  word-break: keep-all;
-}
+@layer basalt-mdx {
+  .tableCell {
+    background: var(--basalt-color-background-secondary);
+    border-top: 1px solid var(--basalt-color-border-default);
+    font-size: var(--basalt-font-size-100);
+    line-height: var(--basalt-line-height-body);
+    padding: var(--basalt-sizing-3-half) var(--basalt-sizing-5);
+    word-break: keep-all;
+  }
+} /* end @layer basalt-mdx */

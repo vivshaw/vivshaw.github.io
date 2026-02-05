@@ -1,22 +1,23 @@
-/* ===== colors ===== */
+@layer basalt-styles {
+  /* ===== colors ===== */
 
-/* base colors */
-:root {
-  --basalt-color-base-50: #ffffff;
-  --basalt-color-base-100: #f5f5f4;
-  --basalt-color-base-200: #c7ccd1;
-  --basalt-color-base-300: #b7bdb4;
-  --basalt-color-base-400: #73737a;
-  --basalt-color-base-500: #484a53;
-  --basalt-color-base-550: #28282b;
-  --basalt-color-base-600: #1d2126;
-  --basalt-color-base-700: #111214;
-  --basalt-color-base-800: #08080a;
-  --basalt-color-base-900: #000000;
-}
+  /* base colors */
+  :root {
+    --basalt-color-base-50: #ffffff;
+    --basalt-color-base-100: #f5f5f4;
+    --basalt-color-base-200: #c7ccd1;
+    --basalt-color-base-300: #b7bdb4;
+    --basalt-color-base-400: #73737a;
+    --basalt-color-base-500: #484a53;
+    --basalt-color-base-550: #28282b;
+    --basalt-color-base-600: #1d2126;
+    --basalt-color-base-700: #111214;
+    --basalt-color-base-800: #08080a;
+    --basalt-color-base-900: #000000;
+  }
 
-/* semantic colors & theming */
-/*
+  /* semantic colors & theming */
+  /*
  * themes define a set of semantic color tokens, that change with the theme.
  * base color tokens remain unchanged.
  * 
@@ -30,81 +31,81 @@
  *  --basalt-color-text-muted
  */
 
-@define-mixin light-theme {
-  --basalt-color-accent-default: var(--basalt-color-base-550);
-  --basalt-color-background-default: var(--basalt-color-base-100);
-  --basalt-color-background-secondary: var(--basalt-color-base-50);
-  --basalt-color-border-default: var(--basalt-color-base-800);
-  --basalt-color-border-muted: var(--basalt-color-base-400);
-  --basalt-color-text-default: var(--basalt-color-base-900);
-  --basalt-color-text-muted: var(--basalt-color-base-400);
-}
+  @define-mixin light-theme {
+    --basalt-color-accent-default: var(--basalt-color-base-550);
+    --basalt-color-background-default: var(--basalt-color-base-100);
+    --basalt-color-background-secondary: var(--basalt-color-base-50);
+    --basalt-color-border-default: var(--basalt-color-base-800);
+    --basalt-color-border-muted: var(--basalt-color-base-400);
+    --basalt-color-text-default: var(--basalt-color-base-900);
+    --basalt-color-text-muted: var(--basalt-color-base-400);
+  }
 
-@define-mixin dark-theme {
-  --basalt-color-accent-default: var(--basalt-color-base-300);
-  --basalt-color-background-default: var(--basalt-color-base-700);
-  --basalt-color-background-secondary: var(--basalt-color-base-600);
-  --basalt-color-border-default: var(--basalt-color-base-200);
-  --basalt-color-border-muted: var(--basalt-color-base-400);
-  --basalt-color-text-default: var(--basalt-color-base-200);
-  --basalt-color-text-muted: var(--basalt-color-base-400);
-}
+  @define-mixin dark-theme {
+    --basalt-color-accent-default: var(--basalt-color-base-300);
+    --basalt-color-background-default: var(--basalt-color-base-700);
+    --basalt-color-background-secondary: var(--basalt-color-base-600);
+    --basalt-color-border-default: var(--basalt-color-base-200);
+    --basalt-color-border-muted: var(--basalt-color-base-400);
+    --basalt-color-text-default: var(--basalt-color-base-200);
+    --basalt-color-text-muted: var(--basalt-color-base-400);
+  }
 
-.basalt-light:root {
-  @mixin light-theme;
-}
-
-.basalt-dark:root {
-  @mixin dark-theme;
-}
-
-html:not(.basalt-dark, .basalt-light) {
-  @media (prefers-color-scheme: light) {
+  .basalt-light:root {
     @mixin light-theme;
   }
 
-  @media (prefers-color-scheme: dark) {
+  .basalt-dark:root {
     @mixin dark-theme;
   }
-}
 
-/* ===== typography ===== */
+  html:not(.basalt-dark, .basalt-light) {
+    @media (prefers-color-scheme: light) {
+      @mixin light-theme;
+    }
 
-:root {
-  /* fonts and font features */
-  --basalt-font-serif: basalt-serif, basalt-serif-fallback, serif;
-  --basalt-font-sans: basalt-sans, basalt-sans-fallback, sans-serif;
-  --basalt-font-monospace: Consolas, Menlo, Monaco, source-code-pro,
-    Courier New, monospace;
+    @media (prefers-color-scheme: dark) {
+      @mixin dark-theme;
+    }
+  }
 
-  --basalt-font-feature-settings-serif: "calt", "kern", "liga", "onum";
-  --basalt-font-feature-settings-serif-small-caps: "c2sc", "calt", "kern",
-    "liga", "onum", "smcp";
-  --basalt-font-feature-settings-sans: "calt", "kern", "liga", "onum";
-  --basalt-font-feature-settings-monospace: normal;
+  /* ===== typography ===== */
 
-  /* font weights */
-  --basalt-font-weight-normal: 400;
-  --basalt-font-weight-bold: 700;
+  :root {
+    /* fonts and font features */
+    --basalt-font-serif: basalt-serif, basalt-serif-fallback, serif;
+    --basalt-font-sans: basalt-sans, basalt-sans-fallback, sans-serif;
+    --basalt-font-monospace: Consolas, Menlo, Monaco, source-code-pro,
+      Courier New, monospace;
 
-  /* line heights */
-  --basalt-line-height-body: 1.4;
-  --basalt-line-height-heading: 1.3;
-}
+    --basalt-font-feature-settings-serif: "calt", "kern", "liga", "onum";
+    --basalt-font-feature-settings-serif-small-caps: "c2sc", "calt", "kern",
+      "liga", "onum", "smcp";
+    --basalt-font-feature-settings-sans: "calt", "kern", "liga", "onum";
+    --basalt-font-feature-settings-monospace: normal;
 
-/* base font sizes */
-:root {
-  --basalt-font-size-100: 1rem;
-  --basalt-font-size-200: 1.125rem;
-  --basalt-font-size-300: 1.25rem;
-  --basalt-font-size-400: 1.375rem;
-  --basalt-font-size-500: 1.5rem;
-  --basalt-font-size-600: 1.75rem;
-  --basalt-font-size-700: 2rem;
-}
+    /* font weights */
+    --basalt-font-weight-normal: 400;
+    --basalt-font-weight-bold: 700;
 
-/* semantic font sizes */
-/*
+    /* line heights */
+    --basalt-line-height-body: 1.4;
+    --basalt-line-height-heading: 1.3;
+  }
+
+  /* base font sizes */
+  :root {
+    --basalt-font-size-100: 1rem;
+    --basalt-font-size-200: 1.125rem;
+    --basalt-font-size-300: 1.25rem;
+    --basalt-font-size-400: 1.375rem;
+    --basalt-font-size-500: 1.5rem;
+    --basalt-font-size-600: 1.75rem;
+    --basalt-font-size-700: 2rem;
+  }
+
+  /* semantic font sizes */
+  /*
  * (note: semantic font sizes are also responsive.)
  *
  * available semantic font sizes:
@@ -114,42 +115,42 @@ html:not(.basalt-dark, .basalt-light) {
  *  --basalt-font-size-heading2
  *  --basalt-font-size-heading3
  */
-:root {
-  --basalt-font-size-small: var(--basalt-font-size-100);
-  --basalt-font-size-body: var(--basalt-font-size-300);
-  --basalt-font-size-heading1: var(--basalt-font-size-500);
-  --basalt-font-size-heading2: var(--basalt-font-size-400);
-  --basalt-font-size-heading3: var(--basalt-font-size-300);
-}
-
-@mixin desktop {
   :root {
-    --basalt-font-size-small: var(--basalt-font-size-200);
-    --basalt-font-size-body: var(--basalt-font-size-500);
-    --basalt-font-size-heading1: var(--basalt-font-size-700);
-    --basalt-font-size-heading2: var(--basalt-font-size-600);
-    --basalt-font-size-heading3: var(--basalt-font-size-500);
+    --basalt-font-size-small: var(--basalt-font-size-100);
+    --basalt-font-size-body: var(--basalt-font-size-300);
+    --basalt-font-size-heading1: var(--basalt-font-size-500);
+    --basalt-font-size-heading2: var(--basalt-font-size-400);
+    --basalt-font-size-heading3: var(--basalt-font-size-300);
   }
-}
 
-/* ===== motion ===== */
+  @mixin desktop {
+    :root {
+      --basalt-font-size-small: var(--basalt-font-size-200);
+      --basalt-font-size-body: var(--basalt-font-size-500);
+      --basalt-font-size-heading1: var(--basalt-font-size-700);
+      --basalt-font-size-heading2: var(--basalt-font-size-600);
+      --basalt-font-size-heading3: var(--basalt-font-size-500);
+    }
+  }
 
-:root {
-  /* easing functions */
-  /*
+  /* ===== motion ===== */
+
+  :root {
+    /* easing functions */
+    /*
    * these easing functions courtesy of Emil Kowalski, and in turn courtesy
    * of Benjamin De Cock.
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
-  --basalt-motion-ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  --basalt-motion-ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-  --basalt-motion-ease-in-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --basalt-motion-ease-in-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-  --basalt-motion-ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  --basalt-motion-ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+    --basalt-motion-ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --basalt-motion-ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    --basalt-motion-ease-in-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --basalt-motion-ease-in-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --basalt-motion-ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --basalt-motion-ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 
-  /* transitions */
-  /*
+    /* transitions */
+    /*
    * each transition is defined in two ways:
    * 1. as a list of longhand values
    * 2. as a shorthand string
@@ -157,72 +158,72 @@ html:not(.basalt-dark, .basalt-light) {
    * that's a workaround for this annoying lightningcss limitation:
    * https://github.com/parcel-bundler/lightningcss/issues/194
    */
-  --basalt-motion-transition-theme-property: background, color;
-  --basalt-motion-transition-theme-duration: 0.25s;
-  --basalt-motion-transition-theme-timing: var(
-    --basalt-motion-ease-in-out-quad
-  );
-  --basalt-motion-transition-theme: background
-      var(--basalt-motion-transition-theme-duration)
-      var(--basalt-motion-transition-theme-timing),
-    color var(--basalt-motion-transition-theme-duration)
-      var(--basalt-motion-transition-theme-timing);
+    --basalt-motion-transition-theme-property: background, color;
+    --basalt-motion-transition-theme-duration: 0.25s;
+    --basalt-motion-transition-theme-timing: var(
+      --basalt-motion-ease-in-out-quad
+    );
+    --basalt-motion-transition-theme: background
+        var(--basalt-motion-transition-theme-duration)
+        var(--basalt-motion-transition-theme-timing),
+      color var(--basalt-motion-transition-theme-duration)
+        var(--basalt-motion-transition-theme-timing);
 
-  --basalt-motion-transition-hover-property: border-color, opacity;
-  --basalt-motion-transition-hover-duration: 0.2s;
-  --basalt-motion-transition-hover-timing: var(--basalt-motion-ease-in-quad);
-  --basalt-motion-transition-hover: border-color
-      var(--basalt-motion-transition-hover-duration)
-      var(--basalt-motion-transition-hover-timing),
-    opacity var(--basalt-motion-transition-hover-duration)
-      var(--basalt-motion-transition-hover-timing);
-}
+    --basalt-motion-transition-hover-property: border-color, opacity;
+    --basalt-motion-transition-hover-duration: 0.2s;
+    --basalt-motion-transition-hover-timing: var(--basalt-motion-ease-in-quad);
+    --basalt-motion-transition-hover: border-color
+        var(--basalt-motion-transition-hover-duration)
+        var(--basalt-motion-transition-hover-timing),
+      opacity var(--basalt-motion-transition-hover-duration)
+        var(--basalt-motion-transition-hover-timing);
+  }
 
-/* ===== sizing ===== */
+  /* ===== sizing ===== */
 
-:root {
-  /* based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px). */
-  --basalt-sizing-0: 0px;
-  --basalt-sizing-half: 0.125rem;
-  --basalt-sizing-1: 0.25rem;
-  --basalt-sizing-1-half: 0.375rem;
-  --basalt-sizing-2: 0.5rem;
-  --basalt-sizing-2-half: 0.625rem;
-  --basalt-sizing-3: 0.75rem;
-  --basalt-sizing-3-half: 0.875rem;
-  --basalt-sizing-4: 1rem;
-  --basalt-sizing-5: 1.25rem;
-  --basalt-sizing-6: 1.5rem;
-  --basalt-sizing-7: 1.75rem;
-  --basalt-sizing-8: 2rem;
-  --basalt-sizing-9: 2.25rem;
-  --basalt-sizing-10: 2.5rem;
-  --basalt-sizing-11: 2.75rem;
-  --basalt-sizing-12: 3rem;
-  --basalt-sizing-14: 3.5rem;
-  --basalt-sizing-16: 4rem;
-  --basalt-sizing-20: 5rem;
-  --basalt-sizing-24: 6rem;
-  --basalt-sizing-28: 7rem;
-  --basalt-sizing-32: 8rem;
-  --basalt-sizing-36: 9rem;
-  --basalt-sizing-40: 10rem;
-  --basalt-sizing-44: 11rem;
-  --basalt-sizing-48: 12rem;
-  --basalt-sizing-52: 13rem;
-  --basalt-sizing-56: 14rem;
-  --basalt-sizing-60: 15rem;
-  --basalt-sizing-64: 16rem;
-  --basalt-sizing-72: 18rem;
-  --basalt-sizing-80: 20rem;
-  --basalt-sizing-96: 24rem;
-  --basalt-sizing-168: 42rem;
+  :root {
+    /* based on Tailwind's spacing scale, where 1 unit = 0.25rem (4px). */
+    --basalt-sizing-0: 0px;
+    --basalt-sizing-half: 0.125rem;
+    --basalt-sizing-1: 0.25rem;
+    --basalt-sizing-1-half: 0.375rem;
+    --basalt-sizing-2: 0.5rem;
+    --basalt-sizing-2-half: 0.625rem;
+    --basalt-sizing-3: 0.75rem;
+    --basalt-sizing-3-half: 0.875rem;
+    --basalt-sizing-4: 1rem;
+    --basalt-sizing-5: 1.25rem;
+    --basalt-sizing-6: 1.5rem;
+    --basalt-sizing-7: 1.75rem;
+    --basalt-sizing-8: 2rem;
+    --basalt-sizing-9: 2.25rem;
+    --basalt-sizing-10: 2.5rem;
+    --basalt-sizing-11: 2.75rem;
+    --basalt-sizing-12: 3rem;
+    --basalt-sizing-14: 3.5rem;
+    --basalt-sizing-16: 4rem;
+    --basalt-sizing-20: 5rem;
+    --basalt-sizing-24: 6rem;
+    --basalt-sizing-28: 7rem;
+    --basalt-sizing-32: 8rem;
+    --basalt-sizing-36: 9rem;
+    --basalt-sizing-40: 10rem;
+    --basalt-sizing-44: 11rem;
+    --basalt-sizing-48: 12rem;
+    --basalt-sizing-52: 13rem;
+    --basalt-sizing-56: 14rem;
+    --basalt-sizing-60: 15rem;
+    --basalt-sizing-64: 16rem;
+    --basalt-sizing-72: 18rem;
+    --basalt-sizing-80: 20rem;
+    --basalt-sizing-96: 24rem;
+    --basalt-sizing-168: 42rem;
 
-  /* border radius */
-  --basalt-sizing-radius-small: var(--basalt-sizing-1);
-  --basalt-sizing-radius-default: var(--basalt-sizing-2);
-  --basalt-sizing-radius-squircle: 40%;
-  --basalt-sizing-radius-circle: 50%;
-  --basalt-sizing-radius-pill: 9999px;
-}
-
+    /* border radius */
+    --basalt-sizing-radius-small: var(--basalt-sizing-1);
+    --basalt-sizing-radius-default: var(--basalt-sizing-2);
+    --basalt-sizing-radius-squircle: 40%;
+    --basalt-sizing-radius-circle: 50%;
+    --basalt-sizing-radius-pill: 9999px;
+  }
+} /* end @layer basalt-styles */

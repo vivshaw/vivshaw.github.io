@@ -14,6 +14,17 @@ Use these guidelines when making changes to the Basalt design system itself (not
 - Stories (`.stories.tsx`) live alongside their components
 - All components must be exported through `packages/basalt/index.ts`
 
+## CSS Cascade Layers
+
+Basalt uses CSS cascade layers to control style precedence. Basalt's CSS is wrapped in two layers:
+
+- `basalt-reset` — CSS reset (lowest priority)
+- `basalt-styles` — tokens and Basalt component CSS Modules
+
+Fonts are unlayered (`@font-face` is layer-agnostic). The consuming app is responsible for declaring the layer order.
+
+**All Basalt component CSS Modules must be wrapped in `@layer basalt-styles { ... }`.**
+
 ## Styling
 
 - Use CSS Modules (`.module.css`) for component styles
@@ -62,8 +73,8 @@ Wrap content in a media query:
 
 Scope styles to light or dark theme:
 
-| Mixin               | Mode  |
-| ------------------- | ----- |
+| Mixin                | Mode  |
+| -------------------- | ----- |
 | `@mixin light-theme` | Light |
 | `@mixin dark-theme`  | Dark  |
 
@@ -111,7 +122,7 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 ## Adding a New Component
 
 1. Create `packages/basalt/components/MyComponent.tsx`
-2. Create `packages/basalt/components/MyComponent.module.css` for styles
+2. Create `packages/basalt/components/MyComponent.module.css` for styles, wrapped in `@layer basalt-styles { ... }`
 3. Export from `packages/basalt/index.ts`
 4. Create `packages/basalt/components/MyComponent.stories.tsx`
 5. Run `yarn typecheck` and `yarn format:all`
@@ -121,6 +132,7 @@ lightningcss strips `var()` from comma-separated `transition` shorthand (parcel-
 When making changes to Basalt:
 
 - [ ] Use CSS Modules + PostCSS mixins for styling
+- [ ] Wrap CSS Module contents in `@layer basalt-styles { ... }`
 - [ ] Use `--basalt-*` tokens for all design values
 - [ ] Export new components from `index.ts`
 - [ ] Add or update stories for documentation

@@ -1,13 +1,15 @@
-.unorderedList {
-  @mixin text-body;
-  @mixin font-serif;
+@layer basalt-mdx {
+  .unorderedList {
+    @mixin text-body;
+    @mixin font-serif;
 
-  color: var(--basalt-color-text-default);
-  margin-bottom: var(--basalt-sizing-6);
-  padding-left: var(--basalt-sizing-8);
+    color: var(--basalt-color-text-default);
+    margin-bottom: var(--basalt-sizing-6);
+    padding-left: var(--basalt-sizing-8);
 
-  & ul,
-  & ol {
-    margin-bottom: 0;
+    & ul,
+    & ol {
+      margin-bottom: 0;
+    }
   }
-}
+} /* end @layer basalt-mdx */

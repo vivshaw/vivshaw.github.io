@@ -1,100 +1,102 @@
-html {
-  background-color: var(--basalt-color-background-default);
-  box-sizing: border-box;
-  color: var(--basalt-color-text-default);
-  cursor: default;
-  font-family: var(--basalt-font-serif);
-  height: 100%;
-  min-height: 100%;
-  text-rendering: optimizeLegibility;
-  transition: var(--basalt-motion-transition-theme);
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer basalt-reset {
+  html {
+    background-color: var(--basalt-color-background-default);
+    box-sizing: border-box;
+    color: var(--basalt-color-text-default);
+    cursor: default;
+    font-family: var(--basalt-font-serif);
+    height: 100%;
+    min-height: 100%;
+    text-rendering: optimizeLegibility;
+    transition: var(--basalt-motion-transition-theme);
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-html *,
-html *::before,
-html *::after {
-  box-sizing: inherit;
-  font-size: inherit;
-  margin: 0;
-  padding: 0;
-}
+  html *,
+  html *::before,
+  html *::after {
+    box-sizing: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  height: 100%;
-  margin: 0;
-  min-height: 100%;
-}
+  body {
+    height: 100%;
+    margin: 0;
+    min-height: 100%;
+  }
 
-article {
-  word-break: break-word;
-}
+  article {
+    word-break: break-word;
+  }
 
-button,
-a {
-  cursor: pointer;
-  text-decoration: none;
-}
+  button,
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-a:focus {
-  outline: none;
-}
+  a:focus {
+    outline: none;
+  }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  align-self: center;
-  vertical-align: middle;
-}
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    align-self: center;
+    vertical-align: middle;
+  }
 
-input,
-textarea,
-select,
-button {
-  color: inherit;
-  font-family: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-}
+  input,
+  textarea,
+  select,
+  button {
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+  }
 
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace;
-}
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace;
+  }
 
-fieldset,
-button {
-  appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
-}
+  fieldset,
+  button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
 
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-}
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
 
-audio:not([controls]) {
-  display: none;
-}
+  audio:not([controls]) {
+    display: none;
+  }
 
-details {
-  display: block;
-}
+  details {
+    display: block;
+  }
 
-input:focus,
-input:active {
-  outline: none;
-}
+  input:focus,
+  input:active {
+    outline: none;
+  }
 
-input[type="number"] {
-  width: auto;
-}
+  input[type="number"] {
+    width: auto;
+  }
+} /* end @layer basalt-reset */

@@ -42,10 +42,7 @@ function getStoredColorMode(): ColorMode {
  * applies a color mode by updating DOM classes and persisting to localStorage.
  */
 function applyStoredColorMode(mode: ColorMode) {
-  document.documentElement.classList.remove(
-    DARK_THEME_CLASS,
-    LIGHT_THEME_CLASS,
-  )
+  document.documentElement.classList.remove(DARK_THEME_CLASS, LIGHT_THEME_CLASS)
 
   if (mode === "dark") {
     document.documentElement.classList.add(DARK_THEME_CLASS)

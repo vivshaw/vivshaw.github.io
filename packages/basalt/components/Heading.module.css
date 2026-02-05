@@ -1,20 +1,22 @@
-.heading {
-  @mixin font-serif;
+@layer basalt-styles {
+  .heading {
+    @mixin font-serif;
 
-  color: var(--basalt-color-text-default);
-  font-weight: var(--basalt-font-weight-normal);
-  word-break: keep-all;
-}
+    color: var(--basalt-color-text-default);
+    font-weight: var(--basalt-font-weight-normal);
+    word-break: keep-all;
+  }
 
-/* levels */
-.level1 {
-  @mixin text-heading1;
-}
+  /* levels */
+  .level1 {
+    @mixin text-heading1;
+  }
 
-.level2 {
-  @mixin text-heading2;
-}
+  .level2 {
+    @mixin text-heading2;
+  }
 
-.level3 {
-  @mixin text-heading3;
-}
+  .level3 {
+    @mixin text-heading3;
+  }
+} /* end @layer basalt-styles */

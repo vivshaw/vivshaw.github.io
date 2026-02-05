@@ -3,8 +3,6 @@
 - tooling
   - [ ] unit tests? Playwright tests?
   - [ ] get better setup for VSCode plugins
-- styling
-  - [ ] use layers
 - vivsha.ws
   - [ ] share the navbar height in a better way between the places that need it
   - [ ] tags index page & tag pages, someday

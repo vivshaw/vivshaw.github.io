@@ -1,15 +1,17 @@
-.image {
-  border-radius: 0;
-  display: inline-block;
-  height: auto;
-  margin: var(--basalt-sizing-0) auto var(--basalt-sizing-6);
-  max-width: 100%;
+@layer basalt-mdx {
+  .image {
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: var(--basalt-sizing-0) auto var(--basalt-sizing-6);
+    max-width: 100%;
 
-  @mixin tablet {
-    border-radius: var(--basalt-sizing-radius-small);
-  }
+    @mixin tablet {
+      border-radius: var(--basalt-sizing-radius-small);
+    }
 
-  @mixin desktop {
-    margin: var(--basalt-sizing-0) auto var(--basalt-sizing-8);
+    @mixin desktop {
+      margin: var(--basalt-sizing-0) auto var(--basalt-sizing-8);
+    }
   }
-}
+} /* end @layer basalt-mdx */

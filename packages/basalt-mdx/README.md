@@ -11,6 +11,10 @@ all scripts should be run from the monorepo root.
 | `yarn workspace @vivshaw/basalt-mdx storybook`       | launch Storybook on port 6007  |
 | `yarn workspace @vivshaw/basalt-mdx build-storybook` | build Storybook for deployment |
 
+## CSS cascade layers
+
+all component CSS Modules in this package are wrapped in `@layer basalt-mdx { ... }`. the consuming app is responsible for declaring the layer order.
+
 ## components
 
 this package provides components to cover the following roles:

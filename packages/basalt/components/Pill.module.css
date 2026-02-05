@@ -1,37 +1,39 @@
-.pill {
-  @mixin focus-ring;
+@layer basalt-styles {
+  .pill {
+    @mixin focus-ring;
 
-  align-items: center;
-  background: transparent;
-  border: 1px solid
-    color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
-  border-radius: var(--basalt-sizing-radius-small);
-  color: var(--basalt-color-text-default);
-  display: inline-flex;
-  font-family: var(--basalt-font-sans);
-  font-size: var(--basalt-font-size-200);
-  gap: var(--basalt-sizing-1-half);
-  padding: var(--basalt-sizing-1) var(--basalt-sizing-2);
+    align-items: center;
+    background: transparent;
+    border: 1px solid
+      color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
+    border-radius: var(--basalt-sizing-radius-small);
+    color: var(--basalt-color-text-default);
+    display: inline-flex;
+    font-family: var(--basalt-font-sans);
+    font-size: var(--basalt-font-size-200);
+    gap: var(--basalt-sizing-1-half);
+    padding: var(--basalt-sizing-1) var(--basalt-sizing-2);
 
-  /* hover state */
-  opacity: 0.7;
+    /* hover state */
+    opacity: 0.7;
 
-  &:hover,
-  &:focus-visible {
-    opacity: 1;
-  }
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
 
-  /* motion */
+    /* motion */
 
-  /*
+    /*
    * this is  just `--basalt-motion-transition-theme` and `--basalt-motion-transition-hover`,
    * but i must use the longhand values because of this annoying lightningcss limitation:
    * https://github.com/parcel-bundler/lightningcss/issues/194
    */
-  transition-property: var(--basalt-motion-transition-hover-property),
-    var(--basalt-motion-transition-theme-property);
-  transition-duration: var(--basalt-motion-transition-hover-duration),
-    var(--basalt-motion-transition-theme-duration);
-  transition-timing-function: var(--basalt-motion-transition-hover-timing),
-    var(--basalt-motion-transition-theme-timing);
-}
+    transition-property: var(--basalt-motion-transition-hover-property),
+      var(--basalt-motion-transition-theme-property);
+    transition-duration: var(--basalt-motion-transition-hover-duration),
+      var(--basalt-motion-transition-theme-duration);
+    transition-timing-function: var(--basalt-motion-transition-hover-timing),
+      var(--basalt-motion-transition-theme-timing);
+  }
+} /* end @layer basalt-styles */

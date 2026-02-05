@@ -1,9 +1,12 @@
+/** layers need to load first so that CSS precedence is correct */
+import "./layers.css"
+import "@vivshaw/basalt/css"
+
 import type { Viewport } from "next"
 import type { Metadata } from "next/types"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
-import "@vivshaw/basalt/css"
 
 import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
 

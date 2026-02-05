@@ -40,8 +40,8 @@ export default {
 
 basalt supports light/dark theme via CSS classes on the `<html>` element. three constants are exported for managing this:
 
-| Export                   | Value            | Purpose                                |
-| ------------------------ | ---------------- | -------------------------------------- |
+| Export              | Value            | Purpose                                |
+| ------------------- | ---------------- | -------------------------------------- |
 | `DARK_THEME_CLASS`  | `"basalt-dark"`  | apply to `<html>` to force dark theme  |
 | `LIGHT_THEME_CLASS` | `"basalt-light"` | apply to `<html>` to force light theme |
 
@@ -90,6 +90,19 @@ small, pill-shaped inline element for tags and labels.
 ```tsx
 <Pill href="/tags/react">React</Pill>
 ```
+
+## CSS cascade layers
+
+basalt uses [CSS cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) to guarantee that reset styles never override component styles, regardless of specificity or load order. basalt's CSS is wrapped in two layers:
+
+- `basalt-reset` — the CSS reset (`reset.css`), intended to be lowest priority
+- `basalt-styles` — design tokens (`tokens.css`) and basalt component CSS Modules
+
+fonts (`fonts.css`) are left unlayered since `@font-face` is layer-agnostic.
+
+the consuming app is responsible for declaring the layer order before any other CSS loads.
+
+when adding new basalt components, wrap the CSS Module contents in `@layer basalt-styles { ... }`.
 
 ## styling
 
@@ -145,8 +158,8 @@ wrap content in a media query:
 
 scope styles to light or dark theme:
 
-| Mixin               | Mode  |
-| ------------------- | ----- |
+| Mixin                | Mode  |
+| -------------------- | ----- |
 | `@mixin light-theme` | light |
 | `@mixin dark-theme`  | dark  |
 

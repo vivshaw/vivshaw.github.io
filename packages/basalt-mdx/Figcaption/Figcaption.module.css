@@ -1,8 +1,10 @@
-.figcaption {
-  color: var(--basalt-color-text-muted);
-  font-size: var(--basalt-font-size-100);
-  line-height: var(--basalt-line-height-body);
-  padding-top: var(--basalt-sizing-1-half);
-  text-align: center;
-  width: 100%;
-}
+@layer basalt-mdx {
+  .figcaption {
+    color: var(--basalt-color-text-muted);
+    font-size: var(--basalt-font-size-100);
+    line-height: var(--basalt-line-height-body);
+    padding-top: var(--basalt-sizing-1-half);
+    text-align: center;
+    width: 100%;
+  }
+} /* end @layer basalt-mdx */

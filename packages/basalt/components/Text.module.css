@@ -1,41 +1,43 @@
-.text {
-  font-weight: var(--basalt-font-weight-normal);
-  hyphens: auto;
-  text-wrap: pretty;
-  word-break: keep-all;
+@layer basalt-styles {
+  .text {
+    font-weight: var(--basalt-font-weight-normal);
+    hyphens: auto;
+    text-wrap: pretty;
+    word-break: keep-all;
 
-  & strong {
-    font-weight: bold;
+    & strong {
+      font-weight: bold;
+    }
+
+    & em {
+      font-style: italic;
+    }
   }
 
-  & em {
-    font-style: italic;
+  /* sizes */
+  .sizeNormal {
+    @mixin text-body;
   }
-}
 
-/* sizes */
-.sizeNormal {
-  @mixin text-body;
-}
+  .sizeSmall {
+    @mixin text-small;
+  }
 
-.sizeSmall {
-  @mixin text-small;
-}
+  /* fonts */
+  .fontSerif {
+    @mixin font-serif;
+  }
 
-/* fonts */
-.fontSerif {
-  @mixin font-serif;
-}
+  .fontSans {
+    @mixin font-sans;
+  }
 
-.fontSans {
-  @mixin font-sans;
-}
+  /* colors */
+  .colorDefault {
+    color: var(--basalt-color-text-default);
+  }
 
-/* colors */
-.colorDefault {
-  color: var(--basalt-color-text-default);
-}
-
-.colorMuted {
-  color: var(--basalt-color-text-muted);
-}
+  .colorMuted {
+    color: var(--basalt-color-text-muted);
+  }
+} /* end @layer basalt-styles */

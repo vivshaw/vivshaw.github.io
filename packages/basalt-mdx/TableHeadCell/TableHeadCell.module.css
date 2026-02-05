@@ -1,6 +1,8 @@
-.tableHeadCell {
-  background: var(--basalt-color-background-secondary);
-  font-size: var(--basalt-font-size-100);
-  line-height: var(--basalt-line-height-body);
-  padding: var(--basalt-sizing-3-half) var(--basalt-sizing-5);
-}
+@layer basalt-mdx {
+  .tableHeadCell {
+    background: var(--basalt-color-background-secondary);
+    font-size: var(--basalt-font-size-100);
+    line-height: var(--basalt-line-height-body);
+    padding: var(--basalt-sizing-3-half) var(--basalt-sizing-5);
+  }
+} /* end @layer basalt-mdx */

@@ -1,34 +1,36 @@
-.link {
-  @mixin focus-ring;
+@layer basalt-styles {
+  .link {
+    @mixin focus-ring;
 
-  color: var(--basalt-color-text-default);
-  transition: var(--basalt-motion-color-mode-transition);
-}
-
-/* decoration */
-.underline {
-  background-image: linear-gradient(
-    to bottom,
-    var(--basalt-color-accent-default) 0%,
-    var(--basalt-color-accent-default) 100%
-  );
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  padding-bottom: 1px;
-
-  /* squiggly hover underline on hover */
-  @mixin light-theme {
-    &:hover {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{stroke:%2328282B;animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-15px);}}%3C/style%3E%3Cpath fill='none' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-      background-size: auto 4px;
-    }
+    color: var(--basalt-color-text-default);
+    transition: var(--basalt-motion-color-mode-transition);
   }
 
-  @mixin dark-theme {
-    &:hover {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{stroke:%23b7bcb5;animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-15px);}}%3C/style%3E%3Cpath fill='none' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-      background-size: auto 4px;
+  /* decoration */
+  .underline {
+    background-image: linear-gradient(
+      to bottom,
+      var(--basalt-color-accent-default) 0%,
+      var(--basalt-color-accent-default) 100%
+    );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    padding-bottom: 1px;
+
+    /* squiggly hover underline on hover */
+    @mixin light-theme {
+      &:hover {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{stroke:%2328282B;animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-15px);}}%3C/style%3E%3Cpath fill='none' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        background-size: auto 4px;
+      }
+    }
+
+    @mixin dark-theme {
+      &:hover {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{stroke:%23b7bcb5;animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-15px);}}%3C/style%3E%3Cpath fill='none' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        background-size: auto 4px;
+      }
     }
   }
-}
+} /* end @layer basalt-styles */

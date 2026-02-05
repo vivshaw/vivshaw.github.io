@@ -1,238 +1,244 @@
-.body {
-  --mdx-body-padding: var(--basalt-sizing-5);
+@layer basalt-mdx {
+  .body {
+    --mdx-body-padding: var(--basalt-sizing-5);
 
-  position: relative;
-  margin: 0 auto;
-  max-width: 100%;
-  padding-left: var(--mdx-body-padding);
-  padding-right: var(--mdx-body-padding);
-  padding-bottom: var(--basalt-sizing-20);
-
-  @mixin desktop {
-    --mdx-body-padding: 0px;
-
-    max-width: var(--basalt-sizing-168);
-    padding-bottom: var(--basalt-sizing-9);
-  }
-
-  /* ===== footnote references ===== */
-
-  & sup:has([data-footnote-ref]),
-  & sup[data-footnote-ref] {
-    line-height: 0;
-    vertical-align: baseline;
-    font-size: 0.85em;
     position: relative;
-    top: -0.5em;
-    margin-left: 0.1em;
-  }
+    margin: 0 auto;
+    max-width: 100%;
+    padding-left: var(--mdx-body-padding);
+    padding-right: var(--mdx-body-padding);
+    padding-bottom: var(--basalt-sizing-20);
 
-  /*
+    @mixin desktop {
+      --mdx-body-padding: 0px;
+
+      max-width: var(--basalt-sizing-168);
+      padding-bottom: var(--basalt-sizing-9);
+    }
+
+    /* ===== footnote references ===== */
+
+    & sup:has([data-footnote-ref]),
+    & sup[data-footnote-ref] {
+      line-height: 0;
+      vertical-align: baseline;
+      font-size: 0.85em;
+      position: relative;
+      top: -0.5em;
+      margin-left: 0.1em;
+    }
+
+    /*
    * toggle between footnote link and plaintext sidenote ref by breakpoint,
    * because we don't want a link to a nonexistent footnote.
    * mobile: show the <a>, hide the plain text .sidenote-ref
    * desktop: hide the <a>, show the plain text .sidenote-ref
    */
-  & :global(.sidenote-ref) {
-    display: none;
+    & :global(.sidenote-ref) {
+      display: none;
 
-    /*
+      /*
      * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
      * + right padding (1rem) on the right, mirrored on the left since content is centered.
      * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
      */
-    @media screen and (min-width: 67rem) {
-      display: inline;
+      @media screen and (min-width: 67rem) {
+        display: inline;
+      }
     }
-  }
 
-  & sup[data-footnote-ref] > a {
-    @media screen and (min-width: 67rem) {
-      display: none;
+    & sup[data-footnote-ref] > a {
+      @media screen and (min-width: 67rem) {
+        display: none;
+      }
     }
-  }
 
-  /* ===== footnote backlinks ===== */
+    /* ===== footnote backlinks ===== */
 
-  & [data-footnote-backref] {
-    font-size: 0.75em;
-    margin-left: var(--basalt-sizing-1);
-    opacity: 0.5;
-    color: inherit;
-    transition: opacity 0.15s var(--basalt-motion-ease-in-quad);
-
-    &:visited {
+    & [data-footnote-backref] {
+      font-size: 0.75em;
+      margin-left: var(--basalt-sizing-1);
+      opacity: 0.5;
       color: inherit;
+      transition: opacity 0.15s var(--basalt-motion-ease-in-quad);
+
+      &:visited {
+        color: inherit;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:focus-visible {
+        opacity: 1;
+        outline: var(--basalt-sizing-half) solid
+          var(--basalt-color-accent-default);
+        outline-offset: var(--basalt-sizing-half);
+        border-radius: var(--basalt-sizing-radius-small);
+      }
     }
 
-    &:hover {
-      opacity: 1;
+    /* ===== footnote section ===== */
+
+    & :global(.footnotes) h2 {
+      margin-bottom: var(--basalt-sizing-4);
+      padding-top: var(--basalt-sizing-10);
+      background-position: top;
+      background-repeat: repeat-x;
+
+      @mixin dark-theme {
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.432617' y='13.8564' width='16' height='1' transform='rotate(-60 0.432617 13.8564)' fill='%2350525B'/%3E%3C/svg%3E");
+      }
+
+      @mixin light-theme {
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.567383' y='14.1777' width='16' height='1' transform='rotate(-60 0.567383 14.1777)' fill='%232D2E33'/%3E%3C/svg%3E");
+      }
     }
 
-    &:focus-visible {
-      opacity: 1;
-      outline: var(--basalt-sizing-half) solid
-        var(--basalt-color-accent-default);
-      outline-offset: var(--basalt-sizing-half);
-      border-radius: var(--basalt-sizing-radius-small);
-    }
-  }
-
-  /* ===== footnote section ===== */
-
-  & :global(.footnotes) h2 {
-    margin-bottom: var(--basalt-sizing-4);
-    padding-top: var(--basalt-sizing-10);
-    background-position: top;
-    background-repeat: repeat-x;
-
-    @mixin dark-theme {
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.432617' y='13.8564' width='16' height='1' transform='rotate(-60 0.432617 13.8564)' fill='%2350525B'/%3E%3C/svg%3E");
+    & :global(.footnotes) ol {
+      display: flex;
+      flex-direction: column;
+      gap: var(--basalt-sizing-2);
     }
 
-    @mixin light-theme {
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.567383' y='14.1777' width='16' height='1' transform='rotate(-60 0.567383 14.1777)' fill='%232D2E33'/%3E%3C/svg%3E");
+    & :global(.footnotes) li {
+      margin-bottom: 0;
     }
-  }
 
-  & :global(.footnotes) ol {
-    display: flex;
-    flex-direction: column;
-    gap: var(--basalt-sizing-2);
-  }
+    & :global(.footnotes) li p {
+      margin-bottom: 0;
+    }
 
-  & :global(.footnotes) li {
-    margin-bottom: 0;
-  }
+    /* hide the footnotes section when sidenotes are visible */
+    & :global(.footnotes) {
+      @media screen and (min-width: 67rem) {
+        display: none;
+      }
+    }
 
-  & :global(.footnotes) li p {
-    margin-bottom: 0;
-  }
+    /* ===== sidenotes (Tufte-style margin notes) ===== */
 
-  /* hide the footnotes section when sidenotes are visible */
-  & :global(.footnotes) {
-    @media screen and (min-width: 67rem) {
+    & :global(.sidenote) {
+      /* mobile: hidden */
       display: none;
-    }
-  }
 
-  /* ===== sidenotes (Tufte-style margin notes) ===== */
-
-  & :global(.sidenote) {
-    /* mobile: hidden */
-    display: none;
-
-    /*
+      /*
      * desktop: show sidenotes in margin using float.
      * width is fluid: fills available margin space, clamped to min/max.
      * margin-right = -(width + gap) so the float takes up zero content space.
      */
-    @media screen and (min-width: 67rem) {
-      --sidenote-width: clamp(10rem, calc((100vw - 42rem) / 2 - 2.5rem), 20rem);
+      @media screen and (min-width: 67rem) {
+        --sidenote-width: clamp(
+          10rem,
+          calc((100vw - 42rem) / 2 - 2.5rem),
+          20rem
+        );
 
-      display: inline;
-      float: right;
-      clear: right;
-      width: var(--sidenote-width);
-      margin-right: calc(-1 * var(--sidenote-width) - 1.5rem);
-      margin-top: 0;
-      margin-bottom: 1rem;
-      padding-right: 1rem;
+        display: inline;
+        float: right;
+        clear: right;
+        width: var(--sidenote-width);
+        margin-right: calc(-1 * var(--sidenote-width) - 1.5rem);
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-right: 1rem;
 
-      /* typography */
-      color: var(--basalt-color-text-muted);
-      font-family: var(--basalt-font-sans);
-      font-size: var(--basalt-font-size-100);
-      line-height: var(--basalt-line-height-body);
+        /* typography */
+        color: var(--basalt-color-text-muted);
+        font-family: var(--basalt-font-sans);
+        font-size: var(--basalt-font-size-100);
+        line-height: var(--basalt-line-height-body);
+      }
     }
-  }
 
-  /* sidenote number label */
-  & :global(.sidenote-number) {
-    font-weight: var(--basalt-font-weight-bold);
-    margin-right: var(--basalt-sizing-1);
-  }
+    /* sidenote number label */
+    & :global(.sidenote-number) {
+      font-weight: var(--basalt-font-weight-bold);
+      margin-right: var(--basalt-sizing-1);
+    }
 
-  /* ===== inline code ===== */
+    /* ===== inline code ===== */
 
-  /*
+    /*
    * these can't be a <code> component, because we'll also see those inside
    * code blocks. we need to target only inline code (code not inside pre).
    */
-  & :not(pre) > code {
-    background: rgba(101, 117, 133, 0.16);
-    border-radius: var(--basalt-sizing-radius-default);
-    font-family: var(--basalt-font-monospace);
-    font-size: 0.875em;
-    padding: var(--basalt-sizing-half) var(--basalt-sizing-1);
-  }
+    & :not(pre) > code {
+      background: rgba(101, 117, 133, 0.16);
+      border-radius: var(--basalt-sizing-radius-default);
+      font-family: var(--basalt-font-monospace);
+      font-size: 0.875em;
+      padding: var(--basalt-sizing-half) var(--basalt-sizing-1);
+    }
 
-  /* ===== images ===== */
+    /* ===== images ===== */
 
-  /*
+    /*
    * remove margin from paragraphs that only contain an image.
    * necessary because MDX automatically wraps <img>s with <p>s.
    */
-  & p:has(> img:only-child) {
-    margin-bottom: 0;
-  }
-
-  /* ===== GitHub-style alert/callout ===== */
-
-  & :global(.markdown-alert) {
-    margin: 0 0 var(--basalt-sizing-6);
-    padding: var(--basalt-sizing-2) var(--basalt-sizing-4)
-      var(--basalt-sizing-2) var(--basalt-sizing-5);
-    background-position: left;
-    background-repeat: repeat-y;
-
-    @mixin dark-theme {
-      background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%2350525B'/%3E%3C/svg%3E");
-    }
-
-    @mixin light-theme {
-      background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%232D2E33'/%3E%3C/svg%3E");
-    }
-
-    & > :first-child {
-      margin-top: 0;
-    }
-
-    & > :last-child {
+    & p:has(> img:only-child) {
       margin-bottom: 0;
     }
-  }
 
-  & :global(.markdown-alert-title) {
-    display: flex;
-    align-items: center;
-    gap: var(--basalt-sizing-1-half);
-    font-family: var(--basalt-font-sans);
-    font-size: var(--basalt-font-size-100);
-    font-style: normal;
-    font-weight: var(--basalt-font-weight-normal);
-    text-transform: none;
-    margin-bottom: var(--basalt-sizing-2);
-    color: var(--basalt-color-text-muted);
+    /* ===== GitHub-style alert/callout ===== */
 
-    & svg {
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
-      flex-shrink: 0;
+    & :global(.markdown-alert) {
+      margin: 0 0 var(--basalt-sizing-6);
+      padding: var(--basalt-sizing-2) var(--basalt-sizing-4)
+        var(--basalt-sizing-2) var(--basalt-sizing-5);
+      background-position: left;
+      background-repeat: repeat-y;
+
+      @mixin dark-theme {
+        background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%2350525B'/%3E%3C/svg%3E");
+      }
+
+      @mixin light-theme {
+        background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%232D2E33'/%3E%3C/svg%3E");
+      }
+
+      & > :first-child {
+        margin-top: 0;
+      }
+
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    & :global(.markdown-alert-title) {
+      display: flex;
+      align-items: center;
+      gap: var(--basalt-sizing-1-half);
+      font-family: var(--basalt-font-sans);
+      font-size: var(--basalt-font-size-100);
+      font-style: normal;
+      font-weight: var(--basalt-font-weight-normal);
+      text-transform: none;
+      margin-bottom: var(--basalt-sizing-2);
+      color: var(--basalt-color-text-muted);
+
+      & svg {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
     }
   }
-}
 
-/*
+  /*
  * images and code blocks should be fullbleed on mobile.
  * code blocks are wrapped in a container div, and images
  * are wrapped in a `<p>` by the Markdown parser.
  */
-.body > :global(div:has(> pre)),
-.body > :global(p:has(> img)) {
-  margin-left: calc(-1 * var(--mdx-body-padding));
-  margin-right: calc(-1 * var(--mdx-body-padding));
-  width: calc(100% + 2 * var(--mdx-body-padding));
-  max-width: calc(100% + 2 * var(--mdx-body-padding));
-}
+  .body > :global(div:has(> pre)),
+  .body > :global(p:has(> img)) {
+    margin-left: calc(-1 * var(--mdx-body-padding));
+    margin-right: calc(-1 * var(--mdx-body-padding));
+    width: calc(100% + 2 * var(--mdx-body-padding));
+    max-width: calc(100% + 2 * var(--mdx-body-padding));
+  }
+} /* end @layer basalt-mdx */
