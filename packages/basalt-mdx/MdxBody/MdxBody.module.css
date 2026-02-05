@@ -241,4 +241,16 @@
     width: calc(100% + 2 * var(--mdx-body-padding));
     max-width: calc(100% + 2 * var(--mdx-body-padding));
   }
+
+  /* ===== leading small caps ===== */
+
+  /*
+   * style the leading words of the first paragraph as small caps.
+   * depends on @vivshaw/rehype-smallcap-words which wraps them in
+   * <span class="leading-words">.
+   */
+  .leadingSmallCaps p:first-of-type :global(.leading-words) {
+    font-feature-settings: var(--basalt-font-feature-settings-serif-small-caps);
+    letter-spacing: 0px;
+  }
 } /* end @layer basalt-mdx */

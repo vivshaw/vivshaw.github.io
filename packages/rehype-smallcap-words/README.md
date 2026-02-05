@@ -1,6 +1,6 @@
 # @vivshaw/rehype-smallcap-words
 
-rehype plugin that wraps the first N words of the first paragraph in a `<span>`, so they can be styled as small caps. this runs at build time, so no runtime word-wrapping is needed.
+rehype plugin that wraps the first N words of the first paragraph in a `<span>`, so they can be styled as small caps. this runs at build time, so no runtime word-wrapping is needed. you must apply the styling yourself.
 
 ## usage
 
@@ -8,10 +8,10 @@ rehype plugin that wraps the first N words of the first paragraph in a `<span>`,
 import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
 
 rehypePlugins: [
-    // default (first 3 words)
-    rehypeSmallcapWords,
-    //  orcustom word count
-    [rehypeSmallcapWords, { wordCount: 5 }]
+  // default (first 3 words)
+  rehypeSmallcapWords,
+  //  or custom word count
+  [rehypeSmallcapWords, { wordCount: 5 }],
 ]
 ```
 
@@ -26,10 +26,12 @@ given this HTML:
 the plugin produces:
 
 ```html
-<p><span class="first-three">Once upon a</span> time there was a paragraph.</p>
+<p>
+  <span class="leading-words">Once upon a</span> time there was a paragraph.
+</p>
 ```
 
-the span gets the class `first-three`, which you can target in CSS to apply small-caps or any other styling.
+the span gets the class `.leading-words`, which you can target in CSS to apply small-caps or any other styling.
 
 ## options
 

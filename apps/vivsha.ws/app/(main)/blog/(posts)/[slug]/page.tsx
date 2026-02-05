@@ -4,7 +4,6 @@ import { prettyPrintDate } from "#lib"
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
 import { Hero } from "../../../../_components/Hero"
-import styles from "./page.module.css"
 
 /**
  * the page for a single blog post.
@@ -35,7 +34,7 @@ export default async function Post({
     <>
       <Hero title={meta.title} subtitle={meta.blurb} />
 
-      <MdxBody className={styles.postBody}>
+      <MdxBody leadingSmallCaps>
         <PostContent />
       </MdxBody>
 

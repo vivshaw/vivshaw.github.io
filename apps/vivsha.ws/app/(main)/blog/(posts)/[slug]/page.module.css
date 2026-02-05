@@ -1,7 +1,0 @@
-/* style the first three words of the first paragraph as small caps.
- * depends on rehype-first-three-words (lib/rehype-first-three-words.mjs)
- * which wraps them in <span class="first-three">. */
-.postBody > :global(p:first-of-type .first-three) {
-  font-feature-settings: var(--basalt-font-feature-settings-serif-small-caps);
-  letter-spacing: 0px;
-}

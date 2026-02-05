@@ -36,7 +36,7 @@ describe("rehypeSmallcapWords", () => {
     const span = para.children[0]
     assert.equal(span.type, "element")
     assert.equal(span.tagName, "span")
-    assert.deepEqual(span.properties.className, ["first-three"])
+    assert.deepEqual(span.properties.className, ["leading-words"])
     assert.equal(span.children[0].value, "one two three")
 
     assert.equal(para.children[1].type, "text")

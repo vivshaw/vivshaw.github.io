@@ -11,7 +11,7 @@
 
 import { visit, EXIT } from "unist-util-visit"
 
-const FIRST_THREE_CLASS = "first-three"
+const LEADING_WORDS_CLASS = "leading-words"
 
 /**
  * split a string into the first N words and the rest.
@@ -69,7 +69,7 @@ export default function rehypeSmallcapWords({ wordCount = 3 } = {}) {
         {
           type: "element",
           tagName: "span",
-          properties: { className: [FIRST_THREE_CLASS] },
+          properties: { className: [LEADING_WORDS_CLASS] },
           children: [{ type: "text", value: headText }],
         },
       ]
