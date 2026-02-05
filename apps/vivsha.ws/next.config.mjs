@@ -3,6 +3,7 @@ import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import rehypeShiki from "@shikijs/rehype"
+import rehypeSidenotes from "@vivshaw/rehype-sidenotes"
 import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
 import {
   transformerNotationDiff,
@@ -12,8 +13,6 @@ import remarkAlert from "remark-github-blockquote-alert"
 import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
-
-import rehypeSidenotes from "./lib/rehype-sidenotes.mjs"
 
 /** custom Shiki transformer that adds the language as a data attribute to the pre element */
 const transformerLanguageLabel = () => ({

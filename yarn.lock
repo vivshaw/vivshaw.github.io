@@ -2255,6 +2255,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@vivshaw/rehype-sidenotes@workspace:packages/rehype-sidenotes":
+  version: 0.0.0-use.local
+  resolution: "@vivshaw/rehype-sidenotes@workspace:packages/rehype-sidenotes"
+  dependencies:
+    unist-util-visit: ^5.0.0
+  languageName: unknown
+  linkType: soft
+
 "@vivshaw/rehype-smallcap-words@workspace:^, @vivshaw/rehype-smallcap-words@workspace:packages/rehype-smallcap-words":
   version: 0.0.0-use.local
   resolution: "@vivshaw/rehype-smallcap-words@workspace:packages/rehype-smallcap-words"

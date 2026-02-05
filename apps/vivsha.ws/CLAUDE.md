@@ -13,4 +13,4 @@ This is the Next.js app that powers the site. It uses the App Router with static
 
 - `app/_components/` — shared UI components (layout wrapper, navbar, theme switcher, etc.)
 - `data/` — site metadata, author info, Zod schemas for frontmatter
-- `lib/` — helpers for date formatting, post/page importing, SEO metadata, custom rehype plugins
+- `lib/` — helpers for date formatting, post/page importing, SEO metadata

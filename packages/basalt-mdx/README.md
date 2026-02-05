@@ -48,8 +48,9 @@ this package provides components to cover the following roles:
 ensure these remark/rehype plugins are configured in the MDX pipeline:
 
 | plugin                           | what it does                                                        | what depends on it                                                                                                                 |
-| -------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
+| -------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `@shikijs/rehype`                | syntax highlighting for code blocks (dual-theme CSS variables mode) | `CodeBlock`, with the `transformerNotationHighlight`, `transformerNotationDiff`, and `transformerLanguageLabel` Shiki transformers |
 | `remark-gfm`                     | GFM tables, footnotes, and other extensions                         | `Table`, `TableHead`, `TableCell`, `TableHeadCell`, and footnote styles in `MdxBody.module.css`                                    |
 | `remark-github-blockquote-alert` | GitHub-style alert/callout blockquotes                              | alert styles in `MdxBody.module.css`                                                                                               |
-| `rehype-sidenotes` (custom)      | transforms GFM footnotes into Tufte-style margin sidenotes          | sidenote styles in `MdxBody.module.css`                                                                                            |     |
+| `@vivshaw/rehype-sidenotes`      | transforms GFM footnotes into Tufte-style margin sidenotes          | sidenote styles in `MdxBody.module.css`                                                                                            |
+| `@vivshaw/rehype-smallcap-words` | wraps leading words of first paragraph for small-caps styling       | `MdxBody` with `leadingSmallCaps` prop                                                                                             |

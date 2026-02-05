@@ -1,0 +1,16 @@
+{
+  "name": "@vivshaw/rehype-sidenotes",
+  "description": "rehype plugin that transforms GFM footnotes into Tufte-style sidenotes",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  }
+}

@@ -6,13 +6,15 @@ This is Hannah Vivian Shaw's personal blog and website.
 
 ## Code
 
-This repo is a Yarn monorepo, split into three separate Yarn packages:
+This repo is a Yarn monorepo, split into several Yarn packages:
 
-- @vivshaw/vivshaws (`./apps/vivsha.ws`), the blog application itself
+- @vivshaw/vivsha.ws (`./apps/vivsha.ws`), the blog application itself
 - @vivshaw/basalt (`./packages/basalt`), the design system used to build it
-- @vivshaw/basalt-mdx (`./packages/mdx`), a package of MDX components used to render Markdown in the app
+- @vivshaw/basalt-mdx (`./packages/basalt-mdx`), a package of MDX components used to render Markdown in the app
+- @vivshaw/rehype-smallcap-words (`./packages/rehype-smallcap-words`), a rehype plugin for small-caps styling
+- @vivshaw/rehype-sidenotes (`./packages/rehype-sidenotes`), a rehype plugin for Tufte-style sidenotes
 
-Each of these pacakges has its own `README.md` you can reference.
+Each of these packages has its own `README.md` you can reference.
 
 ## Writing
 

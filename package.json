@@ -19,7 +19,7 @@
     "format:all": "prettier --write .",
     "start": "yarn apps/vivsha.ws start",
     "new:post": "hygen post new",
-    "test": "yarn workspace @vivshaw/rehype-smallcap-words test",
+    "test": "yarn workspace @vivshaw/rehype-smallcap-words test && yarn workspace @vivshaw/rehype-sidenotes test",
     "typecheck": "yarn workspace @vivshaw/vivsha.ws typecheck && yarn workspace @vivshaw/basalt typecheck && yarn workspace @vivshaw/basalt-mdx typecheck"
   },
   "workspaces": [
