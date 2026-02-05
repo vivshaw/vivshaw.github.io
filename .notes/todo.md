@@ -16,7 +16,6 @@
 - writing
   - [ ] bring back old free speech post, with edits
   - [ ] infodump on new version of site
-  - [ ] spruce up colophon- privacy, etc.
 
 ## ideas
 
