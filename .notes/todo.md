@@ -1,8 +1,8 @@
 # TODO
 
 - tooling
-  - [ ] unit tests? Playwright tests?
-  - [ ] get better setup for VSCode plugins
+  - [ ] unit tests in Next app? Playwright tests?
+  - [ ] tighten lints to forbid non-Basalt values?
 - vivsha.ws
   - [ ] tags index page & tag pages, someday
   - [ ] font flicker on hard refresh - could be a fallback problem?
@@ -13,8 +13,6 @@
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
 - basalt-mdx
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-- lint/etc
-  - [ ] sort imports
 - writing
   - [ ] bring back old free speech post, with edits
   - [ ] infodump on new version of site

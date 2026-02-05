@@ -1,7 +1,10 @@
 {
   "recommendations": [
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "GitHub.vscode-github-actions",
-    "unifiedjs.vscode-mdx"
+    "stylelint.vscode-stylelint",
+    "csstools.postcss",
+    "unifiedjs.vscode-mdx",
+    "GitHub.vscode-github-actions"
   ]
 }
