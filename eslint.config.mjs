@@ -9,7 +9,7 @@ import prettierConfig from "eslint-config-prettier"
 import globals from "globals"
 
 export default tseslint.config(
-  // Global ignores
+  // global ignores
   {
     ignores: [
       "**/node_modules/**",
@@ -23,11 +23,11 @@ export default tseslint.config(
     ],
   },
 
-  // Base JS/TS config
+  // base JS/TS config
   js.configs.recommended,
   ...tseslint.configs.recommended,
 
-  // Global settings for all files
+  // global settings for all files
   {
     languageOptions: {
       globals: {
@@ -85,13 +85,13 @@ export default tseslint.config(
       ...reactPlugin.configs.recommended.rules,
       ...reactPlugin.configs["jsx-runtime"].rules,
       "react/prop-types": "off", // TypeScript handles this
-      "react/no-unescaped-entities": "off", // Too noisy for blog content
+      "react/no-unescaped-entities": "off",
 
       // React Hooks rules
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
 
-      // Accessibility rules
+      // accessibility rules
       ...jsxA11yPlugin.configs.recommended.rules,
     },
   },
@@ -108,7 +108,7 @@ export default tseslint.config(
     },
   },
 
-  // Import sorting for all JS/TS files
+  // import sorting for all JS/TS files
   {
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.mjs"],
     plugins: {
@@ -157,7 +157,7 @@ export default tseslint.config(
     },
   },
 
-  // Test files - relaxed rules
+  // test files - relaxed rules
   {
     files: ["**/*.test.*", "**/*.spec.*"],
     rules: {
@@ -181,7 +181,7 @@ export default tseslint.config(
     },
   },
 
-  // Config files - relaxed rules
+  // config files - relaxed rules
   {
     files: ["*.config.*", "*.mjs"],
     rules: {

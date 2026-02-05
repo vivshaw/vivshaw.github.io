@@ -10,7 +10,7 @@
     padding-bottom: var(--basalt-sizing-20);
 
     @mixin desktop {
-      --mdx-body-padding: 0px;
+      --mdx-body-padding: 0;
 
       max-width: var(--basalt-sizing-168);
       padding-bottom: var(--basalt-sizing-9);
@@ -251,6 +251,6 @@
    */
   .leadingSmallCaps p:first-of-type :global(.leading-words) {
     font-feature-settings: var(--basalt-font-feature-settings-serif-small-caps);
-    letter-spacing: 0px;
+    letter-spacing: 0;
   }
 } /* end @layer basalt-mdx */
