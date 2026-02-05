@@ -15,7 +15,6 @@
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
 - rehype
   - [ ] clean up sidenote/styles so that they can live in one spot rather than be scattered around
-  - [ ] clean up first-three-words plugin & styles to colocate also
   - [ ] pull plugins into packages in repo?
 - css
   - [ ] find a tidier thing to do with the .d.ts

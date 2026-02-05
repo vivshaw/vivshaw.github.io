@@ -2255,6 +2255,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@vivshaw/rehype-smallcap-words@workspace:^, @vivshaw/rehype-smallcap-words@workspace:packages/rehype-smallcap-words":
+  version: 0.0.0-use.local
+  resolution: "@vivshaw/rehype-smallcap-words@workspace:packages/rehype-smallcap-words"
+  dependencies:
+    unist-util-visit: ^5.0.0
+  languageName: unknown
+  linkType: soft
+
 "@vivshaw/vivsha.ws@workspace:apps/vivsha.ws":
   version: 0.0.0-use.local
   resolution: "@vivshaw/vivsha.ws@workspace:apps/vivsha.ws"
@@ -2273,6 +2281,7 @@ __metadata:
     "@types/react": 19.0.2
     "@vivshaw/basalt": "workspace:^"
     "@vivshaw/basalt-mdx": "workspace:^"
+    "@vivshaw/rehype-smallcap-words": "workspace:^"
     clsx: ^2.1.1
     feed: ^5.2.0
     lodash: ^4.17.21

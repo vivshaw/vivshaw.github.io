@@ -43,7 +43,7 @@ the MDX pipeline is configured in `next.config.mjs` with the following plugins:
 | `rehype-mdx-import-media`                       | resolve relative image paths                                      |
 | `@shikijs/rehype`                               | syntax highlighting (dual-theme: vitesse-light / kanagawa-dragon) |
 | `rehype-sidenotes` (custom)                     | transform GFM footnotes into Tufte-style margin sidenotes         |
-| `rehype-first-three-words` (custom)             | wrap the opening words in a span for small-caps styling           |
+| `@vivshaw/rehype-smallcap-words`                | wrap the opening words in a span for small-caps styling           |
 
 ## shared code
 

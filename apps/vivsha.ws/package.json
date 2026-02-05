@@ -32,6 +32,7 @@
     "@serwist/next": "^9.0.11",
     "@vivshaw/basalt": "workspace:^",
     "@vivshaw/basalt-mdx": "workspace:^",
+    "@vivshaw/rehype-smallcap-words": "workspace:^",
     "clsx": "^2.1.1",
     "feed": "^5.2.0",
     "lodash": "^4.17.21",

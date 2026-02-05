@@ -1,0 +1,13 @@
+{
+  "name": "@vivshaw/rehype-smallcap-words",
+  "description": "rehype plugin that wraps the first three words of the first paragraph in a span for small-caps styling",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  }
+}

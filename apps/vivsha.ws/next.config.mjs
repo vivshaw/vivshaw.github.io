@@ -3,6 +3,7 @@ import createMDX from "@next/mdx"
 import createSerwist from "@serwist/next"
 import rehypeMdxImportMedia from "rehype-mdx-import-media"
 import rehypeShiki from "@shikijs/rehype"
+import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -12,7 +13,6 @@ import remarkFrontmatter from "remark-frontmatter"
 import remarkGfm from "remark-gfm"
 import remarkMdxFrontmatter from "remark-mdx-frontmatter"
 
-import rehypeFirstThreeWords from "./lib/rehype-first-three-words.mjs"
 import rehypeSidenotes from "./lib/rehype-sidenotes.mjs"
 
 /** custom Shiki transformer that adds the language as a data attribute to the pre element */
@@ -38,7 +38,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeMdxImportMedia,
-      rehypeFirstThreeWords,
+      rehypeSmallcapWords,
       rehypeSidenotes,
       [
         rehypeShiki,
