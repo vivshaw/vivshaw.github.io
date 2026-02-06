@@ -1,0 +1,158 @@
+---
+title: "What's new is new again"
+
+blurb: "On 2026's site redesign"
+date: 2026-02-05
+draft: true
+tags:
+  [
+    "Next.js",
+    "design systems",
+    "personal",
+    "MDX",
+    "CSS Modules",
+    "TypeScript",
+    "rehype",
+    "monochrome",
+    "progressive enhancement",
+  ]
+---
+
+In 2025, your hostess said hopefully:
+
+> I've finally got myself a maintainable foundation that I can iterate on. Here's hoping this rewrite is the last one!
+
+This was not to be. I continued to have a bone to pick with my website. Particularly, I was unsatisfied with these two things: the legibility of my posts, and the loss of visual identity. My technical choices made these annoying to resolve. So, 2026 brings a new version, significantly changed in both design and architecture from before. Rejoice— you may now listen to me navel-gaze for 2500 words about the choices I made along the way.
+
+## Inspirations and Principles
+
+A number of different sources jostled around in my mind as I designed this new version. First, the works of [Matthew Butterick](https://matthewbutterick.com/), particularly his books [Practical Typography](https://practicaltypography.com/) and [Beautiful Racket](https://beautifulracket.com/). These challenged me to improve the legibility and visual interest of my type-heavy pages. Second, [Refactoring UI](https://refactoringui.com/) by Adam Wathan and Steve Schoger. I am a design-challenged, engineer-brained person; this book helped me understand some design principles that even someone like myself can grasp. Third, [V.H. Belvadi's website](https://vhbelvadi.com/), which might be _the_ best fully-typographic personal website I've seen. Fourth, [Tufte CSS](https://edwardtufte.github.io/tufte-css/), especially its sidenotes feature[^sidenotes]. Lastly, and most oddly, the lockscreens on my digital devices, which made me want to bring back images in some capacity.
+
+[^sidenotes]: Like this one here!
+
+After percolating on what I liked about these sources, I landed on a few principles for my visual identity:
+
+- Monochrome
+- Typographic
+- Tastefully simple
+- Systematic
+- Progressively enhanced
+
+## On monochromaticity
+
+At one point, I dearly wanted a role for color on my website. But try as I might, over many attempts, I struggled to create something meaningful. Color was reserved for limited, and frankly _careless_ uses, such as links and accents. And I have no eye for color harmony. So, I've gone monochrome. Instead of leaning on colors, I've focused on other visual elements to create interest and hierarchy. Frankly, this was a relief— I freed up so much mental space for other things. And I mostly dress in blacks and greys anyway, so you could call it a more authentic expression of myself.
+
+## On typography
+
+Like the previous design, I chose to focus on type as the primary visual element. I am a software engineer, not an artist. The words and code are the main focus of my site. I would gain little from adding purely decorative imagery. Better to highlight type above all.
+
+However, I significantly changed the typefaces I chose. My previous choice of Orpheus Pro was too decorative, and harmed the legibility. I had also made some... unusual choices with sizing and line length. This time, I chose two fonts from [MB Type](https://mbtype.com/): [Equity](https://mbtype.com/fonts/equity/) for serif body text and headings, and [Concourse](https://mbtype.com/fonts/concourse/) for sans-serif UI elements. I was particularly pleased with the legibility of Equity, and with the wide variety of OpenType features both support. These served as a great base to dial in a systematic typography system. More on that later.
+
+Perhaps most importantly, I had to invest a _lot_ of time into dialing in my MDX components[^mdx-lib]. Previously, the most common elements (paragraphs, first and second level headings) looked fine, but many things like lists and blockquotes were pretty wonky. I used a mixture of Butterick's rules and my own guess-and-check to get things looking a bit more legible. I also eliminated the smaller headings— if I'm actually nesting headings five levels deep, I am making a mistake! I found the best technique for improving my MDX rendering was to create a "kitchen sink" that used every component I had, amongst big sections of body copy and so on. This helped see how everything hangs together in practice.
+
+[^mdx-lib]: That would be [`@vivshaw/basalt-mdx`](https://github.com/vivshaw/vivshaw.github.io/tree/main/packages/basalt-mdx), my MDX expansion pack for Basalt.
+
+## On _tasteful_ simplicity
+
+In pursuing simplicity, I've found taste is key, and it cuts in two directions. First, it is regrettably easy to be simple in a tasteless way. I believe my old design did this, with things like big whacks of fancy-serifs filling the whole page. Second, it is possible to _diverge_ from simplicity in a tasteful way. The simplicity of a broader whole can benefit from contrast to carefully chosen details. One example of this would be my wiggly links[^wiggly]. I wanted a way to call out links without using color, and I also wanted to explore motion. This felt like an opportunity to play with both. Another example would be my re-introduction of images in limited spots, such as [my home page](https://vivsha.ws) and [404 page](https://vivsha.ws/404). These are actually images from the collection I use for device backgrounds. I had already collected some great monochrome options, so it was easy to choose one for the dark theme[^dark-bg], and one for the light theme[^light-bg].
+
+[^wiggly]: Like [this link here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)! Hover to see the underline wiggle, click for a surprise.
+
+[^dark-bg]: This [Icelandic black sand beach](https://unsplash.com/photos/black-and-gray-abstract-illustration-rqWoB4LFgmc) from Jeremy Bishop.
+
+[^light-bg]: This [snow-capped and cloud-obscured Swiss mountain range](https://unsplash.com/photos/mountain-range-covered-with-snow-and-clouds-at-daytime-9e4pCscLDyY) from Matthias Kinsella.
+
+I will not claim to be an arbiter of good taste— indeed, I'm _certain_ I've made many tacky choices here I will later come to regret. But compared to the previous design, it's night and day.
+
+## On systematicity
+
+In my prior post, I had mentioned creating the bones of a design system[^basalt]. This time, I took it further into an actual usable system. _Refactoring UI_ helped me greatly here. It introduced me to a simple, step-by-step process to adopt constraint-based design principles. Though that book is focused on app design and on greenfield work, the same underlying ideas applied. Choosing one design aspect at a time— color, typography, spacing, etc.— I would gather all the extant values for that aspect, make them into tokens, then tweak all the styles to use those tokens rather than bespoke values. Once I had done this everywhere, I looked back at the token system and tried to simplify it further, removing the least-used or least-differentiated values. For example, I didn't really need 5 different breakpoints, or 6 levels of heading size!
+
+[^basalt]: That design system, [`@vivshaw/basalt`](https://github.com/vivshaw/vivshaw.github.io/tree/main/packages/basalt), remains the design system for this site.
+
+Once I had achieved a sensible system of base tokens, I added a layer of semantic tokens where applicable (things like `--basalt-color-background-default` or `--basalt-font-size-body`). These removed the cognitive overhead of remembering things like, "now _which_ color was muted text supposed to be?" I also added a layer of PostCSS mixins, to group together CSS rules that ought to occur together. That way, I can set `@mixin text-heading1;` and `@mixin font-serif;` instead of needing to remember all the individual properties that should be paired.
+
+The most challenging aspect was the color scale. Previously, my light and dark theme were simply two unrelated color palettes. This time, I munged them all together into one scale. But it didn't look very harmonious. So, I needed to fill in some intermediate values, remove others, and tweak the relationships between the colors a bit. I'm not sure what the right tools are for this, so I did a lot of guess and check. I still don't think I have it right. But, it's _consistent_ and _usable_, which is a vast improvement from before.
+
+I now have [these tokens](https://github.com/vivshaw/vivshaw.github.io/blob/main/packages/basalt/css/tokens.css) covering: color (including light/dark theme), typography (font stacks, sizing, type properties, OpenType features), motion, sizing & spacing, border radii, responsive breakpoints, and focus states.
+
+Dialing this in took a long time, and involved some _truly awkward_ in-between states. But constraint-based techniques get there in the end! By steadily ruling out more and more inconsistencies and horrible choices, I steadily approached a system that was useful to build with and pleasant to look at. I think the next step is to fill out my components- I only have 4 in the main system (`<Heading>`, `<Text>`, `<Link>`, `<Pill>`). I don't wanna go wild with it, but I could see a role for a few more- perhaps a `<Surface>`, or some layout components.
+
+## On progressive enhancement
+
+Oddly, in the past progressive enhancement was something I've both cared about and given very little thought to. I'd "accomplish" it primarily by avoiding JS features entirely. But really, I'd rather have a site that can leverage those features when they are available, and gracefully degrade when they are not.
+
+This site now does that. I set a `no-js` class on the `html` element, and then added a script to swap it out for a `js` class when JS is available. The majority of my components are statically rendered. Those components that are dynanmic watch this `js` class, and only if it's present do they do their fancy stuff. The fallback behavior differs from component to component, but generally it's either to not render at all, or render a static fallback UI[^fallbacks].
+
+[^fallbacks]: For example, the showy/hidey sticky navbar becomes a stationary navbar at the top of the page.
+
+I made sure that my light and dark theme are fully functional without JS. I default to the system's `prefers-color-scheme` setting, and only set a specific theme if JS is active. I also made sure to use semantic elements whenever possible. So, even without JS _and CSS_, it should at least be usable.
+
+Alrighty, that's enough about the design. On to the architecture!
+
+## Abandoning CSS-in-JS
+
+In my prior version, I had adopted Vanilla Extract for styling. My hope was for something that:
+
+- had no runtime styling
+- was easy to create a theme, for constraint-based design
+- could construct a typesafe [styled-system](https://github.com/styled-system/styled-system)-esque `<Box>` component as the core building block[^ve-box]
+
+[^ve-box]: Seek's [Braid Design System](https://seek-oss.github.io/braid-design-system/) uses this approach quite well.
+
+Vanilla Extract _did_ accomplish these things. As I adopted it, though, I discovered progressively more challenges. One challenge was the number of different ways of doing things with different drawbacks. Once I had my `<Box>` up and running, there were four ways to style: raw Vanilla Extract stylesheets, [Recipes](vanilla-extract.style/documentation/packages/recipes/) to define components with variants, [Sprinkles](https://vanilla-extract.style/documentation/packages/sprinkles/) in the stylesheet, and Sprinkles as component props. I'd _hoped_ to do everything with Sprinkles, and ignore these lower layers. First, I found that my light theme and dark theme utils, written to work with raw Vanilla Extract stylesheets, didn't work with them. This pushed some of my light/dark aware components back into the stylesheets. Then I discovered that handling pseudo-selectors like `:focus` and `:hover` causes [a combinatorial explosion of styles](https://github.com/vanilla-extract-css/vanilla-extract/discussions/1478), making it preferable to keep 'em in the stylesheets. Then I discovered [Sprinkles shorthands](https://vanilla-extract.style/documentation/packages/sprinkles/#shorthands), which were a nice way to put some commonly grouped styles together into a single thing... _but_, only in the Sprinkles layer. The consequence of this was that my styles were a mess of different techniques, all with different tradeoffs, and no clear path toward unity.
+
+I decided to go back to basics here, and rip it out. CSS is quite powerful nowadays. With a smidge of CSS Modules and PostCSS to grease the wheels, I could accomplish _almost_ everything I'd wanted Vanilla Extract to do. I would lose the type-safety and the `<Box>`. But in exchange, I could _do everything in one place_. Things I enjoyed along the way:
+
+- [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer) is rather handy for avoiding conflicts and specificity problems. After popping my CSS reset, Basalt, and Basalt MDX into their own layers, I was set.
+- [PostCSS mixins](https://github.com/postcss/postcss-mixins) were a great replacement for Sprinkles shorthands.
+- I actually _shrank_ my CSS line count by ~25%!
+- I found CSS Modules somewhat easier to debug, due to being closer to what's in the browser.
+- My theme definition is, IMO, far more concise and easier to read.
+
+## Custom rehype plugins
+
+I had a couple features I wanted in my Markdown rendering pipeline that I couldn't find existing Rehype plugins for. So, I applied some elbow grease and wrote my own. The first and simplest was a plugin to [apply custom styles to the first few words of each post](https://github.com/vivshaw/vivshaw.github.io/tree/main/packages/rehype-smallcap-words), so that I could small-caps them. The second was a plugin to [insert Tufte-style sidenotes](https://github.com/vivshaw/vivshaw.github.io/tree/main/packages/rehype-sidenotes). This was a bit more involved[^sidenote-inspo], as I needed to do some complex parsing to extract the footnotes and rebuild them as sidenotes, yet also wanted to preserve the original footnote section on mobile.
+
+[^sidenote-inspo]: I found [this post](https://keith.is/post/tufte-sidenotes-in-astro) by Keith McClary a helpful start, though my approach diverged.
+
+This was relatively painless overall. Once you get a sense of how the parsing and tree-traversal works, you can build pretty much anything you'd want. The only thing that annoyed me was that I couldn't easily bundle the styles with the plugins. But that's not _so_ bad, and in fact I can imagine situations where a "headless" plugin is actually a good thing.
+
+## MDX-driven pages
+
+In addition to writing my posts with MDX, I created a top-level `pages/` directory that I could use to stand up non-blog pages. It's way less annoying to write out a page of Markdown than a page of JSX, plus it keeps my styles consistent. I used to have this feature in the very first version of my site, a decade ago! Glad to have it back.
+
+I also chose to use less JSX in my MDX- ideally, _none_. The less I have to worry about JavaScript while writing prose, the better. I accomplished this largely through expanding the selection of Rehype plugins I use.
+
+## Code highlighting with Shiki
+
+I left Prism behind in favor of [Shiki](https://shiki.style/). There were a number of subtle bugs and janky bits that made Prism never feel quite 100% functional for everything I wanted to do. Shiki, on the other hand, is incredibly polished. It's a build-time tool, which is a nice fit for my static site. It doesn't need to import a separate CSS blob for theming. And I can easily get a number of nice features like line highlighting:
+
+```typescript
+interface User {
+  id: number
+  name: string // [!code highlight]
+  email: string // [!code highlight]
+}
+
+function greet(user: User) {
+  return `Hello, ${user.name}!`
+}
+```
+
+and diff notation:
+
+```python
+def calculate_total(items):
+    total = 0 # [!code --]
+    total = sum(item.price for item in items) # [!code ++]
+    for item in items: # [!code --]
+        total += item.price # [!code --]
+    return total
+```
+
+I know many of these fancy features exist as Prism plugins, but my experience was that they were mildly buggy. I also found that Shiki's TextMate grammars resulted in highlighting that just... looked better to me.
+
+## What's next
+
+What's next is to actually _use_ the dratted thing. I've got a backlog of posts I'd like to write, as well as a small TODO list of features I'd love to add (tags, or perhaps ToCs). Await them with bated breath, I suppose.

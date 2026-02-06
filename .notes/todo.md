@@ -20,3 +20,6 @@
 ## ideas
 
 - dedicated Identity page, then repurpose front page for something else? like Molly White's verify page: https://www.mollywhite.net/verify/
+- ToC?
+- Tags in left sidebar?
+- ToC - like that one blog post https://aresluna.org/design-details-table-of-contents/
