@@ -52,6 +52,13 @@
   }
 }
 
+/* snap panel open/closed instantly when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}
+
 .panelOpen {
   transform: translateX(0);
 }

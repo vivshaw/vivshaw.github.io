@@ -88,6 +88,13 @@
   height: var(--navbar-height);
 }
 
+/* snap navbar show/hide instantly when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
+}
+
 /* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is just normally positioned (no show/hide) */
 :global(.no-js) .root {
   position: relative;

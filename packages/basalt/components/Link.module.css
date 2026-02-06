@@ -3,7 +3,7 @@
     @mixin focus-ring;
 
     color: var(--basalt-color-text-default);
-    transition: var(--basalt-motion-color-mode-transition);
+    transition: var(--basalt-motion-transition-theme);
   }
 
   /* decoration */
@@ -30,6 +30,23 @@
       &:hover {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{stroke:%23b7bcb5;animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-15px);}}%3C/style%3E%3Cpath fill='none' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
         background-size: auto 4px;
+      }
+    }
+
+    /* static wavy underline for users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      @mixin light-theme {
+        &:hover {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%2328282B' stroke-width='2' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+          background-size: auto 4px;
+        }
+      }
+
+      @mixin dark-theme {
+        &:hover {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23b7bcb5' stroke-width='2' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+          background-size: auto 4px;
+        }
       }
     }
   }

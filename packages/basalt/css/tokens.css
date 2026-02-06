@@ -179,6 +179,13 @@
         var(--basalt-motion-transition-hover-timing);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --basalt-motion-transition-theme-duration: 0s;
+      --basalt-motion-transition-hover-duration: 0s;
+    }
+  }
+
   /* ===== sizing ===== */
 
   :root {
