@@ -22,7 +22,7 @@ In 2025, your hostess said hopefully:
 
 > I've finally got myself a maintainable foundation that I can iterate on. Here's hoping this rewrite is the last one!
 
-This was not to be. I continued to have a bone to pick with my website. Particularly, I was unsatisfied with these two things: the legibility of my posts, and the loss of visual identity. My technical choices made these annoying to resolve. So, 2026 brings a new version, significantly changed in both design and architecture from before. Rejoice— you may now listen to me navel-gaze for 2500 words about the choices I made along the way.
+Reader, it was not. The posts were hard to read. My visual identity had evaporated. And the technical choices I'd made meant fixing either would be a slog. So, 2026 brings a new version, torn down to the studs and built anew. Rejoice— you may now listen to me navel-gaze for 2500 words about the choices I made along the way.
 
 ## Inspirations and Principles
 
@@ -38,15 +38,21 @@ After percolating on what I liked about these sources, I landed on a few princip
 - Systematic
 - Progressively enhanced
 
-## On monochromaticity
+## On going monochrome
 
 At one point, I dearly wanted a role for color on my website. But try as I might, over many attempts, I struggled to create something meaningful. Color was reserved for limited, and frankly _careless_ uses, such as links and accents. And I have no eye for color harmony. So, I've gone monochrome. Instead of leaning on colors, I've focused on other visual elements to create interest and hierarchy. Frankly, this was a relief— I freed up so much mental space for other things. And I mostly dress in blacks and greys anyway, so you could call it a more authentic expression of myself.
+
+Rather than treat monochromaticity as a limitation, I found it interesting to consider the _richness_ of a monochrome palette. Take a look at this:
+
+![a slice from an image of a black sand beach](bg-slice.png)
+
+Look at the texture! The variation! The top and bottom half are both black, but such _different_ black. This excites the eye in a way that a flat color field does not. I hoped to channel some of this into my design choices. Have I succeeded? Perhaps not yet, but I like to think I'm getting closer.
 
 ## On typography
 
 Like the previous design, I chose to focus on type as the primary visual element. I am a software engineer, not an artist. The words and code are the main focus of my site. I would gain little from adding purely decorative imagery. Better to highlight type above all.
 
-However, I significantly changed the typefaces I chose. My previous choice of Orpheus Pro was too decorative, and harmed the legibility. I had also made some... unusual choices with sizing and line length. This time, I chose two fonts from [MB Type](https://mbtype.com/): [Equity](https://mbtype.com/fonts/equity/) for serif body text and headings, and [Concourse](https://mbtype.com/fonts/concourse/) for sans-serif UI elements. I was particularly pleased with the legibility of Equity, and with the wide variety of OpenType features both support. These served as a great base to dial in a systematic typography system. More on that later.
+However, I significantly changed the typefaces I chose. My previous choice of Orpheus Pro was too decorative, and harmed the legibility. I had also sized my headings like I was designing highway signage. This time, I chose two fonts from [MB Type](https://mbtype.com/): [Equity](https://mbtype.com/fonts/equity/) for serif body text and headings, and [Concourse](https://mbtype.com/fonts/concourse/) for sans-serif UI elements. I was particularly pleased with the legibility of Equity, and with the wide variety of OpenType features both support. These served as a great base to dial in a systematic typography system. More on that later.
 
 Perhaps most importantly, I had to invest a _lot_ of time into dialing in my MDX components[^mdx-lib]. Previously, the most common elements (paragraphs, first and second level headings) looked fine, but many things like lists and blockquotes were pretty wonky. I used a mixture of Butterick's rules and my own guess-and-check to get things looking a bit more legible. I also eliminated the smaller headings— if I'm actually nesting headings five levels deep, I am making a mistake! I found the best technique for improving my MDX rendering was to create a "kitchen sink" that used every component I had, amongst big sections of body copy and so on. This helped see how everything hangs together in practice.
 
@@ -54,7 +60,7 @@ Perhaps most importantly, I had to invest a _lot_ of time into dialing in my MDX
 
 ## On _tasteful_ simplicity
 
-In pursuing simplicity, I've found taste is key, and it cuts in two directions. First, it is regrettably easy to be simple in a tasteless way. I believe my old design did this, with things like big whacks of fancy-serifs filling the whole page. Second, it is possible to _diverge_ from simplicity in a tasteful way. The simplicity of a broader whole can benefit from contrast to carefully chosen details. One example of this would be my wiggly links[^wiggly]. I wanted a way to call out links without using color, and I also wanted to explore motion. This felt like an opportunity to play with both. Another example would be my re-introduction of images in limited spots, such as [my home page](https://vivsha.ws) and [404 page](https://vivsha.ws/404). These are actually images from the collection I use for device backgrounds. I had already collected some great monochrome options, so it was easy to choose one for the dark theme[^dark-bg], and one for the light theme[^light-bg].
+It's regrettably easy to be simple in a tasteless way. My old design did this, with things like big whacks of fancy-serifs filling the whole page. But it's also possible to break from simplicity tastefully. The simplicity of a broader whole can benefit from contrast to carefully chosen details. One example of this would be my wiggly links[^wiggly]. I wanted a way to call out links without using color, and I also wanted to explore motion. This felt like an opportunity to play with both. Another example would be my re-introduction of images in limited spots, such as [my home page](https://vivsha.ws) and [404 page](https://vivsha.ws/404). These are actually images from the collection I use for device backgrounds. I had already collected some great monochrome options, so it was easy to choose one for the dark theme[^dark-bg], and one for the light theme[^light-bg].
 
 [^wiggly]: Like [this link here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)! Hover to see the underline wiggle, click for a surprise.
 
@@ -64,7 +70,7 @@ In pursuing simplicity, I've found taste is key, and it cuts in two directions. 
 
 I will not claim to be an arbiter of good taste— indeed, I'm _certain_ I've made many tacky choices here I will later come to regret. But compared to the previous design, it's night and day.
 
-## On systematicity
+## On systems
 
 In my prior post, I had mentioned creating the bones of a design system[^basalt]. This time, I took it further into an actual usable system. _Refactoring UI_ helped me greatly here. It introduced me to a simple, step-by-step process to adopt constraint-based design principles. Though that book is focused on app design and on greenfield work, the same underlying ideas applied. Choosing one design aspect at a time— color, typography, spacing, etc.— I would gather all the extant values for that aspect, make them into tokens, then tweak all the styles to use those tokens rather than bespoke values. Once I had done this everywhere, I looked back at the token system and tried to simplify it further, removing the least-used or least-differentiated values. For example, I didn't really need 5 different breakpoints, or 6 levels of heading size!
 
@@ -76,17 +82,17 @@ The most challenging aspect was the color scale. Previously, my light and dark t
 
 I now have [these tokens](https://github.com/vivshaw/vivshaw.github.io/blob/main/packages/basalt/css/tokens.css) covering: color (including light/dark theme), typography (font stacks, sizing, type properties, OpenType features), motion, sizing & spacing, border radii, responsive breakpoints, and focus states.
 
-Dialing this in took a long time, and involved some _truly awkward_ in-between states. But constraint-based techniques get there in the end! By steadily ruling out more and more inconsistencies and horrible choices, I steadily approached a system that was useful to build with and pleasant to look at. I think the next step is to fill out my components- I only have 4 in the main system (`<Heading>`, `<Text>`, `<Link>`, `<Pill>`). I don't wanna go wild with it, but I could see a role for a few more- perhaps a `<Surface>`, or some layout components.
+Dialing this in took a long time, and involved some _truly awkward_ in-between states. But constraint-based techniques get there in the end! By steadily ruling out more and more inconsistencies and horrible choices, I steadily approached a system that was useful to build with and pleasant to look at. I think the next step is to fill out my components— I only have four in the main system (`<Heading>`, `<Text>`, `<Link>`, `<Pill>`). I don't wanna go wild with it, but I could see a role for a few more- perhaps a `<Surface>`, or some layout components.
 
 ## On progressive enhancement
 
-Oddly, in the past progressive enhancement was something I've both cared about and given very little thought to. I'd "accomplish" it primarily by avoiding JS features entirely. But really, I'd rather have a site that can leverage those features when they are available, and gracefully degrade when they are not.
+I've always _claimed_ to care about progressive enhancement, but in practice I accomplished it by avoiding runtime JS entirely. Really, I'd rather have a site that can leverage those features when they are available, and gracefully degrade when they are not.
 
-This site now does that. I set a `no-js` class on the `html` element, and then added a script to swap it out for a `js` class when JS is available. The majority of my components are statically rendered. Those components that are dynanmic watch this `js` class, and only if it's present do they do their fancy stuff. The fallback behavior differs from component to component, but generally it's either to not render at all, or render a static fallback UI[^fallbacks].
+This site now does that. I set a `no-js` class on the `html` element, and then added a script to swap it out for a `js` class when JS is available. The majority of my components are statically rendered. Those components that are dynamic watch this `js` class, and only if it's present do they do their fancy stuff. The fallback behavior differs from component to component, but generally it's either to not render at all, or render a static fallback UI[^fallbacks].
 
 [^fallbacks]: For example, the showy/hidey sticky navbar becomes a stationary navbar at the top of the page.
 
-I made sure that my light and dark theme are fully functional without JS. I default to the system's `prefers-color-scheme` setting, and only set a specific theme if JS is active. I also made sure to use semantic elements whenever possible. So, even without JS _and CSS_, it should at least be usable.
+I made sure that my light and dark theme are fully functional without JS. I default to the system's `prefers-color-scheme` setting, and only set a specific theme if JS is active. I also made sure to use semantic elements whenever possible. So, even without JS _and CSS_, it should at least look like a 1990s website and still function. I see progressive enhancement as about making the site usable to everybody, regardless of device or person. So accessibility and responsivity are a part of it, too. I implemented `prefers-reduced-motion` and did some sizing and contrast tests to make sure text was legible. I also distilled my responsive code to a simpler three-breakpoint system, and baked some of that into the design system tokens, such as text sizes.
 
 Alrighty, that's enough about the design. On to the architecture!
 
@@ -100,7 +106,16 @@ In my prior version, I had adopted Vanilla Extract for styling. My hope was for 
 
 [^ve-box]: Seek's [Braid Design System](https://seek-oss.github.io/braid-design-system/) uses this approach quite well.
 
-Vanilla Extract _did_ accomplish these things. As I adopted it, though, I discovered progressively more challenges. One challenge was the number of different ways of doing things with different drawbacks. Once I had my `<Box>` up and running, there were four ways to style: raw Vanilla Extract stylesheets, [Recipes](vanilla-extract.style/documentation/packages/recipes/) to define components with variants, [Sprinkles](https://vanilla-extract.style/documentation/packages/sprinkles/) in the stylesheet, and Sprinkles as component props. I'd _hoped_ to do everything with Sprinkles, and ignore these lower layers. First, I found that my light theme and dark theme utils, written to work with raw Vanilla Extract stylesheets, didn't work with them. This pushed some of my light/dark aware components back into the stylesheets. Then I discovered that handling pseudo-selectors like `:focus` and `:hover` causes [a combinatorial explosion of styles](https://github.com/vanilla-extract-css/vanilla-extract/discussions/1478), making it preferable to keep 'em in the stylesheets. Then I discovered [Sprinkles shorthands](https://vanilla-extract.style/documentation/packages/sprinkles/#shorthands), which were a nice way to put some commonly grouped styles together into a single thing... _but_, only in the Sprinkles layer. The consequence of this was that my styles were a mess of different techniques, all with different tradeoffs, and no clear path toward unity.
+Vanilla Extract _did_ accomplish these things. As I adopted it, though, I ran into a structural problem: it offers multiple ways to style, each of which has gaps that push you toward the others.
+
+There were four options:
+
+- raw Vanilla Extract stylesheets (`.css.ts` files)
+- [Recipes](https://vanilla-extract.style/documentation/packages/recipes/) for component variants
+- [Sprinkles](https://vanilla-extract.style/documentation/packages/sprinkles/) in stylesheets
+- Sprinkles as component props (the `<Box>` approach)
+
+I'd hoped to do everything through `<Box>` and ignore the lower layers. That didn't last. My light/dark theme utils only worked in raw VE stylesheets, so theming pushed me back out of Sprinkles when I needed to write theme-aware components. Pseudo-selectors like `:focus` and `:hover` cause [a combinatorial explosion of styles](https://github.com/vanilla-extract-css/vanilla-extract/discussions/1478) in Sprinkles, so interactive states pushed me out too. [Sprinkles shorthands](https://vanilla-extract.style/documentation/packages/sprinkles/#shorthands) were great for grouping related properties, but they only worked in the Sprinkles layer, which pushed me back _into_ Sprinkles. Recipes were lovely for defining variants simply and cleanly, but they only worked in the stylesheet. The result was that my styles were scattered across four techniques, each with its own tradeoffs and no clear path toward unity.
 
 I decided to go back to basics here, and rip it out. CSS is quite powerful nowadays. With a smidge of CSS Modules and PostCSS to grease the wheels, I could accomplish _almost_ everything I'd wanted Vanilla Extract to do. I would lose the type-safety and the `<Box>`. But in exchange, I could _do everything in one place_. Things I enjoyed along the way:
 
@@ -122,7 +137,7 @@ This was relatively painless overall. Once you get a sense of how the parsing an
 
 In addition to writing my posts with MDX, I created a top-level `pages/` directory that I could use to stand up non-blog pages. It's way less annoying to write out a page of Markdown than a page of JSX, plus it keeps my styles consistent. I used to have this feature in the very first version of my site, a decade ago! Glad to have it back.
 
-I also chose to use less JSX in my MDX- ideally, _none_. The less I have to worry about JavaScript while writing prose, the better. I accomplished this largely through expanding the selection of Rehype plugins I use.
+I also chose to use less JSX in my MDX— ideally, _none_. The less I have to worry about JavaScript while writing prose, the better. I accomplished this largely through expanding the selection of Rehype plugins I use.
 
 ## Code highlighting with Shiki
 

@@ -106,3 +106,39 @@ Route (app)                              Size     First Load JS
   - css: 11.5kb
   - doc: 23.0kb
   - font: 171kb
+
+## with CSS Modules
+
+```
+Route (app)                              Size     First Load JS
+┌ ○ /                                    5.69 kB         112 kB
+├ ○ /_not-found                          337 B           107 kB
+├ ● /[slug]                              1.63 kB         108 kB
+├   ├ /about
+├   └ /colophon
+├ ○ /blog                                1.69 kB         112 kB
+├ ● /blog/[slug]                         1.63 kB         108 kB
+├   ├ /blog/build-you-a-tweetbot
+├   ├ /blog/data-mashups
+├   ├ /blog/electric-pentameter
+├   └ [+4 more paths]
+├ ○ /feed.xml                            1.85 kB         108 kB
+└ ○ /sitemap.xml                         0 B                0 B
++ First Load JS shared by all            107 kB
+  ├ chunks/541-f99da606aa414861.js       51.8 kB
+  ├ chunks/87c73c54-6c1cd0166b0fa0a5.js  52.9 kB
+  └ other shared chunks (total)          1.88 kB
+```
+
+- main: **793kb** (+a lot)
+  - js: 169kb
+  - css: 51kb
+  - doc: 10kb
+  - images: 437kb
+  - font: 151kb
+  - (with images excluded, **342kb** (+105kb))
+- post (scala): **327kb** (-14kb)
+  - js: 160kb
+  - css: 10kb
+  - doc: 25kb
+  - font: 120kb
