@@ -16,8 +16,6 @@
   - [ ] expand Text and Heading to also allow base sizes, then use in more places
 - basalt-mdx
   - [ ] dial in heading spacing a bit more- should be asymmetrical, if it isn't
-- writing
-  - [ ] bring back old free speech post, with edits
 
 ## ideas
 
