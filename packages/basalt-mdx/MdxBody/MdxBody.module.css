@@ -230,12 +230,14 @@
   }
 
   /*
- * images and code blocks should be fullbleed on mobile.
- * code blocks are wrapped in a container div, and images
- * are wrapped in a `<p>` by the Markdown parser.
+ * images, code blocks, and tables should be fullbleed on mobile.
+ * code blocks are wrapped in a container div, images
+ * are wrapped in a `<p>` by the Markdown parser, and tables
+ * are wrapped in a scrollable div.
  */
   .body > :global(div:has(> pre)),
-  .body > :global(p:has(> img)) {
+  .body > :global(p:has(> img)),
+  .body > :global(div:has(> table)) {
     margin-left: calc(-1 * var(--mdx-body-padding));
     margin-right: calc(-1 * var(--mdx-body-padding));
     width: calc(100% + 2 * var(--mdx-body-padding));
