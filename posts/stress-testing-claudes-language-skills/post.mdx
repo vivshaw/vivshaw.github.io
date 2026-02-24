@@ -50,7 +50,7 @@ I chose to run each task across 8 different languages:
 | Haskell    | Pure FP with a powerful type system. A real test of reasoning.                                    |
 | Java       | Lots of it around, but verbose and ceremony-heavy. Can LLMs handle the boilerplate?               |
 
-I wanted a spectrum of language types: some functional and some OO, some interpreted and some compiled, some dynamic and some strongly typed. To give agents an even playing field, I provided [a scaffold for each task](https://github.com/vivshaw/llmlangbench/tree/main/tasks/sudoku-solver) that sets up the environment appropriately for each language. ("That seems quite extensible, so why did you limit it to only 8?" Astute question, imaginary interlocutor! Regrettably, I've rent to pay, to I must keep costs down somehow.)
+I wanted a spectrum of language types: some functional and some OO, some interpreted and some compiled, some dynamic and some strongly typed. To give agents an even playing field, I provided [a scaffold for each task](https://github.com/vivshaw/llmlangbench/tree/main/tasks/sudoku-solver) that sets up the environment appropriately for each language. ("That seems quite extensible, so why did you limit it to only 8?" Astute question, imaginary interlocutor! Regrettably, I've rent to pay, so I must keep costs down somehow.)
 
 ## Scoring the trials
 
@@ -62,11 +62,11 @@ I chose three axes of scoring:
 
 Using black-box tests was important. Early iterations used a test suite provided alongside the task, but this was too much "teaching to the test". My goal is to assess task completion from scratch, so providing the suite was overly leading. Additionally, doing it this way let me abstract away some language quirks by providing all with a standard interface, _and_ save an absolute boatload of effort writing out one test suite per language.
 
-The subjective code metrics are probably the least definitive. For each task, I provided [a rubric](https://github.com/vivshaw/llmlangbench/blob/main/tasks/sudoku-solver/rubric.md) explaining what to grade it on. This turns out to be more challenging than writing a code review prompt for use on a PR, since the goal is _comparison_ rather than flaw remediation. It took a few rounds iteration to get a prompt together that was strict enough to actually differentiate the results on quality, then a few rounds more to get it to _stop_ docking every result down to 90 by default. I would take these with a grain of salt, and consider them mostly a directional indicator.
+The subjective code metrics are probably the least definitive. For each task, I provided [a rubric](https://github.com/vivshaw/llmlangbench/blob/main/tasks/sudoku-solver/rubric.md) explaining what to grade it on. This turns out to be more challenging than writing a code review prompt for use on a PR, since the goal is _comparison_ rather than flaw remediation. It took a few rounds of iteration to get a prompt together that was strict enough to actually differentiate the results on quality, then a few rounds more to get it to _stop_ docking every result down to 90 by default. I would take these with a grain of salt, and consider them mostly a directional indicator.
 
 ## Results: Full run (60-turn limit)
 
-For my first run, I ran all 6 tasks, with 3 trials per langauge, and a 60-turn limit per trial. (The intention was halfway for 60 turns to demonstrate performance under constraint, and halfway to guard against draining my entire bank account directly into Dario Amodei's 401k.) I ran these trials on `claude-sonnet-4-5-20250929`. Results were as followed:
+For my first run, I ran all 6 tasks, with 3 trials per language, and a 60-turn limit per trial. (The intention was half to demonstrate performance under constraint, and half to guard against draining my entire bank account directly into Dario Amodei's 401k.) I ran these trials on `claude-sonnet-4-5-20250929`. Results were as follows:
 
 | Language   | Pass% | Avg Cost | Avg Turns | Avg Time | Review |
 | ---------- | ----- | -------- | --------- | -------- | ------ |
@@ -85,13 +85,13 @@ Java is in an interesting niche. It comes in ahead of all the other compiled lan
 
 Ruby comes in behind all the other dynlangs. This saddens but does not surprise me. Ruby is a standard-bearer for good ol' [Tim Toady](https://en.wiktionary.org/wiki/TMTOWTDI). Though it is possible to write impressively elegant and simple code, it's also possible to get overly fancy with almost any aspect of the language you'd like. And many common idioms are _quite_ dynamic, using metaprogramming deep magic that one might frown upon in other languages. It's not a matter of particular surprise to me if LLMs can get themselves tied in knots in such an environment.
 
-Go, Rust, and Haskell bring up the rear on pass%, theough there's a pretty sharp gap between each. To figure out why, we need to get a little more granular. These two tasks had the greatest impact:
+Go, Rust, and Haskell bring up the rear on pass %, though there's a pretty sharp gap between each. To figure out why, we need to get a little more granular. Two tasks had the greatest impact. First, `sudoku-solver`:
 
 | Task          | Language | Pass% | Avg Cost | Review |
 | ------------- | -------- | ----- | -------- | ------ |
 | sudoku-solver | haskell  | 71.4% | $0.3648  | 78     |
 
-For `sudoku-solver`, Haskell was the _only_ language that scored less than 100%. The solutions consistently failed certain benchmark cases. My unerstanding is that these failures were timeouts when testing from inefficient code.
+For `sudoku-solver`, Haskell was the _only_ language that scored less than 100%. The Haskell solutions consistently failed certain benchmark cases. My understanding is that these failures were timeouts when testing, as a result of inefficient code. Secondly, `sql-database`:
 
 | Task         | Language   | Pass% | Avg Cost | Review |
 | ------------ | ---------- | ----- | -------- | ------ |
@@ -104,11 +104,11 @@ For `sudoku-solver`, Haskell was the _only_ language that scored less than 100%.
 | sql-database | rust       | 29.0% | $2.1932  | 92     |
 | sql-database | haskell    | 25.9% | $2.0842  | 85     |
 
-For `sql-database`, all three of Go, Haskell, and Rust struggled. Can you guess why? They hit the 60-turn limit! In fact, _most_ languages hit the limit, but the other ones got further, faster. Maybe this means the compiled languages are _slower_ for LLMs, but does it mean they're actually worse? Let's do a bit more digging to see if we can differentiate further.
+For `sql-database`, all three of Go, Haskell, and Rust struggled. Can you guess why? It's about the 60-turn limit! Most languages hit the limit, but the dynamic languages got further, faster. Maybe this means the compiled languages are _slower_ for LLMs, but does it mean they're actually worse? Let's do a bit more digging to see if we can differentiate further.
 
 ## Results: `sql-database` only (240-turn limit)
 
-To build a clearer picture, I chose to repeat the `sql-database` trial under looser constraints. All languages, 3 trials `claude-sonnet-4-5-20250929`again, but this time, a 240-turn limit. My hope was that the compiled languages would now be free to complete their runs, and score better. The data bears this out:
+To build a clearer picture, I chose to repeat the `sql-database` trial under looser constraints. All languages, 3 trials, `claude-sonnet-4-5-20250929` again — but this time, a 240-turn limit. My hope was that the compiled languages would now be free to complete their runs, and score better. The data bears this out:
 
 | Language   | Pass% | Avg Cost | Avg Turns | Avg Time | Review |
 | ---------- | ----- | -------- | --------- | -------- | ------ |
@@ -121,7 +121,7 @@ To build a clearer picture, I chose to repeat the `sql-database` trial under loo
 | rust       | 77.1% | $3.3993  | 77.0      | 957.9s   | 82     |
 | haskell    | 44.1% | $3.0055  | 90.0      | 814.7s   | 81     |
 
-Python still leads by a country mile. Go immediately rockets from the bottom three, and up to second place. Java also gets a little better, rising to third, though it's still quite slow to get there. JavaScript and TypeScript are now firmly middle-of the road, rather than leading with Python. Rust is still second to last, but jumps up almost 50%, joining the same pack as TypeScript & Ruby. Yet poor Haskell is still in dead last, with a 44% pass rate. That's rough.
+Python still leads by a country mile. Go immediately rockets from the bottom three, and up to second place. Go and Python as the top two _might_ say something about simplicity. Both of these are "one way to do it" languages. That might provide structure that's helpful for LLMs. Java also gets a little better, rising to third, though it's still quite slow to get there. JavaScript and TypeScript are now firmly middle-of-the-road, rather than leading with Python. Rust is still second to last, but jumps up almost 50%, joining the same pack as TypeScript & Ruby. Yet poor Haskell is still in dead last, with a 44% pass rate. That's rough.
 
 ## My takeaways
 
@@ -145,7 +145,7 @@ As an exercise in intellectual humility, it's always good to check what one's da
 - **Base rate neglect.** I didn't do any assessment of the _human-driven_ performance of these languages on these tasks. It could be that certain languages are uniquely well- or ill-suited to certain tasks, regardless of whether a human or LLM drives.
 - **Limited sample.** I only picked eight languages. Widely used heavy-hitters like C are left out completely, as are interesting niche choices like Clojure or another Lisp. It could be that the trends I ascribe to this sample don't hold up when viewed against the background of the whole population.
 
-It stands to reason that some of these omissions could be highly impactful. For example, concurrent tasks might cause a strong swing toward Go's easy goroutines, or Rust's robust borrow-checking. Or, brownfield codebases might cause a stronger swing toward typed languages, due to the power of types as documentation and as guardrails to reduce the necessary context and exploration. So, take my results with a healthy pinch of salt. If you wish to know these unknowns, consider spinning up a benchmark of your own!
+It stands to reason that some of these omissions could be highly impactful. For example, concurrent tasks might cause a strong swing toward Go's easy goroutines, or Rust's robust borrow-checking. Or, brownfield codebases might cause a stronger swing toward typed languages, due to the power of types as documentation and as guardrails to reduce the necessary context and exploration. So, take my results with a healthy pinch of salt. If these unknowns bug you, consider spinning up a benchmark of your own!
 
 ## Raw results
 
