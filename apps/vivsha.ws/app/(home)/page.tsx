@@ -121,7 +121,7 @@ export default function Home() {
             <Link href={author.zettelkasten} target="_blank">
               {author.zettelkasten}
             </Link>{" "}
-            for daily updates.
+            for regular(ish) updates.
           </p>
         </aside>
       </div>
