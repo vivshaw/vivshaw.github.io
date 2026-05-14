@@ -55,7 +55,7 @@
 
     /* line highlighting - use [!code highlight] in code blocks */
     & :global(.line.highlighted) {
-      background-color: rgba(101, 117, 133, 0.2) !important;
+      background-color: rgb(101 117 133 / 20%) !important;
     }
 
     /* diff notation - use [!code ++] and [!code --] in code blocks */
@@ -71,7 +71,7 @@
     }
 
     & :global(.line.diff.add) {
-      background-color: rgba(16, 185, 129, 0.2) !important;
+      background-color: rgb(16 185 129 / 20%) !important;
     }
 
     & :global(.line.diff.add)::before {
@@ -80,7 +80,7 @@
     }
 
     & :global(.line.diff.remove) {
-      background-color: rgba(244, 63, 94, 0.2) !important;
+      background-color: rgb(244 63 94 / 20%) !important;
     }
 
     & :global(.line.diff.remove)::before {

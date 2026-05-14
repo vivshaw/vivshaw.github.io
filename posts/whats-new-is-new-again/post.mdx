@@ -87,7 +87,7 @@ Dialing this in took a long time, and involved some _truly awkward_ in-between s
 
 I've always _claimed_ to care about progressive enhancement, but in practice I accomplished it by avoiding runtime JS entirely. Really, I'd rather have a site that can leverage those features when they are available, and gracefully degrade when they are not.
 
-This site now does that. I set a `no-js` class on the `html` element, and then added a script to swap it out for a `js` class when JS is available. The majority of my components are statically rendered. Those components that are dynamic watch this `js` class, and only if it's present do they do their fancy stuff. The fallback behavior differs from component to component, but generally it's either to not render at all, or render a static fallback UI[^fallbacks].
+This site now does that. I set a `noJs` class on the `html` element, and then added a script to swap it out for a `js` class when JS is available. The majority of my components are statically rendered. Those components that are dynamic watch this `js` class, and only if it's present do they do their fancy stuff. The fallback behavior differs from component to component, but generally it's either to not render at all, or render a static fallback UI[^fallbacks].
 
 [^fallbacks]: For example, the showy/hidey sticky navbar becomes a stationary navbar at the top of the page.
 

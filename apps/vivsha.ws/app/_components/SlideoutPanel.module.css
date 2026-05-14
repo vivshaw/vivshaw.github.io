@@ -23,7 +23,7 @@
 }
 
 /* [PROGRESSIVE-ENHANCEMENT] hide slideout panel trigger when JS is disabled */
-:global(.no-js) .hamburgerButton {
+:global(.noJs) .hamburgerButton {
   display: none;
 }
 

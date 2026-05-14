@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 /**
  * track whether JS is enabled, so we can do progressive enhancement stuff
  */
-const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('no-js','js')`
+const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('noJs','js')`
 
 /**
  * executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
@@ -91,7 +91,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="no-js"
+      className="noJs"
       suppressHydrationWarning // necessary because the snippets will swap out classes ASAP after page load!
     >
       <head>

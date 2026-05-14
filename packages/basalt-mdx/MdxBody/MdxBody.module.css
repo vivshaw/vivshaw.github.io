@@ -29,26 +29,26 @@
     }
 
     /*
-   * toggle between footnote link and plaintext sidenote ref by breakpoint,
-   * because we don't want a link to a nonexistent footnote.
-   * mobile: show the <a>, hide the plain text .sidenote-ref
-   * desktop: hide the <a>, show the plain text .sidenote-ref
-   */
-    & :global(.sidenote-ref) {
+     * toggle between footnote link and plaintext sidenote ref by breakpoint,
+     * because we don't want a link to a nonexistent footnote.
+     * mobile: show the <a>, hide the plain text .sidenoteRef
+     * desktop: hide the <a>, show the plain text .sidenoteRef
+     */
+    & :global(.sidenoteRef) {
       display: none;
 
       /*
-     * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
-     * + right padding (1rem) on the right, mirrored on the left since content is centered.
-     * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
-     */
-      @media screen and (min-width: 67rem) {
+       * sidenotes need the content column (42rem) + gap (1.5rem) + min sidenote (10rem)
+       * + right padding (1rem) on the right, mirrored on the left since content is centered.
+       * that's 42rem + 2 * (1.5rem + 10rem + 1rem) = 67rem
+       */
+      @media screen and (width >= 67rem) {
         display: inline;
       }
     }
 
     & sup[data-footnote-ref] > a {
-      @media screen and (min-width: 67rem) {
+      @media screen and (width >= 67rem) {
         display: none;
       }
     }
@@ -112,7 +112,7 @@
 
     /* hide the footnotes section when sidenotes are visible */
     & :global(.footnotes) {
-      @media screen and (min-width: 67rem) {
+      @media screen and (width >= 67rem) {
         display: none;
       }
     }
@@ -124,11 +124,11 @@
       display: none;
 
       /*
-     * desktop: show sidenotes in margin using float.
-     * width is fluid: fills available margin space, clamped to min/max.
-     * margin-right = -(width + gap) so the float takes up zero content space.
-     */
-      @media screen and (min-width: 67rem) {
+       * desktop: show sidenotes in margin using float.
+       * width is fluid: fills available margin space, clamped to min/max.
+       * margin-right = -(width + gap) so the float takes up zero content space.
+       */
+      @media screen and (width >= 67rem) {
         --sidenote-width: clamp(
           10rem,
           calc((100vw - 42rem) / 2 - 2.5rem),
@@ -153,7 +153,7 @@
     }
 
     /* sidenote number label */
-    & :global(.sidenote-number) {
+    & :global(.sidenoteNumber) {
       font-weight: var(--basalt-font-weight-bold);
       margin-right: var(--basalt-sizing-1);
     }
@@ -161,11 +161,11 @@
     /* ===== inline code ===== */
 
     /*
-   * these can't be a <code> component, because we'll also see those inside
-   * code blocks. we need to target only inline code (code not inside pre).
-   */
+     * these can't be a <code> component, because we'll also see those inside
+     * code blocks. we need to target only inline code (code not inside pre).
+     */
     & :not(pre) > code {
-      background: rgba(101, 117, 133, 0.16);
+      background: rgb(101 117 133 / 16%);
       border-radius: var(--basalt-sizing-radius-default);
       font-family: var(--basalt-font-monospace);
       font-size: 0.875em;
@@ -175,15 +175,16 @@
     /* ===== images ===== */
 
     /*
-   * remove margin from paragraphs that only contain an image.
-   * necessary because MDX automatically wraps <img>s with <p>s.
-   */
+     * remove margin from paragraphs that only contain an image.
+     * necessary because MDX automatically wraps <img>s with <p>s.
+     */
     & p:has(> img:only-child) {
       margin-bottom: 0;
     }
 
     /* ===== GitHub-style alert/callout ===== */
 
+    /* stylelint-disable-next-line selector-class-pattern */
     & :global(.markdown-alert) {
       margin: 0 0 var(--basalt-sizing-6);
       padding: var(--basalt-sizing-2) var(--basalt-sizing-4)
@@ -208,6 +209,7 @@
       }
     }
 
+    /* stylelint-disable-next-line selector-class-pattern */
     & :global(.markdown-alert-title) {
       display: flex;
       align-items: center;
@@ -230,11 +232,11 @@
   }
 
   /*
- * images, code blocks, and tables should be fullbleed on mobile.
- * code blocks are wrapped in a container div, images
- * are wrapped in a `<p>` by the Markdown parser, and tables
- * are wrapped in a scrollable div.
- */
+   * images, code blocks, and tables should be fullbleed on mobile.
+   * code blocks are wrapped in a container div, images
+   * are wrapped in a `<p>` by the Markdown parser, and tables
+   * are wrapped in a scrollable div.
+   */
   .body > :global(div:has(> pre)),
   .body > :global(p:has(> img)),
   .body > :global(div:has(> table)) {
@@ -248,10 +250,10 @@
 
   /*
    * style the leading words of the first paragraph as small caps.
-   * depends on @vivshaw/rehype-smallcap-words which wraps them in
-   * <span class="leading-words">.
+   * depends on `@vivshaw/rehype-smallcap-words`, which wraps them in
+   * <span class="leadingWords">.
    */
-  .leadingSmallCaps p:first-of-type :global(.leading-words) {
+  .leadingSmallCaps p:first-of-type :global(.leadingWords) {
     font-feature-settings: var(--basalt-font-feature-settings-serif-small-caps);
     letter-spacing: 0;
   }

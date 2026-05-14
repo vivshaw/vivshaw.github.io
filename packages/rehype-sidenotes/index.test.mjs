@@ -77,13 +77,13 @@ describe("rehypeSidenotes", () => {
     // should have: text, sup, sidenote span, text
     assert.equal(para.children.length, 4)
 
-    // the sup should now contain both the link and a sidenote-ref span
+    // the sup should now contain both the link and a sidenoteRef span
     const sup = para.children[1]
     assert.equal(sup.tagName, "sup")
     assert.equal(sup.children.length, 2)
     assert.equal(sup.children[0].tagName, "a") // original link
-    assert.equal(sup.children[1].tagName, "span") // sidenote-ref
-    assert.deepEqual(sup.children[1].properties.className, ["sidenote-ref"])
+    assert.equal(sup.children[1].tagName, "span") // sidenoteRef
+    assert.deepEqual(sup.children[1].properties.className, ["sidenoteRef"])
 
     // the sidenote span should be a sibling
     const sidenote = para.children[2]
@@ -91,10 +91,10 @@ describe("rehypeSidenotes", () => {
     assert.deepEqual(sidenote.properties.className, ["sidenote"])
     assert.equal(sidenote.properties.role, "note")
 
-    // sidenote should contain: sidenote-number span + content
+    // sidenote should contain: sidenoteNumber span + content
     assert.equal(sidenote.children[0].tagName, "span")
     assert.deepEqual(sidenote.children[0].properties.className, [
-      "sidenote-number",
+      "sidenoteNumber",
     ])
     assert.equal(sidenote.children[1].value, "Footnote content.")
   })

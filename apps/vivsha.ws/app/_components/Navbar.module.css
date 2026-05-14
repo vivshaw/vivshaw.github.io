@@ -1,6 +1,5 @@
 .root {
   height: var(--navbar-height);
-
   align-items: center;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -96,14 +95,14 @@
 }
 
 /* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is just normally positioned (no show/hide) */
-:global(.no-js) .root {
+:global(.noJs) .root {
   position: relative;
   transform: none;
   transition: none;
 }
 
 /* [PROGRESSIVE-ENHANCEMENT] when JS is disabled, navbar is in normal flow, so no spacer needed */
-:global(.no-js) .spacer {
+:global(.noJs) .spacer {
   display: none;
 }
 

@@ -110,7 +110,7 @@ function createSidenoteElements(footnoteLink, footnoteNumber, content) {
       {
         type: "element",
         tagName: "span",
-        properties: { className: ["sidenote-ref"] },
+        properties: { className: ["sidenoteRef"] },
         children: [{ type: "text", value: footnoteNumber }],
       },
     ],
@@ -128,7 +128,7 @@ function createSidenoteElements(footnoteLink, footnoteNumber, content) {
       {
         type: "element",
         tagName: "span",
-        properties: { className: ["sidenote-number"] },
+        properties: { className: ["sidenoteNumber"] },
         children: [{ type: "text", value: footnoteNumber }],
       },
       ...content,

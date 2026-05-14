@@ -10,7 +10,7 @@
 }
 
 /* [PROGRESSIVE-ENHANCEMENT] hide theme switcher when JS is disabled */
-:global(.no-js) .container {
+:global(.noJs) .container {
   display: none;
 }
 

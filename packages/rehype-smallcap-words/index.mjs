@@ -11,7 +11,7 @@
 
 import { visit, EXIT } from "unist-util-visit"
 
-const LEADING_WORDS_CLASS = "leading-words"
+const LEADING_WORDS_CLASS = "leadingWords"
 
 /**
  * split a string into the first N words and the rest.

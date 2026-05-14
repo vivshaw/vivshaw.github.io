@@ -1,13 +1,13 @@
 /* ===== breakpoints ===== */
 
 @define-mixin tablet {
-  @media (min-width: 541px) {
+  @media (width >= 541px) {
     @mixin-content;
   }
 }
 
 @define-mixin desktop {
-  @media (min-width: 736px) {
+  @media (width >= 736px) {
     @mixin-content;
   }
 }
@@ -15,24 +15,24 @@
 /* ===== themes ===== */
 
 @define-mixin dark-theme {
-  :global(.basalt-dark) & {
+  :global(.basaltDark) & {
     @mixin-content;
   }
 
   @media (prefers-color-scheme: dark) {
-    :global(html:not(.basalt-dark, .basalt-light)) & {
+    :global(html:not(.basaltDark, .basaltLight)) & {
       @mixin-content;
     }
   }
 }
 
 @define-mixin light-theme {
-  :global(.basalt-light) & {
+  :global(.basaltLight) & {
     @mixin-content;
   }
 
   @media (prefers-color-scheme: light) {
-    :global(html:not(.basalt-dark, .basalt-light)) & {
+    :global(html:not(.basaltDark, .basaltLight)) & {
       @mixin-content;
     }
   }
