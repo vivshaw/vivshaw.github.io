@@ -18,7 +18,7 @@ config.autoAddCss = false
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
-  themeColor: "#111214", // Basalt's `--basalt-color-base-700`
+  themeColor: "#111214", // Basalt's `--basalt-color-base-900`
 }
 
 export const metadata: Metadata = {

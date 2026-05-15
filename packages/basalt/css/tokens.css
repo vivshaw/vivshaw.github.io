@@ -3,51 +3,51 @@
     /* ===== colors ===== */
 
     /* base colors */
-    --basalt-color-base-50: #fafafb;
-    --basalt-color-base-100: #f5f5f4;
-    --basalt-color-base-200: #c7ccd1;
-    --basalt-color-base-300: #b7bdb4;
-    --basalt-color-base-400: #73737a;
-    --basalt-color-base-500: #484a53;
-    --basalt-color-base-550: #28282b;
-    --basalt-color-base-600: #1d2126;
-    --basalt-color-base-700: #111214;
-    --basalt-color-base-800: #08080a;
+    --basalt-color-base-100: #fafafb;
+    --basalt-color-base-200: #f5f5f4;
+    --basalt-color-base-300: #c7ccd1;
+    --basalt-color-base-400: #b7bdb4;
+    --basalt-color-base-500: #73737a;
+    --basalt-color-base-600: #484a53;
+    --basalt-color-base-700: #28282b;
+    --basalt-color-base-800: #1d2126;
+    --basalt-color-base-900: #111214;
+    --basalt-color-base-1000: #08080a;
 
     /* semantic colors & theming */
 
     /*
- * themes define a set of semantic color tokens, that change with the theme.
- * base color tokens remain unchanged.
- *
- * available semantic tokens:
- *  --basalt-color-accent-default
- *  --basalt-color-background-default
- *  --basalt-color-background-secondary
- *  --basalt-color-border-default
- *  --basalt-color-border-muted
- *  --basalt-color-text-default
- *  --basalt-color-text-muted
- */
+     * themes define a set of semantic color tokens, that change with the theme.
+     * base color tokens remain unchanged.
+     *
+     * available semantic tokens:
+     *  --basalt-color-accent-default
+     *  --basalt-color-background-default
+     *  --basalt-color-background-secondary
+     *  --basalt-color-border-default
+     *  --basalt-color-border-muted
+     *  --basalt-color-text-default
+     *  --basalt-color-text-muted
+     */
 
     @define-mixin light-theme {
-      --basalt-color-accent-default: var(--basalt-color-base-550);
-      --basalt-color-background-default: var(--basalt-color-base-100);
-      --basalt-color-background-secondary: var(--basalt-color-base-50);
-      --basalt-color-border-default: var(--basalt-color-base-800);
-      --basalt-color-border-muted: var(--basalt-color-base-400);
-      --basalt-color-text-default: var(--basalt-color-base-800);
-      --basalt-color-text-muted: var(--basalt-color-base-400);
+      --basalt-color-accent-default: var(--basalt-color-base-700);
+      --basalt-color-background-default: var(--basalt-color-base-200);
+      --basalt-color-background-secondary: var(--basalt-color-base-100);
+      --basalt-color-border-default: var(--basalt-color-base-1000);
+      --basalt-color-border-muted: var(--basalt-color-base-500);
+      --basalt-color-text-default: var(--basalt-color-base-1000);
+      --basalt-color-text-muted: var(--basalt-color-base-500);
     }
 
     @define-mixin dark-theme {
-      --basalt-color-accent-default: var(--basalt-color-base-300);
-      --basalt-color-background-default: var(--basalt-color-base-700);
-      --basalt-color-background-secondary: var(--basalt-color-base-600);
-      --basalt-color-border-default: var(--basalt-color-base-200);
-      --basalt-color-border-muted: var(--basalt-color-base-400);
-      --basalt-color-text-default: var(--basalt-color-base-200);
-      --basalt-color-text-muted: var(--basalt-color-base-400);
+      --basalt-color-accent-default: var(--basalt-color-base-400);
+      --basalt-color-background-default: var(--basalt-color-base-900);
+      --basalt-color-background-secondary: var(--basalt-color-base-800);
+      --basalt-color-border-default: var(--basalt-color-base-300);
+      --basalt-color-border-muted: var(--basalt-color-base-500);
+      --basalt-color-text-default: var(--basalt-color-base-300);
+      --basalt-color-text-muted: var(--basalt-color-base-500);
     }
 
     &.basaltLight {
@@ -101,15 +101,15 @@
     /* semantic font sizes */
 
     /*
-   * (note: semantic font sizes are also responsive.)
-   *
-   * available semantic font sizes:
-   *  --basalt-font-size-small
-   *  --basalt-font-size-body
-   *  --basalt-font-size-heading1
-   *  --basalt-font-size-heading2
-   *  --basalt-font-size-heading3
-   */
+     * (note: semantic font sizes are also responsive.)
+     *
+     * available semantic font sizes:
+     *  --basalt-font-size-small
+     *  --basalt-font-size-body
+     *  --basalt-font-size-heading1
+     *  --basalt-font-size-heading2
+     *  --basalt-font-size-heading3
+     */
     --basalt-font-size-small: var(--basalt-font-size-100);
     --basalt-font-size-body: var(--basalt-font-size-300);
     --basalt-font-size-heading1: var(--basalt-font-size-500);
@@ -129,10 +129,10 @@
     /* easing functions */
 
     /*
-   * these easing functions courtesy of Emil Kowalski, and in turn courtesy
-   * of Benjamin De Cock.
-   * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
-   */
+     * these easing functions courtesy of Emil Kowalski, and in turn courtesy
+     * of Benjamin De Cock.
+     * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
+     */
     --basalt-motion-ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
     --basalt-motion-ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
     --basalt-motion-ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -143,13 +143,13 @@
     /* transitions */
 
     /*
-   * each transition is defined in two ways:
-   * 1. as a list of longhand values
-   * 2. as a shorthand string
-   *
-   * that's a workaround for this annoying lightningcss limitation:
-   * https://github.com/parcel-bundler/lightningcss/issues/194
-   */
+     * each transition is defined in two ways:
+     * 1. as a list of longhand values
+     * 2. as a shorthand string
+     *
+     * that's a workaround for this annoying lightningcss limitation:
+     * https://github.com/parcel-bundler/lightningcss/issues/194
+     */
     --basalt-motion-transition-theme-property: background, color;
     --basalt-motion-transition-theme-duration: 0.25s;
     --basalt-motion-transition-theme-timing: var(

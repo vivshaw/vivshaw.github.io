@@ -16,17 +16,16 @@ const channel = addons.getChannel()
 
 // Basalt color palette
 const palette = {
-  "base-50": "#ffffff",
-  "base-100": "#f5f5f4",
-  "base-200": "#c7ccd1",
-  "base-300": "#b7bdb4",
-  "base-400": "#73737a",
-  "base-500": "#484a53",
-  "base-550": "#28282b",
-  "base-600": "#1d2126",
-  "base-700": "#111214",
-  "base-800": "#08080a",
-  "base-900": "#000000",
+  "base-100": "#fafafb",
+  "base-200": "#f5f5f4",
+  "base-300": "#c7ccd1",
+  "base-400": "#b7bdb4",
+  "base-500": "#73737a",
+  "base-600": "#484a53",
+  "base-700": "#28282b",
+  "base-800": "#1d2126",
+  "base-900": "#111214",
+  "base-1000": "#08080a",
 }
 
 // Basalt Storybook themes
@@ -35,29 +34,29 @@ const basaltLight = create({
   base: "light",
 
   // brand
-  colorPrimary: palette["base-550"],
-  colorSecondary: palette["base-500"],
+  colorPrimary: palette["base-700"],
+  colorSecondary: palette["base-600"],
 
   // UI backgrounds
-  appBg: palette["base-100"],
-  appContentBg: palette["base-100"],
-  appPreviewBg: palette["base-100"],
-  appBorderColor: palette["base-300"],
+  appBg: palette["base-200"],
+  appContentBg: palette["base-200"],
+  appPreviewBg: palette["base-200"],
+  appBorderColor: palette["base-400"],
 
   // text
-  textColor: palette["base-900"],
-  textInverseColor: palette["base-50"],
+  textColor: palette["base-1000"],
+  textInverseColor: palette["base-100"],
 
   // toolbar
-  barBg: palette["base-100"],
-  barTextColor: palette["base-900"],
-  barSelectedColor: palette["base-550"],
-  barHoverColor: palette["base-500"],
+  barBg: palette["base-200"],
+  barTextColor: palette["base-1000"],
+  barSelectedColor: palette["base-700"],
+  barHoverColor: palette["base-600"],
 
   // form inputs
-  inputBg: palette["base-50"],
-  inputBorder: palette["base-300"],
-  inputTextColor: palette["base-900"],
+  inputBg: palette["base-100"],
+  inputBorder: palette["base-400"],
+  inputTextColor: palette["base-1000"],
 })
 
 const basaltDark = create({
@@ -65,29 +64,29 @@ const basaltDark = create({
   base: "dark",
 
   // brand
-  colorPrimary: palette["base-300"],
-  colorSecondary: palette["base-400"],
+  colorPrimary: palette["base-400"],
+  colorSecondary: palette["base-500"],
 
   // UI backgrounds
-  appBg: palette["base-700"],
-  appContentBg: palette["base-700"],
-  appPreviewBg: palette["base-700"],
-  appBorderColor: palette["base-500"],
+  appBg: palette["base-900"],
+  appContentBg: palette["base-900"],
+  appPreviewBg: palette["base-900"],
+  appBorderColor: palette["base-600"],
 
   // text
-  textColor: palette["base-200"],
-  textInverseColor: palette["base-900"],
+  textColor: palette["base-300"],
+  textInverseColor: palette["base-1000"],
 
   // toolbar
-  barBg: palette["base-700"],
-  barTextColor: palette["base-200"],
-  barSelectedColor: palette["base-300"],
-  barHoverColor: palette["base-400"],
+  barBg: palette["base-900"],
+  barTextColor: palette["base-300"],
+  barSelectedColor: palette["base-400"],
+  barHoverColor: palette["base-500"],
 
   // Form inputs
-  inputBg: palette["base-600"],
-  inputBorder: palette["base-500"],
-  inputTextColor: palette["base-200"],
+  inputBg: palette["base-800"],
+  inputBorder: palette["base-600"],
+  inputTextColor: palette["base-300"],
 })
 
 /**

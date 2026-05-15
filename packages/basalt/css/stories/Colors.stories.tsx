@@ -4,16 +4,16 @@ import { Heading, Text } from "../.."
 import styles from "./stories.module.css"
 
 const palette = {
-  "base-50": "#fafafb",
-  "base-100": "#f5f5f4",
-  "base-200": "#c7ccd1",
-  "base-300": "#b7bdb4",
-  "base-400": "#73737a",
-  "base-500": "#484a53",
-  "base-550": "#28282b",
-  "base-600": "#1d2126",
-  "base-700": "#111214",
-  "base-800": "#08080a",
+  "base-100": "#fafafb",
+  "base-200": "#f5f5f4",
+  "base-300": "#c7ccd1",
+  "base-400": "#b7bdb4",
+  "base-500": "#73737a",
+  "base-600": "#484a53",
+  "base-700": "#28282b",
+  "base-800": "#1d2126",
+  "base-900": "#111214",
+  "base-1000": "#08080a",
 }
 
 const semanticColors = {
@@ -53,16 +53,16 @@ function ColorSwatch({
 
 function PaletteStrip() {
   const shades = [
-    { name: "50", value: palette["base-50"] },
     { name: "100", value: palette["base-100"] },
     { name: "200", value: palette["base-200"] },
     { name: "300", value: palette["base-300"] },
     { name: "400", value: palette["base-400"] },
     { name: "500", value: palette["base-500"] },
-    { name: "550", value: palette["base-550"] },
     { name: "600", value: palette["base-600"] },
     { name: "700", value: palette["base-700"] },
     { name: "800", value: palette["base-800"] },
+    { name: "900", value: palette["base-900"] },
+    { name: "1000", value: palette["base-1000"] },
   ]
 
   return (
@@ -76,7 +76,7 @@ function PaletteStrip() {
           <span
             className={styles.monoSmall}
             style={{
-              color: Number(name) >= 500 ? "#fff" : "#000",
+              color: Number(name) >= 600 ? "#fff" : "#000",
               opacity: 0.8,
             }}
           >
@@ -101,8 +101,8 @@ function ColorsDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Neutral Palette</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          The underlying color scale from lightest (50) to darkest (800). These
-          values are consistent across themes.
+          The underlying color scale from lightest (100) to darkest (1000).
+          These values are consistent across themes.
         </Text>
         <PaletteStrip />
       </section>
