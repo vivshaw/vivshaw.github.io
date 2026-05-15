@@ -3,9 +3,9 @@
     @mixin text-body;
     @mixin font-serif;
 
-    color: var(--basalt-color-text-default);
-    margin-bottom: var(--basalt-sizing-6);
     padding-left: var(--basalt-sizing-8);
+    margin-bottom: var(--basalt-sizing-6);
+    color: var(--basalt-color-text-default);
 
     & ol,
     & ul {

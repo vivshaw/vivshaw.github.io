@@ -3,11 +3,11 @@
     --mdx-body-padding: var(--basalt-sizing-5);
 
     position: relative;
-    margin: 0 auto;
     max-width: 100%;
-    padding-left: var(--mdx-body-padding);
     padding-right: var(--mdx-body-padding);
     padding-bottom: var(--basalt-sizing-20);
+    padding-left: var(--mdx-body-padding);
+    margin: 0 auto;
 
     @mixin desktop {
       --mdx-body-padding: 0;
@@ -20,12 +20,12 @@
 
     & sup:has([data-footnote-ref]),
     & sup[data-footnote-ref] {
-      line-height: 0;
-      vertical-align: baseline;
-      font-size: 0.85em;
       position: relative;
       top: -0.5em;
       margin-left: 0.1em;
+      font-size: 0.85em;
+      line-height: 0;
+      vertical-align: baseline;
     }
 
     /*
@@ -56,10 +56,10 @@
     /* ===== footnote backlinks ===== */
 
     & [data-footnote-backref] {
-      font-size: 0.75em;
       margin-left: var(--basalt-sizing-1);
-      opacity: 0.5;
+      font-size: 0.75em;
       color: inherit;
+      opacity: 0.5;
       transition: opacity 0.15s var(--basalt-motion-ease-in-quad);
 
       &:visited {
@@ -71,21 +71,21 @@
       }
 
       &:focus-visible {
-        opacity: 1;
         outline: var(--basalt-sizing-half) solid
           var(--basalt-color-accent-default);
         outline-offset: var(--basalt-sizing-half);
         border-radius: var(--basalt-sizing-radius-small);
+        opacity: 1;
       }
     }
 
     /* ===== footnote section ===== */
 
     & :global(.footnotes) h2 {
-      margin-bottom: var(--basalt-sizing-4);
       padding-top: var(--basalt-sizing-10);
-      background-position: top;
+      margin-bottom: var(--basalt-sizing-4);
       background-repeat: repeat-x;
+      background-position: top;
 
       @mixin dark-theme {
         background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.432617' y='13.8564' width='16' height='1' transform='rotate(-60 0.432617 13.8564)' fill='%2350525B'/%3E%3C/svg%3E");
@@ -135,27 +135,27 @@
           20rem
         );
 
-        display: inline;
         float: right;
         clear: right;
+        display: inline;
         width: var(--sidenote-width);
-        margin-right: calc(-1 * var(--sidenote-width) - 1.5rem);
-        margin-top: 0;
-        margin-bottom: 1rem;
         padding-right: 1rem;
-
-        /* typography */
-        color: var(--basalt-color-text-muted);
+        margin-top: 0;
+        margin-right: calc(-1 * var(--sidenote-width) - 1.5rem);
+        margin-bottom: 1rem;
         font-family: var(--basalt-font-sans);
         font-size: var(--basalt-font-size-100);
         line-height: var(--basalt-line-height-body);
+
+        /* typography */
+        color: var(--basalt-color-text-muted);
       }
     }
 
     /* sidenote number label */
     & :global(.sidenoteNumber) {
-      font-weight: var(--basalt-font-weight-bold);
       margin-right: var(--basalt-sizing-1);
+      font-weight: var(--basalt-font-weight-bold);
     }
 
     /* ===== inline code ===== */
@@ -165,11 +165,11 @@
      * code blocks. we need to target only inline code (code not inside pre).
      */
     & :not(pre) > code {
-      background: rgb(101 117 133 / 16%);
-      border-radius: var(--basalt-sizing-radius-default);
+      padding: var(--basalt-sizing-half) var(--basalt-sizing-1);
       font-family: var(--basalt-font-monospace);
       font-size: 0.875em;
-      padding: var(--basalt-sizing-half) var(--basalt-sizing-1);
+      background: rgb(101 117 133 / 16%);
+      border-radius: var(--basalt-sizing-radius-default);
     }
 
     /* ===== images ===== */
@@ -186,11 +186,11 @@
 
     /* stylelint-disable-next-line selector-class-pattern */
     & :global(.markdown-alert) {
-      margin: 0 0 var(--basalt-sizing-6);
       padding: var(--basalt-sizing-2) var(--basalt-sizing-4)
         var(--basalt-sizing-2) var(--basalt-sizing-5);
-      background-position: left;
+      margin: 0 0 var(--basalt-sizing-6);
       background-repeat: repeat-y;
+      background-position: left;
 
       @mixin dark-theme {
         background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='12' height='1.5' transform='rotate(60 0 0)' fill='%2350525B'/%3E%3C/svg%3E");
@@ -212,21 +212,21 @@
     /* stylelint-disable-next-line selector-class-pattern */
     & :global(.markdown-alert-title) {
       display: flex;
-      align-items: center;
       gap: var(--basalt-sizing-1-half);
+      align-items: center;
+      margin-bottom: var(--basalt-sizing-2);
       font-family: var(--basalt-font-sans);
       font-size: var(--basalt-font-size-100);
       font-style: normal;
       font-weight: var(--basalt-font-weight-normal);
-      text-transform: none;
-      margin-bottom: var(--basalt-sizing-2);
       color: var(--basalt-color-text-muted);
+      text-transform: none;
 
       & svg {
+        flex-shrink: 0;
         width: 1em;
         height: 1em;
         fill: currentColor;
-        flex-shrink: 0;
       }
     }
   }
@@ -240,10 +240,10 @@
   .body > :global(div:has(> pre)),
   .body > :global(p:has(> img)),
   .body > :global(div:has(> table)) {
-    margin-left: calc(-1 * var(--mdx-body-padding));
-    margin-right: calc(-1 * var(--mdx-body-padding));
     width: calc(100% + 2 * var(--mdx-body-padding));
     max-width: calc(100% + 2 * var(--mdx-body-padding));
+    margin-right: calc(-1 * var(--mdx-body-padding));
+    margin-left: calc(-1 * var(--mdx-body-padding));
   }
 
   /* ===== leading small caps ===== */

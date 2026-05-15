@@ -1,8 +1,8 @@
 @layer basalt-mdx {
   /* container for Shiki code blocks- holds the language label */
   .container {
-    margin-bottom: var(--basalt-sizing-6);
     position: relative;
+    margin-bottom: var(--basalt-sizing-6);
 
     @mixin desktop {
       margin-bottom: var(--basalt-sizing-8);
@@ -11,25 +11,25 @@
 
   /* language label in top right corner- on container so it doesn't scroll */
   .container::after {
-    content: attr(data-language);
+    position: absolute;
+    top: var(--basalt-sizing-2);
+    right: var(--basalt-sizing-2);
     font-family: var(--basalt-font-sans);
     font-size: 0.75rem;
     letter-spacing: 0.05em;
-    opacity: 0.5;
     pointer-events: none;
-    position: absolute;
-    right: var(--basalt-sizing-2);
-    top: var(--basalt-sizing-2);
+    content: attr(data-language);
+    opacity: 0.5;
   }
 
   /* base styles for Shiki code blocks */
   .codeBlock {
+    width: 100%;
+    padding: var(--basalt-sizing-4);
+    overflow: auto;
     font-size: var(--basalt-font-size-100);
     line-height: var(--basalt-line-height-body);
-    overflow: auto;
-    padding: var(--basalt-sizing-4);
     text-size-adjust: none;
-    width: 100%;
 
     @mixin desktop {
       border-radius: var(--basalt-sizing-radius-small);
@@ -60,13 +60,13 @@
 
     /* diff notation - use [!code ++] and [!code --] in code blocks */
     & :global(.line.diff) {
-      padding-left: var(--basalt-sizing-6);
       position: relative;
+      padding-left: var(--basalt-sizing-6);
     }
 
     & :global(.line.diff)::before {
-      left: 0;
       position: absolute;
+      left: 0;
       width: var(--basalt-sizing-6);
     }
 

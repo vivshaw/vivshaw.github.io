@@ -1,67 +1,67 @@
 /* Equity B — serif */
 @font-face {
   font-family: basalt-serif;
+  font-style: normal;
+  font-weight: 400;
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_regular.woff2");
   font-display: swap;
-  font-style: normal;
-  font-weight: 400;
 }
 
 @font-face {
   font-family: basalt-serif;
+  font-style: italic;
+  font-weight: 400;
   src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_italic.woff2");
   font-display: swap;
-  font-style: italic;
-  font-weight: 400;
 }
 
 @font-face {
   font-family: basalt-serif;
-  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold.woff2");
-  font-display: swap;
   font-style: normal;
   font-weight: 700;
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold.woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: basalt-serif;
-  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold_italic.woff2");
-  font-display: swap;
   font-style: italic;
   font-weight: 700;
+  src: url("https://fonts.vivsha.ws/fonts/Equity_B/equity_ot_b_bold_italic.woff2");
+  font-display: swap;
 }
 
 /* Concourse 3 — sans */
 @font-face {
   font-family: basalt-sans;
+  font-style: normal;
+  font-weight: 400;
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_regular.woff2");
   font-display: swap;
-  font-style: normal;
-  font-weight: 400;
 }
 
 @font-face {
   font-family: basalt-sans;
+  font-style: italic;
+  font-weight: 400;
   src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_italic.woff2");
   font-display: swap;
-  font-style: italic;
-  font-weight: 400;
 }
 
 @font-face {
   font-family: basalt-sans;
-  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold.woff2");
-  font-display: swap;
   font-style: normal;
   font-weight: 700;
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold.woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: basalt-sans;
-  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold_italic.woff2");
-  font-display: swap;
   font-style: italic;
   font-weight: 700;
+  src: url("https://fonts.vivsha.ws/fonts/Concourse_3/concourse_3_bold_italic.woff2");
+  font-display: swap;
 }
 
 /* serif fallback — Times New Roman */

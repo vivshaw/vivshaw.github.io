@@ -2,25 +2,24 @@
   .pill {
     @mixin focus-ring;
 
+    display: inline-flex;
+    gap: var(--basalt-sizing-1-half);
     align-items: center;
+    padding: var(--basalt-sizing-1) var(--basalt-sizing-2);
+    font-family: var(--basalt-font-sans);
+    font-size: var(--basalt-font-size-200);
+    color: var(--basalt-color-text-default);
     background: transparent;
     border: 1px solid
       color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
     border-radius: var(--basalt-sizing-radius-small);
-    color: var(--basalt-color-text-default);
-    display: inline-flex;
-    font-family: var(--basalt-font-sans);
-    font-size: var(--basalt-font-size-200);
-    gap: var(--basalt-sizing-1-half);
-    padding: var(--basalt-sizing-1) var(--basalt-sizing-2);
 
     /* hover state */
     opacity: 0.7;
-
-    &:hover,
-    &:focus-visible {
-      opacity: 1;
-    }
+    transition-timing-function: var(--basalt-motion-transition-hover-timing),
+      var(--basalt-motion-transition-theme-timing);
+    transition-duration: var(--basalt-motion-transition-hover-duration),
+      var(--basalt-motion-transition-theme-duration);
 
     /* motion */
 
@@ -31,9 +30,10 @@
    */
     transition-property: var(--basalt-motion-transition-hover-property),
       var(--basalt-motion-transition-theme-property);
-    transition-duration: var(--basalt-motion-transition-hover-duration),
-      var(--basalt-motion-transition-theme-duration);
-    transition-timing-function: var(--basalt-motion-transition-hover-timing),
-      var(--basalt-motion-transition-theme-timing);
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
   }
 } /* end @layer basalt-styles */

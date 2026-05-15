@@ -2,12 +2,12 @@
   .blockquote {
     @mixin font-serif;
 
-    background-position: left;
-    background-repeat: repeat-y;
-    color: var(--basalt-color-text-default);
-    font-style: italic;
-    margin: 0 auto var(--basalt-sizing-6);
     padding-left: var(--basalt-sizing-5);
+    margin: 0 auto var(--basalt-sizing-6);
+    font-style: italic;
+    color: var(--basalt-color-text-default);
+    background-repeat: repeat-y;
+    background-position: left;
     transition: var(--basalt-motion-transition-theme);
 
     @mixin desktop {

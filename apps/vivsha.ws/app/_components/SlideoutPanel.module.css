@@ -2,17 +2,17 @@
   @mixin focus-ring;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 36px;
   height: 36px;
   padding: var(--basalt-sizing-2);
-  margin-left: var(--basalt-sizing-4);
   margin-right: calc(-1 * var(--basalt-sizing-2));
+  margin-left: var(--basalt-sizing-4);
+  color: var(--basalt-color-text-default);
+  cursor: pointer;
   background: transparent;
   border: none;
-  cursor: pointer;
-  color: var(--basalt-color-text-default);
   opacity: 0.5;
   transition: opacity 0.3s ease;
 
@@ -32,20 +32,20 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  background: var(--basalt-color-background-secondary);
-  transform: translateX(100%);
-  transition:
-    transform 0.3s ease-in-out,
-    var(--basalt-motion-transition-theme);
   z-index: 11;
   display: flex;
   flex-direction: column;
+  width: 100vw;
   padding: var(--basalt-sizing-6);
   padding-top: var(--basalt-sizing-10);
   padding-right: var(--basalt-sizing-5);
   overflow-y: auto;
   font-family: var(--basalt-font-sans);
+  background: var(--basalt-color-background-secondary);
+  transform: translateX(100%);
+  transition:
+    transform 0.3s ease-in-out,
+    var(--basalt-motion-transition-theme);
 
   @mixin tablet {
     width: 28rem;
@@ -74,10 +74,10 @@
   justify-content: center;
   width: 36px;
   height: 36px;
+  color: var(--basalt-color-text-default);
+  cursor: pointer;
   background: transparent;
   border: none;
-  cursor: pointer;
-  color: var(--basalt-color-text-default);
   opacity: 0.5;
   transition: opacity 0.3s ease;
 
@@ -94,43 +94,43 @@
 }
 
 .section {
+  display: flex;
+  gap: var(--basalt-sizing-4);
+  align-items: flex-start;
+  justify-content: space-between;
   margin-top: var(--basalt-sizing-4);
   margin-bottom: var(--basalt-sizing-1);
   border-top: 1px solid
     color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
   border-bottom: 1px solid
     color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--basalt-sizing-4);
 }
 
 .sectionLabel {
-  color: var(--basalt-color-text-muted);
-  font-size: var(--basalt-font-size-300);
   padding-top: var(--basalt-sizing-1);
+  font-size: var(--basalt-font-size-300);
+  color: var(--basalt-color-text-muted);
 }
 
 .navList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
   text-align: right;
+  list-style: none;
 }
 
 .navLink {
   @mixin focus-ring;
 
-  color: var(--basalt-color-text-default);
-  font-size: var(--basalt-font-size-400);
-  line-height: var(--basalt-line-height-body);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
   display: block;
   padding: var(--basalt-sizing-1) 0;
+  font-size: var(--basalt-font-size-400);
+  line-height: var(--basalt-line-height-body);
+  color: var(--basalt-color-text-default);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 
   &:hover,
   &:focus-visible {
@@ -143,24 +143,24 @@
 }
 
 .socialList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .colophonLink {
   @mixin focus-ring;
 
+  padding-top: var(--basalt-sizing-6);
   margin-top: auto;
   margin-bottom: calc(-1 * var(--basalt-sizing-3));
-  padding-top: var(--basalt-sizing-6);
-  text-align: center;
   font-family: var(--basalt-font-sans);
   font-size: var(--basalt-font-size-100);
   color: var(--basalt-color-text-muted);
+  text-align: center;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 

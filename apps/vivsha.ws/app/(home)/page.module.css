@@ -1,22 +1,22 @@
 .homeWrapper {
-  align-items: center;
   display: flex;
   flex-direction: column;
-  height: var(--content-height);
+  align-items: center;
   justify-content: space-between;
+  height: var(--content-height);
   padding: var(--basalt-sizing-6);
 }
 
 .profileCard {
-  background-color: var(--basalt-color-background-default);
   display: flex;
   flex-direction: column;
   gap: var(--basalt-sizing-4);
-  height: fit-content;
-  margin-top: var(--basalt-sizing-16);
-  max-width: 450px;
-  padding: var(--basalt-sizing-4);
   width: fit-content;
+  max-width: 450px;
+  height: fit-content;
+  padding: var(--basalt-sizing-4);
+  margin-top: var(--basalt-sizing-16);
+  background-color: var(--basalt-color-background-default);
 
   @mixin tablet {
     padding: var(--basalt-sizing-6);
@@ -24,17 +24,17 @@
 }
 
 .fig {
-  align-items: center;
-  column-gap: var(--basalt-sizing-4);
   display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: auto;
   grid-template-areas:
     "avatar ."
     "avatar name"
     "avatar location"
     "avatar .";
+  grid-template-rows: auto;
+  grid-template-columns: min-content 1fr;
   row-gap: var(--basalt-sizing-2);
+  column-gap: var(--basalt-sizing-4);
+  align-items: center;
 }
 
 .figCap {
@@ -45,59 +45,59 @@
 }
 
 .avatar {
-  border-radius: var(--basalt-sizing-radius-squircle);
   grid-area: avatar;
+  width: 80px;
   height: 80px;
   object-fit: cover;
-  width: 80px;
+  border-radius: var(--basalt-sizing-radius-squircle);
 }
 
 .name {
-  color: var(--basalt-color-text-default);
+  grid-area: name;
   font-family: var(--basalt-font-sans);
   font-size: var(--basalt-font-size-400);
   font-weight: var(--basalt-font-weight-bold);
-  grid-area: name;
+  color: var(--basalt-color-text-default);
 }
 
 .location {
-  align-items: center;
   display: flex;
+  grid-area: location;
   gap: var(--basalt-sizing-2);
-  color: var(--basalt-color-text-default);
+  align-items: center;
   font-family: var(--basalt-font-sans);
   font-size: var(--basalt-font-size-200);
   font-weight: var(--basalt-font-weight-normal);
-  grid-area: location;
+  color: var(--basalt-color-text-default);
 }
 
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
   gap: var(--basalt-sizing-2);
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .socialIcon {
+  width: 14px;
   height: 14px;
   margin-top: 1px;
-  width: 14px;
 }
 
 .calloutCard {
-  align-self: center;
-  background-color: var(--basalt-color-background-default);
-  color: var(--basalt-color-text-default);
   display: flex;
   flex-direction: column;
+  gap: var(--basalt-sizing-1);
+  align-self: center;
+  width: 240px;
+  padding: var(--basalt-sizing-4);
   font-family: var(--basalt-font-sans);
   font-size: var(--basalt-font-size-100);
-  gap: var(--basalt-sizing-1);
   line-height: 1.5;
-  padding: var(--basalt-sizing-4);
-  width: 240px;
+  color: var(--basalt-color-text-default);
+  background-color: var(--basalt-color-background-default);
 
   @mixin desktop {
     align-self: flex-end;

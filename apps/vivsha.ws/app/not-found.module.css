@@ -1,22 +1,22 @@
 .wrapper {
-  align-items: center;
   display: flex;
   flex-direction: column;
-  height: var(--content-height);
+  align-items: center;
   justify-content: space-between;
+  height: var(--content-height);
   padding: var(--basalt-sizing-6);
 }
 
 .card {
-  background-color: var(--basalt-color-background-default);
   display: flex;
   flex-direction: column;
   gap: var(--basalt-sizing-4);
-  height: fit-content;
-  margin-top: var(--basalt-sizing-16);
-  max-width: 450px;
-  padding: var(--basalt-sizing-4) var(--basalt-sizing-4) var(--basalt-sizing-2);
   width: 100%;
+  max-width: 450px;
+  height: fit-content;
+  padding: var(--basalt-sizing-4) var(--basalt-sizing-4) var(--basalt-sizing-2);
+  margin-top: var(--basalt-sizing-16);
+  background-color: var(--basalt-color-background-default);
 
   @mixin tablet {
     padding: var(--basalt-sizing-6) var(--basalt-sizing-6)
@@ -27,10 +27,10 @@
 .heading {
   @mixin font-sans;
 
-  color: var(--basalt-color-text-default);
+  margin: 0;
   font-size: var(--basalt-font-size-500);
   font-weight: var(--basalt-font-weight-bold);
-  margin: 0;
+  color: var(--basalt-color-text-default);
 }
 
 .haiku {

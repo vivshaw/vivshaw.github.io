@@ -1,10 +1,10 @@
 @layer basalt-mdx {
   .tableHead {
-    border-collapse: collapse;
-    color: var(--basalt-color-text-default);
-    font-weight: var(--basalt-font-weight-bold);
     position: relative;
+    font-weight: var(--basalt-font-weight-bold);
+    color: var(--basalt-color-text-default);
     text-align: left;
+    border-collapse: collapse;
     transition: var(--basalt-motion-transition-theme);
   }
 } /* end @layer basalt-mdx */

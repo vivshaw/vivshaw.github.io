@@ -5,10 +5,10 @@
 .page {
   @mixin font-serif;
 
-  background-color: var(--basalt-color-background-default);
-  color: var(--basalt-color-text-default);
   min-height: 100vh;
   padding: var(--basalt-sizing-8);
+  color: var(--basalt-color-text-default);
+  background-color: var(--basalt-color-background-default);
 }
 
 .section {
@@ -18,13 +18,13 @@
 /* ===== text ===== */
 
 .lead {
-  color: var(--basalt-color-text-muted);
   margin-bottom: var(--basalt-sizing-12);
+  color: var(--basalt-color-text-muted);
 }
 
 .sectionDescription {
-  color: var(--basalt-color-text-muted);
   margin-bottom: var(--basalt-sizing-6);
+  color: var(--basalt-color-text-muted);
 }
 
 .textMuted {
@@ -38,51 +38,51 @@
 /* ===== mono / code ===== */
 
 .mono {
-  color: var(--basalt-color-text-muted);
   font-family: var(--basalt-font-monospace);
   font-size: var(--basalt-font-size-100);
+  color: var(--basalt-color-text-muted);
 }
 
 .monoSmall {
-  color: var(--basalt-color-text-muted);
   font-family: var(--basalt-font-monospace);
   font-size: 0.75rem;
+  color: var(--basalt-color-text-muted);
 }
 
 .codeBlock {
-  color: var(--basalt-color-text-muted);
   display: block;
+  margin-top: var(--basalt-sizing-4);
   font-family: var(--basalt-font-monospace);
   font-size: 0.75rem;
-  margin-top: var(--basalt-sizing-4);
+  color: var(--basalt-color-text-muted);
   white-space: pre-wrap;
 }
 
 /* ===== cards ===== */
 
 .card {
+  padding: var(--basalt-sizing-6);
   background-color: var(--basalt-color-background-secondary);
   border: 1px solid var(--basalt-color-border-muted);
   border-radius: var(--basalt-sizing-2);
-  padding: var(--basalt-sizing-6);
 }
 
 .cardHeader {
-  align-items: baseline;
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
   margin-bottom: var(--basalt-sizing-4);
 }
 
 .cardDescription {
-  color: var(--basalt-color-text-muted);
   margin-bottom: var(--basalt-sizing-4);
+  color: var(--basalt-color-text-muted);
 }
 
 .cardGrid {
   display: grid;
-  gap: var(--basalt-sizing-6);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--basalt-sizing-6);
 }
 
 /* ===== flex helpers ===== */
@@ -106,26 +106,26 @@
 }
 
 .row {
-  align-items: center;
   display: flex;
   gap: var(--basalt-sizing-4);
+  align-items: center;
 }
 
 .rowBaseline {
-  align-items: baseline;
   display: flex;
   gap: var(--basalt-sizing-4);
+  align-items: baseline;
 }
 
 /* ===== scale / swatch rows ===== */
 
 .scaleRow {
-  align-items: center;
-  background-color: var(--basalt-color-background-secondary);
-  border-radius: var(--basalt-sizing-2);
   display: flex;
   gap: var(--basalt-sizing-4);
+  align-items: center;
   padding: var(--basalt-sizing-3) var(--basalt-sizing-4);
+  background-color: var(--basalt-color-background-secondary);
+  border-radius: var(--basalt-sizing-2);
 }
 
 .label {
@@ -141,12 +141,12 @@
 }
 
 .weightGrid {
-  border-top: 1px solid var(--basalt-color-border-muted);
   display: grid;
-  gap: var(--basalt-sizing-4);
   grid-template-columns: repeat(2, 1fr);
-  margin-top: var(--basalt-sizing-6);
+  gap: var(--basalt-sizing-4);
   padding-top: var(--basalt-sizing-6);
+  margin-top: var(--basalt-sizing-6);
+  border-top: 1px solid var(--basalt-color-border-muted);
 }
 
 .weightSample {
@@ -161,42 +161,42 @@
 /* ===== color stories ===== */
 
 .paletteStrip {
-  border: 1px solid var(--basalt-color-border-muted);
-  border-radius: var(--basalt-sizing-2);
   display: flex;
   overflow: hidden;
+  border: 1px solid var(--basalt-color-border-muted);
+  border-radius: var(--basalt-sizing-2);
 }
 
 .paletteSwatch {
-  align-items: flex-end;
   display: flex;
   flex: 1;
-  height: var(--basalt-sizing-20);
+  align-items: flex-end;
   justify-content: center;
+  height: var(--basalt-sizing-20);
   padding-bottom: var(--basalt-sizing-2);
 }
 
 .colorSwatch {
+  flex-shrink: 0;
+  width: var(--basalt-sizing-16);
+  height: var(--basalt-sizing-16);
   border: 1px solid var(--basalt-color-border-muted);
   border-radius: var(--basalt-sizing-2);
-  flex-shrink: 0;
-  height: var(--basalt-sizing-16);
-  width: var(--basalt-sizing-16);
 }
 
 /* ===== spacing stories ===== */
 
 .spacingBar {
-  background-color: var(--basalt-color-accent-default);
-  border-radius: var(--basalt-sizing-half);
   flex-shrink: 0;
   height: var(--basalt-sizing-6);
+  background-color: var(--basalt-color-accent-default);
+  border-radius: var(--basalt-sizing-half);
 }
 
 .spacingBarLarge {
+  max-width: 100%;
+  height: var(--basalt-sizing-8);
   background-color: var(--basalt-color-accent-default);
   border-radius: var(--basalt-sizing-1);
-  height: var(--basalt-sizing-8);
-  max-width: 100%;
   opacity: 0.6;
 }

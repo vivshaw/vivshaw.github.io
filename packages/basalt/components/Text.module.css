@@ -2,8 +2,8 @@
   .text {
     font-weight: var(--basalt-font-weight-normal);
     hyphens: auto;
-    text-wrap: pretty;
     word-break: keep-all;
+    text-wrap: pretty;
 
     & strong {
       font-weight: bold;

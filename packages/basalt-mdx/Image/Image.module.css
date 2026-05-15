@@ -1,10 +1,10 @@
 @layer basalt-mdx {
   .image {
-    border-radius: 0;
     display: inline-block;
+    max-width: 100%;
     height: auto;
     margin: var(--basalt-sizing-0) auto var(--basalt-sizing-6);
-    max-width: 100%;
+    border-radius: 0;
 
     @mixin tablet {
       border-radius: var(--basalt-sizing-radius-small);

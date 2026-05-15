@@ -4,23 +4,23 @@
   }
 
   .table {
-    background: var(--basalt-color-background-secondary);
-    border-collapse: separate;
-    border-top: 1px solid var(--basalt-color-border-default);
-    border-bottom: 1px solid var(--basalt-color-border-default);
-    color: var(--basalt-color-text-default);
-    font-family: var(--basalt-font-sans);
-    line-height: 1.65;
+    position: relative;
+    width: 100%;
     margin: var(--basalt-sizing-4) 0 var(--basalt-sizing-6);
     overflow: hidden;
-    position: relative;
+    font-family: var(--basalt-font-sans);
+    line-height: 1.65;
+    color: var(--basalt-color-text-default);
+    border-collapse: separate;
+    background: var(--basalt-color-background-secondary);
+    border-top: 1px solid var(--basalt-color-border-default);
+    border-bottom: 1px solid var(--basalt-color-border-default);
     transition: var(--basalt-motion-transition-theme);
-    width: 100%;
 
     @mixin desktop {
+      margin: var(--basalt-sizing-4) 0 var(--basalt-sizing-8);
       border: 1px solid var(--basalt-color-border-default);
       border-radius: var(--basalt-sizing-radius-small);
-      margin: var(--basalt-sizing-4) 0 var(--basalt-sizing-8);
     }
   }
 } /* end @layer basalt-mdx */

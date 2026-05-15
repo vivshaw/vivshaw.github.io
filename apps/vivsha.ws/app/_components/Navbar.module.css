@@ -1,19 +1,19 @@
 .root {
-  height: var(--navbar-height);
-  align-items: center;
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "wordmark controls";
-  justify-content: space-between;
-  padding-top: var(--basalt-sizing-3);
-  padding-left: var(--basalt-sizing-4);
-  padding-right: var(--basalt-sizing-4);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 10;
+  display: grid;
+  grid-template-areas: "wordmark controls";
+  grid-template-rows: auto;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--navbar-height);
+  padding-top: var(--basalt-sizing-3);
+  padding-right: var(--basalt-sizing-4);
+  padding-left: var(--basalt-sizing-4);
   transform: translateY(0);
   transition: transform 0.3s ease-in-out;
 }
@@ -25,10 +25,10 @@
 .wordmarkLink {
   @mixin focus-ring;
 
-  color: var(--basalt-color-text-default);
+  grid-area: wordmark;
   font-size: var(--basalt-font-size-500);
   line-height: var(--basalt-line-height-heading);
-  grid-area: wordmark;
+  color: var(--basalt-color-text-default);
   transition: color 0.3s ease;
 
   &:hover,
@@ -38,9 +38,9 @@
 }
 
 .controls {
-  align-items: center;
   display: flex;
   grid-area: controls;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -50,26 +50,26 @@
   position: absolute;
   top: var(--navbar-height);
   left: var(--basalt-sizing-4);
+  z-index: 1;
   display: flex;
   gap: var(--basalt-sizing-4);
   list-style: none;
-  z-index: 1;
 
   @mixin tablet {
     position: static;
-    gap: var(--basalt-sizing-6);
     z-index: auto;
+    gap: var(--basalt-sizing-6);
   }
 }
 
 .link {
   @mixin focus-ring;
 
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-  color: var(--basalt-color-text-default);
   font-size: var(--basalt-font-size-300);
   line-height: var(--basalt-line-height-body);
+  color: var(--basalt-color-text-default);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 
   &:hover,
   &:focus-visible {

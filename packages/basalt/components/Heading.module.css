@@ -2,8 +2,8 @@
   .heading {
     @mixin font-serif;
 
-    color: var(--basalt-color-text-default);
     font-weight: var(--basalt-font-weight-normal);
+    color: var(--basalt-color-text-default);
     word-break: keep-all;
   }
 

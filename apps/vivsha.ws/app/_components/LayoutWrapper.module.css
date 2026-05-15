@@ -1,6 +1,6 @@
 .root {
-  background-color: var(--basalt-color-background-default);
   min-height: 100vh;
+  background-color: var(--basalt-color-background-default);
   transition: var(--basalt-motion-transition-theme);
 }
 

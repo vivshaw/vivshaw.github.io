@@ -1,12 +1,12 @@
 @layer basalt-reset {
   html {
-    background-color: var(--basalt-color-background-default);
     box-sizing: border-box;
-    color: var(--basalt-color-text-default);
-    cursor: default;
-    font-family: var(--basalt-font-serif);
     height: 100%;
     min-height: 100%;
+    font-family: var(--basalt-font-serif);
+    color: var(--basalt-color-text-default);
+    cursor: default;
+    background-color: var(--basalt-color-background-default);
     text-rendering: optimizeLegibility;
     transition: var(--basalt-motion-transition-theme);
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -18,15 +18,15 @@
   html *::before,
   html *::after {
     box-sizing: inherit;
-    font-size: inherit;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    font-size: inherit;
   }
 
   body {
     height: 100%;
-    margin: 0;
     min-height: 100%;
+    margin: 0;
   }
 
   article {
@@ -35,8 +35,8 @@
 
   button,
   a {
-    cursor: pointer;
     text-decoration: none;
+    cursor: pointer;
   }
 
   a:focus {
@@ -57,10 +57,10 @@
   textarea,
   select,
   button {
-    color: inherit;
     font-family: inherit;
     font-style: inherit;
     font-weight: inherit;
+    color: inherit;
   }
 
   code,
@@ -73,14 +73,14 @@
   fieldset,
   button {
     appearance: none;
+    outline: none;
     background: transparent;
     border: none;
-    outline: none;
   }
 
   table {
-    border-collapse: separate;
     border-spacing: 0;
+    border-collapse: separate;
   }
 
   audio:not([controls]) {

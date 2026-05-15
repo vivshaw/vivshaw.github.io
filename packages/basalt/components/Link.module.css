@@ -8,15 +8,15 @@
 
   /* decoration */
   .underline {
+    padding-bottom: 1px;
     background-image: linear-gradient(
       to bottom,
       var(--basalt-color-accent-default) 0%,
       var(--basalt-color-accent-default) 100%
     );
-    background-position: 0 100%;
     background-repeat: repeat-x;
+    background-position: 0 100%;
     background-size: 2px 2px;
-    padding-bottom: 1px;
 
     /* squiggly hover underline on hover */
     @mixin light-theme {
