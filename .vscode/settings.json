@@ -1,16 +1,15 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
+    "source.fixAll.oxc": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "stylelint.validate": ["css"],
   "css.validate": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "[mdx]": {
-    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }
