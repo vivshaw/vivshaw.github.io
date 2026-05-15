@@ -6,6 +6,7 @@ this is my website. it's a static site built with React. i use it for personal d
 
 ```sh
 yarn
+yarn prepare
 yarn dev
 ```
 
@@ -26,13 +27,14 @@ content lives outside the code in separate top-level folders, for a distraction-
 
 these scripts should be run from the monorepo root:
 
-| command           | what it does                       |
-| ----------------- | ---------------------------------- |
-| `yarn dev`        | start the Next.js dev server       |
-| `yarn build`      | build the static site              |
-| `yarn typecheck`  | typecheck all packages             |
-| `yarn format:all` | format everything with Prettier    |
-| `yarn new:post`   | scaffold a new blog post via hygen |
+| command          | what it does                       |
+| ---------------- | ---------------------------------- |
+| `yarn dev`       | start the Next.js dev server       |
+| `yarn build`     | build the static site              |
+| `yarn typecheck` | typecheck all packages             |
+| `yarn lint`      | lint everything with oxlint        |
+| `yarn format`    | format everything with oxfmt       |
+| `yarn new:post`  | scaffold a new blog post via hygen |
 
 see the individual packages for package-level commands.
 
