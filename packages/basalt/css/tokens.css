@@ -3,7 +3,7 @@
     /* ===== colors ===== */
 
     /* base colors */
-    --basalt-color-base-50: #fff;
+    --basalt-color-base-50: #fafafb;
     --basalt-color-base-100: #f5f5f4;
     --basalt-color-base-200: #c7ccd1;
     --basalt-color-base-300: #b7bdb4;
@@ -13,7 +13,6 @@
     --basalt-color-base-600: #1d2126;
     --basalt-color-base-700: #111214;
     --basalt-color-base-800: #08080a;
-    --basalt-color-base-900: #000;
 
     /* semantic colors & theming */
 
@@ -37,7 +36,7 @@
       --basalt-color-background-secondary: var(--basalt-color-base-50);
       --basalt-color-border-default: var(--basalt-color-base-800);
       --basalt-color-border-muted: var(--basalt-color-base-400);
-      --basalt-color-text-default: var(--basalt-color-base-900);
+      --basalt-color-text-default: var(--basalt-color-base-800);
       --basalt-color-text-muted: var(--basalt-color-base-400);
     }
 

@@ -4,7 +4,7 @@ import { Heading, Text } from "../.."
 import styles from "./stories.module.css"
 
 const palette = {
-  "base-50": "#ffffff",
+  "base-50": "#fafafb",
   "base-100": "#f5f5f4",
   "base-200": "#c7ccd1",
   "base-300": "#b7bdb4",
@@ -14,7 +14,6 @@ const palette = {
   "base-600": "#1d2126",
   "base-700": "#111214",
   "base-800": "#08080a",
-  "base-900": "#000000",
 }
 
 const semanticColors = {
@@ -64,7 +63,6 @@ function PaletteStrip() {
     { name: "600", value: palette["base-600"] },
     { name: "700", value: palette["base-700"] },
     { name: "800", value: palette["base-800"] },
-    { name: "900", value: palette["base-900"] },
   ]
 
   return (
@@ -103,7 +101,7 @@ function ColorsDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Neutral Palette</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          The underlying color scale from lightest (50) to darkest (900). These
+          The underlying color scale from lightest (50) to darkest (800). These
           values are consistent across themes.
         </Text>
         <PaletteStrip />
