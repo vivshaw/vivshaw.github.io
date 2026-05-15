@@ -1,51 +1,49 @@
-import fs from "fs/promises"
-import path from "path"
+import fs from "fs/promises";
+import path from "path";
 
-import { BlogFrontmatter, PageFrontmatter, PostMeta } from "#data"
+import { BlogFrontmatter, PageFrontmatter, PostMeta } from "#data";
 
-const isProduction = process.env.NODE_ENV === "production"
+const isProduction = process.env.NODE_ENV === "production";
 
 /**
  * lists all valid blog post slugs.
  * each subdirectory under `posts/` contains a blog post. the slugs are the subdirectory names.
  */
 export async function listAllBlogSlugs() {
-  const root = path.join(process.cwd(), "../../posts")
-  const allEntities = await fs.readdir(root, { withFileTypes: true })
-  const allDirectories = allEntities.filter((entity) => entity.isDirectory())
-  const allSlugs = allDirectories.map((dir) => dir.name)
+  const root = path.join(process.cwd(), "../../posts");
+  const allEntities = await fs.readdir(root, { withFileTypes: true });
+  const allDirectories = allEntities.filter((entity) => entity.isDirectory());
+  const allSlugs = allDirectories.map((dir) => dir.name);
 
-  if (!isProduction) return allSlugs
+  if (!isProduction) return allSlugs;
 
   const published = await Promise.all(
     allSlugs.map(async (slug) => {
-      const { meta } = await importBlogPost(slug)
-      return meta.draft ? null : slug
+      const { meta } = await importBlogPost(slug);
+      return meta.draft ? null : slug;
     }),
-  )
+  );
 
-  return published.filter((slug): slug is string => slug !== null)
+  return published.filter((slug): slug is string => slug !== null);
 }
 
 /**
  * imports a given blog post, returning both its content and metadata.
  */
 export async function importBlogPost(slug: string) {
-  const { default: PostContent, frontmatter } = await import(
-    `#/../../posts/${slug}/post.mdx`
-  )
+  const { default: PostContent, frontmatter } = await import(`#/../../posts/${slug}/post.mdx`);
 
-  const parsedFrontmatter = BlogFrontmatter.parse(frontmatter)
+  const parsedFrontmatter = BlogFrontmatter.parse(frontmatter);
   const postMeta = PostMeta.parse({
     ...parsedFrontmatter,
     date: new Date(frontmatter.date),
     slug,
-  })
+  });
 
   return {
     PostContent,
     meta: postMeta,
-  }
+  };
 }
 
 /**
@@ -53,35 +51,33 @@ export async function importBlogPost(slug: string) {
  * each subdirectory under `pages/` contains a page. the slugs are the subdirectory names.
  */
 export async function listAllPageSlugs() {
-  const root = path.join(process.cwd(), "../../pages")
-  const allEntities = await fs.readdir(root, { withFileTypes: true })
-  const allDirectories = allEntities.filter((entity) => entity.isDirectory())
-  const allSlugs = allDirectories.map((dir) => dir.name)
+  const root = path.join(process.cwd(), "../../pages");
+  const allEntities = await fs.readdir(root, { withFileTypes: true });
+  const allDirectories = allEntities.filter((entity) => entity.isDirectory());
+  const allSlugs = allDirectories.map((dir) => dir.name);
 
-  if (!isProduction) return allSlugs
+  if (!isProduction) return allSlugs;
 
   const published = await Promise.all(
     allSlugs.map(async (slug) => {
-      const { meta } = await importPage(slug)
-      return meta.draft ? null : slug
+      const { meta } = await importPage(slug);
+      return meta.draft ? null : slug;
     }),
-  )
+  );
 
-  return published.filter((slug): slug is string => slug !== null)
+  return published.filter((slug): slug is string => slug !== null);
 }
 
 /**
  * imports a standalone page, returning both its content and metadata.
  */
 export async function importPage(slug: string) {
-  const { default: PageContent, frontmatter } = await import(
-    `#/../../pages/${slug}/page.mdx`
-  )
+  const { default: PageContent, frontmatter } = await import(`#/../../pages/${slug}/page.mdx`);
 
-  const meta = PageFrontmatter.parse(frontmatter)
+  const meta = PageFrontmatter.parse(frontmatter);
 
   return {
     PageContent,
     meta,
-  }
+  };
 }

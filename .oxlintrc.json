@@ -53,10 +53,7 @@
     "react/rules-of-hooks": "error",
     "react/exhaustive-deps": "error",
     "import/no-duplicates": "error",
-    "import/no-unassigned-import": [
-      "error",
-      { "allow": ["**/*.css", "@vivshaw/basalt/css"] }
-    ],
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css", "@vivshaw/basalt/css"] }],
     "no-underscore-dangle": "off",
     "jsx-a11y/prefer-tag-over-role": "off",
     "react-perf/jsx-no-new-object-as-prop": "off",
@@ -76,12 +73,7 @@
       }
     },
     {
-      "files": [
-        "**/*.test.*",
-        "**/*.spec.*",
-        "**/*.stories.tsx",
-        "**/.storybook/**"
-      ],
+      "files": ["**/*.test.*", "**/*.spec.*", "**/*.stories.tsx", "**/.storybook/**"],
       "rules": {
         "typescript/no-explicit-any": "off"
       }

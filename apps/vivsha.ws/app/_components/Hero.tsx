@@ -1,10 +1,10 @@
-import { Heading } from "@vivshaw/basalt"
+import { Heading } from "@vivshaw/basalt";
 
-import styles from "./Hero.module.css"
+import styles from "./Hero.module.css";
 
 interface HeroProps {
-  title: string
-  subtitle?: string
+  title: string;
+  subtitle?: string;
 }
 
 /**
@@ -23,5 +23,5 @@ export function Hero({ title, subtitle }: HeroProps) {
         )}
       </Heading>
     </header>
-  )
+  );
 }

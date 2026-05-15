@@ -5,9 +5,9 @@ rehype plugin that transforms GFM-style footnotes into Tufte-style sidenotes. th
 ## usage
 
 ```js
-import rehypeSidenotes from "@vivshaw/rehype-sidenotes"
+import rehypeSidenotes from "@vivshaw/rehype-sidenotes";
 
-rehypePlugins: [rehypeSidenotes]
+rehypePlugins: [rehypeSidenotes];
 ```
 
 ## what it does

@@ -1,25 +1,26 @@
 /** layers need to load first so that CSS precedence is correct */
-import "./layers.css"
-import "@vivshaw/basalt/css"
-import "./globalVars.css"
+import "./layers.css";
+import "@vivshaw/basalt/css";
+import "./globalVars.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
-import { config } from "@fortawesome/fontawesome-svg-core"
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
-import type { Viewport } from "next"
-import type { Metadata } from "next/types"
+import type { Viewport } from "next";
+import type { Metadata } from "next/types";
 
-import { author, COLOR_MODE_STORAGE_KEY, site } from "#data"
-import { metadataHelper } from "#lib/metadataHelpers"
+import { config } from "@fortawesome/fontawesome-svg-core";
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt";
+
+import { author, COLOR_MODE_STORAGE_KEY, site } from "#data";
+import { metadataHelper } from "#lib/metadataHelpers";
 
 // prevent Font Awesome from auto-injecting CSS (i import it above)
 // i do this because the auto-injection was causing a flicker of weird sizing
-config.autoAddCss = false
+config.autoAddCss = false;
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
   themeColor: "#111214", // Basalt's `--basalt-color-base-900`
-}
+};
 
 export const metadata: Metadata = {
   ...metadataHelper({ type: "home" }),
@@ -71,23 +72,19 @@ export const metadata: Metadata = {
     // don't turn phone numbers into links
     "format-detection": "telephone=no",
   },
-}
+};
 
 /**
  * track whether JS is enabled, so we can do progressive enhancement stuff
  */
-const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('noJs','js')`
+const JS_DETECTION_SNIPPET = `document.documentElement.classList.replace('noJs','js')`;
 
 /**
  * executing this snippet as early as possible in the load of the document will ensure the color theme loads without a flash of unstyled content.
  */
-const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_THEME_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_THEME_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`
+const COLOR_MODE_SNIPPET = `((d)=>{try{var p=localStorage.getItem('${COLOR_MODE_STORAGE_KEY}');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) {document.documentElement.classList.add('${DARK_THEME_CLASS}'); console.warn("dark mode!");} else {document.documentElement.classList.add('${LIGHT_THEME_CLASS}'); console.warn("light mode!");}}catch(e){}})('dark')`;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -100,5 +97,5 @@ export default function RootLayout({
       </head>
       <body>{children}</body>
     </html>
-  )
+  );
 }

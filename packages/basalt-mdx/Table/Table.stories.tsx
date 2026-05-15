@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Table } from "./Table"
-import { TableCell } from "../TableCell/TableCell"
-import { TableHead } from "../TableHead/TableHead"
-import { TableHeadCell } from "../TableHeadCell/TableHeadCell"
+import { TableCell } from "../TableCell/TableCell";
+import { TableHead } from "../TableHead/TableHead";
+import { TableHeadCell } from "../TableHeadCell/TableHeadCell";
+import { Table } from "./Table";
 
 const meta: Meta<typeof Table> = {
   title: "Components/Table",
@@ -13,15 +13,14 @@ const meta: Meta<typeof Table> = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "styled table elements (`<table>`, `<thead>`, `<th>`, `<td>`), for use in MDX.",
+        component: "styled table elements (`<table>`, `<thead>`, `<th>`, `<td>`), for use in MDX.",
       },
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -49,4 +48,4 @@ export const Default: Story = {
       </>
     ),
   },
-}
+};

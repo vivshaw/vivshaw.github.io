@@ -1,16 +1,14 @@
-import { Feed } from "feed"
+import { Feed } from "feed";
 
-import { author, site } from "#data"
-import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
+import { author, site } from "#data";
+import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers";
 
 export async function GET() {
-  const postSlugs = await listAllBlogSlugs()
-  const posts = await Promise.all(postSlugs.map((post) => importBlogPost(post)))
+  const postSlugs = await listAllBlogSlugs();
+  const posts = await Promise.all(postSlugs.map((post) => importBlogPost(post)));
 
   // sort posts by date, newest first
-  const sortedPosts = posts.toSorted(
-    (a, b) => b.meta.date.getTime() - a.meta.date.getTime(),
-  )
+  const sortedPosts = posts.toSorted((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
 
   const feed = new Feed({
     author: {
@@ -28,10 +26,10 @@ export async function GET() {
     language: "en",
     link: site.url,
     title: site.name,
-  })
+  });
 
   for (const post of sortedPosts) {
-    const postUrl = `${site.url}/blog/${post.meta.slug}`
+    const postUrl = `${site.url}/blog/${post.meta.slug}`;
 
     feed.addItem({
       author: [
@@ -46,14 +44,14 @@ export async function GET() {
       id: postUrl,
       link: postUrl,
       title: post.meta.title,
-    })
+    });
   }
 
   return new Response(feed.rss2(), {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
     },
-  })
+  });
 }
 
-export const dynamic = "force-static"
+export const dynamic = "force-static";

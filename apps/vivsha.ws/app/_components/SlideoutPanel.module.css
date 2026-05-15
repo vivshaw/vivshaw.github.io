@@ -100,10 +100,8 @@
   justify-content: space-between;
   margin-top: var(--basalt-sizing-4);
   margin-bottom: var(--basalt-sizing-1);
-  border-top: 1px solid
-    color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--basalt-color-border-muted) 30%, transparent);
 }
 
 .sectionLabel {

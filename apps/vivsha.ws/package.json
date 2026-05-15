@@ -1,18 +1,22 @@
 {
   "name": "@vivshaw/vivsha.ws",
+  "private": true,
   "description": "vivshaw's webbed sight",
   "homepage": "https://vivsha.ws",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vivshaw/vivshaw.github.io.git"
-  },
-  "private": true,
   "license": "MIT",
   "author": {
     "name": "vivshaw",
     "email": "hey@vivsha.ws",
     "url": "https://vivsha.ws"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivshaw/vivshaw.github.io.git"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -54,9 +58,5 @@
   },
   "resolutions": {
     "@types/react": "19.0.2"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  }
 }

@@ -71,8 +71,7 @@
       }
 
       &:focus-visible {
-        outline: var(--basalt-sizing-half) solid
-          var(--basalt-color-accent-default);
+        outline: var(--basalt-sizing-half) solid var(--basalt-color-accent-default);
         outline-offset: var(--basalt-sizing-half);
         border-radius: var(--basalt-sizing-radius-small);
         opacity: 1;
@@ -129,11 +128,7 @@
        * margin-right = -(width + gap) so the float takes up zero content space.
        */
       @media screen and (width >= 67rem) {
-        --sidenote-width: clamp(
-          10rem,
-          calc((100vw - 42rem) / 2 - 2.5rem),
-          20rem
-        );
+        --sidenote-width: clamp(10rem, calc((100vw - 42rem) / 2 - 2.5rem), 20rem);
 
         float: right;
         clear: right;
@@ -186,8 +181,8 @@
 
     /* stylelint-disable-next-line selector-class-pattern */
     & :global(.markdown-alert) {
-      padding: var(--basalt-sizing-2) var(--basalt-sizing-4)
-        var(--basalt-sizing-2) var(--basalt-sizing-5);
+      padding: var(--basalt-sizing-2) var(--basalt-sizing-4) var(--basalt-sizing-2)
+        var(--basalt-sizing-5);
       margin: 0 0 var(--basalt-sizing-6);
       background-repeat: repeat-y;
       background-position: left;

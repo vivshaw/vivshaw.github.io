@@ -1,6 +1,7 @@
-import { defaultCache } from "@serwist/next/worker"
-import { Serwist } from "serwist"
-import type { PrecacheEntry, SerwistGlobalConfig } from "serwist"
+import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
+
+import { defaultCache } from "@serwist/next/worker";
+import { Serwist } from "serwist";
 
 // this declares the value of `injectionPoint` to TypeScript.
 // `injectionPoint` is the string that will be replaced by the
@@ -8,11 +9,11 @@ import type { PrecacheEntry, SerwistGlobalConfig } from "serwist"
 // `"self.__SW_MANIFEST"`.
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
-    __SW_MANIFEST: (PrecacheEntry | string)[] | undefined
+    __SW_MANIFEST: (PrecacheEntry | string)[] | undefined;
   }
 }
 
-declare const self: ServiceWorkerGlobalScope
+declare const self: ServiceWorkerGlobalScope;
 
 const serwist = new Serwist({
   precacheEntries: self.__SW_MANIFEST,
@@ -20,6 +21,6 @@ const serwist = new Serwist({
   clientsClaim: true,
   navigationPreload: true,
   runtimeCaching: defaultCache,
-})
+});
 
-serwist.addEventListeners()
+serwist.addEventListeners();

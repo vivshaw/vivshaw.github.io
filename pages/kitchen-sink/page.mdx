@@ -84,12 +84,12 @@ Here is a JavaScript code block:
 
 ```javascript
 function fibonacci(n) {
-  if (n <= 1) return n
-  return fibonacci(n - 1) + fibonacci(n - 2)
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-const result = fibonacci(10)
-console.log(result) // 55
+const result = fibonacci(10);
+console.log(result); // 55
 ```
 
 ### Line Highlighting
@@ -98,13 +98,13 @@ Use `[!code highlight]` to highlight specific lines:
 
 ```typescript
 interface User {
-  id: number
-  name: string // [!code highlight]
-  email: string // [!code highlight]
+  id: number;
+  name: string; // [!code highlight]
+  email: string; // [!code highlight]
 }
 
 function greet(user: User) {
-  return `Hello, ${user.name}!`
+  return `Hello, ${user.name}!`;
 }
 ```
 
@@ -217,13 +217,13 @@ const veryLongVariableName = someFunction(
   argumentThree,
   argumentFour,
   argumentFive,
-)
+);
 
 function anotherExample() {
   return {
     property:
       "This object literal has a very long string value that extends beyond the normal width",
-  }
+  };
 }
 ```
 

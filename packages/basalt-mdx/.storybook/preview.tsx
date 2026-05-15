@@ -1,18 +1,15 @@
 // import Basalt CSS first (fonts + tokens + reset)
-import "@vivshaw/basalt/css"
+import "@vivshaw/basalt/css";
 
-import {
-  DocsContainer as BaseContainer,
-  type DocsContainerProps,
-} from "@storybook/blocks"
-import { addons } from "@storybook/preview-api"
-import { type Preview } from "@storybook/react"
-import { create, themes } from "@storybook/theming"
-import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt"
-import React, { useEffect, useState } from "react"
-import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode"
+import { DocsContainer as BaseContainer, type DocsContainerProps } from "@storybook/blocks";
+import { addons } from "@storybook/preview-api";
+import { type Preview } from "@storybook/react";
+import { create, themes } from "@storybook/theming";
+import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt";
+import React, { useEffect, useState } from "react";
+import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
 
-const channel = addons.getChannel()
+const channel = addons.getChannel();
 
 // Basalt color palette
 const palette = {
@@ -26,7 +23,7 @@ const palette = {
   "base-800": "#1d2126",
   "base-900": "#111214",
   "base-1000": "#08080a",
-}
+};
 
 // Basalt Storybook themes
 const basaltLight = create({
@@ -57,7 +54,7 @@ const basaltLight = create({
   inputBg: palette["base-100"],
   inputBorder: palette["base-400"],
   inputTextColor: palette["base-1000"],
-})
+});
 
 const basaltDark = create({
   ...themes.dark,
@@ -87,7 +84,7 @@ const basaltDark = create({
   inputBg: palette["base-800"],
   inputBorder: palette["base-600"],
   inputTextColor: palette["base-300"],
-})
+});
 
 /**
  * custom DocsContainer that syncs docs theme with the dark mode toggle.
@@ -95,30 +92,28 @@ const basaltDark = create({
  */
 function DocsContainer(props: DocsContainerProps) {
   const [darkMode, setDarkMode] = useState(() => {
-    let initialDarkMode = false
+    let initialDarkMode = false;
     channel.emit(DARK_MODE_EVENT_NAME, (isDark: boolean) => {
-      initialDarkMode = isDark
-    })
+      initialDarkMode = isDark;
+    });
 
-    return initialDarkMode
-  })
+    return initialDarkMode;
+  });
 
   useEffect(() => {
     const handleDarkMode = (isDark: boolean) => {
-      console.log("handleDarkMode", isDark)
-      setDarkMode(isDark)
-    }
+      console.log("handleDarkMode", isDark);
+      setDarkMode(isDark);
+    };
 
-    channel.on(DARK_MODE_EVENT_NAME, handleDarkMode)
+    channel.on(DARK_MODE_EVENT_NAME, handleDarkMode);
 
     return () => {
-      channel.off(DARK_MODE_EVENT_NAME, handleDarkMode)
-    }
-  }, [])
+      channel.off(DARK_MODE_EVENT_NAME, handleDarkMode);
+    };
+  }, []);
 
-  return (
-    <BaseContainer {...props} theme={darkMode ? basaltDark : basaltLight} />
-  )
+  return <BaseContainer {...props} theme={darkMode ? basaltDark : basaltLight} />;
 }
 
 // Basalt breakpoints: phone <= 540px, tablet >= 541px, desktop >= 736px
@@ -144,7 +139,7 @@ const basaltViewports = {
       height: "800px",
     },
   },
-}
+};
 
 const preview: Preview = {
   parameters: {
@@ -169,6 +164,6 @@ const preview: Preview = {
       },
     },
   },
-}
+};
 
-export default preview
+export default preview;

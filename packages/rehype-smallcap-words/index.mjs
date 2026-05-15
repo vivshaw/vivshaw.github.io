@@ -9,30 +9,30 @@
  * @param {number} [options.wordCount=3] — number of words to wrap
  */
 
-import { visit, EXIT } from "unist-util-visit"
+import { visit, EXIT } from "unist-util-visit";
 
-const LEADING_WORDS_CLASS = "leadingWords"
+const LEADING_WORDS_CLASS = "leadingWords";
 
 /**
  * split a string into the first N words and the rest.
  * returns `[headText, tailText]`, or `null` if fewer than N words.
  */
 function splitAtWord(text, n) {
-  const words = text.split(/(\s+)/)
+  const words = text.split(/(\s+)/);
 
-  let wordCount = 0
-  let splitIndex = 0
+  let wordCount = 0;
+  let splitIndex = 0;
 
   for (let i = 0; i < words.length && wordCount < n; i++) {
     if (words[i].trim()) {
-      wordCount++
-      splitIndex = i + 1
+      wordCount++;
+      splitIndex = i + 1;
     }
   }
 
-  if (wordCount < n) return null
+  if (wordCount < n) return null;
 
-  return [words.slice(0, splitIndex).join(""), words.slice(splitIndex).join("")]
+  return [words.slice(0, splitIndex).join(""), words.slice(splitIndex).join("")];
 }
 
 /**
@@ -40,29 +40,29 @@ function splitAtWord(text, n) {
  */
 export default function rehypeSmallcapWords({ wordCount = 3 } = {}) {
   return (tree) => {
-    let firstP = null
+    let firstP = null;
 
     // find the first `<p>` element in the document
     visit(tree, "element", (node) => {
       if (node.tagName === "p") {
-        firstP = node
-        return EXIT
+        firstP = node;
+        return EXIT;
       }
-    })
+    });
 
-    if (!firstP) return
+    if (!firstP) return;
 
     // find the first text node in the paragraph
-    let found = false
+    let found = false;
 
     visit(firstP, "text", (node, index, parent) => {
-      if (found) return EXIT
-      if (!node.value.trim()) return
+      if (found) return EXIT;
+      if (!node.value.trim()) return;
 
-      const split = splitAtWord(node.value, wordCount)
-      if (!split) return
+      const split = splitAtWord(node.value, wordCount);
+      if (!split) return;
 
-      const [headText, tailText] = split
+      const [headText, tailText] = split;
 
       // replace the text node with a span + remaining text
       const newNodes = [
@@ -72,15 +72,15 @@ export default function rehypeSmallcapWords({ wordCount = 3 } = {}) {
           properties: { className: [LEADING_WORDS_CLASS] },
           children: [{ type: "text", value: headText }],
         },
-      ]
+      ];
 
       if (tailText) {
-        newNodes.push({ type: "text", value: tailText })
+        newNodes.push({ type: "text", value: tailText });
       }
 
-      parent.children.splice(index, 1, ...newNodes)
-      found = true
-      return EXIT
-    })
-  }
+      parent.children.splice(index, 1, ...newNodes);
+      found = true;
+      return EXIT;
+    });
+  };
 }

@@ -32,10 +32,7 @@ export default {
         // with the SVG sRGB keyword.
         ignoreKeywords: ["srgb"],
         // some of the font families are titled with capitals
-        ignoreProperties: [
-          "font-family",
-          "/^--basalt-font-(serif|sans|monospace)$/",
-        ],
+        ignoreProperties: ["font-family", "/^--basalt-font-(serif|sans|monospace)$/"],
       },
     ],
 
@@ -62,4 +59,4 @@ export default {
     "**/dist/**",
     "**/storybook-static/**",
   ],
-}
+};

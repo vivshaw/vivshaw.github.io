@@ -1,9 +1,9 @@
-import { z } from "zod"
+import { z } from "zod";
 
 /**
  * the key in `localStorage`used to store the app's color mode
  */
-export const COLOR_MODE_STORAGE_KEY = "color-theme"
+export const COLOR_MODE_STORAGE_KEY = "color-theme";
 
 /**
  * the raw Markdown frontmatter included in each blog post.
@@ -16,7 +16,7 @@ export const BlogFrontmatter = z.object({
   draft: z.optional(z.boolean()),
   tags: z.array(z.string()),
   title: z.string(),
-})
+});
 
 /**
  * the complete metadata for a blog post.
@@ -29,9 +29,9 @@ export const PostMeta = z.object({
   slug: z.string(),
   tags: z.array(z.string()),
   title: z.string(),
-})
+});
 
-export type PostMetadata = z.infer<typeof PostMeta>
+export type PostMetadata = z.infer<typeof PostMeta>;
 
 /**
  * the the raw Markdown frontmatter included in each standalone page.
@@ -40,59 +40,53 @@ export const PageFrontmatter = z.object({
   draft: z.optional(z.boolean()),
   title: z.string(),
   description: z.string(),
-})
+});
 
-export type PageMeta = z.infer<typeof PageFrontmatter>
+export type PageMeta = z.infer<typeof PageFrontmatter>;
 
-export type SocialSite =
-  | "linkedin"
-  | "twitter"
-  | "github"
-  | "mastodon"
-  | "bluesky"
-  | "zotero"
+export type SocialSite = "linkedin" | "twitter" | "github" | "mastodon" | "bluesky" | "zotero";
 
 type Author = {
   /** educational background */
-  alumniOf: string
+  alumniOf: string;
 
   /** profile picture and alt text */
   avatar: {
-    alt: string
-    src: string
-    width: number
-    height: number
-  }
+    alt: string;
+    src: string;
+    width: number;
+    height: number;
+  };
 
   /** short bio */
-  bio: string
+  bio: string;
 
   /** gender */
-  gender: string
+  gender: string;
 
-  id: string
+  id: string;
 
   /** keybase profile */
-  keybase: string
+  keybase: string;
 
   /** areas of expertise */
-  knowsAbout: string
+  knowsAbout: string;
 
   /** email address */
-  mailto: string
+  mailto: string;
 
   /** full name */
-  name: string
+  name: string;
 
   /** social links */
-  socials: Record<SocialSite, string>
+  socials: Record<SocialSite, string>;
 
   /** current employer */
-  worksFor: string
+  worksFor: string;
 
   /** zettelkasten */
-  zettelkasten: string
-}
+  zettelkasten: string;
+};
 
 export const author: Author = {
   alumniOf: "University of Vermont, University of Colorado Boulder",
@@ -120,28 +114,28 @@ export const author: Author = {
   },
   worksFor: "Mercury",
   zettelkasten: "https://zettel.vivsha.ws",
-}
+};
 
 type Site = {
   /** default preview image */
   defaultPreview: {
-    src: string
-    width: number
-    height: number
-  }
+    src: string;
+    width: number;
+    height: number;
+  };
 
   /** site description */
-  description: string
+  description: string;
 
   /** site name */
-  name: string
+  name: string;
 
   /** site short name */
-  shortName: string
+  shortName: string;
 
   /** site URL */
-  url: string
-}
+  url: string;
+};
 
 export const site: Site = {
   defaultPreview: {
@@ -153,4 +147,4 @@ export const site: Site = {
   name: "vivshaw's webbed sight",
   shortName: "vivshaw's",
   url: "https://vivsha.ws",
-}
+};

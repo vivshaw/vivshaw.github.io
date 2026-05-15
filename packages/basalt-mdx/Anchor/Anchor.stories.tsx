@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Anchor } from "./Anchor"
-import { Paragraph } from "../Paragraph/Paragraph"
+import { Paragraph } from "../Paragraph/Paragraph";
+import { Anchor } from "./Anchor";
 
 const meta = {
   title: "Components/Anchor",
@@ -10,10 +10,10 @@ const meta = {
   parameters: {
     layout: "padded",
   },
-} satisfies Meta<typeof Anchor>
+} satisfies Meta<typeof Anchor>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -21,4 +21,4 @@ export const Default: Story = {
       <Anchor href="https://example.com">A link to somewhere</Anchor>
     </Paragraph>
   ),
-}
+};

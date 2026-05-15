@@ -5,14 +5,14 @@ rehype plugin that wraps the first N words of the first paragraph in a `<span>`,
 ## usage
 
 ```js
-import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
+import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words";
 
 rehypePlugins: [
   // default (first 3 words)
   rehypeSmallcapWords,
   //  or custom word count
   [rehypeSmallcapWords, { wordCount: 5 }],
-]
+];
 ```
 
 ## what it does
@@ -26,9 +26,7 @@ given this HTML:
 the plugin produces:
 
 ```html
-<p>
-  <span class="leading-words">Once upon a</span> time there was a paragraph.
-</p>
+<p><span class="leading-words">Once upon a</span> time there was a paragraph.</p>
 ```
 
 the span gets the class `.leading-words`, which you can target in CSS to apply small-caps or any other styling.

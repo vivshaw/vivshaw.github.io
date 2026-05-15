@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { MdxBody } from "./MdxBody"
-import placeholderImage from "../.storybook/assets/placeholder.jpg"
-import { Anchor } from "../Anchor/Anchor"
-import { Blockquote } from "../Blockquote/Blockquote"
-import { CodeBlock } from "../CodeBlock/CodeBlock"
-import { Figcaption } from "../Figcaption/Figcaption"
-import { H1, H2, H3 } from "../Headings/Headings"
-import { HorizontalRule } from "../HorizontalRule/HorizontalRule"
-import { Image } from "../Image/Image"
-import { OrderedList } from "../OrderedList/OrderedList"
-import { Paragraph } from "../Paragraph/Paragraph"
-import { Table } from "../Table/Table"
-import { TableCell } from "../TableCell/TableCell"
-import { TableHead } from "../TableHead/TableHead"
-import { TableHeadCell } from "../TableHeadCell/TableHeadCell"
-import { UnorderedList } from "../UnorderedList/UnorderedList"
+import placeholderImage from "../.storybook/assets/placeholder.jpg";
+import { Anchor } from "../Anchor/Anchor";
+import { Blockquote } from "../Blockquote/Blockquote";
+import { CodeBlock } from "../CodeBlock/CodeBlock";
+import { Figcaption } from "../Figcaption/Figcaption";
+import { H1, H2, H3 } from "../Headings/Headings";
+import { HorizontalRule } from "../HorizontalRule/HorizontalRule";
+import { Image } from "../Image/Image";
+import { OrderedList } from "../OrderedList/OrderedList";
+import { Paragraph } from "../Paragraph/Paragraph";
+import { Table } from "../Table/Table";
+import { TableCell } from "../TableCell/TableCell";
+import { TableHead } from "../TableHead/TableHead";
+import { TableHeadCell } from "../TableHeadCell/TableHeadCell";
+import { UnorderedList } from "../UnorderedList/UnorderedList";
+import { MdxBody } from "./MdxBody";
 
 const meta: Meta<typeof MdxBody> = {
   title: "Layout/MdxBody",
@@ -30,28 +30,28 @@ const meta: Meta<typeof MdxBody> = {
       },
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 /* Shiki token style helpers */
 const token = (light: string, dark: string) =>
-  ({ "--shiki-light": light, "--shiki-dark": dark }) as React.CSSProperties
+  ({ "--shiki-light": light, "--shiki-dark": dark }) as React.CSSProperties;
 
-const keyword = token("#AB5959", "#E46876")
-const fn = token("#59873A", "#E6C384")
-const punct = token("#999999", "#9A9A9A")
-const variable = token("#B07D48", "#E6C384")
-const type = token("#2E8F82", "#7AA89F")
-const returnKw = token("#1E754F", "#E46876")
-const _string = token("#B5695977", "#D27E99")
-const comment = token("#A0ADA0", "#737C73")
+const keyword = token("#AB5959", "#E46876");
+const fn = token("#59873A", "#E6C384");
+const punct = token("#999999", "#9A9A9A");
+const variable = token("#B07D48", "#E6C384");
+const type = token("#2E8F82", "#7AA89F");
+const returnKw = token("#1E754F", "#E46876");
+const _string = token("#B5695977", "#D27E99");
+const comment = token("#A0ADA0", "#737C73");
 
 const shikiBg = {
   "--shiki-light-bg": "#ffffff",
   "--shiki-dark-bg": "#181616",
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const KitchenSink: Story = {
   render: () => (
@@ -59,9 +59,8 @@ export const KitchenSink: Story = {
       <H1>basalt-mdx Kitchen Sink</H1>
 
       <Paragraph>
-        This story demonstrates every <code>basalt-mdx</code> component in
-        context, rendered inside an <code>&lt;MdxBody&gt;</code> wrapper — just
-        like a real blog post.
+        This story demonstrates every <code>basalt-mdx</code> component in context, rendered inside
+        an <code>&lt;MdxBody&gt;</code> wrapper — just like a real blog post.
       </Paragraph>
 
       <HorizontalRule />
@@ -81,12 +80,11 @@ export const KitchenSink: Story = {
       <H2>Paragraphs and Inline Formatting</H2>
 
       <Paragraph>
-        It is a truth universally acknowledged, that a single man in possession
-        of a good fortune, <strong>must be in want of a wife</strong>. However
-        little known the feelings or views of such a man may be on his first
-        entering a neighbourhood, this truth is so well fixed in the minds of
-        the surrounding families, that he is considered as the{" "}
-        <em>rightful property</em> of some one or other of their daughters.
+        It is a truth universally acknowledged, that a single man in possession of a good fortune,{" "}
+        <strong>must be in want of a wife</strong>. However little known the feelings or views of
+        such a man may be on his first entering a neighbourhood, this truth is so well fixed in the
+        minds of the surrounding families, that he is considered as the <em>rightful property</em>{" "}
+        of some one or other of their daughters.
       </Paragraph>
 
       <Paragraph>
@@ -94,9 +92,9 @@ export const KitchenSink: Story = {
         <strong>
           bold and <em>italic</em> text
         </strong>{" "}
-        together, or use <del>strikethrough</del> for deleted content. Inline{" "}
-        <code>code</code> looks like this, useful for referencing things like{" "}
-        <code>useState</code> or <code>className</code> in technical writing.
+        together, or use <del>strikethrough</del> for deleted content. Inline <code>code</code>{" "}
+        looks like this, useful for referencing things like <code>useState</code> or{" "}
+        <code>className</code> in technical writing.
       </Paragraph>
 
       <HorizontalRule />
@@ -105,9 +103,7 @@ export const KitchenSink: Story = {
       <H2>Links</H2>
 
       <Paragraph>
-        Here is{" "}
-        <Anchor href="https://example.com">a link to an external site</Anchor>{" "}
-        and here is{" "}
+        Here is <Anchor href="https://example.com">a link to an external site</Anchor> and here is{" "}
         <Anchor href="https://example.com" title="Example Domain">
           a link with a title
         </Anchor>
@@ -121,10 +117,9 @@ export const KitchenSink: Story = {
 
       <Blockquote>
         <Paragraph>
-          We hold these truths to be self-evident, that all men are created
-          equal, that they are endowed by their Creator with certain unalienable
-          Rights, that among these are Life, Liberty and the pursuit of
-          Happiness.
+          We hold these truths to be self-evident, that all men are created equal, that they are
+          endowed by their Creator with certain unalienable Rights, that among these are Life,
+          Liberty and the pursuit of Happiness.
         </Paragraph>
         <Paragraph>
           — <em>Declaration of Independence</em>, 1776
@@ -160,8 +155,7 @@ export const KitchenSink: Story = {
       <H2>Code Blocks</H2>
 
       <Paragraph>
-        Inline code like <code>const x = 42</code> appears with a subtle
-        background.
+        Inline code like <code>const x = 42</code> appears with a subtle background.
       </Paragraph>
 
       <Paragraph>Here is a code block with syntax highlighting:</Paragraph>
@@ -292,9 +286,9 @@ export const KitchenSink: Story = {
       <HorizontalRule />
 
       <Paragraph>
-        That concludes this kitchen sink of MDX components. If something looks
-        wrong, there&apos;s probably a bug in the styles!
+        That concludes this kitchen sink of MDX components. If something looks wrong, there&apos;s
+        probably a bug in the styles!
       </Paragraph>
     </MdxBody>
   ),
-}
+};

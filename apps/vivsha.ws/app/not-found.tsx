@@ -1,7 +1,8 @@
-import { Link, Text } from "@vivshaw/basalt"
+import { Link, Text } from "@vivshaw/basalt";
 
-import { LayoutWrapper } from "./_components/LayoutWrapper"
-import styles from "./not-found.module.css"
+import { LayoutWrapper } from "./_components/LayoutWrapper";
+
+import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
@@ -28,5 +29,5 @@ export default function NotFound() {
         </div>
       </div>
     </LayoutWrapper>
-  )
+  );
 }

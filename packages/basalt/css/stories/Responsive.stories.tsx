@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Text } from "../.."
-import styles from "./stories.module.css"
+import { Heading, Text } from "../..";
+
+import styles from "./stories.module.css";
 
 const breakpoints = {
   tablet: "(min-width: 541px)",
   desktop: "(min-width: 736px)",
-}
+};
 
 function ResponsiveDocumentation() {
   const breakpointData = [
@@ -28,7 +29,7 @@ function ResponsiveDocumentation() {
       range: "736px +",
       description: "Laptops, desktops, and larger screens.",
     },
-  ]
+  ];
 
   return (
     <div className={styles.page}>
@@ -52,9 +53,7 @@ function ResponsiveDocumentation() {
                 {description}
               </Text>
               <code className={styles.monoSmall}>
-                {condition === "Default"
-                  ? "Default (no media query)"
-                  : condition}
+                {condition === "Default" ? "Default (no media query)" : condition}
               </code>
             </div>
           ))}
@@ -82,7 +81,7 @@ function ResponsiveDocumentation() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 const meta = {
@@ -91,9 +90,9 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof ResponsiveDocumentation>
+} satisfies Meta<typeof ResponsiveDocumentation>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Breakpoints: Story = {}
+export const Breakpoints: Story = {};

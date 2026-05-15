@@ -1,12 +1,13 @@
-import { Heading, Text } from "@vivshaw/basalt"
-import Link from "next/link"
+import { Heading, Text } from "@vivshaw/basalt";
+import Link from "next/link";
 
-import { type PostMetadata } from "#data"
-import { prettyPrintDate } from "#lib"
-import styles from "./BlogList.module.css"
+import { type PostMetadata } from "#data";
+import { prettyPrintDate } from "#lib";
+
+import styles from "./BlogList.module.css";
 
 interface BlogListProps {
-  posts: PostMetadata[]
+  posts: PostMetadata[];
 }
 
 /**
@@ -19,18 +20,18 @@ export function BlogList({ posts }: BlogListProps) {
         <BlogListItem key={post.slug} post={post} />
       ))}
     </>
-  )
+  );
 }
 
 interface BlogListItemProps {
-  post: PostMetadata
+  post: PostMetadata;
 }
 
 /**
  * a single link to a blog post in the list.
  */
 function BlogListItem({ post }: BlogListItemProps) {
-  const prettyDate = prettyPrintDate(post.date)
+  const prettyDate = prettyPrintDate(post.date);
 
   return (
     <Link href={`/blog/${post.slug}`} className={styles.link}>
@@ -47,5 +48,5 @@ function BlogListItem({ post }: BlogListItemProps) {
         {prettyDate}
       </Text>
     </Link>
-  )
+  );
 }

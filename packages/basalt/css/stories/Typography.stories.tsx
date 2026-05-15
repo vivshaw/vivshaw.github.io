@@ -1,14 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import clsx from "clsx"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Text } from "../.."
-import styles from "./stories.module.css"
+import clsx from "clsx";
+
+import { Heading, Text } from "../..";
+
+import styles from "./stories.module.css";
 
 const fonts = {
   serif: "basalt-serif, basalt-serif-fallback, serif",
   sans: "basalt-sans, basalt-sans-fallback, sans-serif",
   monospace: "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace",
-}
+};
 
 function FontShowcase({
   name,
@@ -17,11 +19,11 @@ function FontShowcase({
   description,
   specimen,
 }: {
-  name: string
-  fontFamily: string
-  tokenName: string
-  description: string
-  specimen: string
+  name: string;
+  fontFamily: string;
+  tokenName: string;
+  description: string;
+  specimen: string;
 }) {
   return (
     <div className={styles.card}>
@@ -41,16 +43,10 @@ function FontShowcase({
         <span className={styles.weightSample} style={{ fontFamily }}>
           Regular 400
         </span>
-        <span
-          className={styles.weightSample}
-          style={{ fontFamily, fontStyle: "italic" }}
-        >
+        <span className={styles.weightSample} style={{ fontFamily, fontStyle: "italic" }}>
           Italic 400
         </span>
-        <span
-          className={clsx(styles.weightSample, styles.bold)}
-          style={{ fontFamily }}
-        >
+        <span className={clsx(styles.weightSample, styles.bold)} style={{ fontFamily }}>
           Bold 700
         </span>
         <span
@@ -61,7 +57,7 @@ function FontShowcase({
         </span>
       </div>
     </div>
-  )
+  );
 }
 
 function SizeScale() {
@@ -73,7 +69,7 @@ function SizeScale() {
     { name: "500", size: "1.5rem", px: "24px" },
     { name: "600", size: "1.75rem", px: "28px" },
     { name: "700", size: "2rem", px: "32px" },
-  ]
+  ];
 
   return (
     <div className={styles.stack}>
@@ -87,7 +83,7 @@ function SizeScale() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function TextStyles() {
@@ -127,7 +123,7 @@ function TextStyles() {
       desktop: "18px",
       lineHeight: "1.4",
     },
-  ]
+  ];
 
   return (
     <div className={styles.stackWide}>
@@ -148,13 +144,11 @@ function TextStyles() {
               ? "A well-crafted heading"
               : "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs."}
           </Text>
-          <code className={clsx(styles.codeBlock, styles.monoSmall)}>
-            @mixin text-{name}
-          </code>
+          <code className={clsx(styles.codeBlock, styles.monoSmall)}>@mixin text-{name}</code>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function OpenTypeFeature({
@@ -162,26 +156,23 @@ function OpenTypeFeature({
   specimen,
   featureSettings,
 }: {
-  name: string
-  specimen: string
-  featureSettings: string
+  name: string;
+  specimen: string;
+  featureSettings: string;
 }) {
   return (
     <div className={styles.card}>
       <Text as="h3" font="sans" size="small" className={styles.bold}>
         {name}
       </Text>
-      <Text
-        className={styles.specimen}
-        style={{ fontFeatureSettings: featureSettings }}
-      >
+      <Text className={styles.specimen} style={{ fontFeatureSettings: featureSettings }}>
         {specimen}
       </Text>
       <code className={clsx(styles.codeBlock, styles.monoSmall)}>
         font-feature-settings: {featureSettings}
       </code>
     </div>
-  )
+  );
 }
 
 function TypographyDocumentation() {
@@ -189,10 +180,9 @@ function TypographyDocumentation() {
     <div className={styles.page}>
       <Heading level="1">Typography</Heading>
       <Text className={styles.lead}>
-        Basalt uses two primary fonts, both from MB Type: a serif, Equity, for
-        body text and headings, and a sans-serif, Concourse, for UI elements.
-        Both support regular, italic, bold, and bold italic weights. A system
-        monospace font is used for code blocks.
+        Basalt uses two primary fonts, both from MB Type: a serif, Equity, for body text and
+        headings, and a sans-serif, Concourse, for UI elements. Both support regular, italic, bold,
+        and bold italic weights. A system monospace font is used for code blocks.
       </Text>
 
       <section className={styles.section}>
@@ -225,9 +215,7 @@ function TypographyDocumentation() {
             <Text size="small" className={styles.cardDescription}>
               System monospace stack for code blocks and technical content.
             </Text>
-            <code className={styles.mono}>
-              const greeting = &quot;Hello, world!&quot;;
-            </code>
+            <code className={styles.mono}>const greeting = &quot;Hello, world!&quot;;</code>
           </div>
         </div>
       </section>
@@ -235,8 +223,8 @@ function TypographyDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Font Size Scale</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          A seven-step scale from 16px to 32px. Use fontSize tokens for precise
-          control, or text style mixins for responsive presets.
+          A seven-step scale from 16px to 32px. Use fontSize tokens for precise control, or text
+          style mixins for responsive presets.
         </Text>
         <SizeScale />
       </section>
@@ -244,9 +232,8 @@ function TypographyDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Text Styles</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          Pre-configured responsive text styles that combine font size and line
-          height. These automatically adjust between mobile and desktop
-          breakpoints.
+          Pre-configured responsive text styles that combine font size and line height. These
+          automatically adjust between mobile and desktop breakpoints.
         </Text>
         <TextStyles />
       </section>
@@ -254,29 +241,20 @@ function TypographyDocumentation() {
       <section className={styles.section}>
         <Heading level="2">OpenType Features</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          The serif and sans fonts include OpenType features for improved
-          typography.
+          The serif and sans fonts include OpenType features for improved typography.
         </Text>
         <div className={styles.cardGrid}>
-          <OpenTypeFeature
-            name="Oldstyle Figures"
-            specimen="0123456789"
-            featureSettings="'onum'"
-          />
+          <OpenTypeFeature name="Oldstyle Figures" specimen="0123456789" featureSettings="'onum'" />
           <OpenTypeFeature
             name="Small Caps"
             specimen="Small Caps Text"
             featureSettings={'"smcp", "c2sc"'}
           />
-          <OpenTypeFeature
-            name="Ligatures"
-            specimen="fi fl ff ffi ffl"
-            featureSettings="'liga'"
-          />
+          <OpenTypeFeature name="Ligatures" specimen="fi fl ff ffi ffl" featureSettings="'liga'" />
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 const meta = {
@@ -285,9 +263,9 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof TypographyDocumentation>
+} satisfies Meta<typeof TypographyDocumentation>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const AllTypography: Story = {}
+export const AllTypography: Story = {};

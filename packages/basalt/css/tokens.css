@@ -73,11 +73,9 @@
     /* fonts and font features */
     --basalt-font-serif: basalt-serif, basalt-serif-fallback, serif;
     --basalt-font-sans: basalt-sans, basalt-sans-fallback, sans-serif;
-    --basalt-font-monospace: Consolas, Menlo, Monaco, source-code-pro,
-      Courier New, monospace;
+    --basalt-font-monospace: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
     --basalt-font-feature-settings-serif: "calt", "kern", "liga", "onum";
-    --basalt-font-feature-settings-serif-small-caps: "c2sc", "calt", "kern",
-      "liga", "onum", "smcp";
+    --basalt-font-feature-settings-serif-small-caps: "c2sc", "calt", "kern", "liga", "onum", "smcp";
     --basalt-font-feature-settings-sans: "calt", "kern", "liga", "onum";
     --basalt-font-feature-settings-monospace: normal;
 
@@ -152,19 +150,17 @@
      */
     --basalt-motion-transition-theme-property: background, color;
     --basalt-motion-transition-theme-duration: 0.25s;
-    --basalt-motion-transition-theme-timing: var(
-      --basalt-motion-ease-in-out-quad
-    );
-    --basalt-motion-transition-theme: background
-        var(--basalt-motion-transition-theme-duration)
+    --basalt-motion-transition-theme-timing: var(--basalt-motion-ease-in-out-quad);
+    --basalt-motion-transition-theme:
+      background var(--basalt-motion-transition-theme-duration)
         var(--basalt-motion-transition-theme-timing),
       color var(--basalt-motion-transition-theme-duration)
         var(--basalt-motion-transition-theme-timing);
     --basalt-motion-transition-hover-property: border-color, opacity;
     --basalt-motion-transition-hover-duration: 0.2s;
     --basalt-motion-transition-hover-timing: var(--basalt-motion-ease-in-quad);
-    --basalt-motion-transition-hover: border-color
-        var(--basalt-motion-transition-hover-duration)
+    --basalt-motion-transition-hover:
+      border-color var(--basalt-motion-transition-hover-duration)
         var(--basalt-motion-transition-hover-timing),
       opacity var(--basalt-motion-transition-hover-duration)
         var(--basalt-motion-transition-hover-timing);

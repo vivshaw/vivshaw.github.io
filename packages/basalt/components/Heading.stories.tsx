@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading } from "./Heading"
+import { Heading } from "./Heading";
 
 const meta = {
   title: "Components/Heading",
@@ -20,33 +20,32 @@ const meta = {
     },
     level: {
       control: { type: "select" },
-      description:
-        "Visual heading level (1-3 have distinct styles, 4-6 match level 3)",
+      description: "Visual heading level (1-3 have distinct styles, 4-6 match level 3)",
       options: ["1", "2", "3", "4", "5", "6"],
     },
   },
-} satisfies Meta<typeof Heading>
+} satisfies Meta<typeof Heading>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Level1: Story = {
   args: {
     level: "1",
   },
-}
+};
 
 export const Level2: Story = {
   args: {
     level: "2",
   },
-}
+};
 
 export const Level3: Story = {
   args: {
     level: "3",
   },
-}
+};
 
 /**
  * all heading levels displayed together for comparison.
@@ -66,7 +65,7 @@ export const AllLevels: Story = {
       <Heading level="6">Heading Level 6 (same style as 3)</Heading>
     </div>
   ),
-}
+};
 
 /**
  * the `as` prop allows you to override the semantic element
@@ -79,4 +78,4 @@ export const SemanticOverride: Story = {
     children: "Looks like h1, but is an <h2> element",
     level: "1",
   },
-}
+};

@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Text } from "../.."
-import styles from "./stories.module.css"
+import { Heading, Text } from "../..";
+
+import styles from "./stories.module.css";
 
 const palette = {
   "base-100": "#fafafb",
@@ -14,7 +15,7 @@ const palette = {
   "base-800": "#1d2126",
   "base-900": "#111214",
   "base-1000": "#08080a",
-}
+};
 
 const semanticColors = {
   textDefault: "var(--basalt-color-text-default)",
@@ -24,23 +25,20 @@ const semanticColors = {
   borderDefault: "var(--basalt-color-border-default)",
   borderMuted: "var(--basalt-color-border-muted)",
   accentDefault: "var(--basalt-color-accent-default)",
-}
+};
 
 function ColorSwatch({
   name,
   tokenName,
   tokenValue,
 }: {
-  name: string
-  tokenName: string
-  tokenValue: string
+  name: string;
+  tokenName: string;
+  tokenValue: string;
 }) {
   return (
     <div className={styles.row}>
-      <div
-        className={styles.colorSwatch}
-        style={{ backgroundColor: tokenValue }}
-      />
+      <div className={styles.colorSwatch} style={{ backgroundColor: tokenValue }} />
       <div>
         <Text font="sans" className={styles.bold}>
           {name}
@@ -48,7 +46,7 @@ function ColorSwatch({
         <code className={styles.monoSmall}>--basalt-color-{tokenName}</code>
       </div>
     </div>
-  )
+  );
 }
 
 function PaletteStrip() {
@@ -63,16 +61,12 @@ function PaletteStrip() {
     { name: "800", value: palette["base-800"] },
     { name: "900", value: palette["base-900"] },
     { name: "1000", value: palette["base-1000"] },
-  ]
+  ];
 
   return (
     <div className={styles.paletteStrip}>
       {shades.map(({ name, value }) => (
-        <div
-          key={name}
-          className={styles.paletteSwatch}
-          style={{ backgroundColor: value }}
-        >
+        <div key={name} className={styles.paletteSwatch} style={{ backgroundColor: value }}>
           <span
             className={styles.monoSmall}
             style={{
@@ -85,7 +79,7 @@ function PaletteStrip() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function ColorsDocumentation() {
@@ -93,16 +87,15 @@ function ColorsDocumentation() {
     <div className={styles.page}>
       <Heading level="1">Color Tokens</Heading>
       <Text className={styles.lead}>
-        The Basalt color system uses semantic tokens that automatically adapt to
-        the current theme. Use semantic tokens for most purposes; raw palette
-        values are available when needed.
+        The Basalt color system uses semantic tokens that automatically adapt to the current theme.
+        Use semantic tokens for most purposes; raw palette values are available when needed.
       </Text>
 
       <section className={styles.section}>
         <Heading level="2">Neutral Palette</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          The underlying color scale from lightest (100) to darkest (1000).
-          These values are consistent across themes.
+          The underlying color scale from lightest (100) to darkest (1000). These values are
+          consistent across themes.
         </Text>
         <PaletteStrip />
       </section>
@@ -110,8 +103,7 @@ function ColorsDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Semantic Colors</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          Use these tokens in your components. They automatically adapt to the
-          current theme.
+          Use these tokens in your components. They automatically adapt to the current theme.
         </Text>
         <div className={styles.cardGrid}>
           <ColorSwatch
@@ -152,7 +144,7 @@ function ColorsDocumentation() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 const meta = {
@@ -161,9 +153,9 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof ColorsDocumentation>
+} satisfies Meta<typeof ColorsDocumentation>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const AllColors: Story = {}
+export const AllColors: Story = {};

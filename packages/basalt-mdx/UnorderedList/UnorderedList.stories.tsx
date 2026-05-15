@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { UnorderedList } from "./UnorderedList"
+import { UnorderedList } from "./UnorderedList";
 
 const meta = {
   title: "Components/UnorderedList",
@@ -9,10 +9,10 @@ const meta = {
   parameters: {
     layout: "padded",
   },
-} satisfies Meta<typeof UnorderedList>
+} satisfies Meta<typeof UnorderedList>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -24,4 +24,4 @@ export const Default: Story = {
       </>
     ),
   },
-}
+};

@@ -19,8 +19,7 @@
   background-color: var(--basalt-color-background-default);
 
   @mixin tablet {
-    padding: var(--basalt-sizing-6) var(--basalt-sizing-6)
-      var(--basalt-sizing-4);
+    padding: var(--basalt-sizing-6) var(--basalt-sizing-6) var(--basalt-sizing-4);
   }
 }
 

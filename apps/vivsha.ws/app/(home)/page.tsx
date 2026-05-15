@@ -1,25 +1,20 @@
-import { type IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { type IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faBluesky,
   faGithub,
   faGoodreads,
   faLinkedin,
   faMastodon,
-} from "@fortawesome/free-brands-svg-icons"
-import {
-  faEnvelope,
-  faKey,
-  faLink,
-  faMountainCity,
-  faZ,
-} from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link, Pill } from "@vivshaw/basalt"
-import Image from "next/image"
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faKey, faLink, faMountainCity, faZ } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link, Pill } from "@vivshaw/basalt";
+import Image from "next/image";
 
-import { author } from "#data"
-import { schemaHelper } from "#lib/metadataHelpers"
-import styles from "./page.module.css"
+import { author } from "#data";
+import { schemaHelper } from "#lib/metadataHelpers";
+
+import styles from "./page.module.css";
 
 const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
   {
@@ -67,13 +62,13 @@ const socialItems: { href: string; icon: IconDefinition; label: string }[] = [
     icon: faKey,
     label: "pgp key",
   },
-]
+];
 
 /**
  * the home page for the site.
  */
 export default function Home() {
-  const jsonLdSchema = schemaHelper({ type: "home" })
+  const jsonLdSchema = schemaHelper({ type: "home" });
 
   return (
     <>
@@ -100,12 +95,7 @@ export default function Home() {
           <ul className={styles.socialLinks}>
             {socialItems.map(({ href, icon, label }) => (
               <li key={label}>
-                <Pill
-                  as="a"
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Pill as="a" href={href} target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={icon} className={styles.socialIcon} />
                   {label}
                 </Pill>
@@ -131,5 +121,5 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
     </>
-  )
+  );
 }

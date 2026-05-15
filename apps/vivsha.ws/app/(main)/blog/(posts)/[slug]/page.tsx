@@ -1,9 +1,10 @@
-import { MdxBody } from "@vivshaw/basalt-mdx"
+import { MdxBody } from "@vivshaw/basalt-mdx";
 
-import { prettyPrintDate } from "#lib"
-import { metadataHelper, schemaHelper } from "#lib/metadataHelpers"
-import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers"
-import { Hero } from "../../../../_components/Hero"
+import { prettyPrintDate } from "#lib";
+import { metadataHelper, schemaHelper } from "#lib/metadataHelpers";
+import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers";
+
+import { Hero } from "../../../../_components/Hero";
 
 /**
  * the page for a single blog post.
@@ -11,15 +12,11 @@ import { Hero } from "../../../../_components/Hero"
  * i don't want to worry about maintaining Next.js metadata or layout code while writing posts.
  * this allows my MDX files to be pure markdown.
  */
-export default async function Post({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const slug = (await params).slug
-  const { PostContent, meta } = await importBlogPost(slug)
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug;
+  const { PostContent, meta } = await importBlogPost(slug);
 
-  const prettyDate = prettyPrintDate(meta.date)
+  const prettyDate = prettyPrintDate(meta.date);
 
   const jsonLdSchema = schemaHelper({
     type: "post",
@@ -28,7 +25,7 @@ export default async function Post({
     slug: slug,
     tags: meta.tags,
     title: meta.title,
-  })
+  });
 
   return (
     <>
@@ -43,26 +40,20 @@ export default async function Post({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
     </>
-  )
+  );
 }
 
 export async function generateStaticParams() {
-  const slugs = await listAllBlogSlugs()
-  const params = slugs.map((slug) => ({ slug }))
-  return params
+  const slugs = await listAllBlogSlugs();
+  const params = slugs.map((slug) => ({ slug }));
+  return params;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
-  const { meta } = await importBlogPost(slug)
-  const prettyDate = prettyPrintDate(meta.date)
-  const prettyDateModified = meta.dateModified
-    ? prettyPrintDate(meta.dateModified)
-    : undefined
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const { meta } = await importBlogPost(slug);
+  const prettyDate = prettyPrintDate(meta.date);
+  const prettyDateModified = meta.dateModified ? prettyPrintDate(meta.dateModified) : undefined;
 
   return metadataHelper({
     type: "post",
@@ -72,7 +63,7 @@ export async function generateMetadata({
     slug: slug,
     tags: meta.tags,
     title: meta.title,
-  })
+  });
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;

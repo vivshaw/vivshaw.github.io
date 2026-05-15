@@ -1,10 +1,10 @@
-import clsx from "clsx"
+import clsx from "clsx";
 
-import styles from "./CodeBlock.module.css"
+import styles from "./CodeBlock.module.css";
 
 export type CodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
-  "data-language"?: string
-}
+  "data-language"?: string;
+};
 
 /**
  * a styled `<pre>` code block for use with Shiki syntax highlighting in MDX.
@@ -13,7 +13,7 @@ export type CodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
  * - this component assumes that _all_ `<pre>` blocks are code blocks.
  */
 export function CodeBlock(props: CodeBlockProps) {
-  const { "data-language": dataLanguage, ...rest } = props
+  const { "data-language": dataLanguage, ...rest } = props;
 
   return (
     <div className={styles.container} data-language={dataLanguage}>
@@ -21,5 +21,5 @@ export function CodeBlock(props: CodeBlockProps) {
         {props.children}
       </pre>
     </div>
-  )
+  );
 }

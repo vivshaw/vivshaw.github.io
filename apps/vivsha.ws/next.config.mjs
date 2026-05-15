@@ -1,40 +1,32 @@
-import createBundleAnalyzer from "@next/bundle-analyzer"
-import createMDX from "@next/mdx"
-import createSerwist from "@serwist/next"
-import rehypeShiki from "@shikijs/rehype"
-import {
-  transformerNotationDiff,
-  transformerNotationHighlight,
-} from "@shikijs/transformers"
-import rehypeSidenotes from "@vivshaw/rehype-sidenotes"
-import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words"
-import rehypeMdxImportMedia from "rehype-mdx-import-media"
-import remarkFrontmatter from "remark-frontmatter"
-import remarkGfm from "remark-gfm"
-import remarkAlert from "remark-github-blockquote-alert"
-import remarkMdxFrontmatter from "remark-mdx-frontmatter"
+import createBundleAnalyzer from "@next/bundle-analyzer";
+import createMDX from "@next/mdx";
+import createSerwist from "@serwist/next";
+import rehypeShiki from "@shikijs/rehype";
+import { transformerNotationDiff, transformerNotationHighlight } from "@shikijs/transformers";
+import rehypeSidenotes from "@vivshaw/rehype-sidenotes";
+import rehypeSmallcapWords from "@vivshaw/rehype-smallcap-words";
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkAlert from "remark-github-blockquote-alert";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /** custom Shiki transformer that adds the language as a data attribute to the pre element */
 const transformerLanguageLabel = () => ({
   name: "language-label",
   pre(node) {
-    node.properties["data-language"] = this.options.lang
+    node.properties["data-language"] = this.options.lang;
   },
-})
+});
 
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
-})
+});
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [
-      remarkFrontmatter,
-      remarkGfm,
-      remarkAlert,
-      remarkMdxFrontmatter,
-    ],
+    remarkPlugins: [remarkFrontmatter, remarkGfm, remarkAlert, remarkMdxFrontmatter],
     rehypePlugins: [
       rehypeMdxImportMedia,
       rehypeSmallcapWords,
@@ -56,12 +48,12 @@ const withMDX = createMDX({
       ],
     ],
   },
-})
+});
 
 const withSerwist = createSerwist({
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
-})
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -74,6 +66,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-}
+};
 
-export default withSerwist(withMDX(withBundleAnalyzer(nextConfig)))
+export default withSerwist(withMDX(withBundleAnalyzer(nextConfig)));

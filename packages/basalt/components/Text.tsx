@@ -1,57 +1,45 @@
-import clsx from "clsx"
-import {
-  type ComponentPropsWithRef,
-  type ElementType,
-  forwardRef,
-  type Ref,
-} from "react"
+import clsx from "clsx";
+import { type ComponentPropsWithRef, type ElementType, forwardRef, type Ref } from "react";
 
-import styles from "./Text.module.css"
+import styles from "./Text.module.css";
 
 /**
  * base props for Text, without the polymorphic element props.
  */
 type TextOwnProps<T extends ElementType> = {
-  as?: T
-  color?: "default" | "muted"
-  font?: "serif" | "sans"
-  size?: "normal" | "small"
-}
+  as?: T;
+  color?: "default" | "muted";
+  font?: "serif" | "sans";
+  size?: "normal" | "small";
+};
 
 export type TextProps<T extends ElementType = "p"> = TextOwnProps<T> &
-  Omit<ComponentPropsWithRef<T>, keyof TextOwnProps<T>>
+  Omit<ComponentPropsWithRef<T>, keyof TextOwnProps<T>>;
 
 const sizeClasses = {
   normal: styles.sizeNormal,
   small: styles.sizeSmall,
-} as const
+} as const;
 
 const fontClasses = {
   serif: styles.fontSerif,
   sans: styles.fontSans,
-} as const
+} as const;
 
 const colorClasses = {
   default: styles.colorDefault,
   muted: styles.colorMuted,
-} as const
+} as const;
 
 /**
  * a polymorphic text component.
  */
 export const Text = forwardRef(
   <T extends ElementType = "p">(
-    {
-      as,
-      className,
-      color,
-      font = "serif",
-      size = "normal",
-      ...props
-    }: TextProps<T>,
+    { as, className, color, font = "serif", size = "normal", ...props }: TextProps<T>,
     ref: Ref<Element>,
   ) => {
-    const Component = (as ?? "p") as ElementType
+    const Component = (as ?? "p") as ElementType;
     return (
       <Component
         ref={ref}
@@ -64,8 +52,6 @@ export const Text = forwardRef(
         )}
         {...props}
       />
-    )
+    );
   },
-) as <T extends ElementType = "p">(
-  props: TextProps<T>,
-) => React.ReactElement | null
+) as <T extends ElementType = "p">(props: TextProps<T>) => React.ReactElement | null;

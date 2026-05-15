@@ -1,28 +1,27 @@
 {
   "name": "@vivshaw/basalt",
+  "private": true,
   "description": "the Basalt design system, used to build vivsha.ws",
   "homepage": "https://vivsha.ws",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vivshaw/vivshaw.github.io.git"
-  },
-  "private": true,
   "license": "MIT",
   "author": {
     "name": "vivshaw",
     "email": "hey@vivsha.ws",
     "url": "https://vivsha.ws"
   },
-  "peerDependencies": {
-    "react": "19.0.0",
-    "typescript": "4.9.3"
-  },
-  "resolutions": {
-    "@types/react": "19.0.2"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivshaw/vivshaw.github.io.git"
   },
   "exports": {
     ".": "./index.ts",
     "./css": "./css/index.css"
+  },
+  "scripts": {
+    "format:all": "prettier --write .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "clsx": "^2.1.1"
@@ -39,10 +38,11 @@
     "storybook-dark-mode": "^4.0.2",
     "vite": "^6.1.0"
   },
-  "scripts": {
-    "format:all": "prettier --write .",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "typecheck": "tsc --noEmit"
+  "peerDependencies": {
+    "react": "19.0.0",
+    "typescript": "4.9.3"
+  },
+  "resolutions": {
+    "@types/react": "19.0.2"
   }
 }

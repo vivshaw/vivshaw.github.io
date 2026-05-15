@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import clsx from "clsx"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Text } from "../.."
-import styles from "./stories.module.css"
+import clsx from "clsx";
+
+import { Heading, Text } from "../..";
+
+import styles from "./stories.module.css";
 
 function SpacingScale() {
   const spacings = [
@@ -27,7 +29,7 @@ function SpacingScale() {
     { name: "16", value: "64px" },
     { name: "20", value: "80px" },
     { name: "24", value: "96px" },
-  ]
+  ];
 
   return (
     <div className={styles.stackTight}>
@@ -39,7 +41,7 @@ function SpacingScale() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function LargeSpacings() {
@@ -58,7 +60,7 @@ function LargeSpacings() {
     { name: "80", value: "320px" },
     { name: "96", value: "384px" },
     { name: "168", value: "672px" },
-  ]
+  ];
 
   return (
     <div className={styles.stack}>
@@ -70,7 +72,7 @@ function LargeSpacings() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function UsageExample() {
@@ -109,7 +111,7 @@ function UsageExample() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function SpacingDocumentation() {
@@ -117,9 +119,8 @@ function SpacingDocumentation() {
     <div className={styles.page}>
       <Heading level="1">Spacing</Heading>
       <Text className={styles.lead}>
-        The spacing scale is based on a 4px grid (1 unit = 4px), similar to
-        Tailwind. Use these tokens for consistent margins, padding, gaps, and
-        dimensions.
+        The spacing scale is based on a 4px grid (1 unit = 4px), similar to Tailwind. Use these
+        tokens for consistent margins, padding, gaps, and dimensions.
       </Text>
 
       <section className={styles.section}>
@@ -133,8 +134,7 @@ function SpacingDocumentation() {
       <section className={styles.section}>
         <Heading level="2">Large Scale (112px–672px)</Heading>
         <Text size="small" className={styles.sectionDescription}>
-          Larger values for layout dimensions, max-widths, and page-level
-          spacing.
+          Larger values for layout dimensions, max-widths, and page-level spacing.
         </Text>
         <LargeSpacings />
       </section>
@@ -147,7 +147,7 @@ function SpacingDocumentation() {
         <UsageExample />
       </section>
     </div>
-  )
+  );
 }
 
 const meta = {
@@ -156,9 +156,9 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof SpacingDocumentation>
+} satisfies Meta<typeof SpacingDocumentation>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const AllSpacing: Story = {}
+export const AllSpacing: Story = {};

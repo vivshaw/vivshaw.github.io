@@ -16,24 +16,22 @@ all scripts should be run from the monorepo root.
 import the CSS entry point once in your app's root layout. this brings in fonts, design tokens, and the CSS reset:
 
 ```tsx
-import "@vivshaw/basalt/css"
+import "@vivshaw/basalt/css";
 ```
 
 basalt's PostCSS mixins require `postcss-mixins` in your PostCSS config, pointed at the mixins file:
 
 ```js
 // postcss.config.mjs
-import { join } from "path"
+import { join } from "path";
 
 export default {
   plugins: {
     "postcss-mixins": {
-      mixinsFiles: [
-        join(import.meta.dirname, "packages/basalt/css/mixins.css"),
-      ],
+      mixinsFiles: [join(import.meta.dirname, "packages/basalt/css/mixins.css")],
     },
   },
-}
+};
 ```
 
 ## theme
@@ -52,7 +50,7 @@ it's your responsibility to apply these classes and switch them when desired. wh
 components can be imported from the main entry point:
 
 ```tsx
-import { Heading, Link, Pill, Text } from "@vivshaw/basalt"
+import { Heading, Link, Pill, Text } from "@vivshaw/basalt";
 ```
 
 ### heading

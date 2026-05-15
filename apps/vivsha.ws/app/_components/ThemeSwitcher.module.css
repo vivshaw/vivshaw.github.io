@@ -4,8 +4,7 @@
   align-items: center;
   height: 32px;
   padding: var(--basalt-sizing-half);
-  border: 1px solid
-    color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
   border-radius: var(--basalt-sizing-radius-pill);
 }
 

@@ -10,16 +10,15 @@
     font-size: var(--basalt-font-size-200);
     color: var(--basalt-color-text-default);
     background: transparent;
-    border: 1px solid
-      color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--basalt-color-border-muted) 50%, transparent);
     border-radius: var(--basalt-sizing-radius-small);
 
     /* hover state */
     opacity: 0.7;
-    transition-timing-function: var(--basalt-motion-transition-hover-timing),
-      var(--basalt-motion-transition-theme-timing);
-    transition-duration: var(--basalt-motion-transition-hover-duration),
-      var(--basalt-motion-transition-theme-duration);
+    transition-timing-function:
+      var(--basalt-motion-transition-hover-timing), var(--basalt-motion-transition-theme-timing);
+    transition-duration:
+      var(--basalt-motion-transition-hover-duration), var(--basalt-motion-transition-theme-duration);
 
     /* motion */
 
@@ -28,8 +27,8 @@
    * but i must use the longhand values because of this annoying lightningcss limitation:
    * https://github.com/parcel-bundler/lightningcss/issues/194
    */
-    transition-property: var(--basalt-motion-transition-hover-property),
-      var(--basalt-motion-transition-theme-property);
+    transition-property:
+      var(--basalt-motion-transition-hover-property), var(--basalt-motion-transition-theme-property);
 
     &:hover,
     &:focus-visible {

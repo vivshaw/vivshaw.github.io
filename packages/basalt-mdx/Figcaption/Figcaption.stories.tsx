@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Figcaption } from "./Figcaption"
+import { Figcaption } from "./Figcaption";
 
 const meta = {
   title: "Components/Figcaption",
@@ -12,9 +12,9 @@ const meta = {
   args: {
     children: "Figure 1: An example caption for an image or diagram.",
   },
-} satisfies Meta<typeof Figcaption>
+} satisfies Meta<typeof Figcaption>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};

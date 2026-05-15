@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Pill } from "./Pill"
+import { Pill } from "./Pill";
 
 const meta = {
   title: "Components/Pill",
@@ -19,12 +19,12 @@ const meta = {
       options: ["span", "a", "button"],
     },
   },
-} satisfies Meta<typeof Pill>
+} satisfies Meta<typeof Pill>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 /**
  * pills can be used as links by setting `as="a"`.
@@ -37,7 +37,7 @@ export const AsLink: Story = {
     rel: "noopener noreferrer",
     target: "_blank",
   },
-}
+};
 
 /**
  * pills can be used as buttons by setting `as="button"`.
@@ -48,7 +48,7 @@ export const AsButton: Story = {
     children: "Click me",
     onClick: () => alert("Clicked!"),
   },
-}
+};
 
 /**
  * multiple pills displayed together, as commonly used for tags or social links.
@@ -69,4 +69,4 @@ export const PillGroup: Story = {
       <Pill>Vanilla Extract</Pill>
     </div>
   ),
-}
+};

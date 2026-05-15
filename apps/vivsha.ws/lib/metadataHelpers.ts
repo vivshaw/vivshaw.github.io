@@ -1,4 +1,4 @@
-import type { Metadata } from "next/types"
+import type { Metadata } from "next/types";
 import type {
   Article,
   BreadcrumbList,
@@ -8,9 +8,9 @@ import type {
   Person,
   WebPage,
   WebSite,
-} from "schema-dts"
+} from "schema-dts";
 
-import { author, site } from "#data"
+import { author, site } from "#data";
 
 /**
  * metadata specs for a page. each page must provide this.
@@ -18,23 +18,23 @@ import { author, site } from "#data"
  */
 type SeoData =
   | {
-      type: "home"
+      type: "home";
     }
   | {
-      type: "post"
-      dateModified?: string
-      datePublished: string
-      description?: string
-      slug: string
-      tags: string[]
-      title: string
+      type: "post";
+      dateModified?: string;
+      datePublished: string;
+      description?: string;
+      slug: string;
+      tags: string[];
+      title: string;
     }
   | {
-      type: "topLevel"
-      description: string
-      slug: string
-      title: string
-    }
+      type: "topLevel";
+      description: string;
+      slug: string;
+      title: string;
+    };
 
 /**
  * gets the page name for the given page.
@@ -42,11 +42,11 @@ type SeoData =
 function getPageName(data: SeoData): string {
   switch (data.type) {
     case "home":
-      return site.name
+      return site.name;
     case "topLevel":
-      return `${data.title} | ${site.shortName}`
+      return `${data.title} | ${site.shortName}`;
     case "post":
-      return data.title
+      return data.title;
   }
 }
 
@@ -56,11 +56,11 @@ function getPageName(data: SeoData): string {
 function getPageDescription(data: SeoData): string | undefined {
   switch (data.type) {
     case "home":
-      return site.description
+      return site.description;
     case "topLevel":
-      return data.description
+      return data.description;
     case "post":
-      return data.description
+      return data.description;
   }
 }
 
@@ -70,11 +70,11 @@ function getPageDescription(data: SeoData): string | undefined {
 function getPageUrl(data: SeoData): string {
   switch (data.type) {
     case "home":
-      return "/"
+      return "/";
     case "topLevel":
-      return `/${data.slug}`
+      return `/${data.slug}`;
     case "post":
-      return `/blog/${data.slug}`
+      return `/blog/${data.slug}`;
   }
 }
 
@@ -83,53 +83,48 @@ function getPageUrl(data: SeoData): string {
  * this includes the page title, description, and social tags.
  */
 export function metadataHelper(data: SeoData): Metadata {
-  const pageName = getPageName(data)
-  const pageDescription = getPageDescription(data)
-  const pageUrl = getPageUrl(data)
+  const pageName = getPageName(data);
+  const pageDescription = getPageDescription(data);
+  const pageUrl = getPageUrl(data);
 
   const pageType = (() => {
     switch (data.type) {
       case "home":
-        return "website"
+        return "website";
       case "topLevel":
-        return "website"
+        return "website";
       case "post":
-        return "article"
+        return "article";
     }
-  })()
+  })();
 
   const pageKeywords = (() => {
-    const defaultKeywords = [
-      "engineering",
-      "machine learning",
-      "software",
-      "technology",
-    ]
+    const defaultKeywords = ["engineering", "machine learning", "software", "technology"];
     switch (data.type) {
       case "home":
-        return defaultKeywords
+        return defaultKeywords;
       case "topLevel":
-        return defaultKeywords
+        return defaultKeywords;
       case "post":
-        return data.tags
+        return data.tags;
     }
-  })()
+  })();
 
   const pageDates = (() => {
     switch (data.type) {
       case "home":
-        return undefined
+        return undefined;
       case "topLevel":
-        return undefined
+        return undefined;
       case "post":
         return {
           "article:published_time": data.datePublished,
           ...(data.dateModified && {
             "article:modified_time": data.dateModified,
           }),
-        }
+        };
     }
-  })()
+  })();
 
   return {
     // basic tags
@@ -157,19 +152,19 @@ export function metadataHelper(data: SeoData): Metadata {
     },
 
     ...(pageDates ? { other: pageDates } : {}),
-  }
+  };
 }
 
 /**
  * creates Schema.org JSON-LD structured metadata for the pages.
  */
 export function schemaHelper(data: SeoData) {
-  const pageName = getPageName(data)
-  const pageDescription = getPageDescription(data)
-  const pageUrl = getPageUrl(data)
-  const webSiteId = `${site.url}/#website`
-  const authorId = `${site.url}/#${author.id}`
-  const authorImageId = `${site.url}/#avatar`
+  const pageName = getPageName(data);
+  const pageDescription = getPageDescription(data);
+  const pageUrl = getPageUrl(data);
+  const webSiteId = `${site.url}/#website`;
+  const authorId = `${site.url}/#${author.id}`;
+  const authorImageId = `${site.url}/#avatar`;
 
   const websiteSchema: WebSite = {
     "@type": "WebSite",
@@ -178,7 +173,7 @@ export function schemaHelper(data: SeoData) {
     name: site.name,
     description: site.description,
     inLanguage: "en-US",
-  }
+  };
 
   const imageSchema: ImageObject = {
     "@type": "ImageObject",
@@ -187,7 +182,7 @@ export function schemaHelper(data: SeoData) {
     inLanguage: "en-US",
     url: site.defaultPreview.src,
     width: `${site.defaultPreview.width}`,
-  }
+  };
 
   const authorSchema: Person = {
     "@type": "Person",
@@ -215,7 +210,7 @@ export function schemaHelper(data: SeoData) {
     ],
     url: site.url,
     worksFor: author.worksFor,
-  }
+  };
 
   const authorImageSchema: ImageObject = {
     "@type": "ImageObject",
@@ -224,16 +219,11 @@ export function schemaHelper(data: SeoData) {
     url: author.avatar.src,
     width: `${author.avatar.width}`,
     height: `${author.avatar.height}`,
-  }
+  };
 
-  const commonSchema = [
-    websiteSchema,
-    imageSchema,
-    authorSchema,
-    authorImageSchema,
-  ]
+  const commonSchema = [websiteSchema, imageSchema, authorSchema, authorImageSchema];
 
-  const homePageId = `${site.url}/#home`
+  const homePageId = `${site.url}/#home`;
 
   const homePageBreadcrumb: ListItem = {
     "@type": "ListItem",
@@ -245,7 +235,7 @@ export function schemaHelper(data: SeoData) {
       url: site.url,
     },
     position: 1,
-  }
+  };
 
   function createHomeSchema(): Graph {
     const homeWebPage: WebPage = {
@@ -258,25 +248,23 @@ export function schemaHelper(data: SeoData) {
       },
       name: pageName,
       url: site.url,
-    }
+    };
 
     const homeBreadcrumbs: BreadcrumbList = {
       "@type": "BreadcrumbList",
       description: "Breadcrumb list",
       itemListElement: [homePageBreadcrumb],
-    }
+    };
 
     return {
       "@context": "https://schema.org",
       "@graph": [...commonSchema, homeWebPage, homeBreadcrumbs],
-    }
+    };
   }
 
-  function createTopLevelSchema(
-    topLevelData: Extract<SeoData, { type: "topLevel" }>,
-  ): Graph {
-    const pageWebPageId = `${pageUrl}/#webpage`
-    const pageBreadcrumbId = `${pageUrl}/#breadcrumb`
+  function createTopLevelSchema(topLevelData: Extract<SeoData, { type: "topLevel" }>): Graph {
+    const pageWebPageId = `${pageUrl}/#webpage`;
+    const pageBreadcrumbId = `${pageUrl}/#breadcrumb`;
 
     const pageWebPage: WebPage = {
       "@type": topLevelData.slug === "about" ? "AboutPage" : "WebPage",
@@ -294,7 +282,7 @@ export function schemaHelper(data: SeoData) {
       },
       url: pageUrl,
       inLanguage: "en-US",
-    }
+    };
 
     const pageBreadcrumb: ListItem = {
       "@type": "ListItem",
@@ -305,28 +293,26 @@ export function schemaHelper(data: SeoData) {
         url: pageUrl,
       },
       position: 2,
-    }
+    };
 
     const pageBreadcrumbs: BreadcrumbList = {
       "@type": "BreadcrumbList",
       "@id": pageBreadcrumbId,
       itemListElement: [homePageBreadcrumb, pageBreadcrumb],
       name: "Breadcrumbs",
-    }
+    };
 
     return {
       "@context": "https://schema.org",
       "@graph": [...commonSchema, pageWebPage, pageBreadcrumbs],
-    }
+    };
   }
 
-  function createPostSchema(
-    postData: Extract<SeoData, { type: "post" }>,
-  ): Graph {
-    const postWebPageId = `${pageUrl}/#webpage`
-    const postBreadcrumbId = `${pageUrl}/#breadcrumb`
-    const postImageId = `${pageUrl}/#primaryimage`
-    const postDatePublished = postData.datePublished
+  function createPostSchema(postData: Extract<SeoData, { type: "post" }>): Graph {
+    const postWebPageId = `${pageUrl}/#webpage`;
+    const postBreadcrumbId = `${pageUrl}/#breadcrumb`;
+    const postImageId = `${pageUrl}/#primaryimage`;
+    const postDatePublished = postData.datePublished;
 
     const postWebPage: WebPage = {
       "@type": "WebPage",
@@ -345,7 +331,7 @@ export function schemaHelper(data: SeoData) {
         "@id": postImageId,
       },
       url: pageUrl,
-    }
+    };
 
     const postBreadcrumbs: BreadcrumbList = {
       "@type": "BreadcrumbList",
@@ -373,7 +359,7 @@ export function schemaHelper(data: SeoData) {
           position: 3,
         },
       ],
-    }
+    };
 
     const postArticle: Article = {
       "@type": "Article",
@@ -396,20 +382,20 @@ export function schemaHelper(data: SeoData) {
       publisher: {
         "@id": authorId,
       },
-    }
+    };
 
     return {
       "@context": "https://schema.org",
       "@graph": [...commonSchema, postWebPage, postBreadcrumbs, postArticle],
-    }
+    };
   }
 
   switch (data.type) {
     case "home":
-      return createHomeSchema()
+      return createHomeSchema();
     case "topLevel":
-      return createTopLevelSchema(data)
+      return createTopLevelSchema(data);
     case "post":
-      return createPostSchema(data)
+      return createPostSchema(data);
   }
 }
