@@ -45,7 +45,6 @@ const punct = token("#999999", "#9A9A9A");
 const variable = token("#B07D48", "#E6C384");
 const type = token("#2E8F82", "#7AA89F");
 const returnKw = token("#1E754F", "#E46876");
-const _string = token("#B5695977", "#D27E99");
 const comment = token("#A0ADA0", "#737C73");
 
 const shikiBg = {

@@ -2662,6 +2662,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^19.2.3":
+  version: 19.2.3
+  resolution: "@types/react-dom@npm:19.2.3"
+  peerDependencies:
+    "@types/react": ^19.2.0
+  checksum: b9c548f7378979cd8384444ae6c96f7a933b98e341c271c33e74231f27bf3082f04ad7c2927f1b1e6d8af35ccf83e549fce4978ebe0a02ded5a8803aa5f80e06
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:19.0.2":
   version: 19.0.2
   resolution: "@types/react@npm:19.0.2"
@@ -2866,6 +2875,7 @@ __metadata:
     "@types/mdx": ^2.0.13
     "@types/node": 18.11.9
     "@types/react": 19.0.2
+    "@types/react-dom": ^19.2.3
     "@vivshaw/basalt": "workspace:^"
     "@vivshaw/basalt-mdx": "workspace:^"
     "@vivshaw/rehype-smallcap-words": "workspace:^"
