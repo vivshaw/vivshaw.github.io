@@ -49,3 +49,8 @@ public/swe-worker*
 
 # scratch space
 .scratch/
+
+# nix
+.direnv/
+result
+result-*
