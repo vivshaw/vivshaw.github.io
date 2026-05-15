@@ -8,7 +8,7 @@ export async function GET() {
   const posts = await Promise.all(postSlugs.map((post) => importBlogPost(post)))
 
   // sort posts by date, newest first
-  const sortedPosts = posts.sort(
+  const sortedPosts = posts.toSorted(
     (a, b) => b.meta.date.getTime() - a.meta.date.getTime(),
   )
 

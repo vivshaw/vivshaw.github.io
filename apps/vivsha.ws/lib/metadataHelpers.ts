@@ -273,13 +273,13 @@ export function schemaHelper(data: SeoData) {
   }
 
   function createTopLevelSchema(
-    data: Extract<SeoData, { type: "topLevel" }>,
+    topLevelData: Extract<SeoData, { type: "topLevel" }>,
   ): Graph {
     const pageWebPageId = `${pageUrl}/#webpage`
     const pageBreadcrumbId = `${pageUrl}/#breadcrumb`
 
     const pageWebPage: WebPage = {
-      "@type": data.slug === "about" ? "AboutPage" : "WebPage",
+      "@type": topLevelData.slug === "about" ? "AboutPage" : "WebPage",
       "@id": pageWebPageId,
       breadcrumb: {
         "@id": pageBreadcrumbId,
@@ -320,11 +320,13 @@ export function schemaHelper(data: SeoData) {
     }
   }
 
-  function createPostSchema(data: Extract<SeoData, { type: "post" }>): Graph {
+  function createPostSchema(
+    postData: Extract<SeoData, { type: "post" }>,
+  ): Graph {
     const postWebPageId = `${pageUrl}/#webpage`
     const postBreadcrumbId = `${pageUrl}/#breadcrumb`
     const postImageId = `${pageUrl}/#primaryimage`
-    const postDatePublished = data.datePublished
+    const postDatePublished = postData.datePublished
 
     const postWebPage: WebPage = {
       "@type": "WebPage",

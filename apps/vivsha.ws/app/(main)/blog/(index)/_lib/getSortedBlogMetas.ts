@@ -11,7 +11,7 @@ export async function getSortedBlogMetas(): Promise<PostFromServer[]> {
   const allSlugs = await listAllBlogSlugs()
   const blogs = await Promise.all(allSlugs.map((slug) => importBlogPost(slug)))
   const blogMetas = blogs.map((blog) => blog.meta)
-  const sortedBlogMetas = blogMetas.sort(
+  const sortedBlogMetas = blogMetas.toSorted(
     (a, b) => b.date.getTime() - a.date.getTime(),
   )
   const serializableBlogMetas = sortedBlogMetas.map((blog) => ({

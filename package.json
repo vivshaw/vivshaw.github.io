@@ -19,8 +19,8 @@
     "format:all": "prettier --write .",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
-    "lint:js": "eslint .",
-    "lint:js:fix": "eslint . --fix",
+    "lint:js": "oxlint",
+    "lint:js:fix": "oxlint --fix",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "stylelint \"**/*.css\" --fix",
     "start": "yarn apps/vivsha.ws start",
@@ -35,21 +35,12 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@next/eslint-plugin-next": "^16.1.6",
     "@shikijs/rehype": "^3.21.0",
     "@shikijs/transformers": "^3.21.0",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^17.3.0",
     "husky": "^9.1.7",
     "hygen": "^6.2.11",
     "lint-staged": "^16.2.7",
+    "oxlint": "^1.64.0",
     "postcss-mixins": "^12.1.2",
     "prettier": "^3.4.2",
     "rehype-mdx-import-media": "^1.2.0",
@@ -59,7 +50,6 @@
     "stylelint-config-standard": "^40.0.0",
     "stylelint-order": "^8.1.1",
     "typescript": "^5.3.3",
-    "typescript-eslint": "^8.54.0",
     "typescript-plugin-css-modules": "^5.2.0"
   },
   "dependencies": {
@@ -67,7 +57,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs}": [
-      "eslint --fix",
+      "oxlint --fix",
       "prettier --write"
     ],
     "*.css": [

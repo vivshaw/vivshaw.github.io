@@ -15,8 +15,8 @@ interface BlogListProps {
 export function BlogList({ posts }: BlogListProps) {
   return (
     <>
-      {posts.map((post, idx) => (
-        <BlogListItem key={idx} post={post} />
+      {posts.map((post) => (
+        <BlogListItem key={post.slug} post={post} />
       ))}
     </>
   )
