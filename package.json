@@ -71,5 +71,8 @@
     "*.{json,md,mdx,yml,yaml}": [
       "oxfmt --write --no-error-on-unmatched-pattern"
     ]
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
