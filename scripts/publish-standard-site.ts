@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * publishes my site's standard.site records to my AT Protocol repo.
  *   - upserts one `site.standard.publication` record (the singleton describing the whole blog)
@@ -34,11 +32,17 @@ const PUBLICATION_RKEY = "self";
 /** my DID; a guard against attempting to write to the wrong repo */
 const EXPECTED_DID = "did:plc:at3ztgbmp5pdxmxqhx7tp3jo";
 
+/** an AT Protocol record and the key it should be stored under */
+type Document = {
+  rkey: string;
+  record: Record<string, unknown>;
+};
+
 /**
  * the publication record. mirrors the relevant fields of `site` in
  * `apps/vivsha.ws/data/index.ts`. required fields per the lexicon: `url`, `name`.
  */
-const PUBLICATION = {
+const PUBLICATION: Record<string, unknown> = {
   $type: PUBLICATION_COLLECTION,
   url: "https://vivsha.ws",
   name: "vivshaw's webbed sight",
@@ -53,31 +57,40 @@ const postsDir = path.join(repoRoot, "posts");
 const dryRun = process.argv.includes("--dry-run");
 
 /** AT Protocol record keys allow a restricted charset; my slugs should always pass. */
-function assertValidRkey(rkey) {
+function assertValidRkey(rkey: string): void {
   if (!/^[a-zA-Z0-9._~:-]{1,512}$/.test(rkey) || rkey === "." || rkey === "..") {
     throw new Error(`"${rkey}" is not a valid AT Protocol record key`);
   }
+}
+
+/** parses the record key (the final path segment) out of an AT-URI. */
+function rkeyFromUri(uri: string): string {
+  const rkey = uri.split("/").pop();
+  if (!rkey) {
+    throw new Error(`could not parse a record key from "${uri}"`);
+  }
+  return rkey;
 }
 
 /**
  * reads every post under `posts/`, returning the document records to publish.
  * skips drafts and any directory without a `post.mdx`.
  */
-async function collectDocuments() {
+async function collectDocuments(): Promise<Document[]> {
   const entries = await readdir(postsDir, { withFileTypes: true });
   const slugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
 
   const documents = await Promise.all(slugs.toSorted().map(buildDocument));
 
-  return documents.filter((document) => document !== null);
+  return documents.filter((document): document is Document => document !== null);
 }
 
 /**
  * builds the document record for a single post slug, or returns `null` to skip it
  * (a directory without a `post.mdx`, or a draft).
  */
-async function buildDocument(slug) {
-  let raw;
+async function buildDocument(slug: string): Promise<Document | null> {
+  let raw: string;
   try {
     raw = await readFile(path.join(postsDir, slug, "post.mdx"), "utf8");
   } catch {
@@ -98,8 +111,7 @@ async function buildDocument(slug) {
 
   assertValidRkey(slug);
 
-  /** @type {Record<string, unknown>} */
-  const record = {
+  const record: Record<string, unknown> = {
     $type: DOCUMENT_COLLECTION,
     site: `at://${EXPECTED_DID}/${PUBLICATION_COLLECTION}/${PUBLICATION_RKEY}`,
     title: frontmatter.title,
@@ -119,7 +131,12 @@ async function buildDocument(slug) {
 }
 
 /** upserts a single record via `com.atproto.repo.putRecord`. */
-async function putRecord(agent, collection, rkey, record) {
+async function putRecord(
+  agent: AtpAgent,
+  collection: string,
+  rkey: string,
+  record: Record<string, unknown>,
+): Promise<void> {
   if (dryRun) {
     console.log(`  would put ${collection}/${rkey}:`);
     console.log(`    ${JSON.stringify(record)}`);
@@ -127,7 +144,7 @@ async function putRecord(agent, collection, rkey, record) {
   }
 
   await agent.com.atproto.repo.putRecord({
-    repo: agent.did,
+    repo: agent.assertDid,
     collection,
     rkey,
     record,
@@ -139,13 +156,13 @@ async function putRecord(agent, collection, rkey, record) {
 }
 
 /** deletes a single record via `com.atproto.repo.deleteRecord`. */
-async function deleteRecord(agent, collection, rkey) {
+async function deleteRecord(agent: AtpAgent, collection: string, rkey: string): Promise<void> {
   if (dryRun) {
     console.log(`  would delete ${collection}/${rkey}`);
     return;
   }
 
-  await agent.com.atproto.repo.deleteRecord({ repo: agent.did, collection, rkey });
+  await agent.com.atproto.repo.deleteRecord({ repo: agent.assertDid, collection, rkey });
 
   console.log(`  ✗ ${collection}/${rkey}`);
 }
@@ -154,7 +171,11 @@ async function deleteRecord(agent, collection, rkey) {
  * lists every existing `site.standard.document` record key in the repo, following pagination.
  * `listRecords` is an unauthenticated read, so this works in a dry run too.
  */
-async function listExistingDocumentRkeys(agent, cursor, accumulated = []) {
+async function listExistingDocumentRkeys(
+  agent: AtpAgent,
+  cursor?: string,
+  accumulated: string[] = [],
+): Promise<string[]> {
   const { data } = await agent.com.atproto.repo.listRecords({
     repo: EXPECTED_DID,
     collection: DOCUMENT_COLLECTION,
@@ -162,7 +183,7 @@ async function listExistingDocumentRkeys(agent, cursor, accumulated = []) {
     cursor,
   });
 
-  const rkeys = [...accumulated, ...data.records.map((rec) => rec.uri.split("/").pop())];
+  const rkeys = [...accumulated, ...data.records.map((rec) => rkeyFromUri(rec.uri))];
 
   return data.cursor ? listExistingDocumentRkeys(agent, data.cursor, rkeys) : rkeys;
 }
@@ -171,7 +192,7 @@ async function listExistingDocumentRkeys(agent, cursor, accumulated = []) {
  * prunes document records whose post is no longer published, so the repo mirrors the
  * currently-published posts.
  */
-async function reconcile(agent, desiredRkeys) {
+async function reconcile(agent: AtpAgent, desiredRkeys: Set<string>): Promise<void> {
   const existing = await listExistingDocumentRkeys(agent);
   const stale = existing.filter((rkey) => !desiredRkeys.has(rkey));
 
@@ -190,12 +211,12 @@ async function reconcile(agent, desiredRkeys) {
   await Promise.all(stale.map((rkey) => deleteRecord(agent, DOCUMENT_COLLECTION, rkey)));
 }
 
-async function main() {
+async function main(): Promise<void> {
   const documents = await collectDocuments();
   const desiredRkeys = new Set(documents.map((document) => document.rkey));
 
   const service = process.env.BSKY_PDS ?? "https://bsky.social";
-  let agent;
+  let agent: AtpAgent;
 
   if (dryRun) {
     // an unauthenticated agent is enough to read existing records for the preview.
@@ -239,7 +260,7 @@ async function main() {
   );
 }
 
-main().catch((error) => {
-  console.error("\nfailed:", error.message ?? error);
+main().catch((error: unknown) => {
+  console.error("\nfailed:", error instanceof Error ? error.message : error);
   process.exit(1);
 });
