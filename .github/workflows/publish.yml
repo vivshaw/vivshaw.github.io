@@ -54,3 +54,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # publish the site's standard.site records to my atproto repo.
+  # must run after deploy so the records point at content that is already live.
+  publish-standard-site:
+    runs-on: ubuntu-latest
+    needs: deploy
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Publish Standard.site records
+        env:
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          if [ -z "$BSKY_APP_PASSWORD" ]; then
+            echo "BSKY_APP_PASSWORD secret is not set, skipping standard.site publish."
+            exit 0
+          fi
+          yarn publish:standard-site
