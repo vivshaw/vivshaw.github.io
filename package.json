@@ -30,6 +30,7 @@
     "lint:css:fix": "stylelint \"**/*.css\" --fix",
     "start": "yarn apps/vivsha.ws start",
     "new:post": "hygen post new",
+    "publish:standard-site": "node scripts/publish-standard-site.mjs",
     "test": "yarn workspace @vivshaw/rehype-smallcap-words test && yarn workspace @vivshaw/rehype-sidenotes test",
     "test:quiet": "yarn workspace @vivshaw/rehype-smallcap-words test:quiet && yarn workspace @vivshaw/rehype-sidenotes test:quiet",
     "typecheck": "yarn workspace @vivshaw/vivsha.ws typecheck && yarn workspace @vivshaw/basalt typecheck && yarn workspace @vivshaw/basalt-mdx typecheck",
@@ -39,8 +40,10 @@
     "remark-github-blockquote-alert": "^2.0.1"
   },
   "devDependencies": {
+    "@atproto/api": "^0.20.11",
     "@shikijs/rehype": "^3.21.0",
     "@shikijs/transformers": "^3.21.0",
+    "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
     "hygen": "^6.2.11",
     "lint-staged": "^16.2.7",

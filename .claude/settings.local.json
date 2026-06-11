@@ -1,0 +1,5 @@
+{
+  "permissions": {
+    "allow": ["Bash(yarn lint:css)", "Bash(yarn stylelint *)"]
+  }
+}
