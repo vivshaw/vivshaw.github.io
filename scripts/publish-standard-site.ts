@@ -1,133 +1,85 @@
 /**
- * publishes my site's standard.site records to my AT Protocol repo.
- *   - upserts one `site.standard.publication` record (the singleton describing the whole blog)
- *   - upserts one `site.standard.document` record per published post, keyed on its slug
- *   - prunes document records whose post no longer exists (deleted, renamed, or now a draft),
- *     so the repo always mirrors the currently-published posts
+ * syncs my site's standard.site records to my AT Protocol repo.
  *
- * record keys are deterministic, which makes this script idempotent.
+ * the records are derived at build time and published as a static manifest at
+ * `/standard-site-records.json` (see `apps/vivsha.ws/app/standard-site-records.json/route.ts`).
+ * this script reads that manifest and makes the PDS match it: upserting every record in it,
+ * and pruning any record that isn't. that keeps publishing idempotent and the repo a mirror
+ * of what's live.
+ *
+ * the manifest defaults to the live site; pass --manifest to sync a local build instead.
  *
  * usage:
- *   BSKY_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx yarn publish:standard-site
- *   BSKY_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx yarn publish:standard-site --dry-run
+ *   yarn publish:standard-site
+ *   yarn publish:standard-site --dry-run
+ *   yarn publish:standard-site --dry-run --manifest apps/vivsha.ws/out/standard-site-records.json
  *
  * environment variables:
- *   BSKY_APP_PASSWORD  (required)  an app password from Bluesky → Settings → Privacy and
- *                                  Security → App Passwords.
+ *   BSKY_APP_PASSWORD  (required unless --dry-run)  an app password from Bluesky → Settings →
+ *                                                   Privacy and Security → App Passwords.
  *   BSKY_HANDLE        (optional)  defaults to `vivsha.ws`.
  *   BSKY_PDS           (optional)  defaults to `https://bsky.social`.
  */
 
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFile } from "node:fs/promises";
 
 import { AtpAgent } from "@atproto/api";
-import matter from "gray-matter";
 
 const PUBLICATION_COLLECTION = "site.standard.publication";
 const DOCUMENT_COLLECTION = "site.standard.document";
-const PUBLICATION_RKEY = "self";
 
-/** my DID; a guard against attempting to write to the wrong repo */
+/** my DID */
 const EXPECTED_DID = "did:plc:at3ztgbmp5pdxmxqhx7tp3jo";
 
-/** an AT Protocol record and the key it should be stored under */
-type Document = {
+/** where to read the records manifest from when --manifest isn't passed */
+const DEFAULT_MANIFEST = "https://vivsha.ws/standard-site-records.json";
+
+/** a single record and the key it should live under */
+type RecordEntry = {
   rkey: string;
   record: Record<string, unknown>;
 };
 
-/**
- * the publication record. mirrors the relevant fields of `site` in
- * `apps/vivsha.ws/data/index.ts`. required fields per the lexicon: `url`, `name`.
- */
-const PUBLICATION: Record<string, unknown> = {
-  $type: PUBLICATION_COLLECTION,
-  url: "https://vivsha.ws",
-  name: "vivshaw's webbed sight",
-  description: "hannah vivian shaw's personal website & blog",
-  preferences: {
-    showInDiscover: true,
-  },
+type Manifest = {
+  publication: RecordEntry;
+  documents: RecordEntry[];
 };
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const postsDir = path.join(repoRoot, "posts");
 const dryRun = process.argv.includes("--dry-run");
 
-/** AT Protocol record keys allow a restricted charset; my slugs should always pass. */
-function assertValidRkey(rkey: string): void {
-  if (!/^[a-zA-Z0-9._~:-]{1,512}$/.test(rkey) || rkey === "." || rkey === "..") {
-    throw new Error(`"${rkey}" is not a valid AT Protocol record key`);
-  }
+/** the manifest location: `--manifest <path-or-url>`, else the live site. */
+function manifestSource(): string {
+  const inline = process.argv.find((arg) => arg.startsWith("--manifest="));
+  if (inline) return inline.slice("--manifest=".length);
+
+  const flag = process.argv.indexOf("--manifest");
+  if (flag !== -1 && process.argv[flag + 1]) return process.argv[flag + 1];
+
+  return DEFAULT_MANIFEST;
 }
 
-/** parses the record key (the final path segment) out of an AT-URI. */
-function rkeyFromUri(uri: string): string {
-  const rkey = uri.split("/").pop();
-  if (!rkey) {
-    throw new Error(`could not parse a record key from "${uri}"`);
-  }
-  return rkey;
-}
+/** reads the records manifest from a URL or a local file path. */
+async function loadManifest(): Promise<Manifest> {
+  const source = manifestSource();
 
-/**
- * reads every post under `posts/`, returning the document records to publish.
- * skips drafts and any directory without a `post.mdx`.
- */
-async function collectDocuments(): Promise<Document[]> {
-  const entries = await readdir(postsDir, { withFileTypes: true });
-  const slugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
-
-  const documents = await Promise.all(slugs.toSorted().map(buildDocument));
-
-  return documents.filter((document): document is Document => document !== null);
-}
-
-/**
- * builds the document record for a single post slug, or returns `null` to skip it
- * (a directory without a `post.mdx`, or a draft).
- */
-async function buildDocument(slug: string): Promise<Document | null> {
-  let raw: string;
-  try {
-    raw = await readFile(path.join(postsDir, slug, "post.mdx"), "utf8");
-  } catch {
-    // not a post directory (e.g. the posts README lives at the top level)
-    return null;
+  let text: string;
+  if (source.startsWith("http")) {
+    const response = await fetch(source);
+    if (!response.ok) {
+      throw new Error(`could not fetch the manifest from ${source} (${response.status})`);
+    }
+    text = await response.text();
+  } else {
+    text = await readFile(source, "utf8");
   }
 
-  const { data: frontmatter } = matter(raw);
-
-  if (frontmatter.draft) {
-    console.log(`  · skipping draft: ${slug}`);
-    return null;
+  const manifest = JSON.parse(text) as Manifest;
+  if (!manifest.publication?.rkey || !Array.isArray(manifest.documents)) {
+    throw new Error(`the manifest at ${source} is malformed (missing publication or documents)`);
   }
 
-  if (!frontmatter.title || !frontmatter.date) {
-    throw new Error(`post "${slug}" is missing a required title or date`);
-  }
-
-  assertValidRkey(slug);
-
-  const record: Record<string, unknown> = {
-    $type: DOCUMENT_COLLECTION,
-    site: `at://${EXPECTED_DID}/${PUBLICATION_COLLECTION}/${PUBLICATION_RKEY}`,
-    title: frontmatter.title,
-    path: `/blog/${slug}`,
-    publishedAt: new Date(frontmatter.date).toISOString(),
-  };
-
-  if (frontmatter.blurb) record.description = frontmatter.blurb;
-  if (Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0) {
-    record.tags = frontmatter.tags;
-  }
-  if (frontmatter.dateModified) {
-    record.updatedAt = new Date(frontmatter.dateModified).toISOString();
-  }
-
-  return { rkey: slug, record };
+  console.log(`manifest: ${source} (${manifest.documents.length} document(s))\n`);
+  return manifest;
 }
 
 /** upserts a single record via `com.atproto.repo.putRecord`. */
@@ -138,8 +90,7 @@ async function putRecord(
   record: Record<string, unknown>,
 ): Promise<void> {
   if (dryRun) {
-    console.log(`  would put ${collection}/${rkey}:`);
-    console.log(`    ${JSON.stringify(record)}`);
+    console.log(`  would put ${collection}/${rkey}`);
     return;
   }
 
@@ -168,52 +119,49 @@ async function deleteRecord(agent: AtpAgent, collection: string, rkey: string): 
 }
 
 /**
- * lists every existing `site.standard.document` record key in the repo, following pagination.
+ * lists every existing record key in a collection, following pagination.
  * `listRecords` is an unauthenticated read, so this works in a dry run too.
  */
-async function listExistingDocumentRkeys(
+async function listExistingRkeys(
   agent: AtpAgent,
+  collection: string,
   cursor?: string,
   accumulated: string[] = [],
 ): Promise<string[]> {
   const { data } = await agent.com.atproto.repo.listRecords({
     repo: EXPECTED_DID,
-    collection: DOCUMENT_COLLECTION,
+    collection,
     limit: 100,
     cursor,
   });
 
-  const rkeys = [...accumulated, ...data.records.map((rec) => rkeyFromUri(rec.uri))];
+  const rkeys = [...accumulated, ...data.records.map((rec) => rec.uri.split("/").pop() ?? "")];
 
-  return data.cursor ? listExistingDocumentRkeys(agent, data.cursor, rkeys) : rkeys;
+  return data.cursor ? listExistingRkeys(agent, collection, data.cursor, rkeys) : rkeys;
 }
 
-/**
- * prunes document records whose post is no longer published, so the repo mirrors the
- * currently-published posts.
- */
-async function reconcile(agent: AtpAgent, desiredRkeys: Set<string>): Promise<void> {
-  const existing = await listExistingDocumentRkeys(agent);
-  const stale = existing.filter((rkey) => !desiredRkeys.has(rkey));
+/** upserts every manifest entry in a collection, then deletes anything else in it. */
+async function syncCollection(
+  agent: AtpAgent,
+  collection: string,
+  entries: RecordEntry[],
+): Promise<void> {
+  await Promise.all(entries.map((entry) => putRecord(agent, collection, entry.rkey, entry.record)));
+
+  const desired = new Set(entries.map((entry) => entry.rkey));
+  const existing = await listExistingRkeys(agent, collection);
+  const stale = existing.filter((rkey) => !desired.has(rkey));
 
   if (stale.length === 0) {
     console.log("  nothing stale to prune");
     return;
   }
 
-  // safety guard: never prune everything just because `posts/` failed to read.
-  if (desiredRkeys.size === 0) {
-    throw new Error(
-      `refusing to prune ${stale.length} record(s) when no documents were collected (likely a read error)`,
-    );
-  }
-
-  await Promise.all(stale.map((rkey) => deleteRecord(agent, DOCUMENT_COLLECTION, rkey)));
+  await Promise.all(stale.map((rkey) => deleteRecord(agent, collection, rkey)));
 }
 
 async function main(): Promise<void> {
-  const documents = await collectDocuments();
-  const desiredRkeys = new Set(documents.map((document) => document.rkey));
+  const manifest = await loadManifest();
 
   const service = process.env.BSKY_PDS ?? "https://bsky.social";
   let agent: AtpAgent;
@@ -221,7 +169,7 @@ async function main(): Promise<void> {
   if (dryRun) {
     // an unauthenticated agent is enough to read existing records for the preview.
     agent = new AtpAgent({ service });
-    console.log("dry run — nothing will be written.\n");
+    console.log("dry run, nothing will be written.\n");
   } else {
     const handle = process.env.BSKY_HANDLE ?? "vivsha.ws";
     const password = process.env.BSKY_APP_PASSWORD;
@@ -235,28 +183,17 @@ async function main(): Promise<void> {
     agent = new AtpAgent({ service });
     await agent.login({ identifier: handle, password });
 
-    if (agent.did !== EXPECTED_DID) {
-      throw new Error(
-        `logged in as ${agent.did}, but expected ${EXPECTED_DID}. Refusing to write to the wrong repo.`,
-      );
-    }
-
     console.log(`logged in as ${handle} (${agent.did})\n`);
   }
 
   console.log("publication:");
-  await putRecord(agent, PUBLICATION_COLLECTION, PUBLICATION_RKEY, PUBLICATION);
+  await syncCollection(agent, PUBLICATION_COLLECTION, [manifest.publication]);
 
   console.log("\ndocuments:");
-  await Promise.all(
-    documents.map(({ rkey, record }) => putRecord(agent, DOCUMENT_COLLECTION, rkey, record)),
-  );
-
-  console.log("\nstale documents:");
-  await reconcile(agent, desiredRkeys);
+  await syncCollection(agent, DOCUMENT_COLLECTION, manifest.documents);
 
   console.log(
-    `\ndone. ${documents.length} document(s)${dryRun ? " previewed (nothing written)" : " published"}.`,
+    `\ndone. ${manifest.documents.length} document(s)${dryRun ? " previewed (nothing written)" : " synced"}.`,
   );
 }
 

@@ -148,19 +148,3 @@ export const site: Site = {
   shortName: "vivshaw's",
   url: "https://vivsha.ws",
 };
-
-/**
- * standard.site configuration, so the site and its posts can be indexed and subscribed
- * to across the ATmosphere. records are published by `scripts/publish-standard-site.mjs`.
- */
-export const standardSite = {
-  /** the DID of the AT Protocol repo that hosts the records (my `@vivsha.ws` handle) */
-  did: "did:plc:at3ztgbmp5pdxmxqhx7tp3jo",
-
-  /** the AT-URI of the singleton publication record */
-  publicationUri: "at://did:plc:at3ztgbmp5pdxmxqhx7tp3jo/site.standard.publication/self",
-
-  /** the AT-URI of the document record for a given post slug */
-  documentUri: (slug: string) =>
-    `at://did:plc:at3ztgbmp5pdxmxqhx7tp3jo/site.standard.document/${slug}`,
-} as const;

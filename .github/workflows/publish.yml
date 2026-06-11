@@ -56,7 +56,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
   # publish the site's standard.site records to my atproto repo.
-  # must run after deploy so the records point at content that is already live.
+  # must run after deploy so the records can be pulled from prod.
   publish-standard-site:
     runs-on: ubuntu-latest
     needs: deploy
@@ -72,7 +72,7 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install
-      - name: Publish Standard.site records
+      - name: Publish standard.site records
         env:
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
         run: |
