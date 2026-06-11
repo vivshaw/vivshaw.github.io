@@ -1,5 +1,6 @@
 import { MdxBody } from "@vivshaw/basalt-mdx";
 
+import { standardSite } from "#data";
 import { prettyPrintDate } from "#lib";
 import { metadataHelper, schemaHelper } from "#lib/metadataHelpers";
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers";
@@ -39,6 +40,9 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
+
+      {/* standard.site: links this post to its AT Protocol document record */}
+      <link rel="site.standard.document" href={standardSite.documentUri(slug)} />
     </>
   );
 }

@@ -10,7 +10,7 @@ import type { Metadata } from "next/types";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { DARK_THEME_CLASS, LIGHT_THEME_CLASS } from "@vivshaw/basalt";
 
-import { author, COLOR_MODE_STORAGE_KEY, site } from "#data";
+import { author, COLOR_MODE_STORAGE_KEY, site, standardSite } from "#data";
 import { metadataHelper } from "#lib/metadataHelpers";
 
 // prevent Font Awesome from auto-injecting CSS (i import it above)
@@ -94,6 +94,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script>{JS_DETECTION_SNIPPET}</script>
         <script>{COLOR_MODE_SNIPPET}</script>
+
+        {/* standard.site): links this site to its AT Protocol publication record */}
+        <link rel="site.standard.publication" href={standardSite.publicationUri} />
       </head>
       <body>{children}</body>
     </html>
