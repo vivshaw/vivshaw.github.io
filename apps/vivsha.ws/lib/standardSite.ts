@@ -39,3 +39,23 @@ export function documentRkey(date: Date | string, slug: string): string {
 export function documentUri(slug: string, date: Date | string): string {
   return `at://${DID}/${COLLECTION_DOCUMENT}/${documentRkey(date, slug)}`;
 }
+
+/** an RGB color in the shape standard.site's theme lexicon expects */
+function rgb(r: number, g: number, b: number) {
+  return { $type: "site.standard.theme.color#rgb", r, g, b };
+}
+
+/**
+ * the publication theme, mirroring Basalt's dark-mode tokens
+ *   background       = base-900 (#111214)  - background-default
+ *   foreground       = base-300 (#c7ccd1)  — text-default
+ *   accent           = base-400 (#b7bdb4)  — accent-default (dark mode)
+ *   accentForeground = base-700 (#28282b)  — accent-default (light mode)
+ */
+export const basicTheme = {
+  $type: "site.standard.theme.basic",
+  background: rgb(17, 18, 20),
+  foreground: rgb(199, 204, 209),
+  accent: rgb(183, 189, 180),
+  accentForeground: rgb(40, 40, 43),
+};

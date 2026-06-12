@@ -40,8 +40,12 @@ type RecordEntry = {
   record: Record<string, unknown>;
 };
 
+type PublicationEntry = RecordEntry & {
+  iconUrl?: string;
+};
+
 type Manifest = {
-  publication: RecordEntry;
+  publication: PublicationEntry;
   documents: RecordEntry[];
 };
 
@@ -118,6 +122,20 @@ async function deleteRecord(agent: AtpAgent, collection: string, rkey: string): 
   console.log(`  ✗ ${collection}/${rkey}`);
 }
 
+/** fetches an asset and uploads it as a blob, returning the ref to embed in a record. */
+async function uploadIcon(agent: AtpAgent, url: string): Promise<unknown> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`could not fetch the icon from ${url} (${response.status})`);
+  }
+
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  const mimeType = response.headers.get("content-type") ?? "image/png";
+  const { data } = await agent.com.atproto.repo.uploadBlob(bytes, { encoding: mimeType });
+
+  return data.blob;
+}
+
 /**
  * lists every existing record key in a collection, following pagination.
  * `listRecords` is an unauthenticated read, so this works in a dry run too.
@@ -175,9 +193,7 @@ async function main(): Promise<void> {
     const password = process.env.BSKY_APP_PASSWORD;
 
     if (!password) {
-      throw new Error(
-        "BSKY_APP_PASSWORD is required (create one at Bluesky → Settings → Privacy and Security → App Passwords)",
-      );
+      throw new Error("BSKY_APP_PASSWORD is required");
     }
 
     agent = new AtpAgent({ service });
@@ -187,7 +203,16 @@ async function main(): Promise<void> {
   }
 
   console.log("publication:");
-  await syncCollection(agent, PUBLICATION_COLLECTION, [manifest.publication]);
+  const { publication } = manifest;
+  if (publication.iconUrl) {
+    if (dryRun) {
+      console.log(`  would upload icon from ${publication.iconUrl}`);
+    } else {
+      publication.record.icon = await uploadIcon(agent, publication.iconUrl);
+      console.log(`  ✓ uploaded icon from ${publication.iconUrl}`);
+    }
+  }
+  await syncCollection(agent, PUBLICATION_COLLECTION, [publication]);
 
   console.log("\ndocuments:");
   await syncCollection(agent, DOCUMENT_COLLECTION, manifest.documents);

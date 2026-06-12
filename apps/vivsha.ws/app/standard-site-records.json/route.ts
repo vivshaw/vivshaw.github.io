@@ -1,6 +1,6 @@
 import { site } from "#data";
 import { importBlogPost, listAllBlogSlugs } from "#lib/postHelpers";
-import { documentRkey, PUBLICATION_RKEY, publicationUri } from "#lib/standardSite";
+import { basicTheme, documentRkey, PUBLICATION_RKEY, publicationUri } from "#lib/standardSite";
 
 /**
  * standard.site (https://standard.site): the canonical manifest of the records this site
@@ -20,6 +20,8 @@ const DOCUMENT_COLLECTION = "site.standard.document";
 type RecordEntry = {
   rkey: string;
   record: Record<string, unknown>;
+  /** icon asset URL, the publish script uploads in as a blob and injects into the record */
+  iconUrl?: string;
 };
 
 export async function GET() {
@@ -49,11 +51,15 @@ export async function GET() {
 
   const publication: RecordEntry = {
     rkey: PUBLICATION_RKEY,
+    // the icon is a blob, which a static build can't produce — so point at the asset (the
+    // 512×512 favicon: square and ≥256 per the lexicon) and let the publish script upload it.
+    iconUrl: `${site.url}/android-chrome-512x512.png`,
     record: {
       $type: PUBLICATION_COLLECTION,
       url: site.url,
       name: site.name,
       description: site.description,
+      basicTheme,
       preferences: { showInDiscover: true },
     },
   };
