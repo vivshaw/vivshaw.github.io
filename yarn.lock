@@ -9515,6 +9515,7 @@ __metadata:
     stylelint-order: ^8.1.1
     typescript: ^5.3.3
     typescript-plugin-css-modules: ^5.2.0
+    zod: ^3.24.1
   languageName: unknown
   linkType: soft
 

@@ -3,6 +3,7 @@
  */
 
 import { TID } from "@atproto/common-web";
+import { z } from "zod";
 
 /** the DID of the AT Protocol repo that hosts the records (my `@vivsha.ws` handle) */
 const DID = "did:plc:at3ztgbmp5pdxmxqhx7tp3jo";
@@ -40,8 +41,24 @@ export function documentUri(slug: string, date: Date | string): string {
   return `at://${DID}/${COLLECTION_DOCUMENT}/${documentRkey(date, slug)}`;
 }
 
-/** an RGB color in the shape standard.site's theme lexicon expects */
-function rgb(r: number, g: number, b: number) {
+/** an RGB color, per `site.standard.theme.color#rgb` */
+const Rgb = z.object({
+  $type: z.literal("site.standard.theme.color#rgb"),
+  r: z.number().int().min(0).max(255),
+  g: z.number().int().min(0).max(255),
+  b: z.number().int().min(0).max(255),
+});
+
+/** a publication theme, per `site.standard.theme.basic` */
+const BasicTheme = z.object({
+  $type: z.literal("site.standard.theme.basic"),
+  background: Rgb,
+  foreground: Rgb,
+  accent: Rgb,
+  accentForeground: Rgb,
+});
+
+function rgb(r: number, g: number, b: number): z.infer<typeof Rgb> {
   return { $type: "site.standard.theme.color#rgb", r, g, b };
 }
 
@@ -49,13 +66,13 @@ function rgb(r: number, g: number, b: number) {
  * the publication theme, mirroring Basalt's dark-mode tokens
  *   background       = base-900 (#111214)  - background-default
  *   foreground       = base-300 (#c7ccd1)  — text-default
- *   accent           = base-400 (#b7bdb4)  — accent-default (dark mode)
- *   accentForeground = base-700 (#28282b)  — accent-default (light mode)
+ *   accent           = base-400 (#b7bdb4)  — accent-default
+ *   accentForeground = base-900 (#111214)  — dark text on the light accent
  */
-export const basicTheme = {
+export const basicTheme = BasicTheme.parse({
   $type: "site.standard.theme.basic",
   background: rgb(17, 18, 20),
   foreground: rgb(199, 204, 209),
   accent: rgb(183, 189, 180),
-  accentForeground: rgb(40, 40, 43),
-};
+  accentForeground: rgb(17, 18, 20),
+});

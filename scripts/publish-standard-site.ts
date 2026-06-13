@@ -23,7 +23,8 @@
 
 import { readFile } from "node:fs/promises";
 
-import { AtpAgent } from "@atproto/api";
+import { AtpAgent, type BlobRef } from "@atproto/api";
+import { z } from "zod";
 
 const PUBLICATION_COLLECTION = "site.standard.publication";
 const DOCUMENT_COLLECTION = "site.standard.document";
@@ -34,20 +35,57 @@ const EXPECTED_DID = "did:plc:at3ztgbmp5pdxmxqhx7tp3jo";
 /** where to read the records manifest from when --manifest isn't passed */
 const DEFAULT_MANIFEST = "https://vivsha.ws/standard-site-records.json";
 
-/** a single record and the key it should live under */
-type RecordEntry = {
-  rkey: string;
-  record: Record<string, unknown>;
-};
+/** a `site.standard.document` record */
+const documentRecord = z.object({
+  $type: z.literal(DOCUMENT_COLLECTION),
+  site: z.string(),
+  title: z.string(),
+  publishedAt: z.string(),
+  path: z.string().optional(),
+  description: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+  updatedAt: z.string().optional(),
+});
 
-type PublicationEntry = RecordEntry & {
-  iconUrl?: string;
-};
+/** an RGB color, per `site.standard.theme.color#rgb` */
+const rgbColor = z.object({
+  $type: z.literal("site.standard.theme.color#rgb"),
+  r: z.number().int().min(0).max(255),
+  g: z.number().int().min(0).max(255),
+  b: z.number().int().min(0).max(255),
+});
 
-type Manifest = {
-  publication: PublicationEntry;
-  documents: RecordEntry[];
-};
+/** the publication theme, per `site.standard.theme.basic` */
+const basicThemeSchema = z.object({
+  $type: z.literal("site.standard.theme.basic"),
+  background: rgbColor,
+  foreground: rgbColor,
+  accent: rgbColor,
+  accentForeground: rgbColor,
+});
+
+/** the `site.standard.publication` record */
+const publicationRecord = z.object({
+  $type: z.literal(PUBLICATION_COLLECTION),
+  url: z.string(),
+  name: z.string(),
+  description: z.string().optional(),
+  basicTheme: basicThemeSchema.optional(),
+  preferences: z.object({ showInDiscover: z.boolean().optional() }).optional(),
+  icon: z.custom<BlobRef>().optional(),
+});
+
+const manifestSchema = z.object({
+  publication: z.object({
+    rkey: z.string(),
+    /** an asset URL whose bytes will be uploaded as the publication's `icon` blob */
+    iconUrl: z.string().optional(),
+    record: publicationRecord,
+  }),
+  documents: z.array(z.object({ rkey: z.string(), record: documentRecord })),
+});
+
+type Manifest = z.infer<typeof manifestSchema>;
 
 const dryRun = process.argv.includes("--dry-run");
 
@@ -62,7 +100,19 @@ function manifestSource(): string {
   return DEFAULT_MANIFEST;
 }
 
-/** reads the records manifest from a URL or a local file path. */
+/** validates a freshly parsed value against the manifest schema, narrowing it to `Manifest`. */
+function parseManifest(value: unknown, source: string): Manifest {
+  const result = manifestSchema.safeParse(value);
+  if (!result.success) {
+    const detail = result.error.issues
+      .map((issue) => `${issue.path.join(".") || "(root)"}: ${issue.message}`)
+      .join("; ");
+    throw new Error(`the manifest at ${source} is malformed: ${detail}`);
+  }
+  return result.data;
+}
+
+/** reads and validates the records manifest from a URL or a local file path. */
 async function loadManifest(): Promise<Manifest> {
   const source = manifestSource();
 
@@ -77,10 +127,7 @@ async function loadManifest(): Promise<Manifest> {
     text = await readFile(source, "utf8");
   }
 
-  const manifest = JSON.parse(text) as Manifest;
-  if (!manifest.publication?.rkey || !Array.isArray(manifest.documents)) {
-    throw new Error(`the manifest at ${source} is malformed (missing publication or documents)`);
-  }
+  const manifest = parseManifest(JSON.parse(text), source);
 
   console.log(`manifest: ${source} (${manifest.documents.length} document(s))\n`);
   return manifest;
@@ -123,7 +170,7 @@ async function deleteRecord(agent: AtpAgent, collection: string, rkey: string): 
 }
 
 /** fetches an asset and uploads it as a blob, returning the ref to embed in a record. */
-async function uploadIcon(agent: AtpAgent, url: string): Promise<unknown> {
+async function uploadIcon(agent: AtpAgent, url: string): Promise<BlobRef> {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`could not fetch the icon from ${url} (${response.status})`);
@@ -162,7 +209,7 @@ async function listExistingRkeys(
 async function syncCollection(
   agent: AtpAgent,
   collection: string,
-  entries: RecordEntry[],
+  entries: { rkey: string; record: Record<string, unknown> }[],
 ): Promise<void> {
   await Promise.all(entries.map((entry) => putRecord(agent, collection, entry.rkey, entry.record)));
 
