@@ -1,0 +1,29 @@
+---
+title: "Adopting standard.site"
+
+blurb: "RSS is back, and it's atmospheric"
+date: 2026-07-16
+tags: ["atproto", "standard.site", "web", "social media"]
+---
+
+I confess, I still love RSS. I appreciate that it's a shared, social protocol, but with a sovereign nature. As a writer, I own and host my RSS feed. I alone determine what goes in it. As a reader, I am not locked into any one RSS app. I can take my feeds to any tool or platform I want.
+
+Social media has replaced RSS for many. But while the aeon of social media has connected us, it's also bound us. Even as it multiplied our power to share and connect with one another, it narrowed the venues where we can and imposed new structures of control upon those interactions. This may not matter to you– until a feckless egomaniac with more money than sense buys your platform, the moral panic du jour gets people like you banned, or the service holding your social life closes its doors[^rip-cohost]. Then it might matter. For this reason, I've hesitated to tie my site deeply to any social platform... until now.
+
+Atproto is one of a few promising social protocols that are less centralized, and [Standard.site](https://standard.site/) is basically its RSS equivalent[^standard-caveat]. It provides a standardized schema for long-form publications (like this site) and their constituent documents (like this post). Similar to RSS, this enables indexing and consuming documents in an app-portable way. Unlike RSS, it also gets you a snazzy preview card when you're linked on bsky[^bsky-preview]. Atproto might still be a _little_ more tightly bound with one company than I'd hope[^bsky-decentralized], but my ID is mine, and my data is portable. So, I've added Standard.site support.
+
+## Tips for the perplexed
+
+I won't write a walkthrough– [consult Mat Marquis](https://wil.to/posts/standard-site/) for that– but here's a few things I didn't know when I started:
+
+- **[rkey](https://atproto.com/specs/record-key) needs to be a [TID](https://atproto.com/specs/tid).** This might not be obvious from the standard.site docs, but is clear in [the actual lexicon](https://pdsls.dev/at://did:plc:re3ebnp5v7ffagz6rb6xfei4/com.atproto.lexicon.schema).
+- If you want to generate a deterministic rkey (and you probably do), you could derive it from something like the timestamp of the post & the hash of the slug (as the clock ID).
+- There isn't any standard format for document content at this time, so if that's what you're hoping for, no dice.
+
+[^rip-cohost] RIP [Cohost](https://web.archive.org/web/20241116050601/https://cohost.org/rc/welcome), may choirs of eggbugs sing thee to thy rest.
+
+[^standard-caveat]: Well, it's more than that, too. It's intended as a general lexicon for long-form publishing. Apps like [Leaflet](https://leaflet.pub/) already use it for that purpose.
+
+[^bsky-preview]: https://atproto.com/blog/standard-site-bluesky-timeline
+
+[^bsky-decentralized]: [How decentralized is Bluesky really?](https://dustycloud.org/blog/how-decentralized-is-bluesky/)
