@@ -16,11 +16,11 @@ Atproto is one of a few promising social protocols that are less centralized, an
 
 I won't write a walkthrough– [consult Mat Marquis](https://wil.to/posts/standard-site/) for that– but here's a few things I didn't know when I started:
 
-- **[rkey](https://atproto.com/specs/record-key) needs to be a [TID](https://atproto.com/specs/tid).** This might not be obvious from the standard.site docs, but is clear in [the actual lexicon](https://pdsls.dev/at://did:plc:re3ebnp5v7ffagz6rb6xfei4/com.atproto.lexicon.schema).
+- [rkey](https://atproto.com/specs/record-key) needs to be a [TID](https://atproto.com/specs/tid). This might not be obvious from the standard.site docs, but is clear in [the actual lexicon](https://pdsls.dev/at://did:plc:re3ebnp5v7ffagz6rb6xfei4/com.atproto.lexicon.schema).
 - If you want to generate a deterministic rkey (and you probably do), you could derive it from something like the timestamp of the post & the hash of the slug (as the clock ID).
 - There isn't any standard format for document content at this time, so if that's what you're hoping for, no dice.
 
-[^rip-cohost] RIP [Cohost](https://web.archive.org/web/20241116050601/https://cohost.org/rc/welcome), may choirs of eggbugs sing thee to thy rest.
+[^rip-cohost]: RIP [Cohost](https://web.archive.org/web/20241116050601/https://cohost.org/rc/welcome), may choirs of eggbugs sing thee to thy rest.
 
 [^standard-caveat]: Well, it's more than that, too. It's intended as a general lexicon for long-form publishing. Apps like [Leaflet](https://leaflet.pub/) already use it for that purpose.
 
